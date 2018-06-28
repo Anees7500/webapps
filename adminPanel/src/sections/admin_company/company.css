@@ -1,0 +1,212 @@
+.bnr-clr{
+  min-height: 50px;
+      background-color: #00bcd4;
+      border: 2px solid #00bcd4;
+}
+.bnr-clr-bg{
+min-height:50px; background-color:#00bcd4;
+}
+/* image upload */
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+form .progress {
+    line-height: 15px;
+}
+
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+/* image upload end  */
+.req-clr{padding:5px;margin:3px;}
+md-content.md-padding.ng-scope._md {
+    background-color: white;
+}
+h6.comment-padd.ng-binding {
+    padding: 0px 12px;
+}
+.btn-d{
+  width: 50%;
+}
+.btn:hover {
+    color: white!important;
+    /* background-color: #2c3845; */
+    border-color: white;
+}
+input[type=text].vendorSearch {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 17px;
+    color: black;
+    background-color: e8554e;
+    background-image: url('../image/search.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 10px 14px 8px 29px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background-position: left;
+    background-size: 17px 17px;
+    background-position-x: 9px;
+    /*position: fixed;*/
+    z-index: 1;
+}
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+/* COMPANY MODEL */
+/*input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}*/
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+/*TAB AND PILLS*/
+input[type="number"] {
+    color: black;
+    /*width: 20%;*/
+}
+input[type=checkbox] {
+    zoom: 1.5;
+}
+th{text-align: center;}
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+#breakfast {background-color:#00C851;}
+#lunch {background-color:#00C851;}
+#snacks {background-color:#00C851;}
+#dinner {background-color:#00C851;}
+
+/*TAB AND PILLS END*/

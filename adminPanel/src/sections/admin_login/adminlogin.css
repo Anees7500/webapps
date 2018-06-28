@@ -1,0 +1,126 @@
+.admin-con{background-color:#00BCD4; min-height:100vh;}
+.cls-login-admin{background-color:#3ee8c4; min-height:500px;}
+.admin-part{background-color:white; min-height:500px;}
+button {
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  height: 36px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+.cls-login-admin {
+    content: '';
+    position: absolute;
+    background-position: center center;
+    right: 0;
+    top: 0;
+    width: 820px;
+    height: 100%;
+    background-image: url("../image/new31.jpg");
+    background-size: cover;
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+}
+.website{color: white;}
+.body-cls{padding:1% 5%;}
+.img-login{margin: -3px 6px;}
+@media only screen and (max-width: 1366px) {
+.cls-login {visibility: hidden;}
+.body-cls{padding: 0%;}
+.img-login {
+  margin: -3px 6px;
+}
+
+.website{color: white;}
+}
+.body-cls {
+  padding: 1% 5%;
+}
+.form {
+  position: relative;
+  height: 100%;
+}
+input.input-chng, button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.form.sign-in{text-align: -webkit-center;}
+
+h2 {
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+}
+
+label.label-admin {
+  display: block;
+  width: 260px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+label span {
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase;
+}
+
+input.input-style {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.forgot-pass {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+.submit {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #607D8B;
+  color:white;
+  padding: 12px;
+  text-transform: uppercase;
+}
+
+.fb-btn {
+  border: 2px solid #d3dae9;
+  color: #8fa1c7;
+  padding: 10px;
+}
+.fb-btn span {
+  font-weight: bold;
+  color: #455a81;
+}
+
+.sign-in {
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+h3{
+  font-family: Arial;
+  font-size: 16pt;
+  /*text-shadow: 1px 1px 0px #000;*/
+  color: black;
+  text-align: center;
+}

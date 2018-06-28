@@ -9,6 +9,32 @@
   "author": "Aman",
   "license": "ISC",
   "dependencies": {
-    "gulp-concat": "^2.6.1"
+   "angular": "^1.6.5",
+    "angular-material": "^1.1.4",
+    "angular-ui-router": "^1.0.3",
+    "angular-ui-tree": "^2.22.6",
+    "angular-uuid": "0.0.4",
+    "express": "^4.15.3",
+    "gulp": "^3.9.1",
+    "ui-tree": "^0.2.0"
+  },
+   "devDependencies": {
+    "connect-livereload": "^0.6.0",
+    "gulp-angular-modules": "^0.1.8",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-embedlr": "^0.5.2",
+    "gulp-ignore": "^2.0.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify": "^1.0.0",
+    "gulp-ng-config": "^1.4.0",
+    "gulp-ng-html2js": "^0.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5"
   }
 }

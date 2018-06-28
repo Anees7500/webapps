@@ -1,0 +1,36 @@
+
+<div class="container admin-con">
+  <div class="row">
+    <h3 style="color:white;"><span class="i-cls"><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span></h3>
+  </div>
+  <div class="body-cls">
+    <div class="row">
+      <div class="col-sm-0 col-md-8 col-lg-8">
+        <div class="cls-login-admin">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4 admin-part">
+
+        <div class="form sign-in">
+          <h6><img src="../image/new25.gif" width="60px;"/></h6>
+          <h2><span class="i-cls">ADMIN</span></h2>
+          <form role="form" name="loginForm">
+          <label class="label-admin">
+          <span class="text-center">Username</span>
+          <input class="input-style input-chng" required ng-model="user.username" type="text" />
+        </label>
+            <label class="label-admin">
+          <span>Password</span>
+          <input class="input-style input-chng" type="password" id="inputPassword" required ng-model="user.password" />
+        </label>
+            <p class="forgot-pass">Forgot password?</p>
+            <button type="submit a-btn" class="submit admin-b" ng-click="login(user)">Sign In</button>
+          </form>
+          <button type="button a-btn" class="fb-btn">Wanna be our <span>partner ?</span></button>
+        </div>
+      </div>
+
+    </div>
+    <h5 class="website">www.fancymonk.com</h5>
+  </div>
+</div>

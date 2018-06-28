@@ -1,0 +1,705 @@
+<header class="header clearfix" style="position:fixed">
+  <button type="button" id="toggleMenu" class="toggle_menu">
+      <i class="fa fa-bars"></i>
+    </button>
+
+  <div class="m-view">
+    <h1 style="color:white;">
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+  </div>
+
+  <!-- <div class="fa-4x">
+      <span class="fa-layers fa-fw" style="background:MistyRose">
+        <i class="fas fa-envelope"></i>
+        <span class="fa-layers-counter" style="background:Tomato">1,419</span>
+      </span>
+    </div> -->
+  <div class="pull-right">
+    <!-- <a><i class="far fa-bell w-c"></i></a>-->
+    <a><i class="far fa-bell w-c"></i></a>
+    <div class="dropdown notificationDropDown" data-ng-controller="AdminController">
+      <div class="dropdown">
+        <div class="dropbtn">
+          <notification-icon update-animation="grow" count="">
+            <img src="../image/pp1.png" class="img-circle pp-image-header" width="40" />
+          </notification-icon>
+        </div>
+        <div class="dropdown-content">
+          <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+          <a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a>
+          <a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="vertical_nav">
+  <ul id="js-menu" class="menu">
+    <li>
+      <div class="background-dp">
+        <div class="background-dp-color">
+          <div class="media-body">
+            <h5 style="margin-top: -2px;">
+                          <img src="../image/pp1.png" class="img-circle pp-image" width="38"/>
+                      Admin</h5>
+            <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
+          </div>
+        </div>
+      </div>
+    </li><br>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('addDashboardBool')" class="menu--link">
+        <i class="menu--icon fas fa-qrcode"></i>
+        <span class="menu--label">Companies <span class="btn-dsgn">{{allCompanies.length}}<span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('addAssignedCompanyBool')" class="menu--link">
+        <i class="menu--icon far fa-clone"></i>
+        <span class="menu--label">Assigned Comp. <span class="btn-dsgn">{{assignedCompany.length}}</span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('addUnsignedCompanyBool')" class="menu--link">
+        <i class="menu--icon far fa-clipboard"></i>
+        <span class="menu--label">Unassigned Comp. <span class="btn-dsgn">{{unassignedCompanies.length}}</span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('allVendorListBool')" class="menu--link">
+        <i class="menu--icon fas fa-child"></i>
+        <span class="menu--label">Vendors <span class="btn-dsgn-v">{{AllVendorslist.length}}</span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('assignedVendorListBool')" class="menu--link">
+        <i class="menu--icon fab fa-pushed"></i>
+        <span class="menu--label">Assigned Vendors <span class="btn-dsgn-v">{{assignedVendorslist.length}}</span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('unassignedVendorListBool')" class="menu--link">
+        <i class="menu--icon far fa-clipboard"></i>
+        <span class="menu--label">Unasigned Vendors <span class="btn-dsgn-v">{{unassignedVendorlist.length}}</span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('addCompanyBool')" class="menu--link">
+        <i class="menu--icon far fa-edit"></i>
+        <span class="menu--label">Add New Company</span>
+      </a>
+    </li>
+    <!-- <li class="menu--item">
+      <a href="" ng-click="enableAddDashboard()" class="menu--link">
+        <i class="menu--icon fas fa-chart-line"></i>
+        <span class="menu--label">Total Companies <span class="btn-dsgn">{{allCompanies.length}}<span></span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="enableVendorList()" class="menu--link">
+        <i class="menu--icon fas fa-chart-area"></i>
+        <span class="menu--label">Total Vendor <span class="btn-dsgn">{{AllVendorslist.length}}</span></span>
+      </a>
+    </li> -->
+    <li class="menu--item">
+      <a href="" ng-click="" class="menu--link">
+        <i class="menu--icon fas fa-paste"></i>
+        <span class="menu--label">Invoice</span>
+      </a>
+    </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('FoodConfirmationBool')" class="menu--link">
+        <i class="menu--icon fas fa-tasks"></i>
+        <span class="menu--label">Check Confirmation</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="wrapper" style="margin-top:50px;">
+  <section>
+    <!-- CONTENT -->
+    <!-- ___________________DASHBOARD_____________________ -->
+
+    <div class="company-dashboard" ng-if="addDashboardBool">
+      <div class="title-baar">
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i> home</a>
+  <!-- <a href="" class="typewrite text-center" data-period="2000" data-type='[ "Welcome to the fancymonk admin..", "www.fancymonk.com"]'>
+    <span class="wrap"></span>
+  </a> -->
+</h5>
+      </div>
+      <ul class="nav">
+        <form><br><br>
+          <input type="text" ng-model="search1" class="searchNew" name="search" placeholder="Search...">
+          <!-- <h3 style="margin-top:6px;">Total Companies : {{allCompanies.length}}</h3> -->
+        </form>
+
+        <div class="row">
+          <li ng-repeat="cpny in allCompanies | filter:search1">
+
+            <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+
+                  <md-card>
+                    <a class="b-clr font" href="#/admin/company/{{cpny.id}}">
+                      <div class="company-dp">
+                        <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
+                      </div>
+                      <div class="title-name">
+                        <span class="c-card-name b-clr font">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                  </span><br>
+                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                      </div>
+                    </a>
+                  </md-card>
+                </div>
+              </md-content>
+            </div>
+            <li>
+        </div>
+      </ul>
+
+    </div>
+    <!-- ___________________ADD-COMPANY_____________________ -->
+    <div class="add-company" ng-if="addCompanyBool">
+      <div class="title-baar">
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">add company</a></h5>
+      </div><br><br>
+      <div class="company-details">
+
+        <!-- GOOGLE MAP API ------------------------->
+        <div class="container" ng-controller="newPlaceCtrl">
+
+          <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+            <b>Please Search Company With City Name or There is no Internet connection : </b>
+            <span>{{ apiStatus }}</span>
+          </div>
+
+          <form name="searchForm" novalidate ng-submit="search()">
+            <input type="text" name="place" ng-model="searchPlace" class="searchNew" placeholder="Search company name with city..." required autofocus/>
+
+            <span class="input-group-btn" style="text-align:center;">
+      <input type="submit" class="btn btn-info" value="Search" ng-disabled="searchForm.$invalid">
+  </span><br><br>
+          </form>
+
+          <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+            <div class="form-group">
+              <div class="row">
+                <div class="map-center">
+                  <div id="map"></div>
+                </div>
+                <div class="col-md-4" style="padding:12px;">
+                  <label for="resName">Company Name</label>
+                  <input name="resName" type="text" ng-disabled="" class="form-control" ng-model="place.companyName" placeholder="Company name" required />
+                </div>
+                <div class="col-md-4" style="padding:12px;">
+                  <label for="resLat">Latitude</label>
+                  <input name="resLat" type="number" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required />
+                </div>
+                <div class="col-md-4" style="padding:12px;">
+                  <label for="resLng">Longitude</label>
+                  <input name="resLng" type="number" id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required />
+                </div>
+              </div>
+              <div style="padding:12px;">
+
+                <label for="label">Address</label>
+                <br>
+                <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address">
+
+                <!-- <br>
+          <label for="label">Company Name</label>
+          <br>
+          <input type="text" placeholder="Enter Company Name" name="companyName" class="form-control" required ng-model="place.companyName"> -->
+
+                <br>
+                <label for="label">Contact Person Name</label>
+                <br>
+                <input type="text" placeholder="Enter contact person name" name="companyAddress" class="form-control" required ng-model="place.companyPerson">
+
+                <br>
+                <label for="label">Contact Number</label>
+                <br>
+                <input type="text" placeholder="Enter contact number" name="contactNumber" class="form-control" required ng-model="place.contactNumber">
+              </div>
+
+            </div>
+
+            <div class="text-center">
+              <input type="submit" class="btn btn-success" value="Submit" ng-click="companySignup(place)">
+            </div>
+          </form>
+
+        </div>
+
+        <!--GOOGLE MAP API ------------------------->
+      </div>
+    </div>
+    <!-- end  -->
+    <!-- ___________________ASSIGNED-COMPANY_____________________ -->
+    <div class="unsigned-company" ng-if="addAssignedCompanyBool">
+      <div class="title-baar">
+        <h5><span><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">assigned companies</a>
+</h5>
+      </div><br><br>
+      <ul class="nav">
+        <form>
+          <input type="text" ng-model="search2" class="searchNew" name="search" placeholder="Search...">
+          <!-- <h3 style="margin-top:6px;">Assigned Companies : {{assignedCompany.length}}</h3> -->
+        </form>
+        <div class="row">
+          <li ng-repeat="cpny in assignedCompany | filter:search2">
+            <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+                  <md-card>
+                    <a class="b-clr font" href="#admin/company/{{cpny.id}}">
+                      <div class="company-dp">
+                        <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
+                      </div>
+                      <div class="title-name">
+                        <span class="c-card-name b-clr font">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                    </span><br>
+                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                      </div>
+                    </a>
+                  </md-card>
+                </div>
+              </md-content>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!--  -->
+    <!-- ___________________UNSIGNED-COMPANY_____________________ -->
+    <div class="unsigned-company" ng-if="addUnsignedCompanyBool">
+      <div class="title-baar">
+        <h5><span><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">unasigned company</a></h5>
+      </div><br><br>
+      <ul class="nav">
+        <form>
+          <input type="text" ng-model="search2" class="searchNew" name="search" placeholder="Search...">
+          <!-- <h3 style="margin-top:6px;">Unassigned Companies : {{unassignedCompanies.length}}</h3> -->
+        </form>
+        <div class="row">
+          <li ng-repeat="cpny in unassignedCompanies | filter:search2">
+            <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+                  <md-card>
+                    <a class="b-clr font" href="#/admin/company/{{cpny.id}}">
+                      <div class="company-dp">
+                        <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
+                      </div>
+                      <div class="title-name">
+                        <span class="c-card-name b-clr font">
+                      <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                      </span><br>
+                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                      </div>
+                    </a>
+                  </md-card>
+                </div>
+              </md-content>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!--  -->
+    <!-- ALL VENDOR LIST -->
+
+    <div class="company-dashboard" ng-if="allVendorListBool">
+      <div class="title-baar">
+        <h5><span><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">vendors</a></h5>
+      </div>
+      <ul class="nav">
+        <form><br><br>
+          <input type="text" ng-model="search1" class="searchNew" name="search" placeholder="Search...">
+          <!-- <h3 style="margin-top:6px;">Vendor : {{AllVendorslist.length}}</h3> -->
+        </form>
+        <div class="row">
+          <li ng-repeat="vendor in AllVendorslist | filter:search1">
+
+            <div class="col-md-3">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+
+                  <md-card>
+                    <div class="vendor-dp">
+                      <div class="title-v-name">
+                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{vendor.id}}">{{vendor.name | uppercase}}</a></h6>
+                      </div>
+                    </div>
+                    <!-- <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions> -->
+                    <md-card-title-text class="one-line-text-hidden" style="text-align:center; padding:4px;">
+                      <span class="wrd-brk"><h6 style="min-height: 53px;">{{vendor.email}}<br><br>{{vendor.mobile}}</h6></span>
+                    </md-card-title-text>
+                  </md-card>
+
+                </div>
+              </md-content>
+            </div>
+            <li>
+        </div>
+      </ul>
+    </div>
+    <!-- Assigned Vendor Section -->
+    <div class="company-dashboard" ng-if="assignedVendorListBool">
+      <div class="title-baar">
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">assigned vendor</a></h5>
+      </div>
+      <ul class="nav">
+        <form><br><br>
+          <input type="text" ng-model="search1" class="searchNew" name="search" placeholder="Search...">
+          <!-- <h3 style="margin-top:6px;">Assigned Vendor : {{assignedVendorslist.length}}</h3> -->
+        </form>
+        <div class="row">
+          <li ng-repeat="assignedVendor in assignedVendorslist | filter:search1">
+
+            <div class="col-md-3">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+
+                  <md-card>
+                    <div class="vendor-dp">
+                      <div class="title-v-name">
+                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{assignedVendor.id}}">{{assignedVendor.name | uppercase}}</a></h6>
+                      </div>
+                    </div>
+
+                    <md-card-title-text class="one-line-text-hidden" style="text-align:center;  padding:4px;">
+                      <span class="wrd-brk"><h6 style="min-height: 53px;">{{assignedVendor.email}}<br><br>{{assignedVendor.mobile}}</span>
+                    </md-card-title-text>
+                  </md-card>
+
+                </div>
+              </md-content>
+            </div>
+            <li>
+        </div>
+      </ul>
+    </div>
+    <!---->
+    <!-- Un-assigned Vendor Section -->
+    <div class="company-dashboard" ng-if="unassignedVendorListBool">
+      <div class="title-baar">
+        <h5><a class="w-clr" href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">unassigned vendor</a></h5>
+      </div>
+      <ul class="nav">
+        <form><br><br>
+          <input type="text" ng-model="search1" class="searchNew" name="search" placeholder="Search...">
+          <!-- <h3 style="margin-top:6px;">Unassigned Vendor : {{unassignedVendorlist.length}}</h3> -->
+        </form>
+        <div class="row">
+          <li ng-repeat="unassignedVendor in unassignedVendorlist | filter:search1">
+
+            <div class="col-md-3">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+
+                  <md-card>
+                    <div class="vendor-dp">
+                      <div class="title-v-name">
+                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{unassignedVendor.id}}">{{unassignedVendor.name | uppercase}}</a></h6>
+                      </div>
+                    </div>
+
+                    <md-card-title-text class="one-line-text-hidden" style="text-align:center; letter-spacing: 1px; padding:4px;">
+                      <span class="wrd-brk"><h6 style="min-height: 53px;">{{unassignedVendor.email}}<br><br>{{unassignedVendor.mobile}}</span>
+                    </md-card-title-text>
+                  </md-card>
+                  <!-- <md-card>
+          <div class="vendor-dp">
+          <md-card-title>
+          </md-card-title>
+          </div>
+
+          <md-card-title-text style="min-height:70px; text-align:center;">
+            <span class="md-headline"><a href="#!admin/vendor/{{unassignedVendor.id}}">{{unassignedVendor.name | uppercase}}</a></span>
+            <br><span class="md-subhead">{{unassignedVendor.mobile}}</span>
+          </md-card-title-text>
+        </md-card> -->
+
+                </div>
+              </md-content>
+            </div>
+            <li>
+        </div>
+      </ul>
+    </div>
+    <!---->
+    <!-- Check confirmation of food -->
+    <div class="company-dashboard" ng-if="FoodConfirmationBool">
+      <div class="title-baar">
+        <h5><a class="w-clr" href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">check confirmation</a></h5>
+      </div>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{today}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in todayStatus">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!todayStatus.length" style="color:#88888c;">Today None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{yesterday_date}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in yesterdayStatus">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!yesterdayStatus.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{yesterday_1}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in yesterdayStatus_1">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!yesterdayStatus_1.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{yesterday_2}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in yesterdayStatus_2">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!yesterdayStatus_2.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{yesterday_3}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in yesterdayStatus_3">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!yesterdayStatus_3.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{yesterday_4}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in yesterdayStatus_4">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!yesterdayStatus_4.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>
+            <table class="table">
+              <thead>
+                <td>
+                  <h3 style="color:#88888c;">{{yesterday_5}}</h3></td>
+                <tr>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Day</th>
+                  <th>Menu Type</th>
+                  <th>Dispatched Time</th>
+                  <th>Reached Time</th>
+                  <th>Remark</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="today in yesterdayStatus_5">
+                  <td>{{today.companyName}}</td>
+                  <td>{{today.vendorName}}</td>
+                  <td>{{today.dayName}}</td>
+                  <td>{{today.menuType}}</td>
+                  <td>{{today.dispatchedTime}}</td>
+                  <td>{{today.reachedTime}}</td>
+                  <td>{{today.remarks}}</td>
+                  <td>{{today.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3 ng-show="!yesterdayStatus_5.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+          </md-card>
+        </div>
+      </md-content>
+
+
+    </div>
+    <!---->
+    <!-- ............................CONTENT............................................. -->
+  </section>
+</div>
