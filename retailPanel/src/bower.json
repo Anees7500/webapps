@@ -1,0 +1,14 @@
+{
+  "name": "src",
+  "description": "source folder for retail panel",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
