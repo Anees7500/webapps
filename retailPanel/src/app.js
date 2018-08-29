@@ -1,10 +1,14 @@
-var retail = angular.module('AngularApp', []);
-retail.config(['$routerProvider', '$locationProvider', function($routerProvider, $locationProvider){
- $routerProvider
- .when('/',{
-     templateUrl:'',
-     controller:''
- })
- when()
+var rtApp = angular.module("rtApp", ['ngRoute']);
 
-}]);
+rtApp.config(["$routerProvider", "$locationProvider",
+  function($routerProvider, $locationProvider) {
+    $routerProvider
+    
+    .when("/", 
+    {
+      templateUrl: "section/retailCompany/retail.tpl.html",
+      controller: "RetailController"
+    })
+    .when
+  }
+]);
