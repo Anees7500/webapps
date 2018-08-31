@@ -1,7 +1,86 @@
 <!---Card Part -->
 <div class="row">
 	<div class="col-sm-4">
-		<div class="card" ng-repeat="menu in menus" style="width: 22rem;">
+
+		<div class="menuSection">
+			<script type="text/ng-template" id="nodes_renderer.html">
+
+				<br>
+				<div class="design-box">
+					<a class="btn btn-clear btn-xs" ng-if="node.menuNode.length>0" ng-click="toggleCollapse(node)">
+								<i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
+					</a>
+					 <div style="padding: 10px; background-color:white">
+						<div class='form-group'>
+							<input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+						</div>
+
+						<div ng-if="$parentNodeScope">
+							<label ng-if="(node.menuNode.length === 0) || (node.menuNode == null)" class="menu-label">is Food Item:</lebel>
+									<input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+									<div ng-if="node.isFoodItem">
+											<label class="menu-label">is Veg:</label>
+							<input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg" />
+							<br>
+							<label class="menu-label">is Non-Veg:</label>
+							<input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg" />
+							<br>
+							<label class="menu-label">is Egg Item:</label>
+							<input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="egg" />
+							<br>
+							<label class="menu-label">Menu Item:
+													<textarea class="form-control border-show" rows="4" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
+											</label>
+							<br>
+							<label class="menu-label">Price:
+											<input type="number" class='form-control border-show' ng-disabled="node.isInserted" ng-model='node.price' focus>
+											</label>
+						</div>
+					</div>
+
+					<!-- <div class="card" ng-repeat="menu in menuNode" style="width: 22rem;">
+						<div class="fm-product-new--header">
+							<div class="fm-product-new--header--category ">Continental</div>
+							<div class="fm-product-new--header" tag=""></div>
+							<div class="fm-product-new--header--tag new-user-offer" tag="New User Offer"></div>
+						</div>
+						<a href="sections/retailMenuItem/retailmenuItem.tpl.html"><img class="card-img-top" src="image/burger.jpg" alt="Card image cap"></a>
+						<div class="card-body">
+							<h5 class="card-title">{{menu.menuName}}</h5>
+							<div class="col-sm-6">
+								<div class="fm-product-new--body--actions--price">
+									<span class="#">₹{{menu.price}}</span>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<button class="Addbutton">Add to card</button>
+							</div>
+							<h6>1665 Favs 100+bought today</h6>
+						</div>
+					</div> -->
+
+
+				</div>
+				<ul ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+					<li ng-repeat="node in node.menuNode" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
+					</li>
+				</ul>
+		</div>
+		</script>
+		<div ui-tree>
+			<ul ui-tree-nodes ng-model="menuNode" id="tree-root" ng-init='$nodes = menuNode'>
+				<li ng-repeat="node in menuNode" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+			</ul>
+		</div>
+
+</div>
+
+
+
+
+
+
+		<!-- <div class="card" ng-repeat="menu in menus" style="width: 22rem;">
 			<div class="fm-product-new--header">
 				<div class="fm-product-new--header--category ">Continental</div>
 				<div class="fm-product-new--header" tag=""></div>
@@ -20,6 +99,7 @@
 				</div>
 				<h6>1665 Favs 100+bought today</h6>
 			</div>
-		</div>
+		</div> -->
+
 	</div>
 </div>
