@@ -7,5 +7,5 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 			$scope.menus = response.data.data.menus[0].menuNode;
 		});
 		console.log("Inside retail controller: ");
-		console.log("Inside retail fvhcxxj: ");
+		
     }]);
