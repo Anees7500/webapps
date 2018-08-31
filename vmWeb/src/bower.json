@@ -1,6 +1,6 @@
 {
   "name": "src",
-  "description": "source folder for retail panel",
+  "description": "",
   "main": "",
   "license": "MIT",
   "homepage": "",
@@ -13,9 +13,6 @@
   ],
   "dependencies": {
     "angular": "1.5.11",
-    "components-font-awesome": "^5.0.6",
-    "angular-route": "1.5.11",
-    "angular-ui-tree": "^2.22.6",
-    "underscore": "^1.9.1"
+    "angular-route": "1.5.11"
   }
 }
