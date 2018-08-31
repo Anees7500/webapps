@@ -1,6 +1,6 @@
-var rtApp = angular.module('rtApp', ['ngRoute']);
+var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config']);
 
-rtApp.config(['$routeProvider', '$locationProvider',
+rtApp.config(['$routeProvider', '$locationProvider', 
   function($routerProvider, $locationProvider) {
     $routerProvider
     
