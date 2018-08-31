@@ -1,26 +1,25 @@
-
 <!---Card Part -->
 <div class="row">
-  <div class="col-sm-4">
-<div class="card" ng-repeat="menu in menus" style="width: 22rem;">
-  <div class="fm-product-new--header">
-    <div class="fm-product-new--header--category " >Continental</div>
-    <div class="fm-product-new--header" tag=""></div>
-    <div class="fm-product-new--header--tag new-user-offer"  tag="New User Offer"></div>
-  </div>
-  <a href="sections/retailMenuItem/retailmenuItem.tpl.html"><img class="card-img-top" src="image/burger.jpg" alt="Card image cap"></a>
-  <div class="card-body" >
-    <h5 class="card-title">{{menu.menuName}}</h5>
-    <div class="col-sm-6">
-  <div class="fm-product-new--body--actions--price">
-    <span class="#">₹{{menu.price}}</span>
-    </div>
-  </div>
-  <div class="col-sm-6">
-  <button class="Addbutton">Add to card</button>
-  </div>
-  <h6>1665 Favs 100+bought today</h6>
-  </div>
-</div>
-</div>
+	<div class="col-sm-4">
+		<div class="card" ng-repeat="menu in menus" style="width: 22rem;">
+			<div class="fm-product-new--header">
+				<div class="fm-product-new--header--category ">Continental</div>
+				<div class="fm-product-new--header" tag=""></div>
+				<div class="fm-product-new--header--tag new-user-offer" tag="New User Offer"></div>
+			</div>
+			<a href="sections/retailMenuItem/retailmenuItem.tpl.html"><img class="card-img-top" src="image/burger.jpg" alt="Card image cap"></a>
+			<div class="card-body">
+				<h5 class="card-title">{{menu.menuName}}</h5>
+				<div class="col-sm-6">
+					<div class="fm-product-new--body--actions--price">
+						<span class="#">₹{{menu.price}}</span>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<button class="Addbutton">Add to card</button>
+				</div>
+				<h6>1665 Favs 100+bought today</h6>
+			</div>
+		</div>
+	</div>
 </div>

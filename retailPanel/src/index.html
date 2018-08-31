@@ -1,54 +1,56 @@
 <html ng-app='rtApp'>
-    <head>
-        <title>Welcome | Foncymonk</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="shortcut icon" href="image/icon.jpg">
-        <link rel="stylesheet" href="sections/retailCompany/retail.css">
-    </head>
 
-    <body>
-        <header class="header clearfix"  >
-            <button type="button" id="toggleMenu" class="toggle_menu">
+<head>
+	<title>Welcome | Foncymonk</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" href="image/icon.jpg">
+	<link rel="stylesheet" href="sections/retailCompany/retail.css">
+</head>
+
+<body>
+	<header class="header clearfix">
+		<button type="button" id="toggleMenu" class="toggle_menu">
                 <i class="fa fa-bars"></i>
             </button>
-            <div class="m-view">
-                <h1 style="color:white;">
-                    <span class="span-logo"><a><img src="image/fancymonklogo.png" /></a></span>Fancymonk</h1>
-            </div>
-            <div class="pull-right">
-                <div class="dropdown notificationDropDown">
-                    <div class="dropdown">
-                        <div class="dropbtn">
-                            <notification-icon update-animation="grow" count="">
-                                <img src="image/pp1.png" class="img-circle pp-image-header" width="40" />
-                            </notification-icon>
-                        </div>
-                        <div class="dropdown-content">
-                            <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
-                            <a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a>
-                            <a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-<div ng-view>
+		<div class="m-view">
+			<h1 style="color:white;">
+				<span class="span-logo"><a><img src="image/fancymonklogo.png" /></a></span>Fancymonk</h1>
+		</div>
+		<div class="pull-right">
+			<div class="dropdown notificationDropDown">
+				<div class="dropdown">
+					<div class="dropbtn">
+						<notification-icon update-animation="grow" count="">
+							<img src="image/pp1.png" class="img-circle pp-image-header" width="40" />
+						</notification-icon>
+					</div>
+					<div class="dropdown-content">
+						<a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+						<a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a>
+						<a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div ng-view>
 
-</div>
-    </body>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="app.js"></script>
-    <script src="sections/retailCompany/retail.ctrl.js"></script>
-    <script src="config.js"></script>
+	</div>
+</body>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="sections/retailCompany/retail.ctrl.js"></script>
+<script src="config.js"></script>
+
 </html>
