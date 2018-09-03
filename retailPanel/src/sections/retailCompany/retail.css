@@ -2075,6 +2075,9 @@ body {
 	line-height: 1.42857143;
 	color: #333;
 }
+.box-headetop{
+	margin-top: -2%;
+}
 
 header {
 	position: relative;
@@ -2125,7 +2128,7 @@ header h1 {
 /* Medium devices (desktops)
 ==========================*/
 
-@media (min-width: 992px) {
+@media (min-width: 720px) {
 
 	body {
 		overflow-y: scroll;
@@ -2203,9 +2206,10 @@ body {
 .Addbutton {
 	margin-right: 10px;
 	width: 100px;
-	background-color: red;
-	color: wheat;
+	background-color: #ff8459;
+	color: white;
 	border-radius: 8px;
+    margin-top: 22px;
 }
 
 /* HTML5 display definitions
@@ -3401,25 +3405,6 @@ button {
 	margin: -3px 6px;
 }
 
-@media only screen and (max-width: 1000px) {
-	.cls-login {
-		visibility: hidden;
-	}
-	.body-cls {
-		padding: 0%;
-	}
-	.img-login {
-		margin-top: -9px;
-	}
-	.col-sm-12.col-md-4.col-lg-4 {
-		height: 530px;
-	}
-	.website {
-		text-align: center;
-		color: white;
-	}
-}
-
 .form {
 	position: relative;
 	height: 100%;
@@ -3567,31 +3552,6 @@ label {
 	margin: 0 auto;
 
 }
-
-@media only screen and (max-width: 800px) {
-	.login {
-		height: 820px;
-	}
-
-	.login form {
-		margin-top: 300px;
-		padding: 10px;
-	}
-
-}
-
-@media only screen and (max-width: 450px) {
-	.login {
-		height: 500px;
-	}
-
-	.login form {
-		margin-top: 0;
-		padding-top: 150px;
-		width: 100%;
-	}
-}
-
 
 .login-body .form-control {
 	width: 90%;
@@ -3777,9 +3737,9 @@ svg.svg-inline--fa.fa-trash.fa-w-14 {
 }
 
 .design-box {
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	padding: 16px 10px 16px 10px;
-	background-color: #d5ecf3
+/*	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+	/* padding: 16px 10px 16px 10px; */
+	background-color:white;
 }
 
 .btn.btn-clear.btn-xs {
@@ -3801,11 +3761,14 @@ input.form-control.border-show.ng-pristine.ng-valid {
 	padding: 0px;
 	background-color: transparent;
 }
-
+.menuSection {
+    margin-top: 46px;
+}
 .form-control.border-show {
 	display: block;
 	box-shadow: none;
-	width: 500px;
+	/* width: 500px; */
+	width: 100%;
 	/* height: 34px; */
 	border-bottom-color: black;
 	border-left-color: black !important;
@@ -3872,3 +3835,29 @@ input.form-control.border-show.ng-pristine.ng-valid {
 	border-top: 1px solid rgba(0, 0, 0, .05) !important;
 	background: #fff;
 }
+/* --------------------Media Queries ---------------*/
+
+@media only screen and (max-width: 800px) {
+	.login {
+		height: 820px;
+	}
+
+	.login form {
+		margin-top: 300px;
+		padding: 10px;
+	}
+
+}
+
+@media only screen and (max-width: 450px) {
+	.login {
+		height: 500px;
+	}
+
+	.login form {
+		margin-top: 0;
+		padding-top: 150px;
+		width: 100%;
+	}
+}
+
