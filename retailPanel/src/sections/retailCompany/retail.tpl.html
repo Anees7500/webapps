@@ -5,35 +5,46 @@
 
 			<div class="menuSection">
 				<script type="text/ng-template" id="nodes_renderer.html">
-
 					<br>
 					<div class="design-box">
+						<!--
 						<a class="btn btn-clear btn-xs" ng-if="node.menuNode.length>0" ng-click="toggleCollapse(node)">
 								<i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
 					</a>
-
+-->
 						<div style="padding: 10px; margin-bottom: -7px;">
-							<div class='form-group'>
-								<input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
-							</div>
+							<!-- <div class='form-group'>
+								<input class='form-control' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+							</div> -->
+							<h1 ng-bind="node.menuName" ng-if="!node.isFoodItem"  style="color:black;"></h1>
+							<!-- <div ng-model="node.menuName"> -->
 							<div ng-if="$parentNodeScope">
 								<div class="card" ng-if="node.isFoodItem" style=" margin-top: -14px; margin-left: -7px;width: 104%;">
+									<!--
 									<div class="fm-product-new--header">
-										<div class="fm-product-new--header--category "></div>
+										<div class="fm-product-new--header--category "><</div>
 										<div class="fm-product-new--header" tag=""></div>
-										<div class="fm-product-new--header--tag new-user-offer" tag="New User Offer"></div>
 									</div>
+-->
 									<a href="sections/retailMenuItem/retailmenuItem.tpl.html"><img class="card-img-top" src="image/burger.jpg" alt="Card image cap"
 	                                   style="width: 100%;"></a>
 									<div class="card-body">
 										<h5 class="card-title">{{menu.menuName}}</h5>
+										<div class="col-sm-12">
+											<div class="col-sm-6">
+												<h4 class="menu-name">{{menu.menuName}}</h4>
+												<h6>Description</h6>
+											</div>
+											<div class="col-sm-6">
+											</div>
+										</div>
 										<div class="col-sm-6">
 											<div class="fm-product-new--body--actions--price">
 												<span class="#">₹{{menu.price}}</span>
 											</div>
 										</div>
 										<div class="col-sm-6">
-											<button class="Addbutton">Add to cart</button>
+											<button class="Addcartbutton">Add to cart</button>
 										</div>
 										<h6>1665 Favs 100+bought today</h6>
 									</div>
@@ -87,7 +98,7 @@
 							<ul ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
 								<div class="row">
 									<div class="col-md-4" style="padding:10px;" ng-repeat="node in node.menuNode">
-										<li collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
+										<li collapsed="true" ui-tree-node ng-include="'nodes_renderer.html'" style="display:block;">
 										</li>
 									</div>
 								</div>
@@ -97,7 +108,7 @@
 				</script>
 				<div ui-tree>
 					<ul ui-tree-nodes ng-model="menuNode" id="tree-root" ng-init='$nodes = menuNode'>
-						<li ng-repeat="node in menuNode" ui-tree-node ng-include="'nodes_renderer.html'" style="margin-top: -27px;"></li>
+						<li ng-repeat="node in menuNode" ui-tree-node ng-include="'nodes_renderer.html'" style="display:block;"></li>
 					</ul>
 				</div>
 
