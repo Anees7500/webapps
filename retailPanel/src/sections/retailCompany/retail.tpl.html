@@ -1,22 +1,29 @@
 <div class="contaier-fluid">
+	
 	<!---Card Part -->
 	<div class="row">
 		<div class="col-sm-12">
-
 			<div class="menuSection">
 				<script type="text/ng-template" id="nodes_renderer.html">
 					<br>
 					<div class="design-box">
-
-						<div style="padding: 10px; margin-bottom: -7px;">
+						<div style="padding: 10px; margin-bottom: -7px; ">
 							<!-- <div class='form-group'>
 								<input class='form-control' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
 							</div> -->
-							<h1 ng-bind="node.menuName" ng-if="!node.isFoodItem"  style="color:black;"></h1>
+
+							<div class="col-sm-12">
+								<div class="col-sm-3">
+									<div class="w3-lobster">
+										<p ng-bind="node.menuName" ng-if="!node.isFoodItem" style="color:black;"></p>
+									</div>
+								</div>
+								<div class="col-sm-9">
+								</div>
+							</div>
 							<!-- <div ng-model="node.menuName"> -->
 							<div ng-if="$parentNodeScope">
 								<div class="card" ng-if="node.isFoodItem" style=" margin-top: -14px; margin-left: -7px;width: 104%;">
-
 									<a href="sections/retailMenuItem/retailmenuItem.tpl.html"><img class="card-img-top" src="image/burger.jpg" alt="Card image cap"
 	                                   style="width: 100%;"></a>
 									<div class="card-body">
@@ -35,16 +42,12 @@
 											</div>
 										</div>
 										<div class="col-sm-6">
-											<button class="Addcartbutton">Add to cart</button>
+											<a href="#"><button class="Addcartbutton">Add to cart</button></a>
 										</div>
-										<h6>1665 Favs 100+bought today</h6>
+										<!-- <h6>1665 Favs 100+bought today</h6> -->
 									</div>
 								</div>
-
 							</div>
-
-
-
 						</div>
 						<div class="box-headetop">
 							<ul ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">

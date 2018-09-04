@@ -2077,6 +2077,7 @@ body {
 }
 .box-headetop{
 	margin-top: -2%;
+	    background-color: whitesmoke;
 }
 
 header {
@@ -2095,6 +2096,7 @@ header {
 	color: white;
 	box-shadow: rgba(0, 0, 0, 0.5) 0 -20px 20px 17px;
 }
+
 
 header h1 {
 	margin: 0;
@@ -2189,7 +2191,17 @@ body {
 	margin-left: 40px;
 
 }
-
+.w3-lobster{
+	font-family: "Lobster",
+	serif;
+	font-size: 36px;
+}
+/* .underline{
+	border: 1px solid black;
+	height: 0px;
+	width: 107px;
+	margin: 0 auto;
+} */
 .fm-product-new--header--category {
 	padding: 0 0 0 20px;
 	position: relative;
