@@ -1,0 +1,255 @@
+button {
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  height: 36px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+.cls-login {
+  content: '';
+  position: absolute;
+  background-position: center center;
+  right: 0;
+  top: 0;
+  width: 820px;
+  height: 100%;
+  background-image: url("../image/new4.gif");
+  background-size: cover;
+  -webkit-transition: -webkit-transform 1.2s ease-in-out;
+  transition: -webkit-transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+}
+
+.website {
+  color: white;
+}
+.body-cls {
+  padding: 1% 5%;
+}
+
+.img-login {
+  margin: -3px 6px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .cls-login {
+    visibility: hidden;
+  }
+  .body-cls {
+    padding: 0%;
+  }
+  .img-login {
+    margin-top: -9px;
+  }
+  .col-sm-12.col-md-4.col-lg-4 {
+    height: 530px;
+  }
+  .website {
+    text-align: center;
+    color: white;
+  }
+}
+.form {
+  position: relative;
+  height: 100%;
+}
+input.input-chng,button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.form.sign-in {
+  text-align: -webkit-center;
+}
+
+h2 {
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+}
+
+label.label-vendor {
+  display: block;
+  width: 260px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+label span {
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase;
+}
+
+input.input-style {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+.submit {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #607D8B;
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+}
+.fb-btn {
+  border: 2px solid #d3dae9;
+  color: #8fa1c7;
+  padding: 10px;
+}
+.forgot-pass {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+.fb-btn span {
+  font-weight: bold;
+  color: #455a81;
+}
+
+.sign-in {
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.login-con{
+  background-color:#00BCD4; min-height:100vh;
+}
+.part-b{background-color:white; min-height:500px;}
+.part-a{background-color:#3ee8c4; min-height:500px;}
+
+input.form-control-login {
+    width: 80%;
+    outline: none;
+    background: none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif!important;
+    border-bottom: 1px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: white;
+		font-size: 15px;
+		  padding: 8px 0px;
+}
+label {
+    margin-bottom: 8px;
+}
+.form-group-login {
+    margin-bottom: 32px;
+}
+.login-body {
+	padding: 0px;
+	font-size: 20px;
+	font-family: sans-serif;
+	width:100%;
+	height: 100%;
+	background-image: url("../image/business.jpg");
+  	background-size: cover;
+ 	background-position: center center;
+  	background-repeat: no-repeat;
+  	background-color: rgba(0, 0, 0, 0.5);
+  	background-attachment: fixed;
+}
+
+.login {
+	margin: 0px;
+	padding: 0px;
+    color: #e0e0e0 ;
+    background-color: rgba(14, 15, 15, 0.73);
+    height: 500px;
+    border: 1px solid #e0e0e0;
+
+}
+
+.login form {
+    padding-top: 150px;
+
+    min-height: 200px;
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+
+@media only screen and (max-width: 800px){
+	.login{
+		height: 820px;
+	}
+
+	.login form{
+		margin-top: 300px;
+		padding: 10px;
+	}
+
+}
+
+@media only screen and (max-width: 450px){
+	.login{
+		height: 500px;
+	}
+
+	.login form {
+		margin-top: 0;
+		padding-top: 150px;
+		width: 100%;
+	}
+}
+
+
+.login-body .form-control {
+	width: 90%;
+
+}
+.login-form form input[type="text"] {
+	max-width: 100%;
+	min-width: 70%;
+	height: 30px;
+	border: 1px solid #fafafa;
+	border-radius: 1px;
+	padding: 8px;
+}
+
+.login-form form input[type="email"] {
+	max-width: 100%;
+	min-width: 70%;
+	height: 30px;
+	border: 1px solid #fafafa;
+	float: left;
+	border-radius: 1px;
+	padding: 8px;
+}
+
+.login-form form input[type="password"] {
+	max-width: 100%;
+	min-width: 90%;
+	height: 30px;
+	border: 1px solid #fafafa;
+	float: left;
+	border-radius: 1.5px;
+	margin-bottom: 20px;
+	padding: 8px;
+}
+
+.login-form form .btn-default button {
+	padding: 8px;
+	background-color: #CE1E42;
+	color: #e0e0e0;
+	border: 0px;
+	height: 40px;
+	margin: 20px;
+	margin-left: 26%;
+	font-size: 16px;
+	border-radius: 3px;
+}

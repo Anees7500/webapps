@@ -1,0 +1,34 @@
+<div class="container login-con">
+  <div class="row">
+    <h3 style="color:white;"><span class="i-cls"><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span></h3>
+  </div>
+  <div class="body-cls">
+    <div class="row">
+      <div class="col-sm-0 col-md-8 col-lg-8">
+        <div class="cls-login part-a">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4 part-b">
+
+        <div class="form sign-in">
+          <h6><img src="../image/new25.gif" width="60px;"/></h6>
+          <h2><span class="i-cls">Welcome back,</span></h2>
+          <form role="form" name="loginForm">
+            <label class="label-vendor">
+          <span class="text-center">Username / Email / Mobile</span>
+          <input class="input-style input-chng" required ng-model="user.value" type="text" />
+        </label>
+            <label class="label-vendor">
+          <span>Password</span>
+          <input class="input-style input-chng" type="password" id="inputPassword" required ng-model="user.password" />
+        </label>
+            <p class="forgot-pass">Forgot password?</p>
+            <button type="submit" class="submit" ng-click="login(user)">Sign In</button>
+          </form>
+          <button type="button" class="fb-btn">Wanna be our <span>partner ?</span></button>
+        </div>
+      </div>
+    </div>
+    <h5 class="website">www.fancymonk.com</h5>
+  </div>
+</div>

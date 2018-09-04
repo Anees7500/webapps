@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fancymonk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="minifiedfiles/main.css" />
+  <link rel="stylesheet" href="components.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6-D4VbOvU42m61RtXKBinxf_bZGPU8zk&libraries=places"></script>
+<style>
+body {
+  position: static;
+  overflow: auto;
+  background-color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+</style>
+</head>
+
+<body ng-app="vmApp">
+
+  <section id="main">
+    <div class="container">
+      <ng-view>
+      </ng-view>
+    </div>
+  </section>
+
+</body>
+<!-- <script src="components.min.js"></script>
+<script src="minifiedfiles/main.js"></script>
+<script src="config.js"></script>
+<script src="app.templates.js"></script> -->
+<script src="app.js"></script>
+</html>
