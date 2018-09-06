@@ -1,5 +1,4 @@
 <html ng-app='rtApp'>
-
 <head>
 	<title>Welcome | Foncymonk</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +12,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="shortcut icon" href="image/icon.jpg">
 	<link rel="stylesheet" href="sections/retailCompany/retail.css">
 </head>
@@ -43,9 +44,11 @@
 		</div>
 	</header>
 	<div ng-view>
-
 	</div>
 	
+<div id="login-box" class="login-popup">
+<a href="#" class="close"><img src="close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+</div>
 </body>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
@@ -54,5 +57,4 @@
 <script src="config.js"></script>
 <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
-
 </html>
