@@ -8,13 +8,13 @@
 // });
 
 
-$("Addcartbutton").on("click", function () {
-    $(this).closest("card")
-        .find("img")
-        .clone()
-        .addClass("zoom")
-        .appendTo("body");
-    setTimeout(function () {
-        $(".zoom").remove();
-    }, 1000);
-});
+// $("Addcartbutton").on("click", function () {
+//     $(this).closest("card")
+//         .find("img")
+//         .clone()
+//         .addClass("zoom")
+//         .appendTo("body");
+//     setTimeout(function () {
+//         $(".zoom").remove();
+//     }, 1000);
+// });

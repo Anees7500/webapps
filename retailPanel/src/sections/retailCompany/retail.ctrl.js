@@ -17,30 +17,30 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
     console.log("dtls 2 ", companyDetail);
 
 
-		// $http.get(GetRetailMenuUrl).then(function (response) {
-		// 	console.log(JSON.stringify(response.data.data.menus));
-		// 	$scope.menuNode = unflatten(response.data.data.menus);
-		// 	console.log("test", $scope.menuNode);
-		// });
+		$http.get(GetRetailMenuUrl).then(function (response) {
+			console.log(JSON.stringify(response.data.data.menus));
+			$scope.menuNode = unflatten(response.data.data.menus);
+			console.log("test", $scope.menuNode);
+		});
 
-    $scope.cartItems = [
+  $scope.cartItems = [
       {
-        itemId = 21,
-        itemName = "Item number 1",
-        price = 200
-        quantity = 3
+        itemId :21,
+        itemName :"Item number 1",
+        price : 200,
+        quantity : 3
       },
       {
-        itemId = 22,
-        itemName = "Item number 2",
-        price = 300
-        quantity = 5
+        itemId : 22,
+        itemName : "Item number 2",
+        price : 300,
+        quantity : 5
       },
       {
-        itemId = 23,
-        itemName = "Item number 3",
-        price = 500
-        quantity = 1
+        itemId : 23,
+        itemName : "Item number 3",
+        price :500,
+        quantity : 1
       }
 
     ];
