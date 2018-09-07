@@ -1,5 +1,5 @@
-rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl',
-    function ($scope, $rootScope, $route, $http, GetRetailMenuUrl) {
+rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl','ngDialog',
+    function ($scope, $rootScope, $route, $http, GetRetailMenuUrl,ngDialog) {
 
 		// var unflatten = function(array, parent, tree) {
 		//   // console.log("array ",JSON.stringify(array));
@@ -113,5 +113,7 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 					});
 				});
 
+        $scope.clickToOpen = function () {
+              ngDialog.open({ template: 'sections/retailCompany/cart.html', className: 'ngdialog-theme-default' });
+          };
 	}]);
-	

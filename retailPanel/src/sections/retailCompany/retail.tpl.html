@@ -7,9 +7,9 @@
 <li class="nav-item"><a href="#mains">MAINS</a></li>
 <li class="nav-item"><a href="#fit">FIT N FAB</a></li>
 <li class="nav-item"><a href="#happy">HAPPY HOURSE</a></li>
-				<div class="shopping-cart">
+				<div class="shopping-cart" ng-click="clickToOpen()">
                  <li class="nav-item">
-	  <div style="float: right; cursor: pointer; ">          
+	  <div style="float: right; cursor: pointer; ">
 <span class="glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#myModal"></span>
 </div>
 				</li>
@@ -86,10 +86,10 @@
 							</div>
 						</ul>
 					</div>
-				
+
 				</div>
 			</script>
-			
+
 			<div ui-tree>
 				<ul ui-tree-nodes ng-model="menuNode" id="tree-root" ng-init='$nodes = menuNode'>
 					<li ng-repeat="node in menuNode" ui-tree-node ng-include="'nodes_renderer.html'" style="display:block;"></li>
@@ -101,7 +101,7 @@
 </div>
 <!-- Modal -->
 
-<div class="modal fade" id="myModal" role="dialog">
+<!-- <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -117,7 +117,7 @@
 		</div>
 
 	</div>
-</div>
+</div> -->
 
 
 <!----Animation-->

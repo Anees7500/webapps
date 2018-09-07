@@ -1,0 +1,102 @@
+<header class="header clearfix" style="position:fixed">
+  <button type="button" id="toggleMenu" class="toggle_menu">
+      <i class="fa fa-bars"></i>
+    </button>
+  <div class="m-view">
+    <h1 style="color:white;">
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+  </div>
+  <div class="pull-right">
+    <div class="dropdown notificationDropDown" data-ng-controller="DashboardController">
+
+      <div class="dropdown">
+        <div class="dropbtn">
+          <notification-icon update-animation="grow" count="">
+            <img src="image/pp1.png" class="img-circle pp-image-header" width="40" height="" />
+          </notification-icon>
+        </div>
+        <div class="dropdown-content">
+
+          <a href="" data-toggle="popover" data-trigger="hover" data-content="Some content"><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+          <a ng-click="signOut()"><i style="color:#666666;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="vertical_nav">
+  <ul id="js-menu" class="menu">
+    <li>
+      <div class="background-dp">
+        <div class="background-dp-color">
+          <div class="media-body">
+            <span class="wrd-brk">
+                      <h5 style="margin-top: -4px;">
+                       <img src="../image/pp1.png" class="img-circle pp-image" width="38"/> {{userName | uppercase}}
+                     </h5>
+                      <h6 class="media-heading" style="color:white;">{{mail}}</h6>
+                    </span>
+          </div>
+        </div>
+      </div>
+    </li><br>
+    <li class="">
+      <a href="" class="menu--link">
+        <i class="menu--icon  fas fa-user"></i>
+        <span class="menu--label">{{name}}</span>
+      </a>
+    </li>
+    <li class="">
+      <a href="" class="menu--link">
+        <i class="menu--icon fas fa-phone-volume"></i>
+        <span class="menu--label">{{mobile}}</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="wrapper" style="margin-top:50px;">
+  <section>
+    <!-- ___________________DASHBOARD_____________________ -->
+    <div class="company-dashboard">
+      <div class="title-baar">
+        <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">home</a>
+        <!-- <h9><a href="" class="typewrite text-center" data-period="2000" data-type='[ "Welcome..", "We are happy to work with you.."]'>
+          <span class="wrap"></span>
+        </a></h9> -->
+      </h5></div><br>
+      <ul class="nav">
+        <form><br>
+          <input type="text" ng-model="search1" class="searchNew" name="search" placeholder="Search...">
+        </form>
+
+        <li ng-repeat="cpny in companies | filter:search1">
+          <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
+            <md-content class="md-padding" layout-xs="column" layout="row">
+              <div flex-xs flex-gt-xs="100" layout="column">
+
+                <md-card>
+                  <a class="b-clr font" href="#/dashboard/company/{{cpny.id}}">
+                    <div class="company-dp">
+                      <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
+                    </div>
+                    <div class="title-name">
+                      <span class="c-card-name b-clr font">
+                                <i class="fas fa-users"></i> {{cpny.companyName | uppercase}}
+                                </span><br>
+                      <h6 class="b-clr font"><span class="text-center"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                    </div>
+                  </a>
+                </md-card>
+
+              </div>
+            </md-content>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+</div>

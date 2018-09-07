@@ -1,0 +1,2348 @@
+<header class="header clearfix" style="position:fixed">
+
+  <button type="button" id="toggleMenu" class="toggle_menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+  <div class="m-view">
+    <h1 style="color:white;">
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+  </div>
+  <div class="pull-right" ng-if="dashboardSingOutBool=true">
+    <div class="dropdown notificationDropDown" ng-if="dashboardSingOutBool" data-ng-controller="DashboardController">
+
+      <div class="dropdown">
+        <div class="dropbtn">
+          <notification-icon update-animation="grow" count="">
+            <img src="image/pp1.png" class="img-circle pp-image-header" width="40" height="" />
+          </notification-icon>
+        </div>
+        <div class="dropdown-content">
+
+          <a href="" data-toggle="popover" data-trigger="hover" data-content="Some content"><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+          <a ng-click="signOut()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="vertical_nav">
+
+  <ul id="js-menu" class="menu">
+    <li>
+      <div class="background-dp">
+        <div class="background-dp-color">
+          <div class="media-body">
+            <span class="wrd-brk">
+                   <h5 style="margin-top: -2px;">
+                   <img src="../image/pp1.png" class="img-circle pp-image" width="38"/>
+                  </i> {{userName | uppercase}}</h5>
+                   <h6 class="media-heading" style="color:white;">{{mail}}</h6>
+                 </span>
+          </div>
+        </div>
+      </div>
+    </li><br>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('requirementsBool')" class="menu--link">
+        <i class="menu--icon fas fa-tasks" aria-hidden="true"></i>
+        <span class="menu--label">Requirements</span>
+      </a>
+    </li>
+    <li class="menu--item" ng-if="breakfast_active">
+      <a href="" ng-click="boolFunction('bBool')" class="menu--link">
+        <i class="menu--icon fas fa-utensils" aria-hidden="true"></i>
+        <span class="menu--label">Breakfast</span>
+      </a>
+    </li>
+    <li class="menu--item" ng-if="lunch_active">
+      <a href="" ng-click="boolFunction('lBool')" class="menu--link">
+        <i class="menu--icon fas fa-utensils" aria-hidden="true"></i>
+        <span class="menu--label">Lunch</span>
+      </a>
+    </li>
+    <li class="menu--item" ng-if="snacks_active">
+      <a href="" ng-click="boolFunction('sBool')" class="menu--link">
+        <i class="menu--icon fas fa-utensils" aria-hidden="true"></i>
+        <span class="menu--label">Snacks</span>
+      </a>
+    </li>
+    <li class="menu--item" ng-if="dinner_active">
+      <a href="" ng-click="boolFunction('dBool')" class="menu--link">
+        <i class="menu--icon fas fa-utensils" aria-hidden="true"></i>
+        <span class="menu--label">Dinner</span>
+      </a>
+    </li>
+    <li class="menu--item dropdown position" ng-if="cashNCarry_active">
+      <span class="menu--link">
+        <a class="menu--link"><i class="menu--icon fab fa-cuttlefish"></i>
+        <span class="menu--label dropbtn">Cash N Carry <i class="fa fa-caret-down"></i></span></a>
+      <div class="dropdown-content pos-c">
+        <a href="#/dashboard/company/{{cId}}/monday">Monday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+        <a href="#/dashboard/company/{{cId}}/tuesday">Tuesday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+        <a href="#/dashboard/company/{{cId}}/wednesday">Wednesday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+        <a href="#/dashboard/company/{{cId}}/thursday">Thursday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+        <a href="#/dashboard/company/{{cId}}/friday">Friday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+        <a href="#/dashboard/company/{{cId}}/saturday">Saturday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+        <a href="#/dashboard/company/{{cId}}/sunday">Sunday<span class="icon-cNc"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
+      </div>
+      </span>
+    </li>
+    <!-- <li class="menu--item" ng-if="cashNCarry_active">
+      <a href="" ng-click="enableBillingBool()" class="menu--link">
+        <i class="menu--icon far fa-money-bill-alt" aria-hidden="true"></i>
+        <span class="menu--label">Cash N Carry Billing</span>
+      </a>
+    </li>-->
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('feedbackBool')" class="menu--link">
+        <i class="menu--icon fas fa-street-view"></i>
+        <span class="menu--label">Feedback</span>
+      </a>
+    </li>
+    <br><br>
+    <!-- <li class="">
+      <a href="" ng-click="" class="">
+        <span class="menu--label"><h5 class="text-center"><i class="far fa-clock"></i> {{finalDay}} <span> {{date | date:'dd, MMM yyyy'}}</span></h5></span>
+      </a>
+    </li> -->
+  </ul>
+</nav>
+
+<div class="wrapper" style="margin-top:50px;">
+  <section>
+    <!--.................SECTION...................-->
+    <div class="company-dashboard" ng-if="billingBool">
+      <div class="title-baar">
+        <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/dashboard">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+      <a class="w-clr" href="">cash n carry billing</a></h5>
+      </div><br><br>
+      <div style="background-color:pink; min-height:500px;"></div>
+    </div>
+
+    <div class="company-dashboard" ng-if="feedbackBool">
+
+      <!-- Employee Feedback -->
+      <!-- <div class="company-dashboard" style="background-color:white;"> -->
+
+        <div class="title-baar">
+          <h5><a href="#!/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/admin"> home</a> <a class="w-clr">/</a> <a href="#!/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a> <a href="" class="w-clr">employee feedback</a></h5>
+        </div><br><br><br>
+        <div class="container">
+
+        <table class="table table-hover" style="background-color:white;">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Overall Rating</th>
+              <th>Presentation Rating</th>
+              <th>Quality Rating</th>
+              <th>Quantity Rating</th>
+              <th>Taste Rating</th>
+              <th>Contact</th>
+              <th>Comment</th>
+              <th>Menu</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="feed in feedback.slice().reverse()">
+              <td>{{feed.reviewerName}}</td>
+              <td>{{feed.overAllRating}}</td>
+              <td>{{feed.presentationRating}}</td>
+              <td>{{feed.qualityRating}}</td>
+              <td>{{feed.quantityRating}}</td>
+              <td>{{feed.tasteRating}}</td>
+              <td>{{feed.mobile}}</td>
+              <td>
+                <!-- <a data-toggle="popover" title="{{feed.comment}}" data-content="Some content inside the popover">
+                  <i class="fa fa-commenting fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
+                  <ul class="nav nav-pills nav-stacked">
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="far fa-comment-alt fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
+                      <div class="dropdown-menu">
+                        <h6 class="comment-padd">{{feed.comment}}
+                        </h6>
+                      </div>
+                    </li>
+                  </ul>
+              </td>
+              <td>
+                <!-- <a data-toggle="popover" title="{{feed.reviewedMenu}}" data-content="Some content inside the popover"><i class="fa fa-comments-o fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fas fa-utensils fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu">
+                      <h6 class="comment-padd">{{feed.reviewedMenu}}
+                      </h6>
+                    </div>
+                  </li>
+                </ul>
+              </td>
+              <td>{{feed.createdAt}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- </div> -->
+      <!--feedback end-->
+    </div>
+
+    <!-- cash and carry start -->
+    <div class="company-dashboard" ng-if="cashAndCarryBool">
+      <div class="title-baar">
+        <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/dashboard">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+      <a class="w-clr" href="">cash & carry</a></h5>
+      </div><br><br>
+
+      <!-- Angular Material Design Start-->
+      <div ng-cloak>
+        <md-content>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ng-repeat="x in daysss track by $id(x)" label="{{x}}" ng-click="callMe(x)">
+              <!-- <md-tab label="monday"> -->
+              <md-content class="md-padding">
+                <div class="menuSection">
+                  <script type="text/ng-template" id="nodes_renderer.html">
+                    <div>
+                      <br>
+                      <a class="btn btn-clear btn-xs" ng-if="node.menuNodes.length>0" ng-click="expandNode(this,$event)">
+                        <!--data-ng-show="item.items.length"-->
+                        <i class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></i>
+                      </a>
+
+                      <div class='form-group'>
+                        <input class='form-control' placeholder='Menu Heading / Menu / Sub-Menu' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+                      </div>
+
+                      <div ng-if="$parentNodeScope">
+                        <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</lebel>
+                              <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+                              <div ng-if="node.isFoodItem">
+                                  <label class="menu-label">is Veg:</label>
+                        <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg" />
+                        <br>
+                        <label class="menu-label">is Non-Veg:</label>
+                        <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg" />
+                        <br>
+                        <label class="menu-label">is Egg Item:</label>
+                        <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="egg" />
+                        <br>
+                        <label class="menu-label">Price:
+                                  <input type="number" class='form-control' ng-disabled="node.isInserted" ng-model='node.price' focus>
+                                  </label>
+                        <br>
+                        <label class="menu-label">Menu Item:
+                                      <input class='form-control' ng-disabled="node.isInserted" ng-model='node.description' focus>
+                                  </label>
+                      </div>
+                    </div>
+                    <!-- <button class='btn btn-primary' ng-click='addsection($nodes,$index)'>{{}}</button> -->
+                    <input type="submit" class="btn btn-danger" value="Add Menu" ng-click="addsection($nodes,$index)">
+                    <input type="submit" ng-if="!node.isFoodItem" class="btn btn-danger" value="Add Sub-menu" ng-click="addchild(node)">
+                    <input type="submit" ng-if="!node.id" class="btn btn-danger" value="Save" ng-click="saveInDb(node, x)">
+                    <input type="submit" ng-if="node.isInserted" class="btn btn-danger" value="Edit" ng-click="node.isInserted=false">
+                    <input type="submit" ng-if="(node.id) && (!node.isInserted)" class="btn btn-danger" value="Update" ng-click="updateMenu(node)">
+                    <input type="submit" ng-if="node.isInserted" class="btn btn-danger" value="Remove" ng-click="deleteNode(node, x)">
+
+                </div>
+                <ul ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: collapsed,displayed:!collapsed}">
+                  <li ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
+                  </li>
+                </ul>
+                </script>
+                <div ui-tree>
+                  <ul ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
+                    <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                  </ul>
+                </div>
+
+      </div>
+      <div class="menuPreview"></div>
+      </md-content>
+      </md-tab>
+      </md-tabs>
+      </md-content>
+    </div>
+    <!-- Angular Material Design End -->
+
+
+</div>
+<!-- cash & carry end -->
+
+<!-- breakfast -->
+<div class="company-dashboard" ng-if="bBool">
+  <div class="title-baar">
+    <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/dashboard">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+      <a class="w-clr" href="">breakfast</a></h5>
+  </div><br><br>
+  <!--++++++++++++++++++++++ aaa ++++++++++++++++++  -->
+  <div class="container">
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <!----------------------------------------------------------------------  -->
+          <!-- <md-tab label="breakfast">
+                          <md-content class="md-padding">
+                            <md-content>
+                              <md-tabs md-dynamic-height md-border-bottom> -->
+          <!--<<<<<<<<<<<<<<<<<<       md-tabs   >>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <md-tab label="Monday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in mon_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in mon_reqqq" ng-if="!check.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in mon_reqqq" ng-if="check.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewMondayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <!-- <th><span class="rmv"><a ng-click="removeMondayBreakfast()"><i class="fas fa-trash" aria-hidden="true"></i></a></span></th> -->
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_monday in mondayMenuBreakfast track by $index">
+                                <td>
+                                  <!-- <md-checkbox name="check" ng-model="breakfast_monday.selected"></md-checkbox> -->
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_monday,type[0],daysss[0])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                  <td>
+                                    <input type="text" class="form-control" ng-model="breakfast_monday.dishName" required/></td>
+                                  <td>
+                                    <input type="number" class="form-control" ng-model="breakfast_monday.dishCost" required/></td>
+                                  <td>
+                                    <input type="number" class="form-control" ng-model="breakfast_monday.dishQuantity" required/>
+                                  </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                          <div class="form-group">
+                            <button type="submit" ng-if="mondayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="mondayMenuBreakfast.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(mondayMenuBreakfast,type[0],daysss[0])">
+                            <input type="submit" ng-if="mondayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(mondayMenuBreakfast,type[0],daysss[0])">
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Tuesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in tue_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="t in tue_reqqq" ng-if="!t.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="t in tue_reqqq" ng-if="t.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewTuesdayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_tuesday in tuesdayMenuBreakfast">
+                                <td>
+                                  <!-- <input type="checkbox" ng-model="breakfast_tuesday.selected"/> -->
+                                  <!-- <md-checkbox name="check" ng-model="breakfast_tuesday.selected"></md-checkbox> -->
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_tuesday,type[0],daysss[1])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="breakfast_tuesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_tuesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_tuesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="tuesdayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="tuesdayMenuBreakfast.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(tuesdayMenuBreakfast,type[0],daysss[1])">
+                            <!--ng-if="!buttonBool" -->
+                            <input type="submit" ng-if="tuesdayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(tuesdayMenuBreakfast,type[0],daysss[1])">
+                            <!--ng-if="buttonBool" -->
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Wednesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in wed_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in wed_reqqq" ng-if="!check.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in wed_reqqq" ng-if="check.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewWednesdayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_wednesday in wednesdayMenuBreakfast">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_wednesday,type[0],daysss[2])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="breakfast_wednesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_wednesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_wednesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="wednesdayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="wednesdayMenuBreakfast.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(wednesdayMenuBreakfast,type[0],daysss[2])">
+                            <input type="submit" ng-if="wednesdayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(wednesdayMenuBreakfast,type[0],daysss[2])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Thursday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in thu_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in thu_reqqq" ng-if="!check.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in thu_reqqq" ng-if="check.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewThursdayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_thursday in thursdayMenuBreakfast">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_thursday,type[0],daysss[3])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="breakfast_thursday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_thursday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_thursday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="thursdayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="thursdayMenuBreakfast.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(thursdayMenuBreakfast,type[0],daysss[3])">
+                            <input type="submit" ng-if="thursdayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(thursdayMenuBreakfast,type[0],daysss[3])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Friday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in fri_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in fri_reqqq" ng-if="!check.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in fri_reqqq" ng-if="check.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewFridayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_friday in fridayMenuBreakfast">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_friday,type[0],daysss[4])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="breakfast_friday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_friday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_friday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="fridayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="fridayMenuBreakfast.length<1" class="btn btn-mybtn" value="Save" ng-click="saveMenu(fridayMenuBreakfast,type[0],daysss[4])">
+                            <input type="submit" ng-if="fridayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(fridayMenuBreakfast,type[0],daysss[4])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Saturday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sat_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sat_reqqq" ng-if="!check.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sat_reqqq" ng-if="check.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSaturdayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_saturday in saturdayMenuBreakfast">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_saturday,type[0],daysss[5])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                  <td>
+                                    <input type="text" class="form-control" ng-model="breakfast_saturday.dishName" required/></td>
+                                  <td>
+                                    <input type="number" class="form-control" ng-model="breakfast_saturday.dishCost" required/></td>
+                                  <td>
+                                    <input type="number" class="form-control" ng-model="breakfast_saturday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="saturdayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="saturdayMenuBreakfast.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(saturdayMenuBreakfast,type[0],daysss[5])">
+                            <input type="submit" ng-if="saturdayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(saturdayMenuBreakfast,type[0],daysss[5])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Sunday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sun_reqqq">
+                    <td>{{req.breakfast}}</td>
+                    <td>{{req.breakfastPrice}}</td>
+                    <td>Rs {{req.breakfast*req.breakfastPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sun_reqqq" ng-if="!check.breakfast" style="color:#88888c;">
+                  There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sun_reqqq" ng-if="check.breakfast">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSundayBreakfast()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="breakfast_sunday in sundayMenuBreakfast">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,breakfast_sunday,type[0],daysss[6])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="breakfast_sunday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_sunday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="breakfast_sunday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="sundayMenuBreakfast.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="sundayMenuBreakfast.length<1" class="btn btn-mybtn" value="Save" ng-click="saveMenu(sundayMenuBreakfast,type[0],daysss[6])">
+                            <input type="submit" ng-if="sundayMenuBreakfast.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(sundayMenuBreakfast,type[0],daysss[6])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <!-- </md-tabs>
+                </md-content>
+              </md-content>
+            </md-tab> -->
+          <!------------------------------------------ Breakfast End ----------------------------------------------------------------  -->
+        </md-tabs>
+      </md-content>
+    </div>
+  </div>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+</div>
+<!-- end -->
+<!-- lunch -->
+<div class="company-dashboard" ng-if="lBool">
+  <div class="title-baar">
+    <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/dashboard">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+      <a class="w-clr" href="">lunch</a></h5>
+  </div><br><br>
+
+  <!--+++++++++++++++++++++++++++++++++++ bbb ++++++++++++++++++++++++++++++++++++++++++++++++  -->
+  <div class="container">
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <!------------------------------------------ Lunch Start -------------------------------------------------  -->
+          <!-- <md-tab label="lunch">
+                            <md-content class="md-padding">
+                              <md-content>
+                                <md-tabs md-dynamic-height md-border-bottom> -->
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <md-tab label="Monday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in mon_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in mon_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in mon_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewMondayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_monday in mondayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_monday,type[1],daysss[0])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_monday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_monday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_monday.dishQuantity" required/></td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                          <div class="form-group">
+                            <button type="submit" ng-if="mondayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="mondayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(mondayMenuLunch,type[1],daysss[0])">
+                            <input type="submit" ng-if="mondayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(mondayMenuLunch,type[1],daysss[0])">
+                          </div>
+                          <!-- <div class="form-group">
+                                             <input type="submit" class="btn btn-success" value="Save" ng-click="saveMenu(mondayMenuLunch,type[1],daysss[0])">
+                                             <input type="submit" class="btn btn-info" value="Update" ng-click="updateVendorMenu(mondayMenuLunch,type[1],daysss[0])">
+                                                 <input ng-hide="lunch_monday.length" type="button" class="btn btn-danger pull-right" ng-click="removeMondayLunch()" value="Remove">
+                                                 <input type="submit" class="btn btn-primary addnew pull-right" value="Add New">
+                                             </div> -->
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Tuesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in tue_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in tue_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in tue_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewTuesdayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_tuesday in tuesdayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_tuesday,type[1],daysss[1])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_tuesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_tuesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_tuesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="form-group">
+                            <button type="submit" ng-if="tuesdayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="tuesdayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(tuesdayMenuLunch,type[1],daysss[1])">
+                            <input type="submit" ng-if="tuesdayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(tuesdayMenuLunch,type[1],daysss[1])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Wednesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in wed_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in wed_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in wed_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewWednesdayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_wednesday in wednesdayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_wednesday,type[1],daysss[2])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_wednesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_wednesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_wednesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="wednesdayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="wednesdayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(wednesdayMenuLunch,type[1],daysss[2])">
+                            <input type="submit" ng-if="wednesdayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(wednesdayMenuLunch,type[1],daysss[2])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Thursday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in thu_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in thu_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in thu_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewThursdayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_thursday in thursdayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_thursday,type[1],daysss[3])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_thursday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_thursday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_thursday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="thursdayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="thursdayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(thursdayMenuLunch,type[1],daysss[3])">
+                            <input type="submit" ng-if="thursdayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(thursdayMenuLunch,type[1],daysss[3])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Friday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in fri_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in fri_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in fri_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewFridayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_friday in fridayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_friday,type[1],daysss[4])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_friday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_friday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_friday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="fridayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="fridayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(fridayMenuLunch,type[1],daysss[4])">
+                            <input type="submit" ng-if="fridayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(fridayMenuLunch,type[1],daysss[4])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Saturday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sat_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sat_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sat_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSaturdayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_saturday in saturdayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_saturday,type[1],daysss[5])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_saturday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_saturday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_saturday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="saturdayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="saturdayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(saturdayMenuLunch,type[1],daysss[5])">
+                            <input type="submit" ng-if="saturdayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(saturdayMenuLunch,type[1],daysss[5])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Sunday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sun_reqqq">
+                    <td>{{req.lunch}}</td>
+                    <td>{{req.lunchPrice}}</td>
+                    <td>Rs {{req.lunch*req.lunchPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sun_reqqq" ng-if="!check.lunch" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sun_reqqq" ng-if="check.lunch">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSundayLunch()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_sunday in sundayMenuLunch">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_sunday,type[1],daysss[6])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_sunday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_sunday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_sunday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="sundayMenuLunch.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="sundayMenuLunch.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(sundayMenuLunch,type[1],daysss[6])">
+                            <input type="submit" ng-if="sundayMenuLunch.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(sundayMenuLunch,type[1],daysss[6])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <!-- </md-tabs>
+                  </md-content>
+                </md-content>
+              </md-tab> -->
+          <!------------------------------------------ LUNCH END ----------------------------------------------------------------  -->
+        </md-tabs>
+      </md-content>
+    </div>
+  </div>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+</div>
+<!-- end -->
+<!-- lunch -->
+<div class="company-dashboard" ng-if="sBool">
+  <div class="title-baar">
+    <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/dashboard">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+      <a class="w-clr" href="">snacks</a></h5>
+  </div><br><br>
+
+  <!--++++++++++++++++++++++++++++++++++++ ccc +++++++++++++++++++++++++++++++++++++++++++++++  -->
+  <div class="container">
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <!------------------------------------------ Snacks Start -------------------------------------------------  -->
+          <!-- <md-tab label="snacks">
+                            <md-content class="md-padding">
+                              <md-content>
+                                <md-tabs md-dynamic-height md-border-bottom> -->
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <md-tab label="Monday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in mon_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in mon_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in mon_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewMondaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_monday in mondayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_monday,type[2],daysss[0])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_monday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_monday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_monday.dishQuantity" required/></td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="mondayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="mondayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(mondayMenuSnacks,type[2],daysss[0])">
+                            <input type="submit" ng-if="mondayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(mondayMenuSnacks,type[2],daysss[0])">
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Tuesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in tue_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in tue_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in tue_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewTuesdaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_tuesday in tuesdayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_monday,type[2],daysss[1])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_tuesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_tuesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_tuesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="tuesdayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="tuesdayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(tuesdayMenuSnacks,type[2],daysss[1])">
+                            <input type="submit" ng-if="tuesdayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(tuesdayMenuSnacks,type[2],daysss[1])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Wednesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in wed_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in wed_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in wed_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewWednesdaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_wednesday in wednesdayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_wednesday,type[2],daysss[2])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_wednesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_wednesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_wednesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="wednesdayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="wednesdayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(wednesdayMenuSnacks,type[2],daysss[2])">
+                            <input type="submit" ng-if="wednesdayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(wednesdayMenuSnacks,type[2],daysss[2])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Thursday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in thu_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in thu_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in thu_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewThursdaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_thursday in thursdayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_thursday,type[2],daysss[3])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_thursday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_thursday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_thursday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="thursdayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="thursdayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(thursdayMenuSnacks,type[2],daysss[3])">
+                            <input type="submit" ng-if="thursdayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(thursdayMenuSnacks,type[2],daysss[3])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Friday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in fri_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in fri_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in fri_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewFridaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_friday in fridayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_friday,type[2],daysss[4])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_friday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_friday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_friday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="fridayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="fridayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(fridayMenuSnacks,type[2],daysss[4])">
+                            <input type="submit" ng-if="fridayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(fridayMenuSnacks,type[2],daysss[4])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Saturday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sat_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sat_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sat_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSaturdaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_saturday in saturdayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_saturday,type[2],daysss[5])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_saturday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_saturday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_saturday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="saturdayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="saturdayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(saturdayMenuSnacks,type[2],daysss[5])">
+                            <input type="submit" ng-if="saturdayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(saturdayMenuSnacks,type[2],daysss[5])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Sunday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sun_reqqq">
+                    <td>{{req.snacks}}</td>
+                    <td>{{req.snacksPrice}}</td>
+                    <td>Rs {{req.snacks*req.snacksPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sun_reqqq" ng-if="!check.snacks" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sun_reqqq" ng-if="check.snacks">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSundaySnacks()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_sunday in sundayMenuSnacks">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_sunday,type[2],daysss[6])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_sunday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_sunday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_sunday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="sundayMenuSnacks.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="sundayMenuSnacks.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(sundayMenuSnacks,type[2],daysss[6])">
+                            <input type="submit" ng-if="sundayMenuSnacks.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(sundayMenuSnacks,type[2],daysss[6])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <!-- </md-tabs>
+                  </md-content>
+                </md-content>
+              </md-tab> -->
+          <!------------------------------------------ SNACKS END ------------------------------------- -->
+        </md-tabs>
+      </md-content>
+    </div>
+  </div>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+</div>
+<!-- end -->
+<!-- Dinner -->
+<div class="company-dashboard" ng-if="dBool">
+  <div class="title-baar">
+    <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/dashboard">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+      <a class="w-clr" href="">dinner</a></h5>
+  </div><br><br>
+
+  <!--+++++++++++++++++++++++++++++++++++ ddd ++++++++++++++++++++++++++++++++++++++++++++++++  -->
+  <div class="container">
+    <div ng-cloak>
+      <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <!------------------------------------------ dinner Start -------------------------------------------------  -->
+          <!-- <md-tab label="dinner">
+                            <md-content class="md-padding">
+                              <md-content>
+                                <md-tabs md-dynamic-height md-border-bottom> -->
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <md-tab label="Monday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in mon_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in mon_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in mon_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewMondayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_monday in mondayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_monday,type[3],daysss[0])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_monday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_monday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_monday.dishQuantity" required/></td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="mondayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="mondayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(mondayMenuDinner,type[3],daysss[0])">
+                            <input type="submit" ng-if="mondayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(mondayMenuDinner,type[3],daysss[0])">
+                          </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Tuesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in tue_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in tue_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in tue_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewTuesdayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_tuesday in tuesdayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_tuesday,type[3],daysss[1])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_tuesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_tuesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_tuesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="tuesdayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="tuesdayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(tuesdayMenuDinner,type[3],daysss[1])">
+                            <input type="submit" ng-if="tuesdayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(tuesdayMenuDinner,type[3],daysss[1])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Wednesday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in wed_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in wed_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in wed_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewWednesdayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_wednesday in wednesdayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_wednesday,type[3],daysss[2])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_wednesday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_wednesday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_wednesday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="wednesdayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="wednesdayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(wednesdayMenuDinner,type[3],daysss[2])">
+                            <input type="submit" ng-if="wednesdayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(wednesdayMenuDinner,type[3],daysss[2])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Thursday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in thu_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in thu_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in thu_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewThursdayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_thursday in thursdayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_thursday,type[3],daysss[3])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_thursday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_thursday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_thursday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="thursdayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="thursdayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(thursdayMenuDinner,type[3],daysss[3])">
+                            <input type="submit" ng-if="thursdayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(thursdayMenuDinner,type[3],daysss[3])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Friday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in fri_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in fri_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in fri_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewFridayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_friday in fridayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_friday,type[3],daysss[4])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_friday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_friday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_friday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="fridayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="fridayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(fridayMenuDinner,type[3],daysss[4])">
+                            <input type="submit" ng-if="fridayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(fridayMenuDinner,type[3],daysss[4])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Saturday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sat_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sat_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sat_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSaturdayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_saturday in saturdayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_saturday,type[3],daysss[5])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_saturday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_saturday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_saturday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="saturdayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="saturdayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(saturdayMenuDinner,type[3],daysss[5])">
+                            <input type="submit" ng-if="saturdayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(saturdayMenuDinner,type[3],daysss[5])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Sunday">
+            <md-content class="md-padding">
+              <br>
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>Number of Person</th>
+                    <th>Price / Person</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="req in sun_reqqq">
+                    <td>{{req.dinner}}</td>
+                    <td>{{req.dinnerPrice}}</td>
+                    <td>Rs {{req.dinner*req.dinnerPrice}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <h3 ng-repeat="check in sun_reqqq" ng-if="!check.dinner" style="color:#88888c;">
+                    There is no requirement for this day!!</h3>
+              <div class="container" ng-repeat="check in sun_reqqq" ng-if="check.dinner">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <form ng-submit="addNewSundayDinner()">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Menu</th>
+                                <th>Cost</th>
+                                <th>Quantity</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr ng-repeat="lunch_sunday in sundayMenuDinner">
+                                <td>
+                                  <span class="rmv"><a ng-click="deleteVendorMenu($index,lunch_sunday,type[3],daysss[6])"><i class="fas fa-trash" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" ng-model="lunch_sunday.dishName" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_sunday.dishCost" required/></td>
+                                <td>
+                                  <input type="number" class="form-control" ng-model="lunch_sunday.dishQuantity" required/></td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="form-group">
+                            <button type="submit" ng-if="sundayMenuDinner.length>=1" class="btn btn-danger pull-right"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            <input type="submit" ng-if="sundayMenuDinner.length<1" class="btn btn-mybtn" value="Add Menu" ng-click="saveMenu(mondayMenuDinner,type[3],daysss[6])">
+                            <input type="submit" ng-if="sundayMenuDinner.length>=1" class="btn btn-mybtn" value="Update" ng-click="updateVendorMenu(mondayMenuDinner,type[3],daysss[6])">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </md-content>
+          </md-tab>
+
+          <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             md-tabs       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <!-- </md-tabs>
+                  </md-content>
+                </md-content>
+              </md-tab> -->
+          <!------------------------------------------ Dinner END ----------------------------------------------------------------  -->
+        </md-tabs>
+      </md-content>
+    </div>
+  </div>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+</div>
+<!-- end -->
+
+<!-- Requirements start -->
+<div class="company-dashboard" ng-if="requirementsBool">
+  <div class="title-baar">
+    <h5><a href="#!/dashboard"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#!/dashboard"> home</a> <a class="w-clr">/</a> <a class="w-clr" href="">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+           <a class="w-clr" href="">requirements</a></h5>
+  </div><br><br>
+
+  <div class="container">
+    <!-- Excel shit start-->
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Breakfast (no. of employee)</th>
+          <th>Lunch (no. of employee)</th>
+          <th>Snacks (no. of employee)</th>
+          <th>Dinner (no. of employee)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="reqObj in companyRequirements">
+          <td>{{reqObj.dayName}}</td>
+          <td>{{reqObj.breakfast}}</td>
+          <td>{{reqObj.lunch}}</td>
+          <td>{{reqObj.snacks}}</td>
+          <td>{{reqObj.dinner}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Excel shit end-->
+    <!-- Angular Material Design -->
+    <div ng-cloak>
+      <md-content ng-if="false">
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab ng-repeat="reqObj in companyRequirements" label="{{reqObj.dayName}}">
+            <md-content class="md-padding">
+              <table class="table" style="margin-top:25px;">
+                <tr>
+                  <th>Day</th>
+                  <th>Number of Person</th>
+                  <th>Price/Person</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Breakfast</td>
+                  <td>{{reqObj.breakfast}}</td>
+                  <td>{{reqObj.breakfastPrice}}</td>
+                </tr>
+                <tr>
+                  <td>Lunch</td>
+                  <td>{{reqObj.lunch}}</td>
+                  <td>{{reqObj.lunchPrice}}</td>
+                </tr>
+                <tr>
+                  <td>Snacks</td>
+                  <td>{{reqObj.snacks}}</td>
+                  <td>{{reqObj.snacksPrice}}</td>
+                </tr>
+                <tr>
+                  <td>Dinner</td>
+                  <td>{{reqObj.dinner}}</td>
+                  <td>{{reqObj.dinnerPrice}}</td>
+                </tr>
+
+              </table>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+    </div>
+
+  </div>
+
+</div>
+<!-- end -->
+
+<!-- CONTENT END -->
+</section>
+
+</div>

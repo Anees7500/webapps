@@ -1,0 +1,49 @@
+<div class="signup-body">
+  <div class="signup">
+      <form role="form" name="signupForm">
+          <div class="form-group-login">
+              <label for="label">Name</label>
+              <br>
+              <input type="text" placeholder="Enter name" name="name" class="form-control" required ng-model="user.name">
+
+              <br>
+              <label for="label">Username</label>
+              <br>
+              <input type="text" placeholder="Enter username" name="username" style="color:black;" class="form-control" username-available required ng-model="user.username">
+              <div ng-if="signupForm.$pending.usernameExists">checking....</div>
+              <div ng-if="signupForm.$error.usernameExists">username exists already</div>
+
+              <br>
+              <label for="label">Email</label>
+              <br>
+              <input type="email" name="email" email-available placeholder="Enter email address" style="color:black;" class="form-control" required ng-model="user.email">
+              <div ng-if="signupForm.$pending.emailExists">checking....</div>
+              <div ng-if="signupForm.$error.emailExists">email already registered</div>
+              <span class="error" ng-if="signupForm.$error.email">Not valid email!</span>
+
+              <br>
+              <label for="label">Mobile Number</label>
+              <br>
+              <input type="number" name="mobile" placeholder="Enter mobile number" mobilenumber-available ng-minlength="10" style="color:black;" ng-maxlength="10" class="form-control" required ng-model="user.mobile">
+              <div ng-if="signupForm.$pending.mobilenumberExists">checking....</div>
+              <div ng-if="signupForm.$error.mobilenumberExists">number already registered</div>
+              <span class="error" ng-if="(signupForm.mobile.$error.minlength || signupForm.mobile.$error.maxlength)">Not valid Mobile number!</span>
+
+              <br>
+              <label for="label">Password</label>
+              <br>
+              <input type="password" name="password" style="color:black;" placeholder="password" id="password1" ng-minlength="5" ng-pattern="" class="form-control" required ng-model="user.password">
+              <span class="error" ng-if="(signupForm.password.$error.minlength)">Password length should be at least 5 characters </span>
+
+              <br>
+
+              <label for="label">Retype Password</label>
+              <br>
+              <input type="password" placeholder="password" id="password2" style="color:black;" class="form-control" pw-check="user.password" required ng-model="user.retypepassword">
+              <div ng-if="signupForm.$error.pwmatch">Passwords don't match</div>
+              <br>
+          </div>
+          <button class="btn btn-default submit-button" type="submit" ng-click="signup(user)">Submit</button>
+      </form>
+  </div>
+</div>

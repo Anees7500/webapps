@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fancymonk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css"> -->
+  <!-- <link rel="stylesheet" href="https://developers.google.com/maps/documentation/javascript/demos/demos.css"> -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">  no.1-->
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <!-- <link rel="stylesheet" href="src/bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
+    <script src="src/bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script> -->
+
+
+  <!-- <script src="app.js"></script> -->
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="minifiedfiles/main.css" />
+  <link rel="stylesheet" href="components.css" />
+
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+  <!-- <script type="text/javascript" src="data.json"></script> -->
+  <!-- <script type="text/javascript" src="all.json"></script> -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+  <!-- <script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-aria/angular-aria.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.js"></script>
+	<script src="/bower_components/angular-material/angular-material.js"></script> -->
+  <!-- <link rel="stylesheet" href="sidebaar.css" /> -->
+  <!-- // <script src="sections/dashboard/dashboard.ctrl.js"></script>
+   // <script src="sections/confirmation/confirmation.ctrl.js"></script>
+   // <script src="sections/edit/edit.ctrl.js"></script>
+   // <script src="sections/addmenu/addmenu.js"></script>
+   // <script src="sections/addmenu/addmenu.ctrl.js"></script> -->
+  <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
+  <!-- <script src="sections/sidebaar/sidebaar.js"></script> -->
+  <!-- <script src="sections/admin/admin.js"></script>
+   <script src="sections/admin/admin.ctrl.js"></script>
+   <script src="sections/admin/admin.srv.js"></script>
+   <script src="sections/company/company.js"></script>
+   <script src="sections/company/company.ctrl.js"></script>
+   <script src="sections/company/company.srv.js"></script>
+   <script src="sections/signup/signup.ctrl.js"></script>
+   <script src="sections/signup/signup.srv.js"></script>
+   <script src="sections/dashboard/dashboard.ctrl.js"></script>
+   <script src="sections/dashboard/dashboard.srv.js"></script>
+   <script src="sections/company_section/section.ctrl.js"></script>
+   <script src="sections/company_section/section.js"></script>
+   <script src="config.js"></script>-->
+
+
+  <!-- <link rel="stylesheet" type="text/css" href="./css/index.tpl.css">
+    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/signup.css"> -->
+  <!-- <link rel="stylesheet" href="sections/sidebaar/sidebaar.css" />
+    <link rel="stylesheet" href="sections/admin/admin.css" />
+    <link rel="stylesheet" href="sections/company_section/section.css" />
+    <link rel="stylesheet" href="sections/company/company.css" /> -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6-D4VbOvU42m61RtXKBinxf_bZGPU8zk&libraries=places"></script>
+  <!-- <script src = "https://maps.googleapis.com/maps/api/js"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6-D4VbOvU42m61RtXKBinxf_bZGPU8zk&callback=initMap" async defer></script> -->
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6-D4VbOvU42m61RtXKBinxf_bZGPU8zk&callback=initMap"></script> -->
+<style>
+/*html,body{overflow-y: scroll; }*/
+body {
+  position: static;
+  overflow: auto;
+  background-color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+</style>
+</head>
+<!-- <script src="bower_components/angular/angular.min.js"></script> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script> -->
+
+<body ng-app="vmApp">
+
+  <!-- <div ng-if="adminSignOutBool || dashboardSingOutBool">
+  <header class="header clearfix" style="position:fixed">
+
+      <button type="button" id="toggleMenu" class="toggle_menu">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div class="m-view"><h1 style="color:white;">
+        <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+      </div>
+            <div class="pull-right" ng-if="adminSignOutBool">
+                  <div class="dropdown notificationDropDown" data-ng-controller="AdminController">
+                    <div class="dropdown">
+                      <div class="dropbtn">
+                        <notification-icon update-animation="grow" count="">
+                          <img src="../image/pp1.png" class="img-circle pp-image-header" width="40"/>
+                        </notification-icon>
+                      </div>
+                      <div class="dropdown-content">
+                        <a href=""><i style="color:black;" class="fa fa-yelp"> </i> Help</a>
+                        <a href=""><i style="color:black;" class="fa fa-cog"> </i> Setting</a>
+                        <a ng-click="signOutAdmin()"><i style="color:black;" class="fa fa-sign-out"> </i> Sign out</a>
+                      </div>
+                    </div>
+                  </div>
+             </div>
+             <div class="pull-right" ng-if="dashboardSingOutBool">
+                  <div class="dropdown notificationDropDown" ng-if="dashboardSingOutBool" data-ng-controller="DashboardController">
+
+                    <div class="dropdown">
+                      <div class="dropbtn">
+                      <notification-icon update-animation="grow" count="">
+                          <img src="image/pp1.png" class="img-circle pp-image-header" width="40" height=""/>
+                      </notification-icon>
+                    </div>
+                    <div class="dropdown-content">
+
+                      <a href="" data-toggle="popover" data-trigger="hover" data-content="Some content"><i style="color:black;" class="fa fa-yelp"> </i> Help</a>
+                      <a ng-click="signOut()"><i style="color:black;" class="fa fa-sign-out"> </i> Sign out</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+  </header>
+</div> -->
+
+  <section id="main">
+    <div class="container">
+      <ng-view>
+      </ng-view>
+    </div>
+  </section>
+
+  <!-- <script src="bower_components/angular/angular.js"></script> -->
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script> -->
+  <!-- <script src="bower_components/angular/angular.min.js"></script> -->
+  <!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
+  <script src="components.min.js"></script>
+  <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+  <script src="http://pubnub.github.io/angular-js/scripts/pubnub-angular.js"></script>
+  <!-- <script src="bower_components/angular-material/angular-material.js"></script> -->
+  <!-- <script src="concate-components.js"></script> -->
+  <script src="minifiedfiles/main.js"></script>
+  <script src="config.js"></script>
+  <script src="app.templates.js"></script>
+
+</body>
+
+</html>

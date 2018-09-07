@@ -1,0 +1,146 @@
+input[type=text].searchNewInv {
+    width: 89%;
+    box-sizing: border-box;
+    border: 1px solid rgb(64, 75, 87);
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    background-color: rgb(242, 243, 245);
+     background-image: url(../img/search.png);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 16px 10px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    background-position: left;
+    background-size: 17px 17px;
+    background-position-x: 9px;
+    z-index: 1;
+    margin: -65px 18px;
+}
+@media print {
+  .invoice-show {
+    visibility: visible;
+  }
+.print-hide{display: none;}
+.btn-cls{display: none;}
+.new-invoice-btn.btn-l{display: none;}
+  }
+.set{
+    width: 47%;
+    margin-left: 52%;
+}
+.btn-ent{
+  background-color:white;
+  color:#5bc0de;border: 1px solid #5bc0de;
+  padding:9px;
+}
+.printer{background-color:white; min-height:50px; padding:18px;}
+.printer-btn{background-color:white;padding:7px; color:#5bc0de;border: 1px solid #5bc0de;}
+.print-hide{background-color:#2f3740; min-height:100px;padding-left: 0px;padding-right: 0px;}
+.inv-details{background-color:#f2f3f5; min-height:100px; padding:10px 34px;}
+.product-details{background-color:white; min-height:50px;}
+.tax{margin-top: 55px;}
+.edit{background-color:white; min-height:50px;}
+.modal-footer{background-color: #d6dce0;}
+.btn-cls{
+  background-color: white;
+    /* padding: 7px; */
+    color: #5bc0de;
+    border-bottom: 1px solid #5bc0de;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.skip-cls{
+  background-color: #eeeeee;
+    border: 1px solid #eeeeee;
+    padding: 6px 16px;
+    color: #5bc0de;
+    letter-spacing: 1px;
+}
+input#text1 {
+    width: 48%;
+    padding: 8px;
+}
+input#text2 {
+    width: 20%;
+    padding: 8px;
+}
+input#text3 {
+    width: 20%;
+    padding: 8px;
+    text-align: right;
+}
+.navbar {
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+.navbar-inverse {
+    background-color: #336399;
+    border-color: #336399;
+}
+a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #404b57;
+}
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+.list-group {
+    margin-bottom: 0px;
+}
+a.list-group-item.ng-binding{
+    /*background-color: #2f3740;*/
+    background-color: white;
+    color: #6c7684;
+    border-radius: 0px;
+    border-style: none;
+    padding: 15px 30px;
+}
+a.list-group-item-new {
+    background-color: #2f3740;
+    color: #6c7684;
+    border-radius: 0px;
+    border-style: none;
+    padding: 14px 30px;
+    text-decoration: none;
+}
+a.list-group-item.ng-binding:hover{
+    /*background-color: rgb(64, 75, 87);*/
+    background-color: #f2f3f5;
+    /*color: white;*/
+    border-radius: 0px;
+    border-style: none;
+    padding: 15px 30px;
+}
+.mdl{
+    float: right;
+    margin-top: -70px;
+  }
+  .new-invoice-btn {
+    color: #fff;
+    background-color: #ff64a4;
+    border-color: #ff64a4;
+    border-radius: 50%;
+    padding: 10px 15px;
+    border-style: none;
+}
+.modal-content.ng-scope {
+    margin-top: 130px;
+}
+.dark-text{color:#6c7684}
+
+input.form-control.pincode {
+    width: 30%;
+}
+  body{background-color: #2f3740}
+  .inv-text{margin:12px 0px;}
+  .invoice-show{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+     background-color:white;
+     margin-bottom:40px;
+    min-height:480px;
+    padding:20px;
+  }

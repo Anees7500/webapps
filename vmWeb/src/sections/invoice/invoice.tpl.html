@@ -1,0 +1,150 @@
+<style>
+body{background-color: #f2f3f5;}
+.vertical_nav{width: 350px;}
+.wrapper {
+    margin-left: 350px;
+}
+</style>
+<header class="header clearfix" style="position:fixed">
+    <button type="button" id="toggleMenu" class="toggle_menu">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="m-view"><h1 style="color:white;">
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+    </div>
+          <div class="pull-right">
+                <div class="dropdown notificationDropDown" data-ng-controller="AdminController">
+                  <div class="dropdown">
+                    <div class="dropbtn">
+                      <notification-icon update-animation="grow" count="">
+                        <img src="../image/pp1.png" class="img-circle pp-image-header" width="40"/>
+                      </notification-icon>
+                    </div>
+                    <div class="dropdown-content">
+                      <a href=""><i style="color:black;" class="fa fa-yelp"> </i> Help</a>
+                      <a href=""><i style="color:black;" class="fa fa-cog"> </i> Setting</a>
+                      <a ng-click="signOutAdmin()"><i style="color:black;" class="fa fa-sign-out"> </i> Sign out</a>
+                    </div>
+                  </div>
+                </div>
+           </div>
+</header>
+
+<nav class="vertical_nav">
+  <form class="ng-pristine ng-valid"><br><br>
+  <input type="text" ng-model="search1" class="searchNewInv ng-pristine ng-valid ng-empty ng-touched" name="search" placeholder="Search..." aria-invalid="false" style="">
+</form>
+<br><br>
+
+  <ul id="js-menu" class="menu">
+      <div class="list-group" ng-repeat="data in invoice | filter:search1">
+        <li>
+          <a ng-click="callInvoice(data.invoiceNo)" class="list-group-item">INV. # {{data.invoiceNo}}
+            <span style="float:right;color:#6c7684;">{{data.time}}</span>
+            <br>{{data.item.length}}<br><span style="color:#7b8cea">{{data.userName}}</span>
+            <span style="float:right;"><i class="fas fa-rupee-sign" aria-hidden="true"></i> {{data.total | number : 2}}</span>
+          </a>
+        </li>
+      </div>
+  </ul>
+
+</nav>
+
+<div class="wrapper" style="margin-top:50px;">
+  <section>
+
+    <!-- <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2" style="min-height:50px; background-color:gray; text-align:center;" ng-if="data.breakfast"> -->
+      <md-button onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color:white;">Create New Invoice</md-button>
+    <!-- </div> -->
+
+    <div class="invoice-show">
+
+        <div class="row">
+          <div class="col-md-10" style="background-color:white; min-height:50px;">
+            <h5><b>Invoice</b><span class="dark-text" style="float:right;">CUSTOMER DETAILS</span></h5>
+            <h5><span class="dark-text"># INV-1120</span><span style="float:right;"><b>Liftop</b></span></h5>
+            <h6 class="dark-text">11:20 PM<span class="dark-text" style="float:right;">liftop@gmail.com</span></h6>
+          </div>
+            <div class="col-md-2 printer">
+              <!-- <button type="button" ng-click="print()" style="" class="printer-btn">PRINT -->
+                <!-- <img src="img/printer.png" alt="enter" height="18" width="18"></button> -->
+            </div>
+        </div>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="dark-text">Description</th>
+                  <th class="dark-text text-center">QUANTITY</th>
+                  <th class="dark-text text-center">UNIT PRICE - <i class="fa fa-inr" aria-hidden="true"></i></th>
+                  <th class="dark-text text-right">Total Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lunch</td>
+                  <td class="text-center">200</td>
+                  <td class="text-center">5000.00</td>
+                  <td class="text-right">5000.00</td>
+                </tr>
+                <tr>
+                  <td>Snacks</td>
+                  <td class="text-center">100</td>
+                  <td class="text-center">8000.00</td>
+                  <td class="text-right">2000.00</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="set">
+              <tbody>
+                  <tr>
+                    <td class="text-left">Sub Total</td>
+                    <td class="text-right"><i class="fas fa-rupee-sign" aria-hidden="true"></i> 3000</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Tax(9%)</td>
+                    <td class="text-right"><i class="fas fa-rupee-sign" aria-hidden="true"></i> 200.00</td>
+                  </tr>
+                  <tr>
+                    <td class="text-left">Discount(9%)</td>
+                    <td class="text-right"><i class="fas fa-rupee-sign" aria-hidden="true"></i> -100.00</td>
+                  </tr>
+                  <tr>
+                    <td><br></td>
+                  </tr>
+                  <tr>
+                    <td class="text-left"><b>Grand Total</b></td>
+                    <td class="text-right"><b><i class="fas fa-rupee-sign" aria-hidden="true"></i> 2500000.00</b></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+
+    <div id="id01" class="modal">
+      <form class="modal-content animate" style="margin:1% 32%;" action="/action_page.php">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        <h3 class="text-center">Vendor Assign For Breakfast</h2>
+        <div class="container">
+          <form>
+          <div style="padding:10px;">
+          <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+          </div>
+          </form>
+            <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
+               <ul class="nav">
+                <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
+                  <a ng-click="passVendorId(vendor.id,'breakfast');" href="" onclick="document.getElementById('id01').style.display='none'" class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
+                </li>
+               </ul>
+            </div>
+        </div>
+      </form>
+
+    </div>
+
+  </section>
+</div>
