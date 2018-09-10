@@ -848,8 +848,10 @@ button.btn.btn-primary {
 
 /* .company-dashboard {
 	/*display: inline-flex;*/
-} */
 
+}
+
+*/
 /* .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
@@ -2075,8 +2077,9 @@ body {
 	line-height: 1.42857143;
 	color: #333;
 }
-.box-headetop{
- background-color: #eee !important;
+
+.box-headetop {
+	background-color: #eee !important;
 }
 
 header {
@@ -2095,52 +2098,65 @@ header {
 	color: white;
 	box-shadow: rgba(0, 0, 0, 0.5) 0 -20px 20px 17px;
 }
-.navbar{
+
+.navbar {
 	overflow: hidden;
 	width: 100%;
 	position: fixed;
+	z-index: 1;
+	float: left;
 }
-.main-cont{ 
-	margin-top:115px;
-       
+
+.main-cont {
+	margin-top: 115px;
+
 }
-.navbar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: whitesmoke;
+
+.navbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: whitesmoke;
 	margin-top: 44px;
 }
+
 .navbar li {
-    float: left;
+	float: left;
 }
+
 .navbar li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 20px 26px;
-    text-decoration: none;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 20px 26px;
+	text-decoration: none;
+
 }
 
 .navbar li a:hover:not(.active) {
-    background-color:wheat;
-	
+	background-color: wheat;
+
 }
 
 .active {
-    background-color: indianred;
+	background-color: indianred;
+
 }
-.shopping-cart li{
-float:right;
-margin-right: 143px;
-font-size: 40px;
-margin-top: 10px;
+
+.shopping-cart li {
+	float: right;
+	margin-right: 178px;
+	font-size: 37px;
+	margin-top: 10px;
 }
-.boxheade{
+
+.boxheade {
 	z-index: -1;
 }
+
 /*--Plus button work--*/
+
 .qty .count {
 	color: #000;
 	display: inline-block;
@@ -2183,7 +2199,7 @@ div {
 }
 
 .minus:hover {
-	background-color:black !important;
+	background-color: black !important;
 }
 
 .plus:hover {
@@ -2191,10 +2207,12 @@ div {
 }
 
 /*Prevent text selection*/
+
 span {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+	float: left;
 }
 
 input {
@@ -2214,7 +2232,8 @@ input::-webkit-inner-spin-button {
 input:disabled {
 	background-color: white;
 }
-.zoom{
+
+.zoom {
 	position: absolute;
 	top: 50px;
 	right: 50%;
@@ -2222,11 +2241,20 @@ input:disabled {
 	opacity: 0;
 	animation: 1s ease forwards;
 }
-@keyframes zoom{
-	0%{opacity: 0;}
-	50% {opacity: 1;}
-    100%{opacity: 0; right: 40px;}
+
+@keyframes zoom {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		right: 40px;
+	}
 }
+
 header h1 {
 	margin: 0;
 	padding: 0 0px;
@@ -2248,7 +2276,9 @@ header h1 {
 	display: block;
 	clear: both;
 }
+
 /*--- Cart pop box part---*/
+
 .badge-notify {
 	background: red;
 	position: relative;
@@ -2260,8 +2290,10 @@ header h1 {
 	position: fixed;
 	z-index: 999;
 }
-.card-title{
-	margin-right: 65%;
+
+.card-title {
+	/* margin-right: 65%; */
+	float: left;
 }
 
 /* Small devices (tablets)
@@ -2329,23 +2361,26 @@ body {
 }
 
 .card {
-	background-color: white;
+	/* background-color: white; */
 	margin-top: 40px;
 	margin-left: 40px;
 
 }
-.w3-lobster{
+
+.w3-lobster {
 	font-family: "Lobster",
 	serif;
 	font-size: 36px;
 }
-.underline{
-	    border: 1px solid gray;
-	    height: 0px;
-	    width: 100%;
-	    margin: 0 auto;
-	    margin-top: 35px;
+
+.underline {
+	border: 1px solid gray;
+	height: 0px;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 35px;
 }
+
 .fm-product-new--header--category {
 	padding: 0 0 0 20px;
 	position: relative;
@@ -2366,15 +2401,20 @@ body {
 	color: white;
 	border-radius: 20px;
 	font-size: 15px;
-	text-decoration: none; 
-	text-align: center;  
+	text-decoration: none;
+	text-align: center;
 }
-.Addcartbutton:hover{
+
+.Addcartbutton:hover {
 	background-color: firebrick;
 	color: aliceblue;
 	text-decoration: none;
 }
-
+.glyphicon-cart{
+	float: right;
+	cursor: pointer;
+	/* font-size: 33px; */
+}
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -3124,12 +3164,12 @@ input.form-control.ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touche
 .form-control {
 	font-size: 25px;
 	color: black;
-    text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
-             0 2px 0 #777777, 0 4px 0 #666666,
-             0 3px 0 #555555, 0 6px 0 #444444,
-             0 5px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
-             0 7px 10px rgba(0, 0, 0, 0.2);
-/*
+	text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+	0 2px 0 #777777, 0 4px 0 #666666,
+	0 3px 0 #555555, 0 6px 0 #444444,
+	0 5px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+	0 7px 10px rgba(0, 0, 0, 0.2);
+	/*
 	display: block;
 	box-shadow: none;
 	border-bottom-color: red;
@@ -3150,7 +3190,6 @@ input.form-control.ng-pristine.ng-empty.ng-invalid.ng-invalid-required.ng-touche
 	-webkit-transition: none;
 	transition: none;
 */
-
 }
 
 .form-control:focus {
@@ -3332,13 +3371,11 @@ button:hover {
 		margin: -40px 138px;
 		/*margin-right: 30px;*/
 		/*margin: -40px -17px; /*movile view*/
-		
 	}
 	span.fourth {
 		float: right;
 		margin: -40px 78px;
 		/*margin: -40px 46px; /*movile view*/
-		
 	}
 }
 
@@ -3351,7 +3388,6 @@ button:hover {
 		float: left;
 		margin: -40px 21px;
 		/*margin: -40px -17px; /*movile view*/
-		
 	}
 	span.second {
 		position: static;
@@ -3910,10 +3946,12 @@ svg.svg-inline--fa.fa-trash.fa-w-14 {
 }
 
 .design-box {
-/*	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+	/*	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
 	/* padding: 16px 10px 16px 10px; */
-	background-color:white;
-	z-index: -1;
+	
+	
+	
+	
 }
 
 .btn.btn-clear.btn-xs {
@@ -3937,7 +3975,7 @@ input.form-control.border-show.ng-pristine.ng-valid {
 }
 
 .menuSection {
-   margin-right: 44px;
+	margin-right: 44px;
 }
 
 .form-control.border-show {
@@ -4011,6 +4049,7 @@ input.form-control.border-show.ng-pristine.ng-valid {
 	border-top: 1px solid rgba(0, 0, 0, .05) !important;
 	background: #fff;
 }
+
 /* --------------------Media Queries ---------------*/
 
 @media only screen and (max-width: 800px) {
@@ -4036,14 +4075,21 @@ input.form-control.border-show.ng-pristine.ng-valid {
 		width: 100%;
 	}
 }
+
 /*-----Navbar-------*/
-@media only screen and (min-width: 320px) and (max-width: 768px ){
-	.nav-bar{
-width: 100%;
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+	.nav-bar {
+		width: 100%;
 	}
-	.nav-item{
-		width:100%;
-		float:none;
+	.nav-item {
+		width: 100%;
+		float: none;
 	}
 }
-
+/*----------------Desing Box-----------*/
+@media only screen and (max-width: 500px) {
+	.design-box {
+		margin-top: 160px;
+	}
+}

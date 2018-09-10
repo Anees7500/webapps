@@ -1,4 +1,4 @@
-var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree','ngDialog']);
+var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree', 'ngDialog']);
 
 rtApp.config(['$routeProvider', '$locationProvider',
   function ($routerProvider, $locationProvider) {
@@ -9,10 +9,10 @@ rtApp.config(['$routeProvider', '$locationProvider',
 				title: 'Header-part',
 				controller: 'RetailController'
 			})
-			// .when('/menu-item/:menuId', {
-			// 	templateUrl: 'sections/retailCompany/random.tpl.html',
-			// 	// title: 'Header-part',
-			// 	controller: 'RandomController'
-			// })
+		// .when('/menu-item/:menuId', {
+		// 	templateUrl: 'sections/retailCompany/random.tpl.html',
+		// 	// title: 'Header-part',
+		// 	controller: 'RandomController'
+		// })
   }
 ]);
