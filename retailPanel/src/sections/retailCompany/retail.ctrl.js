@@ -7,21 +7,24 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 		console.log("company Name : ", compName);
 
 		var companyDetail;
+    var dayName;
 
 		retailCompanyService.getCompanyDetail(compName).then(function (resp) {
 			companyDetail = resp.data.data.company;
-
+      dayName = resp.data.data.day;
 			console.log("dtls ", companyDetail);
-		});;
+      console.log("dayName ", dayName);
 
-		console.log("dtls 2 ", companyDetail);
+      retailCompanyService.getCompanyMenu(companyDetail.id,
+        companyDetail.assignedVendorId,
+        dayName).then(function (response) {
+          console.log(JSON.stringify(response.data.data.menus));
+    			$scope.menuNode = unflatten(response.data.data.menus);
+    			console.log("test", $scope.menuNode);
+  		});
 
-
-		$http.get(GetRetailMenuUrl).then(function (response) {
-			console.log(JSON.stringify(response.data.data.menus));
-			$scope.menuNode = unflatten(response.data.data.menus);
-			console.log("test", $scope.menuNode);
 		});
+
 
 		$scope.cartItems = [
 			{
@@ -61,7 +64,8 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 		$scope.clickToOpen = function () {
 			ngDialog.open({
 				template: 'sections/retailCompany/cart.html',
-				className: 'ngdialog-theme-default'
+				className: 'ngdialog-theme-default',
+        controller: '',
 			});
 		};
 	}]);

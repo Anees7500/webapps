@@ -325,6 +325,13 @@ body::-webkit-scrollbar {
   }
 }
 
+media-body{
+  /*background-color: teal;color:white;padding: 10px;*/
+}
+i.fa.fa-sign-out.fa-2x {
+    padding: 12px 44px;
+}
+
 input[type=text].searchNewInv {
     width: 89%;
     box-sizing: border-box;
@@ -471,13 +478,6 @@ input.form-control.pincode {
     min-height:480px;
     padding:20px;
   }
-
-media-body{
-  /*background-color: teal;color:white;padding: 10px;*/
-}
-i.fa.fa-sign-out.fa-2x {
-    padding: 12px 44px;
-}
 
 /*......Sndp CSS...........*/
 .bs-wizard {margin-top: 40px;}
