@@ -16,7 +16,7 @@
 	</div>
 </div> -->
 <!-- Modal  Dialog-->
-<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	HHHHHAHAHAHAHAHAHAH
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
@@ -38,4 +38,31 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Your Cart</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div ng-repeat="item in cartItems" class="md-dialog-content">
+        <span>{{item.itemName}}</span><br>
+				<span>{{item.price}}</span><br>
+				<span>{{item.quantity}}</span><br>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button class="md-raised md-primary" ng-click="answer('useful')">
+        Place Order {{totalPrice}}
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

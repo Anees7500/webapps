@@ -1,5 +1,5 @@
-rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl', 'ngDialog', '$routeParams', 'retailCompanyService',
-    function ($scope, $rootScope, $route, $http, GetRetailMenuUrl, ngDialog, $routeParams, retailCompanyService) {
+rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl', '$routeParams', 'retailCompanyService','$mdDialog',
+    function ($scope, $rootScope, $route, $http, GetRetailMenuUrl , $routeParams, retailCompanyService, $mdDialog) {
 
 		// read companyName from path parameter
 		var compName = $routeParams.companyName;
@@ -25,8 +25,36 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 
 		});
 
+    $scope.showAdvanced = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'sections/retailCompany/cart.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+    })
+    .then(function(answer) {
+      $scope.status = 'You said the information was "' + answer + '".';
+    }, function() {
+      $scope.status = 'You cancelled the dialog.';
+    });
+  };
 
-		$scope.cartItems = [
+  function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+
+    $scope.cartItems = [
 			{
 				itemId: 21,
 				itemName: "Item number 1",
@@ -47,6 +75,21 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
       }
 
     ];
+
+    function getTotalPrice(arr)
+    {
+      var tp = 0;
+      _.each(arr, function(ar){
+        tp = tp + (ar.price*ar.quantity);
+      });
+
+      return tp;
+    };
+
+    $scope.totalPrice = getTotalPrice($scope.cartItems);
+  }
+
+
 		console.log("Inside retail controller: ");
 		$(document).ready(function () {
 			$('.count').prop('disabled', true);

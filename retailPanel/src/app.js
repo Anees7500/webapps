@@ -1,4 +1,4 @@
-var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree', 'ngDialog']);
+var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree' ,'ngMaterial']);
 
 rtApp.config(['$routeProvider', '$locationProvider',
   function ($routerProvider, $locationProvider) {
