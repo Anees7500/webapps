@@ -1,44 +1,4 @@
-<!-- <div class="modal fade" id="myModal" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Modal Header</h4>
-			</div>
-			<div class="modal-body">
-				<p>Fancymonk</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
 
-	</div>
-</div> -->
-<!-- Modal  Dialog-->
-<!-- <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	HHHHHAHAHAHAHAHAHAH
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Cart</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body" ng-repeat="item in cartItems">
-			<table class="show-cart table">
-
-			</table>
-              <div>Total price: ₹<span class="total-cart"></span></div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary">Checkout</button>
-			</div>
-		</div>
-	</div>
-</div> -->
 <md-dialog aria-label="Mango (Fruit)">
   <form ng-cloak>
     <md-toolbar>
@@ -52,10 +12,16 @@
     </md-toolbar>
 
     <md-dialog-content>
-      <div ng-repeat="item in cartItems" class="md-dialog-content">
-        <span>{{item.itemName}}</span><br>
-				<span>{{item.price}}</span><br>
-				<span>{{item.quantity}}</span><br>
+      <div ng-repeat="(key, value) in selectedCartItems" class="md-dialog-content">
+        <span>{{value.obj.menuName}}</span><br>
+				<span>{{value.obj.price}}</span><br>
+				<span>{{value.count}}</span><br>
+        <md-button class="md-raised md-primary" ng-click="addCount(value)">
+          add count
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="reduceCount(value)">
+          reduce count
+        </md-button>
       </div>
     </md-dialog-content>
 

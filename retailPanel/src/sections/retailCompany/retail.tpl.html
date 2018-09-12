@@ -1,98 +1,65 @@
-<!--NavBar part-->
-<div class="nav-bar">
-	<nav>
-		<div class="container">
-			<div class="navbar">
-				<ul>
-					<li class="nav-item"><a href="#mains">MAINS</a></li>
-					<li class="nav-item"><a href="#fit">FIT N FAB</a></li>
-					<li class="nav-item"><a href="#happy">HAPPY HOURSE</a></li>
-					<div class="shopping-cart" ng-click="showAdvanced($event)">
-						<li class="nav-item">
-							<div class="glyphicon-cart">
-								<span class="glyphicon glyphicon-shopping-cart total-count" data-toggle="modal" data-target="#myModal">Cart</span>
-							</div>
-						</li>
-					</div>
-				</ul>
-			</div>
-		</div>
-	</nav>
-</div>
-<!---Card Part -->
-<div class="row main-cont">
-	<div class="col-sm-12">
-		<div class="menuSection">
-			<script type="text/ng-template" id="nodes_renderer.html">
-				<br>
-				<div class="design-box">
-					<div style=" margin-bottom: -7px; ">
-						<!-- <div class='form-group'>
-								<input class='form-control' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
-							</div> -->
-						<div class="col-sm-12" style="background-color: #eee !important">
-							<div class="col-sm-2">
-								<div class="w3-lobster">
-									<p ng-bind="node.menuName" ng-if="!node.isFoodItem" style="color:black;"></p>
-								</div>
-							</div>
-							<div class="col-sm-10">
-								<div class="underline" ng-if="!node.isFoodItem"></div>
-							</div>
-						</div>
-						<!-- <div ng-model="node.menuName"> -->
-						<div ng-if="$parentNodeScope">
-							<div class="card" ng-if="node.isFoodItem" style=" margin-top: -14px; margin-left: -8px; margin-right: -8px;">
-								<a href="sections/retailMenuItem/retailmenuItem.tpl.html"><img class="card-img-top" src="image/burger.jpg" alt="Card image cap"
-	                                   style="width: 100%;"></a>
-								<div class="card-body">
-									<h4 class="card-title">{{node.menuName}}</h4>
-									<div class="col-sm-12">
-										<div class="col-sm-6">
-											<!-- <h4 class="menu-name">{{node.menuName}}</h4> -->
-											<h5>{{node.description}}</h5>
-										</div>
-										<div class="col-sm-6">
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="fm-product-new--body--actions--price">
-											<span class="#">₹{{node.price}}</span>
-										</div>
-									</div>
-									<div class="col-sm-6">
-							<a href="" data-name="{{node.menuName}}" data-price="{{node.price}}"class="Addcartbutton btn btn-danger pull-right">Add to cart</a><br>
-							<a href="" class="Addcartbutton btn btn-danger pull-right"><span class="minus bg-dark">-</span>
-                            <input type="number" class="count" name="qty" value="1">
-                             <span class="plus bg-dark">+</span>
-								</a>
+<br>
+<md-toolbar class="md-theme-light">
+	<md-nav-bar
+			 md-no-ink-bar="disableInkBar"
+			 md-selected-nav-item="currentNavItem"
+			 nav-bar-aria-label="navigation links">
+			 <md-nav-item ng-repeat="node in menuNode" md-nav-href="#{{node.menuName}}">
+				 {{node.menuName}}
+			 </md-nav-item>
+			 <!-- these require actual routing with ui-router or ng-route, so they
+			 won't work in the demo
+			 <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+			 <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+			 You can also add options for the <code>ui-sref-opts</code> attribute.
+			 <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+				 Page Six
+			 </md-nav-item>
+			 -->
+			 <md-button class="md-icon-button" aria-label="Favorite">
+				 <md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)"></md-icon>
+			 </md-button>
+		 </md-nav-bar>
 
-									</div>
-									<!-- <h6>1665 Favs 100+bought today</h6> -->
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box-headetop">
-						<ul ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
-							<div class="row">
-								<div class="col-md-4" style="padding:10px;margin-top: -31px;" ng-repeat="node in node.menuNode">
-									<li collapsed="true" ui-tree-node ng-include="'nodes_renderer.html'" style="display:block;">
-									</li>
-								</div>
-							</div>
-						</ul>
-					</div>
+</md-toolbar>
 
-				</div>
-			</script>
 
-			<div ui-tree>
-				<ul ui-tree-nodes ng-model="menuNode" id="tree-root" ng-init='$nodes = menuNode'>
-					<li ng-repeat="node in menuNode" ui-tree-node ng-include="'nodes_renderer.html'" style="display:block;"></li>
-				</ul>
-			</div>
+<br>
 
-		</div>
-	</div>
+<div ng-cloak ng-repeat="node in menuNode">
+	<md-toolbar class="md-theme-light" ng-attr-id="{{node.menuName}}">
+    <h2 class="md-toolbar-tools">
+      <span>{{node.menuName}}</span>
+    </h2>
+  </md-toolbar>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode">
+			<md-card>
+        <img ng-src="image/burger.jpg" class="md-card-image" alt="Washed Out">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{n.menuName}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+          <md-card-icon-actions>
+            <md-button class="md-icon-button" aria-label="Favorite">
+              <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Share">
+              <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+            </md-button>
+          </md-card-icon-actions>
+					<md-icon md-font-icon="fa fa-money"> $ </md-icon>
+					<p ng-bind = "n.price"></p>
+          <md-button class="md-raised md-primary" ng-if="cartItems[n.id].addedInCart">Action 1</md-button>
+          <md-button class="md-raised md-primary" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)">Add to Cart</md-button>
+        </md-card-actions>
+        <md-card-content>
+          <p ng-bind="n.description">
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>
 </div>

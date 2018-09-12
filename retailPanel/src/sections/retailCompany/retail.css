@@ -8,7 +8,10 @@ header {
 	box-shadow: rgba(0, 0, 0, 0.5) 0 -20px 20px 17px;
 
 }
-
+md-card.menu-card {
+	width: 70%;
+	height: auto;
+}
 header h1 {
 	margin: 0;
 	padding: 0 0px;
@@ -3948,10 +3951,10 @@ svg.svg-inline--fa.fa-trash.fa-w-14 {
 .design-box {
 	/*	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
 	/* padding: 16px 10px 16px 10px; */
-	
-	
-	
-	
+
+
+
+
 }
 
 .btn.btn-clear.btn-xs {

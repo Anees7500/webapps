@@ -25,14 +25,39 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 
 		});
 
-    $scope.showAdvanced = function(ev) {
+    $scope.cartItems = {};
+
+    $scope.addToCart = function(itemObj){
+      console.log("item id  ",JSON.stringify(itemObj));
+      console.log("check ",$scope.cartItems[itemObj.id]);
+      if($scope.cartItems[itemObj.id])
+      {
+        console.log("item  present");
+        $scope.cartItems[itemObj.id].count = $scope.cartItems[itemObj.id].count + 1;
+      }
+      else{
+        console.log("item not present");
+        console.log("adding");
+        $scope.cartItems[itemObj.id] = {
+          obj:itemObj,
+          count:1
+        };
+      }
+      $scope.cartItems[itemObj.id].addedInCart=true;
+      console.log("cart items : ", JSON.stringify($scope.cartItems));
+    };
+
+    $scope.showCart = function(ev) {
     $mdDialog.show({
       controller: DialogController,
       templateUrl: 'sections/retailCompany/cart.html',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose:true,
-      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+      fullscreen: $scope.customFullscreen,
+      locals: {
+        items: $scope.cartItems
+     }
     })
     .then(function(answer) {
       $scope.status = 'You said the information was "' + answer + '".';
@@ -41,7 +66,7 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
     });
   };
 
-  function DialogController($scope, $mdDialog) {
+  function DialogController($scope, $mdDialog, items) {
     $scope.hide = function() {
       $mdDialog.hide();
     };
@@ -54,29 +79,23 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
       $mdDialog.hide(answer);
     };
 
-    $scope.cartItems = [
-			{
-				itemId: 21,
-				itemName: "Item number 1",
-				price: 200,
-				quantity: 3
-      },
-			{
-				itemId: 22,
-				itemName: "Item number 2",
-				price: 300,
-				quantity: 5
-      },
-			{
-				itemId: 23,
-				itemName: "Item number 3",
-				price: 500,
-				quantity: 1
+    // console.log("cart items : ", JSON.stringify(items));
+    // console.log("cart items count : ",Object.keys(items).length);
+
+    $scope.selectedCartItems =  items;
+
+    $scope.addCount = function(val){
+      val.count = val.count + 1;
+    }
+
+    $scope.reduceCount = function(val){
+      if(val.count > 0)
+      {
+        val.count = val.count - 1;
       }
+    }
 
-    ];
-
-    function getTotalPrice(arr)
+    function getTotalPrice(obj)
     {
       var tp = 0;
       _.each(arr, function(ar){
@@ -90,7 +109,7 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
   }
 
 
-		console.log("Inside retail controller: ");
+		// console.log("Inside retail controller: ");
 		$(document).ready(function () {
 			$('.count').prop('disabled', true);
 			$(document).on('click', '.plus', function () {
@@ -120,7 +139,7 @@ var unflatten = function (array, parent, tree) {
 		uid: null
 	};
 	// console.log("tree type : ",tree);
-	console.log("parent type : ", parent);
+	// console.log("parent type : ", parent);
 	var children = _.filter(array, function (child) {
 		child.isInserted = true;
 		if (child.menuNodes == null) {
@@ -135,10 +154,10 @@ var unflatten = function (array, parent, tree) {
 		}
 		return child.parentId == parent.id;
 	});
-	console.log("chilren value : ", children.length);
+	// console.log("chilren value : ", children.length);
 	if (!_.isEmpty(children)) {
 		if (parent.id == 0 || parent.id == null) {
-			console.log("parent.id ", parent.id);
+			// console.log("parent.id ", parent.id);
 			// //console.log("Children value after first check : ",JSON.stringify(children));
 			// children.isInserted = true;
 			// //console.log("Children value after Enhancement : ",JSON.stringify(children));
@@ -150,6 +169,6 @@ var unflatten = function (array, parent, tree) {
 			unflatten(array, child)
 		});
 	}
-	console.log("treee : ", JSON.stringify(tree));
+	// console.log("treee : ", JSON.stringify(tree));
 	return tree;
 };
