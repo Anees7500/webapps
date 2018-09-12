@@ -1,4 +1,5 @@
-<br>
+<!---   Navbar part              -->
+<div class="md_nabvar">
 <md-toolbar class="md-theme-light">
 	<md-nav-bar
 			 md-no-ink-bar="disableInkBar"
@@ -20,46 +21,61 @@
 				 <md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)"></md-icon>
 			 </md-button>
 		 </md-nav-bar>
-
 </md-toolbar>
+</div>
+<!----    Navbar part-End                 ------>
 
-
-<br>
-
+<!-----------Cart part_body----------------->
+<div class="md_Cartbody">
 <div ng-cloak ng-repeat="node in menuNode">
+  <!-------Menu Heading --------->
 	<md-toolbar class="md-theme-light" ng-attr-id="{{node.menuName}}">
     <h2 class="md-toolbar-tools">
       <span>{{node.menuName}}</span>
     </h2>
   </md-toolbar>
+<!-------Menu Heading End--------->
   <md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode">
-			<md-card>
+   <!-- <div class="col-md-4" flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode"> -->
+<div class="col-md-4"  layout="column" ng-repeat="n in node.menuNode">
+<!-------Card  --------->
+			<md-card >
         <img ng-src="image/burger.jpg" class="md-card-image" alt="Washed Out">
+        <!---Title Name-->
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{n.menuName}}</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-actions layout="row" layout-align="start center">
-          <md-card-icon-actions>
+        <!---Title Name-->
+        <md-card-actions layout="row">
+          <md-card-icon-actions class="col-sm-6">
             <md-button class="md-icon-button" aria-label="Favorite">
-              <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+              <md-icon md-svg-icon="image/heart.svg"></md-icon>
             </md-button>
             <md-button class="md-icon-button" aria-label="Share">
-              <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+              <md-icon md-svg-icon="image/share.svg"></md-icon>
             </md-button>
           </md-card-icon-actions>
-					<md-icon md-font-icon="fa fa-money"> $ </md-icon>
-					<p ng-bind = "n.price"></p>
-          <md-button class="md-raised md-primary" ng-if="cartItems[n.id].addedInCart">Action 1</md-button>
-          <md-button class="md-raised md-primary" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)">Add to Cart</md-button>
+          <div class="col-sm-6">
+            <div class="col-sm-3">
+          <md-icon  md-font-icon="fa fa-money">₹</md-icon>
+          <p ng-bind = "n.price"></p>
+          </div>
+          <div class="col-sm-3">
+          <md-button class=" md-raised md-primary" ng-if="cartItems[n.id].addedInCart">Action 1</md-button>
+          <md-button class="  md-raised md-primary" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)">Add to Cart</md-button>
+         </div>
+        </div>
         </md-card-actions>
         <md-card-content>
           <p ng-bind="n.description">
           </p>
         </md-card-content>
       </md-card>
+<!-------Card End --------->
     </div>
   </md-content>
 </div>
+</div>
+<!-------Cart body_part end ------------------>
