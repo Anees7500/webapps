@@ -95,15 +95,15 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
       }
     }
 
-    function getTotalPrice(obj)
-    {
-      var tp = 0;
-      _.each(arr, function(ar){
-        tp = tp + (ar.price*ar.quantity);
-      });
-
-      return tp;
-    };
+    // function getTotalPrice(obj)
+    // {
+    //   var tp = 0;
+    //   _.each(arr, function(ar){
+    //     tp = tp + (ar.price*ar.quantity);
+    //   });
+    //
+    //   return tp;
+    // };
 
     $scope.totalPrice = getTotalPrice($scope.cartItems);
   }
