@@ -96,9 +96,11 @@ header {
 }
 
 .container {
-	width: 100%;
-	margin: 0;
-	padding: 0;
+	font-family: "Roboto",
+	sans-serif;
+	font-size: 0.875rem;
+	line-height: 1.42857143;
+	color: #333;
 }
 
 .topnav {
@@ -296,7 +298,9 @@ header {
 	
 }
 /*--Plus button work--*/
-
+.count{
+	text-align: center
+}
 .qty .count {
 	color: #000;
 	display: inline-block;
@@ -307,6 +311,7 @@ header {
 	padding: 0 2px;
 	min-width: 35px;
 	text-align: center;
+	
 }
 
 .qty .plus {
@@ -316,7 +321,7 @@ header {
 	color: white;
 	width: 30px;
 	height: 30px;
-	font: 30px/1 Arial, sans-serif;
+	font: 50px/1 Arial, sans-serif;
 	text-align: center;
 	border-radius: 50%;
 }
@@ -328,7 +333,7 @@ header {
 	color: white;
 	width: 30px;
 	height: 30px;
-	font: 30px/1 Arial, sans-serif;
+	font: 50px/1 Arial, sans-serif;
 	text-align: center;
 	border-radius: 50%;
 	background-clip: padding-box;
@@ -345,7 +350,9 @@ div {
 .plus:hover {
 	background-color: black !important;
 }
-
+.md-card{
+	overflow-x: hidden;
+}
 /*Prevent text selection*/
 
 span {
@@ -393,7 +400,11 @@ header h1 {
 	display: block;
 	clear: both;
 }
-
+.md-toolbar-tools {
+	background-color: #eee !important;
+	color: black;
+	float: left;
+}
 @media (min-width: 720px) {
 
 	body {
@@ -447,17 +458,17 @@ body {
 	margin: 0 auto;
 	margin-top: 35px;
 }
-.Addcartbutton {
+.addcartbutton {
 	padding: 5px;
 	width: 100px;
 	background-color: #df561d;
-	color: white;
+	color: wheat;
 	border-radius: 20px;
 	font-size: 15px;
 	text-decoration: none;
 	text-align: center;
 }
-.Addcartbutton:hover {
+.addcartbutton:hover {
 	background-color: firebrick;
 	color: aliceblue;
 	text-decoration: none;
