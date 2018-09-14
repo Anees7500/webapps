@@ -2,8 +2,8 @@
 <div class="md_nabvar">
    <md-toolbar class="md-theme-light">
 	    <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-			  <md-nav-item ng-repeat="node in menuNode" md-nav-href="#{{node.menuName}}">
-				 {{node.menuName}}
+			   <md-nav-item ng-repeat="node in menuNode" md-nav-href="#{{node.menuName}}">
+				  {{node.menuName}}
 			  </md-nav-item>
 			 <!-- these require actual routing with ui-router or ng-route, so they
 			 won't work in the demo
@@ -15,16 +15,16 @@
 			 </md-nav-item>
 			 -->
 			  
-          <md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)" style="position:absolute; top:10px; right:30px;"></md-icon>
+          <md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)" style="position:absolute; top:10px; right:30px;cursor: pointer; "></md-icon>
 		 </md-nav-bar>
-    </md-toolbar>
+  </md-toolbar>
 </div>
 <!----    Navbar part-End                 ------>
 
 <!-----------Cart part_body----------------->
 <div class="container" layout="row" flex>
-<div class="md_Cartbody">
-<div ng-cloak ng-repeat="node in menuNode">
+  <div class="md_Cartbody">
+    <div ng-cloak ng-repeat="node in menuNode">
   <!-------Menu Heading --------->
   
       <md-toolbar class="md-theme-light" ng-attr-id="{{node.menuName}}">
@@ -34,33 +34,34 @@
       </md-toolbar>
 
 <!-------Menu Heading End--------->
-<div  class="row">
-  <div class="col-sm-12 ">
-<md-content class="md-padding" >
+   <div  class="row">
+     <div class="col-sm-12 ">
+      <md-content class="md-padding" >
    <!-- <div class="col-md-4" flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode"> -->
-<div class="md-card col-md-4"  ng-repeat="n in node.menuNode">
+        <div class="md-card col-md-4 col-sm-6 col-xs-12"  ng-repeat="n in node.menuNode">
 <!-------Card  --------->
-			<md-card >
-        <img ng-src="image/burger.jpg" class="md-card-image" alt="Washed Out">
+		   	<md-card >
+          <img ng-src="image/burger.jpg" class="md-card-image" alt="Washed Out">
         <!---Title Name-->
-        <md-card-title>
-          <md-card-title-text>
+          <md-card-title>
+            <md-card-title-text>
             <!-- <span class="md-headline">{{n.menuName}}</span> -->
-            <span >{{n.menuName}}</span>
+              <span style="display: -webkit-box;">{{n.menuName}}</span>
           </md-card-title-text>
         </md-card-title>
         <!---Title Name-->
         <md-card-actions >
-          <md-card-icon-actions class="col-sm-4">
+          <md-card-icon-actions class="col-sm-4 col-xs-4">
             <md-button class="md-icon-button" aria-label="Favorite">
               <md-icon md-svg-icon="image/heart.svg"></md-icon>
             </md-button>
           </md-card-icon-actions>
-        <div class="col-sm-4">
-            <md-icon md-font-icon="fa fa-money">₹</md-icon>
-            <span ng-bind="n.price"></span>
+        <div class="col-sm-4 col-xs-4">
+            <!-- <md-icon md-font-icon="fa fa-money">₹</md-icon> -->
+            <h4><span>₹&nbsp;</span>
+            <span ng-bind="n.price"></span></h4>
          </div>
-        <div class="col-sm-4 text-right">
+        <div class="col-sm-4 col-xs-4 text-right">
               <a class="addcartbutton  md-raised md-primary pull-right" ng-if="cartItems[n.id].addedInCart"style="color:ghostwhite;">
                   <span class="minus bg-dark pull-left">-</span>
                   <input type="number" class="count" name="qty" value="0">

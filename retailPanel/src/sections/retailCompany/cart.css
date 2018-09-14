@@ -18,3 +18,21 @@
 
 .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
   margin-bottom: 0; }
+  
+    .addcartbutton {
+      padding: 5px;
+      width: 100px;
+      background-color: #df561d;
+      color: wheat;
+      border-radius: 20px;
+      font-size: 10px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .addcartbutton:hover {
+      background-color: firebrick;
+      color: aliceblue;
+      text-decoration: none;
+  }

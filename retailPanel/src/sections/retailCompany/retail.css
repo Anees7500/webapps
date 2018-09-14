@@ -128,7 +128,6 @@ header {
 .topnav ul li a {
 	font-size: 16px;
 	display: inline-block;
-
 	color: #f2f2f2;
 	text-align: center;
 	padding: 23px 20px;
@@ -403,7 +402,7 @@ header h1 {
 .md-toolbar-tools {
 	background-color: #eee !important;
 	color: black;
-	float: left;
+	
 }
 @media (min-width: 720px) {
 
@@ -460,13 +459,15 @@ body {
 }
 .addcartbutton {
 	padding: 5px;
-	width: 100px;
+	margin-top: 4px;
 	background-color: #df561d;
 	color: wheat;
-	border-radius: 20px;
-	font-size: 15px;
+	border-radius: 15px;
+	font-size: 12px;
 	text-decoration: none;
 	text-align: center;
+	border: 1px solid black;
+	cursor: pointer;
 }
 .addcartbutton:hover {
 	background-color: firebrick;
@@ -561,8 +562,20 @@ summary {
 	}
 }
 /*----------------Desing Box-----------*/
+@media only screen and (max-width: 1200px) {
+	.addcartbutton{ font-size: 10px;}
+	.text-right{ padding: 5px 0px 0px 0px;}
+	.md-icon-button md-icon svg {width: 16px;}
+}
 @media only screen and (max-width: 500px) {
 	.design-box {
 		margin-top: 160px;
 	}
+}
+
+
+@media screen and (max-width: 768px) and (min-width: 450px) {
+	.addcartbutton{ font-size: 16px; margin-top: 0px; }
+	.text-right{ padding: 5px;}
+	.md-icon-button md-icon svg {width: 20px;}
 }
