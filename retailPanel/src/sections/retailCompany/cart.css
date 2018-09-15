@@ -1,38 +1,27 @@
 .dialogdemoBasicUsage #popupContainer {
-  position: relative; }
+	position: relative;
+}
 
 .dialogdemoBasicUsage .footer {
-  width: 100%;
-  text-align: center;
-  margin-left: 20px; }
+	width: 100%;
+	text-align: center;
+	margin-left: 20px;
+}
 
-.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
-  font-size: 0.8em;
-  margin-top: 50px; }
+.dialogdemoBasicUsage .footer,
+.dialogdemoBasicUsage .footer > code {
+	font-size: 0.8em;
+	margin-top: 50px;
+}
 
 .dialogdemoBasicUsage button {
-  width: 200px; }
+	width: 200px;
+}
 
 .dialogdemoBasicUsage div#status {
-  color: #c60008; }
+	color: #c60008;
+}
 
 .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
-  margin-bottom: 0; }
-  
-    .addcartbutton {
-      padding: 5px;
-      width: 100px;
-      background-color: #df561d;
-      color: wheat;
-      border-radius: 20px;
-      font-size: 10px;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .addcartbutton:hover {
-      background-color: firebrick;
-      color: aliceblue;
-      text-decoration: none;
-  }
+	margin-bottom: 0;
+}

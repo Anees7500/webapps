@@ -1,27 +1,26 @@
+<md-dialog style="width: 50%">
+	<form ng-cloak>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<!-- <h2 align="center">Your Cart</h2> -->
+				<span>Your Cart</span>
+				<md-button class="md-icon-button" ng-click="cancel()" style="background-color: black; color:white; position:absolute; right: 15px">
+					<md-icon md-svg-src=" image/error.svg" aria-label="Close dialog"></md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-dialog-content>
+			<div ng-repeat="(key, value) in selectedCartItems" class="md-dialog-content">
+				<span>{{value.obj.menuName}}</span><br>
+				<p><span>₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
+				<span>{{value.count}}</span><br>
+				<md-button class="md-raised md-primary" ng-click="addCount(value)">add count</md-button>
+				<md-button class="md-raised md-primary" ng-click="reduceCount(value)">reduce count</md-button>
+			</div>
+		</md-dialog-content>
 
-<md-dialog >
-  <form ng-cloak>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <!-- <h2 align="center">Your Cart</h2> -->
-        <span >Your Cart</span>
-        <md-button class="md-icon-button" ng-click="cancel()" style="background-color: black; color:wheat; position:absolute; right: 15px">
-            <md-icon md-svg-src=" image/error.svg" aria-label="Close dialog"></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
-    <md-dialog-content>
-      <div ng-repeat="(key, value) in selectedCartItems" class="md-dialog-content">
-          <span>{{value.obj.menuName}}</span><br>
-          <span>{{value.obj.price}}</span><br>
-          <span>{{value.count}}</span><br>
-          <md-button class="md-raised md-primary" ng-click="addCount(value)">add count</md-button>
-          <md-button class="md-raised md-primary" ng-click="reduceCount(value)">reduce count</md-button>
-      </div>
-    </md-dialog-content>
-
-    <md-dialog-actions >
-      <a class="addcartbutton md-raised md-primary" ng-click="answer('useful')"> Place Order {{totalPrice}} </a>
-    </md-dialog-actions>
-  </form>
+		<md-dialog-actions>
+			<a class="addcartbutton md-raised md-primary" ng-click="answer('useful')" style="color:ghostwhite;"> Place Order {{totalPrice}} </a>
+		</md-dialog-actions>
+	</form>
 </md-dialog>

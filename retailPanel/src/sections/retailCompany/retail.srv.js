@@ -14,5 +14,5 @@ rtApp.factory('retailCompanyService', ['$http','$httpParamSerializerJQLike','$lo
             // return $http.get(GetRetailMenuUrl+"vendorId="+vendorId+"&companyId="+ companyId +"&dayName="+dayName);
         }
 
-    }
+		}
 }]);

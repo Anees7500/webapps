@@ -1,5 +1,5 @@
-rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl', '$routeParams', 'retailCompanyService','$mdDialog',
-    function ($scope, $rootScope, $route, $http, GetRetailMenuUrl , $routeParams, retailCompanyService, $mdDialog) {
+rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl', '$routeParams', 'retailCompanyService', '$mdDialog',
+    function ($scope, $rootScope, $route, $http, GetRetailMenuUrl, $routeParams, retailCompanyService, $mdDialog) {
 
 		// read companyName from path parameter
 		var compName = $routeParams.companyName;
@@ -7,21 +7,21 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 		console.log("company Name : ", compName);
 
 		var companyDetail;
-    var dayName;
+		var dayName;
 
 		retailCompanyService.getCompanyDetail(compName).then(function (resp) {
 			companyDetail = resp.data.data.company;
-      dayName = resp.data.data.day;
+			dayName = resp.data.data.day;
 			console.log("dtls ", companyDetail);
-      console.log("dayName ", dayName);
+			console.log("dayName ", dayName);
 
-      retailCompanyService.getCompanyMenu(companyDetail.id,
-        companyDetail.assignedVendorId,
-        dayName).then(function (response) {
-          console.log(JSON.stringify(response.data.data.menus));
-    			$scope.menuNode = unflatten(response.data.data.menus);
-    			console.log("test", $scope.menuNode);
-  		});
+			retailCompanyService.getCompanyMenu(companyDetail.id,
+				companyDetail.assignedVendorId,
+				dayName).then(function (response) {
+				console.log(JSON.stringify(response.data.data.menus));
+				$scope.menuNode = unflatten(response.data.data.menus);
+				console.log("test", $scope.menuNode);
+			});
 
 		});
 
@@ -122,6 +122,7 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
   }
 
 
+
 		// console.log("Inside retail controller: ");
 		$(document).ready(function () {
 			$('.count').prop('disabled', true);
@@ -140,7 +141,7 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 			ngDialog.open({
 				template: 'sections/retailCompany/cart.html',
 				className: 'ngdialog-theme-default',
-        controller: '',
+				controller: '',
 			});
 		};
 	}]);
