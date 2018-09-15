@@ -10,7 +10,8 @@ rtApp.factory('retailCompanyService', ['$http','$httpParamSerializerJQLike','$lo
             console.log("in side menu service");
             console.log("url : ", GetRetailMenuUrl);
             console.log("passsed value : ", companyId, vendorId, dayName);
-            return $http.get(GetRetailMenuUrl+"vendorId="+vendorId+"&companyId="+ companyId +"&dayName="+dayName);
+            return $http.get(GetRetailMenuUrl+"vendorId="+vendorId+"&companyId="+ companyId +"&dayName=WEDNESDAY");
+            // return $http.get(GetRetailMenuUrl+"vendorId="+vendorId+"&companyId="+ companyId +"&dayName="+dayName);
         }
 
     }

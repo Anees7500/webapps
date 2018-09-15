@@ -9,6 +9,11 @@ rtApp.config(['$routeProvider', '$locationProvider',
 				title: 'Header-part',
 				controller: 'RetailController'
 			})
+      .when('/retail/:companyName/checkout', {
+				templateUrl: 'sections/retailCheckout/checkout.tpl.html',
+				title: 'Header-part',
+				// controller: 'CheckoutController'
+			})
 		// .when('/menu-item/:menuId', {
 		// 	templateUrl: 'sections/retailCompany/random.tpl.html',
 		// 	// title: 'Header-part',

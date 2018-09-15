@@ -47,6 +47,19 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
       console.log("cart items : ", JSON.stringify($scope.cartItems));
     };
 
+    $scope.addCount = function(val){
+        return val.count = val.count + 1;
+    }
+
+    $scope.reduceCount = function(val){
+      console.log("reducing the count for : ", JSON.stringify(val));
+      if(val.count > 0)
+      {
+        return val.count = val.count - 1;
+      }
+    }
+
+
     $scope.showCart = function(ev) {
     $mdDialog.show({
       controller: DialogController,
@@ -86,26 +99,26 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 
     $scope.addCount = function(val){
       val.count = val.count + 1;
+      $scope.totalPrice = getTotalPrice($scope.selectedCartItems);
     }
 
     $scope.reduceCount = function(val){
       if(val.count > 0)
       {
         val.count = val.count - 1;
+        $scope.totalPrice = getTotalPrice($scope.selectedCartItems);
       }
     }
 
     function getTotalPrice(obj)
     {
       var tp = 0;
-      // _.each(arr, function(ar){
-      //   tp = tp + (ar.price*ar.quantity);
-      // });
-
+      _.each(obj, function(ar){
+        tp = tp + (ar.obj.price*ar.count);
+      });
       return tp;
     };
-
-    $scope.totalPrice = getTotalPrice($scope.cartItems);
+    $scope.totalPrice = getTotalPrice($scope.selectedCartItems);
   }
 
 
