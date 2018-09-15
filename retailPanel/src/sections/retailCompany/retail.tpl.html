@@ -14,9 +14,7 @@
 				 Page Six
 			 </md-nav-item>
 			 -->
-          <md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)" style="position:absolute; top:10px; right:30px;cursor: pointer; "></md-icon>
-		 </md-nav-bar>
-  </md-toolbar>
+
 			<md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)" style="position:absolute; top:10px; right:30px;cursor: pointer; "></md-icon>
 		</md-nav-bar>
 	</md-toolbar>
@@ -25,57 +23,6 @@
 
 <!-----------Cart part_body----------------->
 <div class="container" layout="row" flex>
-<<<<<<< HEAD
-  <div class="md_Cartbody">
-    <div ng-cloak ng-repeat="node in menuNode">
-  <!-------Menu Heading --------->
-
-      <md-toolbar class="md-theme-light" ng-attr-id="{{node.menuName}}">
-          <h2 class="md-toolbar-tools">
-            <span>{{node.menuName}}</span>
-          </h2>
-      </md-toolbar>
-
-<!-------Menu Heading End--------->
-   <div  class="row">
-     <div class="col-sm-12 ">
-      <md-content class="md-padding" >
-   <!-- <div class="col-md-4" flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode"> -->
-        <div class="md-card col-md-4 col-sm-6 col-xs-12"  ng-repeat="n in node.menuNode">
-<!-------Card  --------->
-		   	<md-card >
-          <img ng-src="image/burger.jpg" class="md-card-image" alt="Washed Out">
-        <!---Title Name-->
-          <md-card-title>
-            <md-card-title-text>
-            <!-- <span class="md-headline">{{n.menuName}}</span> -->
-              <span style="display: -webkit-box;">{{n.menuName}}</span>
-          </md-card-title-text>
-        </md-card-title>
-        <!---Title Name-->
-        <md-card-actions >
-          <md-card-icon-actions class="col-sm-4 col-xs-4">
-            <md-button class="md-icon-button" aria-label="Favorite">
-              <md-icon md-svg-icon="image/heart.svg"></md-icon>
-            </md-button>
-          </md-card-icon-actions>
-        <div class="col-sm-4 col-xs-4">
-            <!-- <md-icon md-font-icon="fa fa-money">₹</md-icon> -->
-            <h4><span>₹&nbsp;</span>
-            <span ng-bind="n.price"></span></h4>
-         </div>
-        <div class="col-sm-4 col-xs-4 text-right">
-              <a class="addcartbutton  md-raised md-primary pull-right" ng-if="cartItems[n.id].addedInCart"style="color:ghostwhite;">
-                  <span class="bg-dark pull-left" ng-click="reduceCount(cartItems[n.id])">-</span>
-                  <input type="number" class="count" name="qty" ng-model="cartItems[n.id].count">
-                  <!-- value="0" -->
-                  <span class="bg-dark pull-right" ng-click="addCount(cartItems[n.id])">+</span>
-              </a>
-              <a class="addcartbutton  md-raised md-primary pull-right" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)"style="color:ghostwhite;">Add to Cart</a>
-        </div>
-          <!-- <div class="col-sm-6">
-
-=======
 	<div class="md_Cartbody">
 		<div ng-cloak ng-repeat="node in menuNode">
 			<!-------Menu Heading --------->
@@ -116,14 +63,13 @@
 									</div>
 									<div class="col-sm-4 col-xs-4 ">
 										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="cartItems[n.id].addedInCart" style="color:ghostwhite;">
-										  <span class="minus bg-dark pull-left">-</span>
-										    <input type="number" class="count" name="qty" value="0">
-										  <span class="plus bg-dark pull-right">+</span></a>
+										  <span class="bg-dark pull-left" ng-click="reduceCount(cartItems[n.id])">-</span>
+										    <input type="number" class="count" name="qty" value="0" ng-model="cartItems[n.id].count">
+										  <span class="bg-dark pull-right" ng-click="addCount(cartItems[n.id])">+</span></a>
 										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)" style="color:ghostwhite;">Add to Cart</a>
 									</div>
 									<!-- <div class="col-sm-6">
 
->>>>>>> e84e5076afafa5fb478a5981dd4925b02cb35565
         </div> -->
 								</md-card-actions>
 								<md-card-content>
