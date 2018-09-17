@@ -90,7 +90,11 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 				if (val.count > 0) {
 					val.count = val.count - 1;
 				}
-			}
+			}  
+			/* Close part*/
+		// 	$scope.remove_click = function($index) {
+		// 	$scope.node.menuNode.splice($index, 1);
+		// }
 
 			function getTotalPrice(obj) {
 				var tp = 0;

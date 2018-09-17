@@ -11,11 +11,19 @@
 		</md-toolbar>
 		<md-dialog-content>
 			<div ng-repeat="(key, value) in selectedCartItems" class="md-dialog-content">
-				<span>{{value.obj.menuName}}</span><br>
-				<p><span>₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
-				<span>{{value.count}}</span><br>
-				<md-button class="md-raised md-primary" ng-click="addCount(value)">add count</md-button>
-				<md-button class="md-raised md-primary" ng-click="reduceCount(value)">reduce count</md-button>
+				<div class="md-close">
+					  <div class="close-button pull-right">×</div>
+					<span class="menuName ">&nbsp;{{value.obj.menuName}}
+					</span><br><br>
+					<p><span class="price  pull-right">₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
+					<span>{{value.count}}</span><br></div>
+		<md-button class="md-raised md-primary pull-left" ng-click="addCount(value)">add count</md-button>
+		 <md-button class="md-raised md-primary pull-left" ng-click="reduceCount(value)">reduce count</md-button>
+				<!-- <a class="addcartbutton  md-raised md-primary pull-left" ng-if="cartItems[n.id].addedInCart" style="color:ghostwhite">
+					<span class="minus bg-dark pull-left">-</span>
+					<input type="number" class="count" name="qty" value="0">
+					<span class="plus bg-dark pull-right">+</span>
+				</a> -->
 			</div>
 		</md-dialog-content>
 
@@ -24,3 +32,6 @@
 		</md-dialog-actions>
 	</form>
 </md-dialog>
+<!-- <div class="item ng-scope" ng-repeat="item in menuName">
+	<div class="close" ng-click="removeFromCart(item.productDto,item.quantity,true,item,quantity); fireGAEvent('Cart','click','remove_from_cart')">×</div>
+</div> -->
