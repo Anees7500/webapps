@@ -1,0 +1,90 @@
+.title-baar{
+  color: black;
+}
+/* search box start*/
+
+.searchNew {
+  width: 20%;
+  box-sizing: border-box;
+  border: 1px solid #88acb1;
+  border-radius: 5px;
+  font-size: 12px;
+  color: black;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 7px 15px 7px 9px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  background-position: left;
+  background-size: 17px 17px;
+  background-position-x: 9px;
+  /*position: fixed;*/
+  z-index: 1;
+  /*margin: -47px 30%;*/
+}
+/*input[type=text]:focus.searchNew {
+  width: 20%;
+}*/
+/* search box end*/
+/*.input-group input[type="text"] {
+  border: 0;
+  border-radius: 2px;
+  height: 40px;
+  width: 72%;
+  min-width: 50%;
+  margin: 0px;
+}*/
+/* inline css code above*/
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+md-content.md-padding._md.layout-xs-column.layout-row {
+  background-color: #fff;
+}
+.map-center {
+  text-align: -webkit-left;
+}
+#map {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  border: 1px solid silver;
+}
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    float: left;
+}
+
+ md-tabs.md-accent>md-tabs-wrapper {
+   background-color: #eee !important;
+
+}
+.md-checkout{
+    padding: 0px;
+    margin-top: -23px;
+    overflow-x: hidden;{
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -383,6 +383,7 @@ span {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	float: left;
+	color: black;
 }
 
 input {

@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 gulp.task('connect-dev', function() {
         connect.server({
             root: 'src/',
-            port: 8000
+            port: 3000
         });
     });
 
