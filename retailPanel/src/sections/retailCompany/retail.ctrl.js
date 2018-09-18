@@ -25,62 +25,102 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 
 		});
 
-		$scope.cartItems = {};
+    $scope.cartItems = {};
 
-		$scope.addToCart = function (itemObj) {
-			console.log("item id  ", JSON.stringify(itemObj));
-			console.log("check ", $scope.cartItems[itemObj.id]);
-			if ($scope.cartItems[itemObj.id]) {
-				console.log("item  present");
-				$scope.cartItems[itemObj.id].count = $scope.cartItems[itemObj.id].count + 1;
-			} else {
-				console.log("item not present");
-				console.log("adding");
-				$scope.cartItems[itemObj.id] = {
-					obj: itemObj,
-					count: 1
-				};
-			}
-			$scope.cartItems[itemObj.id].addedInCart = true;
-			console.log("cart items : ", JSON.stringify($scope.cartItems));
-		};
+    $scope.addToCart = function(itemObj){
+      console.log("item id  ",JSON.stringify(itemObj));
+      console.log("check ",$scope.cartItems[itemObj.id]);
+      if($scope.cartItems[itemObj.id])
+      {
+        console.log("item  present");
+        $scope.cartItems[itemObj.id].count = $scope.cartItems[itemObj.id].count + 1;
+      }
+      else{
+        console.log("item not present");
+        console.log("adding");
+        $scope.cartItems[itemObj.id] = {
+          obj:itemObj,
+          count:1
+        };
+      }
+      $scope.cartItems[itemObj.id].addedInCart=true;
+      console.log("cart items : ", JSON.stringify($scope.cartItems));
+    };
 
-		$scope.showCart = function (ev) {
-			$mdDialog.show({
-					controller: DialogController,
-					templateUrl: 'sections/retailCompany/cart.html',
-					parent: angular.element(document.body),
-					targetEvent: ev,
-					clickOutsideToClose: true,
-					fullscreen: $scope.customFullscreen,
-					locals: {
-						items: $scope.cartItems
-					}
-				})
-				.then(function (answer) {
-					$scope.status = 'You said the information was "' + answer + '".';
-				}, function () {
-					$scope.status = 'You cancelled the dialog.';
-				});
-		};
+    $scope.addCount = function(val){
+        return val.count = val.count + 1;
+    }
 
-		function DialogController($scope, $mdDialog, items) {
-			$scope.hide = function () {
-				$mdDialog.hide();
-			};
+    $scope.reduceCount = function(val){
+      console.log("reducing the count for : ", JSON.stringify(val));
+      if(val.count > 0)
+      {
+        return val.count = val.count - 1;
+      }
+    }
 
-			$scope.cancel = function () {
-				$mdDialog.cancel();
-			};
 
-			$scope.answer = function (answer) {
-				$mdDialog.hide(answer);
-			};
+    $scope.showCart = function(ev) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'sections/retailCompany/cart.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true,
+      fullscreen: $scope.customFullscreen,
+      locals: {
+        items: $scope.cartItems
+     }
+    })
+    .then(function(answer) {
+      $scope.status = 'You said the information was "' + answer + '".';
+    }, function() {
+      $scope.status = 'You cancelled the dialog.';
+    });
+  };
 
-			// console.log("cart items : ", JSON.stringify(items));
-			// console.log("cart items count : ",Object.keys(items).length);
+  function DialogController($scope, $mdDialog, items) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
 
-			$scope.selectedCartItems = items;
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+
+    // console.log("cart items : ", JSON.stringify(items));
+    // console.log("cart items count : ",Object.keys(items).length);
+
+    $scope.selectedCartItems =  items;
+
+    $scope.addCount = function(val){
+      val.count = val.count + 1;
+      $scope.totalPrice = getTotalPrice($scope.selectedCartItems);
+    }
+
+    $scope.reduceCount = function(val){
+      if(val.count > 0)
+      {
+        val.count = val.count - 1;
+        $scope.totalPrice = getTotalPrice($scope.selectedCartItems);
+      }
+    }
+
+    function getTotalPrice(obj)
+    {
+      var tp = 0;
+      _.each(obj, function(ar){
+        tp = tp + (ar.obj.price*ar.count);
+      });
+      return tp;
+    };
+    $scope.totalPrice = getTotalPrice($scope.selectedCartItems);
+  }
+
 
 			$scope.addCount = function (val) {
 				val.count = val.count + 1;
@@ -107,6 +147,7 @@ rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http',
 
 			$scope.totalPrice = getTotalPrice($scope.cartItems);
 		}
+
 
 
 		// console.log("Inside retail controller: ");

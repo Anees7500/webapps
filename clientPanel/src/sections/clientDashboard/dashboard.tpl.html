@@ -1,0 +1,248 @@
+<style>
+  @media screen and (max-width:800px){
+  header#site-header {
+      display: none;
+  }}
+  md-card._md{
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important;
+  }
+  input.req-clr {
+      width: 80%;
+  }
+  </style>
+
+<header class="header clearfix" style="position:fixed">
+    <button type="button" id="toggleMenu" class="toggle_menu">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="m-view"><h1 style="color:white;">
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+    </div>
+          <div class="pull-right">
+                <div class="dropdown notificationDropDown">
+                  <div class="dropdown">
+                    <div class="dropbtn">
+                      <notification-icon update-animation="grow" count="">
+                        <img src="../image/pp1.png" class="img-circle pp-image-header" width="40"/>
+                      </notification-icon>
+                    </div>
+                    <div class="dropdown-content">
+                      <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+                      <!-- <a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a> -->
+                      <a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+                    </div>
+                  </div>
+                </div>
+           </div>
+</header>
+
+<nav class="vertical_nav">
+  <ul id="js-menu" class="menu">
+    <li>
+       <div class="background-dp">
+         <div class="background-dp-color">
+               <div class="media-body">
+                   <h5 style="margin-top: -2px;">
+                     <img src="../image/pp1.png" class="img-circle pp-image" width="38"/>
+                    </i><span ng-bind="companyName"></span></h5>
+                   <!-- <h6 class="media-heading" style="color:white;" ng-bind="companyPerson"></h6> -->
+               </div>
+        </div>
+      </div>
+    </li><br>
+    <li class="menu--item">
+       <a href="" ng-click="boolFunction('categoryBool')" class="menu--link">
+         <i class="menu--icon far fa-check-square"></i>
+         <span class="menu--label">Categary</span>
+       </a>
+    </li>
+   <li class="menu--item">
+      <a href="" ng-click="boolFunction('addRequirementBool')" class="menu--link">
+        <i class="menu--icon far fa-list-alt"></i>
+        <span class="menu--label">Requirement</span>
+      </a>
+   </li>
+   <li class="menu--item">
+      <a href="" ng-click="boolFunction('FeedbackBool')" class="menu--link">
+        <i class="menu--icon fas fa-street-view"></i>
+        <span class="menu--label">Employee Feedback</span>
+      </a>
+   </li>
+  </ul>
+</nav>
+
+<div class="wrapper" style="margin-top:50px;">
+  <section>
+
+    <div class="company-details" ng-if="categoryBool">
+      <div class="title-baar">
+       <h5><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr"> home</a> <a class="w-clr">/</a> <a href="" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a> <a href="" class="w-clr">categary</a></h5>
+      </div><br><br>
+
+
+        <ul class="list-group">
+          <li class="list-group-item"><a><md-checkbox ng-disabled="true" ng-model="data.breakfast" aria-label="Checkbox 1">Breakfast</md-checkbox></a></li>
+          <li class="list-group-item"><a><md-checkbox ng-disabled="true" ng-model="data.lunch" aria-label="Checkbox 1">Lunch</md-checkbox></a></li>
+          <li class="list-group-item"><a><md-checkbox ng-disabled="true" ng-model="data.snacks" aria-label="Checkbox 1">Snacks</md-checkbox></a></li>
+          <li class="list-group-item"><a><md-checkbox ng-disabled="true" ng-model="data.dinner" aria-label="Checkbox 1">Dinner</md-checkbox></a></li>
+          <li class="list-group-item"><a><md-checkbox ng-disabled="true" ng-model="data.cashNCarry" aria-label="Checkbox 1">Cash & Carry</md-checkbox></a></li>
+          <li class="list-group-item"><a><md-checkbox ng-disabled="true" ng-model="data.midNightSnacks" aria-label="Checkbox 1">Mid-Night Snacks</md-checkbox></a></li>
+        </ul>
+                    <!-- <input type="submit" class="btn btn-info" value="Save"  ng-click="category(data);"> -->
+
+
+    </div>
+
+<div class="company-details" ng-if="addRequirementBool">
+  <div class="title-baar">
+   <h5><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr"> home</a> <a class="w-clr">/</a> <a href="" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a> <a href="" class="w-clr">requirement</a></h5>
+  </div><br><br>
+  <!-- Excel shit start-->
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Breakfast<br><br>
+              <div class="row">
+                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b> Person</b></div>
+                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b> Price</b></div>
+              </div>
+            </th>
+            <th>Lunch<br><br>
+              <div class="row">
+                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+              </div>
+            </th>
+            <th>Snacks<br><br>
+              <div class="row">
+                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+              </div>
+            </th>
+            <th>Dinner<br><br>
+              <div class="row">
+                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+              </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="reqObj in companyRequirements">
+      <tr>
+          <td>{{reqObj.dayName}}</td>
+          <td>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="number" ng-disabled="true" name="breakfast" class="req-clr" ng-model = "reqObj.breakfast">
+              </div>
+              <div class="col-md-6">
+                <input type="number" ng-disabled="true" name="breakfastPrice" class="req-clr" ng-model = "reqObj.breakfastPrice">
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="number" ng-disabled="true" name="lunch" class="req-clr" ng-model = "reqObj.lunch">
+              </div>
+              <div class="col-md-6">
+                <input type="number" ng-disabled="true" name="lunchPrice" class="req-clr" ng-model = "reqObj.lunchPrice">
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="number" name="snacks" ng-disabled="true" class="req-clr" ng-model = "reqObj.snacks">
+              </div>
+              <div class="col-md-6">
+                <input type="number" name="snacksPrice" class="req-clr" ng-disabled="true" ng-model = "reqObj.snacksPrice">
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="number" name="dinner" class="req-clr" ng-disabled="true" ng-model = "reqObj.dinner">
+              </div>
+              <div class="col-md-6">
+                <input type="number" name="dinnerPrice" class="req-clr" ng-disabled="true" ng-model = "reqObj.dinnerPrice">
+              </div>
+            </div>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Excel shit end-->
+  <hr>
+</div>
+
+<!-- Employee Feedback -->
+<div class="company-dashboard" ng-if="FeedbackBool" style="background-color:white;">
+  <div class="title-baar">
+    <h5><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href=""> home</a> <a class="w-clr">/</a> <a href="" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a> <a href="" class="w-clr">employee feedback</a></h5>
+  </div><br><br><br>
+  <div class="container">
+
+  <table class="table table-hover" style="background-color:white;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Overall Rating</th>
+        <th>Presentation Rating</th>
+        <th>Quality Rating</th>
+        <th>Quantity Rating</th>
+        <th>Taste Rating</th>
+        <th>Contact</th>
+        <th>Comment</th>
+        <th>Menu</th>
+        <th>Date & Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="feed in feedback.slice().reverse()">
+        <td>{{feed.reviewerName}}</td>
+        <td>{{feed.overAllRating}}</td>
+        <td>{{feed.presentationRating}}</td>
+        <td>{{feed.qualityRating}}</td>
+        <td>{{feed.quantityRating}}</td>
+        <td>{{feed.tasteRating}}</td>
+        <td>{{feed.mobile}}</td>
+        <td>
+          <!-- <a data-toggle="popover" title="{{feed.comment}}" data-content="Some content inside the popover">
+            <i class="fa fa-commenting fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
+            <ul class="nav nav-pills nav-stacked">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="far fa-comment-alt fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
+                <div class="dropdown-menu">
+                  <h6 class="comment-padd">{{feed.comment}}
+                  </h6>
+                </div>
+              </li>
+            </ul>
+        </td>
+        <td>
+          <!-- <a data-toggle="popover" title="{{feed.reviewedMenu}}" data-content="Some content inside the popover"><i class="fa fa-comments-o fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
+          <ul class="nav nav-pills nav-stacked">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fas fa-utensils fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
+              <div class="dropdown-menu">
+                <h6 class="comment-padd">{{feed.reviewedMenu}}
+                </h6>
+              </div>
+            </li>
+          </ul>
+        </td>
+        <td>{{feed.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<!--end-->
+<section>
+</div>
