@@ -650,7 +650,7 @@ summary {
 }
 
 
-@media screen and (max-width: 768px) and (min-width: 477px) {
+/*@media screen and (max-width: 768px) and (min-width: 477px) {
 	.addcartbutton {
 		font-size: 16px;
 		margin-top: 0px;
@@ -661,4 +661,4 @@ summary {
 	.md-icon-button md-icon svg {
 		width: 20px;
 	}
-}
+}*/

@@ -61,19 +61,19 @@
 											<span ng-bind="n.price"></span></h4>
 									</div>
 									<div class="col-sm-4 col-xs-4 ">
-										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="cartItems[n.id].addedInCart" style="color:ghostwhite;">
+										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="cartItems[n.id].addedInCart" style="color:ghostwhite;    width: 73px;">
 										  <span class="bg-dark pull-left" ng-click="reduceCount(cartItems[n.id])">-</span>
 										    <input type="number" class="count" name="qty" value="0" ng-model="cartItems[n.id].count">
 										  <span class="bg-dark pull-right" ng-click="addCount(cartItems[n.id])">+</span></a>
-										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)" style="color:ghostwhite;">Add to Cart</a>
+										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)" style="color:ghostwhite;width: 73px;">Add to Cart</a>
 									</div>
 									<!-- <div class="col-sm-6">
 
         </div> -->
 								</md-card-actions>
 								<md-card-content>
-									<span ng-bind="n.description">
-          	</span>
+								<p>	<span ng-bind="n.description">
+          	       </span></p>
 								</md-card-content>
 							</md-card>
 

@@ -1,4 +1,4 @@
-var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree' ,'ngMaterial']);
+var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree' ,'ngMaterial','ui-notification', 'uiGmapgoogle-maps']);
 
 rtApp.config(['$routeProvider', '$locationProvider',
   function ($routerProvider, $locationProvider) {
@@ -12,7 +12,7 @@ rtApp.config(['$routeProvider', '$locationProvider',
       .when('/retail/:companyName/checkout', {
 				templateUrl: 'sections/retailCheckout/checkout.tpl.html',
 				title: 'Header-part',
-				// controller: 'CheckoutController'
+			 // controller: 'CheckoutController'
 			})
 		// .when('/menu-item/:menuId', {
 		// 	templateUrl: 'sections/retailCompany/random.tpl.html',
