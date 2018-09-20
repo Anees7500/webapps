@@ -18,9 +18,12 @@
     "angular-ui-tree": "^2.22.6",
     "underscore": "^1.9.1",
     "ng-dialog": "^1.4.0",
-    "angular-material": "^1.1.10"
+    "angular-material": "^1.1.10",
+    "google-maps": "^3.3.0",
+    "angular-google-maps": "^2.4.1",
+    "angular-ui-notification": "^0.3.6"
   },
-  "resolutions":{
+  "resolutions": {
     "angular": "1.5.11",
     "angular-route": "1.5.11"
   }
