@@ -384,6 +384,8 @@ span {
 	-ms-user-select: none;
 	float: left;
 	color: black;
+	font-weight: bold;
+
 }
 
 input {

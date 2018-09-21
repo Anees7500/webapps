@@ -3,27 +3,27 @@
 <md-content class="md-padding md-checkout ">
   <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
     
-    <!-- <md-tab id="tab1">
+    <md-tab id="tab1">
       <md-tab-label>User Information</md-tab-label>
       <md-tab-body>
         <table>
           <tr>
-            <td>Name </td>
+            <td>Name: </td>
             <td>Aman Telkar</td>
           </tr>
           <br>
           <tr>
-            <td>Email</td>
+            <td>Email:</td>
             <td>aman.telkar@gmail.com</td>
           </tr>
           <br>
           <tr>
-            <td>Mobile</td>
+            <td>Mobile:</td>
             <td>9739420527</td>
           </tr>
         </table>
       </md-tab-body>
-    </md-tab> -->
+    </md-tab>
     <md-tab id="tab2" ng-disabled="data.secondLocked">
       <md-tab-label>Deliver to</md-tab-label>
       <md-tab-body>
@@ -68,12 +68,22 @@
                   <input name="resLng" type="number" id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required />
                 </div>
               </div>
+              <div class="col-md-12">
+              <div class="col-md-10" style="padding:12px;">
+              <label for="resLat">Address</label>
+              <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
+              </div>
+            <div class="col-md-2" style="padding:12px;">
+            <a class="btninput" onclick="getLocation()" >lacation me</a>
+            </div>
+            </div>
               <div style="padding:12px;">
 
                 <label for="label">Address</label>
                 <br>
-                <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address">
-
+                <div>
+                <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
+                
                 <!-- <br>
           <label for="label">Company Name</label>
           <br>
@@ -131,8 +141,10 @@
           data.selectedIndex = 4;
         </md-tab-body>
     </md-tab> -->
+    
   </md-tabs>
 </md-content>
+
 
 <div class="md-padding" layout="row" layout-sm="column" layout-align="left center" style="padding-top: 0;">
   <md-checkbox ng-model="data.secondLocked" aria-label="Disable item two?" style="margin: 5px;">
