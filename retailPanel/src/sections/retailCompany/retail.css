@@ -508,23 +508,6 @@ body {
 	color: aliceblue;
 	text-decoration: none;
 }
-.md-addcartbutton {
-	padding: 5px;
-	background-color: #df561d;
-	color: wheat;
-	border-radius: 15px;
-	font-size: 12px;
-	text-decoration: none;
-	text-align: center;
-	border: 1px solid black;
-	cursor: pointer;
-}
-
-.md-addcartbutton:hover {
-	background-color: firebrick;
-	color: aliceblue;
-	text-decoration: none;
-}
 
 .glyphicon-cart {
 	float: right;
@@ -532,23 +515,6 @@ body {
 	/* font-size: 33px; */
 }
 
-.md-padding {
-	/*	 background-image: url("image/background.jpg");*/
-		 background-color: #F8F8F8;;
-}
-
-.md-close{
-	position: relative;
-    padding: 10px 0 10px 20px;
-    border-bottom: 1px solid #e7e9e9;
-    
-}
-.close-button{
-	float: right;
-    font-size: 23px;
-    color: rgba(133,138,133,.5);
-    cursor: pointer;
-}
 article,
 aside,
 details,
@@ -631,11 +597,11 @@ summary {
 	}
 }
 
-/*----------------Cart Box-----------*/
+/*----------------Desing Box-----------*/
 
 @media only screen and (max-width: 1200px) {
 	.addcartbutton {
-		font-size: 7px;
+		font-size: 10px;
 	}
 	.text-right {
 		padding: 5px 0px 0px 0px;
