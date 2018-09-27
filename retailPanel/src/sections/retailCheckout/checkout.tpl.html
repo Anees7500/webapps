@@ -2,7 +2,7 @@
 <br>
 <md-content class="md-padding md-checkout ">
   <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
-    
+
     <md-tab id="tab1">
       <md-tab-label>User Information</md-tab-label>
       <md-tab-body>
@@ -83,7 +83,7 @@
                 <br>
                 <div>
                 <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
-                
+
                 <!-- <br>
           <label for="label">Company Name</label>
           <br>
@@ -119,8 +119,25 @@
     <md-tab id="tab3">
       <md-tab-label>Payment Method</md-tab-label>
       <md-tab-body>
-        View for Item #3 <br/>
-          data.selectedIndex = 2;
+        <br>
+        <br>
+        <br>
+        <form action="/purchase" method="POST">
+    <!-- Note that the amount is in paise = 50 INR -->
+    <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_p8Wx1oAE97Ezw2"
+    data-amount="5000"
+    data-buttontext="Pay with Razorpay"
+    data-name="Merchant Name"
+    data-description="Purchase Description"
+    data-image="https://your-awesome-site.com/your_logo.jpg"
+    data-prefill.name="Harshil Mathur"
+    data-prefill.email="support@razorpay.com"
+    data-theme.color="#F37254"
+    ></script>
+    <input type="hidden" value="Hidden Element" name="hidden">
+    </form>
         </md-tab-body>
     </md-tab>
    <!--  <md-tab id="tab4"> -->
@@ -141,7 +158,7 @@
           data.selectedIndex = 4;
         </md-tab-body>
     </md-tab> -->
-    
+
   </md-tabs>
 </md-content>
 
