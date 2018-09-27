@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e948f76f-7169-4d8e-b8ea-7ca363664a15" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/acorn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/atob" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/atob" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/autoprefixer" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/autoprefixer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/browser-pack" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/browser-pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/browserify" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/browserify" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/browserslist" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/browserslist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/color-support" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/color-support" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/deps-sort" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/deps-sort" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/escodegen" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/escodegen" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/esgenerate" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/esgenerate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/esparse" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/esparse" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/esvalidate" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/esvalidate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/extract-zip" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/extract-zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/gulp" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/gulp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/insert-module-globals" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/insert-module-globals" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/js-yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/js-yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/jshint" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/jshint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/mime" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/mkdirp" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/mkdirp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/module-deps" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/module-deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/phantomjs" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/phantomjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/rimraf" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/rimraf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/shjs" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/shjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/sshpk-conv" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/sshpk-conv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/sshpk-sign" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/sshpk-sign" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/sshpk-verify" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/sshpk-verify" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/strip-bom" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/strip-bom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/strip-indent" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/strip-indent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/strip-json-comments" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/strip-json-comments" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/terser" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/terser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/uglifyjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/umd" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/umd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/user-home" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/user-home" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/uuid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/which" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/which" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/derequire/node_modules/.bin/esparse" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/derequire/node_modules/.bin/esparse" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/derequire/node_modules/.bin/esvalidate" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/derequire/node_modules/.bin/esvalidate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/detective/node_modules/.bin/esparse" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/detective/node_modules/.bin/esparse" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/detective/node_modules/.bin/esvalidate" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/detective/node_modules/.bin/esvalidate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/escodegen/node_modules/.bin/esparse" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/escodegen/node_modules/.bin/esparse" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/escodegen/node_modules/.bin/esvalidate" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/escodegen/node_modules/.bin/esvalidate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/esrefactor/node_modules/.bin/esparse" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/esrefactor/node_modules/.bin/esparse" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/esrefactor/node_modules/.bin/esvalidate" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/esrefactor/node_modules/.bin/esvalidate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/dateformat" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/dateformat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/has-ansi" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/has-ansi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/strip-ansi" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/strip-ansi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/supports-color" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/gulp-browserify/node_modules/.bin/supports-color" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/node-releases/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/node-releases/node_modules/.bin/semver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/ruglify/node_modules/.bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/ruglify/node_modules/.bin/uglifyjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/syntax-error/node_modules/.bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/syntax-error/node_modules/.bin/acorn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/umd/node_modules/.bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/umd/node_modules/.bin/uglifyjs" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-999026892">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.84" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="48" />
+          <entry key="js" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="48" />
+          <entry key="JavaScript" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="78" column="37" lean-forward="true" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-checkbox#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#md-checkbox#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="80" column="18" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js" />
+        <option value="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/adminPanel/node_modules" />
+    <handled-path value="$PROJECT_DIR$/clientPanel/node_modules" />
+    <handled-path value="$PROJECT_DIR$/retailPanel/node_modules" />
+    <handled-path value="$PROJECT_DIR$/vmWeb/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/adminPanel/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-animate/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-aria/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-cookies/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-material/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-messages/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-route/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular-ui-notification/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/lodash/package.json" />
+      <path value="$PROJECT_DIR$/adminPanel/src/bower_components/markerclustererplus/package.json" />
+      <path value="$PROJECT_DIR$/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/clientPanel/package.json" />
+      <path value="$PROJECT_DIR$/clientPanel/src/bower_components/angular-route/package.json" />
+      <path value="$PROJECT_DIR$/clientPanel/src/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular-animate/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular-aria/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular-material/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular-messages/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular-route/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular-ui-notification/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/components-font-awesome/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/lodash/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/markerclustererplus/package.json" />
+      <path value="$PROJECT_DIR$/retailPanel/src/bower_components/ng-dialog/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-animate/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-aria/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-cookies/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-material/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-messages/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-route/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular-ui-notification/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/angular/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/lodash/package.json" />
+      <path value="$PROJECT_DIR$/vmWeb/src/bower_components/markerclustererplus/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="127" />
+    <option name="y" value="11" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+              <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+              <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+              <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+              <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sections" type="462c0819:PsiDirectoryNode" />
+              <item name="retailCheckout" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e948f76f-7169-4d8e-b8ea-7ca363664a15" name="Default Changelist" comment="" />
+      <created>1537713758497</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537713758497</updated>
+      <workItem from="1537713761690" duration="9127000" />
+      <workItem from="1537852627442" duration="4441000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13568000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17559524" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="80" column="18" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="78" column="37" lean-forward="true" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-checkbox#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-checkbox#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

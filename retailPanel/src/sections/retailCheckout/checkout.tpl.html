@@ -1,4 +1,8 @@
-<br>
+<style type="text/css">
+    div {
+        padding: 12px;
+    }
+</style><br>
 <br>
 <md-content class="md-padding md-checkout ">
   <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
@@ -35,6 +39,7 @@
       <br><br>
       <div class="company-details">
 
+
         <!-- GOOGLE MAP API ------------------------->
         <div class="container" ng-controller="newPlaceCtrl">
 
@@ -43,13 +48,12 @@
             <span>{{ apiStatus }}</span>
           </div>
 
-          <form name="searchForm" novalidate ng-submit="search()">
+            <form name="searchForm" novalidate ng-submit="search()">
             <input type="text" name="place" ng-model="searchPlace" class="searchNew" placeholder="Search company name with city..." required autofocus/>
            <input type="submit" class="btn btn-info" class="submitNew" value="Search" ng-disabled="searchForm.$invalid" style="width: 86px;">
   <br><br>
           </form>
-
-          <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+            <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
             <div class="form-group">
               <div class="row">
                 <div class="map-center">
@@ -58,6 +62,7 @@
                 <div class="col-md-4" style="padding:12px;">
                   <label for="resName">Company Name</label>
                   <input name="resName" type="text" ng-disabled="" class="form-control" ng-model="place.companyName" placeholder="Company name" required />
+
                 </div>
                 <div class="col-md-4" style="padding:12px;">
                   <label for="resLat">Latitude</label>
@@ -69,26 +74,23 @@
                 </div>
               </div>
               <div class="col-md-12">
-              <div class="col-md-10" style="padding:12px;">
-              <label for="resLat">Address</label>
-              <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
-              </div>
-            <div class="col-md-2" style="padding:12px;">
-            <a class="btninput" onclick="getLocation()" >lacation me</a>
+                <div class="col-md-11 col-sm-10 col-xs-9" style="padding:12px;">
+                  <label for="resLat">Address</label>
+                  <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3" style="padding:12px;">
+                  <a class="btninput" onclick="getLocation()" >locate me</a>
+                </div>
             </div>
-            </div>
-              <div style="padding:12px;">
-
+                <div style="padding:12px;">
                 <label for="label">Address</label>
                 <br>
-                <div>
+                    <div>
                 <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
-                
                 <!-- <br>
           <label for="label">Company Name</label>
           <br>
           <input type="text" placeholder="Enter Company Name" name="companyName" class="form-control" required ng-model="place.companyName"> -->
-
                 <br>
                 <label for="label">Contact Person Name</label>
                 <br>
@@ -99,14 +101,11 @@
                 <br>
                 <input type="text" placeholder="Enter contact number"name="contactNumber" class="form-control" required ng-model="place.contactNumber">
               </div>
-
             </div>
-
             <div class="text-center">
               <input type="submit" class="btn btn-success" value="Submit" ng-click="companySignup(place)"style="width: 86px;">
             </div>
           </form>
-
         </div>
 
         <!--GOOGLE MAP API ------------------------->

@@ -39,7 +39,14 @@ rtApp.service('Map', function($q) {
 rtApp.controller('newPlaceCtrl', function($scope, Map) {
 
     $scope.place = {};
-
+    $scope.getCurrentLocation = function(){
+        geolocation.getLocation().then(function (data) {
+            return {
+                lat: data.coords.latitude,
+                long: data.coords.longitude
+            };
+        });
+    }
     $scope.search = function() {
         $scope.apiError = false;
         Map.search($scope.searchPlace)
@@ -67,6 +74,7 @@ rtApp.controller('newPlaceCtrl', function($scope, Map) {
 });
 function getLocation() {
     if (navigator.geolocation) {
+        
         navigator.geolocation.watchPosition(showPosition);
     } else {
         x.innerHTML = "Geolocation is not supported ";
@@ -74,6 +82,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
+    
     x.innerHTML = "Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude;
 }
+
