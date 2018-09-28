@@ -3,12 +3,10 @@ header {
 	z-index: 999;
 	width: 100%;
 	height: 45px;
-	background: #00bcd4;
+	background: lightseagreen;
 	color: white;
 	box-shadow: rgba(0, 0, 0, 0.5) 0 -20px 20px 17px;
-
 }
-
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -285,17 +283,6 @@ body {
 .box-headetop {
 	background-color: #eee !important;
 }
-
-header {
-	position: relative;
-	z-index: 999;
-	width: 100%;
-	height: 45px;
-	background: #00bcd4;
-	color: white;
-	box-shadow: rgba(0, 0, 0, 0.5) 0 -20px 20px 17px;
-}
-
 .md_nabvar {
 	overflow: hidden;
 	width: 100%;

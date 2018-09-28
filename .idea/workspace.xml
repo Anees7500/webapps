@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e948f76f-7169-4d8e-b8ea-7ca363664a15" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/retailPanel/src/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retailPanel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retailPanel/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retailPanel/src/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/bower.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/acorn" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/acorn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vmWeb/node_modules/.bin/atob" beforeDir="false" afterPath="$PROJECT_DIR$/vmWeb/node_modules/.bin/atob" afterDir="false" />
@@ -73,6 +74,7 @@
     <session id="-999026892">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.84" value="1" />
           <entry key="project.opened" value="2" />
@@ -92,12 +94,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="1" />
+          <entry key="html" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="1" />
+          <entry key="HTML" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -107,15 +109,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="78" column="37" lean-forward="true" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+            <state relative-caret-position="208">
+              <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
               <folding>
+                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#3;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-checkbox#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-checkbox#1;n#div#0;n#!!top" expanded="true" />
@@ -127,8 +131,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="180">
               <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/retailPanel/src/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -136,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="80" column="18" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+            <state relative-caret-position="1539">
+              <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -209,7 +222,7 @@
       <path value="$PROJECT_DIR$/vmWeb/src/bower_components/markerclustererplus/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="127" />
     <option name="y" value="11" />
     <option name="width" value="1346" />
@@ -253,21 +266,6 @@
               <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapps" type="462c0819:PsiDirectoryNode" />
-              <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapps" type="462c0819:PsiDirectoryNode" />
-              <item name="retailPanel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sections" type="462c0819:PsiDirectoryNode" />
-              <item name="retailCheckout" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -304,15 +302,15 @@
       <option name="presentableId" value="Default" />
       <updated>1537713758497</updated>
       <workItem from="1537713761690" duration="9127000" />
-      <workItem from="1537852627442" duration="4441000" />
+      <workItem from="1537852627442" duration="6366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13568000" />
+    <option name="totallyTimeSpent" value="15493000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17559524" />
@@ -341,31 +339,45 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="180">
           <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.css">
+    <entry file="file://$PROJECT_DIR$/retailPanel/src/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="80" column="18" lean-forward="true" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+        <state relative-caret-position="190">
+          <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/retailPanel/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-757" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/retailPanel/src/sections/retailCheckout/checkout.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="78" column="37" lean-forward="true" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="37" />
+        <state relative-caret-position="208">
+          <caret line="39" column="35" lean-forward="true" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
           <folding>
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#3;n#div#0;n#form#1;n#div#0;n#div#0;n#div#0;n#md-tab-body#0;n#md-tab#1;n#md-tabs#0;n#md-content#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-checkbox#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#md-checkbox#1;n#div#0;n#!!top" expanded="true" />

@@ -110,27 +110,27 @@ function($scope, $rootScope, $route, $http, GetRetailMenuUrl, $routeParams, reta
 
 
 // console.log("Inside retail controller: ");
-$(document).ready(function() {
-  $('.count').prop('disabled', true);
-  $(document).on('click', '.plus', function() {
-    $('.count').val(parseInt($('.count').val()) + 1);
-  });
-  $(document).on('click', '.minus', function() {
-    $('.count').val(parseInt($('.count').val()) - 1);
-    if ($('.count').val() == 0) {
-      $('.count').val(1);
-    }
-  });
-});
+$(document).ready(function () {
+			$('.count').prop('disabled', true);
+			$(document).on('click', '.plus', function () {
+				$('.count').val(parseInt($('.count').val()) + 1);
+			});
+			$(document).on('click', '.minus', function () {
+				$('.count').val(parseInt($('.count').val()) - 1);
+				if ($('.count').val() == 0) {
+					$('.count').val(1);
+				}
+			});
+		});
 
-$scope.clickToOpen = function() {
-  ngDialog.open({
-    template: 'sections/retailCompany/cart.html',
-    className: 'ngdialog-theme-default',
-    controller: '',
-  });
-};
-}]);
+		$scope.clickToOpen = function () {
+			ngDialog.open({
+				template: 'sections/retailCompany/cart.html',
+				className: 'ngdialog-theme-default',
+        controller: '',
+			});
+		};
+	}]);
 
 var unflatten = function(array, parent, tree) {
   // //console.log("value passed here : ",array);

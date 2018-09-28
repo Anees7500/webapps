@@ -11,7 +11,7 @@
 		</md-toolbar>
 		<md-dialog-content>
 			<div ng-repeat="(key, value) in selectedCartItems" class="md-dialog-content">
-<<<<<<< HEAD
+
 				<div class="md-close">
 					  <div class="close-button pull-right">×</div>
 					<span class="menuName ">&nbsp;{{value.obj.menuName}}
@@ -25,13 +25,13 @@
 					<input type="number" class="count" name="qty" value="0">
 					<span class="plus bg-dark pull-right">+</span>
 				</a> -->
-=======
+
 				<span>{{value.obj.menuName}}</span><br>
 				<p><span>₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
 				<span>{{value.count}}</span><br>
 				<md-button class="md-raised md-primary" ng-click="addCount(value)">add count</md-button>
 				<md-button class="md-raised md-primary" ng-click="reduceCount(value)">reduce count</md-button>
->>>>>>> parent of 7974698... shopping cart work
+
 			</div>
 		</md-dialog-content>
 
