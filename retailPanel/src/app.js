@@ -7,7 +7,7 @@ rtApp.config(['$routeProvider', '$locationProvider',
 			.when('/retail/:companyName', {
 				templateUrl: 'sections/retailCompany/retail.tpl.html',
 				title: 'Header-part',
-				// controller: 'RetailController'
+				controller: 'RetailController'
 			})
       .when('/retail/:companyName/checkout', {
 				templateUrl: 'sections/retailCheckout/checkout.tpl.html',

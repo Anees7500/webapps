@@ -18,20 +18,14 @@
 					</span><br>
 					<p><span class="price  pull-right">₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
 					<span>{{value.count}}</span><br></div>
-		<md-button class="md-raised md-primary pull-left" ng-click="addCount(value)">add count</md-button>
-		 <md-button class="md-raised md-primary pull-left" ng-click="reduceCount(value)">reduce count</md-button>
-				<!-- <a class="addcartbutton  md-raised md-primary pull-left" ng-if="cartItems[n.id].addedInCart" style="color:ghostwhite">
-					<span class="minus bg-dark pull-left">-</span>
-					<input type="number" class="count" name="qty" value="0">
-					<span class="plus bg-dark pull-right">+</span>
-				</a> -->
-
-				<span>{{value.obj.menuName}}</span><br>
-				<p><span>₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
-				<span>{{value.count}}</span><br>
-				<md-button class="md-raised md-primary" ng-click="addCount(value)">add count</md-button>
-				<md-button class="md-raised md-primary" ng-click="reduceCount(value)">reduce count</md-button>
-
+					<div class="col-sm-4 col-xs-4 ">
+						<a class="addcartbutton  md-raised md-primary pull-right" style="color:ghostwhite;    width: 73px;">
+							<span class="bg-dark pull-left " min="0" ng-click="reduceCount(value)">-</span>
+								<input type="number" class="count" name="qty" value="0" ng-model="value.count">
+							<span class="bg-dark pull-right "min="0" ng-click="addCount(value)">+</span></a>
+					</div>
+		<!-- <md-button class="md-raised md-primary pull-left" ng-click="addCount(value)">add count</md-button>
+		 <md-button class="md-raised md-primary pull-left" ng-click="reduceCount(value)">reduce count</md-button> -->
 			</div>
 		</md-dialog-content>
 
