@@ -37,6 +37,7 @@ md-content.md-padding._md.layout-xs-column.layout-row {
 }
 .map-center {
   text-align: -webkit-left;
+  box-shadow:0 3px 25px gray;
 }
 #map {
   width: 100%;
@@ -60,11 +61,12 @@ label {
 
  md-tabs.md-accent>md-tabs-wrapper {
    background-color: #eee !important;
-
+ /* display: contents; */
+ 
 }
 .md-checkout {
     padding: 0px;
-    margin-top: -46px;
+    margin-top: -54px;
     overflow-x: hidden;
   }
   .md-accent{
@@ -111,7 +113,6 @@ label {
 .next:hover{
   text-decoration: none;
 }
-
 
 
 

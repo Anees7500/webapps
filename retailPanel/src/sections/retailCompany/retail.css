@@ -300,9 +300,30 @@ body {
 .md_Cartbody {
 	margin-top: 110px;
 	float: left;
-
+	
 }
-
+.box-shadow{
+transition: box-shadow .3s;
+border: 1px solid #ccc;
+/* background: #fff; */
+background-color: rgba(255, 255, 255, .7);
+}
+.box-shadow:hover {
+	/* box-shadow: 0 0 40px rgba(40, 40, 40, .4); */
+	
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .2),
+	0 6px 20px 0 rgba(0, 0, 0, .15);
+}
+.md-padding{
+	background-color: transparent;
+}
+.md-description{
+	font-size: 15px;
+	font-weight:bold;
+	font: italic bold 12px/30px Georgia,
+	serif;
+	font: menu;
+}
 /*--Plus button work--*/
 
 .count {
@@ -568,6 +589,7 @@ summary {
 	margin-right: 10px;
 }
 
+
 /*...............MOBILE VIEW...............*/
 
 @media only screen and (max-width: 500px) {}
@@ -617,3 +639,15 @@ summary {
 		width: 20px;
 	}
 }*/
+/* .login-signup-form{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1001;
+	overflow:hidden;
+} */

@@ -1,6 +1,6 @@
 <!---   Navbar part              -->
 <div class="md_nabvar">
-	<md-toolbar class="md-theme-light">
+<md-toolbar class=" md-theme-light" style="background-color: white">
 		<md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
 			<md-nav-item ng-repeat="node in menuNode" md-nav-href="#{{node.menuName}}">
 				{{node.menuName}}
@@ -26,7 +26,7 @@
 		<div ng-cloak ng-repeat="node in menuNode">
 			<!-------Menu Heading --------->
 
-			<md-toolbar class="md-theme-light" ng-attr-id="{{node.menuName}}">
+			<md-toolbar class="  md-theme-light" ng-attr-id="{{node.menuName}}">
 				<h2 class="md-toolbar-tools">
 					<span>{{node.menuName}}</span>
 				</h2>
@@ -39,7 +39,7 @@
 						<!-- <div class="col-md-4" flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode"> -->
 						<div class="md-card col-md-4 col-sm-6 col-xs-12" ng-repeat="n in node.menuNode">
 							<!-------Card  --------->
-							<md-card>
+							<md-card class="box-shadow">
 								<img ng-src="image/PizzaHut.png" class="md-card-image" alt="Washed Out">
 								<!---Title Name-->
 								<md-card-title>
@@ -72,8 +72,7 @@
         </div> -->
 								</md-card-actions>
 								<md-card-content>
-								<p>	<span ng-bind="n.description">
-          	       </span></p>
+								<p class="md-description"><span ng-bind="n.description"></span></p>
 								</md-card-content>
 							</md-card>
 
