@@ -1,5 +1,5 @@
-rtApp.factory('RetailLoginController', ['$http', '$cookies', '$rootScope', '$httpParamSerializerJQLike', '$location', 'Notification',
-    function ($http, $cookies, $rootScope, $httpParamSerializerJQLike, $location, Notification) {
+rtApp.factory('AdminLoginService', ['$http', '$rootScope', '$httpParamSerializerJQLike', '$location', 'Notification',
+    function ($http, $cookies, $httpParamSerializerJQLike, $location, Notification) {
         return {
             login: function (user, adminLoginUrl) {
                 $http({
@@ -13,7 +13,7 @@ rtApp.factory('RetailLoginController', ['$http', '$cookies', '$rootScope', '$htt
                         console.log('response admin 112', response);
                         if (response.data.status == 1) {
                             Notification.success('Welcome You Are In Admin Penal');
-                            $cookies.put('admin_username', response.data.message);
+                            // $cookies.put('admin_username', response.data.message);
                             // $cookies.put('token',response.data.data[0].token);
                             // $cookies.put('id',response.data.data[0].id);
                             // $cookies.put('email',response.data.data[0].email);

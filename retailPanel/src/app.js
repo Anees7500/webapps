@@ -1,7 +1,8 @@
-var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree', 'ngAnimate', 'ngAria', 'ngMessages', 'ngMaterial', 'ui-notification', 'uiGmapgoogle-maps']);
+var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree', 'ngAnimate', 'ngAria', 'ngMessages',
+	'ngMaterial', 'ui-notification', 'uiGmapgoogle-maps','ngCookies']);
 
-rtApp.config(['$routeProvider', '$locationProvider',
-  function ($routerProvider, $locationProvider) {
+rtApp.config(['$routeProvider',
+  function ($routerProvider) {
 		$routerProvider
 			.when('/', {
 				templateUrl: 'sections/retailLogin/login.tpl.html',

@@ -1,5 +1,5 @@
-rtApp.controller('RetailLoginController', ['$scope', '$rootScope', '$cookies', 'AdminLoginService', '$http', 'adminLoginUrl', '$route',
-    function ($scope, $rootScope, $cookies, AdminLoginService, $http, adminLoginUrl, $route) {
+rtApp.controller('RetailLoginController', ['$scope', '$rootScope', 'AdminLoginService', '$http', 'adminLoginUrl',
+    function ($scope, $rootScope, AdminLoginService, $http, adminLoginUrl) {
         $scope.login = function (user) {
             AdminLoginService.login(user, adminLoginUrl);
         }
