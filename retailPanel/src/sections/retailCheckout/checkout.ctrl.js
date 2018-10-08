@@ -4,7 +4,7 @@
       
 // }]);
 
-rtApp.controller('FooController', ['$scope', function ($scope) {
+rtApp.controller('CheckoutController', ['$scope', function ($scope) {
     console.log("hi , inside foocontroler");
     var options = {
         "key": "rzp_test_glA246D8rCFOVc",
