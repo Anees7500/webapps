@@ -1,4 +1,4 @@
-var clientApp = angular.module("clientApp", ['ngRoute']);
+var clientApp = angular.module("clientApp", ['ngRoute','ngMaterial']);
 
 clientApp.config(['$routeProvider', '$locationProvider',
   function ($routerProvider, $locationProvider) {
@@ -9,10 +9,12 @@ clientApp.config(['$routeProvider', '$locationProvider',
 				title: 'Header-part',
 				controller: 'LoginController'
 			})
-		// .when('/menu-item/:menuId', {
-		// 	templateUrl: 'sections/retailCompany/random.tpl.html',
-		// 	// title: 'Header-part',
-		// 	controller: 'RandomController'
-		// })
-  }
-]);
+		.when('/dashboard', {
+			templateUrl: 'sections/clientDashboard/dashboard.tpl.html',
+			title: 'Header-part',
+			controller: 'ClientDashboardController'
+		});
+
+
+        }
+        ]);
