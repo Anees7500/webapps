@@ -1,21 +1,22 @@
-<div class="container login-con">
+<div class="container-flude ">
   <div class="row">
-    <h3 style="color:white;"><span class="i-cls"><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span></h3>
+    <h3 style="color:white;">
+      <span class="i-cls"><img src="../../image/logo.png" class="img-login" />Fancymonk</span></h3>
   </div>
   <div class="body-cls">
     <div class="row">
-      <div class="col-sm-0 col-md-8 col-lg-8">
-        <div class="cls-login part-a">
+      <div class="col-md-12">
+      <div class="col-sm-8 col-md-8 col-lg-8">
+        <div class="cls-login">
+          <img class="image12"  src="../../image/new4.gif">
         </div>
       </div>
-      <div class="col-sm-12 col-md-4 col-lg-4 part-b">
-
-        <div class="form sign-in">
-          <h6><img src="../image/new25.gif" width="60px;"/></h6>
-          <h2><span class="i-cls">Welcome back,</span></h2>
+      <div class="col-sm-4 col-md-4 col-lg-4 loginForm">
+          <img class="imagelog" src="../../image/new25.gif" />
+           <h2><span class="i-cls">Welcome back,</span></h2>
           <form role="form" name="loginForm">
             <label class="label-vendor">
-          <span class="text-center">Username / Email / Mobile</span>
+          <span class="text-center">Company username</span>
           <input class="input-style input-chng" required ng-model="user.companyName" type="text" />
         </label>
             <label class="label-vendor">
@@ -26,8 +27,9 @@
             <button type="submit" class="submit" ng-click="login(user)">Sign In</button>
           </form>
           <button type="button" class="fb-btn">Wanna be our <span>partner ?</span></button>
-        </div>
-      </div>
+
+    </div>
+  </div>
     </div>
     <h5 class="website">www.fancymonk.com</h5>
   </div>

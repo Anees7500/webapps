@@ -1,6 +1,6 @@
-
 <br>
 <br>
+<<<<<<< HEAD
 
 <ul class="pager">
       <md-content class="md-padding md-checkout ">
@@ -139,3 +139,99 @@
     Align tabs to bottom?
   </md-checkbox>
 </div> -->
+=======
+<div ng-cloak>
+    <div class="User Details">
+        <md-content class="md-padding">
+            <h1 class="md-display-2">User Details</h1>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>Aman Telkar</td>
+                </tr>
+                <br>
+                <tr>
+                    <td>Email:</td>
+                    <td>aman.telkar@gmail.com</td>
+                </tr>
+                <br>
+                <tr>
+                    <td>Mobile:</td>
+                    <td>+91-9739420527</td>
+                </tr>
+            </table>
+            <md-button class="md-raised md-primary">Next</md-button>
+        </md-content>
+    </div>
+    <div class="User Address">
+        <md-content class="md-padding">
+            <h1 class="md-display-2">User Address</h1>
+            <div class="container" ng-controller="newPlaceCtrl">
+
+                <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+                    <b>Please Search Company With City Name or There is no Internet connection : </b>
+                    <span>{{ apiStatus }}</span>
+                </div>
+
+                <form name="searchForm" novalidate ng-submit="search()">
+                    <input type="text" name="place" ng-model="searchPlace" class="searchNew"
+                           placeholder="Search company name with city..." required autofocus/>
+                    <input type="submit" class="btn btn-info" class="submitNew" value="Search"
+                           ng-disabled="searchForm.$invalid" style="width: 86px;">
+                    <br><br>
+                </form>
+                <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="map-center">
+                                <div id="map"></div>
+                            </div>
+                            <div class="col-md-4" style="padding:12px;">
+                                <label for="resName">Company Name</label>
+                                <input name="resName" type="text" ng-disabled="" class="form-control"
+                                       ng-model="place.companyName" placeholder="Company name" required/>
+
+                            </div>
+                            <div class="col-md-4" style="padding:12px;">
+                                <label for="resLat">Latitude</label>
+                                <input name="resLat" type="number" class="form-control" ng-disabled="true"
+                                       ng-model="place.latitude" id="latitude" required/>
+                            </div>
+                            <div class="col-md-4" style="padding:12px;">
+                                <label for="resLng">Longitude</label>
+                                <input name="resLng" type="number" id="lan" class="form-control" ng-disabled="true"
+                                       ng-model="place.longitute" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-11 col-sm-10 col-xs-9" style="padding:12px;">
+                                <label for="resLat">Address</label>
+                                <input type="text" placeholder="Enter address" name="address" class="form-control"
+                                       required ng-model="place.address">
+                            </div>
+                            <div class="col-md-1 col-sm-2 col-xs-3" style="padding:12px;">
+                                <a class="btninput" onclick="getLocation()">locate me</a>
+                            </div>
+                        </div>
+                        <div style="padding:12px;">
+                            <br>
+                            <label for="label">Contact Person Name</label>
+                            <br>
+                            <input type="text" placeholder="Enter contact person name" name="companyAddress"
+                                   class="form-control" required ng-model="place.companyPerson">
+
+                            <br>
+                            <label for="label">Contact Number</label>
+                            <br>
+                            <input type="text" placeholder="Enter contact number" name="contactNumber"
+                                   class="form-control" required ng-model="place.contactNumber">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <md-button class="md-raised md-primary" ng-click="pay()">Next</md-button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+>>>>>>> a0370379574af7ee534c48756a847aafe692128b

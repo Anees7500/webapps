@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 rtApp.controller('FooController', ['$scope',
  function ($scope) {
+=======
+// rtApp.controller('CheckoutController',[ '$scope', '$rootScope', '$route', '$http', 
+// 	function($scope, $rootScope, $route, $http,){ 
+      
+      
+// }]);
+
+rtApp.controller('CheckoutController', ['$scope', function ($scope) {
+>>>>>>> a0370379574af7ee534c48756a847aafe692128b
     console.log("hi , inside foocontroler");
     var options = {
         "key": "rzp_test_glA246D8rCFOVc",

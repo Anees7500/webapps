@@ -1,0 +1,140 @@
+
+<br>
+<br>
+
+<ul class="pager">
+<md-content class="md-padding md-checkout ">
+  <md-tabs class="md-accent" md-selected="data.selectedIndex">
+<!-- <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}"> -->
+    <md-tab id="tab1">
+      <md-tab-label>User Information</md-tab-label>
+      <md-tab-body>
+        <table>
+          <tr>
+            <td>Name: </td>
+            <td>Aman Telkar</td>
+          </tr>
+          <br>
+          <tr>
+            <td>Email:</td>
+            <td>aman.telkar@gmail.com</td>
+          </tr>
+          <br>
+          <tr>
+            <td>Mobile:</td>
+            <td>+91-9739420527</td>
+          </tr>
+        </table>
+      </md-tab-body>
+    </md-tab>
+    <md-tab id="tab2" ng-disabled="data.secondLocked">
+      <md-tab-label >Deliver to</md-tab-label>
+      <md-tab-body>
+        <div class="add-company ">
+
+         <!--  <div class="title-baar ">
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">Add Company</a></h5>
+      </div> -->
+      <br><br>
+      <div class="company-details">
+
+        <!-- GOOGLE MAP API ------------------------->
+        <div class="container" ng-controller="newPlaceCtrl">
+
+          <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+            <b>Please Search Company With City Name or There is no Internet connection : </b>
+            <span>{{ apiStatus }}</span>
+          </div>
+
+            <form name="searchForm" novalidate ng-submit="search()">
+            <input type="text" name="place" ng-model="searchPlace" class="searchNew" placeholder="Search company name with city..." required autofocus/>
+           <input type="submit" class="btn btn-info" class="submitNew" value="Search" ng-disabled="searchForm.$invalid" style="width: 86px;">
+  <br><br>
+          </form>
+            <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
+            <div class="form-group">
+              <div class="row">
+                <div class="map-center">
+                  <div id="map"></div>
+                </div>
+                <div class="col-md-4" style="padding:12px;">
+                  <label for="resName">Company Name</label>
+                  <input name="resName" type="text" ng-disabled="" class="form-control" ng-model="place.companyName" placeholder="Company name" required />
+
+                </div>
+                <div class="col-md-4" style="padding:12px;">
+                  <label for="resLat">Latitude</label>
+                  <input name="resLat" type="number" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required />
+                </div>
+                <div class="col-md-4" style="padding:12px;">
+                  <label for="resLng">Longitude</label>
+                  <input name="resLng" type="number" id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="col-md-11 col-sm-10 col-xs-9" style="padding:12px;">
+                  <label for="resLat">Address</label>
+                  <input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3" style="padding:12px;">
+                  <a class="btninput" onclick="getLocation()" >locate me</a>
+                </div>
+            </div>
+                <div style="padding:12px;">
+                <!--<label for="label">Address</label>-->
+                <!--<br>-->
+                    <!--<div>-->
+                <!--<input type="text" placeholder="Enter address" name="address" class="form-control" required ng-model="place.address" >-->
+
+                <!-- <br>
+          <label for="label">Company Name</label>
+          <br>
+          <input type="text" placeholder="Enter Company Name" name="companyName" class="form-control" required ng-model="place.companyName"> -->
+                <br>
+                <label for="label">Contact Person Name</label>
+                <br>
+                <input type="text" placeholder="Enter contact person name" name="companyAddress" class="form-control" required ng-model="place.companyPerson">
+
+                <br>
+                <label for="label">Contact Number</label>
+                <br>
+                <input type="text" placeholder="Enter contact number"name="contactNumber" class="form-control" required ng-model="place.contactNumber">
+              </div>
+            </div>
+            <div class="text-center">
+              <input type="submit" class="btn btn-success" value="Submit" ng-click="companySignup(place)"style="width: 86px;">
+            </div>
+          </form>
+        </div>
+
+        <!--GOOGLE MAP API ------------------------->
+      </div>
+    </div>
+    <!-- end  -->
+        </div>
+        </md-tab-body>
+    </md-tab>
+    <md-tab id="tab3">
+      <a class="pay" ng-click="pay()"><md-tab-label>Payment Method</md-tab-label></a>
+      <md-tab-body>
+       
+     <!-- "<button >Pay with Razorpay</button>" -->
+        </md-tab-body>
+    </md-tab>
+
+  </md-tabs>
+<button class="previous"><a href="">Previous</a></button>
+
+<button class="next"><a href="">Next</a></button>
+</md-content>
+
+</ul>
+
+<!-- <div class="md-padding" layout="row" layout-sm="column" layout-align="left center" style="padding-top: 0;">
+  <md-checkbox ng-model="data.secondLocked" aria-label="Disable item two?" style="margin: 5px;">
+    Disable item two?
+  </md-checkbox>
+  <md-checkbox ng-model="data.bottom" aria-label="Align tabs to bottom?" style="margin: 5px;">
+    Align tabs to bottom?
+  </md-checkbox>
+</div> -->
