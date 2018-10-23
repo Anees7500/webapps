@@ -5,15 +5,6 @@
 			<md-nav-item ng-repeat="node in menuNode" md-nav-href="#{{node.menuName}}">
 				{{node.menuName}}
 			</md-nav-item>
-			<!-- these require actual routing with ui-router or ng-route, so they
-			 won't work in the demo
-			 <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
-			 <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
-			 You can also add options for the <code>ui-sref-opts</code> attribute.
-			 <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
-				 Page Six
-			 </md-nav-item>
-			 -->
 			<md-icon md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)" style="position:absolute; top:10px; right:30px;cursor: pointer; "></md-icon>
 		</md-nav-bar>
 	</md-toolbar>

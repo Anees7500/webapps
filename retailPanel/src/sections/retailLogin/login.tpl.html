@@ -1,34 +1,39 @@
 <div class="container">
-<div class="row">
-    <h3 style="color:white;"><span class="i-cls"><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span></h3>
-<div class="col-md-12">
-    <h1 class="text-center">Login</h1>
-    <label class="label control-lable">User name or E-mail</label>
-    <div class="input-group">
-        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-        <input type="text" class="form-control"required ng-model="user.username" name="mail" placeholder="E-mail">
-    </div>
-    <label class="label control-lable">Password</label>
-    <div class="input-group">
-        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-        <input type="Password" class="form-control" name="Password"required ng-model="user.password" placeholder="Enter-Password">
-    </div>
+        <div class="row">
+            <div class="header-part1">
+                <h3 style="color:white;">
+                    <span class="i-cls"></span><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span>
+                </h3>
+            </div>
+            <div class="login-part1">
+                <div class="col-md-4 col-sm-12 col-xs-12 ">
+                    <div class="col-md-12 ">
+                        <h1 class="text-center">Login</h1>
+                    </div>
+                    <div class="col-md-12 ">
+                        <form class="login-form" action="">
+                            <label for=""></label>
+                            <input class="input-part" type="text" name="" id="" ng-model="user.username" placeholder="email" class="email">
+                            
+                            <label for=""></label>
+                            <input class="input-part" type="password" name="" id="" required ng-model="user.password" placeholder="password" class="pass">
+                            
+                        <div class="col-md-6">
+                            <a href="#" data-target="#pwdModal" data-toggle="modal">
+                                <p class="text-right Forget">Forget Password</p>
+                            </a>
+                        </div>
+                          <button class="submit-button" ng-click="login(user)" type="submit">Sign IN</button>
+                        </form>
+                        <p class="text-center">Not a member yet? <a href="">Sign Up</a></p>
 
-    <div class="row">
-        <div class="col-md-6">
-            <input type="checkbox"><small>Remember me</small>
+                        <h4><a class="www" href="http://fancymonk.com/"><p>www.fancymonk.com</p></a></h4>
+                    </div>
+                </div>
+                <div class="col-md-8 ">
+                    <img class="food-logo" src="image/new4.gif">
+                </div>
+            </div>
+            
         </div>
-        <div class="col-md-6">
-            <!-- <a href="#"><p class="text-right">Forget Password</p></a> -->
-            <a href="#" data-target="#pwdModal" data-toggle="modal">
-                <p class="text-right">Forget Password</p>
-            </a>
-        </div>
-    </div>
-    <a href="">
-<div class="btn btn-default" ng-click="login(user)">SING IN</div>
-    </a>
-    <p class="text-center">Not a member yet? <a href="">Sign Up</a></p>
-</div>
-</div>
 </div>

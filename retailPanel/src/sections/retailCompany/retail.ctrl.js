@@ -1,5 +1,5 @@
-rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl', '$routeParams', 'retailCompanyService', '$mdDialog',
-  function($scope, $rootScope, $route, $http, GetRetailMenuUrl, $routeParams, retailCompanyService, $mdDialog) {
+rtApp.controller('RetailController', ['$scope', '$rootScope', '$route', '$http', 'GetRetailMenuUrl', '$routeParams', 'retailCompanyService', '$mdDialog', 
+  function ($scope, $rootScope, $route, $http, GetRetailMenuUrl, $routeParams, retailCompanyService, $mdDialog, ) {
 
     // read companyName from path parameter
     var compName = $routeParams.companyName;

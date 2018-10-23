@@ -29,7 +29,7 @@ function(vendorassignService,$routeParams,$scope,Notification,
     $scope.data = {};
     $scope.category = function(data){
       $scope.data.companyId = $routeParams.compId
-      // console.log("Task Active Field",$scope.data.companyId);
+      console.log("Task Active Field",$scope.data.companyId);
       vendorassignService.activeCategory(data,postCategoryUrl);
     }
 
@@ -137,7 +137,7 @@ $http.get(getCompProfileUrl).then(function(response)
   $scope.saveRequirement = function(reqObj) {
     // console.log("current sndp==== : ", reqObj.id);
     var companyId = $routeParams.compId;
-    if(reqObj.id==undefined){
+    if(reqObj.id===undefined){
       vendorassignService.saveReq(companyId,reqObj,postCompanyReqUrl);
     }else{
       vendorassignService.updateReq(companyId,reqObj,updateCompanyReqUrl);
@@ -149,7 +149,7 @@ $http.get(getCompProfileUrl).then(function(response)
     $scope.unassignId=id;
     document.getElementById('id07').style.display='block'
     }
-
+// ................ UN-Assigned Vendor..... //
   $scope.unassignVendor = function(id){
       console.log("id 9000",id);
       vendorassignService.unassigneVendor(id,unassignedVendorUrl)
@@ -209,7 +209,7 @@ $http.get(getCompProfileUrl).then(function(response)
 
     for(i=0;i<$scope.particularVendorAssigned.length;i++)
     {
-      if(companyId==$scope.particularVendorAssigned[i].id)
+      if(companyId===$scope.particularVendorAssigned[i].id)
       {
         var vndrId=$scope.particularVendorAssigned[i].vendorId;
         // console.log("vendor Id is",vndrId);
@@ -244,11 +244,14 @@ $http.get(getCompProfileUrl).then(function(response)
          $scope.SetLoginIdBool = false;
          $scope.FeedbackBool=false;
          $scope.LogoBool=false;
+         $scope.monthBool=false;
+         $scope.vendormonthBool=false;
          $scope[value] = true;
        }
        $scope.boolFunction("categoryBool");
     // bool Logic end
 
         }
+ 
       }
         ]);

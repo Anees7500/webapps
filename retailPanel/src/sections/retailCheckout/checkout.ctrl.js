@@ -1,10 +1,5 @@
-// rtApp.controller('CheckoutController',[ '$scope', '$rootScope', '$route', '$http', 
-// 	function($scope, $rootScope, $route, $http,){ 
-      
-      
-// }]);
-
-rtApp.controller('FooController', ['$scope', function ($scope) {
+rtApp.controller('FooController', ['$scope',
+ function ($scope) {
     console.log("hi , inside foocontroler");
     var options = {
         "key": "rzp_test_glA246D8rCFOVc",
@@ -26,7 +21,6 @@ rtApp.controller('FooController', ['$scope', function ($scope) {
             console.log(arguments)
         }
     };
- 
     $scope.pay = function () {
         $.getScript('https://checkout.razorpay.com/v1/checkout.js', function() {
         var rzp = new Razorpay(options);

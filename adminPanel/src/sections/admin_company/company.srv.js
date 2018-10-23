@@ -118,7 +118,7 @@ unassigneVendor: function(id,unassignedVendorUrl){
       }).then(function(response) {
           console.log('response', JSON.stringify(response));
           //console.log('response', response);
-          if (response.data.status == 1) {
+          if (response.data.status === 1) {
             Notification.success('Successfully save company details !!!');
               // console.log('Successfully registered breakfast details ');
               // $route.reload();
@@ -202,7 +202,7 @@ companyLoginIdSet: function(password,companyId,postCompanyLoginIdUrl)
 // ..................................................................
 
 //............................lunch........................
-lunchSave: function(companyId,weekdaylogic,breakfastSaveUrl)
+lunchSave: function (companyId, weekdaylogic, postCompanyReqUrl)
 {
   console.log("in sarvice file : ", weekdaylogic.lunch,weekdaylogic.lunchPrice,weekdaylogic.dayName);
   // var rest = JSON.parse(JSON.stringify(weekdaylogic));
@@ -212,7 +212,7 @@ lunchSave: function(companyId,weekdaylogic,breakfastSaveUrl)
   jsonObj.lunchPrice = weekdaylogic.lunchPrice;
   jsonObj.dayName = weekdaylogic.dayName;
 
-    console.log("breakfast json made : ", jsonObj);
+    console.log("lunch json made : ", jsonObj);
     $http({
       method: 'POST',
       url: postCompanyReqUrl,
@@ -245,7 +245,7 @@ snacksSave: function(companyId,weekdaylogic,postCompanyReqUrl)
   jsonObj.snacksPrice = weekdaylogic.snacksPrice;
   jsonObj.dayName = weekdaylogic.dayName;
 
-    console.log("breakfast json made : ", jsonObj);
+    console.log("snacks json made : ", jsonObj);
     $http({
       method: 'POST',
       url: postCompanyReqUrl,
@@ -257,7 +257,7 @@ snacksSave: function(companyId,weekdaylogic,postCompanyReqUrl)
       console.log('response', JSON.stringify(response));
       //console.log('response', response);
       if (response.data.status == 1) {
-          console.log('Successfully registered breakfast details ');
+          console.log('Successfully registered snacks details ');
           // Notification.success('Successfully submit the company details');
           // $location.path('/admin/company/:id');
       } else {
@@ -278,7 +278,7 @@ dinnerSave: function(companyId,weekdaylogic,postCompanyReqUrl)
   jsonObj.dinnerPrice = weekdaylogic.dinnerPrice;
   jsonObj.dayName = weekdaylogic.dayName;
 
-    console.log("breakfast json made : ", jsonObj);
+    console.log("dinner json made : ", jsonObj);
     $http({
       method: 'POST',
       url: postCompanyReqUrl,
@@ -290,7 +290,7 @@ dinnerSave: function(companyId,weekdaylogic,postCompanyReqUrl)
       console.log('response', JSON.stringify(response));
       //console.log('response', response);
       if (response.data.status == 1) {
-          console.log('Successfully registered breakfast details ');
+          console.log('Successfully registered dinner details ');
           // Notification.success('Successfully submit the company details');
           // $location.path('/admin/company/:id');
       } else {
@@ -300,6 +300,71 @@ dinnerSave: function(companyId,weekdaylogic,postCompanyReqUrl)
   });
 },
 // ..................................................................
+//.........................Cash and Carry............................
+cashNCarrySave: function (companyId, weekdaylogic, postCompanyReqUrl) {
+    console.log("in sarvice file : ", weekdaylogic.cashNCarry, weekdaylogic.cashNCarryPrice, weekdaylogic.dayName);
+    // var rest = JSON.parse(JSON.stringify(weekdaylogic));
+    var jsonObj = {};
+    jsonObj.companyId = parseInt(companyId);
+    jsonObj.cashNCarry = weekdaylogic.cashNCarry;
+    jsonObj.cashNCarryPrice = weekdaylogic.cashNCarryPrice;
+    jsonObj.dayName = weekdaylogic.dayName;
+
+    console.log("cashNCarry json made : ", jsonObj);
+    $http({
+        method: 'POST',
+        url: postCompanyReqUrl,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: $httpParamSerializerJQLike(jsonObj)
+    }).then(function (response) {
+        console.log('response', JSON.stringify(response));
+        //console.log('response', response);
+        if (response.data.status == 1) {
+            console.log('Successfully registered cashNCarry details ');
+            // Notification.success('Successfully submit the company details');
+            // $location.path('/admin/company/:id');
+        } else {
+            console.log('error registering');
+            // Notification.error('Could not add a company details');
+        }
+    });
+},
+//...................................................................
+//.......................Mid-Night Snacks............................
+midNightSnacksSave: function (companyId, weekdaylogic, postCompanyReqUrl) {
+    console.log("in sarvice file : ", weekdaylogic.midNightSnacks, weekdaylogic.midNightSnacksPrice, weekdaylogic.dayName);
+
+    // var rest = JSON.parse(JSON.stringify(weekdaylogic));
+    var jsonObj = {};
+    jsonObj.companyId = parseInt(companyId);
+    jsonObj.midNightSnacks = weekdaylogic.midNightSnacks;
+    jsonObj.midNightSnacksPrice = weekdaylogic.midNightSnacksPrice;
+    jsonObj.dayName = weekdaylogic.dayName;
+
+    console.log("midNightSnacks json made : ", jsonObj);
+    $http({
+        method: 'POST',
+        url: postCompanyReqUrl,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: $httpParamSerializerJQLike(jsonObj)
+    }).then(function (response) {
+        console.log('response', JSON.stringify(response));
+        //console.log('response', response);
+        if (response.data.status == 1) {
+            console.log('Successfully registered midNightSnacks details ');
+            // Notification.success('Successfully submit the company details');
+            // $location.path('/admin/company/:id');
+        } else {
+            console.log('error registering');
+            // Notification.error('Could not add a company details');
+        }
+    });
+},
+//...................................................................
 
   }
 }]);
