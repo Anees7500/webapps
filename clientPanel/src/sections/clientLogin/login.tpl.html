@@ -1,3 +1,4 @@
+<div class="login">
 <div class="container-flude ">
   <div class="row">
     <h3 style="color:white;">
@@ -18,6 +19,7 @@
             <label class="label-vendor">
           <span class="text-center">Company username</span>
           <input class="input-style input-chng" required ng-model="user.companyName" type="text" />
+           <span ng-show="user.companyName.$touched && user.companyName.$error.required">First name is required.</span>
         </label>
             <label class="label-vendor">
           <span>Password</span>
@@ -33,4 +35,5 @@
     </div>
     <h5 class="website">www.fancymonk.com</h5>
   </div>
+</div>
 </div>

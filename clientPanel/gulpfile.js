@@ -1,13 +1,13 @@
 var gulp = require('gulp'),
 	connect = require('gulp-connect'),
-	concat = require('gulp-concat');
+	concat = require('gulp-concat'),
 gulpNgConfig = require('gulp-ng-config');
 
 
 gulp.task('connect-dev', function () {
 	connect.server({
 		root: 'src/',
-		port: 8000
+		port: 7000
 	});
 });
 
