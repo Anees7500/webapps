@@ -1,98 +1,113 @@
 <md-toolbar class="">
 <div class="header">
-  <div class="container">
+  <div class="">
     <div class="row">
-    <div class="col-sm-11 ">
-        <img class="logo-image" src="../../image/fancymonklogo.png"/><p> Fancymonk </p>
+    <div class="col-md-1  ">
+        <img class="logo-image " src="../../image/fancymonklogo.png"/><p> Fancymonk </p>
     </div>
-    <div class="col-sm-1">
-        <md-button class="menu-button pull-right">
-          <md-icon md-svg-icon="../../image/menu.svg"  ></md-icon>
-        </md-button>
+    <div class="col-md-10"></div>
+    <div class="col-md-1  pull-right">
+        <div class="dropdown"> 
+          <b class="fa fa-align-justify "></b>
+          <div class="dropdown-content">
+            <a href="#" class="fa fa-question-circle"><i class="dropdown-text">Help</i></a>
+            <a ng-click="logout()" class="fa fa-sign-out"><i class="dropdown-text">Log Out</i></a>
+          </div>
+        </div>
     </div>
   </div>
 </div>
-
 </div>
 </md-toolbar>
-<div  layout="column" height="200px" ng-cloak>
-
+<div class="main_page" layout="column" ng-cloak>
   <section layout="row" flex>
-    <div>
 
-    <md-sidenav class="md-sidenav-left sidenav"  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-
+    <md-sidenav class="md-sidenav-left"  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <div class="background-dp">
           <div class="background-dp-color ">
            <img class ="image" src="../../image/pp1.png"/>
                <h6>Fancymonk</p></h6><br><br><br><br>
               <div class="vertical-menu">
-                  <a class="md-toolbar-tool"><i class="fa fa-sitemap" style="font-size:24px"></i>
+                  <a class="text" ng-click="enableBooleans('categoryBool')"><i class="fa fa-sitemap"> </i>
                     <span class="part">Category</span></a></br>
-                  <a class="md-toolbar-tool"><i class="fa fa-reorder " style="font-size:24px"></i>
-                    <span class="part">Requirements</span></a></br>
-                  <a class="md-toolbar-tool"><i class="fa fa-street-view" style="font-size:24px"></i>
-                    <span class="part">Employees Feedback</span></a></br>
+                  <a class="text" ng-click="enableBooleans('requirementBool')"><i class="fa fa-reorder " ></i>
+                    <span class="part" >Requirements</span></a></br>
+                  <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-street-view" ></i>
+                    <span class="part" >Employees Feedback</span></a></br>
+                  <a class="text" ng-click="enableBooleans('manageEmployee')"><i class="fa fa-group" ></i>
+                    <span class="part" >Manage employee </span></a></br>
+                  <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-cubes" ></i>
+                    <span class="part" >Employee count</span></a></br>
               </div>
           </div>
       </div>
-
     </md-sidenav>
-  </div>
-     <div class="list-data" ng-if="false">
-       <ul>
-       <li class="list-data-item"><md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">breakfast</md-checkbox></li>
-       <li class="list-data-item"><md-checkbox ng-model="data.cb2" aria-label="Checkbox 1">Lunch</md-checkbox></li>
-       <li class="list-data-item"><md-checkbox ng-model="data.cb3" aria-label="Checkbox 1">snacks</md-checkbox></li>
-       <li class="list-data-item"><md-checkbox ng-model="data.cb4" aria-label="Checkbox 1">Dinner</md-checkbox></li>
-       <li class="list-data-item"><md-checkbox ng-model="data.cb5" aria-label="Checkbox 1">Cash & carry</md-checkbox></li>
-       <li class="list-data-item"><md-checkbox ng-model="data.cb6" aria-label="Checkbox 1">Mid night snacks</md-checkbox></li>
+
+     <div class="list-data" ng-if="categoryBool">
+       <ul class="list-data-item">
+       <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" >Breackfast
+        </md-checkbox></b></li>
+        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled"  ng-model="companyDetail.lunch" aria-label="Finished?">Lunch
+        </md-checkbox></b></li>
+        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.snacks" aria-label="Finished?">snacks
+        </md-checkbox></b></li>
+        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.dinner" aria-label="Finished?">Dinner
+        </md-checkbox></b></li>
+         <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.midNightSnacks" aria-label="Finished?">Mid night snacks
+        </md-checkbox></b></li>
+         <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.earlyMorningSnacks" aria-label="Finished?">Early Morning snacks
+        </md-checkbox></b></li>       
+        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.cashNCarry" aria-label="Finished?">Cash & carry
+        </md-checkbox></b></li>
      </ul>
      </div>
 
-      <div class= "Requirements-data" ng-if="false">
-        <div class="row">
-             <div class="col-sm-12">
-                 <div class="col-sm-3">
-                  <div class="wrapper"></br>
-                    <div class="col-sm-12" ng-repeat="m in Data" >
-                       <table  class="table" id="client"  >
-                          <tr><td><b class="fa fa-calendar">{{m.img}}</td></tr>
-                          <tr><th>{{m.data}}</th></tr>
-                          <tr ng-repeat="m in Days"><td>{{m}}</td> </tr>
+<!-- Requirement -->
+<div class= "Requirements-data" ng-if="requirementBool">
+  <div class="Requirements-data-item">
+    <div class="col-md-12">   
+          <div class="col-sm-3" >
+            <div class="wrapper"></br> 
+              <div class="col-md-12" ng-repeat="m in Data">
+                <table  id="client"  >
+                   <tr><td><b class="fa fa-calendar">Calender</td></tr>
+                   <tr><th>Days</th></tr>
+                   <tr ng-repeat="m in Days"><td>{{m}}</td> </tr>
+                </table></br></br>
+              </div>
+            </div>
+          </div>
 
-                       </table></br>
-                    </div>
-                 </div>
-             </div>
-            <!--  <div class="col-sm-6" > -->
-                  <div class="col-sm-9"> 
-                    
-                     <div class="col-sm-4" ng-repeat="m in Menu" ></br>
-                            <div class="">                     
-                           <table  class="table" id="client" >
-                            <tr><td><b class="fa fa-cutlery"></b></td>
-                                <td>{{m.menu}}</td></tr>                          
-                            <tr >
-                                <th><b class="fa fa-user-circle-o">{{m. Person1}}</b></th>
-                                <th><b class="fa fa-rupee">{{m.Price1}}</b></th>
-                            </tr>                   
-                                <tr ng-repeat="m in Customers">
-                                    <td>{{m. Person}}</td>
-                                    <td>{{m.Price}}</td>
-                                </tr>
-                             </table>
-                         </div>
-                     </div>
-                  </div>
-             </div>
+        <div class="col-lg-9"> 
+           <div class="col-md-12"> 
+           <div class="col-sm-4" ng-repeat="(key, value) in companyRequirements" ></br>
+                <table id="client" >
+                     <tr><td><b class="fa fa-cutlery"></b></td>
+                      <td>{{key}}</td></tr>                          
+                       <tr >
+                        <th><b class="fa fa-user-circle-o">Person</b></th>
+                        <th><b class="fa fa-rupee">Price</b></th>
+                       </tr>                   
+                      <tr ng-repeat="v in value">
+                         <td>{{v.count}}</td>
+                         <td>{{v.price}}</td>
+                      </tr>                                
+                 </table></br>
+            </div>
         </div>
-     </div>
-     <div   >
-            <div id="feedback" ng-if="true">      
+     </div> 
+    </div>  
+  </div>
+</div>
+<!-- ================================= FEEDBACK LIST =========================== -->
+     
+     <div class="feedback-list"  ng-if="feedbackBool">
+       <!-- <div class="feedback-data-item"> -->
+            <div id="feedback">      
               <table class="table">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Overall Rating</th>
                     <th>Presentation Rating</th>
@@ -105,42 +120,105 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="f in Feedback">
-                    <td>{{f.feedback}}</td>
-                    <td>{{f.overAllRating}}</td>
+                  <tr ng-repeat="f in pagedItems ">
+                    <td>{{f.id}}</td>
+                    <td>{{f.reviewerName}}</td>
                     <td>{{f.presentationRating}}</td>
                     <td>{{f.qualityRating}}</td>
-                    <td>{{f.quantityRating}}</td>
                     <td>{{f.tasteRating}}</td>
-                    <td>{{f.mobile}}</td>
+                    <td>{{f.quantityRating}}</td>
+                    <td>{{f.overAllRating}}</td>
+                     <td>{{f.mobile}}</td>
                     <td>
-                        <div class="dropdown">
-                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                          </ul>
+                      <div>                       
+                        <span class="badge badge-notify" ng-if="f.comment.length > 0">1</span>
+                          <div ng-if="f.comment.length > 0">                 
+                          <md-tooltip  ng-bind="f.comment" md-visible="demo.showTooltip">{{f.comment}}</md-tooltip> 
+                       <span class="fa fa-comments-o" style="font-size:26px"></span>        
                       </div>
-
+                    </div>       
                     </td>
-                    <td>{{f.date}}</td>
+                    <td>{{f.createdAt}}</td>  
                   </tr>
                 </tbody>
+                <tfoot>
+                   <td colspan="116">
+                    <div class="pagination">
+                      <ul>
+                        <li ng-class="prevPageDisabled()">
+                          <a href ng-click="prevPage()">« Prev</a>
+                        </li>
+                        <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                          <a>{{n+1}}</a>
+                        </li>
+                        <li ng-class="nextPageDisabled()">
+                          <a href ng-click="nextPage()">Next »</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
               </table>
+             </div>
           </div>
-   
+        <!--   ==================== MAHAGE EMPLOYEE ==================== -->
+
+ <div class="manageEmployee-list"  ng-if="manageEmployee">
+<div class="container dialogdemoThemeInheritance" >
+  <p class="inset">
+    We have an interval that changes the color of the button from <code>red</code> to <code>blue</code> themes,
+    Open the dialog to see the theme being inherited to the dialog and any component inside
+  </p>
+  <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">Open Dialog</md-button>
+<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Mango (Fruit)</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+        <p>
+          The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
+        </p>
+
+        <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="img/mangues.jpg">
+
+        <p>
+          The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the "common mango" or "Indian mango"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.
+        </p>
+        <p>
+          It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.
+        </p>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')">
+       Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" class="md-primary">
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script></div>
+ </div>  
+
+
+
   </section>
 </div>
-<script>
-$(document).ready(function(){
-  $(".dropdown").on("hide.bs.dropdown", function(){
-    $(".btn").html('Dropdown <span class="caret"></span>');
-  });
-  $(".dropdown").on("show.bs.dropdown", function(){
-    $(".btn").html('Dropdown <span class="caret caret-up"></span>');
-  });
-});
-</script>
+
   

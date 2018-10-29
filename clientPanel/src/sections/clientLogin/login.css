@@ -1,4 +1,7 @@
 /*this is css file for login section*/
+.login{
+  background: #00bcd4;
+}
 button {
   display: block;
   margin: 0 auto;
@@ -12,7 +15,7 @@ button {
 
 .cls-login {
   /* content: ''; */
-float: left;
+  float: left;
   right: 0;
   top: 0;
   width: 100%;

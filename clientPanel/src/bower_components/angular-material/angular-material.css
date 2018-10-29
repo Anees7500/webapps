@@ -473,7 +473,7 @@ md-autocomplete {
       -webkit-transform: scale(0);
               transform: scale(0);
       -webkit-transition: -webkit-transform 0.15s ease-out;
-      transition: -webkit-transform 0.15s ease-out;
+      transition: -webkit-transform 0.15s ease-out; 
       transition: transform 0.15s ease-out;
       transition: transform 0.15s ease-out, -webkit-transform 0.15s ease-out; }
       md-autocomplete .md-show-clear-button button.ng-enter.ng-enter-active {
@@ -5431,6 +5431,7 @@ md-toolbar {
   border-radius: 4px;
   overflow: hidden;
   opacity: 0;
+  height: 100px;
   font-weight: 500;
   font-size: 14px;
   white-space: nowrap;
@@ -5457,8 +5458,9 @@ md-toolbar {
     margin-left: -24px; }
   @media (min-width: 960px) {
     .md-tooltip {
-      font-size: 10px;
-      height: 22px;
+      font-size: 15px;
+      height: 40px;
+      text-align: center;
       line-height: 22px;
       padding-right: 8px;
       padding-left: 8px; }

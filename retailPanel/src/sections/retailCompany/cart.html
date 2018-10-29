@@ -1,5 +1,5 @@
 <md-dialog style="width: 50%">
-	<form ng-cloak>
+	<form class="form-cart" ng-cloak>
 		<md-toolbar>
 			<div class="md-toolbar-tools">
 				<!-- <h2 align="center">Your Cart</h2> -->
@@ -11,24 +11,21 @@
 		</md-toolbar>
 		<md-dialog-content>
 			<div ng-repeat="(key, value) in selectedCartItems" class="md-dialog-content">
-
 				<div class="md-close">
-					  <div class="close-button pull-right">×</div>
+					<div class="close-button pull-right">×</div>
 					<span class="menuName ">&nbsp;{{value.obj.menuName}}
 					</span><br>
 					<p><span class="price  pull-right">₹&nbsp;&nbsp;{{value.obj.price}}</span></p><br>
-					<span>{{value.count}}</span><br></div>
+					<span>{{value.count}}</span><br>
+				</div>
 					<div class="col-sm-4 col-xs-4 ">
 						<a class="addcartbutton  md-raised md-primary pull-right" style="color:ghostwhite;    width: 73px;">
 							<span class="bg-dark pull-left " min="0" ng-click="reduceCount(value)">-</span>
 								<input type="number" class="count" name="qty" value="0" ng-model="value.count">
 							<span class="bg-dark pull-right "min="0" ng-click="addCount(value)">+</span></a>
 					</div>
-		<!-- <md-button class="md-raised md-primary pull-left" ng-click="addCount(value)">add count</md-button>
-		 <md-button class="md-raised md-primary pull-left" ng-click="reduceCount(value)">reduce count</md-button> -->
 			</div>
 		</md-dialog-content>
-
 		<md-dialog-actions>
 			<a class="addcartbutton md-raised md-primary" ng-click="answer('useful')" style="color:ghostwhite;"> Place Order {{totalPrice}} </a>
 		</md-dialog-actions>

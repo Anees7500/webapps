@@ -4,7 +4,7 @@
 }
 tr :not(.td){
   padding: 9px;
-  font-weight: bold;
+   font-weight: bold;
    font-weight: 900;
     color: midnightblue;
 }
