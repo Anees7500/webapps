@@ -1,0 +1,128 @@
+<header class="header clearfix" style="position:fixed">
+  <button type="button" id="toggleMenu" class="toggle_menu">
+        <i class="fa fa-bars"></i>
+    </button>
+
+  <div class="m-view">
+    <h1 style="color:white;">
+            <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+  </div>
+
+  <!-- <div class="fa-4x">
+        <span class="fa-layers fa-fw" style="background:MistyRose">
+          <i class="fas fa-envelope"></i>
+          <span class="fa-layers-counter" style="background:Tomato">1,419</span>
+        </span>
+      </div> -->
+  <div class="pull-right">
+    <!-- <a><i class="far fa-bell w-c"></i></a>-->
+    <a><i class="far fa-bell w-c"></i></a>
+    <div class="dropdown notificationDropDown">
+      <div class="dropdown">
+        <div class="dropbtn">
+          <notification-icon update-animation="grow" count="">
+            <img src="../image/pp1.png" class="img-circle pp-image-header" width="40" />
+                    </notification-icon>
+        </div>
+        <div class="dropdown-content">
+          <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+          <a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a>
+          <a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="vertical_nav">
+  <ul id="js-menu" class="menu">
+    <li>
+      <div class="background-dp">
+        <div class="background-dp-color">
+          <div class="media-body">
+            <h5 style="margin-top: -2px;">
+                            <img src="../image/pp1.png" class="img-circle pp-image" width="38"/>
+                            Admin</h5>
+            <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
+          </div>
+        </div>
+      </div>
+    </li><br>
+    </ul>
+</nav>
+
+<div class="wrapper" style="margin-top:50px;">
+  <section>
+    <!-- CONTENT -->
+    <!-- ___________________DASHBOARD_____________________ -->
+    <div class="outOfTime" ng-if="!timeOfDay">
+      <p>Sorry, Booking for tomorrow is closed now</p>
+
+    </div>
+    <div class="employee-list" ng-if="timeOfDay">
+      <ul class="nav">
+        <div class="employee-coming">
+          <div layout="column" ng-cloak>
+            <md-content class="md-padding">
+              <form ng-submit="$event.preventDefault()">
+                <md-autocomplete
+                  md-selected-item="selectedItem"
+                  md-search-text-change="searchTextChange(searchText)"
+                  md-search-text="searchText"
+                  md-selected-item-change="selectedItemChange(item)"
+                  md-items="item in querySearch(searchText)"
+                  md-item-text="item.display"
+                  md-min-length="0"
+                  placeholder="Please tell us your name">
+                  <md-item-template>
+                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                  </md-item-template>
+                  <md-not-found>
+                    No states matching "{{searchText}}" were found.
+                    <a ng-click="newState(searchText)">Create a new one!</a>
+                  </md-not-found>
+                </md-autocomplete>
+              </form>
+            </md-content>
+          </div>
+        </div>
+
+        <md-switch ng-model="comingDecision" aria-label="Switch 2" ng-true-value="'Yes'"
+        ng-false-value="'Nope'" class="md-warn" ng-disabled="!selectedItem">
+          Are you coming tomorrow? : {{ comingDecision }}
+        </md-switch>
+
+        <md-button class="md-raised md-primary" ng-disabled="!selectedItem"
+          ng-click="addTolist(comingDecision)">Primary</md-button>
+
+
+        <!-- <div class="row">
+                    <li ng-repeat="cpny in allCompanies | filter:search1">
+
+                        <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
+                            <md-content class="md-padding" layout-xs="column" layout="row">
+                                <div flex-xs flex-gt-xs="100" layout="column">
+
+                                    <md-card>
+                                        <a class="b-clr font" href="#/admin/company/{{cpny.id}}">
+                                            <div class="company-dp">
+                                                <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
+                                            </div>
+                                            <div class="title-name">
+                        <span class="c-card-name b-clr font">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                  </span><br>
+                                                <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                                            </div>
+                                        </a>
+                                    </md-card>
+                                </div>
+                            </md-content>
+                        </div>
+                    <li>
+                </div> -->
+      </ul>
+
+    </div>
+  </section>
+</div>

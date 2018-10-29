@@ -1,7 +1,7 @@
 clientApp.controller('ClientDashboardController', ['$scope',
     function ($scope) {
 
-        
+
         console.log("hello i am isnide login contriller");
         $scope.Data = [{Data: 1, img: "calendar", data: "Days"},
             {Data: 1, img: "calendar", data: "Days"}];
