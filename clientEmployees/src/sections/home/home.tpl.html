@@ -96,6 +96,44 @@
           ng-click="addTolist(comingDecision)">Primary</md-button>
 
 
+
+          <div class="list" >
+            <!-- <div class="feedback-data-item"> -->
+                 <div id="feedback">
+                   <table class="table">
+                     <thead>
+                       <tr>
+                         <th>Name</th>
+                         <th>Date</th>
+                         <th>Status</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr ng-repeat="e in employeeComingList ">
+                         <td>{{e.display}}</td>
+                         <td>{{tomorrowDate}}</td>
+                         <td>{{e.decision}}</td>
+                       </tr>
+                     </tbody>
+                     <tfoot>
+                        <td colspan="116">
+                         <div class="pagination">
+                           <ul>
+                             <li ng-class="prevPageDisabled()">
+                               <a href ng-click="prevPage()">« Prev</a>
+                             </li>
+                             <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                               <a>{{n+1}}</a>
+                             </li>
+                             <li ng-class="nextPageDisabled()">
+                               <a href ng-click="nextPage()">Next »</a>
+                             </li>
+                           </ul>
+                         </div>
+                       </td>
+                   </table>
+                  </div>
+               </div>
         <!-- <div class="row">
                     <li ng-repeat="cpny in allCompanies | filter:search1">
 

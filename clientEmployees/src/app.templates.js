@@ -104,6 +104,44 @@ module.run(['$templateCache', function($templateCache) {
     '          ng-click="addTolist(comingDecision)">Primary</md-button>\n' +
     '\n' +
     '\n' +
+    '\n' +
+    '          <div class="list" >\n' +
+    '            <!-- <div class="feedback-data-item"> -->\n' +
+    '                 <div id="feedback">\n' +
+    '                   <table class="table">\n' +
+    '                     <thead>\n' +
+    '                       <tr>\n' +
+    '                         <th>Name</th>\n' +
+    '                         <th>Date</th>\n' +
+    '                         <th>Status</th>\n' +
+    '                       </tr>\n' +
+    '                     </thead>\n' +
+    '                     <tbody>\n' +
+    '                       <tr ng-repeat="e in employeeComingList ">\n' +
+    '                         <td>{{e.display}}</td>\n' +
+    '                         <td>{{tomorrowDate}}</td>\n' +
+    '                         <td>{{e.decision}}</td>\n' +
+    '                       </tr>\n' +
+    '                     </tbody>\n' +
+    '                     <tfoot>\n' +
+    '                        <td colspan="116">\n' +
+    '                         <div class="pagination">\n' +
+    '                           <ul>\n' +
+    '                             <li ng-class="prevPageDisabled()">\n' +
+    '                               <a href ng-click="prevPage()">« Prev</a>\n' +
+    '                             </li>\n' +
+    '                             <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">\n' +
+    '                               <a>{{n+1}}</a>\n' +
+    '                             </li>\n' +
+    '                             <li ng-class="nextPageDisabled()">\n' +
+    '                               <a href ng-click="nextPage()">Next »</a>\n' +
+    '                             </li>\n' +
+    '                           </ul>\n' +
+    '                         </div>\n' +
+    '                       </td>\n' +
+    '                   </table>\n' +
+    '                  </div>\n' +
+    '               </div>\n' +
     '        <!-- <div class="row">\n' +
     '                    <li ng-repeat="cpny in allCompanies | filter:search1">\n' +
     '\n' +
