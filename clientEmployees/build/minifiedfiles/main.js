@@ -69,7 +69,7 @@ function($scope, $rootScope, $http, $log, homeService) {
 
           var empUrl = "http://fancymonk.com:9125/api/client/get-all-employee-data?companyId=1&date=" + self.tomorrowDate
 
-          $http.get("empUrl")
+          $http.get(empUrl)
             .then(function(response) {
                 if (response.data.data != null) {
                   for(var m = 0; m < response.data.data.details.length; m++)
@@ -78,7 +78,14 @@ function($scope, $rootScope, $http, $log, homeService) {
                     var ob = response.data.data.details[m];
                     tmpObj.id = ob.employeeId;
                     tmpObj.display = ob.firstname+" "+ob.lastname;
-                    tmpObj.decision = ob.active;
+                    if(ob.active)
+                    {
+                      tmpObj.decision = "Yes";
+                    }
+                    else {
+                      tmpObj.decision = "Nope";
+                    }
+
                     self.employeeComingList.push(tmpObj);
                   }
                 }

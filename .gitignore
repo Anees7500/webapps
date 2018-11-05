@@ -1,0 +1,8 @@
+node_modules/
+src/bower_components/
+build/
+src/minifiedfiles/
+src/components.css
+src/components.min.js
+src/app.templates.js
+src/concate-components.js
