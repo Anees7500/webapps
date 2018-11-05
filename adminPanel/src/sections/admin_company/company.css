@@ -210,3 +210,8 @@ th{text-align: center;}
 #dinner {background-color:#00C851;}
 
 /*TAB AND PILLS END*/
+.heading_underling{
+    height: 3px;
+    width: 100%;
+    background-color: black;
+}
