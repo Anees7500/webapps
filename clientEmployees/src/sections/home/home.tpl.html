@@ -1,11 +1,11 @@
 <header class="header clearfix" style="position:fixed">
   <button type="button" id="toggleMenu" class="toggle_menu">
-        <i class="fa fa-bars"></i>
-    </button>
+    <i class="fa fa-bars"></i>
+  </button>
 
   <div class="m-view">
     <h1 style="color:white;">
-            <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png" /></a></span>Fancymonk</h1>
   </div>
 
   <!-- <div class="fa-4x">
@@ -22,7 +22,7 @@
         <div class="dropbtn">
           <notification-icon update-animation="grow" count="">
             <img src="../image/pp1.png" class="img-circle pp-image-header" width="40" />
-                    </notification-icon>
+          </notification-icon>
         </div>
         <div class="dropdown-content">
           <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
@@ -40,18 +40,18 @@
       <div class="background-dp">
         <div class="background-dp-color">
           <div class="media-body">
-            <h5 style="margin-top: -2px;">
-                            <img src="../image/pp1.png" class="img-circle pp-image" width="38"/>
-                            Admin</h5>
-            <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
+            <h5 style="margin-top: -2px; text-align: center;font-size:bold">
+              <img src="../image/pp1.png" class="img-circle pp-image" width="38" /><br>
+              Admin</h5>
+            <h6 class="media-heading" style="color:white;text-align: center;">aman@fancymonk.com</h6>
           </div>
         </div>
       </div>
     </li><br>
-    </ul>
+  </ul>
 </nav>
 
-<div class="wrapper" style="margin-top:50px;">
+<div class="wrapper">
   <section>
     <!-- CONTENT -->
     <!-- ___________________DASHBOARD_____________________ -->
@@ -65,15 +65,9 @@
           <div layout="column" ng-cloak>
             <md-content class="md-padding">
               <form ng-submit="$event.preventDefault()">
-                <md-autocomplete
-                  md-selected-item="selectedItem"
-                  md-search-text-change="searchTextChange(searchText)"
-                  md-search-text="searchText"
-                  md-selected-item-change="selectedItemChange(item)"
-                  md-items="item in querySearch(searchText)"
-                  md-item-text="item.display"
-                  md-min-length="0"
-                  placeholder="Please tell us your name">
+                <md-autocomplete md-selected-item="selectedItem" md-search-text-change="searchTextChange(searchText)"
+                  md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
+                  md-item-text="item.display" md-min-length="0" placeholder="Please tell us your name">
                   <md-item-template>
                     <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
                   </md-item-template>
@@ -87,53 +81,52 @@
           </div>
         </div>
 
-        <md-switch ng-model="comingDecision" aria-label="Switch 2" ng-true-value="'Yes'"
-        ng-false-value="'Nope'" class="md-warn" ng-disabled="!selectedItem">
+        <md-switch ng-model="comingDecision" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'" class="md-warn"
+          ng-disabled="!selectedItem">
           Are you coming tomorrow? : {{ comingDecision }}
         </md-switch>
 
-        <md-button class="md-raised md-primary" ng-disabled="!selectedItem"
-          ng-click="addTolist(comingDecision)">Primary</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="!selectedItem" ng-click="addTolist(comingDecision)">Primary</md-button>
 
 
 
-          <div class="list" >
-            <!-- <div class="feedback-data-item"> -->
-                 <div id="feedback">
-                   <table class="table">
-                     <thead>
-                       <tr>
-                         <th>Name</th>
-                         <th>Date</th>
-                         <th>Status</th>
-                       </tr>
-                     </thead>
-                     <tbody>
-                       <tr ng-repeat="e in employeeComingList ">
-                         <td>{{e.display}}</td>
-                         <td>{{tomorrowDate}}</td>
-                         <td>{{e.decision}}</td>
-                       </tr>
-                     </tbody>
-                     <tfoot>
-                        <td colspan="116">
-                         <div class="pagination">
-                           <ul>
-                             <li ng-class="prevPageDisabled()">
-                               <a href ng-click="prevPage()">« Prev</a>
-                             </li>
-                             <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
-                               <a>{{n+1}}</a>
-                             </li>
-                             <li ng-class="nextPageDisabled()">
-                               <a href ng-click="nextPage()">Next »</a>
-                             </li>
-                           </ul>
-                         </div>
-                       </td>
-                   </table>
+        <div class="list">
+          <!-- <div class="feedback-data-item"> -->
+          <div id="feedback">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="e in employeeComingList ">
+                  <td>{{e.display}}</td>
+                  <td>{{tomorrowDate}}</td>
+                  <td>{{e.decision}}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <td colspan="116">
+                  <div class="pagination">
+                    <ul class="pager">
+                      <li class="previous" ng-class="prevPageDisabled()">
+                        <a href ng-click="prevPage()">« Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </li>
+                      <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                        <a>{{n+1}}</a>
+                      </li>
+                      <li class="next" ng-class="nextPageDisabled()">
+                        <a href ng-click="nextPage()">Next »</a>
+                      </li>
+                    </ul>
                   </div>
-               </div>
+                </td>
+            </table>
+          </div>
+        </div>
         <!-- <div class="row">
                     <li ng-repeat="cpny in allCompanies | filter:search1">
 

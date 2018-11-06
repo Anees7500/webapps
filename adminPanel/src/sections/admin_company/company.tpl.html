@@ -1,5 +1,5 @@
 <style>
-  @media screen and (max-width:800px){
+    @media screen and (max-width:800px){
 header#site-header {
     display: none;
 }}
@@ -12,873 +12,925 @@ input.req-clr {
 </style>
 
 <header class="header clearfix" style="position:fixed">
-  <button type="button" id="toggleMenu" class="toggle_menu">
-    <i class="fa fa-bars"></i>
-  </button>
+    <button type="button" id="toggleMenu" class="toggle_menu">
+        <i class="fa fa-bars"></i>
+    </button>
 
-  <div class="m-view">
-    <h1 style="color:white;">
-      <span class="span-logo"><a><img src="../image/fancymonklogo.png" /></a></span>Fancymonk</h1>
-  </div>
-  <div class="pull-right">
-    <div class="dropdown notificationDropDown" data-ng-controller="AdminController">
-      <div class="dropdown">
-        <div class="dropbtn">
-          <notification-icon update-animation="grow" count="">
-            <img src="../image/pp1.png" class="img-circle pp-image-header" width="40" />
-          </notification-icon>
-        </div>
-        <div class="dropdown-content">
-          <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
-          <a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a>
-          <a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
-        </div>
-      </div>
+    <div class="m-view">
+        <h1 style="color:white;">
+            <span class="span-logo"><a><img src="../image/fancymonklogo.png" /></a></span>Fancymonk</h1>
     </div>
-  </div>
+    <div class="pull-right">
+        <div class="dropdown notificationDropDown" data-ng-controller="AdminController">
+            <div class="dropdown">
+                <div class="dropbtn">
+                    <notification-icon update-animation="grow" count="">
+                        <img src="../image/pp1.png" class="img-circle pp-image-header" width="40" />
+                    </notification-icon>
+                </div>
+                <div class="dropdown-content">
+                    <a href=""><i style="color:black;" class="fab fa-yelp"> </i> Help</a>
+                    <a href=""><i style="color:black;" class="fas fa-cog"> </i> Setting</a>
+                    <a ng-click="signOutAdmin()"><i style="color:black;" class="fas fa-sign-out-alt"> </i> Sign out</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 <nav class="vertical_nav">
-  <ul id="js-menu" class="menu">
-    <li>
-      <div class="background-dp">
-        <div class="background-dp-color">
-          <div class="media-body">
-            <h5 style="margin-top: -2px;">
-              <img src="../image/pp1.png" class="img-circle pp-image" width="38" />
-              </i> Admin</h5>
-            <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
-          </div>
-        </div>
-      </div>
-    </li><br>
-    <li class="menu--item">
-      <a href="" ng-click="boolFunction('categoryBool')" class="menu--link">
-        <i class="menu--icon far fa-check-square"></i>
-        <span class="menu--label">Categary</span>
-      </a>
-    </li>
-    <li class="menu--item">
-      <a href="" ng-click="boolFunction('addRequirementBool')" class="menu--link">
-        <i class="menu--icon far fa-list-alt"></i>
-        <span class="menu--label">Requirement</span>
-      </a>
-    </li>
-    <li class="menu--item">
-      <a href="" ng-click="boolFunction('addAssignedToBool')" class="menu--link">
-        <i class="menu--icon far fa-clipboard"></i>
-        <span class="menu--label">Assigned</span>
-      </a>
-    </li>
-    <li class="menu--item">
-      <a href="" ng-click="boolFunction('SetLoginIdBool')" class="menu--link">
-        <i class="menu--icon fas fa-unlock-alt"></i>
-        <span class="menu--label">Set Password</span>
-      </a>
-    </li>
-    <li class="menu--item">
-      <a href="" ng-click="boolFunction('FeedbackBool')" class="menu--link">
-        <i class="menu--icon fas fa-street-view"></i>
-        <span class="menu--label">Employee Feedback</span>
-      </a>
-    </li>
-    <li class="menu--item">
-      <a href="" ng-click="boolFunction('LogoBool')" class="menu--link">
-        <i class="menu--icon fas fa-cloud-upload-alt"></i>
-        <span class="menu--label">Logo Upload</span>
-      </a>
-    </li>
-      <li class="menu--item">
-          <a href="" ng-click="boolFunction('monthBool')" class="menu--link">
-              <i class="menu--icon fas fa-calendar-alt"></i>
-              <span class="menu--label">Monthly Details</span>
-          </a>
-      </li>
-      <li class="menu--item">
-          <a href="" ng-click="boolFunction('vendormonthBool')" class="menu--link">
-              <i class="menu--icon fas fa-calendar-alt"></i>
-              <span class="menu--label">Vendor Monthly Details </span>
-          </a>
-      </li>
-  </ul>
+    <ul id="js-menu" class="menu">
+        <li>
+            <div class="background-dp">
+                <div class="background-dp-color">
+                    <div class="media-body">
+                        <h5 style="margin-top: -2px;">
+                            <img src="../image/pp1.png" class="img-circle pp-image" width="38" />
+                            </i> Admin</h5>
+                        <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
+                    </div>
+                </div>
+            </div>
+        </li><br>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('categoryBool')" class="menu--link">
+                <i class="menu--icon far fa-check-square"></i>
+                <span class="menu--label">Categary</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('addRequirementBool')" class="menu--link">
+                <i class="menu--icon far fa-list-alt"></i>
+                <span class="menu--label">Requirement</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('addAssignedToBool')" class="menu--link">
+                <i class="menu--icon far fa-clipboard"></i>
+                <span class="menu--label">Assigned</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('SetLoginIdBool')" class="menu--link">
+                <i class="menu--icon fas fa-unlock-alt"></i>
+                <span class="menu--label">Set Password</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('FeedbackBool')" class="menu--link">
+                <i class="menu--icon fas fa-street-view"></i>
+                <span class="menu--label">Employee Feedback</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('LogoBool')" class="menu--link">
+                <i class="menu--icon fas fa-cloud-upload-alt"></i>
+                <span class="menu--label">Logo Upload</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('monthBool')" class="menu--link">
+                <i class="menu--icon fas fa-calendar-alt"></i>
+                <span class="menu--label">Monthly Details</span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('vendormonthBool')" class="menu--link">
+                <i class="menu--icon fas fa-calendar-alt"></i>
+                <span class="menu--label">Vendor Monthly Details </span>
+            </a>
+        </li>
+        <li class="menu--item">
+            <a href="" ng-click="boolFunction('dispatchdetails')" class="menu--link">
+                <i class="menu--icon fas fa-truck"></i>
+                <span class="menu--label">Dispatch Details</span>
+            </a>
+        </li>
+    </ul>
 </nav>
 
 <div class="wrapper" style="margin-top:50px;">
-  <section>
-
-    <div class="company-details" ng-if="categoryBool">
-      <div class="title-baar">
-        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="#/admin" class="w-clr">
-            home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a href="" class="w-clr">Categary</a></h5>
-      </div><br><br>
-      <ul class="list-group">
-        <li class="list-group-item"><a><md-checkbox ng-model="data.breakfast" aria-label="Checkbox 1">Breakfast</md-checkbox>
-          </a></li>
-        <li class="list-group-item"><a><md-checkbox ng-model="data.lunch" aria-label="Checkbox 1">Lunch</md-checkbox>
-          </a></li>
-        <li class="list-group-item"><a><md-checkbox ng-model="data.snacks" aria-label="Checkbox 1">Snacks</md-checkbox>
-          </a></li>
-        <li class="list-group-item"><a> <md-checkbox ng-model="data.dinner" aria-label="Checkbox 1">Dinner</md-checkbox>
-          </a></li>
-        <li class="list-group-item"><a><md-checkbox ng-model="data.cashNCarry" aria-label="Checkbox 1">Cash & Carry</md-checkbox>
-          </a></li>
-        <li class="list-group-item"><a><md-checkbox ng-model="data.midNightSnacks" aria-label="Checkbox 1">Mid-Night Snacks</md-checkbox>
-          </a></li>
-      </ul>
-      <input type="submit" class="btn btn-info" value="Save" ng-click="category(data);">
-    </div>
-    <div class="company-details" ng-if="addRequirementBool">
-      <div class="title-baar">
-        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="#/admin" class="w-clr">
-            home</a> <a class="w-clr">/</a> <a href="#!/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a href="" class="w-clr">Requirement</a></h5>
-      </div><br><br>
-
-      <!-- Excel shit start-->
-
-      <table class="table table-striped table-bordered " >
-        <thead>
-          <tr>
-            <th></th>
-            <th ng-if="data.breakfast">Breakfast<br><br>
-              <div class="row">
-                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b> Person</b></div>
-                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b> Price</b></div>
-              </div>
-            </th>
-            <th ng-if="data.lunch">Lunch<br><br>
-              <div class="row">
-                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-              </div>
-            </th>
-            <th ng-if="data.snacks">Snacks<br><br>
-              <div class="row">
-                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-              </div>
-            </th>
-            <th ng-if="data.dinner">Dinner<br><br>
-              <div class="row">
-                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-              </div>
-            </th>
-            <th ng-if="data.cashNCarry">CashNCarry<br><br>
-              <div class="row">
-                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-              </div>
-            </th>
-            <th ng-if="data.midNightSnacks">MidNightSnacks<br><br>
-              <div class="row">
-                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-              </div>
-            </th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody ng-repeat="reqObj in companyRequirements">
-          <tr>
-            <td>{{reqObj.dayName}}</td>
-            <td ng-if="data.breakfast">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="number" name="breakfast" class="req-clr" ng-model="reqObj.breakfast">
-                </div>
-                <div class="col-md-6">
-                  <input type="number" name="breakfastPrice" class="req-clr" ng-model="reqObj.breakfastPrice">
-                </div>
-              </div>
-            </td>
-            <td ng-if="data.lunch">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="number" name="lunch" class="req-clr" ng-model="reqObj.lunch">
-                </div>
-                <div class="col-md-6">
-                  <input type="number" name="lunchPrice" class="req-clr" ng-model="reqObj.lunchPrice">
-                </div>
-              </div>
-            </td>
-            <td ng-if="data.snacks">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="number" name="snacks" class="req-clr" ng-model="reqObj.snacks">
-                </div>
-                <div class="col-md-6">
-                  <input type="number" name="snacksPrice" class="req-clr" ng-model="reqObj.snacksPrice">
-                </div>
-              </div>
-            </td>
-            <td ng-if="data.dinner">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="number" name="dinner" class="req-clr" ng-model="reqObj.dinner">
-                </div>
-                <div class="col-md-6">
-                  <input type="number" name="dinnerPrice" class="req-clr" ng-model="reqObj.dinnerPrice">
-                </div>
-              </div>
-            </td>
-            <td ng-if="data.cashNCarry">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="number" name="cashNCarry" class="req-clr" ng-model="reqObj.cashNCarry">
-                </div>
-                <div class="col-md-6">
-                  <input type="number" name="cashNCarryPrice" class="req-clr" ng-model="reqObj.cashNCarryPrice">
-                </div>
-              </div>
-            </td>
-            <td ng-if="data.midNightSnacks">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="number" name="midNightSnacks" class="req-clr" ng-model="reqObj.midNightSnacks">
-                </div>
-                <div class="col-md-6">
-                  <input type="number" name="midNightSnacksPrice" class="req-clr" ng-model="reqObj.midNightSnacksPrice">
-                </div>
-              </div>
-            </td>
-            <td>
-              <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
-            </td>
-          </tr>
-        </tbody>
-      </table><br><br>
-
-
-      <!-- Excel shit end-->
-        
-        <div class="vendor_heading">
-          <h3 align="center" style="font-weight:900">Vendor Requirement</h3>
+    <section>
+        <div class="company-details" ng-if="categoryBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="#/admin" class="w-clr">
+                        Home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+                    <a href="" class="w-clr">Categary</a></h5>
+            </div><br><br>
+            <ul class="list-group">
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.breakfast" aria-label="Checkbox 1">Breakfast</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.lunch" aria-label="Checkbox 1">Lunch</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.snacks" aria-label="Checkbox 1">Snacks</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.dinner" aria-label="Checkbox 1">Dinner</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.cashNCarry" aria-label="Checkbox 1">Cash & Carry</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.midNightSnacks" aria-label="Checkbox 1">Mid-Night Snacks</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.earlymoriningsnacks" aria-label="Checkbox 1">Early Morining Snacks</md-checkbox>
+                    </a></li>
+                <li class="list-group-item"><a>
+                        <md-checkbox ng-model="data.employeedetalis" aria-label="Checkbox 1">Employee Details</md-checkbox>
+                    </a></li>
+            </ul>
+            <input type="submit" class="btn btn-info" value="Save" ng-click="category(data);">
         </div>
-        
-      <hr>
-       
-        <!-- Vendor Excel shit  start -->
+        <div class="company-details" ng-if="addRequirementBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="#/admin" class="w-clr">
+                        Home</a> <a class="w-clr">/</a> <a href="#!/admin" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a class="w-clr">/</a>
+                    <a href="" class="w-clr">Requirement</a></h5>
+            </div><br><br>
 
-          
-        <table class="table table-striped table-bordered " >
-            <thead>
-            <tr>
-                <th></th>
-                <th ng-if="data.breakfast">Breakfast<br><br>
-                    <div class="row">
-                        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b> Person</b></div>
-                        <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b> Price</b></div>
-                    </div>
-                </th>
-                <th ng-if="data.lunch">Lunch<br><br>
-                    <div class="row">
-                        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                        <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-                    </div>
-                </th>
-                <th ng-if="data.snacks">Snacks<br><br>
-                    <div class="row">
-                        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                        <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-                    </div>
-                </th>
-                <th ng-if="data.dinner">Dinner<br><br>
-                    <div class="row">
-                        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                        <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-                    </div>
-                </th>
-                <th ng-if="data.cashNCarry">CashNCarry<br><br>
-                    <div class="row">
-                        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                        <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-                    </div>
-                </th>
-                <th ng-if="data.midNightSnacks">MidNightSnacks<br><br>
-                    <div class="row">
-                        <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
-                        <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
-                    </div>
-                </th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody ng-repeat="reqObj in companyRequirements">
-            <tr>
-                <td>{{reqObj.dayName}}</td>
-                <td ng-if="data.breakfast">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="number" name="breakfast" class="req-clr" >
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="breakfastPrice" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td ng-if="data.lunch">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="number" name="lunch" class="req-clr" >
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="lunchPrice" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td ng-if="data.snacks">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="number" name="snacks" class="req-clr" >
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="snacksPrice" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td ng-if="data.dinner">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="number" name="dinner" class="req-clr">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="dinnerPrice" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td ng-if="data.cashNCarry">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="number" name="cashNCarry" class="req-clr" >
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="cashNCarryPrice" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td ng-if="data.midNightSnacks">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="number" name="midNightSnacks" class="req-clr">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="number" name="midNightSnacksPrice" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            <!-- Excel shit start-->
 
-        <!-- Vendor Excel shit end -->
-     
-    </div><br>
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-if="data.breakfast">Breakfast<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b> Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b> Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.lunch">Lunch<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.snacks">Snacks<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.dinner">Dinner<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.cashNCarry">CashNCarry<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.midNightSnacks">MidNightSnacks<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.earlymoriningsnacks">Early Morining Snacks<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.employeedetalis">MidNightSnacks<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="reqObj in companyRequirements">
+                    <tr>
+                        <td>{{reqObj.dayName}}</td>
+                        <td ng-if="data.breakfast">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="breakfast" class="req-clr" ng-model="reqObj.breakfast">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="breakfastPrice" class="req-clr" ng-model="reqObj.breakfastPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.lunch">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="lunch" class="req-clr" ng-model="reqObj.lunch">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="lunchPrice" class="req-clr" ng-model="reqObj.lunchPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.snacks">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="snacks" class="req-clr" ng-model="reqObj.snacks">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="snacksPrice" class="req-clr" ng-model="reqObj.snacksPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.dinner">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="dinner" class="req-clr" ng-model="reqObj.dinner">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="dinnerPrice" class="req-clr" ng-model="reqObj.dinnerPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.cashNCarry">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="cashNCarry" class="req-clr" ng-model="reqObj.cashNCarry">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="cashNCarryPrice" class="req-clr" ng-model="reqObj.cashNCarryPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.midNightSnacks">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="midNightSnacks" class="req-clr" ng-model="reqObj.midNightSnacks">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="midNightSnacksPrice" class="req-clr" ng-model="reqObj.midNightSnacksPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.earlymoriningsnacks">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="earlymoriningsnacks" class="req-clr" ng-model="reqObj.earlymoriningsnacks">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="earlymoriningsnacksPrice" class="req-clr" ng-model="reqObj.earlymoriningsnacksPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.employeedetalis">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="employeedetalis" class="req-clr" ng-model="reqObj.employeedetalis">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="employeedetalisPrice" class="req-clr" ng-model="reqObj.employeedetalisPrice">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br><br>
 
-    <div class="assign-v" ng-if="addAssignedToBool">
-      <div class="title-baar">
-        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
-            home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a class="w-clr" href="">assigned-to</a></h5>
-      </div><br><br>
 
-      <div class="bnr-clr-bg">
-        <div class="row">
-          <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.breakfast">
-            <md-button onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color:white;">Breakfast
-              Assign</md-button>
-          </div>
-          <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.lunch">
-            <md-button onclick="document.getElementById('id02').style.display='block'" style="width:auto; background-color:white;">Lunch
-              Assign</md-button>
-          </div>
-          <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.snacks">
-            <md-button onclick="document.getElementById('id03').style.display='block'" style="width:auto; background-color:white;">Snacks
-              Assign</md-button>
-          </div>
-          <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.dinner">
-            <md-button onclick="document.getElementById('id04').style.display='block'" style="width:auto; background-color:white;">Dinner
-              Assign</md-button>
-          </div>
-          <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.cashNCarry">
-            <md-button onclick="document.getElementById('id05').style.display='block'" style="width:auto; background-color:white;">Cash
-              N Carry Assign</md-button>
-          </div>
-          <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.midNightSnacks">
-            <md-button onclick="document.getElementById('id06').style.display='block'" style="width:auto;background-color:white;">Mid-Night
-              Snacks</md-button>
-          </div>
-        </div>
-      </div>
+            <!-- Excel shit end-->
 
-      <div class="row">
-        <div class="col-sm-3 col-sm-3 col-md-3 col-lg-3" ng-repeat="list in vendorList">
-          <md-content class="md-padding" layout-xs="column" layout="row">
-            <div flex-xs flex-gt-xs="100" layout="column">
-              <md-card>
-                <md-card-title>
-                  <md-card-title-text>
+            <div class="vendor_heading">
+                <h3 align="center" style="font-weight:900">Vendor Requirement</h3><br>
+                <div class="heading_underling"></div>
+            </div>
 
-                    <span class="md-headline"><a href="#admin/vendor/{{list.vendorId}}">{{list.vendorName | uppercase}}</a></span>
-                    <span class="md-subhead">Type: {{list.type}}</span>
+            <hr>
 
-                    <!-- <span class="md-subhead">Email: {{vndr.phone}}</span> -->
-                  </md-card-title-text>
-                </md-card-title>
-                <div class="imgcontainer">
-                  <!-- <span onclick="document.getElementById('id07').style.display='block'" style="top: 22px; right:30px;" class="close new" title="Close Modal">&times;</span> -->
-                  <span ng-click="send(list.id,list.vendorName)" style="top: 22px; right:30px;" class="close new" title="Close Modal">&times;</span>
+            <!-- Vendor Excel shit  start -->
+
+
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-if="data.breakfast">Breakfast<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b> Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b> Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.lunch">Lunch<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.snacks">Snacks<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.dinner">Dinner<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.cashNCarry">CashNCarry<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th ng-if="data.midNightSnacks">MidNightSnacks<br><br>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b>Person</b></div>
+                                <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b>Price</b></div>
+                            </div>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="reqObj in companyRequirements">
+                    <tr>
+                        <td>{{reqObj.dayName}}</td>
+                        <td ng-if="data.breakfast">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="breakfast" class="req-clr">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="breakfastPrice" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.lunch">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="lunch" class="req-clr">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="lunchPrice" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.snacks">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="snacks" class="req-clr">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="snacksPrice" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.dinner">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="dinner" class="req-clr">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="dinnerPrice" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.cashNCarry">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="cashNCarry" class="req-clr">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="cashNCarryPrice" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td ng-if="data.midNightSnacks">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="number" name="midNightSnacks" class="req-clr">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" name="midNightSnacksPrice" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Vendor Excel shit end -->
+
+        </div><br>
+
+        <div class="assign-v" ng-if="addAssignedToBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+                        home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+                    <a class="w-clr" href="">assigned-to</a></h5>
+            </div><br><br>
+
+            <div class="bnr-clr-bg">
+                <div class="row">
+                    <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.breakfast">
+                        <md-button onclick="document.getElementById('id01').style.display='block'" style="width:auto; background-color:white;">Breakfast
+                            Assign</md-button>
+                    </div>
+                    <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.lunch">
+                        <md-button onclick="document.getElementById('id02').style.display='block'" style="width:auto; background-color:white;">Lunch
+                            Assign</md-button>
+                    </div>
+                    <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.snacks">
+                        <md-button onclick="document.getElementById('id03').style.display='block'" style="width:auto; background-color:white;">Snacks
+                            Assign</md-button>
+                    </div>
+                    <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.dinner">
+                        <md-button onclick="document.getElementById('id04').style.display='block'" style="width:auto; background-color:white;">Dinner
+                            Assign</md-button>
+                    </div>
+                    <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.cashNCarry">
+                        <md-button onclick="document.getElementById('id05').style.display='block'" style="width:auto; background-color:white;">Cash
+                            N Carry Assign</md-button>
+                    </div>
+                    <div class="col-sm-2 col-sm-2 col-md-2 col-lg-2 bnr-clr" ng-if="data.midNightSnacks">
+                        <md-button onclick="document.getElementById('id06').style.display='block'" style="width:auto;background-color:white;">Mid-Night
+                            Snacks</md-button>
+                    </div>
                 </div>
-                <md-card-actions layout="row" layout-align="center">
-                  <!-- <md-button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Assign</md-button> -->
-                  <md-button href="#admin/vendor/{{list.vendorId}}">Check Vendor Profile</md-button>
-                </md-card-actions>
-              </md-card>
             </div>
-          </md-content>
 
-        </div>
-      </div>
+            <div class="row">
+                <div class="col-sm-3 col-sm-3 col-md-3 col-lg-3" ng-repeat="list in vendorList">
+                    <md-content class="md-padding" layout-xs="column" layout="row">
+                        <div flex-xs flex-gt-xs="100" layout="column">
+                            <md-card>
+                                <md-card-title>
+                                    <md-card-title-text>
 
-      <div id="id07" class="modal">
-        <form class="modal-content animate" style="margin:10% 32%;" action="">
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
-          </div>
-          <h3 class="text-center">Are you sure you want to delete <span style="color:#337ab7;">{{vName | lowercase}}</span>
-            ?</h3>
-            <div class="container" style="padding:20px; text-align:center;">
-              <button type="button" class="btn btn-danger btn-d" ng-click="unassignVendor(unassignId)">Delete</button><br>
+                                        <span class="md-headline"><a href="#admin/vendor/{{list.vendorId}}">{{list.vendorName
+                                                | uppercase}}</a></span>
+                                        <span class="md-subhead">Type: {{list.type}}</span>
+
+                                        <!-- <span class="md-subhead">Email: {{vndr.phone}}</span> -->
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <div class="imgcontainer">
+                                    <!-- <span onclick="document.getElementById('id07').style.display='block'" style="top: 22px; right:30px;" class="close new" title="Close Modal">&times;</span> -->
+                                    <span ng-click="send(list.id,list.vendorName)" style="top: 22px; right:30px;" class="close new" title="Close Modal">&times;</span>
+                                </div>
+                                <md-card-actions layout="row" layout-align="center">
+                                    <!-- <md-button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Assign</md-button> -->
+                                    <md-button href="#admin/vendor/{{list.vendorId}}">Check Vendor Profile</md-button>
+                                </md-card-actions>
+                            </md-card>
+                        </div>
+                    </md-content>
+
+                </div>
             </div>
-        </form>
-      </div>
- 
-      <div id="id01" class="modal">
-        <form class="modal-content animate" style="margin:1% 32%;" action="">
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          </div>
-          <h3 class="text-center">Vendor Assign For Breakfast</h3>
+
+            <div id="id07" class="modal">
+                <form class="modal-content animate" style="margin:10% 32%;" action="">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h3 class="text-center">Are you sure you want to delete <span style="color:#337ab7;">{{vName |
+                            lowercase}}</span>
+                        ?</h3>
+                    <div class="container" style="padding:20px; text-align:center;">
+                        <button type="button" class="btn btn-danger btn-d" ng-click="unassignVendor(unassignId)">Delete</button><br>
+                    </div>
+                </form>
+            </div>
+
+            <div id="id01" class="modal">
+                <form class="modal-content animate" style="margin:1% 32%;" action="">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h3 class="text-center">Vendor Assign For Breakfast</h3>
+                    <div class="container">
+                        <form>
+                            <div style="padding:10px;">
+                                <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+                            </div>
+                        </form>
+                        <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
+                            <ul class="nav">
+                                <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
+                                    <!-- <img src="../image/abc.jpg" alt="company_avtar" style="width:100%"> -->
+                                    <a ng-click="passVendorId(vendor.id,'breakfast');" href="" onclick="document.getElementById('id01').style.display='none'" class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="id02" class="modal">
+                <form class="modal-content animate" style="margin:1% 32%;" action="">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h3 class="text-center">Vendor Assign For Lunch</h3>
+                    <div class="container">
+                        <form>
+                            <div style="padding:10px;">
+                                <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+                            </div>
+                        </form>
+                        <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
+                            <ul class="nav">
+                                <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
+                                    <a ng-click="passVendorId(vendor.id,'lunch');" href="" onclick="document.getElementById('id02').style.display='none'" class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="id03" class="modal">
+                <form class="modal-content animate" style="margin:1% 32%;" action="">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h3 class="text-center">Vendor Assign For Snacks</h3>
+                    <div class="container">
+                        <form>
+                            <div style="padding:10px;">
+                                <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+                            </div>
+                        </form>
+                        <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
+                            <ul class="nav">
+                                <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
+                                    <a ng-click="passVendorId(vendor.id,'snacks');" href="" onclick="document.getElementById('id03').style.display='none'" class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="id04" class="modal">
+                <form class="modal-content animate" style="margin:1% 32%;" action="">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h3 class="text-center">Vendor Assign For Dinner</h3>
+                    <div class="container">
+                        <form>
+                            <div style="padding:10px;">
+                                <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+                            </div>
+                        </form>
+                        <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
+                            <ul class="nav">
+                                <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
+                                    <a ng-click="passVendorId(vendor.id,'dinner');" href="" onclick="document.getElementById('id04').style.display='none'" class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="id05" class="modal">
+                <form class="modal-content animate" style="margin:1% 32%;" action="">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                    <h3 class="text-center">Vendor Assign For Cash N Carry</h3>
+                    <div class="container">
+                        <form>
+                            <div style="padding:10px;">
+                                <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+                            </div>
+                        </form>
+                        <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
+                            <ul class="nav">
+                                <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
+                                    <a ng-click="passVendorId(vendor.id,'cashNCarry');" href="" onclick="document.getElementById('id05').style.display='none'" class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div><!-- addAssignedToBool end  -->
+
+        <div class="" ng-if="SetLoginIdBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+                        Home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/admin">{{cmpyName | lowercase}}</a>
+                    <a class="w-clr">/</a>
+                    <a class="w-clr" href="">set password</a></h5>
+            </div><br><br>
+            <div class="company-details">
+                <form role="form" name="companyloginForm">
+                    <div class="form-group">
+
+                        <br>
+                        <h3>Company password for employee feedback app...!!!</h3>
+                        <br>
+                        <input type="text" placeholder=" Set mobile app password" name="companyPassword" class="form-control" required ng-model="password">
+
+
+                    </div>
+                    <input type="submit" class="btn btn-danger" value="Submit" ng-click="companyLoginIdSet(password)">
+                </form>
+            </div>
+
+        </div> <!-- SET login id password for Android App END -->
+
+        <!-- Employee Feedback -->
+        <div class="company-dashboard" ng-if="FeedbackBool" style="background-color:white;">
+
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+                        home</a> <a class="w-clr">/</a> <a href="#!/admin" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a class="w-clr">/</a>
+                    <a href="" class="w-clr">employee feedback</a></h5>
+            </div><br><br><br>
             <div class="container">
-              <form>
-                <div style="padding:10px;">
-                  <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
-                </div>
-              </form>
-              <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
-                <ul class="nav">
-                  <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
-                    <!-- <img src="../image/abc.jpg" alt="company_avtar" style="width:100%"> -->
-                    <a ng-click="passVendorId(vendor.id,'breakfast');" href="" onclick="document.getElementById('id01').style.display='none'"
-                      class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </form>
-      </div>
 
-      <div id="id02" class="modal">
-        <form class="modal-content animate" style="margin:1% 32%;" action="">
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-          </div>
-          <h3 class="text-center">Vendor Assign For Lunch</h3>
-            <div class="container">
-              <form>
-                <div style="padding:10px;">
-                  <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
-                </div>
-              </form>
-              <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
-                <ul class="nav">
-                  <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
-                    <a ng-click="passVendorId(vendor.id,'lunch');" href="" onclick="document.getElementById('id02').style.display='none'"
-                      class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </form>
-      </div>
-
-      <div id="id03" class="modal">
-        <form class="modal-content animate" style="margin:1% 32%;" action="">
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
-          </div>
-          <h3 class="text-center">Vendor Assign For Snacks</h3>
-            <div class="container">
-              <form>
-                <div style="padding:10px;">
-                  <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
-                </div>
-              </form>
-              <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
-                <ul class="nav">
-                  <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
-                    <a ng-click="passVendorId(vendor.id,'snacks');" href="" onclick="document.getElementById('id03').style.display='none'"
-                      class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </form>
-      </div>
-
-      <div id="id04" class="modal">
-        <form class="modal-content animate" style="margin:1% 32%;" action="">
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
-          </div>
-          <h3 class="text-center">Vendor Assign For Dinner</h3>
-            <div class="container">
-              <form>
-                <div style="padding:10px;">
-                  <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
-                </div>
-              </form>
-              <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
-                <ul class="nav">
-                  <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
-                    <a ng-click="passVendorId(vendor.id,'dinner');" href="" onclick="document.getElementById('id04').style.display='none'"
-                      class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </form>
-      </div>
-
-      <div id="id05" class="modal">
-        <form class="modal-content animate" style="margin:1% 32%;" action="">
-          <div class="imgcontainer">
-            <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
-          </div>
-          <h3 class="text-center">Vendor Assign For Cash N Carry</h3>
-            <div class="container">
-              <form>
-                <div style="padding:10px;">
-                  <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
-                </div>
-              </form>
-              <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
-                <ul class="nav">
-                  <li ng-repeat="vendor in allVendorsList | filter:vendorSearch">
-                    <a ng-click="passVendorId(vendor.id,'cashNCarry');" href="" onclick="document.getElementById('id05').style.display='none'"
-                      class="thumbnail" style="color:black;width:100%;">{{vendor.name}}</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </form>
-      </div>
-
-    </div><!-- addAssignedToBool end  -->
-
-    <div class="" ng-if="SetLoginIdBool">
-      <div class="title-baar">
-        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
-            Home</a> <a class="w-clr">/</a> <a class="w-clr" href="#!/admin">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a class="w-clr" href="">set password</a></h5>
-      </div><br><br>
-      <div class="company-details">
-        <form role="form" name="companyloginForm">
-          <div class="form-group">
-
-            <br>
-            <h3>Company password for employee feedback app...!!!</h3>
-            <br>
-            <input type="text" placeholder=" Set mobile app password" name="companyPassword" class="form-control"
-              required ng-model="password">
-
-
-          </div>
-          <input type="submit" class="btn btn-danger" value="Submit" ng-click="companyLoginIdSet(password)">
-        </form>
-      </div>
-
-    </div> <!-- SET login id password for Android App END -->
-
-    <!-- Employee Feedback -->
-    <div class="company-dashboard" ng-if="FeedbackBool" style="background-color:white;">
-
-      <div class="title-baar">
-        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
-            home</a> <a class="w-clr">/</a> <a href="#!/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a href="" class="w-clr">employee feedback</a></h5>
-      </div><br><br><br>
-      <div class="container">
-
-        <table class="table table-hover" style="background-color:white;">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Overall Rating</th>
-              <th>Presentation Rating</th>
-              <th>Quality Rating</th>
-              <th>Quantity Rating</th>
-              <th>Taste Rating</th>
-              <th>Contact</th>
-              <th>Comment</th>
-              <th>Menu</th>
-              <th>Date & Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="feed in feedback.slice().reverse()">
-              <td>{{feed.reviewerName}}</td>
-              <td>{{feed.overAllRating}}</td>
-              <td>{{feed.presentationRating}}</td>
-              <td>{{feed.qualityRating}}</td>
-              <td>{{feed.quantityRating}}</td>
-              <td>{{feed.tasteRating}}</td>
-              <td>{{feed.mobile}}</td>
-              <td>
-                <!-- <a data-toggle="popover" title="{{feed.comment}}" data-content="Some content inside the popover">
+                <table class="table table-hover" style="background-color:white;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Overall Rating</th>
+                            <th>Presentation Rating</th>
+                            <th>Quality Rating</th>
+                            <th>Quantity Rating</th>
+                            <th>Taste Rating</th>
+                            <th>Contact</th>
+                            <th>Comment</th>
+                            <th>Menu</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="feed in feedback.slice().reverse()">
+                            <td>{{feed.reviewerName}}</td>
+                            <td>{{feed.overAllRating}}</td>
+                            <td>{{feed.presentationRating}}</td>
+                            <td>{{feed.qualityRating}}</td>
+                            <td>{{feed.quantityRating}}</td>
+                            <td>{{feed.tasteRating}}</td>
+                            <td>{{feed.mobile}}</td>
+                            <td>
+                                <!-- <a data-toggle="popover" title="{{feed.comment}}" data-content="Some content inside the popover">
             <i class="fa fa-commenting fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
-                <ul class="nav nav-pills nav-stacked">
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="far fa-comment-alt fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
-                    <div class="dropdown-menu">
-                      <h6 class="comment-padd">{{feed.comment}}
-                      </h6>
-                    </div>
-                  </li>
-                </ul>
-              </td>
-              <td>
-                <!-- <a data-toggle="popover" title="{{feed.reviewedMenu}}" data-content="Some content inside the popover"><i class="fa fa-comments-o fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
-                <ul class="nav nav-pills nav-stacked">
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fas fa-utensils fa-2x" style="color:#848181;"
-                        aria-hidden="true"></i></a>
-                    <div class="dropdown-menu">
-                      <h6 class="comment-padd">{{feed.reviewedMenu}}
-                      </h6>
-                    </div>
-                  </li>
-                </ul>
-              </td>
-              <td>{{feed.createdAt}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <!--end-->
-    <!-- logo upload start -->
-    <div class="company-details" ng-if="LogoBool">
-      <div class="title-baar">
-        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a>
-          <a href="#/admin" class="w-clr"> home</a>
-          <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a>
-          <a class="w-clr">/</a> <a href="" class="w-clr">logo upload</a></h5>
-      </div><br><br>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="far fa-comment-alt fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
+                                        <div class="dropdown-menu">
+                                            <h6 class="comment-padd">{{feed.comment}}
+                                            </h6>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <!-- <a data-toggle="popover" title="{{feed.reviewedMenu}}" data-content="Some content inside the popover"><i class="fa fa-comments-o fa-2x" style="color:#848181;" aria-hidden="true"></i></a> -->
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href=""><i class="fas fa-utensils fa-2x" style="color:#848181;" aria-hidden="true"></i></a>
+                                        <div class="dropdown-menu">
+                                            <h6 class="comment-padd">{{feed.reviewedMenu}}
+                                            </h6>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>{{feed.createdAt}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--end-->
+        <!-- logo upload start -->
+        <div class="company-details" ng-if="LogoBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a>
+                    <a href="#/admin" class="w-clr"> home</a>
+                    <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a class="w-clr">/</a> <a href="" class="w-clr">logo upload</a></h5>
+            </div><br><br>
 
 
-      <h4>Upload image on file select</h4>
-      <!-- <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+            <h4>Upload image on file select</h4>
+            <!-- <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
            accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
        Select File</button> -->
-      <input type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000"
-        ngf-max-size="1MB" class="btn btn-info" value="Select File">
-      <br><br>
-      File:
-      <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-        <span class="progress" ng-show="f.progress >= 0">
-          <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
-        </span>
-      </div>
-      {{errorMsg}}
+            <input type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB" class="btn btn-info" value="Select File">
+            <br><br>
+            File:
+            <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                <span class="progress" ng-show="f.progress >= 0">
+                    <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                </span>
+            </div>
+            {{errorMsg}}
 
-    </div>
-    <!-- logo upload end -->
-    
-      <!--Monthly Details----->
-      <div class="company-details" ng-if="monthBool">
-       <div class="title-baar">
-         <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
-            home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a class="w-clr" href="">Monthly Details</a></h5>
-      </div><br><br>
-        <table class="table table-striped table-bordered " >
-            <thead>
-            <tr>
-               
-                <th>Date<br><br></th>
-                <th>Day<br><br> </th>
-                <th>Vendor Name<br><br></th>
-                <th>Vendor Pax<br><br></th>
-                <th>Vendor Price<br><br></th>
-                <th>Company Pax<br><br></th>
-                <th>Fancymonk Price<br><br></th>
-                <th>% To Vendor<br><br></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody ng-repeat="reqObj in companyRequirements">
-            <tr>
-                <td>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="date" name="Date" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" name="Day" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="name" name="vendorname" class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="number" name="vendorPax" class="req-clr">
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <input type="number" name="vendorPrice " class="req-clr" >
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <input type="number" name="Companypax" class="req-clr">
-                        </div>
-                    </div>
-                </td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <input type="number" name="fancymonkprice" class="req-clr">
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <input type="text" name="%tovendor" class="req-clr">
-                    </div>
-                  </div>
-                </td>
-                <td>
-                    <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
-                </td>
-            </tr>
-            </tbody>
-        </table>
-      </div>
-      <!-- Monthly Details---->
+        </div>
+        <!-- logo upload end -->
 
-      <!--Vendor Monthly Details----->
-      <div class="company-details" ng-if="vendormonthBool">
-        <div class="title-baar">
-          <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
-              home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-            <a class="w-clr" href=""> Vendor Monthly Details</a></h5>
-        </div><br><br>
-        <table class="table table-striped table-bordered ">
-          <thead>
-            <tr>
-        
-              <th>Date<br><br></th>
-              <th>Day<br><br> </th>
-              <th>Vendor Name<br><br></th>
-              <th>Vendor Pax<br><br></th>
-              <th>Vendor Price<br><br></th>
-              <th>Company Pax<br><br></th>
-              <th>Fancymonk Price<br><br></th>
-              <th>% To Vendor<br><br></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody ng-repeat="reqObj in companyRequirements">
-            <tr>
-        
-              <td>
-                <div class="row">
-                  <div class="col-md-12">
-                    <input type="date" name="Date" class="req-clr">
-                  </div>
+        <!--Monthly Details----->
+        <div class="company-details" ng-if="monthBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+                        home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+                    <a class="w-clr" href="">Monthly Details</a></h5>
+            </div><br><br>
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr>
+
+                        <th>Date<br><br></th>
+                        <th>Day<br><br> </th>
+                        <th>Company Pax<br><br></th>
+                        <th>Fancymonk Amount<br><br></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="reqObj in companyRequirements">
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="date" name="Date" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="Day" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="number" name="Companypax" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="number" name="fancymonamount" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Monthly Details---->
+
+        <!--Vendor Monthly Details----->
+        <div class="company-details" ng-if="vendormonthBool">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+                        home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+                    <a class="w-clr" href=""> Vendor Monthly Details</a></h5>
+            </div><br><br>
+            <table class="table table-striped table-bordered ">
+                <thead>
+                    <tr>
+
+                        <th>Date<br><br></th>
+                        <th>Day<br><br> </th>
+                        <th>Vendor Name<br><br></th>
+                        <th>Vendor Pax<br><br></th>
+                        <th>Vendor Price<br><br></th>
+                        <th>Vendor Amount<br><br></th>
+                        <th>% To Vendor<br><br></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="reqObj in companyRequirements">
+                    <tr>
+
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="date" name="Date" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" name="Day" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="name" name="vendorname" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="number" name="vendorPax" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="number" name="vendorPrice " class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="number" name="vendoramount" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="text" name="%tovendor" class="req-clr">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Vendor Monthly Details---->
+
+        <!------Dispatch Details ----------->
+        <div class="company-details" ng-if="dispatchdetails">
+            <div class="title-baar">
+                <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+                        Home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+                    <a class="w-clr" href="">Dispatch Details</a></h5>
+            </div><br><br>
+            <md-content class="md-padding" layout-xs="column" layout="row">
+                <div flex-xs flex-gt-xs="100" layout="column">
+                    <md-card>
+                        <table class="table">
+                            <thead>
+                                <td>
+                                    <h3 style="color:#88888c;">{{yesterday_5}}</h3>
+                                </td>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Vendor</th>
+                                    <th>Day</th>
+                                    <th>Menu Type</th>
+                                    <th>Dispatched Time</th>
+                                    <th>Reached Time</th>
+                                    <th>Remark</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="today in yesterdayStatus_5">
+                                    <td>{{today.companyName}}</td>
+                                    <td>{{today.vendorName}}</td>
+                                    <td>{{today.dayName}}</td>
+                                    <td>{{today.menuType}}</td>
+                                    <td>{{today.dispatchedTime}}</td>
+                                    <td>{{today.reachedTime}}</td>
+                                    <td>{{today.remarks}}</td>
+                                    <td>{{today.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3 ng-show="!yesterdayStatus_5.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+                    </md-card>
                 </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-12">
-                    <input type="text" name="Day" class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-12">
-                    <input type="name" name="vendorname" class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-12">
-                    <input type="number" name="vendorPax" class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-8">
-                    <input type="number" name="vendorPrice " class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-8">
-                    <input type="number" name="Companypax" class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-8">
-                    <input type="number" name="fancymonkprice" class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div class="row">
-                  <div class="col-md-8">
-                    <input type="text" name="%tovendor" class="req-clr">
-                  </div>
-                </div>
-              </td>
-              <td>
-                <input type="submit" class="btn btn-info" value="Save" ng-click="saveRequirement(reqObj);">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- Vendor Monthly Details---->
-    <section>
+            </md-content>
+
+        </div>
+        <!------Dispatch Details end ----------->
+        <section>
 </div>
-
-
