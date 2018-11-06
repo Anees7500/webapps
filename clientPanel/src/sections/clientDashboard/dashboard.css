@@ -2,9 +2,10 @@
 .header{
   width: 100%;
   height: 45px;
-  position: absolute;
+  z-index: 999;
+  position: relative;
   background-color: #00BCD4;
-  box-shadow: rgba(0, 0, 0, .4)-10px 1px 10px 10px;
+
 }
 /*.container{
   padding-left: 0;
@@ -12,10 +13,22 @@
   padding-right: 0;
 }*/
 .main_page{
-  height: 700px;
-/*  background-color: red;*/
-  margin-top: 0px;
+  height: 100%;
+ /* background-color: red; */
+ float: left;
+  margin-top: 45px;
+  
+  
 
+}
+.logo-image1{
+  
+  height: 40px;
+  background-color:  #00BCD4;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.2em;
+  
 }
 .logo-image{
   
@@ -23,17 +36,25 @@
   background-color:  #00BCD4;
   display: inline-block;
   vertical-align: top;
+  margin-left: 36px;
 }
 h6{
-  font-family: 4px;
+   /* font-family: 4px;
     display: #F7F9F9;
     margin-top: 1em;
     margin-left: 61px;
     margin-top: -34px;
-      font-size: 1.2em;
+      font-size: 1.2em; */
+      font-size: 1.3em;
+      font: bold;
+      margin-left: 15px;
+     
 }
 .dropdown{
-   top: 15px;
+   position: fixed;
+  display: inline-block;
+  top: 15px;
+  right: 80px;
 
 }
 .dropdown-content {
@@ -61,8 +82,8 @@ h6{
     background-color: #3e8e41;
 }
 .md-sidenav-left{
-  height: 700px;
-  width: 170px;
+  height: 100%;
+  width: 200px;
   margin-top: 0px;
   float: left;
   overflow-x:hidden;
@@ -82,8 +103,8 @@ h6{
     background-color: rgba(0, 0, 0, 0.25);
     color: white;
     padding: 18px 14px;
-   
-    height: 100px;
+   width: 100%;
+    height: 150px;
 
 }
 .background-dp{
@@ -101,9 +122,11 @@ background-color: #FFEB3B;
 display: block;
 height: 50px;
 width: 50px;
+margin-left: 36px;
 border-radius: 50%;
-margin: 2px 3px 0px 0px;
-    padding: 2px;
+text-align: center;
+/* margin: 2px 3px 0px 0px;
+padding: 2px; */
 box-shadow: 0 15px 30px 0 rgba(0,0,0,0.01),
             0 5px 15px 0 rgba(0,0,0,0.01);
 }
@@ -161,6 +184,7 @@ align-items: center;
 .list-data{
   margin-top: 20px;
   float: left;
+  
 }
 .list-data-item-a{
     /*  border-top-left-radius: 10px;
@@ -188,7 +212,7 @@ align-items: center;
     0 15px 30px 0 rgba(0,0,0,0.11);
     width: 600px;
     height: 420px;
-
+cursor: pointer;
 }
 .catagory{
   font-size: 20px;
@@ -259,12 +283,13 @@ input:checked + .slider:before {
   margin-top: 20px;
   margin-right: 15px;*/
 
-  padding-left: 10;
+    padding-left: 10;
     padding-left: 0;
     margin-bottom: 0px;
     margin-top: 20px;
     width: 100%;
-
+    float: left;
+    height: 100%;
 }
 .Requirements-data-item{
     margin-left: 40px;
@@ -321,7 +346,6 @@ input:checked + .slider:before {
 
 .feedback-list{
     margin-bottom: 0px;
-  
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.13),
 0 15px 30px 0 rgba(0,0,0,0.11);
 }
@@ -329,7 +353,7 @@ input:checked + .slider:before {
 
 
 #feedback {
-    height: 700px;
+    height: 100%;
     box-shadow: 3px 3px 23px #000000;
     padding: 17px;   
     background-color: #F6FAEF;
@@ -364,4 +388,30 @@ input:checked + .slider:before {
     left: 20px;
 }
 .dialogdemoThemeInheritance .container {
-  text-align: center; }
+  text-align: center; 
+}
+.manageEmployee-list{
+  margin-top: 300px;
+  float: left;
+  margin-left: 300px;
+  text-align: center;
+}
+.modal fade{
+float: left;
+text-align: center;
+margin-left: 300px;
+margin-top: 300px;
+background-color: #000000;
+color: white;
+}
+#daButton {
+
+  position: absolute;
+  top: 50vh;
+  left: 40vw;
+  height: 2.5em;
+  border-radius: 1em;
+  background: smoke;
+  line-hieght: 1.2em;
+  
+}
