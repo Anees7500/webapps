@@ -102,7 +102,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="e in employeeComingList ">
+                <tr ng-repeat="e in pagedItems ">
                   <td>{{e.display}}</td>
                   <td>{{tomorrowDate}}</td>
                   <td>{{e.decision}}</td>
@@ -110,7 +110,7 @@
               </tbody>
               <tfoot>
                 <td colspan="116">
-                  <div class="pagination">
+                  <div class="pagination" ng-if="total > itemsPerPage">
                     <ul class="pager">
                       <li class="previous" ng-class="prevPageDisabled()">
                         <a href ng-click="prevPage()">« Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

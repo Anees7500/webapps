@@ -2,15 +2,15 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
 '$http', '$rootScope', 'postVendorAssignUrl', 'getVendorAssignUrl', '$location', '$cookies', 'getCompanyProfileUrl',
 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'postCompanyReqUrl', 'getCompanyReqUrl', 'unassignedVendorUrl',
 'getVendorProfileUrl', 'updateCompanyReqUrl', 'postCompanyLoginIdUrl', 'corporateReviewsUrl',
-'postCategoryUrl', 'getAllVendorToCompanyUrl', 'companyLogoUrl', 'Upload', '$timeout',
+'postCategoryUrl', 'getAllVendorToCompanyUrl', 'companyLogoUrl', 'Upload', '$timeout','getVendorCompanyReqUrl',
 function (vendorassignService, $routeParams, $scope, Notification,
         $http, $rootScope, postVendorAssignUrl, getVendorAssignUrl, $location, $cookies, getCompanyProfileUrl,
         getUnassignedCompanyUrl, getAllVendorListUrl, postCompanyReqUrl, getCompanyReqUrl, unassignedVendorUrl,
         getVendorProfileUrl, updateCompanyReqUrl, postCompanyLoginIdUrl, corporateReviewsUrl,
-        postCategoryUrl, getAllVendorToCompanyUrl, companyLogoUrl, Upload, $timeout)
+        postCategoryUrl, getAllVendorToCompanyUrl, companyLogoUrl, Upload, $timeout, getVendorCompanyReqUrl)
     {
 
-        console.log("aman here : ");
+        // console.log("aman here : ");
         var sObj = $location.search();
         if (sObj.enable != null) {
             enableBoools(sObj.enable)
@@ -138,6 +138,68 @@ function (vendorassignService, $routeParams, $scope, Notification,
                 }
             }
 
+            // ======================================
+            // Vendor part
+            // =========================================
+
+            $scope.vendorCompanyRequirements = [];
+            var mondayObj = {};
+            mondayObj.dayName = "MONDAY";
+
+            var tuesdayObj = {};
+            tuesdayObj.dayName = "TUESDAY";
+
+            var wednesdayObj = {};
+            wednesdayObj.dayName = "WEDNESDAY";
+
+            var thursdayObj = {};
+            thursdayObj.dayName = "THURSDAY";
+
+            var fridayObj = {};
+            fridayObj.dayName = "FRIDAY";
+
+            var saturdayObj = {};
+            saturdayObj.dayName = "SATURDAY";
+
+            var sundayObj = {};
+            sundayObj.dayName = "SUNDAY";
+
+            $scope.vendorCompanyRequirements.push(mondayObj);
+            $scope.vendorCompanyRequirements.push(tuesdayObj);
+            $scope.vendorCompanyRequirements.push(wednesdayObj);
+            $scope.vendorCompanyRequirements.push(thursdayObj);
+            $scope.vendorCompanyRequirements.push(fridayObj);
+            $scope.vendorCompanyRequirements.push(saturdayObj);
+            $scope.vendorCompanyRequirements.push(sundayObj);
+
+            var getVendorCompUrl = getVendorCompanyReqUrl + $routeParams.compId;
+            $http.get(getVendorCompUrl).then(function (response) {
+                // console.log("response ", JSON.stringify(response));
+                // $scope.companyRequirements = response.data.data.requirements;
+                for (var i = 0; i < $scope.vendorCompanyRequirements.length; i++) {
+                    // console.log("in first loop");
+                    for (var j = 0; j < response.data.data.requirements.length; j++) {
+                        // console.log("in second loop");
+                        if ($scope.vendorCompanyRequirements[i].dayName === response.data.data.requirements[j].dayName) {
+                            $scope.vendorCompanyRequirements[i] = response.data.data.requirements[j];
+                            // $rootScope.activeSaveBool="false";
+                            // $rootScope.activeUpdateBool="true";
+                        }
+                    }
+                }
+                // console.log("companyRequirements ", JSON.stringify($scope.companyRequirements));
+            });
+
+            $scope.saveVendorRequirement = function (reqObj) {
+                // console.log("current sndp==== : ", reqObj.id);
+                var companyId = $routeParams.compId;
+                if (reqObj.id === undefined) {
+                    vendorassignService.saveVendorReq(companyId, reqObj);
+                } else {
+                    vendorassignService.updateVendorReq(companyId, reqObj);
+                }
+            }
+
             $scope.send = function (id, name) {
                 $scope.vName = name;
                 $scope.unassignId = id;
@@ -161,7 +223,7 @@ function (vendorassignService, $routeParams, $scope, Notification,
 
             $scope.passVendorId = function (vendorId, type) {
                 var companyId = $routeParams.compId;
-                console.log("i am in ctrl file : ", companyId, vendorId, type);
+                console.log("vendor pass id : ", companyId, vendorId, type);
                 // alert("Company Id is "+companyId+" "+"Vendor Id is"+" "+vendorId);
                 vendorassignService.passVendorId(vendorId, companyId, type, postVendorAssignUrl)
                     .then(function (returnedSaveMenu) {
@@ -176,9 +238,9 @@ function (vendorassignService, $routeParams, $scope, Notification,
                     });
             };
 
-            $scope.companyLoginIdSet = function (password) {
+            $scope.companyLoginIdSet = function (client) {
                 var companyId = $routeParams.compId;
-                vendorassignService.companyLoginIdSet(password, companyId, postCompanyLoginIdUrl)
+                vendorassignService.companyLoginIdSet(client, companyId, postCompanyLoginIdUrl)
             }
 
             // $scope.companySignup = function(company) {

@@ -1,5 +1,7 @@
-vmApp.factory('vendorassignService', ['$http', '$q', '$route', '$httpParamSerializerJQLike', '$location', 'Notification',
-function ($http, $q, $route, $httpParamSerializerJQLike, $location, Notification) {
+vmApp.factory('vendorassignService', ['$http', '$q', '$route', '$httpParamSerializerJQLike', '$location',
+'Notification', 'postVendorCompanyReqUrl', 'updateVendorCompanyReqUrl',
+function ($http, $q, $route, $httpParamSerializerJQLike, $location, Notification,
+postVendorCompanyReqUrl, updateVendorCompanyReqUrl) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
                 console.log("I am in srv.js file : ", vendorId, type, companyId);
@@ -89,21 +91,38 @@ function ($http, $q, $route, $httpParamSerializerJQLike, $location, Notification
                 });
                 return respMenuJson;
             },
+            saveVendorReq: function (companyId, weekdaylogic) {
+                var jsonObj = {};
+                weekdaylogic.companyId = parseInt(companyId);
+
+                console.log("breakfast json made : ", weekdaylogic);
+                $http({
+                    method: 'POST',
+                    url: postVendorCompanyReqUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(weekdaylogic)
+                }).then(function (response) {
+                    console.log('response', JSON.stringify(response));
+                    //console.log('response', response);
+                    if (response.data.status === 1) {
+                        Notification.success('Successfully save company details !!!');
+                        // console.log('Successfully registered breakfast details ');
+                        // $route.reload();
+                        var saveReqBool = false;
+                        // $location.path('/admin/company/:id');
+                    } else {
+                        console.log('error registering');
+                        Notification.error('Could not save company details');
+                    }
+                });
+            },
             //............................breakfast........................
             saveReq: function (companyId, weekdaylogic, postCompanyReqUrl) {
                 console.log("in sarvice file : ", weekdaylogic.breakfast, weekdaylogic.breakfastPrice, weekdaylogic.dayName);
-                // var rest = JSON.parse(JSON.stringify(weekdaylogic));
                 var jsonObj = {};
                 weekdaylogic.companyId = parseInt(companyId);
-                // jsonObj.breakfast = weekdaylogic.breakfast;
-                // jsonObj.lunch = weekdaylogic.lunch;
-                // jsonObj.snacks = weekdaylogic.snacks;
-                // jsonObj.dinner = weekdaylogic.dinner;
-                // jsonObj.breakfastPrice = weekdaylogic.breakfastPrice;
-                // jsonObj.lunchPrice = weekdaylogic.lunchPrice;
-                // jsonObj.snacksPrice = weekdaylogic.snacksPrice;
-                // jsonObj.dinnerPrice = weekdaylogic.dinnerPrice;
-                // jsonObj.dayName = weekdaylogic.dayName;
 
                 console.log("breakfast json made : ", weekdaylogic);
                 $http({
@@ -129,11 +148,12 @@ function ($http, $q, $route, $httpParamSerializerJQLike, $location, Notification
                 });
             },
             // ..................................................................
-            companyLoginIdSet: function (password, companyId, postCompanyLoginIdUrl) {
+            companyLoginIdSet: function (client, companyId, postCompanyLoginIdUrl) {
                 // var rest = JSON.parse(JSON.stringify(company));
                 // console.log("breakfast json made : ", rest);
                 var jsonObj = {};
-                jsonObj.password = password;
+                jsonObj.password = client.password;
+                jsonObj.username = client.username;
                 jsonObj.companyId = companyId;
                 console.log("ssssss->>>>>>", JSON.stringify(jsonObj));
                 $http({
@@ -157,23 +177,35 @@ function ($http, $q, $route, $httpParamSerializerJQLike, $location, Notification
                 });
             },
             //............................UPDATE REQ........................
-            updateReq: function (companyId, weekdaylogic, updateCompanyReqUrl) {
-                // console.log("in sarvice file : ", weekdaylogic);
-                // var rest = JSON.parse(JSON.stringify(weekdaylogic));
+            updateVendorReq: function (companyId, weekdaylogic) {
                 var jsonObj = {};
                 weekdaylogic.companyId = parseInt(companyId);
-                // jsonObj.breakfast = weekdaylogic.breakfast;
-                // jsonObj.lunch = weekdaylogic.lunch;
-                // jsonObj.snacks = weekdaylogic.snacks;
-                // jsonObj.dinner = weekdaylogic.dinner;
-                // jsonObj.breakfastPrice = weekdaylogic.breakfastPrice;
-                // jsonObj.lunchPrice = weekdaylogic.lunchPrice;
-                // jsonObj.snacksPrice = weekdaylogic.snacksPrice;
-                // jsonObj.dinnerPrice = weekdaylogic.dinnerPrice;
-                // jsonObj.dayName = weekdaylogic.dayName;
 
+                $http({
+                    method: 'POST',
+                    url: updateVendorCompanyReqUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(weekdaylogic)
+                }).then(function (response) {
+                    console.log('response', JSON.stringify(response));
+                    //console.log('response', response);
+                    if (response.data.status == 1) {
+                        // console.log("data",response.data.data.id);
+                        // console.log("weekdaylogic---->",weekdaylogic.id);
+                        weekdaylogic.id = response.data.data.id;
+                        Notification.success('Successfully Requirements Updated');
+                    } else {
+                        console.log('error registering');
+                        Notification.error('Could not update requirements');
+                    }
+                });
+            },
+            updateReq: function (companyId, weekdaylogic, updateCompanyReqUrl) {
+                var jsonObj = {};
+                weekdaylogic.companyId = parseInt(companyId);
 
-                console.log("breakfast json made : ", weekdaylogic);
                 $http({
                     method: 'POST',
                     url: updateCompanyReqUrl,
