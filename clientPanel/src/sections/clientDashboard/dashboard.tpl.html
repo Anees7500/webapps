@@ -1,13 +1,22 @@
-<md-toolbar class="">
-<div class="header">
+
+<div class="header clearfix" style="position:fixed">
   <div class="">
     <div class="row">
+<<<<<<< HEAD
       <div class="col-md-1  ">
         <img class="logo-image " src="../../image/fancymonklogo.png"/><p> Fancymonk </p>
       </div>
       <div class="col-md-10"></div>
       <div class="col-md-1  pull-right">
         <div class="dropdown"> 
+=======
+    <div class="col-md-2  ">
+        <img class="logo-image1 " src="../../image/fancymonklogo.png"/><p> Fancymonk </p>
+    </div>
+    <div class="col-md-8"></div>
+    <div class="col-md-2 ">
+        <div class="dropdown pull-right"> 
+>>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
           <b class="fa fa-align-justify "></b>
           <div class="dropdown-content">
             <a href="#" class="fa fa-question-circle"><i class="dropdown-text">Help</i></a>
@@ -18,10 +27,14 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 </md-toolbar>
+=======
+</div>
+
+>>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
 <div class="main_page" layout="column" ng-cloak>
   <section layout="row" flex>
-
     <md-sidenav class="md-sidenav-left"  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
     <div class="background-dp">
       <div class="background-dp-color ">
@@ -62,6 +75,7 @@
            </ul>
          </div>
 
+<<<<<<< HEAD
          <!-- Requirement -->
          <div class= "Requirements-data" ng-if="requirementBool">
           <div class="Requirements-data-item">
@@ -226,6 +240,130 @@
        </td>
      </table>
    </div></div>
+=======
+<!-- Requirement -->
+<div class= "Requirements-data" ng-if="requirementBool">
+  <div class="Requirements-data-item">
+    <div class="col-md-12">   
+          <div class="col-sm-4" >
+            <div class="wrapper"></br> 
+              <div ng-repeat="m in Data">
+                <table  id="client"  >
+                   <tr><td><b class="fa fa-calendar">Calender</td></tr>
+                   <tr><th>Days</th></tr>
+                   <tr ng-repeat="m in Days"><td>{{m}}</td> </tr>
+                </table></br></br>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-lg-8"> 
+           <div class="col-md-12"> 
+           <div class="col-sm-4" ng-repeat="(key, value) in companyRequirements" ></br>
+                <table id="client" >
+                     <tr><td><b class="fa fa-cutlery"></b></td>
+                      <td>{{key}}</td></tr>                          
+                       <tr >
+                        <th><b class="fa fa-user-circle-o">Person</b></th>
+                        <th><b class="fa fa-rupee">Price</b></th>
+                       </tr>                   
+                      <tr ng-repeat="v in value">
+                         <td>{{v.count}}</td>
+                         <td>{{v.price}}</td>
+                      </tr>                                
+                 </table></br>
+            </div>
+        </div>
+     </div> 
+    </div>  
+  </div>
+</div>
+
+
+  <!--   ==================== MAHAGE EMPLOYEE ==================== -->
+  
+  <div class="manageEmployee-list" ng-if="manageEmployee">
+    <button type="button" class="btn btn-info btn-lg" id="daButton" data-toggle="modal" data-target="#myModal">Open Modal</button>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ================================= FEEDBACK LIST =========================== -->
+     
+     <div class="feedback-list"  ng-if="feedbackBool">
+       <!-- <div class="feedback-data-item"> -->
+            <div id="feedback">      
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Overall Rating</th>
+                    <th>Presentation Rating</th>
+                    <th>Quality Rating</th>
+                    <th>Quantity Rating</th>
+                    <th>Taste Rating</th>
+                    <th>Contact</th>
+                    <th>Comment</th>
+                    <th>Date & Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="f in pagedItems ">
+                    <td>{{f.id}}</td>
+                    <td>{{f.reviewerName}}</td>
+                    <td>{{f.presentationRating}}</td>
+                    <td>{{f.qualityRating}}</td>
+                    <td>{{f.tasteRating}}</td>
+                    <td>{{f.quantityRating}}</td>
+                    <td>{{f.overAllRating}}</td>
+                     <td>{{f.mobile}}</td>
+                    <td>
+                      <div>                       
+                        <span class="badge badge-notify" ng-if="f.comment.length > 0">1</span>
+                          <div ng-if="f.comment.length > 0">                 
+                          <md-tooltip  ng-bind="f.comment" md-visible="demo.showTooltip">{{f.comment}}</md-tooltip> 
+                       <span class="fa fa-comments-o" style="font-size:26px"></span>        
+                      </div>
+                    </div>       
+                    </td>
+                    <td>{{f.createdAt}}</td>  
+                  </tr>
+                </tbody>
+                <tfoot>
+                   <td colspan="116">
+                    <div class="pagination">
+                      <ul>
+                        <li ng-class="prevPageDisabled()">
+                          <a href ng-click="prevPage()">« Prev</a>
+                        </li>
+                        <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                          <a>{{n+1}}</a>
+                        </li>
+                        <li ng-class="nextPageDisabled()">
+                          <a href ng-click="nextPage()">Next »</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+              </table>
+             </div>
+          </div>
+     
+>>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
 
 
 

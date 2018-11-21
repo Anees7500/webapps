@@ -1,4 +1,4 @@
-var ceApp = angular.module('ceApp', ['ngRoute','ngMaterial']);
+var ceApp = angular.module('ceApp', ['ngRoute','ngMaterial','ui-notification']);
 
 ceApp.config(['$routeProvider',function($routeProvider) {
     $routeProvider
