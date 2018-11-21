@@ -31,9 +31,13 @@ function($scope, $rootScope, $http, $log, homeService) {
 
   self.addTolist = function(dcsn) {
 
+    $log.info('hello adding to the list pallavi ' + dcsn);
+
     var empDtls = {};
 
     empDtls.employeeId = self.employeeObject.id;
+
+    $log.info('comment 2' + empDtls.employeeId);
 
     if (dcsn == "Yes") {
       empDtls.decision = true;
@@ -43,7 +47,7 @@ function($scope, $rootScope, $http, $log, homeService) {
 
 
     homeService.addDetail(empDtls, "http://fancymonk.com:9125/api/client/add-employee-count");
-    $log.info('hello adding to the list  ' + dcsn);
+    // $log.info('hello adding to the list  ' + dcsn);
     var tmpObj = {};
 
     tmpObj.id = self.employeeObject.id;
@@ -69,7 +73,7 @@ function($scope, $rootScope, $http, $log, homeService) {
 
           var empUrl = "http://fancymonk.com:9125/api/client/get-all-employee-data?companyId=1&date=" + self.tomorrowDate
 
-          $http.get("empUrl")
+          $http.get(empUrl)
             .then(function(response) {
                 if (response.data.data != null) {
                   for(var m = 0; m < response.data.data.details.length; m++)
@@ -78,7 +82,14 @@ function($scope, $rootScope, $http, $log, homeService) {
                     var ob = response.data.data.details[m];
                     tmpObj.id = ob.employeeId;
                     tmpObj.display = ob.firstname+" "+ob.lastname;
-                    tmpObj.decision = ob.active;
+                    if(ob.active)
+                    {
+                      tmpObj.decision = "Yes";
+                    }
+                    else {
+                      tmpObj.decision = "Nope";
+                    }
+
                     self.employeeComingList.push(tmpObj);
                   }
                 }

@@ -2,11 +2,11 @@
 <div class="header">
   <div class="">
     <div class="row">
-    <div class="col-md-1  ">
+      <div class="col-md-1  ">
         <img class="logo-image " src="../../image/fancymonklogo.png"/><p> Fancymonk </p>
-    </div>
-    <div class="col-md-10"></div>
-    <div class="col-md-1  pull-right">
+      </div>
+      <div class="col-md-10"></div>
+      <div class="col-md-1  pull-right">
         <div class="dropdown"> 
           <b class="fa fa-align-justify "></b>
           <div class="dropdown-content">
@@ -14,176 +14,268 @@
             <a ng-click="logout()" class="fa fa-sign-out"><i class="dropdown-text">Log Out</i></a>
           </div>
         </div>
+      </div>
     </div>
   </div>
-</div>
 </div>
 </md-toolbar>
 <div class="main_page" layout="column" ng-cloak>
   <section layout="row" flex>
 
     <md-sidenav class="md-sidenav-left"  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-        <div class="background-dp">
-          <div class="background-dp-color ">
-           <img class ="image" src="../../image/pp1.png"/>
-               <h6>Fancymonk</p></h6><br><br><br><br>
-              <div class="vertical-menu">
-                  <a class="text" ng-click="enableBooleans('categoryBool')"><i class="fa fa-sitemap"> </i>
-                    <span class="part">Category</span></a></br>
-                  <a class="text" ng-click="enableBooleans('requirementBool')"><i class="fa fa-reorder " ></i>
-                    <span class="part" >Requirements</span></a></br>
-                  <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-street-view" ></i>
-                    <span class="part" >Employees Feedback</span></a></br>
-                  <a class="text" ng-click="enableBooleans('manageEmployee')"><i class="fa fa-group" ></i>
-                    <span class="part" >Manage employee </span></a></br>
-                  <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-cubes" ></i>
-                    <span class="part" >Employee count</span></a></br>
-              </div>
-          </div>
-      </div>
-    </md-sidenav>
-
-     <div class="list-data" ng-if="categoryBool">
-       <ul class="list-data-item">
-       <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" >Breackfast
-        </md-checkbox></b></li>
-        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled"  ng-model="companyDetail.lunch" aria-label="Finished?">Lunch
-        </md-checkbox></b></li>
-        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.snacks" aria-label="Finished?">snacks
-        </md-checkbox></b></li>
-        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.dinner" aria-label="Finished?">Dinner
-        </md-checkbox></b></li>
-         <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.midNightSnacks" aria-label="Finished?">Mid night snacks
-        </md-checkbox></b></li>
-         <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.earlyMorningSnacks" aria-label="Finished?">Early Morning snacks
-        </md-checkbox></b></li>       
-        <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.cashNCarry" aria-label="Finished?">Cash & carry
-        </md-checkbox></b></li>
-     </ul>
-     </div>
-
-<!-- Requirement -->
-<div class= "Requirements-data" ng-if="requirementBool">
-  <div class="Requirements-data-item">
-    <div class="col-md-12">   
-          <div class="col-sm-3" >
-            <div class="wrapper"></br> 
-              <div class="col-md-12" ng-repeat="m in Data">
-                <table  id="client"  >
-                   <tr><td><b class="fa fa-calendar">Calender</td></tr>
-                   <tr><th>Days</th></tr>
-                   <tr ng-repeat="m in Days"><td>{{m}}</td> </tr>
-                </table></br></br>
+    <div class="background-dp">
+      <div class="background-dp-color ">
+       <img class ="image" src="../../image/pp1.png"/>
+       <h6>Fancymonk</p></h6><br><br><br><br>
+       <div class="vertical-menu">
+        <a class="text" ng-click="enableBooleans('categoryBool')"><i class="fa fa-sitemap"> </i>
+          <span class="part">Category</span></a></br>
+          <a class="text" ng-click="enableBooleans('requirementBool')"><i class="fa fa-reorder " ></i>
+            <span class="part" >Requirements</span></a></br>
+            <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-street-view" ></i>
+              <span class="part" >Employees Feedback</span></a></br>
+              <a class="text" ng-click="enableBooleans('manageEmployee')"><i class="fa fa-group" ></i>
+                <span class="part" >Manage employee </span></a></br>
+                <a class="text" ng-click="enableBooleans('employeeCount')"><i class="fa fa-cubes" ></i>
+                  <span class="part" >Employee count</span></a></br>
+                </div>
               </div>
             </div>
-          </div>
+          </md-sidenav>
 
-        <div class="col-lg-9"> 
-           <div class="col-md-12"> 
-           <div class="col-sm-4" ng-repeat="(key, value) in companyRequirements" ></br>
-                <table id="client" >
-                     <tr><td><b class="fa fa-cutlery"></b></td>
-                      <td>{{key}}</td></tr>                          
-                       <tr >
-                        <th><b class="fa fa-user-circle-o">Person</b></th>
-                        <th><b class="fa fa-rupee">Price</b></th>
-                       </tr>                   
-                      <tr ng-repeat="v in value">
-                         <td>{{v.count}}</td>
-                         <td>{{v.price}}</td>
-                      </tr>                                
+          <div class="list-data" ng-if="categoryBool">
+           <ul class="list-data-item">
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" >Breackfast
+             </md-checkbox></b></li>
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled"  ng-model="companyDetail.lunch" aria-label="Finished?">Lunch
+             </md-checkbox></b></li>
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.snacks" aria-label="Finished?">snacks
+             </md-checkbox></b></li>
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.dinner" aria-label="Finished?">Dinner
+             </md-checkbox></b></li>
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.midNightSnacks" aria-label="Finished?">Mid night snacks
+             </md-checkbox></b></li>
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.earlyMorningSnacks" aria-label="Finished?">Early Morning snacks
+             </md-checkbox></b></li>       
+             <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.cashNCarry" aria-label="Finished?">Cash & carry
+             </md-checkbox></b></li>
+           </ul>
+         </div>
+
+         <!-- Requirement -->
+         <div class= "Requirements-data" ng-if="requirementBool">
+          <div class="Requirements-data-item">
+            <div class="col-md-12">   
+              <div class="col-sm-3" >
+                <div class="wrapper"></br> 
+                  <div class="col-md-12" ng-repeat="m in Data">
+                    <table  id="client"  >
+                     <tr><td><b class="fa fa-calendar">Calender</td></tr>
+                     <tr><th>Days</th></tr>
+                     <tr ng-repeat="m in Days"><td>{{m}}</td> </tr>
+                   </table></br></br>
+                 </div>
+               </div>
+             </div>
+
+             <div class="col-lg-9"> 
+               <div class="col-md-12"> 
+                 <div class="col-sm-4" ng-repeat="(key, value) in companyRequirements" ></br>
+                  <table id="client" >
+                   <tr><td><b class="fa fa-cutlery"></b></td>
+                    <td>{{key}}</td></tr>                          
+                    <tr >
+                      <th><b class="fa fa-user-circle-o">Person</b></th>
+                      <th><b class="fa fa-rupee">Price</b></th>
+                    </tr>                   
+                    <tr ng-repeat="v in value">
+                     <td>{{v.count}}</td>
+                     <td>{{v.price}}</td>
+                   </tr>                                
                  </table></br>
-            </div>
-        </div>
-     </div> 
-    </div>  
-  </div>
-</div>
-<!-- ================================= FEEDBACK LIST =========================== -->
+               </div>
+             </div>
+           </div> 
+         </div>  
+       </div>
+     </div>
+     <!-- ================================= FEEDBACK LIST =========================== -->
      
      <div class="feedback-list"  ng-if="feedbackBool">
        <!-- <div class="feedback-data-item"> -->
-            <div id="feedback">      
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Overall Rating</th>
-                    <th>Presentation Rating</th>
-                    <th>Quality Rating</th>
-                    <th>Quantity Rating</th>
-                    <th>Taste Rating</th>
-                    <th>Contact</th>
-                    <th>Comment</th>
-                    <th>Date & Time</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="f in pagedItems ">
-                    <td>{{f.id}}</td>
-                    <td>{{f.reviewerName}}</td>
-                    <td>{{f.presentationRating}}</td>
-                    <td>{{f.qualityRating}}</td>
-                    <td>{{f.tasteRating}}</td>
-                    <td>{{f.quantityRating}}</td>
-                    <td>{{f.overAllRating}}</td>
-                     <td>{{f.mobile}}</td>
-                    <td>
-                      <div>                       
-                        <span class="badge badge-notify" ng-if="f.comment.length > 0">1</span>
-                          <div ng-if="f.comment.length > 0">                 
-                          <md-tooltip  ng-bind="f.comment" md-visible="demo.showTooltip">{{f.comment}}</md-tooltip> 
-                       <span class="fa fa-comments-o" style="font-size:26px"></span>        
-                      </div>
-                    </div>       
-                    </td>
-                    <td>{{f.createdAt}}</td>  
-                  </tr>
-                </tbody>
-                <tfoot>
-                   <td colspan="116">
-                    <div class="pagination">
-                      <ul>
-                        <li ng-class="prevPageDisabled()">
-                          <a href ng-click="prevPage()">« Prev</a>
-                        </li>
-                        <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
-                          <a>{{n+1}}</a>
-                        </li>
-                        <li ng-class="nextPageDisabled()">
-                          <a href ng-click="nextPage()">Next »</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-              </table>
-             </div>
-          </div>
-        <!--   ==================== MAHAGE EMPLOYEE ==================== -->
-
- <div class="manageEmployee-list"  ng-if="manageEmployee">
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>      
+       <div id="feedback">      
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Overall Rating</th>
+              <th>Presentation Rating</th>
+              <th>Quality Rating</th>
+              <th>Quantity Rating</th>
+              <th>Taste Rating</th>
+              <th>Contact</th>
+              <th>Comment</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="f in pagedItems ">
+              <td>{{f.id}}</td>
+              <td>{{f.reviewerName}}</td>
+              <td>{{f.presentationRating}}</td>
+              <td>{{f.qualityRating}}</td>
+              <td>{{f.tasteRating}}</td>
+              <td>{{f.quantityRating}}</td>
+              <td>{{f.overAllRating}}</td>
+              <td>{{f.mobile}}</td>
+              <td>
+                <div>                       
+                  <span class="badge badge-notify" ng-if="f.comment.length > 0">1</span>
+                  <div ng-if="f.comment.length > 0">                 
+                    <md-tooltip  ng-bind="f.comment" md-visible="demo.showTooltip">{{f.comment}}</md-tooltip> 
+                    <span class="fa fa-comments-o" style="font-size:26px"></span>        
+                  </div>
+                </div>       
+              </td>
+              <td>{{f.createdAt}}</td>  
+            </tr>
+          </tbody>
+          <tfoot>
+           <td colspan="116">
+            <div class="pagination">
+              <ul>
+                <li ng-class="prevPageDisabled()">
+                  <a href ng-click="prevPage()">« Prev</a>
+                </li>
+                <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                  <a>{{n+1}}</a>
+                </li>
+                <li ng-class="nextPageDisabled()">
+                  <a href ng-click="nextPage()">Next »</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </table>
+      </div>
     </div>
- </div>  
+    <!--   ==================== MAHAGE EMPLOYEE ==================== -->
+
+    <div class="manageEmployee-list"  ng-if="manageEmployee">
+      <div class="manage-employee">
+        <div class="form">
+        <form  ng-submit="addNewEmployeeData()" >
+          <md-input-container>
+          <label ><b>Employee Id</b></label>
+          <input type="text" placeholder="Enter Employee Id" ng-model="item.employeeId" required />
+        </md-input-container>
+         <md-input-container>
+          <label ><b>Firstname</b></label>
+          <input type="text" placeholder="Enter Firstname"  ng-model="item.firstName" required />
+        </md-input-container></br>
+        <md-input-container>
+          <label ><b>Lastname</b></label>
+          <input type="text" placeholder="Enter Lastname"  ng-model="item.lastName" required />
+        </md-input-container>
+        <md-input-container>
+          <label ><b>Moblie number</b></label>
+          <input type="tel" id="phone" placeholder="Enter mobile number" name="phone" ng-model="item.mobile"required/>
+        </md-input-container>
+        </br>
+        <md-button class="md-raised md-warn"   ng-click="addEmpDtls(item)"  ng-disabled="!(!!item.employeeId && !!item.firstName && !!item.lastName && !!item.mobile)">Add Employee</md-button>    
+      </form>
+    </div></div>
+      <div class="list" >               
+       <table class="table">
+         <thead>
+           <tr>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+         <tr ng-repeat="e in employeeList ">
+          <td>{{e.employeeId}}</td>
+          <td>{{e.firstName}}</td>
+          <td>{{e.lastName}}</td>
+          <td>{{e.mobile}}</td>
+          <td>
+            <i class="fa fa-trash" ng-click=""></i>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="50">
+         <div class="pagination">
+           <ul>
+             <li ng-class="prevPageDisabled()">
+               <a href ng-click="prevPage()">« Prev</a>
+             </li>
+             <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+               <a>{{n+1}}</a>
+             </li>
+             <li ng-class="nextPageDisabled()">
+               <a href ng-click="nextPage()">Next »</a>
+             </li>
+           </ul>
+         </div>
+       </td>
+     </table>
+   </div></div>
 
 
 
-  </section>
+<!-- ======================= employeeCount ==================================== -->
+<div class="employeeCount"  ng-if="employeeCount">
+  <div class="list2">   
+   <div ng-repeat="list in dateList ">
+     <div class ="employee-list"> {{list.Date}}  <i type="button"  ng-click="ShowHide(list,dateList)" >Count {{list.Count}} <a class="fa fa-caret-down"></a></i></div>
+     <div ng-show = "list.isVisible">
+      <div class="list2" >               
+       <table class="table">
+         <thead>
+           <tr>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr ng-repeat="e in list.employeeComingList">
+          <td>{{e.employeeId}}</td>
+          <td>{{e.firstName}}</td>
+          <td>{{e.lastName}}</td>
+          <td>{{e.mobile}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="116">
+         <div class="pagination">
+           <ul>
+             <li ng-class="prevPageDisabled()">
+               <a href ng-click="prevPage()">« Prev</a>
+             </li>
+             <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+               <a>{{n+1}}</a>
+             </li>
+             <li ng-class="nextPageDisabled()">
+               <a href ng-click="nextPage()">Next »</a>
+             </li>
+           </ul>
+         </div>
+       </td>
+     </table>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+</section>
 </div>
 
-  
+

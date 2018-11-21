@@ -23,8 +23,7 @@ button {
 }
 .image12{
   height: 80%;
-width: 775px;
-float: left;
+      width: 100%;
 }
 .website {
   color: white;
@@ -46,11 +45,11 @@ float: left;
   color: white;
 }
 @media only screen and (max-width: 1000px) {
-.cls-login {visibility: hidden;}
-.body-cls{padding: 0%;}
-.img-login{margin-top: -9px;}
-.loginForm{height: 530px;}
-.website{text-align: center;color: white;}
+  .cls-login {visibility: hidden;}
+  .body-cls{padding: 0%;}
+  .img-login{margin-top: -9px;}
+  .loginForm{height: 530px;}
+  .website{text-align: center;color: white;}
 }
 
 .form {
@@ -126,28 +125,28 @@ input.input-style {
 }
 
 .loginForm{
-          background-color:white;
-          height: 500px;
-        }
+  background-color:white;
+  height: 500px;
+}
 /* .part-a{background-color:#3ee8c4;;} */
 input.form-control-login {
-    width: 80%;
-    outline: none;
-    background: none;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif!important;
-    border-bottom: 1px solid white;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    color: white;
-		font-size: 15px;
-		  padding: 8px 0px;
+  width: 80%;
+  outline: none;
+  background: none;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif!important;
+  border-bottom: 1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: white;
+  font-size: 15px;
+  padding: 8px 0px;
 }
 label {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 .form-group-login {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 @media only screen and (max-width: 800px){
 	.login{
@@ -163,20 +162,20 @@ label {
 
 @media only screen and (min-width: 768px) {
   .imagelog{
-      margin-left: 113px;
-      width:60px;
+    margin-left: 113px;
+    width:60px;
   }
 
-@media only screen and (max-width: 450px){
-	.login{
-		height: 500px;
-	}
+  @media only screen and (max-width: 450px){
+   .login{
+    height: 500px;
+  }
 
-	.login form {
-		margin-top: 0;
-		padding-top: 150px;
-		width: 100%;
-	}
+  .login form {
+    margin-top: 0;
+    padding-top: 150px;
+    width: 100%;
+  }
 }
 .login-body .form-control {
 	width: 90%;
@@ -217,8 +216,8 @@ h3{
   /*text-shadow: 1px 1px 0px #000;*/
   color: black;
   text-align: center;
-}*/
-@media screen and (max-width:800px){
-header#site-header {
-    display: none;
-}}
+  }*/
+  @media screen and (max-width:800px){
+    header#site-header {
+      display: none;
+      }}

@@ -747,7 +747,7 @@ button.md-button::-moz-focus-inner {
   -webkit-align-items: center;
           align-items: center;
   text-align: center;
-  border-radius: 2px;
+  border-radius: 18px;
   box-sizing: border-box;
   /* Reset default button appearance */
   -webkit-user-select: none;
@@ -758,7 +758,7 @@ button.md-button::-moz-focus-inner {
   border: 0;
   /** Custom styling for button */
   padding: 0 6px;
-  margin: 6px 8px;
+  margin: -33px 13px;
   background: transparent;
   color: currentColor;
   white-space: nowrap;
@@ -2408,7 +2408,7 @@ md-input-container {
     -webkit-order: 2;
             order: 2;
     display: block;
-    margin-top: 0;
+    margin-top: -12px;
     background: none;
     padding-top: 2px;
     padding-bottom: 1px;
