@@ -315,43 +315,15 @@ color: #000000;
     border-radius: 50%;
   }
   
-  .Requirements-data{
-
-
-
-    padding-left: 10;
-    padding-left: 0;
-    margin-bottom: 0px;
-    margin-top: 20px;
-    width: 100%;
-    float: left;
-    height: 100%;
-
+  .Requirements-data-item{
+  margin-bottom: 0px;  
 }
-.Requirements-data-item{
-  margin-left: 40px;
-  margin-bottom: -1px;
-  list-style: none;
-
-  
-}
-.Requirements-data-item-a{
-
- border: 1px solid #ddd;
- margin-top: 5px;
- 
- margin-bottom:5px;
- margin-right: 5px;
-}
-
 #client {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border: 0px solid #FFFFFF;
-  width: 250px;
+  width: 220px;
   box-shadow: 3px 3px 23px #000000;
   background-color: #FFFDFD;
- float: left;
-
 }
 
 #client td, #client th {
@@ -389,18 +361,26 @@ color: #000000;
 
 #feedback {
 
+    /* height: 100%;
+    
+    padding: 17px;   
+   
+    margin-left: 73px;
+    margin-right: 32px; */
     height: 100%;
     /* box-shadow: 3px 3px 23px #000000; */
-    padding: 17px;   
-   /* background-color: #F6FAEF;*/
-    margin-left: 73px;
-    margin-right: 32px;
-
+    padding: 17px;
+    /* background-color: #F6FAEF; */
+    /* margin-left: 73px; */
+    margin-left: 50px;
+    /* margin-right: 32px; */
+    text-align: center;
+    float: left;
 }
 #feedback td, #feedback th {
   /* width: 100px;  */
   border: 1px solid #ddd;
-  /* height: 50px; */
+  height: 40px;
   text-align: center;
   font-size: 12.3px;
   padding-bottom: 0px;   
@@ -419,10 +399,22 @@ color: #000000;
 
 }
 .badge-notify{
- background:red;
+ /* background:red;
  position:relative;
  top: 14px;
- left: 20px;
+ left: 20px; */
+     /* background: red;
+    position: relative;
+    
+    left: 42px;
+    float: left; */
+    background: red;
+    position: relative;
+    /* top: -8px; */
+    left: 44px;
+    float: left;
+    height: 15px;
+    width: 18px;
 }
 .dialogdemoThemeInheritance .container {
 
