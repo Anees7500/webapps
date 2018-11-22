@@ -332,9 +332,9 @@ color: #000000;
   text-align: center;
 }
 
-#client tr:nth-child(even){
+/* #client tr:nth-child(even){
   background-color: ;
-}
+} */
 
 #client tr:hover {background-color: #bcdefa;}
 
@@ -421,10 +421,15 @@ color: #000000;
   text-align: center; 
 }
 .manageEmployee-list{
-  margin-top: 300px;
+  /* margin-top: 300px;
   float: left;
   margin-left: 300px;
-  text-align: center;
+  text-align: center; */
+    margin-top: 293px;
+    float: left;
+    margin-left: 420px;
+    text-align: center;
+    width: 500px;
 }
 .modal fade{
 float: left;
@@ -450,13 +455,10 @@ color: white;
       margin-left: -272px;
       margin-top: -274px;
       margin-bottom: -1px;    
-      /*box-shadow: 5px 5px 25px #000000; */    
-      /*background-image: -moz-linear-gradient(top, #FFFFFF, #FFFFFF);
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #FFFFFF), color-stop(1.0, #FFFFFF));*/
       border: 1px solid #ddd;
       list-style: none;
-      box-shadow:0 5px 15px 0 rgba(1, 118, 79, 1), 0 15px 30px 0 rgba(146,152,34,0.11);
-      /background-color: #FFFACD;/
+      box-shadow:0 5px 15px 0 rgb(155, 206, 189), 0 15px 30px 0 rgba(146,152,34,0.11);
+      background-color: #FFFACD;
       padding: 4px;
       opacity: 0.9;
       font-family: Verdana, Geneva, sans-serif;
@@ -477,6 +479,7 @@ color: white;
       column-gap: 21px;
       column-rule: 50px solid #D3D3D3;
       margin-top: 8px;
+      width: 800px;
     }
     .employee-list-icon{
       text-align: right;
@@ -488,27 +491,32 @@ color: white;
     .list{    
       border: 1px solid #ddd;
       list-style: none;
-      box-shadow:0 5px 15px 0 rgba(1, 118, 79, 1), 0 15px 30px 0 rgba(146,152,34,0.11);
+      box-shadow:0 5px 15px 0 rgb(114, 163, 136), 0 15px 30px 0 rgba(146,152,34,0.11);
       padding: 17px;
-      /background-color: #57444F;/
+      /* background-color: #57444F; */
       margin-left: -272px;
       margin-top: 20px;
+      height: 400px;
     }
     .list2{
-      margin-left: 42px;
+      /* margin-left: 42px;
       margin-right: 0px;
       margin-top: 20px;
       background-color: #F8F9F9;
       text-align: center;
       background-size: 100px;
       color:#3498DB;
-      text-align: center; 
-    }
-    .manageEmployee-list{
-      margin-top: 300px;
-      float: left;
-      margin-left: 300px;
-      text-align: center;
+      text-align: center;  */
+          margin-left: 151px;
+    /* margin-right: 0px; */
+    /* margin-top: 20px; */
+    background-color: #F8F9F9;
+    text-align: center;
+    background-size: 100px;
+    color: #3498DB;
+    text-align: center;
+    float: left;
+    /* width: 665px; */
     }
     .modal fade{
       float: left;

@@ -20,7 +20,6 @@
   </div>
 </div>
 <!---Header End-->
-
 <div class="main_page" layout="column" ng-cloak>
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left"  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
@@ -43,7 +42,6 @@
               </div>
             </div>
           </md-sidenav>
-
           <div class="list-data" ng-if="categoryBool">
            <ul class="list-data-item">
              <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" >Breackfast
@@ -62,9 +60,6 @@
              </md-checkbox></b></li>
            </ul>
          </div>
-
-
-
 <!-- =====================  Requirement ===================== -->
 <div class="Requirements-data-item" ng-if="requirementBool">
   <div>
@@ -86,7 +81,6 @@
           </div>
         </div>
       </div>
-
       <div class="col-lg-9 ">
         <div class="col-md-12 ">
           <div class="col-sm-4" ng-repeat="(key, value) in companyRequirements"></br>
@@ -110,10 +104,8 @@
     </div>
   </div>
 </div>
-
   <!--   ==================== MAHAGE EMPLOYEE ==================== -->
-  
- <div class="manageEmployee-list"  ng-if="manageEmployee">
+ <div class="manageEmployee-list" ng-if="manageEmployee">
       <div class="manage-employee">
         <div class="form">
         <form  ng-submit="addNewEmployeeData()" >
@@ -136,7 +128,8 @@
         </br>
         <md-button class="md-raised md-warn"   ng-click="addEmpDtls(item)"  ng-disabled="!(!!item.employeeId && !!item.firstName && !!item.lastName && !!item.mobile)">Add Employee</md-button>    
       </form>
-    </div></div>
+    </div>
+  </div>
       <div class="list" >               
        <table class="table">
          <thead>
@@ -145,7 +138,6 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Mobile Number</th>
-            
           </tr>
         </thead>
         <tbody>
@@ -176,7 +168,8 @@
          </div>
        </td>
      </table>
-   </div></div>
+   </div>
+  </div>
 <!-- ================================= FEEDBACK LIST =========================== -->
      
      <div class="feedback-list"  ng-if="feedbackBool">
@@ -236,18 +229,13 @@
               </table>
              </div>
           </div>
-     
-
-
-
-
 <!-- ======================= employeeCount ==================================== -->
 <div class="employeeCount"  ng-if="employeeCount">
   <div class="list2">   
    <div ng-repeat="list in dateList ">
      <div class ="employee-list"> {{list.Date}}  <i type="button"  ng-click="ShowHide(list,dateList)" >Count {{list.Count}} <a class="fa fa-caret-down"></a></i></div>
      <div ng-show = "list.isVisible">
-      <div class="list2" >               
+      <div class="list21" >               
        <table class="table">
          <thead>
            <tr>
@@ -286,6 +274,7 @@
  </div>
 </div>
 </div>
+
 </div>
 </section>
 </div>
