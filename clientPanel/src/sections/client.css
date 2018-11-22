@@ -1,10 +1,12 @@
 
 	body {
 	    
-		 position: static;
+	position: static;
 	 overflow: auto;
 	 /* font-family: "Open Sans", sans-serif; */
-	 overflow-x: hidden;
+     overflow-x: hidden;
+     background-color: honeydew;
+     background-image: url("../../image/backgroun.jpg");
 	}
 	@media screen and (max-width:800px){
   header#site-header {

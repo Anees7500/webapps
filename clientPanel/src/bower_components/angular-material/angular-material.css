@@ -2408,7 +2408,7 @@ md-input-container {
     -webkit-order: 2;
             order: 2;
     display: block;
-    margin-top: 0px;
+    margin-top: -12px;
     background: none;
     padding-top: 2px;
     padding-bottom: 1px;

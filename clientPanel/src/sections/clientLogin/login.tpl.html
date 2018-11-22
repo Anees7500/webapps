@@ -1,43 +1,41 @@
-
-<div class="login">
-
-  <div class="container-flude ">
-    <div class="row">
-      <h3 style="color:white;">
-        <span class="i-cls"><img src="../../image/logo.png" class="img-login" />Fancymonk</span></h3>
-      </div>
-      <div class="body-cls">
+<div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="col-sm-8 col-md-8 col-lg-8">
-              <div class="cls-login">
-                <img class="image12"  src="../../image/new4.gif">
-              </div>
+            <div class="header-part1">
+                <h3 align="center" style="color:white;">
+                    <span class="i-cls"></span><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span>
+                </h3>
             </div>
-            <div class="col-sm-4 col-md-4 col-lg-4 loginForm">
-              <img class="imagelog" src="../../image/new25.gif" />
-              <h2><span class="i-cls">Welcome back,</span></h2>
-              <form role="form" name="loginForm">
-                <label class="label-vendor">
-                  <span class="text-center">Company username</span>
-                  <input class="input-style input-chng" required ng-model="user.companyName" type="text" />
-                  <span ng-show="user.companyName.$touched && user.companyName.$error.required">First name is required.</span>
-                </label>
-                <label class="label-vendor">
-                  <span>Password</span>
-                  <input class="input-style input-chng" type="password" id="inputPassword" required ng-model="user.password" />
-                </label>
-                <p class="forgot-pass">Forgot password?</p>
-                <button type="submit" class="submit" ng-click="login(user)">Sign In</button>
-              </form>
-              <button type="button" class="fb-btn">Wanna be our <span>partner ?</span></button>
+            <div class="login-part1">
+                <div class="col-md-4 col-sm-12 col-xs-12 ">
+                    <div class="col-md-12 ">
+                        <h1 class="text-center">Login</h1>
+                    </div>
+                    <div class="col-md-12 ">
+                        <form class="login-form" action="">
+                            <label for=""><span ng-show="user.companyName.$touched && user.companyName.$error.required">First name is required.</span></label>
+                            <input class="input-part" type="text" name="" id="" required ng-model="user.companyName" placeholder="username" class="email">
+                            
+                            <label for=""></label>
+                            <input class="input-part" type="password" name="" id="" required ng-model="user.password" placeholder="password" class="pass">
+                            <br><br>
+                        <!-- <div class="col-md-6">
+                            <a href="#" data-target="#pwdModal" data-toggle="modal">
+                                <p class="text-right Forget">Forget Password</p>
+                            </a>
+                        </div> -->
+                          <button class="submit-button" ng-click="login(user)" type="submit">Sign IN</button>
+                        </form>
+                        <!-- <p class="text-center">Not a member yet? <a href="">Sign Up</a></p> -->
 
+                        <h4 align="center"><a class="www" href="http://fancymonk.com/"><p>www.fancymonk.com</p></a></h4>
+                    </div>
+                </div>
+                <div class="col-md-8 ">
+                    <img class="food-logo" src="image/new4.gif">
+                </div>
             </div>
-          </div>
+            
         </div>
-        <h5 class="website">www.fancymonk.com</h5>
-      </div>
-    </div>
-  </div>
+</div>
 
   
