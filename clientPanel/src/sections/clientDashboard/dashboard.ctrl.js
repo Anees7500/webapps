@@ -100,6 +100,7 @@ clientApp.controller('ClientDashboardController', ['$scope','$http', '$rootScope
             {
               // console.log("company feedback response ", response);
               $scope.feedback = response.data.data.reviews;
+              $scope.feedback = $scope.feedback.reverse();
               $scope.Item = [];
               $scope.itemsPerPage = 10;
               $scope.currentPage = 0;
@@ -160,21 +161,22 @@ clientApp.controller('ClientDashboardController', ['$scope','$http', '$rootScope
 function getItemToshow(arr, offset, limit) {
   return arr.slice(offset, offset+limit);
 };
-function getItemRangeSize(ret, rangeSize, start) {
-                var rangeSize = 5;
-                var ret = [];
-                var start;
+// function getItemRangeSize(pageCount, rangeSize, start) {
 
-                start = $scope.currentPage;
-                if ( start > $scope.pageCount()-rangeSize ) {
-                  start = $scope.pageCount()-rangeSize;
-                }
+//                 var rangeSize = 5;
+//                 var ret = [];
+//                 var start;
 
-                for (var i=start; i<start+rangeSize; i++) {
-                  ret.push(i);
-                }
-                return ret;
-              };
+//                 start = currentPage;
+//                 if ( start > .pageCount()-rangeSize ) {
+//                   start = pageCount()-rangeSize;
+//                 }
+
+//                 for (var i=start; i<start+rangeSize; i++) {
+//                   ret.push(i);
+//                 }
+//                 return ret;
+//               };
 $scope.companyRequirementsSorted = [];
 var mondayObj = {};
 mondayObj.dayName = "MONDAY";
@@ -246,7 +248,7 @@ $scope.demo = {
 
 $scope.demo.delayTooltip = undefined;
 $scope.$watch('demo.delayTooltip', function(val) {
-  $scope.demo.delayTooltip = parseInt(val, 10) || 0;
+  demo.delayTooltip = parseInt(val, 10) || 0;
 });
 
 

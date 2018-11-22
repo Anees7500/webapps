@@ -15,7 +15,6 @@ button {
 }
 
 .cls-login {
-<<<<<<< HEAD
   /* content: ''; */
   float: left;
   right: 0;
@@ -23,23 +22,11 @@ button {
   width: 100%;
   /* background-image: url("../../image/new4.gif"); */
 }
-.image12{
-  height: 80%;
-      width: 100%;
-=======
-    /* content: ''; */
-    float: left;
-    right: 0;
-    top: 0;
-    width: 100%;
-    /* background-image: url("../../image/new4.gif"); */
-}
 
 .image12 {
     height: 80%;
     width: 775px;
-    float: left;
->>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
+    float: left;sssss
 }
 
 .website {
@@ -65,13 +52,13 @@ button {
 }
 
 @media only screen and (max-width: 1000px) {
-<<<<<<< HEAD
+
   .cls-login {visibility: hidden;}
   .body-cls{padding: 0%;}
   .img-login{margin-top: -9px;}
   .loginForm{height: 530px;}
   .website{text-align: center;color: white;}
-=======
+
     .cls-login {
         visibility: hidden;
     }
@@ -92,7 +79,6 @@ button {
         text-align: center;
         color: white;
     }
->>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
 }
 
 .form {
@@ -174,12 +160,7 @@ input.input-style {
     text-align: -webkit-center;
 }
 
-.loginForm {
-    background-color: white;
-    height: 500px;
-}
 
-<<<<<<< HEAD
 .loginForm{
   background-color:white;
   height: 500px;
@@ -197,22 +178,8 @@ input.form-control-login {
   color: white;
   font-size: 15px;
   padding: 8px 0px;
-=======
+
 /* .part-a{background-color:#3ee8c4;;} */
-input.form-control-login {
-    width: 80%;
-    outline: none;
-    background: none;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;
-    border-bottom: 1px solid white;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    color: white;
-    font-size: 15px;
-    padding: 8px 0px;
->>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
-}
 
 label {
   margin-bottom: 8px;
@@ -235,7 +202,7 @@ label {
 }
 
 @media only screen and (min-width: 768px) {
-<<<<<<< HEAD
+
   .imagelog{
     margin-left: 113px;
     width:60px;
@@ -292,11 +259,15 @@ h3{
   color: black;
   text-align: center;
   }*/
-  @media screen and (max-width:800px){
+  .imagelog {
+        margin-left: 13px;
+        width: 50px;
+    }
+  /*@media screen and (max-width:800px){
     header#site-header {
       display: none;
       }}
-=======
+
     .imagelog {
         margin-left: 113px;
         width: 60px;
@@ -313,7 +284,7 @@ h3{
             width: 100%;
         }
     }
-
+*/
     .login-body .form-control {
         width: 90%;
 
@@ -362,4 +333,3 @@ h3{
             display: none;
         }
     }
->>>>>>> 44fc302d96e60e8e75acc11cc505f950b8a9b5e4
