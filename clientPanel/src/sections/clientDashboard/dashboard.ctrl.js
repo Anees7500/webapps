@@ -430,7 +430,9 @@ function makeRequirementMenu(compDetail)
       return arr;
     };
 
-    
+   $scope.deleteRow = function (i) {
+     $scope.employeeList.splice(i, 1);
+   };
 
   }
 

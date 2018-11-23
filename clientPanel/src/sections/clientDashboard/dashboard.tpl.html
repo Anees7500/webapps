@@ -63,7 +63,7 @@
 <!-- =====================  Requirement ===================== -->
 <div class="Requirements-data-item" ng-if="requirementBool">
   <div>
-    <div class="col-md-12">
+    <div class="col-md-12 ">
       <div class="col-sm-3">
         <div class="wrapper"></br>
           <div class="col-md-12 " ng-repeat="m in Data">
@@ -147,7 +147,7 @@
           <td>{{e.lastName}}</td>
           <td>{{e.mobile}}</td>
           <td>
-            <i class="fa fa-trash" ng-click=""></i>
+            <i class="fa fa-trash" ng-click="deleteRow($index)"></i>
           </td>
         </tr>
       </tbody>
