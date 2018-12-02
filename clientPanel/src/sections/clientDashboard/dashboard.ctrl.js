@@ -239,8 +239,6 @@ $scope.Days = [
 "SATURDAY",
 "SUNDAY"
 ];
-
-
 $scope.demo = {
   showTooltip: false,
   tipDirection: 'bottom'
@@ -271,11 +269,6 @@ function makeRequirementMenu(compDetail)
  {
    $scope.Menu.push("Snacks");
  }
-
-       // if(compDetail.cashNCarry)
-       // {
-       //   $scope.Menu.push("CashNCarry");
-       // }
        if(compDetail.midNightSnacks)
        {
          $scope.Menu.push("Mid Night Snacks");
@@ -429,7 +422,7 @@ function makeRequirementMenu(compDetail)
       }
       return arr;
     };
-
+// Manage employoo 
    $scope.deleteRow = function (i) {
      $scope.employeeList.splice(i, 1);
    };

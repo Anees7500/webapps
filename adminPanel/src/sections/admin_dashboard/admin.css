@@ -371,7 +371,8 @@ md-card._md:hover {
   min-height: 20px;
   box-shadow: #b3b8b9 0 0px 3px 1px;
   /* border: 1px solid #e8554e; */
-  margin: -22px -30px;
+  /* margin: -22px -30px; */
+  margin: -11px -30px;
   position: fixed;
   width: 82.5%;
   z-index: 1;

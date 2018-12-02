@@ -61,12 +61,12 @@
            </ul>
          </div>
 <!-- =====================  Requirement ===================== -->
-<div class="Requirements-data-item" ng-if="requirementBool">
+<!-- <div class="Requirements-data-item" ng-if="requirementBool">
   <div>
     <div class="col-md-12 ">
-      <div class="col-sm-3">
+      <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="wrapper"></br>
-          <div class="col-md-12 " ng-repeat="m in Data">
+          <div class="col-md-12" ng-repeat="m in Data">
             <table id="client">
               <tr>
                 <td><b class="fa fa-calendar">Calender</td>
@@ -81,9 +81,9 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-9 ">
-        <div class="col-md-12 ">
-          <div class="col-sm-4" ng-repeat="(key, value) in companyRequirements"></br>
+      <div class="col-md-9 col-sm-6 col-xs-12">
+        <div class="col-md-12">
+          <div class="col-md-4 col-sm-12 col-xs-12 " ng-repeat="(key, value) in companyRequirements"></br>
             <table id="client">
               <tr>
                 <td><b class="fa fa-cutlery"></b></td>
@@ -103,7 +103,54 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="Requirements-data-item" ng-if="requirementBool">
+  <div class="wrapper">
+    <div class="col-md-12">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-12" ng-repeat="m in Data">
+            <table id="client">
+              <tr>
+                <td><b class="fa fa-calendar">Calender</td>
+              </tr>
+              <tr>
+                <th>Days</th>
+              </tr>
+              <tr ng-repeat="m in Days">
+                <td>{{m}}</td>
+              </tr>
+            </table>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12 " ng-repeat="(key, value) in companyRequirements"></br>
+        <table id="client">
+          <tr>
+            <td><b class="fa fa-cutlery"></b></td>
+            <td>{{key}}</td>
+          </tr>
+          <tr>
+            <th><b class="fa fa-user-circle-o">Person</b></th>
+            <th><b class="fa fa-rupee">Price</b></th>
+          </tr>
+          <tr ng-repeat="v in value">
+           <td>{{v.count}}</td>
+            <td>{{v.price}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>  
 </div>
+
+
+
+
+
+
+
+
+
   <!--   ==================== MAHAGE EMPLOYEE ==================== -->
  <div class="manageEmployee-list" ng-if="manageEmployee">
       <div class="manage-employee">
@@ -141,7 +188,7 @@
           </tr>
         </thead>
         <tbody>
-         <tr ng-repeat="e in employeeList ">
+         <tr ng-repeat="e in employeeList | filter : paginate">
           <td>{{e.employeeId}}</td>
           <td>{{e.firstName}}</td>
           <td>{{e.lastName}}</td>

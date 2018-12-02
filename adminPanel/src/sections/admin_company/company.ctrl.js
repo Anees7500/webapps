@@ -74,8 +74,12 @@ function (vendorassignService, $routeParams, $scope, Notification,
 
             var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
             $http.get(getAllVendorToCompany).then(function (response) {
-                console.log("getAllVendorToCompanyUrl", response.data.data.details);
-                $scope.vendorList = response.data.data.details;
+                // console.log("getAllVendorToCompanyUrl", response.data.data.details);
+                if (response.data.data != null)
+                {
+                    $scope.vendorList = response.data.data.details;
+                }
+               
             });
 
 
@@ -127,7 +131,7 @@ function (vendorassignService, $routeParams, $scope, Notification,
                 }
                 // console.log("companyRequirements ", JSON.stringify($scope.companyRequirements));
             });
-
+          
             $scope.saveRequirement = function (reqObj) {
                 // console.log("current sndp==== : ", reqObj.id);
                 var companyId = $routeParams.compId;
@@ -189,6 +193,7 @@ function (vendorassignService, $routeParams, $scope, Notification,
                 }
                 // console.log("companyRequirements ", JSON.stringify($scope.companyRequirements));
             });
+           
 
             $scope.saveVendorRequirement = function (reqObj) {
                 // console.log("current sndp==== : ", reqObj.id);
@@ -204,18 +209,23 @@ function (vendorassignService, $routeParams, $scope, Notification,
                 $scope.vName = name;
                 $scope.unassignId = id;
                 document.getElementById('id07').style.display = 'block'
+
             }
             // ................ UN-Assigned Vendor..... //
             $scope.unassignVendor = function (id) {
-                console.log("id 9000", id);
+                console.log("id 3000", id);
                 vendorassignService.unassigneVendor(id, unassignedVendorUrl)
                     .then(function (returnedSaveMenu) {
                         console.log("yehhhh its working 333");
+                    //    console.log("delete vendor",id);
                         if (returnedSaveMenu !== null) {
                             var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
                             $http.get(getAllVendorToCompany).then(function (response) {
-                                console.log("getAllVendorToCompanyUrl", response.data.data.details);
-                                $scope.vendorList = response.data.data.details;
+                                console.log("getAllVendorToCompanyUrl", response.data.data);
+                                if (response.data.data != null){
+                                    $scope.vendorList = response.data.data.details;
+                                }
+                                
                             });
                         }
                     });
@@ -231,8 +241,13 @@ function (vendorassignService, $routeParams, $scope, Notification,
                         if (returnedSaveMenu !== null) {
                             var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
                             $http.get(getAllVendorToCompany).then(function (response) {
-                                console.log("getAllVendorToCompanyUrl", response.data.data.details);
-                                $scope.vendorList = response.data.data.details;
+                                
+                                console.log("getAllVendorToCompanyUrl ", response.data.data);
+                                if (response.data.data != null)
+                                {
+                                    $scope.vendorList = response.data.data.details;
+                                }
+                                
                             });
                         }
                     });
@@ -301,6 +316,19 @@ function (vendorassignService, $routeParams, $scope, Notification,
             // bool Logic end
 
         }
+    // $scope.Days = [
+    //     "MONDAY",
+    //     "TUESDAY",
+    //     "WEDNESDAY",
+    //     "THURSDAY",
+    //     "FRIDAY",
+    //     "SATURDAY",
+    //     "SUNDAY"
+    // ];
 
+    // Feedback work 
+
+   
+    // Feedback work end
       }
         ]);
