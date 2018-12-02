@@ -42,8 +42,8 @@
           <div class="media-body">
             <h5 style="margin-top: -2px; text-align: center;font-size:bold">
               <img src="../image/pp1.png" class="img-circle pp-image" width="38" /><br>
-              Admin</h5>
-            <h6 class="media-heading" style="color:white;text-align: center;">aman@fancymonk.com</h6>
+              Iron Mountain</h5>
+            <h6 class="media-heading" style="color:white;text-align: center;">admin@ironmountain.com</h6>
           </div>
         </div>
       </div>
@@ -81,12 +81,13 @@
           </div>
         </div>
 
-        <md-switch ng-model="comingDecision" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'" class="md-warn"
+
+        <md-switch ng-model="type" aria-label="Switch 2" ng-true-value="'Dinner'" ng-false-value="'Lunch'" class="md-warn"
           ng-disabled="!selectedItem">
-          Are you coming tomorrow? : {{ comingDecision }}
+          {{type}}
         </md-switch>
 
-        <md-button class="md-raised md-primary" ng-disabled="!selectedItem" ng-click="addTolist(comingDecision)">Primary</md-button>
+        <md-button class="md-raised md-primary" ng-disabled="!selectedItem" ng-click="addTolist(type)">Add</md-button>
 
 
 
@@ -102,10 +103,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="e in pagedItems ">
+                <tr ng-repeat="e in employeeComingList">
                   <td>{{e.display}}</td>
                   <td>{{tomorrowDate}}</td>
-                  <td>{{e.decision}}</td>
+                  <td>{{e.type}}</td>
                 </tr>
               </tbody>
               <tfoot>

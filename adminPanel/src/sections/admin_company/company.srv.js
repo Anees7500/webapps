@@ -1,7 +1,7 @@
 vmApp.factory('vendorassignService', ['$http', '$q', '$route', '$httpParamSerializerJQLike', '$location',
-'Notification', 'postVendorCompanyReqUrl', 'updateVendorCompanyReqUrl',
+'Notification', 'postVendorCompanyReqUrl', 'updateVendorCompanyReqUrl','postVendorCheckListToDb',
 function ($http, $q, $route, $httpParamSerializerJQLike, $location, Notification,
-postVendorCompanyReqUrl, updateVendorCompanyReqUrl) {
+postVendorCompanyReqUrl, updateVendorCompanyReqUrl,postVendorCheckListToDb) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
                 console.log("I am in srv.js file : ", vendorId, type, companyId);
@@ -459,5 +459,28 @@ postVendorCompanyReqUrl, updateVendorCompanyReqUrl) {
                 });
             },
             //.....................Employee detalis end.......................
+
+            saveCheckListIndb: function(obj) {
+              $http({
+                  method: 'POST',
+                  url: postVendorCheckListToDb,
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  data: $httpParamSerializerJQLike(obj)
+              }).then(function (response) {
+                  console.log('response', JSON.stringify(response));
+                  //console.log('response', response);
+                  if (response.data.status == 1) {
+                      console.log('Successfully saved the checklist');
+                      // Notification.success('Successfully submit the company details');
+                      // $location.path('/admin/company/:id');
+                  } else {
+                      console.log('error registering');
+                      // Notification.error('Could not add a company details');
+                  }
+              });
+            }
+
         }
 }]);
