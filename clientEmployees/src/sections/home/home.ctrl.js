@@ -60,7 +60,7 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
 
     self.simulateQuery = false;
     self.isDisabled = false;
-    // self.comingDecision = "Nope";
+    self.type = "Lunch";
 
     // list of `state` value/display objects
     self.states = loadAll();
@@ -77,42 +77,43 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
 
       empDtls.employeeId = self.employeeObject.id;
 
-      if (dcsn == "Yes") {
-        empDtls.decision = true;
-      } else {
-        empDtls.decision = false;
-      }
+      empDtls.type = dcsn;
+      // if (dcsn == "Yes") {
+      //   empDtls.decision = true;
+      // } else {
+      //   empDtls.decision = false;
+      // }
 
 
-      homeService.addDetail(empDtls, "http://fancymonk.com:9125/api/client/add-employee-count");
+      homeService.addDetail(empDtls, "http://fancymonk.com:9124/api/client/add-employee-count");
       $log.info('hello adding to the list  ' + dcsn);
       var tmpObj = {};
 
       tmpObj.id = self.employeeObject.id;
       tmpObj.display = self.employeeObject.display;
-      tmpObj.decision = dcsn;
+      tmpObj.type = dcsn;
 
-      // $log.info('already added employees' + self.employeeComingList.some(function(element) {
-      //   return element.display === self.employeeObject.display;
-      // }));
+      $log.info('already added employees dscn' + !self.employeeComingList.some(function(element) {
+        $log.info('elemenr val ' + JSON.stringify(element));
+        $log.info('employee oBj  val ' + JSON.stringify(self.employeeObject));
+        return element.display === self.employeeObject.display;
+      }));
       if(!self.employeeComingList.some(function(element) {
         return element.display === self.employeeObject.display;
       }))
       {
+        $log.info('hejevhjdb');
         self.employeeComingList.push(tmpObj);
+
+        $log.info('list after adding  ' + JSON.stringify(self.employeeComingList));
       }
       else {
         Notification.error("User is already added");
       }
-
-
-
-
     }
 
 
-
-    $http.get("http://fancymonk.com:9125/api/client/get-time-of-day-and-tmr-date")
+    $http.get("http://fancymonk.com:9124/api/client/get-time-of-day-and-tmr-date")
       .then(function(response) {
         $log.info(' get time of the day  ' + JSON.stringify(response));
         if (response.data.timeOfDay != null) {
@@ -125,21 +126,24 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
 
           self.tomorrowDate = response.data.tomorrowDate;
 
-          var empUrl = "http://fancymonk.com:9125/api/client/get-all-employee-data?companyId=1&date=" + self.tomorrowDate
+          var empUrl = "http://fancymonk.com:9124/api/client/get-all-employee-data?companyId=1&date=" + self.tomorrowDate
 
           $http.get(empUrl)
             .then(function(response) {
               if (response.data.data != null) {
+                $log.info('response  dchjb' + JSON.stringify(response));
                 for (var m = 0; m < response.data.data.details.length; m++) {
                   var tmpObj = {};
                   var ob = response.data.data.details[m];
                   tmpObj.id = ob.employeeId;
-                  tmpObj.display = ob.firstname + " " + ob.lastname;
-                  if (ob.active) {
-                    tmpObj.decision = "Yes";
-                  } else {
-                    tmpObj.decision = "Nope";
-                  }
+                  tmpObj.display = ob.firstName + " " + ob.lastName;
+                  tmpObj.type = ob.type;
+                  // employeeComingList
+                  // if (ob.active) {
+                  //   tmpObj.decision = "Yes";
+                  // } else {
+                  //   tmpObj.decision = "Nope";
+                  // }
 
                   self.employeeComingList.push(tmpObj);
 
@@ -205,15 +209,15 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
      */
     function loadAll() {
       var employeeList = [];
-      $http.get("http://fancymonk.com:9125/api/common/get-all-employees?companyId=1")
+      $http.get("http://fancymonk.com:9124/api/common/get-all-employees?companyId=1")
         .then(function(response) {
           if (response.data.data != null) {
             var employeesDetails = response.data.data.employees;
 
             for (var i = 0; i < employeesDetails.length; i++) {
               var ele = employeesDetails[i];
-              ele.value = (ele.firstname + " " + ele.lastname).toLowerCase();
-              ele.display = ele.firstname + " " + ele.lastname;
+              ele.value = (ele.firstName + " " + ele.lastName).toLowerCase();
+              ele.display = ele.firstName + " " + ele.lastName;
               employeeList.push(ele);
             }
           }
