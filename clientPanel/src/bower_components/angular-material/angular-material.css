@@ -739,7 +739,7 @@ button.md-button::-moz-focus-inner {
   position: relative;
   cursor: pointer;
   /** Alignment adjustments */
-  min-height: 36px;
+  min-height: 39px;
   min-width: 88px;
   line-height: 36px;
   vertical-align: middle;
@@ -757,8 +757,8 @@ button.md-button::-moz-focus-inner {
   outline: none;
   border: 0;
   /** Custom styling for button */
-  padding: 0 6px;
-  margin: -33px 13px;
+      padding: 0px 15px;
+    margin: 8px 13px;
   background: transparent;
   color: currentColor;
   white-space: nowrap;
@@ -1207,23 +1207,24 @@ md-checkbox {
     position: absolute;
     top: 0;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-width: 2px;
     border-style: solid;
-    border-radius: 2px; }
+    border-radius: 11px; }
   md-checkbox.md-checked .md-icon {
-    border-color: transparent; }
+    border-color: #000000 }
+/*    border-color: transparent; }*/
     md-checkbox.md-checked .md-icon:after {
       box-sizing: border-box;
       -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
       position: absolute;
-      left: 4.66667px;
+      left: 5.66667px;
       top: 0.22222px;
       display: table;
-      width: 6.66667px;
-      height: 13.33333px;
+      width: 6.66667px;font:
+      height: 14.33333px;
       border-width: 2px;
       border-style: solid;
       border-top: 0;
@@ -2268,7 +2269,7 @@ md-input-container {
   display: inline-block;
   position: relative;
   padding: 2px;
-  margin: 18px 0;
+  margin: 8px 0;
   vertical-align: middle;
   /*
    * The .md-input class is added to the input/textarea
@@ -2408,9 +2409,9 @@ md-input-container {
     -webkit-order: 2;
             order: 2;
     display: block;
-    margin-top: -12px;
+    margin-top: -6px;
     background: none;
-    padding-top: 2px;
+    padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 2px;
     padding-right: 2px;
@@ -3554,7 +3555,7 @@ md-progress-linear {
 
 md-radio-button {
   box-sizing: border-box;
-  display: block;
+ /* display: block;*/
   margin-bottom: 16px;
   white-space: nowrap;
   cursor: pointer;
@@ -4726,7 +4727,7 @@ md-switch {
   md-switch.md-focused:not([disabled]):not(.md-checked) .md-thumb:before {
     background-color: rgba(0, 0, 0, 0.12); }
   md-switch .md-label {
-    border-color: transparent;
+    border-color: white;
     border-width: 0;
     float: left; }
   md-switch .md-bar {

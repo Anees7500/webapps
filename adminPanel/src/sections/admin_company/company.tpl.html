@@ -958,7 +958,6 @@ input.req-clr {
             </thead>
             <tbody ng-repeat="reqObj in companyRequirements">
               <tr>
-
                 <td>
                   <div class="row">
                     <div class="col-md-12">
@@ -1431,14 +1430,14 @@ input.req-clr {
         <!------Dispatch Details end ----------->
 
         <!-- CheckList Details starts here -->
-        <<div class="checkList" ng-if="itemCheckListBool">
+        <div class="checkList" ng-if="itemCheckListBool">
           <div class="title-baar">
             <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
                         Home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
                     <a class="w-clr" href="">Item Check List</a></h5>
           </div><br><br>
           <div class="checkListCheckboxes" flex="100" ng-repeat="item in itemCheckList">
-              <input ng-model="item.quantity" type="number"> Quantity
+              <input ng-model="item.quantity" type="number">&nbsp; &nbsp;&nbsp; &nbsp; Quantity
               <md-checkbox ng-checked="item.enabled" ng-click="toggle(item, itemCheckList)">
                {{ item.itemName }}
               </md-checkbox>
@@ -1446,5 +1445,7 @@ input.req-clr {
 
             <md-button class="md-raised md-primary" ng-click="saveCheckListIndb()">Save</md-button>
         </div>
+        
+        <!-- CheckList Details starts here end-->
         <section>
       </div>

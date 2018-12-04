@@ -221,7 +221,6 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
             }
           });
       }
-
       $scope.passVendorId = function (vendorId, type) {
         var companyId = $routeParams.compId;
         console.log("vendor pass id : ", companyId, vendorId, type);
