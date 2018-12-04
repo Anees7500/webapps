@@ -86,7 +86,6 @@
           ng-disabled="!selectedItem">
           {{type}}
         </md-switch>
-
         <md-button class="md-raised md-primary" ng-disabled="!selectedItem" ng-click="addTolist(type)">Add</md-button>
 
 
@@ -102,8 +101,8 @@
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr ng-repeat="e in employeeComingList">
+              <tbody class="names">
+                <tr class="align-left" ng-repeat="e in employeeComingList">
                   <td>{{e.display}}</td>
                   <td>{{tomorrowDate}}</td>
                   <td>{{e.type}}</td>

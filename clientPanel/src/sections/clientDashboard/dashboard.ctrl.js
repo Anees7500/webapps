@@ -28,51 +28,53 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     $scope.dateList = [{
       "Date": "2018-11-16",
       "Count": 4,
-      "employeeComingList":[{
-        "employeeId":12,
-        "firstName":"Aman",
-        "lastName":"Telkar",
-        "mobile":""
-      },
-      {
-        "employeeId":13,
-        "firstName":"Raj",
-        "lastName":"Shukla",
-        "mobile":""
-      },
-      {
-        "employeeId":14,
-        "firstName":"Prantik",
-        "lastName":"Rajput",
-        "mobile":""
-      },
-      {
-        "employeeId":15,
-        "firstName":"Kunal",
-        "lastName":"Parmani",
-        "mobile":""
-      }]
+      "employeeComingList": [{
+          "employeeId": 12,
+          "firstName": "Aman",
+          "lastName": "Telkar",
+          "mobile": ""
+        },
+        {
+          "employeeId": 13,
+          "firstName": "Raj",
+          "lastName": "Shukla",
+          "mobile": ""
+        },
+        {
+          "employeeId": 14,
+          "firstName": "Prantik",
+          "lastName": "Rajput",
+          "mobile": ""
+        },
+        {
+          "employeeId": 15,
+          "firstName": "Kunal",
+          "lastName": "Parmani",
+          "mobile": ""
+        }
+      ]
     }, {
       "Date": "2018-11-17",
       "Count": 3,
-      "employeeComingList":[{
-        "employeeId":12,
-        "firstName":"Aman",
-        "lastName":"Telkar",
-        "mobile":""
-      },
-      {
-        "employeeId":13,
-        "firstName":"Raj",
-        "lastName":"Shukla",
-        "mobile":""
-      },
-      {
-        "employeeId":14,
-        "firstName":"Prantik",
-        "lastName":"Rajput",
-        "mobile":""
-      }]
+      "employeeComingList": [{
+          "employeeId": 12,
+          "firstName": "Aman",
+          "lastName": "Telkar",
+          "mobile": ""
+        },
+        {
+          "employeeId": 13,
+          "firstName": "Raj",
+          "lastName": "Shukla",
+          "mobile": ""
+        },
+        {
+          "employeeId": 14,
+          "firstName": "Prantik",
+          "lastName": "Rajput",
+          "mobile": ""
+        }
+      ]
     }];
 
 
@@ -105,6 +107,38 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
       }
 
     };
+    // console.log("com details ", $rootScope.companyDetails);
+    $scope.deleteRow = function(item, ind) {
+      $scope.employeeList.splice(ind, 1);
+      var emp = {};
+      emp.employeeId = item.employeeId;
+
+
+      clientDashboardService.deleteEmployeeToDB(emp, "http://fancymonk.com:9125/api/client/delete-employee");
+    };
+
+
+    // $scope.employeeList.push(newEmp);
+    //     console.log("list ", JSON.stringify($scope.deleteEmployeeList));
+    //     for(var i = $scope.employeeList.length - 1; i >= 0; i--) {
+
+    //       if(!$scope.employeeList.some(function(element) {
+    //         return element.employeeId === i.employeeId;
+    //       }))
+    //       {
+
+    //         $scope.deletEmployeeList = $scope.employeeList;
+    //         newEmp.companyId = $cookies.get("clientPanelCompanyId");
+    //         clientDashboardService.deleteEmployeeToDB(newEmp, "http://fancymonk.com:9125/api/client/delete-employee");
+
+    //         console.log("comment 3 " , $scope.newEmp);
+    //       }
+    //       else {
+    //       // Notification.error("User is already added");
+    //       console.log("user already deleted");
+    //     }
+    //   }
+    // };
 
     $scope.logout = function() {
       //Just clear values from scope
@@ -118,6 +152,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
       $scope.feedbackBool = false;
       $scope.manageEmployee = false;
       $scope.employeeCount = false;
+      $scope.weeklyMenu = false;
       $scope[value] = true;
     }
     $scope.enableBooleans("categoryBool");
@@ -127,7 +162,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
       $scope.companyDetail = $rootScope.companyDetails;
       makeRequirementMenu($scope.companyDetail);
     } else {
-      var url = getCompanyDetailUrl + $cookies.get("clientPanelCompanyId");
+      var url = 'http://fancymonk.com:9124/api/common/corporate-company?companyId=' + $cookies.get("clientPanelCompanyId");
       $http.get(url).then(function(response) {
         // console.log("dashboard url response ", response);
         $scope.companyDetail = response.data.data.company;
@@ -138,17 +173,21 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     // console.log("com id by cookies ", $cookies.get("clientPanelCompanyId"));
 
 
-    var feedbackUrl = getCompanyFeedbackUrl + $cookies.get("clientPanelCompanyId");
+    var feedbackUrl = 'http://fancymonk.com:9124/api/admin/corporate-reviews?companyId=' + $cookies.get("clientPanelCompanyId");
     $http.get(feedbackUrl).then(function(response) {
       // console.log("company feedback response ", response);
       $scope.feedback = response.data.data.reviews;
       $scope.feedback = $scope.feedback.reverse();
-      $scope.Item = [];
+
+      // function pagination(){
+
+      // }
+
       $scope.itemsPerPage = 10;
       $scope.currentPage = 0;
 
       $scope.range = function() {
-        var rangeSize = 5;
+        var rangeSize = 7;
         var ret = [];
         var start;
 
@@ -203,22 +242,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     function getItemToshow(arr, offset, limit) {
       return arr.slice(offset, offset + limit);
     };
-    // function getItemRangeSize(pageCount, rangeSize, start) {
 
-    //                 var rangeSize = 5;
-    //                 var ret = [];
-    //                 var start;
-
-    //                 start = currentPage;
-    //                 if ( start > .pageCount()-rangeSize ) {
-    //                   start = pageCount()-rangeSize;
-    //                 }
-
-    //                 for (var i=start; i<start+rangeSize; i++) {
-    //                   ret.push(i);
-    //                 }
-    //                 return ret;
-    //               };
     $scope.companyRequirementsSorted = [];
     var mondayObj = {};
     mondayObj.dayName = "MONDAY";
@@ -249,7 +273,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     $scope.companyRequirementsSorted.push(saturdayObj);
     $scope.companyRequirementsSorted.push(sundayObj);
 
-    var requirementUrl = getCompanyRequirementUrl + $cookies.get("clientPanelCompanyId");
+    var requirementUrl = 'http://fancymonk.com:9124/api/common/company-requirement?companyId=' + $cookies.get("clientPanelCompanyId");
     $http.get(requirementUrl).then(function(response) {
       // console.log("requirement response ", JSON.stringify(response));
       // $scope.companyRequirements = response.data.data.requirements;
@@ -269,6 +293,19 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
 
       makeRequirementMenuDetails($scope.companyDetail, $scope.companyRequirementsSorted);
     });
+    $scope.data = {
+      selectedIndex: 0,
+      secondLocked: true,
+      secondLabel: "Item Two",
+      bottom: false >>>
+        >>> > 8 acd0042a7b1d9f7b935b6d4dfa21b79b6ef8a63
+    };
+    $scope.next = function() {
+      $scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2);
+    };
+    $scope.previous = function() {
+      $scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
+    };
 
 
     $scope.Days = [
@@ -288,9 +325,9 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     };
 
     $scope.demo.delayTooltip = undefined;
-    // $scope.$watch('demo.delayTooltip', function(val) {
-    //   demo.delayTooltip = parseInt(val, 10) || 0;
-    // });
+    $scope.$watch('demo.delayTooltip', function(val) {
+      delayTooltip = parseInt(val, 10) || 0;
+    });
 
 
     function makeRequirementMenu(compDetail) {
@@ -448,11 +485,5 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
       }
       return arr;
     };
-
-    $scope.deleteRow = function(i) {
-      $scope.employeeList.splice(i, 1);
-    };
-
   }
-
 ]);

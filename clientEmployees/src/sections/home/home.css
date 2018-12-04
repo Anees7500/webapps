@@ -1208,3 +1208,18 @@ svg:not(:root) {
         left: 0
     }
 }
+/* .table th{ text-align: center;} */
+.names td{ text-align: left;}
+
+@media (max-width:550px){
+    .vertical_nav{ display: none;}
+    .wrapper{ margin-left: 0px !important;}
+}
+.table th{
+    font-size: bold;
+    font-size: medium;
+
+}
+.mat-radio-button ~ .mat-radio-button {
+  padding-right: 16px;
+}

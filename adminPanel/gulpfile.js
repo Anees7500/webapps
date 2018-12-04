@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 gulp.task('connect-dev', function() {
         connect.server({
             root: 'src/',
-            port: 9000
+            port: 3000
         });
     });
 
@@ -91,14 +91,14 @@ gulp.task('copy-files', function() {
         .pipe(concat('components.min.js'))
         // .pipe(uglify())
         .pipe(gulp.dest('src/'))
-        .pipe(gulp.dest("build/"));
+        .pipe(gulp.dest('build/'));
     });
 
     gulp.task('concat-components-css', function() {
       return gulp.src(['src/bower_components/**/*.css'])
         .pipe(concat('components.css'))
         .pipe(gulp.dest('src/'))
-        .pipe(gulp.dest("build/"));
+        .pipe(gulp.dest('build/'));
     });
 
     gulp.task('concat-components', function() {
@@ -106,7 +106,7 @@ gulp.task('copy-files', function() {
         .pipe(concat('concate-components.js'))
         // .pipe(browserify('../..'))
         .pipe(gulp.dest('src/'))
-        .pipe(gulp.dest("build/"));
+        .pipe(gulp.dest('build/'));
     });
 
     gulp.task('watch', function () {

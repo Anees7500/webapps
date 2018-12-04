@@ -215,3 +215,75 @@ th{text-align: center;}
     width: 100%;
     background-color: black;
 }
+.wrapper{
+    display: grid;
+}
+#client {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border: 0px solid #FFFFFF;
+  width: 220px;
+  box-shadow: 3px 3px 23px #000000;
+  background-color: #FFFDFD;
+}
+
+#client td, #client th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+#client tr:hover {background-color: #bcdefa;}
+
+#client th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #FFE4B5;
+
+}
+table ,th, td{
+    border: 1px solid black;
+}
+.thfont{
+    font-size: x-large;
+}
+
+/* Feedback work */
+
+.company-dashboard{
+    margin-bottom: 0px;
+}
+.feedback-bool{
+     height: 100%;
+    /* box-shadow: 3px 3px 23px #000000; */
+    padding: 11px;
+   
+    /* margin-left: 40px; */
+    margin-left: auto;
+    text-align: center;
+    float: left;
+}
+.feedback-bool td, .feedback-bool th {
+  border: 1px solid #ddd;
+  height: 40px;
+  text-align: center;
+  font-size: 12.3px;
+  padding-bottom: 0px;   
+}
+.feedback-bool th {
+    padding-bottom: 4px;
+    background-color:#f9d69a;
+}
+
+.feedback-bool tr:hover {background-color: #bcdefa;}
+
+.tooltip{
+  font-size:86px;
+  aria-hidden:true;
+
+}
+/* .checkListCheckboxes{
+    background-color: #CCC;
+    
+} */
+
+/* Feedback work */

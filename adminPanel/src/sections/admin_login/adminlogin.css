@@ -124,3 +124,21 @@ h3{
   color: black;
   text-align: center;
 }
+.fa{
+  position: absolute;
+  left: 380px;
+  top: 10px;
+  font-size: 25px;
+  cursor: pointer;
+  color: #9999;
+}
+.fa.active{
+  color: dodgerblue;
+}
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+}
