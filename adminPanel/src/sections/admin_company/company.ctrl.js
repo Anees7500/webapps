@@ -302,7 +302,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
       $scope.boolFunction("categoryBool");
       // bool Logic end
 
-      //item check list code starts from here
+      // item check list code starts from here
       $scope.selectedItemCheckList = [];
       $http.get(getItemCheckListForVendor).then(function(response) {
         $scope.itemCheckList = response.data.data.items;

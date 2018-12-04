@@ -27,10 +27,52 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     $scope.employeeComingList = [];
     $scope.dateList = [{
       "Date": "2018-11-16",
-      "Count": 20
+      "Count": 4,
+      "employeeComingList":[{
+        "employeeId":12,
+        "firstName":"Aman",
+        "lastName":"Telkar",
+        "mobile":""
+      },
+      {
+        "employeeId":13,
+        "firstName":"Raj",
+        "lastName":"Shukla",
+        "mobile":""
+      },
+      {
+        "employeeId":14,
+        "firstName":"Prantik",
+        "lastName":"Rajput",
+        "mobile":""
+      },
+      {
+        "employeeId":15,
+        "firstName":"Kunal",
+        "lastName":"Parmani",
+        "mobile":""
+      }]
     }, {
       "Date": "2018-11-17",
-      "Count": 10
+      "Count": 3,
+      "employeeComingList":[{
+        "employeeId":12,
+        "firstName":"Aman",
+        "lastName":"Telkar",
+        "mobile":""
+      },
+      {
+        "employeeId":13,
+        "firstName":"Raj",
+        "lastName":"Shukla",
+        "mobile":""
+      },
+      {
+        "employeeId":14,
+        "firstName":"Prantik",
+        "lastName":"Rajput",
+        "mobile":""
+      }]
     }];
 
 
