@@ -4,7 +4,7 @@ ceApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'sections/clientEmployeeslogin/clientlogin.tpl.html',
-            controller: 'LoginController'
+            controller: 'AdminLoginController'
         })
         .when('/employees', {
             templateUrl: 'sections/home/home.tpl.html',
