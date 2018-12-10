@@ -1,11 +1,11 @@
 <header class="header clearfix" style="position:fixed">
   <button type="button" id="toggleMenu" class="toggle_menu">
-      <i class="fa fa-bars"></i>
-    </button>
+    <i class="fa fa-bars"></i>
+  </button>
 
   <div class="m-view">
     <h1 style="color:white;">
-      <span class="span-logo"><a><img src="../image/fancymonklogo.png"/></a></span>Fancymonk</h1>
+      <span class="span-logo"><a><img src="../image/fancymonklogo.png" /></a></span>Fancymonk</h1>
   </div>
 
   <!-- <div class="fa-4x">
@@ -41,8 +41,8 @@
         <div class="background-dp-color">
           <div class="media-body">
             <h5 style="margin-top: -2px;">
-                          <img src="../image/pp1.png" class="img-circle pp-image" width="38"/><br>
-                      Admin</h5>
+              <img src="../image/pp1.png" class="img-circle pp-image" width="38" /><br>
+              Admin</h5>
             <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
           </div>
         </div>
@@ -125,10 +125,10 @@
     <div class="company-dashboard" ng-if="addDashboardBool">
       <div class="title-baar">
         <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i> home</a>
-  <!-- <a href="" class="typewrite text-center" data-period="2000" data-type='[ "Welcome to the fancymonk admin..", "www.fancymonk.com"]'>
+          <!-- <a href="" class="typewrite text-center" data-period="2000" data-type='[ "Welcome to the fancymonk admin..", "www.fancymonk.com"]'>
     <span class="wrap"></span>
   </a> -->
-</h5>
+        </h5>
       </div>
       <ul class="nav">
         <form><br><br>
@@ -150,16 +150,17 @@
                       </div>
                       <div class="title-name">
                         <span class="c-card-name b-clr font">
-                  <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
-                  </span><br>
-                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                          <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                        </span><br>
+                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span>
+                          {{cpny.address}}</h6>
                       </div>
                     </a>
                   </md-card>
                 </div>
               </md-content>
             </div>
-            <li>
+          <li>
         </div>
       </ul>
 
@@ -167,7 +168,8 @@
     <!-- ___________________ADD-COMPANY_____________________ -->
     <div class="add-company" ng-if="addCompanyBool">
       <div class="title-baar">
-        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">add company</a></h5>
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">add
+            company</a></h5>
       </div><br><br>
       <div class="company-details">
 
@@ -180,11 +182,12 @@
           </div>
 
           <form name="searchForm" novalidate ng-submit="search()">
-            <input type="text" name="place" ng-model="searchPlace" class="searchNew" placeholder="Search company name with city..." required autofocus/>
+            <input type="text" name="place" ng-model="searchPlace" class="searchNew" placeholder="Search company name with city..."
+              required autofocus />
 
             <span class="input-group-btn" style="text-align:center;">
-      <input type="submit" class="btn btn-info" value="Search" ng-disabled="searchForm.$invalid">
-  </span><br><br>
+              <input type="submit" class="btn btn-info" value="Search" ng-disabled="searchForm.$invalid">
+            </span><br><br>
           </form>
 
           <form name="resForm" class="form-horizontal" novalidate ng-submit="send()">
@@ -195,15 +198,18 @@
                 </div>
                 <div class="col-md-4" style="padding:12px;">
                   <label for="resName">Company Name</label>
-                  <input name="resName" type="text" ng-disabled="" class="form-control" ng-model="place.companyName" placeholder="Company name" required />
+                  <input name="resName" type="text" ng-disabled="" class="form-control" ng-model="place.companyName"
+                    placeholder="Company name" required />
                 </div>
                 <div class="col-md-4" style="padding:12px;">
                   <label for="resLat">Latitude</label>
-                  <input name="resLat" type="number" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required />
+                  <input name="resLat" type="number" class="form-control" ng-disabled="true" ng-model="place.latitude"
+                    id="latitude" required />
                 </div>
                 <div class="col-md-4" style="padding:12px;">
                   <label for="resLng">Longitude</label>
-                  <input name="resLng" type="number" id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required />
+                  <input name="resLng" type="number" id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute"
+                    required />
                 </div>
               </div>
               <div style="padding:12px;">
@@ -220,12 +226,14 @@
                 <br>
                 <label for="label">Contact Person Name</label>
                 <br>
-                <input type="text" placeholder="Enter contact person name" name="companyAddress" class="form-control" required ng-model="place.companyPerson">
+                <input type="text" placeholder="Enter contact person name" name="companyAddress" class="form-control"
+                  required ng-model="place.companyPerson">
 
                 <br>
                 <label for="label">Contact Number</label>
                 <br>
-                <input type="text" placeholder="Enter contact number" name="contactNumber" class="form-control" required ng-model="place.contactNumber">
+                <input type="text" placeholder="Enter contact number" name="contactNumber" class="form-control"
+                  required ng-model="place.contactNumber">
               </div>
 
             </div>
@@ -244,8 +252,9 @@
     <!-- ___________________ASSIGNED-COMPANY_____________________ -->
     <div class="unsigned-company" ng-if="addAssignedCompanyBool">
       <div class="title-baar">
-        <h5><span><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">assigned companies</a>
-</h5>
+        <h5><span><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">assigned
+              companies</a>
+        </h5>
       </div><br><br>
       <ul class="nav">
         <form>
@@ -264,9 +273,10 @@
                       </div>
                       <div class="title-name">
                         <span class="c-card-name b-clr font">
-                    <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
-                    </span><br>
-                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                          <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                        </span><br>
+                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span>
+                          {{cpny.address}}</h6>
                       </div>
                     </a>
                   </md-card>
@@ -281,7 +291,8 @@
     <!-- ___________________UNSIGNED-COMPANY_____________________ -->
     <div class="unsigned-company" ng-if="addUnsignedCompanyBool">
       <div class="title-baar">
-        <h5><span><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">unasigned company</a></h5>
+        <h5><span><a href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">unasigned
+              company</a></h5>
       </div><br><br>
       <ul class="nav">
         <form>
@@ -300,9 +311,10 @@
                       </div>
                       <div class="title-name">
                         <span class="c-card-name b-clr font">
-                      <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
-                      </span><br>
-                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
+                          <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
+                        </span><br>
+                        <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span>
+                          {{cpny.address}}</h6>
                       </div>
                     </a>
                   </md-card>
@@ -335,7 +347,8 @@
                   <md-card>
                     <div class="vendor-dp">
                       <div class="title-v-name">
-                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{vendor.id}}">{{vendor.name | uppercase}}</a></h6>
+                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{vendor.id}}">{{vendor.name |
+                            uppercase}}</a></h6>
                       </div>
                     </div>
                     <!-- <md-card-actions layout="row" layout-align="end center">
@@ -343,21 +356,24 @@
           <md-button>Action 2</md-button>
         </md-card-actions> -->
                     <md-card-title-text class="one-line-text-hidden" style="text-align:center; padding:4px;">
-                      <span class="wrd-brk"><h6 style="min-height: 53px;">{{vendor.email}}<br><br>{{vendor.mobile}}</h6></span>
+                      <span class="wrd-brk">
+                        <h6 style="min-height: 53px;">{{vendor.email}}<br><br>{{vendor.mobile}}</h6>
+                      </span>
                     </md-card-title-text>
                   </md-card>
 
                 </div>
               </md-content>
             </div>
-            <li>
+          <li>
         </div>
       </ul>
     </div>
     <!-- Assigned Vendor Section -->
     <div class="company-dashboard" ng-if="assignedVendorListBool">
       <div class="title-baar">
-        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">assigned vendor</a></h5>
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">assigned
+            vendor</a></h5>
       </div>
       <ul class="nav">
         <form><br><br>
@@ -374,19 +390,22 @@
                   <md-card>
                     <div class="vendor-dp">
                       <div class="title-v-name">
-                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{assignedVendor.id}}">{{assignedVendor.name | uppercase}}</a></h6>
+                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{assignedVendor.id}}">{{assignedVendor.name
+                            | uppercase}}</a></h6>
                       </div>
                     </div>
 
                     <md-card-title-text class="one-line-text-hidden" style="text-align:center;  padding:4px;">
-                      <span class="wrd-brk"><h6 style="min-height: 53px;">{{assignedVendor.email}}<br><br>{{assignedVendor.mobile}}</span>
+                      <span class="wrd-brk">
+                        <h6 style="min-height: 53px;">{{assignedVendor.email}}<br><br>{{assignedVendor.mobile}}
+                      </span>
                     </md-card-title-text>
                   </md-card>
 
                 </div>
               </md-content>
             </div>
-            <li>
+          <li>
         </div>
       </ul>
     </div>
@@ -394,7 +413,8 @@
     <!-- Un-assigned Vendor Section -->
     <div class="company-dashboard" ng-if="unassignedVendorListBool">
       <div class="title-baar">
-        <h5><a class="w-clr" href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">unassigned vendor</a></h5>
+        <h5><a class="w-clr" href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a href="" class="w-clr">unassigned
+            vendor</a></h5>
       </div>
       <ul class="nav">
         <form><br><br>
@@ -411,12 +431,15 @@
                   <md-card>
                     <div class="vendor-dp">
                       <div class="title-v-name">
-                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{unassignedVendor.id}}">{{unassignedVendor.name | uppercase}}</a></h6>
+                        <h6><a class="w-clr one-line-text" href="#admin/vendor/{{unassignedVendor.id}}">{{unassignedVendor.name
+                            | uppercase}}</a></h6>
                       </div>
                     </div>
 
                     <md-card-title-text class="one-line-text-hidden" style="text-align:center; letter-spacing: 1px; padding:4px;">
-                      <span class="wrd-brk"><h6 style="min-height: 53px;">{{unassignedVendor.email}}<br><br>{{unassignedVendor.mobile}}</span>
+                      <span class="wrd-brk">
+                        <h6 style="min-height: 53px;">{{unassignedVendor.email}}<br><br>{{unassignedVendor.mobile}}
+                      </span>
                     </md-card-title-text>
                   </md-card>
                   <!-- <md-card>
@@ -434,16 +457,17 @@
                 </div>
               </md-content>
             </div>
-            <li>
+          <li>
         </div>
       </ul>
     </div>
     <!---->
     <!-- Check confirmation of food -->
-    
+
     <div class="company-dashboard" ng-if="FoodConfirmationBool">
       <div class="title-baar">
-        <h5><a class="w-clr" href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">check confirmation</a></h5>
+        <h5><a class="w-clr" href=""><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">check
+            confirmation</a></h5>
       </div>
 
       <md-content class="md-padding" layout-xs="column" layout="row">
@@ -452,7 +476,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{today}}</h3></td>
+                  <h3 style="color:#88888c;">{{today}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>
@@ -488,7 +513,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{yesterday_date}}</h3></td>
+                  <h3 style="color:#88888c;">{{yesterday_date}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>
@@ -524,7 +550,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{yesterday_1}}</h3></td>
+                  <h3 style="color:#88888c;">{{yesterday_1}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>
@@ -560,7 +587,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{yesterday_2}}</h3></td>
+                  <h3 style="color:#88888c;">{{yesterday_2}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>
@@ -596,7 +624,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{yesterday_3}}</h3></td>
+                  <h3 style="color:#88888c;">{{yesterday_3}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>
@@ -632,7 +661,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{yesterday_4}}</h3></td>
+                  <h3 style="color:#88888c;">{{yesterday_4}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>
@@ -668,7 +698,8 @@
             <table class="table">
               <thead>
                 <td>
-                  <h3 style="color:#88888c;">{{yesterday_5}}</h3></td>
+                  <h3 style="color:#88888c;">{{yesterday_5}}</h3>
+                </td>
                 <tr>
                   <th>Company</th>
                   <th>Vendor</th>

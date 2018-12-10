@@ -295,10 +295,10 @@ a.button:hover {
     margin: 0 auto;
     width: 100%;
     height: 40px;
-    background: -moz-linear-gradient(90deg, rgba(62,181,169,1) 0%, rgba(111,226,204,1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(111,226,204,1)), color-stop(100%, rgba(62,181,169,1)));
-    background: -webkit-linear-gradient(90deg, rgba(62,181,169,1) 0%, rgba(111,226,204,1) 100%);
-    background: linear-gradient(0deg, rgba(62,181,169,1) 0%, rgba(111,226,204,1) 100%);
+    background: -moz-linear-gradient(90deg, rgb(91, 151, 240) 0%, rgb(91, 151, 240) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(91, 151, 240)), color-stop(100%, rgba(62,181,169,1)));
+    background: -webkit-linear-gradient(90deg, rgba(91, 151, 240) 0%, rgba(91, 151, 240) 100%);
+    background: linear-gradient(0deg, rgba(91, 151, 240) 0%, rgba(91, 151, 240) 100%);
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -490,6 +490,7 @@ a.button:hover {
     height: 100%;
     padding: 10px;
     border-radius: 10px 0 0 10px;
+    background-color: #2051FF;
 }
 #slideshow h2 {
     margin: .0em auto .0em auto;
@@ -519,6 +520,7 @@ a.button:hover {
   background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/dots.png");
     background-repeat: no-repeat;
     background-position: 0% 50%;
+    
 }
 #slideshow .two {
     background-image: url("http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/gears.png");

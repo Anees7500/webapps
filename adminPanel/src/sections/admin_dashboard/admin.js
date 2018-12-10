@@ -1,6 +1,6 @@
-vmApp.service('Map', function($q) {
+vmApp.service('Map', function ($q) {
 
-    this.init = function() {
+    this.init = function () {
         var options = {
             center: new google.maps.LatLng(12.9715987, 77.59456269999998),
             zoom: 12,
@@ -12,19 +12,20 @@ vmApp.service('Map', function($q) {
         this.places = new google.maps.places.PlacesService(this.map);
     }
 
-    this.search = function(str) {
+    this.search = function (str) {
         var d = $q.defer();
-        this.places.textSearch({query: str}, function(results, status) {
+        this.places.textSearch({
+            query: str
+        }, function (results, status) {
             if (status == 'OK') {
                 d.resolve(results[0]);
-            }
-            else d.reject(status);
+            } else d.reject(status);
         });
         return d.promise;
     }
 
-    this.addMarker = function(res) {
-        if(this.marker) this.marker.setMap(null);
+    this.addMarker = function (res) {
+        if (this.marker) this.marker.setMap(null);
         this.marker = new google.maps.Marker({
             map: this.map,
             position: res.geometry.location,
@@ -35,29 +36,29 @@ vmApp.service('Map', function($q) {
 
 });
 
-vmApp.controller('newPlaceCtrl', function($scope, Map) {
+vmApp.controller('newPlaceCtrl', function ($scope, Map) {
 
     $scope.place = {};
 
-    $scope.search = function() {
+    $scope.search = function () {
         $scope.apiError = false;
         Map.search($scope.searchPlace)
-        .then(
-            function(res) { // success
-                Map.addMarker(res);
-                $scope.place.companyName = res.name;
-                $scope.place.address=res.formatted_address;
-                $scope.place.latitude = res.geometry.location.lat();
-                $scope.place.longitute = res.geometry.location.lng();
-            },
-            function(status) { // error
-                $scope.apiError = true;
-                $scope.apiStatus = status;
-            }
-        );
+            .then(
+                function (res) { // success
+                    Map.addMarker(res);
+                    $scope.place.companyName = res.name;
+                    $scope.place.address = res.formatted_address;
+                    $scope.place.latitude = res.geometry.location.lat();
+                    $scope.place.longitute = res.geometry.location.lng();
+                },
+                function (status) { // error
+                    $scope.apiError = true;
+                    $scope.apiStatus = status;
+                }
+            );
     }
 
-    $scope.send = function() {
+    $scope.send = function () {
         // alert($scope.place.name + ' : ' + $scope.place.latitude + ', ' + $scope.place.longitute);
     }
 

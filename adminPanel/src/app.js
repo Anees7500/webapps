@@ -1,8 +1,8 @@
-var vmApp = angular.module('vmApp', ['ngRoute', 'ngCookies', 'app.templates', 'vmApp.config', 'ngMaterial', 'ui-notification', 'uiGmapgoogle-maps', 'ui.tree', 'ngFileUpload','pubnub.angular.service']);
+var vmApp = angular.module('vmApp', ['ngRoute', 'ngCookies', 'app.templates', 'vmApp.config', 'ngMaterial', 'ui-notification', 'uiGmapgoogle-maps', 'ui.tree', 'ngFileUpload', 'pubnub.angular.service']);
 
-vmApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+vmApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
   $routeProvider
-  .when('/admin', {
+    .when('/admin', {
       templateUrl: 'sections/admin_dashboard/admin.tpl.html',
       controller: 'AdminController'
     })

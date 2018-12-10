@@ -302,6 +302,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
       // bool Logic end
 
       //item check list code starts from here
+
       $scope.selectedItemCheckList = [];
       $http.get(getItemCheckListForVendor).then(function (response) {
         $scope.itemCheckList = response.data.data.items;
@@ -330,8 +331,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
         if (item.enabled) {
           item.enabled = false;
           item.quantity = null;
-        }
-        else {
+        } else {
           item.enabled = true;
         }
         // var idx = list.indexOf(item);
@@ -369,8 +369,13 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
         tempOb.data = JSON.stringify(jj);
         vendorassignService.saveCheckListIndb(tempOb);
       }
+      //item check list code starts from here end
 
     }
-
+    //count work  start
+    $scope.$watch('breakfast + breakfastPrice', function () {
+      $scope.occupancy = $scope.breakfast * $scope.breakfastPrice;
+    });
+    // count work end
   }
 ]);
