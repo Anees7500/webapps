@@ -1,4 +1,4 @@
-var ceApp = angular.module('ceApp', ['ngRoute', 'ngMaterial', 'ui-notification']);
+var ceApp = angular.module('ceApp', ['ngRoute', 'ngMaterial', 'ui-notification', 'app.templates', 'ceApp.config', 'ngCookies']);
 
 ceApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -6,11 +6,11 @@ ceApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'sections/clientEmployeeslogin/employeeslogin.tpl.html',
             controller: 'LoginController'
         })
-        .when('/employeesnew', {
-            templateUrl: 'sections/clientEmployeesnewpsw/employeesnewpsw.tpl.html',
+        .when('/newemployees', {
+            templateUrl: 'sections/clientEmployeesnewpsw/employeesnew.tpl.html',
             controller: 'LoginNewPswController'
         })
-        .when('/employees', {
+        .when('/dashboard', {
             templateUrl: 'sections/home/home.tpl.html',
             controller: 'HomeController'
         })

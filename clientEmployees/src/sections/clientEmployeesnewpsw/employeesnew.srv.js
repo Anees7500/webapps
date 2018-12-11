@@ -1,11 +1,10 @@
-ceApp.factory('EmployeesLoginNewService', ['$http', '$httpParamSerializerJQLike',
-    function ($http, $httpParamSerializerJQLike) {
+ceApp.factory('EmployeesLoginNewService', ['$http', '$httpParamSerializerJQLike','$location',
+    function ($http, $httpParamSerializerJQLike,$location) {
         return {
-            login: function (clientCredential, LoginClientUrl) {
-                console.log("client credential message ", clientCredential);
+            update: function (newPass, url) {
                 $http({
                     method: 'POST',
-                    url: LoginClientUrl,
+                    url: url,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'type': 'clientPanel',
@@ -13,16 +12,16 @@ ceApp.factory('EmployeesLoginNewService', ['$http', '$httpParamSerializerJQLike'
                         'Authorization': 'Basic WVhCd1FHWmhibU41Ylc5dWEyRmhZV0Z1OjE1OjJDOjJBOkZFOjUxOkQwOkM3OjNCOjQ2OjFGOkREOjk2Ojk0OkFGOjkyOkE2OjFGOjUyOjBEOkUz',
                     },
 
-                    // data: $httpParamSerializerJQLike(clientCredential)
+                    data: $httpParamSerializerJQLike(newPass)
                 }).then(function (response) {
-                    console.log("response logins ", JSON.stringify(response));
-                    // if (response.data.status == 1) {
-                        // $rootScope.companyDetails = response.data.data.company;
-                        // $cookies.put("clientPanelCompanyId", response.data.data.company.id);
-                        // $location.path('/dashboard');
-                    // } else {
-                    //     // Notification.error('Username/Mobile/Email or password is incorrect');
-                    // }
+                    console.log("response update ", JSON.stringify(response));
+                    if(response.data.status == 1)
+                    {
+                      $location.path('/dashboard');
+                    }
+                    else {
+                      Notification.error('Could not update password, Please try again');
+                    }
                 })
                     .catch(function (response) {
                         // Notification.error('Server is down please try again latter');

@@ -1,9 +1,11 @@
 ceApp.controller('LoginController', ['$scope', 'EmployeesLoginService', '$rootScope', '$http', '$route',
-    function ($scope, EmployeesLoginService, $rootScope, $http, $route) {
+'postEmployeeLogin',
+    function ($scope, EmployeesLoginService, $rootScope, $http, $route, postEmployeeLogin) {
         // console.log("hello i am isnide login contriller");
         $scope.login = function (user) {
-            console.log("check ", JSON.stringify(user));
-            EmployeesLoginService.login(user, "http://fancymonk.com:9124/api/corporate/login");
+            // console.log("check ", JSON.stringify(user));
+            user.companyId = 1;
+            EmployeesLoginService.login(user, postEmployeeLogin);
         }
         // Login page work************//
 

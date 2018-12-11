@@ -1,9 +1,21 @@
-ceApp.controller('LoginNewPswController', ['$scope', 'EmployeesLoginNewService', '$rootScope', '$http', '$route',
-    function ($scope, EmployeesLoginNewService, $rootScope, $http, $route) {
-        console.log("hello i am isnide login contriller");
-        $scope.login = function (user) {
-            console.log("check ", JSON.stringify(user));
-            EmployeesLoginNewService.login(user, "http://fancymonk.com:9124/api/corporate/login");
+ceApp.controller('LoginNewPswController', ['$scope', 'EmployeesLoginNewService', '$rootScope', '$http',
+'$route','postEmployeeUpdatePassword','Notification','$cookies',
+    function ($scope, EmployeesLoginNewService, $rootScope, $http, $route,
+      postEmployeeUpdatePassword, Notification, $cookies) {
+
+        $scope.updatePassword = function (newPass) {
+
+          if(newPass.password === newPass.confirmPassword)
+          {
+            newPass.employeeId = $cookies.get("eId");
+            newPass.id = $cookies.get("rId");
+            EmployeesLoginNewService.update(newPass, postEmployeeUpdatePassword);
+          }
+          else
+          {
+            Notification.error('Password do not match');
+          }
+
         }
         // Login page New password************//
         var $btn = document.getElementById("submit");
@@ -17,7 +29,7 @@ ceApp.controller('LoginNewPswController', ['$scope', 'EmployeesLoginNewService',
         }
 
         $btn.addEventListener("click", signIn);
-       
+
 
         // Login page New password************  end //
     }

@@ -1,11 +1,10 @@
-ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike',
-    function ($http, $httpParamSerializerJQLike) {
+ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$rootScope','$location','$cookies',
+    function ($http, $httpParamSerializerJQLike, $rootScope, $location, $cookies) {
         return {
-            login: function (clientCredential, LoginClientUrl) {
-                console.log("client credential message ", clientCredential);
+            login: function (user, url) {
                 $http({
                     method: 'POST',
-                    url: LoginClientUrl,
+                    url: url,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'type': 'clientPanel',
@@ -13,13 +12,23 @@ ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike',
                         'Authorization': 'Basic WVhCd1FHWmhibU41Ylc5dWEyRmhZV0Z1OjE1OjJDOjJBOkZFOjUxOkQwOkM3OjNCOjQ2OjFGOkREOjk2Ojk0OkFGOjkyOkE2OjFGOjUyOjBEOkUz',
                     },
 
-                    data: $httpParamSerializerJQLike(clientCredential)
+                    data: $httpParamSerializerJQLike(user)
                 }).then(function (response) {
                     console.log("response logins ", JSON.stringify(response));
-                    if (response.data.status == 1) {
-                        // $rootScope.companyDetails = response.data.data.company;
-                        // $cookies.put("clientPanelCompanyId", response.data.data.company.id);
-                        // $location.path('/dashboard');
+                    if (response.data.data != null && response.data.data.employee != null) {
+                        var eDetails = response.data.data.employee;
+                        $rootScope.employeeDetails = eDetails;
+                        $cookies.put("eId", eDetails.employeeId);
+                        $cookies.put("rId", eDetails.id);
+                        $cookies.put("cId", eDetails.companyId);
+                        if(eDetails.defaultPassword)
+                        {
+                          $location.path('/newemployees');
+                        }
+                        else {
+                          $location.path('/dashboard');
+                        }
+
                     } else {
                         // Notification.error('Username/Mobile/Email or password is incorrect');
                     }

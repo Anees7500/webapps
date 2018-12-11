@@ -73,12 +73,12 @@ gulp.task('copy-files', function() {
 
     gulp.task('make-config-module', function () {
       gulp.src('src/config.properties')
-      .pipe(gulpNgConfig('vmApp.config'))
+      .pipe(gulpNgConfig('ceApp.config'))
       .pipe(gulp.dest('src/'))
     });
     gulp.task('make-prod-config-module', function () {
       gulp.src('src/config.prod-properties')
-      .pipe(gulpNgConfig('vmApp.config'))
+      .pipe(gulpNgConfig('ceApp.config'))
       .pipe(gulp.dest('build/'))
     });
     gulp.task('minify-components', function() {
