@@ -16,6 +16,7 @@
     "angular-uuid": "0.0.4",
     "express": "^4.15.3",
     "gulp": "^3.9.1",
+    "ng-bootstrap-pagination": "^0.2.3",
     "ui-tree": "^0.2.0"
   },
   "devDependencies": {
