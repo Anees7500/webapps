@@ -274,7 +274,6 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
         })
 
       });
-
       $http.get(getAllVendorListUrl).then(function (response) {
         console.log("response.data 555", response.data.data.vendors);
         $scope.allVendorsList = response.data.data.vendors;
@@ -300,14 +299,11 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
       }
       $scope.boolFunction("categoryBool");
       // bool Logic end
-
       //item check list code starts from here
-
       $scope.selectedItemCheckList = [];
       $http.get(getItemCheckListForVendor).then(function (response) {
         $scope.itemCheckList = response.data.data.items;
       });
-
       // console.log("response form url : ", getItemCheckListedForVendor);
       $http.get(getItemCheckListedForVendor + $routeParams.compId).then(function (response) {
         console.log("response form listed : ", JSON.stringify(response));
@@ -377,5 +373,8 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
       $scope.occupancy = $scope.breakfast * $scope.breakfastPrice;
     });
     // count work end
+    $scope.sortType = 'reviewerName'; 
+    $scope.sortReverse = false; 
+    $scope.searchFish = '';
   }
 ]);
