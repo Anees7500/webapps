@@ -7,17 +7,6 @@
 html {
   font-size: 14px;
 }
-
-
-
-/* h1, h2, h3, h4, h5, h6 {
-  font-family: Monoton, sans-serif;
-  margin-bottom: .5rem;
-} */
-
-/**
- * Tiles
- */
 .tile {
   background-color: #ffffff;
   border-radius: .1rem;

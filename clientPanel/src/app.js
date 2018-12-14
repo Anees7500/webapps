@@ -1,4 +1,4 @@
-var clientApp = angular.module("clientApp", ['ngRoute', 'ngMaterial','ngCookies']);
+var clientApp = angular.module("clientApp", ['ngRoute', 'ngMaterial','ngCookies','ui.bootstrap']);
 
 clientApp.config(['$routeProvider', '$locationProvider',
     function ($routerProvider, $locationProvider) {
@@ -13,6 +13,6 @@ clientApp.config(['$routeProvider', '$locationProvider',
                 title: 'Header-part',
                 controller: 'ClientDashboardController'
             });
-            
+
     }
 ]);
