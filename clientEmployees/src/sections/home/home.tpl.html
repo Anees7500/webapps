@@ -8,14 +8,7 @@
       <span class="span-logo"><a><img src="../image/fancymonklogo.png" /></a></span>Fancymonk</h1>
   </div>
 
-  <!-- <div class="fa-4x">
-        <span class="fa-layers fa-fw" style="background:MistyRose">
-          <i class="fas fa-envelope"></i>
-          <span class="fa-layers-counter" style="background:Tomato">1,419</span>
-        </span>
-      </div> -->
   <div class="pull-right">
-    <!-- <a><i class="far fa-bell w-c"></i></a>-->
     <a><i class="far fa-bell w-c"></i></a>
     <div class="dropdown notificationDropDown">
       <div class="dropdown">
@@ -55,72 +48,34 @@
   <section>
     <!-- CONTENT -->
     <!-- ___________________DASHBOARD_____________________ -->
-        <div class="list">
-          <!-- <div class="feedback-data-item"> -->
-          <div id="feedback">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Date</th>
-                  <th>Type</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody class="names">
-                <tr class="align-left" ng-repeat="e in employeeComingList">
-                  <td>Name</td>
-                  <td>yyyy-mm-dd</td>
-                  <td>type</td>
-                  <td>yes/no</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <td colspan="116">
-                  <div class="pagination" ng-if="total > itemsPerPage">
-                    <ul class="pager">
-                      <li class="previous" ng-class="prevPageDisabled()">
-                        <a href ng-click="prevPage()">« Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      </li>
-                      <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
-                        <a>{{n+1}}</a>
-                      </li>
-                      <li class="next" ng-class="nextPageDisabled()">
-                        <a href ng-click="nextPage()">Next »</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-            </table>
-          </div>
-        </div>
-        <!-- <div class="row">
-                    <li ng-repeat="cpny in allCompanies | filter:search1">
-
-                        <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
-                            <md-content class="md-padding" layout-xs="column" layout="row">
-                                <div flex-xs flex-gt-xs="100" layout="column">
-
-                                    <md-card>
-                                        <a class="b-clr font" href="#/admin/company/{{cpny.id}}">
-                                            <div class="company-dp">
-                                                <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
-                                            </div>
-                                            <div class="title-name">
-                        <span class="c-card-name b-clr font">
-                  <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
-                  </span><br>
-                                                <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
-                                            </div>
-                                        </a>
-                                    </md-card>
-                                </div>
-                            </md-content>
-                        </div>
-                    <li>
-                </div> -->
-      </ul>
-
+    <div class="list">
+      <!-- <div class="feedback-data-item"> -->
+      <div id="feedback">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody class="names">
+            <tr class="align-left" ng-repeat="e in employeeComingList" >
+              <td>{{e.display}}</td>
+              <td>{{e.working_date}}</td>
+              <td>{{e.type}}</td>
+              <td>
+                <md-switch ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
+                class="md-warn" ng-disabled="e.disabled">
+                  {{ e.status }}
+                </md-switch>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </section>
+</div>
+</section>
 </div>
