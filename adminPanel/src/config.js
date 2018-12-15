@@ -28,4 +28,7 @@ angular.module("vmApp.config", [])
 .constant("getCompanyReqUrl", "http://fancymonk.com:9125/api/common/company-requirement?companyId=")
 .constant("getVendorCompanyReqUrl", "http://fancymonk.com:9125/api/common/vendor-company-requirement?companyId=")
 .constant("postVendorCompanyReqUrl", "http://fancymonk.com:9125/api/admin/vendor-corporate-companies-requirements")
-.constant("updateVendorCompanyReqUrl", "http://fancymonk.com:9125/api/admin/vendor-companies-requirement/update");
+.constant("updateVendorCompanyReqUrl", "http://fancymonk.com:9125/api/admin/vendor-companies-requirement/update")
+.constant("getItemCheckListForVendor", "http://fancymonk.com:9125/api/admin/get-item-checklist")
+.constant("postVendorCheckListToDb", "http://fancymonk.com:9125/api/admin/add-vendor-item-map")
+.constant("getItemCheckListedForVendor", "http://fancymonk.com:9125/api/admin/get-company-item-list?companyId=");

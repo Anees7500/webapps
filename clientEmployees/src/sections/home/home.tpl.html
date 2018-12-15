@@ -4,18 +4,11 @@
   </button>
 
   <div class="m-view">
-    <h1 style="color:white;">
+    <h1 style="color:white;font-family: Monoton, sans-serif;">
       <span class="span-logo"><a><img src="../image/fancymonklogo.png" /></a></span>Fancymonk</h1>
   </div>
 
-  <!-- <div class="fa-4x">
-        <span class="fa-layers fa-fw" style="background:MistyRose">
-          <i class="fas fa-envelope"></i>
-          <span class="fa-layers-counter" style="background:Tomato">1,419</span>
-        </span>
-      </div> -->
   <div class="pull-right">
-    <!-- <a><i class="far fa-bell w-c"></i></a>-->
     <a><i class="far fa-bell w-c"></i></a>
     <div class="dropdown notificationDropDown">
       <div class="dropdown">
@@ -55,6 +48,7 @@
   <section>
     <!-- CONTENT -->
     <!-- ___________________DASHBOARD_____________________ -->
+<<<<<<< HEAD
     <div class="outOfTime" ng-if="!timeOfDay">
       <p>Sorry, Booking for tomorrow is closed now</p>
 
@@ -157,6 +151,36 @@
                 </div> -->
       </ul>
 
+=======
+    <div class="list">
+      <!-- <div class="feedback-data-item"> -->
+      <div id="feedback">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody class="names">
+            <tr class="align-left" ng-repeat="e in employeeComingList" >
+              <td>{{e.display}}</td>
+              <td>{{e.working_date}}</td>
+              <td>{{e.type}}</td>
+              <td>
+                <md-switch ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
+                class="md-warn" ng-disabled="e.disabled">
+                  {{ e.status }}
+                </md-switch>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
     </div>
-  </section>
+</div>
+</section>
 </div>

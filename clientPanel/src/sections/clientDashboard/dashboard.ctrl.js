@@ -25,7 +25,11 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   $scope.ShowHide = function (lst, dtList) {
     // console.log("passed value here ", JSON.stringify(lst));
     var tempIsVisible = lst.isVisible;
+<<<<<<< HEAD
     var getEmployeeLIstUrl = "http://fancymonk.com:9124/api/client/get-all-employee-data?companyId=" + $cookies.get("clientPanelCompanyId") +"&date=" + lst.Date;
+=======
+    var getEmployeeLIstUrl = "http://fancymonk.com:9125/api/client/get-all-employee-data?companyId=" + $cookies.get("clientPanelCompanyId") +"&date=" + lst.Date;
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
     $http.get(getEmployeeLIstUrl).then(function(response)
     {
       // console.log("response :  ", JSON.stringify(response));
@@ -44,7 +48,11 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   $scope.dateList = [{"Date":"2018-11-16", "Count" : 20}, {"Date":"2018-11-17", "Count" : 10}];
 
 
+<<<<<<< HEAD
   var getEmployeesUrl = "http://fancymonk.com:9124/api/common/get-all-employees?companyId=" + $cookies.get("clientPanelCompanyId");
+=======
+  var getEmployeesUrl = "http://fancymonk.com:9125/api/common/get-all-employees?companyId=" + $cookies.get("clientPanelCompanyId");
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
   $http.get(getEmployeesUrl).then(function(response)
   {
     $scope.employeeList = response.data.data.employees;
@@ -87,7 +95,11 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
     {
       $scope.employeeList.push(newEmp);
       newEmp.companyId = $cookies.get("clientPanelCompanyId");
+<<<<<<< HEAD
       clientDashboardService.addEmployeeToDB(newEmp, "http://fancymonk.com:9124/api/client/add-employee");
+=======
+      clientDashboardService.addEmployeeToDB(newEmp, "http://fancymonk.com:9125/api/client/add-employee");
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
 
       console.log("comment 3 " , $scope.newEmp);
     }
@@ -104,7 +116,11 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
     emp.employeeId = item.employeeId;
 
 
+<<<<<<< HEAD
     clientDashboardService.deleteEmployeeToDB(emp, "http://fancymonk.com:9124/api/client/delete-employee");
+=======
+    clientDashboardService.deleteEmployeeToDB(emp, "http://fancymonk.com:9125/api/client/delete-employee");
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
   };
 
   $scope.logout = function(){
@@ -144,7 +160,11 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
     });
   }
   // console.log("com id by cookies ", $cookies.get("clientPanelCompanyId"));
+<<<<<<< HEAD
   var weeklyMenuUrl = 'http://fancymonk.com:9124/api/vendor/company-menu?companyId='+$cookies.get("clientPanelCompanyId");
+=======
+  var weeklyMenuUrl = 'http://fancymonk.com:9125/api/vendor/company-menu?companyId='+$cookies.get("clientPanelCompanyId");
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
   // var menu = JSON.parse(data.data.menus.menu);
   $scope.weekMenuSorted = {};
   $scope.weekMenuSorted.BREAKFAST = {};

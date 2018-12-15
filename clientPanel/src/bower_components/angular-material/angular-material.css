@@ -2269,7 +2269,11 @@ md-input-container {
   display: inline-block;
   position: relative;
   padding: 1px;
+<<<<<<< HEAD
   margin: -19px 117px;
+=======
+  margin: 4px 0;
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
   vertical-align: middle;
   /*
    * The .md-input class is added to the input/textarea
@@ -2409,9 +2413,15 @@ md-input-container {
     -webkit-order: 2;
     /* order: 2; */
     display: block;
+<<<<<<< HEAD
     margin-top: 44px;
     /* background: none; */
     padding-top: 13px;
+=======
+    margin-top: -6px;
+    background: none;
+    padding-top: 1px;
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
     padding-bottom: 1px;
     padding-left: 15px;
     padding-right: 2px;

@@ -1,7 +1,6 @@
-
 <div class="container admin-con">
   <div class="row">
-    <h3 style="color:white;"><span class="i-cls"><img src="../image/logo.png" class="img-login" width="50px;"/>Fancymonk</span></h3>
+    <h3 style="color:white;"><span class="i-cls"><img src="../image/logo.png" class="img-login" width="50px;" />Fancymonk</span></h3>
   </div>
   <div class="body-cls">
     <div class="row">
@@ -12,17 +11,19 @@
       <div class="col-sm-12 col-md-4 col-lg-4 admin-part">
 
         <div class="form sign-in">
-          <h6><img src="../image/new25.gif" width="60px;"/></h6>
+          <h6><img src="../image/new25.gif" class="img-responsive" width="60px;" /></h6>
           <h2><span class="i-cls">ADMIN</span></h2>
           <form role="form" name="loginForm">
-          <label class="label-admin">
-          <span class="text-center">Username</span>
-          <input class="input-style input-chng" required ng-model="user.username" type="text" />
-        </label>
             <label class="label-admin">
-          <span>Password</span>
-          <input class="input-style input-chng" type="password" id="inputPassword" required ng-model="user.password" />
-        </label>
+              <span class="text-center">Username</span>
+              <input class="input-style input-chng" required ng-model="user.username" type="text" />
+            </label>
+            
+            <label class="label-admin">
+              <span>Password</span>
+              <input  class="input-style input-chng" type="password" id="inputPassword"  required ng-model="user.password" />
+              <span  ng-click="toggleShowPassword()" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" style="cursor: pointer; pointer-events: all;"></span>
+            </label>
             <p class="forgot-pass">Forgot password?</p>
             <button type="submit a-btn" class="submit admin-b" ng-click="login(user)">Sign In</button>
           </form>

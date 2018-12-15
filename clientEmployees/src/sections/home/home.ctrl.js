@@ -71,6 +71,7 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
     self.newState = newState;
     self.employeeComingList = [];
 
+<<<<<<< HEAD
     self.addTolist = function(dcsn) {
 
       var empDtls = {};
@@ -111,6 +112,48 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
         Notification.error("User is already added");
       }
     }
+=======
+    // self.addTolist = function(dcsn) {
+    //
+    //   var empDtls = {};
+    //
+    //   empDtls.employeeId = self.employeeObject.id;
+    //
+    //   empDtls.type = dcsn;
+    //   // if (dcsn == "Yes") {
+    //   //   empDtls.decision = true;
+    //   // } else {
+    //   //   empDtls.decision = false;
+    //   // }
+    //
+    //
+    //   homeService.addDetail(empDtls, "http://fancymonk.com:9124/api/client/add-employee-count");
+    //   $log.info('hello adding to the list  ' + dcsn);
+    //   var tmpObj = {};
+    //
+    //   tmpObj.id = self.employeeObject.id;
+    //   tmpObj.display = self.employeeObject.display;
+    //   tmpObj.type = dcsn;
+    //
+    //   $log.info('already added employees dscn' + !self.employeeComingList.some(function(element) {
+    //     $log.info('elemenr val ' + JSON.stringify(element));
+    //     $log.info('employee oBj  val ' + JSON.stringify(self.employeeObject));
+    //     return element.display === self.employeeObject.display;
+    //   }));
+    //   if(!self.employeeComingList.some(function(element) {
+    //     return element.display === self.employeeObject.display;
+    //   }))
+    //   {
+    //     $log.info('hejevhjdb');
+    //     self.employeeComingList.push(tmpObj);
+    //
+    //     $log.info('list after adding  ' + JSON.stringify(self.employeeComingList));
+    //   }
+    //   else {
+    //     Notification.error("User is already added");
+    //   }
+    // }
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
 
 
     $http.get("http://fancymonk.com:9124/api/client/get-time-of-day-and-tmr-date")
@@ -126,7 +169,11 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
 
           self.tomorrowDate = response.data.tomorrowDate;
 
+<<<<<<< HEAD
           var empUrl = "http://fancymonk.com:9124/api/client/get-all-employee-data?companyId=1&date=" + self.tomorrowDate
+=======
+          var empUrl = "http://fancymonk.com:9125/api/client/get-employee-default-data?employeeRowId=50&startDate=2018-12-17&endDate=2018-12-22";
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
 
           $http.get(empUrl)
             .then(function(response) {
@@ -138,6 +185,7 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
                   tmpObj.id = ob.employeeId;
                   tmpObj.display = ob.firstName + " " + ob.lastName;
                   tmpObj.type = ob.type;
+<<<<<<< HEAD
                   // employeeComingList
                   // if (ob.active) {
                   //   tmpObj.decision = "Yes";
@@ -145,6 +193,18 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
                   //   tmpObj.decision = "Nope";
                   // }
 
+=======
+                  tmpObj.working_date = ob.working_date;
+                  tmpObj.status = "Yes";
+
+                  if( Date.parse( new Date(tmpObj.working_date) ) <  Date.parse( new Date("2018-12-19") ))
+                  {
+                    tmpObj.disabled = true;
+                  }
+                  else {
+                    tmpObj.disabled = false;
+                  }
+>>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
                   self.employeeComingList.push(tmpObj);
 
                   self.$watch("currentPage", function(newValue, oldValue) {

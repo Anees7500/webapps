@@ -3,5 +3,7 @@ vmApp.controller('AdminLoginController', ['$scope', '$rootScope', '$cookies', 'A
     $scope.login = function(user) {
       AdminLoginService.login(user, adminLoginUrl);
     }
+    // $('#inputPassword').password();
+    
   }
 ]);
