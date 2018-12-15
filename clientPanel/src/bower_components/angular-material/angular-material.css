@@ -2405,7 +2405,7 @@ md-input-container {
   md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field,
   md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text {
     color: transparent;
-    padding-left: 10px;
+    padding-left: 20px;
     box-shadow: inset -2px 11px 1px rgba(0, 0, 0, 0.075);
       }
   md-input-container .md-input {

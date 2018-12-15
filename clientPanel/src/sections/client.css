@@ -5,12 +5,12 @@
 	 /* font-family: "Open Sans", sans-serif; */
      overflow-x: hidden;
      background-color: white;
-     /* background-image: url("../../image/Background1.svg");*/ 
+     /* background-image: url("../../image/Background1.svg");*/
 	}
 	@media screen and (max-width:800px){
   header#site-header {
       display: none;
-			background-color:#00BCD4;
+			background-color:white;
   }
   md-card._md{
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important;

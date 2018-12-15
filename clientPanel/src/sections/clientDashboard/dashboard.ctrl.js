@@ -23,48 +23,35 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   $scope.selectedItemvalue = "2";
   $scope.IsVisible = false;
   $scope.ShowHide = function (lst, dtList) {
-    // console.log("passed value here ", JSON.stringify(lst));
     var tempIsVisible = lst.isVisible;
-
-    var getEmployeeLIstUrl = "http://fancymonk.com:9124/api/client/get-all-employee-data?companyId=" + $cookies.get("clientPanelCompanyId") +"&date=" + lst.Date;
-    $http.get(getEmployeeLIstUrl).then(function(response)
-    {
-      // console.log("response :  ", JSON.stringify(response));
-      lst.employeeComingList = response.data.data.details;
-
-    });
-
     for(var i=0; i<dtList.length; i++){
       dtList[i].isVisible = false;
     }
-
     lst.isVisible = tempIsVisible ? false : true;
   }
+  var getEmployeeMonthlyCountUrl = "http://fancymonk.com:9125/api/client/get-employee-coming-data-monthly?companyId=" + $cookies.get("clientPanelCompanyId");
+  $http.get(getEmployeeMonthlyCountUrl).then(function(response)
+  {
+    $scope.employeeMonthlyDetails = response.data.data.details;
 
-  $scope.employeeComingList = [];
-  $scope.dateList = [{"Date":"2018-11-16", "Count" : 20}, {"Date":"2018-11-17", "Count" : 10}];
+    console.log("monthly dddtlks : ", $scope.employeeMonthlyDetails );
+  });
 
-
-
-  var getEmployeesUrl = "http://fancymonk.com:9124/api/common/get-all-employees?companyId=" + $cookies.get("clientPanelCompanyId");
+  $scope.curPage = 1,
+  $scope.itemsPerPage = 4,
+  $scope.maxSize = 5;
+  var getEmployeesUrl = "http://fancymonk.com:9125/api/common/get-all-employees?companyId=" + $cookies.get("clientPanelCompanyId");
   $http.get(getEmployeesUrl).then(function(response)
   {
     $scope.employeeList = response.data.data.employees;
 
-    $scope.curPage = 1,
-    $scope.itemsPerPage = 10,
-    $scope.maxSize = 5;
-
-      this.items = $scope.employeeList;
-
-
+    this.items = $scope.employeeList;
     $scope.numOfPages = function () {
-      return Math.ceil($scope.employeeList.length / $scope.itemsPerPage);
-
+    return Math.ceil($scope.employeeList.length / $scope.itemsPerPage);
     };
 
       $scope.$watch('curPage + numPerPage', function() {
-      var begin = (($scope.curPage - 1) * $scope.itemsPerPage),
+      var begin = (($scope.curPage - 1) * $scope.itemsPerPage);
       end = begin + $scope.itemsPerPage;
 
       $scope.employeeListFiltered = $scope.employeeList.slice(begin, end);
@@ -82,15 +69,19 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
     newEmp.mobile = item.mobile;
     newEmp.employeeId = item.employeeId;
     newEmp.type = item.type;
+
+    if($scope.employeeList == null)
+    {
+      $scope.employeeList = [];
+    }
     if(!$scope.employeeList.some(function(element) {
       return element.employeeId === item.employeeId;
     }))
-
     {
       $scope.employeeList.push(newEmp);
       newEmp.companyId = $cookies.get("clientPanelCompanyId");
 
-      clientDashboardService.addEmployeeToDB(newEmp, "http://fancymonk.com:9124/api/client/add-employee");
+      clientDashboardService.addEmployeeToDB(newEmp, "http://fancymonk.com:9125/api/client/add-employee");
 
       console.log("comment 3 " , $scope.newEmp);
     }
@@ -102,14 +93,10 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   };
   // console.log("com details ", $rootScope.companyDetails);
   $scope.deleteRow = function (item, ind) {
-    $scope.mePagedItems.splice(ind, 1);
+    $scope.employeeListFiltered.splice(ind, 1);
     var emp = {};
     emp.employeeId = item.employeeId;
-
-
-
-    clientDashboardService.deleteEmployeeToDB(emp, "http://fancymonk.com:9124/api/client/delete-employee");
-
+    clientDashboardService.deleteEmployeeToDB(emp, "http://fancymonk.com:9125/api/client/delete-employee");
   };
 
   $scope.logout = function(){
@@ -138,7 +125,7 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   }
   else
   {
-    var url = 'http://fancymonk.com:9124/api/common/corporate-company?companyId='+$cookies.get("clientPanelCompanyId");
+    var url = 'http://fancymonk.com:9125/api/common/corporate-company?companyId='+$cookies.get("clientPanelCompanyId");
     $http.get(url).then(function(response)
     {
       // console.log("dashboard url response ", response);
@@ -150,7 +137,7 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   }
   // console.log("com id by cookies ", $cookies.get("clientPanelCompanyId"));
 
-  var weeklyMenuUrl = 'http://fancymonk.com:9124/api/vendor/company-menu?companyId='+$cookies.get("clientPanelCompanyId");
+  var weeklyMenuUrl = 'http://fancymonk.com:9125/api/vendor/company-menu?companyId='+$cookies.get("clientPanelCompanyId");
 
 
   // var menu = JSON.parse(data.data.menus.menu);
@@ -284,16 +271,16 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   };
 
 
-  var feedbackUrl = 'http://fancymonk.com:9124/api/admin/corporate-reviews?companyId='+$cookies.get("clientPanelCompanyId");
+  var feedbackUrl = 'http://fancymonk.com:9125/api/admin/corporate-reviews?companyId='+$cookies.get("clientPanelCompanyId");
   $http.get(feedbackUrl).then(function(response)
   {
     // console.log("company feedback response ", response);
     $scope.feedback = response.data.data.reviews;
     $scope.feedback = $scope.feedback.reverse();
 
-    $scope.curPage = 1;
-    $scope.itemsPerPage = 10;
-    $scope.maxSize = 5;
+    // $scope.curPage = 1;
+    // $scope.itemsPerPage = 10;
+    // $scope.maxSize = 5;
     $scope.numOfPages = function () {
       return Math.ceil($scope.feedback.length / $scope.itemsPerPage);
 
@@ -339,7 +326,7 @@ function ($scope,$http, $rootScope, $cookies, $location, clientDashboardService,
   $scope.companyRequirementsSorted.push(saturdayObj);
   $scope.companyRequirementsSorted.push(sundayObj);
 
-  var requirementUrl = 'http://fancymonk.com:9124/api/common/company-requirement?companyId='+$cookies.get("clientPanelCompanyId");
+  var requirementUrl = 'http://fancymonk.com:9125/api/common/company-requirement?companyId='+$cookies.get("clientPanelCompanyId");
   $http.get(requirementUrl).then(function(response)
   {
     // console.log("requirement response ", JSON.stringify(response));
