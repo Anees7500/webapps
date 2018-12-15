@@ -3,8 +3,7 @@ clientApp.controller('LoginController', ['$scope', 'ClientLoginService','$rootSc
     // console.log("hello i am isnide login contriller");
     $scope.login = function(user) {
       console.log("check ",JSON.stringify(user));
-      ClientLoginService.login(user, "http://fancymonk.com:9124/api/corporate/login");
+      ClientLoginService.login(user, "http://fancymonk.com:9124/api/client/login");
     }
   }
 ]);
- 

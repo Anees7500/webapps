@@ -4,8 +4,8 @@
 	 overflow: auto;
 	 /* font-family: "Open Sans", sans-serif; */
      overflow-x: hidden;
-     background-color: F0FADB;
-     /* background-image: url("../../image/backgroud.jpg"); */
+     background-color: white;
+     /* background-image: url("../../image/Background1.svg");*/ 
 	}
 	@media screen and (max-width:800px){
   header#site-header {
