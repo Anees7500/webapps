@@ -22,7 +22,6 @@
 <!---Header End-->
 <div class="main_page" style="width:100%" layout="column" ng-cloak>
   <section layout="row" flex>
-<<<<<<< HEAD
     <md-sidenav class="md-sidenav-left"  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
       <div class="background-dp">
         <div class="background-dp-color ">
@@ -311,33 +310,10 @@
               </section>
             </div>
           </div>
-=======
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-      <div class="background-dp">
-        <div class="background-dp-color ">
-          <!-- <img class ="image" src="../../image/pp1.png"/> -->
-          <h6>Fancymonk</p>
-          </h6><br><br><br><br>
-          <div class="vertical-menu">
-            <a class="text" ng-click="enableBooleans('categoryBool')"><i class="fa fa-sitemap" style="font-size: 24px">
-              </i>
-              <span class="part">Category</span></a>
-            <a class="text" ng-click="enableBooleans('requirementBool')"><i class="fa fa-reorder " style="font-size: 24px"></i>
-              <span class="part">Requirements</span></a>
-            <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-street-view" style="font-size: 24px"></i>
-              <span class="part">Employees Feedback</span></a>
-            <a class="text" ng-click="enableBooleans('manageEmployeeBool')"><i class="fa fa-group" style="font-size: 24px"></i>
-              <span class="part">Manage employee </span></a>
-            <a class="text" ng-click="enableBooleans('employeeCountBool')"><i class="fa fa-cubes" style="font-size: 24px"></i>
-              <span class="part">Employee count</span></a>
-            <a class="text" ng-click="enableBooleans('weeklyMenuBool')"><i class="fa fa-calendar" style="font-size: 24px"></i>
-              <span class="part">Weekly menu </span></a>
-          </div>
-        </div>
-      </div>
-    </md-sidenav>
+
+
     <!-- =====================  category ===================== -->
-    <div class="list-data" ng-if="categoryBool">
+    <!-- <div class="list-data" ng-if="categoryBool">
       <ul class="list-data-item">
         <li class="list-data-item-a"><b class="catagory">
             <md-checkbox disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?"><a class="req">Breackfast
@@ -372,9 +348,9 @@
             </md-checkbox>
           </b></li>
       </ul>
-    </div>
+    </div> -->
     <!-- =====================  Requirement ===================== -->
-    <div class="Requirements-data-item" style="width:calc(100% - 200px)" ng-if="requirementBool">
+    <!-- <div class="Requirements-data-item" style="width:calc(100% - 200px)" ng-if="requirementBool">
       <div class="col-md-12 ">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="wrapper"></br>
@@ -418,9 +394,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--   ================================== MAHAGE EMPLOYEE ======================================= -->
-    <div class="manageEmployee-list" ng-if="manageEmployeeBool">
+    <!-- <div class="manageEmployee-list" ng-if="manageEmployeeBool">
       <div class="employee-id">
         <md-input-container class="manageEmployee-a">
           <label><b class="text12">Employee Id</b></label>
@@ -444,7 +420,7 @@
           <option ng-repeat="sel in selectables" ng-selected="item.type == sel.label" value="{{sel.label}}">{{sel.label}}</option>
         </select></br>
         <!-- <p>Selected Value is : {{selectedItemvalue}}</p>   -->
-        <md-button class="md-raised md-warn" ng-click="addEmpDtls(item)" ng-disabled="!(!!item.employeeId && !!item.firstName && !!item.lastName && !!item.mobile )">Add
+        <!-- <md-button class="md-raised md-warn" ng-click="addEmpDtls(item)" ng-disabled="!(!!item.employeeId && !!item.firstName && !!item.lastName && !!item.mobile )">Add
           Employee</md-button> </br>
       </div>
       <div class="manage-employee">
@@ -479,12 +455,12 @@
           </tfoot>
         </table>
       </div>
-    </div>
+    </div> -->
     <!-- ================================= FEEDBACK LIST =========================================== -->
 
-    <div class="feedback-list" ng-if="feedbackBool">
+    <!-- <div class="feedback-list" ng-if="feedbackBool"> -->
       <!-- <div class="feedback-data-item"> -->
-      <div id="feedback">
+      <!-- <div id="feedback">
         <div class="f-emp"> Employee feedback</div>
         <table class="table">
           <form class="form-inline">
@@ -507,9 +483,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="f in feedbackFiltered | filter:search">
+            <tr ng-repeat="f in feedbackFiltered | filter:search"> -->
               <!-- <tr ng-repeat="f in pagedItems "> -->
-              <td>{{f.reviewerName}}</td>
+              <!-- <td>{{f.reviewerName}}</td>
               <td>{{f.presentationRating}}</td>
               <td>{{f.qualityRating}}</td>
               <td>{{f.tasteRating}}</td>
@@ -540,9 +516,9 @@
 
 
       </div>
-    </div>
+    </div> -->
     <!-- ======================= employeeCount ==================================== -->
-    <div class="employeeCount" ng-if="employeeCountBool">
+    <!-- <div class="employeeCount" ng-if="employeeCountBool">
       <div class="list2">
         <div ng-repeat="list in dateList ">
           <div class="employee-list"> {{list.Date}} <i type="button" ng-click="ShowHide(list,dateList)">Count
@@ -576,10 +552,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- ======================= weeklyMenu ==================================== -->
-    <div class="weeklyMenuItme" ng-if="weeklyMenuBool">
+    <!-- <div class="weeklyMenuItme" ng-if="weeklyMenuBool">
       <table class="table table-condensed table-bordered">
         <thead>
           <tr>
@@ -609,7 +585,7 @@
                   <tr>
                     <td ng-repeat="m in v.menu">{{m.dishName}}</td>
                   </tr>
-                
+
               </table>
             </td>
           </tr>
@@ -618,5 +594,4 @@
     </div>
   </section>
 </div>
-</div>
->>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
+</div> -->
