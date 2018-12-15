@@ -69,9 +69,8 @@
                     <div class="col-md-3 col-sm-6 col-xs-12">
                       <div class="wrapper"></br>
                         <div class="col-md-12" ng-repeat="m in Data">
-                          <div class="boxes">
                             <table id="client">
-                              <tr>
+                              <tr class="boxes">
                                 <td><b class="fa fa-calendar">&nbsp;Calender</td>
                                 </tr>
                                 <tr>
@@ -81,16 +80,14 @@
                                   <td>{{m}}</td>
                                 </tr>
                               </table></br></br>
-                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-9 col-sm-6 col-xs-12">
                         <div class="col-md-12">
                           <div class="col-md-4 col-md-4 col-xs-12 " ng-repeat="(key, value) in companyRequirements"></br>
-                            <div class="boxes1">
-                              <table id="client">
-                                <tr>
+                              <table  id="client">
+                                <tr class="boxes1">
                                   <td><b class="fa fa-cutlery"></b></td>
                                   <td>{{key}}</td>
                                 </tr>
@@ -103,7 +100,6 @@
                                   <td>{{v.price}}</td>
                                 </tr>
                               </table></br>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -112,25 +108,26 @@
                   <!--   ================================== MAHAGE EMPLOYEE ======================================= -->
                   <div class="feedback-list" ng-if="manageEmployeeBool">
                     <div id="feedback">
-                      <span class="f-emp">Add new employee details</span><br><br>
+                      <span class="f-emp">Add new employee details</span><br>
                       <md-input-container class="">
-                        <label><b class="text12">Employee Id</b></label>
+                        <label><b class="text12">Employee Id</b></label>&nbsp;
                         <input class="text13" type="text" placeholder="Enter Employee Id" ng-model="item.employeeId" required />
-                      </md-input-container>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </md-input-container>
                       <md-input-container class="manageEmployee-a">
-
-                        <input type="text" placeholder="Enter Firstname"  ng-model="item.firstName" required /><label><b class="text12">Firstname</b></label>
-                      </md-input-container></br>
+                          <label><b class="text12">Firstname</b></label>&nbsp;
+                        <input type="text" placeholder="Enter Firstname"  ng-model="item.firstName" required />
+                      </md-input-container>
                       <md-input-container>
-                        <label ><b class="text12">Lastname</b></label>
+                        <label ><b class="text12">Lastname</b></label>&nbsp;
                         <input type="text" placeholder="Enter Lastname"  ng-model="item.lastName" required />
-                      </md-input-container>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </md-input-container>
                       <md-input-container>
-                        <label ><b class="text12">Moblie number</b></label>
+                        <label ><b class="text12">Moblie number</b></label>&nbsp;
                         <input type="tel" id="phone" placeholder="Enter mobile number" name="phone" ng-model="item.mobile"  ng-pattern="/^[0-9]{0,10}$/" requiredrequired/>
                       </md-input-container> </br>
+                      <label ><b class="text12">Session</b></label>&nbsp;
                       <select ng-model="item.type">
-                        <option value="">--Select --</option>
+                        <option value="">--Select--</option>
                         <option ng-repeat="sel in selectables" ng-selected="item.type == sel.label" value="{{sel.label}}">{{sel.label}}</option>
                       </select></br>
                       <!-- <p>Selected Value is : {{selectedItemvalue}}</p>   -->
