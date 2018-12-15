@@ -24,19 +24,19 @@
 23 silly mapToRegistry uri https://registry.npmjs.org/gulp
 24 verbose request uri https://registry.npmjs.org/gulp
 25 verbose request no auth needed
-26 info attempt registry request try #1 at 11:08:07 PM
-27 verbose request id 45d76f2d66ade38b
+26 info attempt registry request try #1 at 4:18:57 PM
+27 verbose request id f72f19d7e33decbf
 28 verbose etag W/"d9e4aaa0d1057f3468889942712c4b25"
 29 verbose lastModified Mon, 10 Dec 2018 17:18:20 GMT
 30 http request GET https://registry.npmjs.org/gulp
 31 http 304 https://registry.npmjs.org/gulp
-32 verbose headers { date: 'Fri, 14 Dec 2018 17:38:08 GMT',
+32 verbose headers { date: 'Sat, 15 Dec 2018 10:48:58 GMT',
 32 verbose headers   connection: 'keep-alive',
 32 verbose headers   'set-cookie':
-32 verbose headers    [ '__cfduid=d12776d4ecd66f19170e9b8412baf676e1544809088; expires=Sat, 14-Dec-19 17:38:08 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+32 verbose headers    [ '__cfduid=d9536295010443787e8a7c0df7a281e321544870938; expires=Sun, 15-Dec-19 10:48:58 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 32 verbose headers   'cf-cache-status': 'HIT',
 32 verbose headers   'cache-control': 'max-age=300',
-32 verbose headers   'cf-ray': '48927140ded98993-MAA',
+32 verbose headers   'cf-ray': '489857452e6d896f-MAA',
 32 verbose headers   etag: '"d9e4aaa0d1057f3468889942712c4b25"',
 32 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 32 verbose headers   'last-modified': 'Mon, 10 Dec 2018 17:18:20 GMT',
@@ -44,13 +44,13 @@
 32 verbose headers   'x-amz-meta-rev': '1902-6e82cd930ab3559e507c920a68d7d6ad',
 32 verbose headers   server: 'cloudflare' }
 33 silly get cb [ 304,
-33 silly get   { date: 'Fri, 14 Dec 2018 17:38:08 GMT',
+33 silly get   { date: 'Sat, 15 Dec 2018 10:48:58 GMT',
 33 silly get     connection: 'keep-alive',
 33 silly get     'set-cookie':
-33 silly get      [ '__cfduid=d12776d4ecd66f19170e9b8412baf676e1544809088; expires=Sat, 14-Dec-19 17:38:08 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+33 silly get      [ '__cfduid=d9536295010443787e8a7c0df7a281e321544870938; expires=Sun, 15-Dec-19 10:48:58 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 33 silly get     'cf-cache-status': 'HIT',
 33 silly get     'cache-control': 'max-age=300',
-33 silly get     'cf-ray': '48927140ded98993-MAA',
+33 silly get     'cf-ray': '489857452e6d896f-MAA',
 33 silly get     etag: '"d9e4aaa0d1057f3468889942712c4b25"',
 33 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 33 silly get     'last-modified': 'Mon, 10 Dec 2018 17:18:20 GMT',
@@ -1203,104 +1203,104 @@
 121 silly gunzTarPerm extractEntry README.md
 122 silly gunzTarPerm extractEntry LICENSE
 123 verbose unbuild node_modules/.staging/gulp-ng-config-04f3aaf2
-124 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2 is being purged from base /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel
-125 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2
-126 verbose tar unpack /home/anish/.npm/gulp-ng-config/1.5.0/package.tgz
-127 verbose tar unpacking to /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2
-128 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2 is being purged
-129 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2
-130 silly gunzTarPerm modes [ '755', '644' ]
-131 silly gunzTarPerm extractEntry index.js
-132 silly gunzTarPerm extractEntry CHANGELOG.md
-133 verbose unbuild node_modules/.staging/gulp-concat-de439e49
-134 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49 is being purged from base /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel
-135 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49
-136 verbose tar unpack /home/anish/.npm/gulp-concat/2.6.1/package.tgz
-137 verbose tar unpacking to /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49
-138 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49 is being purged
-139 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49
-140 silly gunzTarPerm modes [ '755', '644' ]
-141 silly gunzTarPerm extractEntry package.json
-142 silly gunzTarPerm extractEntry .npmignore
-143 silly gunzTarPerm extractEntry README.md
-144 silly gunzTarPerm extractEntry package.json
-145 silly gunzTarPerm extractEntry README.md
-146 silly gunzTarPerm extractEntry LICENSE
-147 verbose unbuild node_modules/.staging/gulp-connect-a12cb7bb
-148 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb is being purged from base /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel
-149 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb
-150 verbose tar unpack /home/anish/.npm/gulp-connect/5.6.1/package.tgz
-151 verbose tar unpacking to /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb
-152 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb is being purged
-153 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb
-154 silly gunzTarPerm modes [ '755', '644' ]
-155 silly gunzTarPerm extractEntry package.json
-156 silly gunzTarPerm extractEntry .travis.yml
-157 silly gunzTarPerm extractEntry index.js
-158 silly gunzTarPerm extractEntry jetbrains.png
-159 silly gunzTarPerm extractEntry gulp-ng-config.js
-160 silly gunzTarPerm extractEntry gulpfile.js
-161 silly gunzTarPerm extractEntry index.js
-162 silly gunzTarPerm extractEntry .jscsrc
-163 silly gunzTarPerm extractEntry .jshintrc
-164 silly gunzTarPerm extractEntry .travis.yml
-165 silly gunzTarPerm extractEntry LICENSE.md
-166 silly gunzTarPerm extractEntry test/stream.js
-167 silly gunzTarPerm extractEntry test/mocks/output_9.js
-168 silly gunzTarPerm extractEntry test/mocks/output_22.js
-169 silly gunzTarPerm extractEntry test/mocks/output_1.js
-170 silly gunzTarPerm extractEntry test/mocks/output_10.js
-171 silly gunzTarPerm extractEntry test/mocks/output_3.js
-172 silly gunzTarPerm extractEntry test/mocks/output_12.js
-173 silly gunzTarPerm extractEntry test/mocks/output_13.js
-174 silly gunzTarPerm extractEntry test/mocks/output_14.js
-175 silly gunzTarPerm extractEntry test/mocks/output_21.js
-176 silly gunzTarPerm extractEntry test/mocks/output_16.js
-177 silly gunzTarPerm extractEntry test/mocks/output_4.js
-178 silly gunzTarPerm extractEntry test/mocks/output_17.js
-179 silly gunzTarPerm extractEntry test/mocks/output_5.js
-180 silly gunzTarPerm extractEntry test/mocks/output_18.js
-181 silly gunzTarPerm extractEntry test/mocks/output_6.js
-182 silly gunzTarPerm extractEntry test/mocks/output_19.js
-183 silly gunzTarPerm extractEntry test/mocks/output_7.js
-184 silly gunzTarPerm extractEntry test/mocks/output_2.js
-185 silly gunzTarPerm extractEntry test/mocks/output_8.js
-186 silly gunzTarPerm extractEntry test/mocks/output_20.js
-187 silly gunzTarPerm extractEntry test/mocks/output_11.js
-188 silly gunzTarPerm extractEntry test/mocks/output_15.js
-189 silly gunzTarPerm extractEntry test/mocks/input_1.json
-190 silly gunzTarPerm extractEntry test/mocks/input_5.json
-191 silly gunzTarPerm extractEntry test/mocks/input_4.json
-192 silly gunzTarPerm extractEntry test/mocks/input_3.json
-193 silly gunzTarPerm extractEntry test/mocks/input_2.yml
-194 silly gunzTarPerm extractEntry test/mocks/input_2.yaml
-195 silly gunzTarPerm extractEntry test/mocks/input_2.json
-196 silly gunzTarPerm extractEntry test/mocks/input_1.yml
-197 silly gunzTarPerm extractEntry test/mocks/customTemplate.html
-198 silly gunzTarPerm extractEntry template.html
-199 silly gunzTarPerm extractEntry bin/gulp.js
-200 silly gunzTarPerm extractEntry index.js
-201 silly gunzTarPerm extractEntry completion/README.md
-202 silly gunzTarPerm extractEntry completion/bash
-203 silly gunzTarPerm extractEntry LICENSE
-204 silly gunzTarPerm extractEntry README.md
-205 silly gunzTarPerm extractEntry bin/make_certs.sh
-206 silly gunzTarPerm extractEntry certs/server.crt
-207 silly gunzTarPerm extractEntry completion/fish
-208 silly gunzTarPerm extractEntry completion/powershell
-209 silly gunzTarPerm extractEntry certs/server.key
-210 silly gunzTarPerm extractEntry src/index.coffee
-211 silly gunzTarPerm extractEntry test/fixtures/multiple/app/index.html
-212 silly gunzTarPerm extractEntry completion/zsh
-213 silly gunzTarPerm extractEntry gulp.1
+124 verbose unbuild node_modules/.staging/gulp-concat-de439e49
+125 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2 is being purged from base /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel
+126 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2
+127 verbose tar unpack /home/anish/.npm/gulp-ng-config/1.5.0/package.tgz
+128 verbose tar unpacking to /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2
+129 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2 is being purged
+130 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-ng-config-04f3aaf2
+131 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49 is being purged from base /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel
+132 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49
+133 silly gunzTarPerm modes [ '755', '644' ]
+134 verbose tar unpack /home/anish/.npm/gulp-concat/2.6.1/package.tgz
+135 verbose tar unpacking to /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49
+136 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49 is being purged
+137 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49
+138 silly gunzTarPerm modes [ '755', '644' ]
+139 verbose unbuild node_modules/.staging/gulp-connect-a12cb7bb
+140 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb is being purged from base /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel
+141 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb
+142 verbose tar unpack /home/anish/.npm/gulp-connect/5.6.1/package.tgz
+143 verbose tar unpacking to /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb
+144 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb is being purged
+145 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb
+146 silly gunzTarPerm modes [ '755', '644' ]
+147 silly gunzTarPerm extractEntry package.json
+148 silly gunzTarPerm extractEntry .npmignore
+149 silly gunzTarPerm extractEntry README.md
+150 silly gunzTarPerm extractEntry package.json
+151 silly gunzTarPerm extractEntry README.md
+152 silly gunzTarPerm extractEntry LICENSE
+153 silly gunzTarPerm extractEntry index.js
+154 silly gunzTarPerm extractEntry CHANGELOG.md
+155 silly gunzTarPerm extractEntry index.js
+156 silly gunzTarPerm extractEntry bin/gulp.js
+157 silly gunzTarPerm extractEntry gulp-ng-config.js
+158 silly gunzTarPerm extractEntry gulpfile.js
+159 silly gunzTarPerm extractEntry index.js
+160 silly gunzTarPerm extractEntry .jscsrc
+161 silly gunzTarPerm extractEntry .jshintrc
+162 silly gunzTarPerm extractEntry .travis.yml
+163 silly gunzTarPerm extractEntry LICENSE.md
+164 silly gunzTarPerm extractEntry test/stream.js
+165 silly gunzTarPerm extractEntry test/mocks/output_9.js
+166 silly gunzTarPerm extractEntry test/mocks/output_22.js
+167 silly gunzTarPerm extractEntry test/mocks/output_1.js
+168 silly gunzTarPerm extractEntry test/mocks/output_10.js
+169 silly gunzTarPerm extractEntry test/mocks/output_3.js
+170 silly gunzTarPerm extractEntry test/mocks/output_12.js
+171 silly gunzTarPerm extractEntry test/mocks/output_13.js
+172 silly gunzTarPerm extractEntry test/mocks/output_14.js
+173 silly gunzTarPerm extractEntry test/mocks/output_21.js
+174 silly gunzTarPerm extractEntry test/mocks/output_16.js
+175 silly gunzTarPerm extractEntry test/mocks/output_4.js
+176 silly gunzTarPerm extractEntry test/mocks/output_17.js
+177 silly gunzTarPerm extractEntry test/mocks/output_5.js
+178 silly gunzTarPerm extractEntry test/mocks/output_18.js
+179 silly gunzTarPerm extractEntry test/mocks/output_6.js
+180 silly gunzTarPerm extractEntry test/mocks/output_19.js
+181 silly gunzTarPerm extractEntry test/mocks/output_7.js
+182 silly gunzTarPerm extractEntry test/mocks/output_2.js
+183 silly gunzTarPerm extractEntry test/mocks/output_8.js
+184 silly gunzTarPerm extractEntry test/mocks/output_20.js
+185 silly gunzTarPerm extractEntry test/mocks/output_11.js
+186 silly gunzTarPerm extractEntry test/mocks/output_15.js
+187 silly gunzTarPerm extractEntry test/mocks/input_1.json
+188 silly gunzTarPerm extractEntry test/mocks/input_5.json
+189 silly gunzTarPerm extractEntry test/mocks/input_4.json
+190 silly gunzTarPerm extractEntry test/mocks/input_3.json
+191 silly gunzTarPerm extractEntry test/mocks/input_2.yml
+192 silly gunzTarPerm extractEntry test/mocks/input_2.yaml
+193 silly gunzTarPerm extractEntry test/mocks/input_2.json
+194 silly gunzTarPerm extractEntry test/mocks/input_1.yml
+195 silly gunzTarPerm extractEntry test/mocks/customTemplate.html
+196 silly gunzTarPerm extractEntry template.html
+197 silly gunzTarPerm extractEntry package.json
+198 silly gunzTarPerm extractEntry .travis.yml
+199 silly gunzTarPerm extractEntry index.js
+200 silly gunzTarPerm extractEntry completion/README.md
+201 silly gunzTarPerm extractEntry completion/bash
+202 silly gunzTarPerm extractEntry jetbrains.png
+203 silly gunzTarPerm extractEntry completion/fish
+204 silly gunzTarPerm extractEntry completion/powershell
+205 silly gunzTarPerm extractEntry LICENSE
+206 silly gunzTarPerm extractEntry completion/zsh
+207 silly gunzTarPerm extractEntry gulp.1
+208 silly gunzTarPerm extractEntry README.md
+209 silly gunzTarPerm extractEntry bin/make_certs.sh
+210 silly gunzTarPerm extractEntry certs/server.crt
+211 silly gunzTarPerm extractEntry certs/server.key
+212 silly gunzTarPerm extractEntry src/index.coffee
+213 silly gunzTarPerm extractEntry test/fixtures/multiple/app/index.html
 214 silly gunzTarPerm extractEntry test/fixtures/multiple/dist/dist.html
-215 silly gunzTarPerm extractEntry test/fixtures/simplest/index.html
-216 silly gunzTarPerm extractEntry test/fixtures/simplest/test.txt
-217 silly gunzTarPerm extractEntry test/test.js
-218 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49/node_modules is being purged
-219 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49/node_modules
-220 silly gunzTarPerm extractEntry lib/completion.js
-221 silly gunzTarPerm extractEntry lib/taskTree.js
+215 silly gunzTarPerm extractEntry lib/completion.js
+216 silly gunzTarPerm extractEntry lib/taskTree.js
+217 silly gunzTarPerm extractEntry test/fixtures/simplest/index.html
+218 silly gunzTarPerm extractEntry test/fixtures/simplest/test.txt
+219 silly gunzTarPerm extractEntry test/test.js
+220 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49/node_modules is being purged
+221 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-concat-de439e49/node_modules
 222 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-010761dc/node_modules is being purged
 223 verbose gentlyRm don't care about contents; nuking /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-010761dc/node_modules
 224 silly gentlyRm /media/anish/83D5-30C8/fancymonk_work/webapps/clientPanel/node_modules/.staging/gulp-connect-a12cb7bb/node_modules is being purged
