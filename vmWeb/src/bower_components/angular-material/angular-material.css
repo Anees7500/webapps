@@ -758,8 +758,8 @@ button.md-button::-moz-focus-inner {
   outline: none;
   border: 0;
   /** Custom styling for button */
-  padding: 0 6px;
-  margin: 6px 8px;
+  padding: 0 25px;
+  margin: 14px 8px;
   background: transparent;
   color: currentColor;
   white-space: nowrap;
