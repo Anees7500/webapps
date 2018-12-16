@@ -17,7 +17,7 @@ gulp.task('connect-prod', function () {
 		port: 8001
 	});
 });
-gulp.task('default', ['connect-dev']);
+gulp.task('default', ['make-config-module','connect-dev']);
 
 gulp.task('make-config-module', function () {
 	gulp

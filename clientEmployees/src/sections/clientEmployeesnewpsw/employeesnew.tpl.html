@@ -20,8 +20,15 @@
                 <div class="underline"></div>
             </label>
 
+            <<div class="" ng-if="newPass.password != newPass.confirmPassword">
+              <span>Password do not match</span>
+            </div>
+
             <div class="submit-container clearfix" style="margin-top: 2rem;">
-                <div id="submit" role="button" type="button" class="btn btn-irenic float-right" ng-click="updatePassword(newPass)"
+                <div id="submit" role="button" type="button"
+                ng-disabled="(newPass.password != newPass.confirmPassword) && newPass.password == null &&
+                newPass.confirmPassword == null"
+                class="btn btn-irenic float-right" ng-click="updatePassword(newPass)"
                 tabindex="0">
                     <span>SIGN IN</span>
                 </div>

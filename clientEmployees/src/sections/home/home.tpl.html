@@ -41,6 +41,20 @@
         </div>
       </div>
     </li><br>
+    <li>
+      <div class="">
+        <a class="text" ng-click="enableBooleans('homeBool')"><i class="fa fa-sitemap">
+          </i>
+          <span class="part">Home</span></a>
+      </div>
+      <br>
+      <div class="">
+        <a class="text" ng-click="enableBooleans('weekMenuBool')"><i class="fa fa-sitemap">
+          </i>
+          <span class="part">Week's Menu</span></a>
+      </div>
+
+    </li>
   </ul>
 </nav>
 
@@ -48,113 +62,9 @@
   <section>
     <!-- CONTENT -->
     <!-- ___________________DASHBOARD_____________________ -->
-<<<<<<< HEAD
-    <div class="outOfTime" ng-if="!timeOfDay">
-      <p>Sorry, Booking for tomorrow is closed now</p>
-
-    </div>
-    <div class="employee-list" ng-if="timeOfDay">
-      <ul class="nav">
-        <div class="employee-coming">
-          <div layout="column" ng-cloak>
-            <md-content class="md-padding">
-              <form ng-submit="$event.preventDefault()">
-                <md-autocomplete md-selected-item="selectedItem" md-search-text-change="searchTextChange(searchText)"
-                  md-search-text="searchText" md-selected-item-change="selectedItemChange(item)" md-items="item in querySearch(searchText)"
-                  md-item-text="item.display" md-min-length="0" placeholder="Please tell us your name">
-                  <md-item-template>
-                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                  </md-item-template>
-                  <md-not-found>
-                    No states matching "{{searchText}}" were found.
-                    <a ng-click="newState(searchText)">Create a new one!</a>
-                  </md-not-found>
-                </md-autocomplete>
-              </form>
-            </md-content>
-          </div>
-        </div>
-
-
-        <md-switch ng-model="type" aria-label="Switch 2" ng-true-value="'Dinner'" ng-false-value="'Lunch'" class="md-warn"
-          ng-disabled="!selectedItem">
-          {{type}}
-        </md-switch>
-        
-       
-
-        <md-button class="md-raised md-primary" ng-disabled="!selectedItem" ng-click="addTolist(type)">Add</md-button>
-
-
-
-        <div class="list">
-          <!-- <div class="feedback-data-item"> -->
-          <div id="feedback">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody class="names">
-                <tr class="align-left" ng-repeat="e in employeeComingList">
-                  <td>{{e.display}}</td>
-                  <td>{{tomorrowDate}}</td>
-                  <td>{{e.type}}</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <td colspan="116">
-                  <div class="pagination" ng-if="total > itemsPerPage">
-                    <ul class="pager">
-                      <li class="previous" ng-class="prevPageDisabled()">
-                        <a href ng-click="prevPage()">« Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      </li>
-                      <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
-                        <a>{{n+1}}</a>
-                      </li>
-                      <li class="next" ng-class="nextPageDisabled()">
-                        <a href ng-click="nextPage()">Next »</a>
-                      </li>
-                    </ul>
-                  </div>
-                </td>
-            </table>
-          </div>
-        </div>
-        <!-- <div class="row">
-                    <li ng-repeat="cpny in allCompanies | filter:search1">
-
-                        <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
-                            <md-content class="md-padding" layout-xs="column" layout="row">
-                                <div flex-xs flex-gt-xs="100" layout="column">
-
-                                    <md-card>
-                                        <a class="b-clr font" href="#/admin/company/{{cpny.id}}">
-                                            <div class="company-dp">
-                                                <img src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="img-c-card" />
-                                            </div>
-                                            <div class="title-name">
-                        <span class="c-card-name b-clr font">
-                  <i class="fa fa-briefcase" aria-hidden="true"></i> {{cpny.companyName | uppercase}}
-                  </span><br>
-                                                <h6 class="b-clr font"><span class="text-center b-clr font"><i class="fas fa-map-marker-alt"></i></span> {{cpny.address}}</h6>
-                                            </div>
-                                        </a>
-                                    </md-card>
-                                </div>
-                            </md-content>
-                        </div>
-                    <li>
-                </div> -->
-      </ul>
-
-=======
     <div class="list">
       <!-- <div class="feedback-data-item"> -->
-      <div id="feedback">
+      <div id="feedback" ng-if="homeBool">
         <table class="table">
           <thead>
             <tr>
@@ -179,8 +89,28 @@
           </tbody>
         </table>
       </div>
->>>>>>> cf0f834e478ba9176f538bfd7eb8b256c9b09e7c
     </div>
-</div>
+
+    <div class="weeklyMenuItme" ng-if="weekMenuBool">
+      <div class="list3"><span class="fm-menu">Menu</span>
+        <div ng-repeat="(key, val) in weekMenuSorted">
+          <div class="employee-list1"><strong>{{key}}</strong><i type="button" ng-click="ShowHide(val)">
+              <a class="fa fa-caret-down"></a></i>
+              <div class="container">
+            <div class=" fm_day col-sm-12 well" ng-if="val.visible" ng-repeat="(k, v) in val">
+              <div><strong>{{k}}</strong>
+                <br><br>
+                <ul id="menu">
+                  <li ng-repeat="m in v.menu">
+                   {{m.dishName}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
 </div>
