@@ -1,4 +1,5 @@
-var clientApp = angular.module("clientApp", ['ngRoute', 'ngMaterial','ngCookies','ui.bootstrap']);
+var clientApp = angular.module("clientApp", ['ngRoute', 'ngMaterial','ngCookies',
+'ui.bootstrap','ui-notification']);
 
 clientApp.config(['$routeProvider', '$locationProvider',
     function ($routerProvider, $locationProvider) {

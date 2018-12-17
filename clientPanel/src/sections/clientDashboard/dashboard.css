@@ -5,7 +5,7 @@
   position: relative;
   background-color: rgb(0, 188, 212);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  0 2px 4px 0 rgba(0, 0, 0, 0.08);
 
 }
 
@@ -103,7 +103,7 @@ h6{
   overflow-x: hidden;
   background-color: white;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.13),
-    0 15px 30px 0 rgba(0, 0, 0, 0.11);
+  0 15px 30px 0 rgba(0, 0, 0, 0.11);
 }
 
 .menu-button {
@@ -141,7 +141,7 @@ h6{
   color: #000000;
   font-family: Calibri Black;
   font-size: 22px;
-/* text-shadow: 0px 0px 2px rgba(179, 179, 179); */}
+}
 .pagination{
   color: #000000;
   font-family: Calibri Black;
@@ -155,7 +155,7 @@ h6{
   border-radius: 50%;
   text-align: center;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.01),
-    0 5px 15px 0 rgba(0, 0, 0, 0.01);
+  0 5px 15px 0 rgba(0, 0, 0, 0.01);
 
 }
 
@@ -210,7 +210,7 @@ h6{
   margin-left: 10px;
   margin-top: 4px;
   font-size: 15px;
-  font-family: Tahoma, Geneva, sans-serif;
+  font-family: Calibri Black;
 
 }
 
@@ -262,18 +262,14 @@ h6{
   height: 500px;
   width: 1000px;
   list-style: none;
-  background: #ffffff;
-  border: 1px solid #c3c3c394;
-  /* border-radius: 0px 0px 129px 0px; */
-  /* box-shadow: 0px 4px 21px 4px rgba(0, 0, 0, 0.31); */
 }
 
 .catagory {
   font-size: 20px;
-  /*font-family: arial;*/
+  /font-family: arial;/
   color: #071514;
   margin: 20px;
-  /*margin-top: 10px;*/
+  /margin-top: 10px;/
 }
 
 .switch {
@@ -305,7 +301,7 @@ h6{
   outline-offset: 100px;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0px 4px 21px 4px rgba(0,0,0,0.31);
+  box-shadow: -1px 3px 6px 1px rgba(0,0,0,0.31);
   border-top: 10px none #ff6550;
   border-right:  1px double rgba(203,196,224,0.69);
   border-bottom:  1px double rgba(203,196,224,0.69);
@@ -317,8 +313,7 @@ h6{
   border:0px solid #ddd;
   padding: 0px;
   text-align: center;
-
-
+  height: 21px;
 }
 #client tr:hover {background-color: #F7C8D4;
 
@@ -367,6 +362,8 @@ h6{
 }
 #feedback th {
   padding-bottom: 4px;
+  text-align: center;
+  padding-left: 16px;
   background-color: #00BCD4;
 }
 
@@ -374,12 +371,12 @@ h6{
 
 #employeeCount {
   padding: 5px;
-      margin-left: 16px;
-      background-color: white;
-      text-align: center;
-      float: left;
-      margin-top: 4px;
-      box-shadow: 1px 1px 10px 0px rgba(174, 183, 183, 0.4);
+  margin-left: 16px;
+  background-color: white;
+  text-align: center;
+  float: left;
+  margin-top: 4px;
+  box-shadow: 1px 1px 10px 0px rgba(174, 183, 183, 0.4);
 }
 #employeeCount tr, #employeeCount td {
   border-top: 1px solid #e0d8d8;
@@ -396,7 +393,8 @@ h6{
 #employeeCount th {
   padding-bottom: 4px;
   padding-left: 55px;
-padding-right: 20px;
+  padding-right: 20px;
+  text-align: center;;
   background-color: #00BCD4;
 }
 
@@ -423,7 +421,7 @@ padding-right: 20px;
   left: 45px;
   float: left;
   height: 12px;
-  /*width: 8px;*/
+  /width: 8px;/
   text-align: center;
   font-size: 8px;
 }
@@ -508,7 +506,7 @@ padding-right: 20px;
   margin-top: 23px;
 }
 #manageEmployee {
-  height: 100%;
+  height: 120%;
   padding: 17px;
   margin-left: 50px;
   text-align: center;
@@ -601,8 +599,8 @@ padding-right: 20px;
 .content{
   column-count: 2;
   column-gap: 21px;
-  column-rule: 50px solid #D3D3D3;
-  margin-top: 8px;
+  /* column-rule: 50px solid #D3D3D3; */
+  /* margin-top: 8px; */
 }
 .fm_day{
   width: 81%;
@@ -619,19 +617,14 @@ ul#menu li {
     border-radius: 15px;
     font-size: 12px;
     margin: 0 10px 0;
-    text-align: center
-
-
+    text-align: center;
 
 }
-/* li{
-  text-align:center;
-} */
 .employee-list1 {
-  border-radius: 2px;
+  border-radius: 30px;
   box-shadow: 2px 2px 10px #808080;
-  background-color: #FDF2E9;
-  padding: 8px;
+  background-color: #D7EEEF;
+  padding: 21px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 9pt;
   color: #17202A;
@@ -642,6 +635,18 @@ ul#menu li {
 }
 .fm-menu{
   font-size: 20px;
-  /* color: rgb(38, 177, 196); */
+  margin-left: 545px;
   color: #000000;
+  font: bold;
+}
+
+tr.employee-disabled-row
+{
+  background-color: #a9a9a9;
+}
+.part{
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+  text-decoration: none !important;
 }

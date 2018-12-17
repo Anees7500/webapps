@@ -1,0 +1,281 @@
+<!---Header part-->
+<div class="header clearfix" style="position:fixed">
+  <div class="">
+    <div class="row">
+      <div class="col-md-2  ">
+        <img class="logo-image1 " src="../../image/fancymonklogo.png" />
+        <p class="fancymonk"> Fancymonk </p>
+      </div>
+      <div class="col-md-8"></div>
+      <div class="col-md-2 ">
+        <div class="dropdown pull-right">
+          <span class="icons8"><img src="../../image/girl.svg "></span>
+          <div class="dropdown-content">
+            <a href="#" class="fa fa-question-circle"><i class="dropdown-text">Help</i></a>
+            <a ng-click="logout()" class="fa fa-sign-out"><i class="dropdown-text">Log Out</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!---Header End-->
+<div class="main_page " style="width:100%" layout="column" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <div class="background-dp">
+        <div class="background-dp-color">
+          <!-- <img class ="image" src="../../image/pp1.png"/> -->
+          <h6>Fancymonk</p>
+          </h6><br><br><br><br>
+          <div class="vertical-menu navbar-fixed-left">
+            <a class="text" ng-click="enableBooleans('categoryBool')"><i class="fa fa-sitemap" style="font-size: 24px">
+              </i>
+              <span class="part">Category</span></a>
+              <a class="text" ng-click="enableBooleans('requirementBool')"><i class="fa fa-reorder " style="font-size: 24px" ></i>
+                <span class="part" >Requirements</span></a>
+                <a class="text" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-street-view" style="font-size: 24px"></i>
+                  <span class="part" >Employees Feedback</span></a>
+                  <a class="text" ng-click="enableBooleans('manageEmployeeBool')"><i class="fa fa-group" style="font-size: 24px"></i>
+                    <span class="part" >Manage employee </span></a>
+                    <a class="text" ng-click="enableBooleans('employeeCountBool')"><i class="fa fa-cubes" style="font-size: 24px" ></i>
+                      <span class="part" >Employee count</span></a>
+                      <a class="text" ng-click="enableBooleans('weeklyMenuBool')"><i class="fa fa-calendar" style="font-size: 24px" ></i>
+                        <span class="part" >Weekly menu </span></a>
+                      </div>
+                    </div>
+                  </div>
+                </md-sidenav>
+                <!-- =====================  category ===================== -->
+                <div class="list-data" ng-if="categoryBool">
+                  <ul class="list-data-item">
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" ><a class="req">Breackfast </a>
+                    </md-checkbox></b></li>
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled"  ng-model="companyDetail.lunch" aria-label="Finished?"><a class="req">Lunch</a>
+                    </md-checkbox></b></li>
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.snacks" aria-label="Finished?"><a class="req">snacks</a>
+                    </md-checkbox></b></li>
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.dinner" aria-label="Finished?"><a class="req">Dinner</a>
+                    </md-checkbox></b></li>
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.midNightSnacks" aria-label="Finished?"><a class="req">Mid night snacks</a>
+                    </md-checkbox></b></li>
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.earlyMorningSnacks" aria-label="Finished?"><a class="req">Early Morning snacks</a>
+                    </md-checkbox></b></li>
+                    <li class="list-data-item-a"><b class="catagory"><md-checkbox disabled="disabled" ng-model="companyDetail.cashNCarry" aria-label="Finished?"><a class="req">Cash & carry</a>
+                    </md-checkbox></b></li>
+                  </ul>
+                </div>
+                <!-- =====================  Requirement ===================== -->
+                <div class="Requirements-data-item" style="width:calc(100% - 200px)" ng-if="requirementBool">
+                  <div class="col-md-12 ">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                      <div class="wrapper"></br>
+                        <div class="col-md-12" ng-repeat="m in Data">
+                          <table id="client">
+                            <tr class="boxes">
+                              <td><b class="fa fa-calendar">&nbsp;Calender</td>
+                              </tr>
+                              <tr>
+                                <th>Days</th>
+                              </tr>
+                              <tr ng-repeat="m in Days">
+                                <td>{{m}}</td>
+                              </tr>
+                            </table></br></br>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-9 col-sm-6 col-xs-12">
+                        <div class="col-md-12">
+                          <div class="col-md-4 col-md-4 col-xs-12 " ng-repeat="(key, value) in companyRequirements"></br>
+                            <table  id="client">
+                              <tr class="boxes1">
+                                <td><b class="fa fa-cutlery"></b></td>
+                                <td>{{key}}</td>
+                              </tr>
+                              <tr>
+                                <th><b class="fa fa-user-circle-o">&nbsp;&nbsp;Person</b></th>
+                                <th><b class="fa fa-rupee">&nbsp;Price</b></th>
+                              </tr>
+                              <tr ng-repeat="v in value">
+                                <td>{{v.count}}</td>
+                                <td>{{v.price}}</td>
+                              </tr>
+                            </table></br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--   ================================== MAHAGE EMPLOYEE ======================================= -->
+                  <div class="feedback-list" ng-if="manageEmployeeBool">
+                    <div id="manageEmployee">
+                      <span class="f-emp">Add new employee details</span><br>
+                      <md-input-container class="">
+                        <label><b class="text12">Employee Id</b></label>&nbsp;
+                        <input class="text13" type="text" placeholder="Enter Employee Id" ng-model="item.employeeId" required />
+                      </md-input-container>
+                      <md-input-container class="manageEmployee-a">
+                        <label><b class="text12">Firstname</b></label>&nbsp;
+                        <input type="text" placeholder="Enter Firstname"  ng-model="item.firstName" required />
+                      </md-input-container>
+                      <md-input-container>
+                        <label ><b class="text12">Lastname</b></label>&nbsp;
+                        <input type="text" placeholder="Enter Lastname"  ng-model="item.lastName" required />
+                      </md-input-container>
+                      <md-input-container>
+                        <label ><b class="text12">Moblie number</b></label>&nbsp;
+                        <input type="tel" id="phone" placeholder="Enter mobile number" name="phone" ng-model="item.mobile"  ng-pattern="/^[0-9]{0,10}$/" requiredrequired/>
+                      </md-input-container> </br>
+                      <label ><b class="text12">Session</b></label>&nbsp;
+                      <select ng-model="item.type">
+                        <option value="">----------------Select-------------</option>
+                        <option ng-repeat="sel in selectables" ng-selected="item.type == sel.label" value="{{sel.label}}">{{sel.label}}</option>
+                      </select></br>
+                      <!-- <p>Selected Value is : {{selectedItemvalue}}</p>   -->
+                      <md-button class="md-raised md-warn"   ng-click="addEmpDtls(item)"  ng-disabled="!(!!item.employeeId && !!item.firstName && !!item.lastName && !!item.mobile )">Add Employee</md-button> </br>
+
+                      <div class="f-emp" >
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Employee Id</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Mobile Number</th>
+                              <th>Requirement type</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="e in employeeListFiltered">
+                              <td>{{e.employeeId}}</td>
+                              <td>{{e.firstName}}</td>
+                              <td>{{e.lastName}}</td>
+                              <td>{{e.mobile}}</td>
+                              <td>{{e.type}}</td>
+                              <td>
+                                <i class="fa fa-trash" ng-click="deleteRow(e,$index)"></i>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div ng-if="employeeList.length > 5"data-pagination="" data-num-pages="numOfPages()"
+                          data-current-page="curPage" data-max-size="maxSize"
+                          data-boundary-links="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ================================= FEEDBACK LIST =========================================== -->
+
+                  <div class="feedback-list"  ng-if="feedbackBool">
+                    <!-- <div class="feedback-data-item"> -->
+                    <div id="feedback">
+                      <div class="f-emp"> Employee feedback</div>
+                      <div class="f-emp">
+                        <table class="table">
+                          <form class="form-inline">
+                            <div class="form-group">
+                              <label >Search</label>
+                              <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                            </div>
+                          </form>
+                          <thead>
+                            <tr class="head">
+                              <th ng-click="sort('reviewerName')">Name</th>
+                              <th>Overall Rating</th>
+                              <th>Presentation Rating</th>
+                              <th>Quality Rating</th>
+                              <th>Quantity Rating</th>
+                              <th>Taste Rating</th>
+                              <th ng-click="sort('mobile')">Contact</th>
+                              <th>Comment</th>
+                              <th>Date & Time</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="f in feedbackFiltered | filter:search">
+                              <!-- <tr ng-repeat="f in pagedItems "> -->
+                              <td>{{f.reviewerName}}</td>
+                              <td>{{f.presentationRating}}</td>
+                              <td>{{f.qualityRating}}</td>
+                              <td>{{f.tasteRating}}</td>
+                              <td>{{f.quantityRating}}</td>
+                              <td>{{f.overAllRating}}</td>
+                              <td>{{f.mobile}}</td>
+                              <td>
+                                <div>
+                                  <span class="badge badge-notify" ng-if="f.comment.length > 0">1</span>
+                                  <div ng-if="f.comment.length > 0">
+                                    <md-tooltip  ng-bind="f.comment" md-visible="showTooltip">{{f.comment}}</md-tooltip>
+                                    <span class="fa fa-comments-o" style="font-size:22px"></span>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>{{f.createdAt}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div data-pagination="" data-num-pages="numOfPages()"
+                      data-current-page="curPage" data-max-size="maxSize"
+                      data-boundary-links="true"></div>
+                    </div>
+                  </div>
+                  <!-- ======================= employeeCount ==================================== -->
+                  <div class="employeecount"  ng-if="employeeCountBool">
+                    <div class="list2">
+                      <div ng-repeat="list in employeeMonthlyDetails">
+                        <div class ="employee-list"> Date : {{list.Date}}<div class="pull-right" type="button" ng-click="ShowHide(list,employeeMonthlyDetails)">
+                          Employee Count : {{list.Count}} <a class="fa fa-caret-down"></a></div></div>
+                          <div ng-if="list.isVisible && (list.Count > 0)">
+                            <div id="employeeCount" >
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Employee Id</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Menu type</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr ng-repeat="e in list.employees">
+                                    <td>{{e.employeeId}}</td>
+                                    <td>{{e.firstName}}</td>
+                                    <td>{{e.lastName}}</td>
+                                    <td>{{e.type}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ======================= weeklyMenu ==================================== -->
+                    <div class="weeklyMenuItme" ng-if="weeklyMenuBool">
+                      <div class="list3"><span class="fm-menu">Menu</span>
+                        <div ng-repeat="(key, val) in weekMenuSorted">
+                          <div class="employee-list1"><strong>{{key}}</strong><i type="button" ng-click="ShowHide(list,dateList)">
+                            <a class="fa fa-caret-down"></a></i>
+                            <div class="container">
+                              <div class=" fm_day col-sm-12 well" ng-repeat="(k, v) in val">
+                                <div><strong>{{k}}</strong>
+                                  <br><br>
+                                  <ul id="menu">
+                                    <li ng-repeat="m in v.menu">
+                                      {{m.dishName}}
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>

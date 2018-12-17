@@ -22,7 +22,8 @@
     "angular-aria": "^1.6.3",
     "angular-messages": "^1.6.3",
     "angular-cookies": "1.5.11",
-    "angular-paging": "^2.2.2"
+    "angular-paging": "^2.2.2",
+    "angular-ui-notification": "^0.3.6"
   },
   "resolutions": {
     "angular": "1.5.11"

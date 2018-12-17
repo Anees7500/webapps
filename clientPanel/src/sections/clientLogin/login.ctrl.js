@@ -1,11 +1,12 @@
-clientApp.controller('LoginController', ['$scope', 'ClientLoginService','$rootScope', '$cookies', '$http', '$route',
+clientApp.controller('LoginController', ['$scope', 'ClientLoginService','$rootScope', '$cookies', '$http',
+'$route',
   function($scope,ClientLoginService,$rootScope, $cookies,$http,$route) {
     // console.log("hello i am isnide login contriller");
     $scope.login = function(user) {
       console.log("check ",JSON.stringify(user));
-      ClientLoginService.login(user, "http://fancymonk.com:9124/api/client/login");
+      ClientLoginService.login(user, "http://fancymonk.com:9125/api/client/login");
     }
-    // Login page work************//
+    // Login page work******//
 
     $(function () {
       var tab = $('.tabs h3 a');
@@ -104,6 +105,6 @@ clientApp.controller('LoginController', ['$scope', 'ClientLoginService','$rootSc
       });
     });
 
- // Login page work************  end //
+ // Login page work******  end //
   }
 ]);

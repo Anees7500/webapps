@@ -1,7 +1,7 @@
 clientApp.factory('ClientLoginService', ['$http', '$httpParamSerializerJQLike','$location',
-    '$rootScope', '$cookies',
-    function($http, $httpParamSerializerJQLike, $location, $rootScope, $cookies) {
-        return { 
+    '$rootScope', '$cookies','Notification',
+    function($http, $httpParamSerializerJQLike, $location, $rootScope, $cookies,Notification) {
+        return {
             login: function(clientCredential,LoginClientUrl) {
               console.log("client credential message ",clientCredential);
                 $http({
@@ -16,17 +16,19 @@ clientApp.factory('ClientLoginService', ['$http', '$httpParamSerializerJQLike','
 
                     data: $httpParamSerializerJQLike(clientCredential)
                 }).then(function(response) {
-                  console.log("response logins ", JSON.stringify(response)); 
+                  console.log("response logins ", JSON.stringify(response));
                     if (response.data.status == 1) {
+                        Notification.success('Logged in successfully');
                         $rootScope.companyDetails = response.data.data.company;
                         $cookies.put("clientPanelCompanyId", response.data.data.company.id);
                         $location.path('/dashboard');
                     } else {
-                         // Notification.error('Username/Mobile/Email or password is incorrect');
+                         Notification.error('Username or password is incorrect');
                     }
                 })
                 .catch(function(response) {
-                  // Notification.error('Server is down please try again latter');
+                  console.log("helo erro");
+                  Notification.error('Username or password is incorrect');
                 });
             }
         }

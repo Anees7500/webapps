@@ -1,5 +1,6 @@
 clientApp.factory('clientDashboardService', ['$http','$cookies', '$httpParamSerializerJQLike',
-function($http,$cookies, $httpParamSerializerJQLike) {
+'Notification',
+function($http,$cookies, $httpParamSerializerJQLike, Notification) {
 	return {
 		getCompanyInformation: function(dashboardServiceUrl) {
 			// console.log("clientPanel",clientPanel);
@@ -24,9 +25,10 @@ function($http,$cookies, $httpParamSerializerJQLike) {
 			}).then(function(response) {
 				console.log('response add employee', JSON.stringify(response));
 				if (response.data.status == 1) {
+					Notification.success('Employee Added Successfully');
 				} else {
 					console.log('error logging in');
-					// Notification.error('Username/Mobile/Email or password is incorrect');
+					Notification.error('Could not add employee, Please try again later');
 				}
 			})
 			.catch(function(response) {
