@@ -1,5 +1,6 @@
-ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$rootScope','$location','$cookies',
-    function ($http, $httpParamSerializerJQLike, $rootScope, $location, $cookies) {
+ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$rootScope','$location',
+'$cookies','Notification',
+    function ($http, $httpParamSerializerJQLike, $rootScope, $location, $cookies,Notification) {
         return {
             login: function (user, url) {
                 $http({
@@ -11,7 +12,6 @@ ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$
                         'scm': 'fancymonk',
                         'Authorization': 'Basic WVhCd1FHWmhibU41Ylc5dWEyRmhZV0Z1OjE1OjJDOjJBOkZFOjUxOkQwOkM3OjNCOjQ2OjFGOkREOjk2Ojk0OkFGOjkyOkE2OjFGOjUyOjBEOkUz',
                     },
-
                     data: $httpParamSerializerJQLike(user)
                 }).then(function (response) {
                     console.log("response logins ", JSON.stringify(response));
@@ -21,6 +21,7 @@ ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$
                         $cookies.put("eId", eDetails.employeeId);
                         $cookies.put("rId", eDetails.id);
                         $cookies.put("cId", eDetails.companyId);
+                        Notification.success('Logged in Successfully');
                         if(eDetails.defaultPassword)
                         {
                           $location.path('/newemployees');
@@ -30,11 +31,11 @@ ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$
                         }
 
                     } else {
-                        // Notification.error('Username/Mobile/Email or password is incorrect');
+                        Notification.error('employeeId or password is incorrect');
                     }
                 })
                     .catch(function (response) {
-                        // Notification.error('Server is down please try again latter');
+                        Notification.error('employeeId or password is incorrect');
                     });
             }
         }
