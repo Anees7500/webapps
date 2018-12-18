@@ -20,8 +20,9 @@ padding-right: 0;
   height: 100%;
   /* background-color: red; */
   float: left;
+  margin-left: 200px;
   margin-top: 45px;
-z-index: 2;
+  /* z-index: 2; */
 
 
 
@@ -99,9 +100,9 @@ h6{
 .md-sidenav-left {
   height: 100%;
   width: 200px;
-  margin-top: 0px;
+  margin-top: 45px;
   position: fixed;
-  z-index: 1;
+  /* z-index: 999; */
   float: left;
   overflow-x: hidden;
   background-color: white;
@@ -205,15 +206,14 @@ h6{
   align-items: center;
   text-align: center;
   padding: 5px;
-  color: 020f1b;
 
 }
 
 .part {
   margin-left: 10px;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   font-size: 15px;
-  font-family: Calibri Black;
+  font-family: Calibri;
 
 }
 
@@ -650,7 +650,6 @@ tr.employee-disabled-row
 }
 .part{
   font-size: 15px;
-  color: black;
   cursor: pointer;
   text-decoration: none !important;
 }
