@@ -19,10 +19,7 @@
   </div>
 </div>
 <!---Header End-->
-<div class="main_page" layout="column" ng-cloak>
-  <section layout="row" flex>
-    
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <nav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
       <div class="background-dp">
         <div class="background-dp-color">
           <!-- <img class ="image" src="../../image/pp1.png"/> -->
@@ -43,10 +40,10 @@
                       </div>
                     </div>
                   </div>
-                </md-sidenav>
-                
+                </nav>
                 <!-- =====================  category ===================== -->
-                <div class="main_page1">
+                <div class="main_page" layout="column" ng-cloak>
+                  <section layout="row" flex>
                 <div class="list-data" ng-if="categoryBool">
                   <ul class="list-data-item">
                     <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" ><a class="req">Breakfast </a>
@@ -66,7 +63,7 @@
                   </ul>
                 </div>
                 <!-- =====================  Requirement ===================== -->
-                <div class="Requirements-data-item" style="width:calc(100% - 200px)" ng-if="requirementBool">
+                <div class="Requirements-data-item"  ng-if="requirementBool">
                   <div class="col-md-12 ">
                     <div class="col-md-3 col-sm-6 col-xs-12">
                       <div class="wrapper"></br>
@@ -283,7 +280,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                
                 </section>
               </div>
             
