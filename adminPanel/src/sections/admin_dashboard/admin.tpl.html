@@ -40,10 +40,10 @@
       <div class="background-dp">
         <div class="background-dp-color">
           <div class="media-body">
-            <h5 style="margin-top: -2px;">
+            <h5 align="center" style="margin-top: -2px;">
               <img src="../image/pp1.png" class="img-circle pp-image" width="38" /><br>
-              Admin</h5>
-            <h6 class="media-heading" style="color:white;">aman@fancymonk.com</h6>
+              <strong>Admin</strong></h5>
+            <h6 align="center" class="media-heading" style="color:white;"><strong>aman@fancymonk.com</strong></h6>
           </div>
         </div>
       </div>
@@ -51,43 +51,43 @@
     <li class="menu--item">
       <a href="" ng-click="boolFunction('addDashboardBool')" class="menu--link">
         <i class="menu--icon fas fa-qrcode"></i>
-        <span class="menu--label">Companies <span class="btn-dsgn">{{allCompanies.length}}<span></span>
+        <span class="menu--label"><strong>Companies</strong><span class="btn-dsgn">{{allCompanies.length}}<span></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('addAssignedCompanyBool')" class="menu--link">
         <i class="menu--icon far fa-clone"></i>
-        <span class="menu--label">Assigned Comp. <span class="btn-dsgn">{{assignedCompany.length}}</span></span>
+        <span class="menu--label"><strong>Assigned Comp.</strong> <span class="btn-dsgn">{{assignedCompany.length}}</span></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('addUnsignedCompanyBool')" class="menu--link">
         <i class="menu--icon far fa-clipboard"></i>
-        <span class="menu--label">Unassigned Comp. <span class="btn-dsgn">{{unassignedCompanies.length}}</span></span>
+        <span class="menu--label"><strong>Unassigned Comp.</strong><span class="btn-dsgn">{{unassignedCompanies.length}}</span></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('allVendorListBool')" class="menu--link">
         <i class="menu--icon fas fa-child"></i>
-        <span class="menu--label">Vendors <span class="btn-dsgn-v">{{AllVendorslist.length}}</span></span>
+        <span class="menu--label"><strong>Vendors</strong><span class="btn-dsgn-v">{{AllVendorslist.length}}</span></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('assignedVendorListBool')" class="menu--link">
         <i class="menu--icon fab fa-pushed"></i>
-        <span class="menu--label">Assigned Vendors <span class="btn-dsgn-v">{{assignedVendorslist.length}}</span></span>
+        <span class="menu--label"><strong>Assigned Vendors</strong><span class="btn-dsgn-v">{{assignedVendorslist.length}}</span></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('unassignedVendorListBool')" class="menu--link">
         <i class="menu--icon far fa-clipboard"></i>
-        <span class="menu--label">Unasigned Vendors <span class="btn-dsgn-v">{{unassignedVendorlist.length}}</span></span>
+        <span class="menu--label"><strong>Unasigned Vendors</strong><span class="btn-dsgn-v">{{unassignedVendorlist.length}}</span></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('addCompanyBool')" class="menu--link">
         <i class="menu--icon far fa-edit"></i>
-        <span class="menu--label">Add New Company</span>
+        <span class="menu--label"><strong>Add New Company</strong></span>
       </a>
     </li>
     <!-- <li class="menu--item">
@@ -105,13 +105,13 @@
     <li class="menu--item">
       <a href="" ng-click="" class="menu--link">
         <i class="menu--icon fas fa-paste"></i>
-        <span class="menu--label">Invoice</span>
+        <span class="menu--label"><strong>Invoice</strong></span>
       </a>
     </li>
     <li class="menu--item">
       <a href="" ng-click="boolFunction('FoodConfirmationBool')" class="menu--link">
         <i class="menu--icon fas fa-tasks"></i>
-        <span class="menu--label">Check Confirmation</span>
+        <span class="menu--label"><strong>Check Confirmation</strong></span>
       </a>
     </li>
   </ul>
@@ -124,7 +124,7 @@
 
     <div class="company-dashboard" ng-if="addDashboardBool">
       <div class="title-baar">
-        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i> home</a>
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i>Home</a>
           <!-- <a href="" class="typewrite text-center" data-period="2000" data-type='[ "Welcome to the fancymonk admin..", "www.fancymonk.com"]'>
     <span class="wrap"></span>
   </a> -->
@@ -132,7 +132,7 @@
       </div>
       <ul class="nav">
         <form><br><br>
-          <input type="text" ng-model="search1" class="searchNew" name="search" placeholder="Search...">
+          <input type="text"ng-model="search1" class="searchNew" name="search" placeholder="Search...">
           <!-- <h3 style="margin-top:6px;">Total Companies : {{allCompanies.length}}</h3> -->
         </form>
 
@@ -168,8 +168,8 @@
     <!-- ___________________ADD-COMPANY_____________________ -->
     <div class="add-company" ng-if="addCompanyBool">
       <div class="title-baar">
-        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">add
-            company</a></h5>
+        <h5><a href="" class="w-clr"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="">Add
+            Company</a></h5>
       </div><br><br>
       <div class="company-details">
 

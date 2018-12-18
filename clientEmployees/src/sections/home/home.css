@@ -285,7 +285,7 @@ i.menu--icon:hover {
 }
 
 .background-dp {
-    background-image: url(../image/9.png);
+    background-image: url(../image/9.gif);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -315,7 +315,7 @@ md-content.md-padding._md.layout-xs-column.layout-row {
 .fa-icon-company {
     font-size: 38px;
     padding: 20px 19px;
-    olor: white;
+    color: white;
 }
 
 .card-media {
@@ -333,7 +333,7 @@ md-card._md:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-}
+
 
 @media only screen and (max-width: 500px) {
     i.fa.fa-trash-o.fa-2x.w-clr {
@@ -765,7 +765,7 @@ img {
 
 .handle {
     width: 250px;
-    background: ;
+    /* background: ; */
     text-align: center;
     box-sizing: border-box;
     padding: 15px 10px;
@@ -1104,11 +1104,9 @@ a {
     margin-top: 50px;
     padding: 15px 30px;
     transition: all 0.3s ease-out;
-}
-
-.wrapper {
     margin-left: 200px;
     height: 100%;
+    z-index: 999;
 }
 
 button {
@@ -1189,7 +1187,7 @@ svg:not(:root) {
 }
 
 .vertical_nav {
-    position: absolute;
+    position: fixed;
     /* left: -200px; */
     z-index: 2;
     top: 45px;
@@ -1209,7 +1207,9 @@ svg:not(:root) {
     }
 }
 /* .table th{ text-align: center;} */
-.names td{ text-align: left;}
+.names td{ text-align: left;
+           
+}
 
 @media (max-width:550px){
     .vertical_nav{ display: none;}
@@ -1218,6 +1218,7 @@ svg:not(:root) {
 .table th{
     font-size: bold;
     font-size: medium;
+    color: #000;
 
 }
 .mat-radio-button ~ .mat-radio-button {
@@ -1244,8 +1245,6 @@ ul#menu li {
     margin: 0 10px 0;
     text-align: center
 
-
-
 }
 /* li{
   text-align:center;
@@ -1265,9 +1264,13 @@ ul#menu li {
 }
 .fm-menu{
   font-size: 20px;
-  margin-left: 545px;
+  margin-left: 500px;
   color: #000000;
   font: bold;
+  font-family: Tahoma;
+  font-weight: bold;
+  font-size: 20px;
+  
 }
 
 tr.employee-disabled-row
@@ -1278,5 +1281,18 @@ tr.employee-disabled-row
   font-size: 15px;
   color: black;
   cursor: pointer;
-  text-decoration: none !important;
+  border: none;
+  /* text-decoration: none !important; */
+}
+
+.dashboard_menu{
+  outline: none;
+    
+}
+.home-m:hover {
+    background-color:#CCCBCC;
+}
+.switchdemoBasicUsage .inset {
+    padding-left: 25px;
+    padding-top: 25px;
 }

@@ -33,7 +33,7 @@
       <div class="background-dp">
         <div class="background-dp-color">
           <div class="media-body">
-            <h5 style="margin-top: -2px; text-align: center;font-size:bold">
+            <h5 style="text-align:center;font-size:bold">
               <img src="../image/pp1.png" class="img-circle pp-image" width="38" /><br>
               Iron Mountain</h5>
             <h6 class="media-heading" style="color:white;text-align: center;">admin@ironmountain.com</h6>
@@ -42,14 +42,14 @@
       </div>
     </li><br>
     <li>
-      <div class="">
-        <div class="text" ng-click="enableBooleans('homeBool')">&nbsp; &nbsp;<i class="fa fa-home" aria-hidden="true">
+      <div class="home-m">
+        <div class="dashboard_menu" ng-click="enableBooleans('homeBool')">&nbsp; &nbsp;<i class="fa fa-home" aria-hidden="true">
           </i>&nbsp; &nbsp;
           <span class="part"><strong>Home</strong></span></div>
       </div>
       <br>
-      <div class="">
-        <div class="text" ng-click="enableBooleans('weekMenuBool')">&nbsp; &nbsp;<i class="fas fa-bars">
+      <div class="home-m">
+        <div class="dashboard_menu" ng-click="enableBooleans('weekMenuBool')">&nbsp; &nbsp;<i class="fas fa-bars">
           </i>&nbsp; &nbsp;
           <span class="part"><strong>Week's Menu</strong></span></div>
       </div>
@@ -57,17 +57,16 @@
     </li>
   </ul>
 </nav>
-
 <div class="wrapper">
   <section>
     <!-- CONTENT -->
     <!-- ______DASHBOARD________ -->
-    <div class="list">
+    <div class="list ">
       <!-- <div class="feedback-data-item"> -->
       <div id="feedback" ng-if="homeBool">
         <table class="table">
-          <thead>
-            <tr >
+          <thead class="well">
+            <tr>
               <th>Name</th>
               <th>Date</th>
               <th>Type</th>
@@ -75,22 +74,28 @@
             </tr>
           </thead>
           <tbody class="names">
-            <tr  ng-repeat="e in employeeComingList" ng-class="{active:e.disabled}">
+            <tr ng-repeat="e in employeeComingList" ng-class="{active:e.disabled}">
               <td>{{e.display}}</td>
               <td>{{e.working_date}}</td>
               <td>{{e.type}}</td>
               <td>
-                <md-switch ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
-                ng-disabled="e.disabled">
+                
+                <md-switch class="inset switchdemoBasicUsage" ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
+                  ng-disabled="e.disabled">
                   {{ e.status }}
                 </md-switch>
+
+                <!-- <div class="center">
+                  <input ng-model="e.status"  ng-true-value="'Yes'" ng-false-value="'Nope'"
+                  ng-disabled="e.disabled" type="checkbox" id="cbx" style="display:none" />
+                  <label for="cbx" class="toggle">{{ e.status }}<span></span></label>
+                </div> -->
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-
     <div class="weeklyMenuItme" ng-if="weekMenuBool">
       <div class="list3"><span class="fm-menu">Menu</span>
         <div ng-repeat="(key, val) in weekMenuSorted">

@@ -21,6 +21,7 @@ padding-right: 0;
   /* background-color: red; */
   float: left;
   margin-top: 45px;
+z-index: 2;
 
 
 
@@ -99,6 +100,8 @@ h6{
   height: 100%;
   width: 200px;
   margin-top: 0px;
+  position: fixed;
+  z-index: 1;
   float: left;
   overflow-x: hidden;
   background-color: white;
@@ -262,6 +265,7 @@ h6{
   height: 500px;
   width: 1000px;
   list-style: none;
+  
 }
 
 .catagory {
@@ -649,4 +653,7 @@ tr.employee-disabled-row
   color: black;
   cursor: pointer;
   text-decoration: none !important;
+}
+.main_page1{
+  z-index: 2;
 }

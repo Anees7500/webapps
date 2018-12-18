@@ -682,7 +682,7 @@ input {
     padding: .2em 3em;
     width: auto;
     display: block;
-    background-color: ##00BCD4;
+    background-color: #00BCD4;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -975,7 +975,7 @@ input {
         transform: translate(0, 0);
         opacity: .3;
     }
-}
+
 
 /* LARGE VIEWPORT */
 @media only screen and (min-width: 60em) {

@@ -19,8 +19,9 @@
   </div>
 </div>
 <!---Header End-->
-<div class="main_page " style="width:100%" layout="column" ng-cloak>
+<div class="main_page" layout="column" ng-cloak>
   <section layout="row" flex>
+    
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
       <div class="background-dp">
         <div class="background-dp-color">
@@ -43,7 +44,9 @@
                     </div>
                   </div>
                 </md-sidenav>
+                
                 <!-- =====================  category ===================== -->
+                <div class="main_page1">
                 <div class="list-data" ng-if="categoryBool">
                   <ul class="list-data-item">
                     <li class="list-data-item-a"><b class="catagory"><md-checkbox  disabled="disabled" ng-model="companyDetail.breakfast" aria-label="Finished?" ><a class="req">Breakfast </a>
@@ -279,6 +282,8 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
                 </section>
               </div>
-            </div>
+            

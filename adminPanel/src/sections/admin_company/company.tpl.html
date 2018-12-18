@@ -163,6 +163,9 @@ input.req-clr {
 
       <table class="table table-striped table-bordered ">
         <thead>
+           <tr>
+            <th class="thfont" center="left" colspan="8">Client Requirement</th>
+          </tr>
           <tr>
             <th></th>
             <th ng-if="data.breakfast">Breakfast<br><br>
@@ -880,7 +883,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="occupancy">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -937,7 +940,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -994,7 +997,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1051,7 +1054,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1108,7 +1111,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm"ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1165,7 +1168,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm"ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1223,7 +1226,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1744,8 +1747,8 @@ input.req-clr {
             Home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
           <a class="w-clr" href=""><strong>Item Check List</strong></a></h5>
       </div><br><br>
-      <div class="checkListCheckboxes col-md-4 col-sm-6 col-xs-12" flex="100" ng-repeat="item in itemCheckList" class="row"><span
-          align="center"><strong>Quantity</strong></span>&nbsp;&nbsp;
+      <div class="checkListCheckboxes col-md-4 col-sm-6 col-xs-12" flex="100" ng-repeat="item in itemCheckList" class="row">
+        <span align="center"><strong>Quantity</strong></span>&nbsp;&nbsp;
         <input ng-model="item.quantity" type="number">&nbsp; &nbsp;&nbsp; &nbsp;
         <md-checkbox ng-checked="item.enabled" ng-click="toggle(item, itemCheckList)">
           {{ item.itemName }}
