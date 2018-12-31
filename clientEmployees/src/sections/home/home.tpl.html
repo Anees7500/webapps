@@ -81,7 +81,7 @@
               <td>
                 
                 <md-switch class="inset switchdemoBasicUsage" ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
-                  ng-disabled="e.disabled">
+                  ng-disabled="e.disabled" ng-click="updateStatus(e)">
                   {{ e.status }}
                 </md-switch>
 
