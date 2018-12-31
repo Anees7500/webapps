@@ -78,7 +78,8 @@ span.menu--label {
 /* hover drop down */
 
 .pp-image {
-    margin: 2px 3px 0px 0px;
+
+    margin: 2px 9px 0px 0px;
     padding: 2px;
 }
 
@@ -295,7 +296,7 @@ i.menu--icon:hover {
 .background-dp-color {
     background-color: rgba(0, 0, 0, 0.25);
     color: white;
-    padding: 18px 14px;
+    padding: 0px 14px;
 }
 
 md-content.md-padding._md.layout-xs-column.layout-row {
@@ -567,7 +568,7 @@ img {
     color: #fff;
 }
 
-.burgericon > .material-icons.md-dark {
+.burgericon>.material-icons.md-dark {
     opacity: 0px;
 }
 
@@ -834,7 +835,7 @@ img {
         cursor: pointer;
     }
 
-    .menu-wrapper a > i {
+    .menu-wrapper a>i {
         font-size: 20px;
         position: relative;
         top: 2px;
@@ -1051,7 +1052,7 @@ textarea {
     position: absolute;
     /*top: 20px;*/
     /*bottom: 40px;*/
-    overflow-y: auto;
+    /* overflow-y: auto; */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -1060,7 +1061,7 @@ textarea {
 
 .menu {
     /* min-height: 100%; */
-     min-height: 100%;
+    min-height: 100%;
 }
 
 a {
@@ -1196,103 +1197,123 @@ svg:not(:root) {
     background: white;
     box-shadow: rgba(0, 0, 0, .4)-30px 0 18px 30px;
 }
-.container{
+
+.container {
     width: 100%;
     padding-left: 0px;
     padding-right: 0px;
 }
+
 @media (min-width:992px) {
     .vertical_nav {
         left: 0
     }
 }
+
 /* .table th{ text-align: center;} */
-.names td{ text-align: left;
-           
+.names td {
+    text-align: left;
+
+
 }
 
-@media (max-width:550px){
-    .vertical_nav{ display: none;}
-    .wrapper{ margin-left: 0px !important;}
+@media (max-width:550px) {
+    .vertical_nav {
+        display: none;
+    }
+
+    .wrapper {
+        margin-left: 0px !important;
+    }
 }
-.table th{
+
+.table th {
     font-size: bold;
     font-size: medium;
     color: #000;
 
 }
-.mat-radio-button ~ .mat-radio-button {
-  padding-right: 16px;
+
+.mat-radio-button~.mat-radio-button {
+    padding-right: 16px;
 }
 
 
 
 
-.fm_day{
-  width: 100%;
-  float: left;
+.fm_day {
+    width: 100%;
+    float: left;
 }
+
 ul#menu li {
-    display: inline ;
+    display: inline;
     position: relative;
     padding-left: 22px;
     border: 2px solid rgb(34, 178, 235);
     /* border-right: none; */
     background: #e0e0e0;
-    padding:5px 16px 5px 16px;
+    padding: 5px 16px 5px 16px;
     border-radius: 15px;
     font-size: 12px;
     margin: 0 10px 0;
     text-align: center
-
 }
+
 /* li{
   text-align:center;
 } */
 .employee-list1 {
-  border-radius: 30px;
-  box-shadow: 2px 2px 10px #808080;
-  background-color: #D7EEEF;
-  padding: 21px;
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 9pt;
-  color: #17202A;
-  text-align: left;
-  column-gap: 21px;
-  margin-top: 8px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px #808080;
+    background-color: #D7EEEF;
+    padding: 21px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 9pt;
+    color: #17202A;
+    text-align: left;
+    column-gap: 21px;
+    margin-top: 8px;
 
 }
-.fm-menu{
-  font-size: 20px;
-  margin-left: 500px;
-  color: #000000;
-  font: bold;
-  font-family: Tahoma;
-  font-weight: bold;
-  font-size: 20px;
-  
+
+.fm-menu {
+    font-size: 20px;
+    /* margin-left: 500px; */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    color: #000000;
+    font: bold;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 
-tr.employee-disabled-row
-{
-  background-color: #a9a9a9;
-}
-.part{
-  font-size: 15px;
-  color: black;
-  cursor: pointer;
-  border: none;
-  /* text-decoration: none !important; */
+tr.employee-disabled-row {
+    background-color: #a9a9a9;
 }
 
-.dashboard_menu{
-  outline: none;
-    
+.part {
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    border: none;
+    /* text-decoration: none !important; */
 }
+
+.dashboard_menu {
+    outline: none;
+
+}
+
 .home-m:hover {
-    background-color:#CCCBCC;
+    background-color: #CCCBCC;
 }
+
 .switchdemoBasicUsage .inset {
     padding-left: 25px;
     padding-top: 25px;
+
 }

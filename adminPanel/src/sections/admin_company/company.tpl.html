@@ -112,6 +112,12 @@ input.req-clr {
         <span class="menu--label"><strong>Dispatch Details</strong></span>
       </a>
     </li>
+    <li class="menu--item">
+      <a href="" ng-click="boolFunction('commentsBool')" class="menu--link">
+        <i class="menu--icon fas fa-comments"></i>
+        <span class="menu--label"><strong>Comments</strong></span>
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -163,7 +169,7 @@ input.req-clr {
 
       <table class="table table-striped table-bordered ">
         <thead>
-           <tr>
+          <tr>
             <th class="thfont" center="left" colspan="8">Client Requirement</th>
           </tr>
           <tr>
@@ -733,7 +739,7 @@ input.req-clr {
         <div class="container h-100">
           <div class="d-flex justify-content-center h-100">
             <div class="searchbar pull-right">
-              <input class="search_input input-sm" ng-model="searchFish"  type="text" name=""placeholder="Enter the Name......">
+              <input class="search_input input-sm" ng-model="searchFish" type="text" name="" placeholder="Enter the Name......">
               <!-- <a href="" class="search_icon"><i class="fas fa-search"></i></a> -->
             </div>
           </div>
@@ -793,10 +799,11 @@ input.req-clr {
             </tr>
           </tbody>
         </table>
-       <div class="row">
-            <div class="col-md-offset-1 col-md-10">
-                <pagination total-items="totalItems" max-size="maxSize" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true"></pagination>
-            </div>
+        <div class="row">
+          <div class="col-md-offset-1 col-md-10">
+            <pagination total-items="totalItems" max-size="maxSize" ng-model="currentPage" ng-change="pageChanged()"
+              class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true"></pagination>
+          </div>
         </div>
       </div>
     </div>
@@ -1111,7 +1118,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm"ng-model="reqObj.breakfast*reqObj.breakfastPrice">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1168,7 +1175,7 @@ input.req-clr {
             <td>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="number" name="fancymonamount" class="req-clr input-sm"ng-model="reqObj.breakfast*reqObj.breakfastPrice">
+                  <input type="number" name="fancymonamount" class="req-clr input-sm" ng-model="reqObj.breakfast*reqObj.breakfastPrice">
                 </div>
               </div>
             </td>
@@ -1178,20 +1185,19 @@ input.req-clr {
           </tr>
         </tbody>
       </table>
-      <table ng-if="data.cashNCarry class=" table table-striped table-bordered
-        ">
+      <table ng-if="data.cashNCarry" class="table table-striped table-bordered">
         <thead>
           <tr>
             <th class=" thfont" center="left" colspan="6">Cash & Carry</th>
-        </tr>
-        <tr>
-          <th>Day<br><br></th>
-          <th>Date<br><br> </th>
-          <th>Person<br><br></th>
-          <th>Price<br><br></th>
-          <th>Fancymonk Amount<br><br></th>
-          <th></th>
-        </tr>
+          </tr>
+          <tr>
+            <th>Day<br><br></th>
+            <th>Date<br><br> </th>
+            <th>Person<br><br></th>
+            <th>Price<br><br></th>
+            <th>Fancymonk Amount<br><br></th>
+            <th></th>
+          </tr>
         </thead>
         <tbody ng-repeat="reqObj in companyRequirements">
           <tr>
@@ -1759,5 +1765,34 @@ input.req-clr {
     </div>
 
     <!-- CheckList Details starts here end-->
+    <!----------Comments work start ----------------->
+    <div class="company-details" ng-if="commentsBool">
+      <div class="title-baar10">
+        <h5><a href="#/admin"><i class="fa fa-home w-clr" aria-hidden="true"></i></a> <a class="w-clr" href="#/admin">
+            Home</a> <a class="w-clr">/</a> <a href="#/admin" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+          <a class="w-clr" href="">Comments</a></h5>
+      </div><br><br>
+
+      <div class="comment-fm" ng-app="ContactForm">
+        
+        <form name="cf" ng-controller="cfController as cfCtrl" ng-submit="submitForm(cf.$valid)" novalidate>
+          <div class="form-group1">
+            <label class="label_fm" for="name">Name</label>
+            <input class="input_fm" id="name" type="text" name="name" ng-model="name" required>
+          </div>
+          <div class="form-group1">
+            <label class="label_fm"  for="email">Email </label>
+            <input class="input_fm" id="email" type="email" name="email">
+          </div>
+          <div class="form-group1">
+            <label class="label_fm"  for="msg">Message</label>
+            <textarea class="input_fm" id="msg" name="message" rows="4" ng-model="msg" required></textarea>
+          </div>
+          <input class="button_fm" type="submit" value="Send" ng-disabled="cf.$invalid" />
+        </form>
+      </div>
+
+    </div>
+    <!----------Comments work  end ----------------->
     <section>
 </div>

@@ -397,7 +397,7 @@ md-card._md:hover {
   width: 83.8%;
   z-index: 1;
   color: black;
-  margin-top: -18px;
+  margin-top: -20px;
 
 }
 
@@ -525,6 +525,19 @@ md-card._md:hover {
   z-index: 1;
   color: black;
   margin-top: -34px;
+}
+.title-baar10 {
+  background-color: white;
+  padding: 10px 20px;
+  min-height: 20px;
+  box-shadow: #b3b8b9 0 0px 3px 1px;
+  border: 1px solid #b3b8b9;
+  margin: -11px -30px;
+  position: fixed;
+  width: 83.8%;
+  z-index: 1;
+  color: black;
+  margin-top: -35px;
 }
 
 /* title baar part end */

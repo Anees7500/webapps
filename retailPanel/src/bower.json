@@ -22,7 +22,8 @@
     "google-maps": "^3.3.0",
     "angular-google-maps": "^2.4.1",
     "angular-ui-notification": "^0.3.6",
-    "angular-cookies": "^1.7.4"
+    "angular-cookies": "^1.7.4",
+    "angular-ui-carousel": "^0.1.10"
   },
   "resolutions": {
     "angular": "1.5.11"
