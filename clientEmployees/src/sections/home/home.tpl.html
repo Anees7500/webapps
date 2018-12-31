@@ -9,11 +9,11 @@
   </div>
 
   <div class="pull-right">
-    <a><i class="far fa-bell w-c"></i></a>
+    <a><i class="far fa-bell"></i></a>
     <div class="dropdown notificationDropDown">
       <div class="dropdown">
         <div class="dropbtn">
-          <notification-icon update-animation="grow" count="">
+          <notification-icon update-animation="grow"count="">
             <img src="../image/pp1.png" class="img-circle pp-image-header" width="40" />
           </notification-icon>
         </div>
@@ -26,24 +26,25 @@
     </div>
   </div>
 </header>
-
 <nav class="vertical_nav">
   <ul id="js-menu" class="menu">
     <li>
       <div class="background-dp">
         <div class="background-dp-color">
           <div class="media-body">
-            <h5 style="text-align:center;font-size:bold">
+            <h5 style="text-align:center;font-size:bold; font-size: unset;">
               <img src="../image/pp1.png" class="img-circle pp-image" width="38" /><br>
               Iron Mountain</h5>
-            <h6 class="media-heading" style="color:white;text-align: center;">admin@ironmountain.com</h6>
+            <h6 class="media-heading" style="color:white;text-align: center;font-size: unset;">admin@ironmountain.com</h6>
           </div>
         </div>
       </div>
     </li><br>
     <li>
+      
       <div class="home-m">
-        <div class="dashboard_menu" ng-click="enableBooleans('homeBool')">&nbsp; &nbsp;<i class="fa fa-home" aria-hidden="true">
+        <div class="dashboard_menu" ng-click="enableBooleans('homeBool')">&nbsp; &nbsp;<i class="fa fa-home"
+            aria-hidden="true">
           </i>&nbsp; &nbsp;
           <span class="part"><strong>Home</strong></span></div>
       </div>
@@ -61,7 +62,7 @@
   <section>
     <!-- CONTENT -->
     <!-- ______DASHBOARD________ -->
-    <div class="list ">
+    <div class="list">
       <!-- <div class="feedback-data-item"> -->
       <div id="feedback" ng-if="homeBool">
         <table class="table">
@@ -79,17 +80,10 @@
               <td>{{e.working_date}}</td>
               <td>{{e.type}}</td>
               <td>
-                
-                <md-switch class="inset switchdemoBasicUsage" ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
-                  ng-disabled="e.disabled">
+                <md-switch class="inset switchdemoBasicUsage" ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'"
+                  ng-false-value="'Nope'" ng-disabled="e.disabled">
                   {{ e.status }}
                 </md-switch>
-
-                <!-- <div class="center">
-                  <input ng-model="e.status"  ng-true-value="'Yes'" ng-false-value="'Nope'"
-                  ng-disabled="e.disabled" type="checkbox" id="cbx" style="display:none" />
-                  <label for="cbx" class="toggle">{{ e.status }}<span></span></label>
-                </div> -->
               </td>
             </tr>
           </tbody>
@@ -101,6 +95,7 @@
         <div ng-repeat="(key, val) in weekMenuSorted">
           <div class="employee-list1"><strong>{{key}}</strong><a type="button" ng-click="ShowHide(val)">
               <i class="fa fa-caret-square-down" style="font-size:15px"></i></a>
+
             <div class="container">
               <div class=" fm_day col-md-4  col-sm-12 well" ng-if="val.visible && k != 'visible'" ng-repeat="(k, v) in val">
                 <div>&nbsp;&nbsp;<strong>{{k}}</strong>

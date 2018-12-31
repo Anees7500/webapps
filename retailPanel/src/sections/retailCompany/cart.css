@@ -12,6 +12,7 @@
 .dialogdemoBasicUsage .footer > code {
 	font-size: 0.8em;
 	margin-top: 50px;
+
 }
 
 .dialogdemoBasicUsage button {
@@ -21,7 +22,6 @@
 .dialogdemoBasicUsage div#status {
 	color: #c60008;
 }
-
 .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
 	margin-bottom: 0;
 }

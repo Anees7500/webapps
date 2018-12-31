@@ -294,6 +294,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
         $scope.monthBool = false;
         $scope.vendormonthBool = false;
         $scope.dispatchdetails = false;
+        $scope.commentsBool = false;
         $scope.itemCheckListBool = false;
         $scope[value] = true;
       }

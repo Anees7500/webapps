@@ -7,6 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -21,17 +22,18 @@
 	<link rel="stylesheet" href="sections/retailCompany/retail.css">
 	<link rel="stylesheet" href="sections/retailLogin/login.css">
 	<link rel="stylesheet" href="sections/retailCheckout/checkout.css">
+	<link href="bower_components/angular-ui-carousel/dist/ui-carousel.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.scss">
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
- 
+
 </head>
 
-<body>
+<body data-gr-c-s-loaded="true" class="md-dialog-is-showing" >
 	<header class="header clearfix" style="position:fixed">
 		<button type="button" id="toggleMenu" class="toggle_menu">
-                <i class="fa fa-bars"></i>
-            </button>
+			<i class="fa fa-bars"></i>
+		</button>
 		<div class=" m-view">
 			<h1 style="color:white;">
 				<span class="span-logo"><a><img src="image/fancymonklogo.png" /></a></span>Fancymonk</h1>
@@ -53,18 +55,21 @@
 			</div>
 		</div>
 	</header>
-
 	<div ng-view style="
     background-color: #ffffff;
     float: initial;">
 	</div>
-</body>
+<!-- Footer -->
 
+<!-- ./Footer -->
+</body>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app.js"></script>
 <script src="config.js"></script>
 <script src="sections/retailCompany/retail.ctrl.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-ui-carousel/dist/ui-carousel.js"></script>
 <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="sections/retailCompany/retail.srv.js"></script>
