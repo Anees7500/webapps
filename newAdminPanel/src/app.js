@@ -1,5 +1,4 @@
-var adminApp = angular.module("adminApp", ['ngRoute', 'ngMaterial','ngCookies',
-'ui.bootstrap','ui-notification']);
+var adminApp = angular.module("adminApp", ['ngRoute']);
 
 adminApp.config(['$routeProvider', '$locationProvider',
     function ($routerProvider, $locationProvider) {
@@ -7,8 +6,13 @@ adminApp.config(['$routeProvider', '$locationProvider',
             .when('/', {
                 templateUrl: 'sections/admin_login/login.tpl.html',
                 title: 'Header-part',
-                controller: 'AdminLoginController'
+                controller: ''
             })
+            .when('/dashboard', {
+                templateUrl: 'sections/admin_dashboard/admin.tpl.html',
+                title: 'Header-part',
+                controller: ''
+            });
            
     }
 ]);
