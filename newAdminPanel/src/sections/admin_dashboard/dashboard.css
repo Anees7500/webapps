@@ -1,0 +1,44 @@
+
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #3F729B;
+    color: #fff;
+    transition: all 0.3s;
+    height: 620px;
+    margin-top: 74px;
+    position: fixed;
+    
+}
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#content {
+    width: 100%;
+    padding: 0px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+.footer{
+    background-color: #000000;
+   
+}
+
+.dropdown-menu{
+    min-width: 120px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}

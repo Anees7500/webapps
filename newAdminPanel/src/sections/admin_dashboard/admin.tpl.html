@@ -4,7 +4,7 @@
     <!-- Page Content  -->
     <div id="content">
 
-        <nav class="navbar navbar-expand-sm bg-info">
+        <nav class="navbar navbar-expand-lg bg-info fixed-top abcd" >
             <div class="container-fluid">
 
                 <button type="button" id="sidebarCollapse" class="btn btn-info" >
@@ -12,19 +12,28 @@
                     <i class="fa fa-th-list"></i>
                     <span>Dashboard</span>
                 </button>
-      <div class="dropdown">
-           <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <i class="fa fa-user-circle"></i>Account
-      </button>
-   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 60px">
-   <a class="dropdown-item mx-auto" href="#"><i class="fa fa-question-circle-o"></i> Help</a>
-   <a class="dropdown-item mx-auto" href="#"><i class="fa fa-cog"></i> Setting</a>
-   <a class="dropdown-item mx-auto" href="#"><i class="fa fa-power-off"></i> Signout</a>
- </div>
-</div>
-              
+      <!--<div class="dropdown">
+           <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+         <i class="fa fa-user-circle"></i>Account</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 60px">
+             <a class="dropdown-item" href="#"><i class="fa fa-question-circle-o"></i> Help</a>
+            <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting</a>
+             <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Signout</a>
+        </div>
+      </div>-->
 
-            </div>
+      
+            <li class="nav-item dropdown list-unstyled">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+        
+
+      </div>
         </nav>
 
         <nav id="sidebar">
@@ -34,50 +43,43 @@
 
         <ul class="list-unstyled components ">
             
-            <li >
-                <a href="#" class="text-white" >Companies</a>
+            <li>
+                <a href="#" class="text-white"><i class="fa fa-th-large"></i> Companies</a>
                 
             </li>
             <li>
-                <a href="#" class="text-white">Assigned Comp.</a>
+                <a href="#" class="text-white"><i class="fa fa-check-square"></i> Assigned Comp.</a>
             </li>
             <li>
-                <a href="#" class="text-white">Unassigned Comp.</a>
+                <a href="#" class="text-white"><i class="fa fa-book"></i> Unassigned Comp.</a>
                
             </li>
             <li>
-                <a href="#" class="text-white">Vendors</a>
+                <a href="#" class="text-white"><i class="fa fa-users"></i> Vendors</a>
             </li>
             <li>
-                <a href="#" class="text-white">Assigned Vendors</a>
+                <a href="#" class="text-white"><i class="fa fa-user-plus"></i> Assigned Vendors</a>
             </li>
              <li>
-                <a href="#" class="text-white">Unassigned Vendors</a>
+                <a href="#" class="text-white"><i class="fa fa-user-times"></i> Unassigned Vendors</a>
             </li>
              <li>
-                <a href="#" class="text-white">Add New Company</a>
+                <a href="#" class="text-white"><i class="fa fa-cart-plus"></i> Add New Company</a>
             </li>
              <li>
-                <a href="#" class="text-white">Invoice</a>
+                <a href="#" class="text-white"><i class="fas fa-candy-cane"></i>Invoice</a>
             </li>
              <li>
-                <a href="#" class="text-white">Check Confirmation</a>
+                <a href="#" class="text-white"><i class="fa fa-calendar-check-o"></i> Check Confirmation</a>
             </li>
         </ul>
 
-        <ul class="list-unstyled">
-            <li>
-                <a href="#" class="text-white d-block text-center">Follow Us</a>
-            </li>
-            <li>
-                <a href="#" class="article text-white text-center">Contact Us</a>
-            </li>
-        </ul>
+        
     </nav>
 
     </div>
 </div>
-<footer class="page-footer font-small footer">
+<footer class="page-footer font-small footer  ">
 
 <!-- Copyright -->
 <div class="footer-copyright text-center text-white">© 2018 Copyright:
