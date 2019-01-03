@@ -8,13 +8,13 @@
 						<hr class="bg-danger">
 						<img src="bower_components/MDBootstrap/img/lo.gif" class="img img-responsive rounded-circle mx-auto d-block" width="80px">
 						<div class="form-group">
-							<label class=" font-weight-bold text-white"><i class="fa fa-envelope fa-1x"></i> Email</label>
-							<input type="email" class="form-control" placeholder="Email">
-						</div>
+							<label class=" font-weight-bold text-white"><i class="fa fa-envelope fa-1x"></i> UserName</label>
+							<input type="name" class="form-control" placeholder="UserName" required ng-model="admin.username">
+						</div> 
 		
 						<div class="form-group">
 							<label class="font-weight-bold text-white"><i class="fa fa-lock fa-1x"></i> Password</label>
-							<input type="password" class="form-control " placeholder="Password">
+							<input type="password" class="form-control " placeholder="Password" required ng-model="admin.password">
 						</div>
 		
 						<div class="checkbox">
@@ -22,7 +22,7 @@
 						</div>
 		
 		
-						<button type="submit" class="btn btn-block text-white font-weight-bold " id="design">Login</button>
+						<button type="submit" class="btn btn-block text-white font-weight-bold " id="design" ng-click="login(admin)">Login</button>
 					</form>
 
         </div>
