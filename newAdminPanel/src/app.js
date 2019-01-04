@@ -6,13 +6,14 @@ adminApp.config(['$routeProvider', '$locationProvider',
             .when('/', {
                 templateUrl: 'sections/admin_login/login.tpl.html',
                 title: 'Header-part',
-                controller: ''
+                controller: 'AdminLoginController'
             })
             .when('/dashboard', {
                 templateUrl: 'sections/admin_dashboard/admin.tpl.html',
                 title: 'Header-part',
                 controller: ''
-            });
+            })
+            
            
     }
 ]);

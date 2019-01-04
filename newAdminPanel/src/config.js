@@ -1,2 +1,2 @@
 angular.module("myApp.config", [])
-.constant("sample", "hello");
+.constant("adminLoginUrl", "http://fancymonk.com:9125/api/admin/login");
