@@ -1,46 +1,39 @@
 
-
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #3F729B;
-    color: #fff;
+    background: #fff;
     transition: all 0.3s;
     height: 620px;
-    margin-top: 30px;
+    margin-top: 29px;
     position: fixed;
-   box-shadow: 6px 7px 15px -4px rgba(2,0,3,1);
-    
-    
-}
-a:link, a:visited {
-    background-color: #3F729B;
-    color: white;
-    padding: 14px 25px;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  a:hover, a:active {
-    background-color:rgb(44, 166, 175);
-  }
-  
+   box-shadow: 6px 7px 10px -4px rgba(2,0,3,1);}
+
 #sidebar ul li a {
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
+
+a:link, a:visited {
+    background-color: #fff;
+    color: #212121;
+    padding: 14px 25px;
+    text-decoration: none;
+    display: inline-block;
+
+  }
+  
+  a:hover, a:active {
+    background-color:#eceff1 ;
+    color: #039be5;
+  }
+  
 #content {
     width: 250px;
     padding: 0px;
-    
     transition: all 0.3s;
 }
-.footer{
-    background-color: #000000;
-   
-}
-
 .dropdown-menu{
     min-width: 120px;
 }
@@ -48,18 +41,6 @@ a:link, a:visited {
     height: 45px;
 }
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
-}
 /*card css***********/
 .container{
     margin-left: 280px;
@@ -68,7 +49,6 @@ a:link, a:visited {
 }
 .card{
     width: 280px;
-    box-shadow: 6px 7px 15px -4px rgba(2,0,3,1);
     height: 320px;
 }
 
