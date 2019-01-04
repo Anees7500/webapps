@@ -7,10 +7,24 @@
     color: #fff;
     transition: all 0.3s;
     height: 620px;
-    margin-top: 74px;
+    margin-top: 43px;
     position: fixed;
+    box-shadow: -10px 3px 70px 30px rgba(2, 76, 88, 0.75);
+    
     
 }
+a:link, a:visited {
+    background-color: #3F729B;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color:rgb(44, 166, 175);
+  }
+  
 #sidebar ul li a {
     padding: 10px;
     font-size: 1.1em;
@@ -30,10 +44,14 @@
 .dropdown-menu{
     min-width: 120px;
 }
+#navbar_top_height{
+    height: 45px;
+}
 
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
+
     }
     #sidebar.active {
         margin-left: 0;
