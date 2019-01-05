@@ -1,4 +1,8 @@
-
+.bg-card{
+    background-color: #f1f8f9;
+    border-radius: 10px;
+    border: 1px solid #82e2d5;
+}
 #sidebar {
     min-width: 250px;
     max-width: 250px;
