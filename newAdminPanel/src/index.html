@@ -15,6 +15,8 @@
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="sections/admin_login/admin.css" />
   <link rel="stylesheet" href="sections/admin_dashboard/dashboard.css">
+  
+  
 
 
   <link href="bower_components/font-awesome/css/fontawesome.css" rel="stylesheet"/>
@@ -28,31 +30,15 @@
 <body ng-app="adminApp">
     <section id="main">
         <div class="">
-          <nav class="navbar navbar-expand-lg bg-info fixed-top " id="navbar_top_height">
-            <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" class="btn btn-info" >
-                   
-                    <i class="fa fa-th-list"></i>
-                    <span>Dashboard</span>
-                </button>
-      <div class="dropdown">
-        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
-         <i class="fa fa-user-circle"></i>Account</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 60px">
-             <a class="dropdown-item" href="#"><i class="fa fa-question-circle-o"></i> Help</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting</a>
-             <a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Signout</a>
-        </div>
-      </div>
-
-      </div>
-        </nav>
+          
           <ng-view></ng-view>
         </div>
     </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+   <script src="bower_components/MDBootstrap/js/bootstrap.min.js"></script>
+    <script src="bower_components/MDBootstrap/js/popper.min.js"></script>
+  <script src="bower_components/MDBootstrap/js/jquery-3.3.1.min.js"></script>
 
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>
