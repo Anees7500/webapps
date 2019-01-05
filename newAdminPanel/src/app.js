@@ -1,4 +1,4 @@
-var adminApp = angular.module("adminApp", ['ngRoute']);
+var adminApp = angular.module("adminApp", ['ngRoute', 'adminApp.config']);
 
 adminApp.config(['$routeProvider', '$locationProvider',
     function ($routerProvider, $locationProvider) {
@@ -11,7 +11,7 @@ adminApp.config(['$routeProvider', '$locationProvider',
             .when('/dashboard', {
                 templateUrl: 'sections/admin_dashboard/admin.tpl.html',
                 title: 'Header-part',
-                controller: ''
+                controller: 'AdminController'
             })
             
            
