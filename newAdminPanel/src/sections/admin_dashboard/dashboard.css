@@ -1,8 +1,4 @@
-.bg-card{
-    background-color: #f1f8f9;
-    border-radius: 10px;
-    border: 1px solid #82e2d5;
-}
+
 #sidebar {
     min-width: 250px;
     max-width: 250px;
@@ -52,11 +48,13 @@ a:link, a:visited {
     
 }
 .card{
-    width: 280px;
-    height: 320px;
+    width: 320px;
+    height: 270px;
 }
 
+
+
 .card-img-top{
-    width: 220px;
+    width: 250px;
     margin: auto;
 }

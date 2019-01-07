@@ -21,24 +21,24 @@
        <ul class="list-unstyled components " id="left">
 
         <li>
-            <a ng-click="boolFunction('CompanyBool')" ><i class="fas fa-building fa-fw cyan-text "></i> <span class="font-weight-normal"> Companies</span></a> 
+            <a ng-click="boolFunction('CompanyBool')" ><i class="fas fa-building fa-fw cyan-text "></i> <span class="font-weight-normal"> Companies</span><span class="badge badge-pill badge-danger ml-2">{{allCompanies.length}}</span></a> 
 
         </li>
         <li>
-            <a href="" ng-click="boolFunction('AssignedCompanyBool')"><i class="far fa-check-square fa-fw cyan-text"></i> <span class="font-weight-normal"> Assigned Comp.</span></a>
+            <a href="" ng-click="boolFunction('AssignedCompanyBool')"><i class="far fa-check-square fa-fw cyan-text"></i> <span class="font-weight-normal"> Assigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
         </li>
         <li>
-            <a href="" ng-click="boolFunction('UnsignedCompanyBool')"><i class="far fa-calendar-times fa-fw cyan-text"></i><span class=" font-weight-normal"> Unassigned Comp.</span></a>
+            <a href="" ng-click="boolFunction('UnAssignedCompanyBool')"><i class="far fa-calendar-times fa-fw cyan-text"></i><span class=" font-weight-normal"> Unassigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
 
         </li>
         <li>
-            <a href="" ng-click="boolFunction('VendorListBool')"><i class="fas fa-users fa-fw cyan-text"></i><span class="font-weight-normal"> Vendors</span></a>
+            <a href="" ng-click="boolFunction('VendorListBool')"><i class="fas fa-users fa-fw cyan-text"></i><span class="font-weight-normal"> Vendors</span><span class="badge badge-pill badge-danger ml-2">{{AllVendorslist.length}}</span></a>
         </li>
         <li>
-            <a href="" ng-click="boolFunction('AssignedVendorListBool')"><i class="fas fa-user-check fa-fw cyan-text"></i><span class=" font-weight-normal"> Assigned Vendors</span></a>
+            <a href="" ng-click="boolFunction('AssignedVendorListBool')"><i class="fas fa-user-check fa-fw cyan-text"></i><span class=" font-weight-normal"> Assigned Vendors</span><span class="badge badge-pill badge-danger ml-2">{{assignedVendorslist.length}}</span></a>
         </li>
         <li>
-            <a href="" ng-click="boolFunction('UnAssignedVendorListBool')"><i class="fas fa-user-slash fa-fw cyan-text"></i><span class=" font-weight-normal"> Unassigned Vendors</span></a>
+            <a href="" ng-click="boolFunction('UnAssignedVendorListBool')"><i class="fas fa-user-slash fa-fw cyan-text"></i><span class=" font-weight-normal"> Unassigned Vendors</span><span class="badge badge-pill badge-danger ml-2">{{unassignedVendorslist.length}}</span></a>
         </li>
         <li>
             <a href="" ng-click="boolFunction('AddNewCompanyBool')"><i class="fas fa-cart-plus fa-fw cyan-text"></i><span class="font-weight-normal"> Add New Company</span></a>
@@ -60,20 +60,50 @@
             <div class="row">
 
 
-            <!-- ======================company ================================== -->
-            <div ng-if="CompanyBool">
+                <!-- ======================company ================================== -->
+                <div ng-if="CompanyBool">
+                    <form class="form-inline active-cyan-4 ml-5  mt-5">
+                        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </form>
+                    <div class="row">
+
+                        <div ng-repeat="cpny in allCompanies | filter:search1">
+                           <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="card card-cascade wider mt-4 ml-7 card-up">
+                                <div class="view view-cascade overlay  hm-black-light zoom" ripple-radius>
+                                    <img  src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}"
+                                    class="card-img-top img img-responsive mb-3 mt-4 waves-effect">
+                                    <a>
+                                        <div class="mask flex-center"></div>
+                                    </a>
+                                </div>
+                                <div class="title-name">
+                                    <h6 class=" card-text  b-clr font ng-binding mt-2 ml-4"><i class="fas fa-briefcase"></i></i>  {{cpny.companyName | uppercase}}</h6>
+                                    <p class="card-text  ml-4 b-clr font ng-binding"><i class="fas fa-map-marker-alt"></i>
+                                      {{cpny.address}}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- ======================Assigned Comp ================================== -->
+
+              <div ng-if="AssignedCompanyBool">
                 <form class="form-inline active-cyan-4 ml-5  mt-5">
                     <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
                     <i class="fas fa-search" aria-hidden="true"></i>
                 </form>
                 <div class="row">
 
-                    <div ng-repeat="cpny in allCompanies | filter:search1">
+                    <div  ng-repeat="cpny in assignedCompany | filter:search2">
                        <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="card card-cascade wider mt-4 card-up">
+                        <div class="card card-cascade wider mt-4 ml-7 card-up">
                             <div class="view view-cascade overlay  hm-black-light zoom" ripple-radius>
                                 <img  src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}"
-                                 class="card-img-top img img-responsive mb-3 mt-4 waves-effect">
+                                class="card-img-top img img-responsive mb-3 mt-4 waves-effect">
                                 <a>
                                     <div class="mask flex-center"></div>
                                 </a>
@@ -87,12 +117,98 @@
                       </div>
                   </div>
               </div>
-
-            </div>
           </div>
-      </section>
+          <!-- ======================Un-Assigned Comp ================================== -->
 
-  </div>
+          <div ng-if="UnAssignedCompanyBool">
+            <form class="form-inline active-cyan-4 ml-5  mt-5">
+                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+            <div class="row">
+
+                <div  ng-repeat="cpny in assignedCompany | filter:search2">
+                   <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="card card-cascade wider mt-4 ml-7 card-up">
+                        <div class="view view-cascade overlay  hm-black-light zoom" ripple-radius>
+                            <img  src="http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" 
+                            class="card-img-top img img-responsive mb-3 mt-4 waves-effect">
+                            <!-- <a>
+                                <div class="mask flex-center"></div>
+                            </a> -->
+                        </div>
+                        <div class="title-name">
+                            <h6 class=" card-text  b-clr font ng-binding mt-2 ml-4"><i class="fas fa-briefcase"></i></i>  {{cpny.companyName | uppercase}}</h6>
+                            <p class="card-text  ml-4 b-clr font ng-binding"><i class="fas fa-map-marker-alt"></i>
+                              {{cpny.address}}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- ====================== Vender ================================== -->
+
+              <div ng-if="VendorListBool">
+                <form class="form-inline active-cyan-4 ml-5  mt-5">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </form>
+                <div class="row">
+                  <div ng-repeat="vendor in AllVendorslist | filter:search1">
+                    <div class="col-md-3">
+                      <div class="card card-cascade wider mt-5 " layout-xs="column" layout="row">
+                        <div class="view view-cascade overlay">
+                          <div class="title-v-name">
+                            <h6><a class="w-clr one-line-text ml-4" href="#admin/vendor/{{vendor.id}}">{{vendor.name |
+                                uppercase}}</a></h6>
+                            </div>
+                        </div>
+                        <p class="card-text  ml-1 b-clr font ng-binding"><i class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
+                        <p class="card-text  ml-4 b-clr font ng-binding"><i class="fas fa-phone ml-4"></i><a class="ml-2">{{vendor.mobile}}</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+<!-- ====================== Add-New-Company ================================== -->
+     <div  ng-if="AddNewCompanyBool">
+  
+      <div class="company-details mt-5">
+
+                <br>
+                <label for="label">Contact Person Name</label>
+                <br>
+                <input type="text" placeholder="Enter contact person name" name="companyAddress" class="form-control"
+                  required ng-model="place.companyPerson">
+
+                <br>
+                <label for="label">Contact Number</label>
+                <br>
+                <input type="text" placeholder="Enter contact number" name="contactNumber" class="form-control"
+                  required ng-model="place.contactNumber">
+              </div>
+
+       
+
+            <div class="text-center">
+              <input type="submit" class="btn btn-success" value="Submit" ng-click="companySignup(place)">
+            </div>
+                 </div>
+         
+
+      
+
+<!-- ====================== Invoice ================================== -->
+
+
+
+
+
+</div>
+</section>
+
+</div>
 </main>
 
 
