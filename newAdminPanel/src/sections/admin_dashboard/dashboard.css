@@ -1,3 +1,4 @@
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -9,11 +10,14 @@
     box-shadow: 6px 7px 10px -4px rgba(2,0,3,1);
 }
 
+
+
 .sidebar .sidebar-wrapper {
     position: relative;
     overflow: auto;
     width: 260px;
     z-index: 4;
+
 }
 
 .sidebar .nav {
@@ -41,6 +45,7 @@
 .card{
     width: 280px;
     height: 320px;
+    margin-left: 30px;
 }
 
 .card-img-top{
@@ -48,9 +53,10 @@
     margin: auto;
 }
 
+#margin{
+    margin-left: 260px;}
 
-
-
+.md-form{margin-top: 58px;}
 
 
 
@@ -62,15 +68,30 @@
     width: calc(100% - 260px);
 }
 
-.main-panel > .content {
-    padding: 30px 15px;
-    min-height: calc(100% - 123px);
+/***************media query for responsive in mobile view************************/
+@media (max-width: 768px) {
+
+    #navbar_collapse{
+        margin-left: -250px;
+        box-shadow: none;
+    }
+    .sidebar{
+        box-shadow: none;
+    }
+    .sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+    #margin{
+        margin-left: 0px;
+       }
+.main-panel{
+        margin-left: -19px;
+        float: none;
+        width: 100%;}
+    }
 }
 
-.main-panel > .footer {
-    border-top: 1px solid #e7e7e7;
-}
 
-.main-panel .navbar {
-    margin-bottom: 0;
-}

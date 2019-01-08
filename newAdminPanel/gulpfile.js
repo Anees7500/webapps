@@ -22,6 +22,6 @@ gulp.task('default', ['make-config-module','connect-dev']);
 gulp.task('make-config-module', function () {
 	gulp
 		.src("src/config.properties")
-		.pipe(gulpNgConfig("myApp.config"))
+		.pipe(gulpNgConfig("adminApp.config"))
 		.pipe(gulp.dest("src/"));
 });
