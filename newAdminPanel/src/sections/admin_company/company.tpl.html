@@ -42,7 +42,7 @@
       <ul class="nav active ">
 
         <li>
-          <a ng-click="boolFunction('CategaryBool')" href="" ><i class="fas fa-building fa-fw brown-text "></i> <span class="font-weight-normal"> Categary</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw brown-text "></i> <span class="font-weight-normal">Configuration</span><span class="badge badge-pill badge-danger ml-2"></span></a>
 
         </li>
         <li>
@@ -79,26 +79,39 @@
   <div class="main-panel ">
 
     <!----=============menuitem checkbox start====================-->
-    <div class="container" ng-if="CategaryBool">
-      <table class="table table-bordered table-hover" id="table-margin">
-
+    <div class="container" ng-if="ConfigurationBool">
+      <table class="table table-bordered table-hover ml-5 " id="table-margin">
+        <thead><th class="unique-color"><h4 class="font-weight-bold text-white unique-color">Category</h4></th></thead>
         <tbody>
 
+
+          <tbody>
+
+            <tr>
+              <th scope="row">
+               <div class="custom-control custom-checkbox ml-5">
+                <input type="checkbox" class="custom-control-input" id="check1" ng-model="data.breakfast">
+                <label class="custom-control-label font-weight-normal" for="check1">Breakfast</label>
+              </div>
+            </th>
+
+
+          </tr>
           <tr>
             <th scope="row">
              <div class="custom-control custom-checkbox ml-5">
-              <input type="checkbox" class="custom-control-input" id="check1" ng-model="data.breakfast">
-              <label class="custom-control-label font-weight-normal" for="check1">Breakfast</label>
+              <input type="checkbox" class="custom-control-input" id="check2" ng-model="data.lunch" >
+              <label class="custom-control-label font-weight-normal" for="check2">Lunch</label>
             </div>
           </th>
 
-
         </tr>
+
         <tr>
           <th scope="row">
            <div class="custom-control custom-checkbox ml-5">
-            <input type="checkbox" class="custom-control-input" id="check2" ng-model="data.lunch" >
-            <label class="custom-control-label font-weight-normal" for="check2">Lunch</label>
+            <input type="checkbox" class="custom-control-input" id="check3" ng-model="data.snacks">
+            <label class="custom-control-label font-weight-normal" for="check3" >Snacks</label>
           </div>
         </th>
 
@@ -107,16 +120,6 @@
       <tr>
         <th scope="row">
          <div class="custom-control custom-checkbox ml-5">
-          <input type="checkbox" class="custom-control-input" id="check3" ng-model="data.snacks">
-          <label class="custom-control-label font-weight-normal" for="check3" >Snacks</label>
-        </div>
-      </th>
-      
-    </tr>
-
-    <tr>
-      <th scope="row">
-      	<div class="custom-control custom-checkbox ml-5">
           <input type="checkbox" class="custom-control-input" id="check4" ng-model="data.dinner">
           <label class="custom-control-label font-weight-normal" for="check4">Dinner</label>
         </div>
@@ -154,128 +157,242 @@
       
     </tr>
 
-  </tbody>
+    <tr>
+     <td>
+      <button type="button" class="btn btn-primary m-auto d-block">Save</button>
+    </td>
+  </tr>
+
+</tbody>
 </table>
-<button type="button" class="btn btn-primary btn-block" ng-click="category(data);">Save</button>
-</div>
 
+<table class=" table table-bordered">
+	<thead ><h4 class="font-weight-bold text-white border unique-color">Working Days</h4></thead>
+	<tbody>
+    <tr>
+      <td><div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="Check1">
+        <label class="custom-control-label" for="Check1">Sunday</label>
+      </div></td>
 
+      <td>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Check2">
+          <label class="custom-control-label" for="Check2">Monday</label>
+        </div></td>
 
-<!-- ==============================================Requirement start================ -->
-
-<div ng-if="RequirementBool">
-
-
-</div>
-<!-- ==============================================Item Check start================ -->
-<div ng-if="ItemCheckBool">
-
-
-</div>
-
-<!-- ==============================================Assigned start================ -->
-<div ng-if="AssignedBool">
-  <div class="container">
-   <table class="table table-hover" id="table-margin">
-
-     <tbody class="info-color">
-
-       <tr>
-        <th scope="row"></th>
         <td>
-          <button type="button" class="btn btn-light  m-0"  data-target="#fullHeightModalRight" data-toggle="modal">BREAKFAST ASSIGN</button>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="Check3">
+            <label class="custom-control-label" for="Check3">Tuesday</label>
+          </div></td>
+
+          <td>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="Check4">
+              <label class="custom-control-label" for="Check4">Wednesday</label>
+            </div></td>
+
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="Check5">
+                <label class="custom-control-label" for="Check5">Thursday</label>
+              </div></td>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Check6">
+                  <label class="custom-control-label" for="Check6">Friday</label>
+                </div></td>
+
+                <td>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Check7">
+                    <label class="custom-control-label" for="Check7">Saturday</label>
+                  </div></td>
+
+                  <td>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="Check8">
+                      <label class="custom-control-label" for="Check8">Select All</label>
+                    </div></td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <button type="button" class="btn btn-primary btn-block" ng-click="category(data);">Save</button>
+
+            </div>
 
 
-          <!-- Full Height Modal Right -->
-          <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+            <!-- ==============================================Requirement start================ -->
+
+            <div ng-if="RequirementBool">
 
 
-           <div class="modal-dialog" role="document">
+            </div>
+            <!-- ==============================================Item Check start================ -->
+            <div ng-if="ItemCheckBool">
 
 
-            <div class="modal-content">
-             <div class="modal-header">
-              <h4 class="modal-title w-100" id="myModalLabel">Vendor Assign For Breakfast</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-           </div>
-           <div class="modal-body">
-            <table class="table table-hover table-bordered mt-0" id="table-margin">
+            </div>
 
-             <tbody>
+            <!-- ==============================================Assigned start================ -->
 
-              <tr><th scope="row">Fancy Vendor</th></tr>
-              <tr><th scope="row">Yummy Tummy</th></tr>
-              <tr><th scope="row">Naveen Caters</th></tr>
-              <tr><th scope="row">GMR</th></tr>
-              <tr><th scope="row">Rang De Basanti</th></tr>
-              <tr><th scope="row">Buffet Lo</th></tr>
-              <tr><th scope="row">Farooq</th></tr>
-              <tr><th scope="row">Raj Mahal</th></tr>
-              <tr><th scope="row">Savitha</th></tr>
-              <tr><th scope="row">Shine</th></tr>
-              <tr><th scope="row">Pintu</th></tr>
-              <tr><th scope="row">Gpfood</th></tr>
-              <tr><th scope="row">Priya's Panjabi</th></tr>
-              <tr><th scope="row">Rolling Tummy</th></tr>
-              <tr><th scope="row">Adda</th></tr>
-              <tr><th scope="row">Vhs catering</th></tr>
-              <tr><th scope="row">Estern_Delight</th></tr>
-              <tr><th scope="row">Food Planet</th></tr>
-              <tr><th scope="row">Pal Caterers</th></tr>
-              <tr><th scope="row">Golden Star Service</th></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+
+            <div ng-if="AssignedBool">
+              <div class="container">
+               <table class="table table-hover" id="table-margin">
+
+                 <tbody class="info-color">
+
+                   <tr>
+                    <th scope="row"></th>
+                    <td>
+                      <button type="button" class="btn btn-light  m-0"  data-target="#fullHeightModalRight" data-toggle="modal">BREAKFAST ASSIGN</button>
+
+
+                      <!-- Full Height Modal Right -->
+                      <div class="modal fade" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+                       <div class="modal-dialog" role="document">
+
+
+                        <div class="modal-content">
+                         <div class="modal-header">
+                          <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For Breakfast</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                         </button>
+                       </div>
+                       <div class="modal-body">
+                        <table class="table table-hover table-bordered mt-0" id="table-margin">
+
+                         <tbody>
+
+                          <tr><th scope="row">Fancy Vendor</th></tr>
+                          <tr><th scope="row">Yummy Tummy</th></tr>
+                          <tr><th scope="row">Naveen Caters</th></tr>
+                          <tr><th scope="row">GMR</th></tr>
+                          <tr><th scope="row">Rang De Basanti</th></tr>
+                          <tr><th scope="row">Buffet Lo</th></tr>
+                          <tr><th scope="row">Farooq</th></tr>
+                          <tr><th scope="row">Raj Mahal</th></tr>
+                          <tr><th scope="row">Savitha</th></tr>
+                          <tr><th scope="row">Shine</th></tr>
+                          <tr><th scope="row">Pintu</th></tr>
+                          <tr><th scope="row">Gpfood</th></tr>
+                          <tr><th scope="row">Priya's Panjabi</th></tr>
+                          <tr><th scope="row">Rolling Tummy</th></tr>
+                          <tr><th scope="row">Adda</th></tr>
+                          <tr><th scope="row">Vhs catering</th></tr>
+                          <tr><th scope="row">Estern_Delight</th></tr>
+                          <tr><th scope="row">Food Planet</th></tr>
+                          <tr><th scope="row">Pal Caterers</th></tr>
+                          <tr><th scope="row">Golden Star Service</th></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Modal Right -->
+            </td>
+
+
+            <td>
+              <button type="button" class="btn btn-light m-0">LUNCH ASSIGN</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light  m-0"> SNACKS ASSIGN</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light  m-0">CASH & CARRY ASSIGN</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-light  m-0">MID-NIGNT SNACKS</button>
+            </td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   </div>
+
   <!-- End Modal Right -->
-</td>
 
 
-<td>
-  <button type="button" class="btn btn-light m-0">LUNCH ASSIGN</button>
-</td>
-<td>
-  <button type="button" class="btn btn-light  m-0"> SNACKS ASSIGN</button>
-</td>
-<td>
-  <button type="button" class="btn btn-light  m-0">CASH & CARRY ASSIGN</button>
-</td>
-<td>
-  <button type="button" class="btn btn-light  m-0">MID-NIGNT SNACKS</button>
-</td>
 
 
+  <!-- ==============================================Set Password start================ -->
+  <div ng-if="SetPasswordBool">
+    <div class="container" id="cont-margin">
+     <h2 class="text-center font-weight-normal">Company password for employee feedback app...!!!</h2><br>
+     <form>
+      <div class="form-group">
+       <input type="email" class="form-control" id="email" placeholder="Set Username app">
+     </div>
+     <div class="form-group">
+       <input type="password" class="form-control" id="pwd" placeholder="Set Mobile app Password">
+     </div>
+
+     <button type="submit" class="btn btn-default">Submit</button>
+   </form> 
+
+ </div>
+</div>
+<!-- ==============================================EmpFeedback start================ -->
+
+<div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
+
+  <div class="container">
+   <table class="table  table-hover" id="table-margin-top">
+    <thead>
+     <tr>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
+      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
+
+    </tr>
+  </thead>
+  <tbody>
+   <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
+    <td>{{feed.reviewerName}}</td>
+    <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
+    <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
+    <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
+    <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
+    <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
+    <td class="text-center font-weight-normal">{{feed.mobile}}</td>
+    <td>
+     <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
+      <mdb-tooltip :options="{placement: 'top'}">
+      <div class="tooltip">
+       {{feed.commen}}
+     </div>
+     <mdb-btn slot="reference" color="primary">
+     <i class="far fa-comments fa-2x" ></i
+     </mdb-btn>
+   </mdb-tooltip>
+ </div>
+</td>
+<td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
 </tr>
 </tbody>
 </table>
 
 </div>
 
-
-</div>
-<!-- ==============================================Set Password start================ -->
-<div ng-if="SetPasswordBool">
-  <div class="container" id="cont-margin">
-   <h2 class="text-center font-weight-normal">Company password for employee feedback app...!!!</h2><br>
-   <form>
-    <div class="form-group">
-     <input type="email" class="form-control" id="email" placeholder="Set Username app">
-   </div>
-   <div class="form-group">
-     <input type="password" class="form-control" id="pwd" placeholder="Set Mobile app Password">
-   </div>
-
-   <button type="submit" class="btn btn-default">Submit</button>
- </form> 
-
-</div>
-</div>
-<!-- ==============================================EmpFeedback start================ -->
-<div ng-if="EmpFeedbackBool">
 
 
 </div>
