@@ -7,7 +7,8 @@
     z-index: 1;
     background-size: cover;
     background-position: center center;
-    box-shadow: 6px 7px 10px -4px rgba(2,0,3,1);
+   
+   
 }
 
 
@@ -43,13 +44,21 @@
 }
 
 .card{
-    width: 280px;
+
+    width: 260px;
     height: 320px;
-    margin-left: 30px;
+    margin-left: 50px;}
+#card_design{
+
+     margin-left: 30px;
+     width: 290px;
+    height: 320px;
 }
 
+
+
 .card-img-top{
-    width: 220px;
+    width: 250px;
     margin: auto;
 }
 
@@ -67,6 +76,7 @@
     float: right;
     width: calc(100% - 260px);
 }
+
 
 /***************media query for responsive in mobile view************************/
 @media (max-width: 768px) {

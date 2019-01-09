@@ -15,6 +15,8 @@
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href="sections/admin_login/admin.css" />
   <link rel="stylesheet" href="sections/admin_dashboard/dashboard.css">
+  <link rel="stylesheet" href="sections/admin_company/company.css">
+ 
   
   
 
@@ -28,16 +30,18 @@
 </head>
 
 <body ng-app="adminApp">
-    <section id="main">
-        <div class="">
-          
-          <ng-view></ng-view>
-        </div>
-    </section>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <section id="main">
+    <div class="">
+      
+      <ng-view></ng-view>
+    </div>
+  </section>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="bower_components/MDBootstrap/js/bootstrap.min.js"></script>
+  <script src="bower_components/MDBootstrap/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
-   <script src="bower_components/MDBootstrap/js/bootstrap.min.js"></script>
-   
+  
+  
   
 
   <script src="bower_components/angular-route/angular-route.js"></script>
@@ -46,12 +50,15 @@
   <script src="bower_components/font-awesome/js/fontawesome.js"></script>
   <script src="bower_components/font-awesome/js/regular.js"></script>
   
-    <script src="app.js"></script>
-    <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="config.js"></script>
   <script src="sections/admin_dashboard/admin.ctrl.js"></script>
+  <script src="sections/admin_dashboard/admin.js"></script>
   <script src="sections/admin_dashboard/admin.srv.js"></script>
   <script src="sections/admin_login/login.ctrl.js"></script>
   <script src="sections/admin_login/login.srv.js"></script>
+  <script src="sections/admin_company/company.srv.js"></script>
+  <script src="sections/admin_company/company.ctrl.js"></script>
 
 </body>
 

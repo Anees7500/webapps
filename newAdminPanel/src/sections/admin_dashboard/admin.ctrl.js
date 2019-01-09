@@ -1,13 +1,15 @@
-adminApp.controller('AdminController', ['$scope', '$http','companydetailsService', 'getAllCompanyUrl',
-  function($scope, $http, companydetailsService, getAllCompanyUrl ) {
+adminApp.controller('AdminController', ['$scope', '$http','companydetailsService', 'getAllCompanyUrl', 
+  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl',
+  function($scope, $http, companydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
+  getAllVendorListUrl ) {
 
   	 // bool Logic start
       $scope.boolFunction = function (value) {
-        console.log("value 23=5", value);
+        console.log("boolFunction", value);
         $scope.CompanyBool = false;
         $scope.AddNewCompanyBool = false;
         $scope.AssignedCompanyBool = false;
-        $scope.UnsignedCompanyBool = false;
+        $scope.UnAssignedCompanyBool = false;
         $scope.InvoiceBool = false;
         $scope.VendorListBool = false;
         $scope.UnAssignedVendorListBool = false;
@@ -22,9 +24,9 @@ adminApp.controller('AdminController', ['$scope', '$http','companydetailsService
         companydetailsService.companySignup(company, companySignupUrl);
       }
 
-      // $http.get(getAllVendorListUrl).then(function (response) {
-      //   $scope.AllVendorslist = response.data.data.vendors;
-      // });
+      $http.get(getAllVendorListUrl).then(function (response) {
+        $scope.AllVendorslist = response.data.data.vendors;
+      });
       // $http.get(getAssignedVendor).then(function (response) {
       //   $scope.assignedVendorslist = response.data.data.assignedVendors;
       // });
@@ -32,12 +34,12 @@ adminApp.controller('AdminController', ['$scope', '$http','companydetailsService
       //   $scope.unassignedVendorlist = response.data.data.unassignedVendors;
       // });
 
-      // $http.get(getUnassignedCompanyUrl).then(function (response) {
-      //   $scope.unassignedCompanies = response.data.data.companies;
-      // });
-      // $http.get(getAssignedCompanyUrl).then(function (response) {
-      //   $scope.assignedCompany = response.data.data.companies;
-      // });
+      $http.get(getUnassignedCompanyUrl).then(function (response) {
+        $scope.unassignedCompanies = response.data.data.companies;
+      });
+      $http.get(getAssignedCompanyUrl).then(function (response) {
+        $scope.assignedCompany = response.data.data.companies;
+      });
       $http.get(getAllCompanyUrl).then(function (response) {
         $scope.allCompanies = response.data.data.companies;
       });
