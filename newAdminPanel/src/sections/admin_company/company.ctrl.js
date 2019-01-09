@@ -5,7 +5,7 @@ adminApp.controller('CompanyController', ['$scope', '$http',
   	 // bool Logic start
       $scope.boolFunction = function (value) {
         console.log("boolFunction", value);
-        $scope.CategaryBool = false;
+        $scope.ConfigurationBool = false;
         $scope.RequirementBool=false;
         $scope.ItemCheckBool=false;
         $scope.AssignedBool=false;
@@ -18,7 +18,7 @@ adminApp.controller('CompanyController', ['$scope', '$http',
        
         $scope[value] = true;
       }
-      $scope.boolFunction("CategaryBool");
+      $scope.boolFunction("ConfigurationBool");
       // bool Logic end
 
      

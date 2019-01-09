@@ -1,7 +1,14 @@
+/***************assigned*******************/
 .navbar{height: 50px;}
 .sidebar{ margin-top: 50px;}
 #table-margin{margin-top: 95px;}
 #btn-margin{margin-top: 90px;}
 #cont-margin{margin-top: 95px;}
-.modal-backdrop.show{opacity: 0;}
+.modal-backdrop.show{ 
+position: static;}
 .modal{margin-top: 35px;}
+.modal-content{width: 700px;}
+/***************employee feeback*******************/
+#table-margin-top{margin-top: 85px;}
+#header{font-size: 0.8rem;}
+
