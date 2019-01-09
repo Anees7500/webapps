@@ -36,7 +36,7 @@ adminApp.service('Map', function ($q) {
 
 });
 
-vmApp.controller('newPlaceCtrl', function ($scope, Map) {
+adminApp.controller('newPlaceCtrl', function ($scope, Map) {
 
     $scope.place = {};
 

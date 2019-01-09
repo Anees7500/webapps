@@ -1,55 +1,58 @@
 
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #fff;
-    transition: all 0.3s;
-    height: 620px;
-    margin-top: 29px;
+.sidebar {
     position: fixed;
-   box-shadow: 6px 7px 10px -4px rgba(2,0,3,1);}
+    top: 0;
+    bottom: 0;
+    right: auto;
+    z-index: 1;
+    background-size: cover;
+    background-position: center center;
+   
+   
+}
 
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
+
+
+.sidebar .sidebar-wrapper {
+    position: relative;
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+
+}
+
+.sidebar .nav {
+    margin-top: 20px;
+    float: none;
+}
+
+.sidebar .nav .open > a,
+.sidebar .nav li.dropdown .dropdown-menu li:hover > a,
+.sidebar .nav li:hover > a {
+    background-color:#eceff1;
+    opacity: 1;
+    color:#fff;
+}
+
+.sidebar .nav li > a {
+    color: #000000;
+    margin: 5px 20px;
+    opacity: .86;
+    border-radius: 8px;
     display: block;
+    padding: 10px;
 }
 
-a:link, a:visited {
-    background-color: #fff;
-    color: #212121;
-    padding: 14px 25px;
-    text-decoration: none;
-    display: inline-block;
-
-  }
-  
-  a:hover, a:active {
-    background-color:#eceff1 ;
-    color: #039be5;
-  }
-  
-#content {
-    width: 250px;
-    padding: 0px;
-    transition: all 0.3s;
-}
-.dropdown-menu{
-    min-width: 120px;
-}
-#navbar_top_height{
-    height: 45px;
-}
-
-/*card css***********/
-.container{
-    margin-left: 280px;
-    
-    
-}
 .card{
-    width: 320px;
-    height: 270px;
+
+    width: 260px;
+    height: 320px;
+    margin-left: 50px;}
+#card_design{
+
+     margin-left: 30px;
+     width: 290px;
+    height: 320px;
 }
 
 
@@ -58,3 +61,47 @@ a:link, a:visited {
     width: 250px;
     margin: auto;
 }
+
+#margin{
+    margin-left: 260px;}
+
+.md-form{margin-top: 58px;}
+
+
+
+/************main panel************/
+.main-panel {
+    position: relative;
+    z-index: 2;
+    float: right;
+    width: calc(100% - 260px);
+}
+
+
+/***************media query for responsive in mobile view************************/
+@media (max-width: 768px) {
+
+    #navbar_collapse{
+        margin-left: -250px;
+        box-shadow: none;
+    }
+    .sidebar{
+        box-shadow: none;
+    }
+    .sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+    #margin{
+        margin-left: 0px;
+       }
+.main-panel{
+        margin-left: -19px;
+        float: none;
+        width: 100%;}
+    }
+}
+
+
