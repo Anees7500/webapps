@@ -43,7 +43,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
         $scope.cmpyName = response.data.data.company.companyName;
         $scope.data = response.data.data.company;
       });
-
+      
+ // ==================== Tooltip==============
     $scope.demo = {
       showTooltip: false,
       tipDirection: 'bottom'
