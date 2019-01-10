@@ -71,7 +71,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
       var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
       $http.get(getFeedbackUrl).then(function (response) {
         $scope.feedback = response.data.data.reviews;
-      });
+      }); 
 
       var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
       $http.get(getAllVendorToCompany).then(function (response) {

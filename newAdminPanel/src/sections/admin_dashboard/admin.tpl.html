@@ -1,8 +1,7 @@
-
 <!--wrapper  class start for whole page-->
 <div class="wrapper h-100 t-0">
 
-  <!-----------------------------------sidebar start------------------------------------->
+  <!-- ===========================-sidebar start===================================== -->
   <nav class="sidebar  bg-white text-white d-block w-260 ml-0 mb-0 mt-0 font-weight-200 z-depth-1-half" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
 
@@ -51,9 +50,9 @@
       </ul>
     </div>
   </nav>
-  <!---------------------/sidebar end------------------------>
+  <!-- -===============================/sidebar end=============================== -->
 
-  <!------------------------header navbar start------------------------->
+  <!-- ===============================header navbar start=============================== -->
 
   <div class="main-panel">
     <nav class="mb-1 navbar navbar-expand-sm navbar-dark info-color fixed-top" id="margin">
@@ -82,26 +81,24 @@
       </div>
 
     </nav>
-    <!---------------/navbar end--------------------------------->
+    <!--===============================/navbar end=============================== -->
     
 
-    <!--------------------content part start----------------------------->
+    <!--=============================== content part start=============================== -->
     <div class="content">
       <div class="container-fluid">
 
-       <!------------------company start-------------------->
+       <!--===============================company start===============================-->
        <div ng-if="CompanyBool">
-        <!------------------search form start------------------->
         <div class="input-group md-form form-sm form-lg form-2 pl-0">
-          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search1" aria-label="Search">
           <div class="input-group-append">
             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
           </div>
         </div>
-        <!------------------/search form start-------------------->
         <div class="row">
          <div ng-repeat="cpny in allCompanies | filter:search1">
-          <a class="b-clr font" href="#/dashboard/company/{{cpny.id}}">
+          <!-- <div  > -->
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="card example z-depth-1 mt-5">
                 <div class="view overlay  hm-black-light zoom" ripple-radius>
@@ -110,29 +107,30 @@
                     <div class="mask flex-center"></div>
                   </a>
                 </div>
-                <div class="card-block">
+                <div class="card-block" >
                   <h5 class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal "><i class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>  {{cpny.companyName | uppercase}} </h5>
                   <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{cpny.address}} </p>
                 </div>
+                <a  class="btn btn-success" ng-href="/dashboard/company/{{cpny.id}}"><i class="fas fa-forward"></i></a>
+                <!-- <a id="link-3" ng-href="/dashboard/company/{{cpny.id}}">link 3</a> -->
+                <!-- <button onclick="window.location.href='/dashboard/company/{{cpny.id}}'">Continue</button> -->
+                <!-- <a href="/dashboard/company/{{cpny.id}}"> Go</a> -->
               </div>
             </div>
-          </a>
           </div>
+          <!-- </div> -->
 
         </div>
       </div>
-      <!-----------/row ends company end---------------------------------> 
-      <!---------------------------Assigned company------------------------->
+      <!--===============================/row ends company ends=============================== --> 
+      <!-- ===============================-Assigned company=============================== -->
       <div ng-if="AssignedCompanyBool">
-        <!-------------search form start---------->
         <div class="input-group md-form form-sm form-lg form-2 pl-0">
-          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search2" aria-label="Search">
           <div class="input-group-append">
             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
           </div>
         </div>
-        <!------------------/search form start-------------------->
-
         <div class="row">
          <div ng-repeat=" cpny in assignedCompany | filter:search2">
           <div class="col-md-4 col-sm-4 col-xs-12">
@@ -154,19 +152,17 @@
       </div>
     </div>
 
-    <!-----------------------/assigned company------------------------->
+    <!--===============================-/assigned company===============================-->
 
 
-    <!---------------------unassigned company------------------------>  
+    <!-- ===============================-unassigned company=============================== -->  
     <div ng-if="UnAssignedCompanyBool">
-      <!-------------search form start---------->
       <div class="input-group md-form form-sm form-lg form-2 pl-0">
-        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search2" aria-label="Search">
         <div class="input-group-append">
           <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
         </div>
       </div>
-      <!------------------/search form start-------------------->
       <div class="row">
        <div ng-repeat="cpny in assignedCompany  | filter:search2">
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -187,19 +183,17 @@
     </div>
   </div>
 
-  <!---------------------/end unassigned company------------------------>    
+  <!--===============================/end unassigned company-===============================-->    
 
   <!-- ====================== Vender ================================== -->
 
   <div ng-if="VendorListBool">
-    <!-------------search form start---------->
     <div class="input-group md-form form-sm form-lg form-2 pl-0">
-      <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" aria-label="Search">
+      <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
       <div class="input-group-append">
         <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
       </div>
     </div>
-    <!------------------/search form start-------------------->
     <div class="row" >
      <div ng-repeat="vendor in AllVendorslist | filter:search1">
       <div class="col-lg-3 col-md-4 col-sm-12">
@@ -211,16 +205,16 @@
             </a>
           </div>
           <div class="card-block">
-           <h5><a class="w-clr one-line-text ml-3 text-danger font-weight-normal" href="#admin/vendor/{{vendor.id}}">{{vendor.name |
+           <h5><a ref="admin/vendor/{{vendor.id}}">{{vendor.name |
            uppercase}}</a></h5>
            <p class="card-text  ml-2 b-clr font ng-binding"><i class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
            <p class="card-text  ml-2 b-clr font ng-binding"><i class="fas fa-phone ml-2"></i><a class="ml-2">{{vendor.mobile}}</a></p>
          </div>
        </div>
      </div>
+    <!--  <div class="col-lg-3 col-md-4 col-sm-12"></div>
      <div class="col-lg-3 col-md-4 col-sm-12"></div>
-     <div class="col-lg-3 col-md-4 col-sm-12"></div>
-     <div class="col-lg-3 col-md-4 col-sm-12"></div>
+     <div class="col-lg-3 col-md-4 col-sm-12"></div> -->
    </div>
  </div>
 </div>
@@ -229,34 +223,30 @@
 
 <!-- ====================== Add-New-Company ================================== -->
 <div  ng-if="AddNewCompanyBool">
-
-  <div class="company-details mt-5">
-
-    <br>
-    <label for="label">Contact Person Name</label>
-    <br>
-    <input type="text" placeholder="Enter contact person name" name="companyAddress" class="form-control"
-    required ng-model="place.companyPerson">
-
-    <br>
-    <label for="label">Contact Number</label>
-    <br>
-    <input type="text" placeholder="Enter contact number" name="contactNumber" class="form-control"
-    required ng-model="place.contactNumber">
-  </div>
+  <div class="input-group md-form form-sm form-lg form-2 pl-0">
+      <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
+      <div class="input-group-append">
+        <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
+      </div>
+    </div>
+    
+      <div class="map-center">
+                  <div id="map"></div>
+                </div>
+                <div class="form-header blue-gradient">
+            <h3><i class="fa fa-user"></i> Register:</h3>
+        </div>
 
 
 
-  <div class="text-center">
-    <input type="submit" class="btn btn-success" value="Submit" ng-click="companySignup(place)">
-  </div>
+
 </div>
 
 
-<!---------/end of content and container fuild----------------------->
+<!--===============================/end of content and container fuild=============================== -->
 </div>
 </div>
-<!--------------------------/content end---------------------------> 
+<!--===============================/content end===============================--> 
 
 
 <!-- Footer -->
@@ -277,7 +267,3 @@
 </div>
 </div>
 <!--/wrapper class ens-->
-
-
-
-
