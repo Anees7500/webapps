@@ -35,7 +35,7 @@ adminApp.factory('vendorassignService', ['$http','$httpParamSerializerJQLike', '
                 return respMenuJson;
             },
             // ______________________Category_______________
-            activeCategory: function (data, postCategoryUrl) {
+           activeCategory: function (data, postCategoryUrl) {
                 console.log("In Services File DATA", data, postCategoryUrl);
                 $http({
                     method: 'POST',
@@ -53,11 +53,11 @@ adminApp.factory('vendorassignService', ['$http','$httpParamSerializerJQLike', '
                         // $location.path('/admin/company/:id');
                     } else {
                         console.log('error registering');
-                        Notification.error('Could not save company details');
+                        
                     }
                 });
             },
-          
+
         }
     }
 ]);

@@ -6,15 +6,18 @@ adminApp.config(['$routeProvider', '$locationProvider',
         .when('/dashboard', {
             templateUrl: 'sections/admin_dashboard/admin.tpl.html',
             title: 'Header-part',
-            controller: 'AdminController'
+            controller: 'AdminController',
+            require:'ngModel'
         })
         .when('/dashboard/company/:compId', {
            templateUrl: 'sections/admin_company/company.tpl.html',
-           controller: 'CompanyController'
+           controller: 'CompanyController',
+           require:'ngModel'
        })
         .when('/', {
           templateUrl: 'sections/admin_login/login.tpl.html',
-          controller: 'AdminLoginController'
+          controller: 'AdminLoginController',
+          require:'ngModel'
       });
       //   .otherwise({
       //     redirectTo: '/'
