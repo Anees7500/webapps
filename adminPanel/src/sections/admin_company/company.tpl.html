@@ -534,13 +534,14 @@ input.req-clr {
       <div id="id01" class="modal">
         <form class="modal-content animate" style="margin:1% 32%;" action="">
           <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">
+              &times;</span>
           </div>
           <h3 class="text-center">Vendor Assign For Breakfast</h3>
           <div class="container">
             <form>
-              <div style="padding:10px;">
-                <input type="text" ng-model="vendorSearch" class="vendorSearch" name="search" placeholder="Search...">
+              <div >
+                <input type="text" ng-model="vendorSearch" class="m-auto d-block" name="search" placeholder="Search...">
               </div>
             </form>
             <div class="card" style="padding-top: 36px; padding-bottom: 0px;">
@@ -722,7 +723,8 @@ input.req-clr {
                 required ng-model="c.password">
             </div>
           </div><br><br>
-          <p id="submitbutton"><input type="submit" class="btn btn-info " value="Submit" ng-click="companyLoginIdSet(c)"></p>
+          <p id="submitbutton"><input type="submit" class="btn btn-info " value="Submit" 
+            ng-click="companyLoginIdSet(c)"></p>
         </form>
       </div>
     </div> <!-- SET login id password for Android App END -->

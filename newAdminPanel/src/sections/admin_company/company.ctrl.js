@@ -1,7 +1,7 @@
 adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignService', 'postCategoryUrl', '$routeParams',
-  'corporateReviewsUrl', 'getCompanyProfileUrl',
+  'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl',
   function($scope, $http ,vendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl,
-   getCompanyProfileUrl
+   getCompanyProfileUrl, getAllVendorListUrl
    ) {
 
 
@@ -43,7 +43,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
         $scope.cmpyName = response.data.data.company.companyName;
         $scope.data = response.data.data.company;
       });
-      
+      // ==================== All Vender list==============
+
+   $http.get(getAllVendorListUrl).then(function (response) {
+        // console.log("response.data 555", response.data.data.vendors);
+        $scope.allVendorsList = response.data.data.vendors;
+        // console.log("response.data 560", $scope.allVendorsList);
+      });
  // ==================== Tooltip==============
     $scope.demo = {
       showTooltip: false,
