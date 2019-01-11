@@ -107,11 +107,13 @@
                     <div class="mask flex-center"></div>
                   </a>
                 </div>
-                <div class="card-block" >
+                <div class="card-block">
                   <h5 class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal "><i class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>  {{cpny.companyName | uppercase}} </h5>
                   <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{cpny.address}} </p>
                 </div>
-                <a  class="btn btn-success" ng-href="#!/dashboard/company/{{cpny.id}}"><i class="fas fa-forward"></i></a>
+                <a  class=" d-flex flex-row-reverse p-2" ng-href="#!/dashboard/company/{{cpny.id}}"><h5 class="waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
+              
+   
                 <!-- <a id="link-3" ng-href="/dashboard/company/{{cpny.id}}">link 3</a> -->
                 <!-- <button onclick="window.location.href='/dashboard/company/{{cpny.id}}'">Continue</button> -->
                 <!-- <a href="/dashboard/company/{{cpny.id}}"> Go</a> -->
@@ -223,6 +225,7 @@
 
 <!-- ====================== Add-New-Company ================================== -->
 <div  ng-if="AddNewCompanyBool">
+  <form class="border">
   <div class="input-group md-form form-sm form-lg form-2 pl-0">
       <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
       <div class="input-group-append">
@@ -237,7 +240,7 @@
             <h3><i class="fa fa-user"></i> Register:</h3>
         </div>
 
-
+</form>
 
 
 </div>

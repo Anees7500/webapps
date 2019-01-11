@@ -83,7 +83,7 @@
     <div class="container contmargin" ng-if="ConfigurationBool">
       <h4 class="font-weight-bold text-white border unique-color">Category</h4>
       <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
-        <div class="list-group checkbox-list-group custom-control custom-checkbox mb-5">
+        <div class="list-group checkbox-list-group custom-control custom-checkbox mb-3">
          <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked1" ng-model="data.breakfast">
           <label class="custom-control-label" for="Checked1">Breakfast</label>
@@ -113,7 +113,7 @@
           <label class="custom-control-label" for="Check">Cash & Carry</label>
         </div></div>
       </div>
-      <button type="button" class="btn btn-info m-auto d-block mb-5" submit-required="true" ng-click="category(data);">Save</button>
+      <button type="button" class="btn btn-info m-auto d-block mb-5" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
     </form>
 
 
@@ -121,41 +121,25 @@
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white border unique-color">Working Days</h4>
     <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght">
-      <label class="checkbox-inline" id="label-margin-padding">
-        <input type="checkbox" value="">Sunday</label>
+     <label class="checkbox-inline" id="label-margin-padding">
+        <input type="checkbox" ng-checked="all"> Sunday</label>
         <label class="checkbox-inline"id="label-margin-padding">
-          <input type="checkbox" value="">Monday</label>
+          <input type="checkbox" ng-checked="all"> Monday</label>
           <label class="checkbox-inline"id="label-margin-padding">
-            <input type="checkbox" value="">Tuesday </label>
+            <input type="checkbox" ng-checked="all"> Tuesday </label>
             <label class="checkbox-inline"id="label-margin-padding">
-              <input type="checkbox" value="">Wednesday </label>
+              <input type="checkbox" ng-checked="all"> Wednesday </label>
               <label class="checkbox-inline"id="label-margin-padding">
-                <input type="checkbox" value="">Thursday</label>
+                <input type="checkbox" ng-checked="all"> Thursday</label>
                 <label class="checkbox-inline"id="label-margin-padding">
-                  <input type="checkbox" value="">Friday</label>
+                  <input type="checkbox" ng-checked="all"> Friday</label>
                   <label class="checkbox-inline"id="label-margin-padding">
-                    <input type="checkbox" value="">Saturday</label>
+                    <input type="checkbox" ng-checked="all"> Saturday</label>
                     <label class="checkbox-inline"id="label-margin-padding">
-                      <input type="checkbox" value="">Select All</label><br>
-                      <button type="button" class="btn btn-info m-auto  d-block">Save</button>
+                      <input type="checkbox" ng-model="all"> Select All</label><br>
+                      <button type="button" class="btn btn-info m-auto  d-block" id="btn-margin"submit-required="true" ng-click="category(data);">Save</button>
                     </form>
 
-  <!--<table class=" table table-bordered">
-  <thead ><h4 class="font-weight-bold text-white border unique-color">Working Days</h4></thead>
-  <tbody>
-    <tr >
-     <div ng-app="selectApp" >
-      <input type="checkbox" ng-click="toggleSelect()" /> Select All <br />
-      <div ng-repeat="d in WorkingDays">
-       <input type="checkbox"  ng-click="clearParent()" ng-model="d.selected">{{d.day}}
-     </div>
-   </div>
- </tr>
-
-</tbody>
-</table>
-
-<button type="button" class="btn btn-primary btn-block" submit-required="true" ng-click="category(data);">Save</button>-->
 
 <!--===========================Invoice date==================================-->
 <h4 class="font-weight-bold text-white border unique-color">Invoice Date</h4>
@@ -183,6 +167,47 @@
   </select>
 </div>
 </form>
+
+<!--===========================Invoice date==================================-->
+<h4 class="font-weight-bold text-white border unique-color">Additional Requirements</h4>
+<div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
+                                        <th>Menu</th>
+                                        <th>Cost</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                               <tbody>
+                                    <tr ng-repeat="menuDetail in menuDetails">
+                                        <td>
+                                            <input type="checkbox" ng-model="menuDetail.selected"/></td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-model="menuDetail.Menu" required/></td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-model="menuDetail.Cost" required/></td>
+                                        <td>
+                                            <input type="text" class="form-control" ng-model="menuDetail.Quantity" required/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="form-group">
+                                <input ng-hide="!menuDetails.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
+                                <input type="submit" class="btn btn-success addnew pull-right" value="Add New">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </div>
 
 
