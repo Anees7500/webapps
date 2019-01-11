@@ -79,96 +79,70 @@
   <div class="main-panel ">
 
     <!----=============menuitem checkbox start====================-->
-    <div class="container" ng-if="ConfigurationBool">
-      <table class="table table-bordered table-hover ml-5 " id="table-margin">
-        <thead><th class="unique-color"><h4 class="font-weight-bold text-white unique-color">Category</h4></th></thead>
-        <tbody>
+
+    <div class="container contmargin" ng-if="ConfigurationBool">
+      <h4 class="font-weight-bold text-white border unique-color">Category</h4>
+      <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
+        <div class="list-group checkbox-list-group custom-control custom-checkbox mb-5">
+         <div class="list-group-item"><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Checked1" ng-model="data.breakfast">
+          <label class="custom-control-label" for="Checked1">Breakfast</label>
+        </div></div>
+        <div class="list-group-item "><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Checked2" ng-model="data.lunch">
+          <label class="custom-control-label" for="Checked2">Lunch</label>
+        </div></div>
+        <div class="list-group-item"><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Checked3" ng-model="data.snacks">
+          <label class="custom-control-label" for="Checked3">Snacks</label>
+        </div></div>
+        <div class="list-group-item "><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Checked4" ng-model="data.dinner">
+          <label class="custom-control-label" for="Checked4">Dinner</label>
+        </div></div>
+        <div class="list-group-item"><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Checked5" ng-model="data.midNightSnacks">
+          <label class="custom-control-label" for="Checked5">Mid-Night Snacks</label>
+        </div></div>
+        <div class="list-group-item"><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="checked6"  ng-model="data.earlyMorningSnacks">
+          <label class="custom-control-label" for="checked6">Early Morning Snacks</label>
+        </div></div>
+        <div class="list-group-item"><div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="Check" ng-model="data.cashNCarry">
+          <label class="custom-control-label" for="Check">Cash & Carry</label>
+        </div></div>
+      </div>
+      <button type="button" class="btn btn-info m-auto d-block mb-5" submit-required="true" ng-click="category(data);">Save</button>
+    </form>
 
 
-          <tbody>
 
-            <tr>
-              <th scope="row">
-               <div class="custom-control custom-checkbox ml-5">
-                <input type="checkbox" class="custom-control-input" id="check1" ng-model="data.breakfast">
-                <label class="custom-control-label font-weight-normal" for="check1">Breakfast</label> 
-              </div>
-            </th>
+    <!--===========================working days==================================-->
+    <h4 class="font-weight-bold text-white border unique-color">Working Days</h4>
+    <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght">
+      <label class="checkbox-inline" id="label-margin-padding">
+        <input type="checkbox" value="">Sunday</label>
+        <label class="checkbox-inline"id="label-margin-padding">
+          <input type="checkbox" value="">Monday</label>
+          <label class="checkbox-inline"id="label-margin-padding">
+            <input type="checkbox" value="">Tuesday </label>
+            <label class="checkbox-inline"id="label-margin-padding">
+              <input type="checkbox" value="">Wednesday </label>
+              <label class="checkbox-inline"id="label-margin-padding">
+                <input type="checkbox" value="">Thursday</label>
+                <label class="checkbox-inline"id="label-margin-padding">
+                  <input type="checkbox" value="">Friday</label>
+                  <label class="checkbox-inline"id="label-margin-padding">
+                    <input type="checkbox" value="">Saturday</label>
+                    <label class="checkbox-inline"id="label-margin-padding">
+                      <input type="checkbox" value="">Select All</label><br>
+                      <button type="button" class="btn btn-info m-auto  d-block">Save</button>
+                    </form>
 
-
-          </tr>
-          <tr>
-            <th scope="row">
-             <div class="custom-control custom-checkbox ml-5">
-              <input type="checkbox" class="custom-control-input" id="check2" ng-model="data.lunch" >
-              <label class="custom-control-label font-weight-normal" for="check2">Lunch</label>
-            </div>
-          </th>
-
-        </tr>
-
-        <tr>
-          <th scope="row">
-           <div class="custom-control custom-checkbox ml-5">
-            <input type="checkbox" class="custom-control-input" id="check3" ng-model="data.snacks">
-            <label class="custom-control-label font-weight-normal" for="check3" >Snacks</label>
-          </div>
-        </th>
-
-      </tr>
-
-      <tr>
-        <th scope="row">
-         <div class="custom-control custom-checkbox ml-5">
-          <input type="checkbox" class="custom-control-input" id="check4" ng-model="data.dinner">
-          <label class="custom-control-label font-weight-normal" for="check4">Dinner</label>
-        </div>
-      </th>
-      
-    </tr>
-
-    <tr>
-      <th scope="row">
-      	<div class="custom-control custom-checkbox ml-5">
-          <input type="checkbox" class="custom-control-input" id="check5" ng-model="data.midNightSnacks">
-          <label class="custom-control-label font-weight-normal" for="check5">Mid-Night Snacks</label>
-        </div>
-      </th>
-      
-    </tr>
-
-    <tr>
-      <th scope="row">
-      	<div class="custom-control custom-checkbox ml-5">
-          <input type="checkbox" class="custom-control-input" ng-model="data.earlyMorningSnacks">
-          <label class="custom-control-label font-weight-normal" for="check6">Early Morining Snacks</label>
-        </div>
-      </th>
-      
-    </tr>
-
-    <tr>
-      <th scope="row">
-      	<div class="custom-control custom-checkbox ml-5">
-          <input type="checkbox" class="custom-control-input" id="check7" ng-model="data.cashNCarry">
-          <label class="custom-control-label font-weight-normal" for="check7">Cash & Carry</label>
-        </div>
-      </th>
-      
-    </tr>
-
-    <tr>
-     <td>
-      <button type="button" class="btn btn-primary m-auto d-block" ng-click="category(data);">Save</button>
-    </td>
-  </tr>
-
-</tbody>
-</table>
-
-<table class=" table table-bordered">
-	<thead ><h4 class="font-weight-bold text-white border unique-color">Working Days</h4></thead>
-	<tbody>
+  <!--<table class=" table table-bordered">
+  <thead ><h4 class="font-weight-bold text-white border unique-color">Working Days</h4></thead>
+  <tbody>
     <tr >
      <div ng-app="selectApp" >
       <input type="checkbox" ng-click="toggleSelect()" /> Select All <br />
@@ -181,9 +155,39 @@
 </tbody>
 </table>
 
+<<<<<<< HEAD
 <button type="button" class="btn btn-primary btn-block" submit-required="true" ng-click="">Save</button>
+=======
+<button type="button" class="btn btn-primary btn-block" submit-required="true" ng-click="category(data);">Save</button>-->
 
+<!--===========================Invoice date==================================-->
+<h4 class="font-weight-bold text-white border unique-color">Invoice Date</h4>
+<form class="border  z-depth-1 form-check-inline ml-3 mb-5" id="form-lenght">
+ <div class="form-group" id="form-padding">
+  <label for="sel1" class="font-weight-bold">Starting Month</label>
+  <select class="form-control" id="sel1" data-dropup-auto="downdown">
+    <option>Select Date</option>
+    <option ng-repeat="p in Starting_date">{{p}}</option>
+  </select>
 </div>
+
+<div class="form-group" id="form-padding">
+  <label for="sel1" class="font-weight-bold">Mid of Month</label>
+  <select class="form-control" id="sel1">
+    <option>Select Date</option>
+    <option ng-repeat="q in Mid_of_date">{{q}}</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="sel1" class="font-weight-bold">End of Month</label>
+  <select class="form-control" id="sel1">
+    <option>Select Date</option>
+    <option ng-repeat="r in End_of_date">{{r}}</option>
+  </select>
+</div>
+</form>
+
+
 
 
 
@@ -196,20 +200,104 @@
 <!-- ==============================================Item Check start================ -->
 <div ng-if="ItemCheckBool">
 
-
 </div>
-
 <!-- ==============================================Assigned start================ -->
 
 
 <div ng-if="AssignedBool">
   <div class="container">
-    <div class="ml-10">
+
+ <!--    <div class="ml-10">
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
+</div -->
+
+   <table class="table table-hover" id="table-margin">
+
+     <tbody class="info-color">
+
+       <tr>
+        <th scope="row"></th>
+        <td>
+          <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id01').style.display='block'" data-target="#fullHeightModalRight" data-toggle="modal">BREAKFAST ASSIGN</button>
+
+
+          <!-- Full Height Modal Right -->
+          <div class="modal fade" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+           <div class="modal-dialog" role="document">
+
+
+            <div class="modal-content">
+             <div class="modal-header">
+              <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For Breakfast</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action" ng-repeat="x in vendor_list">{{x}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Right -->
+  </td>
+
+
+  <td>
+    <button type="button" class="btn btn-light m-0" onclick="document.getElementById('id02').style.display='block'">LUNCH ASSIGN</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id03').style.display='block'"> SNACKS ASSIGN</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id04').style.display='block'">DINNER ASSIGN</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id05').style.display='block'" >CASH & CARRY ASSIGN</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id06').style.display='block'" >Mid-NIGHT
+    SNACKS ASSIGH</button>
+  </td>
+  <td>
+    <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id07').style.display='block'" >EARLY MORNING SNACKS ASSIGH</button>
+  </td>
+</tr>
+</tbody>
+</table>
+
 </div>
+</div>
+
+
+
+
+<!-- ==============================================Set Password start================ -->
+<div ng-if="SetPasswordBool">
+  <div class="container" id="cont-margin">
+   <h2 class="text-center border unique-color font-weight-normal" id="txt-margin">Company password for employee feedback app...!!!</h2><br>
+   <form class="border  z-depth-1 mb-5 ml-3 " id="form-lenght">
+    <div class="form-group ml-5 mr-5">
+     <input type="email" class="form-control mt-3" id="email" placeholder="Set Username app" ng-model="c.username">
+   </div>
+   <div class="form-group ml-5 mr-5">
+     <input type="password" class="form-control" id="pwd" placeholder="Set Mobile app Password"  ng-model="c.password">
+   </div>
+
+   <button type="submit" class="btn btn-default m-auto d-block" ng-click="companyLoginIdSet(c)">Submit</button>
+ </form> 
+
+
+
+
+
 </div>
 </div>
 
@@ -218,68 +306,55 @@
 
 
 
-<!-- ==============================================Set Password start================ -->
-<div ng-if="SetPasswordBool">
-  <div class="container" id="cont-margin">
-   <h2 class="text-center font-weight-normal">Company password for employee feedback app...!!!</h2><br>
-   <form>
-    <div class="form-group">
-     <input type="email" class="form-control" id="email" placeholder="Set Username app" ng-model="c.username">
-   </div>
-   <div class="form-group">
-     <input type="password" class="form-control" id="pwd" placeholder="Set Mobile app Password" ng-model="c.password">
-   </div>
 
-   <button type="submit" class="btn btn-default" ng-click="companyLoginIdSet(c)">Submit</button> 
- </form> 
-
-</div>
-</div>
 <!-- ==============================================EmpFeedback start================ -->
 
 <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
 
-  <div class="container">
-   <table class="table  table-hover" id="table-margin-top">
-    <thead>
-     <tr>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
-      <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
+  <div class="container" id="cont-margin">
+    <form class="border  z-depth-1 mb-5 ml-3">
+     <table class="table  table-hover" id="table-margin-top">
+      <thead>
+       <tr>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
+        <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
 
-    </tr>
-  </thead>
-  <tbody>
-   <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
-    <td>{{feed.reviewerName}}</td>
-    <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
-    <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
-    <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
-    <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
-    <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
-    <td class="text-center font-weight-normal">{{feed.mobile}}</td>
-    <td>
-     <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
-      <mdb-tooltip :options="{placement: 'top'}">
-      <div class="tooltip">
-       {{feed.commen}}
+      </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
+      <td>{{feed.reviewerName}}</td>
+      <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
+      <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
+      <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
+      <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
+      <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
+      <td class="text-center font-weight-normal">{{feed.mobile}}</td>
+      <td>
+       <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
+        <mdb-tooltip :options="{placement: 'top'}">
+          <div class="tooltip">
+           {{feed.commen}}
+         </div>
+         <mdb-btn slot="reference" color="primary">
+           <i class="far fa-comments fa-2x" ></i>
+         </mdb-btn>
+       </mdb-tooltip>
      </div>
-     <mdb-btn slot="reference" color="primary">
-     <i class="far fa-comments fa-2x" ></i
-     </mdb-btn>
-   </mdb-tooltip>
- </div>
-</td>
-<td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
-</tr>
+   </td>
+   <td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
+ </tr>
 </tbody>
 </table>
+
+</form>
 
 </div>
 

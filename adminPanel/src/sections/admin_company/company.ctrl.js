@@ -22,7 +22,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
       $location.path('/adminlogin');
       $route.reload();
     } else {
-      $rootScope.companyId = $routeParams.compId;
+      $rootScope.companyId = $routeParams.compId; 
       $scope.data = {};
       $scope.category = function (data) {
         $scope.data.companyId = $routeParams.compId;
@@ -191,7 +191,7 @@ vmApp.controller('CompanyController', ['vendorassignService', '$routeParams', '$
         // console.log("companyRequirements ", JSON.stringify($scope.companyRequirements));
       });
 
-      $scope.saveVendorRequirement = function (reqObj) {
+      $scope.saveVendorRequirement = function (reqObj) { 
         // console.log("current sndp==== : ", reqObj.id);
         var companyId = $routeParams.compId;
         if (reqObj.id === undefined) {
