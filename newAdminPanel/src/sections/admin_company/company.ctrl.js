@@ -100,8 +100,7 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
      $scope.menuDetails = [
         {
             'Menu':'Dal Fry',
-            'Cost':'30',
-            'Quantity':'50'
+            'Cost':'30'
 
         }];
     
@@ -109,7 +108,6 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
             $scope.menuDetails.push({ 
                 'Menu': "", 
                 'Cost': "",
-                'Quantity': "",
             });
         };
     
@@ -135,6 +133,14 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
         });
     };    
     
+    //show hide
+
+    
+     $scope.IsVisible = false;
+            $scope.ShowHide = function () {
+                //If DIV is visible it will be hidden and vice versa.
+                $scope.IsVisible = $scope.IsVisible ? false : true;
+            }
     
     }
     ]);
