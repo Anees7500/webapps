@@ -26,7 +26,7 @@
           <a href="" ng-click="boolFunction('AssignedCompanyBool')"><i class="far fa-check-square fa-fw green-text"></i> <span class="font-weight-normal"> Assigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
         </li>
         <li>
-          <a href="" ng-click="boolFunction('UnsignedCompanyBool')"><i class="far fa-calendar-times fa-fw amber-text"></i><span class=" font-weight-normal"> Unassigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
+          <a href="" ng-click="boolFunction('UnAssignedCompanyBool')"><i class="far fa-calendar-times fa-fw amber-text"></i><span class=" font-weight-normal"> Unassigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
 
         </li>
         <li>
@@ -107,15 +107,13 @@
                     <div class="mask flex-center"></div>
                   </a>
                 </div>
-                <div class="card-block" >
+                <div class="card-block">
+                  <a  ng-href="#!/dashboard/company/{{cpny.id}}">
                   <h5 class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal "><i class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>  {{cpny.companyName | uppercase}} </h5>
                   <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{cpny.address}} </p>
+                  <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
                 </div>
-                <a  class="btn btn-success" ng-href="#!/dashboard/company/{{cpny.id}}"><i class="fas fa-forward"></i></a>
-                <!-- <a id="link-3" ng-href="/dashboard/company/{{cpny.id}}">link 3</a> -->
-                <!-- <button onclick="window.location.href='/dashboard/company/{{cpny.id}}'">Continue</button> -->
-                <!-- <a href="/dashboard/company/{{cpny.id}}"> Go</a> -->
-              </div>
+            </div>
             </div>
           </div>
           <!-- </div> -->
@@ -142,8 +140,10 @@
                 </a>
               </div>
               <div class="card-block">
+                <a  ng-href="#!/dashboard/company/{{cpny.id}}">
                 <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{cpny.companyName | uppercase}} </h6>
                 <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{cpny.address}} </p>
+                <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
               </div>
             </div>
           </div>
@@ -164,7 +164,7 @@
         </div>
       </div>
       <div class="row">
-       <div ng-repeat="cpny in assignedCompany  | filter:search2">
+       <div ng-repeat="cpny in unassignedCompanies  | filter:search2">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
@@ -174,8 +174,10 @@
               </a>
             </div>
             <div class="card-block">
+              <a  ng-href="#!/dashboard/company/{{cpny.id}}">
               <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{cpny.companyName | uppercase}} </h6>
               <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{cpny.address}} </p>
+              <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
             </div>
           </div>
         </div>
@@ -205,10 +207,11 @@
             </a>
           </div>
           <div class="card-block">
-           <h5><a ref="admin/vendor/{{vendor.id}}">{{vendor.name |
-           uppercase}}</a></h5>
+            <a  ng-href="#!/dashboard/vendor/{{vendor.id}}">
+           <h5 class="card-title text-danger b-clr ng-binding  mt-3 ml-2">{{vendor.name | uppercase}}</h5>
            <p class="card-text  ml-2 b-clr font ng-binding"><i class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
            <p class="card-text  ml-2 b-clr font ng-binding"><i class="fas fa-phone ml-2"></i><a class="ml-2">{{vendor.mobile}}</a></p>
+           </a>
          </div>
        </div>
      </div>
@@ -223,6 +226,7 @@
 
 <!-- ====================== Add-New-Company ================================== -->
 <div  ng-if="AddNewCompanyBool">
+  <form class="border">
   <div class="input-group md-form form-sm form-lg form-2 pl-0">
       <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
       <div class="input-group-append">
@@ -237,7 +241,7 @@
             <h3><i class="fa fa-user"></i> Register:</h3>
         </div>
 
-
+</form>
 
 
 </div>

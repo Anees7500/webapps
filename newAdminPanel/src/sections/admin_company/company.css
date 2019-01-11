@@ -13,8 +13,9 @@ position: static;}
 #header{font-size: 0.8rem;}
 .contmargin{margin-top: 90px;}
 
-#label-margin-padding{padding: 20px;
+#label-margin-padding{padding: 15px;
 margin-left: 6px;}
 #form-lenght{width: 1000px;}
-#form-padding{padding-right: 210px;}
+#form-padding{padding-right: 210px; margin-left: 20px;}
 #txt-margin{margin-bottom: -10px;}
+#btn-margin{margin-bottom: 10px !important;}

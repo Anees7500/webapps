@@ -82,11 +82,11 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
                        {  day: "SUNDAY", Selected: false }
     ];
       
-            $scope.toggleSelect = function(){
+           /* $scope.toggleSelect = function(){
     angular.forEach($scope.WorkingDays, function(item){
       item.selected = event.target.checked;
     });
-  };
+  };*/
  
    
 
@@ -102,5 +102,46 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
       'Farooq','Raj Mahal','Savitha','Shine','Pintu','Gpfood','Priya Panjabi','Rolling Tummy','Adda','Vhs catering'
       ,'Estern_Delight','Food Planet','Pal Caterers','Golden Star Service'];
       
+    //additional requirement
+
+     $scope.menuDetails = [
+        {
+            'Menu':'Dal Fry',
+            'Cost':'30',
+            'Quantity':'50'
+
+        }];
+    
+        $scope.addNew = function(menuDetail){
+            $scope.menuDetails.push({ 
+                'Menu': "", 
+                'Cost': "",
+                'Quantity': "",
+            });
+        };
+    
+        $scope.remove = function(){
+            var newDataList=[];
+            $scope.selectedAll = false;
+            angular.forEach($scope.menuDetails, function(selected){
+                if(!selected.selected){
+                    newDataList.push(selected);
+                }
+            }); 
+            $scope.menuDetails = newDataList;
+        };
+    
+    $scope.checkAll = function () {
+        if (!$scope.selectedAll) {
+            $scope.selectedAll = true;
+        } else {
+            $scope.selectedAll = false;
+        }
+        angular.forEach($scope.menuDetails, function(menuDetail) {
+            menuDetail.selected = $scope.selectedAll;
+        });
+    };    
+    
+    
     }
     ]);

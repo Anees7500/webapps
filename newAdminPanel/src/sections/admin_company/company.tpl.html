@@ -83,7 +83,7 @@
     <div class="container contmargin" ng-if="ConfigurationBool">
       <h4 class="font-weight-bold text-white border unique-color">Category</h4>
       <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
-        <div class="list-group checkbox-list-group custom-control custom-checkbox mb-5">
+        <div class="list-group checkbox-list-group custom-control custom-checkbox mb-3">
          <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked1" ng-model="data.breakfast">
           <label class="custom-control-label" for="Checked1">Breakfast</label>
@@ -113,7 +113,7 @@
           <label class="custom-control-label" for="Check">Cash & Carry</label>
         </div></div>
       </div>
-      <button type="button" class="btn btn-info m-auto d-block mb-5" submit-required="true" ng-click="category(data);">Save</button>
+      <button type="button" class="btn btn-info m-auto d-block mb-5" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
     </form>
 
 
@@ -121,24 +121,25 @@
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white border unique-color">Working Days</h4>
     <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght">
-      <label class="checkbox-inline" id="label-margin-padding">
-        <input type="checkbox" value="">Sunday</label>
+     <label class="checkbox-inline" id="label-margin-padding">
+      <input type="checkbox" ng-checked="all"> Sunday</label>
+      <label class="checkbox-inline"id="label-margin-padding">
+        <input type="checkbox" ng-checked="all"> Monday</label>
         <label class="checkbox-inline"id="label-margin-padding">
-          <input type="checkbox" value="">Monday</label>
+          <input type="checkbox" ng-checked="all"> Tuesday </label>
           <label class="checkbox-inline"id="label-margin-padding">
-            <input type="checkbox" value="">Tuesday </label>
+            <input type="checkbox" ng-checked="all"> Wednesday </label>
             <label class="checkbox-inline"id="label-margin-padding">
-              <input type="checkbox" value="">Wednesday </label>
+              <input type="checkbox" ng-checked="all"> Thursday</label>
               <label class="checkbox-inline"id="label-margin-padding">
-                <input type="checkbox" value="">Thursday</label>
+                <input type="checkbox" ng-checked="all"> Friday</label>
                 <label class="checkbox-inline"id="label-margin-padding">
-                  <input type="checkbox" value="">Friday</label>
+                  <input type="checkbox" ng-checked="all"> Saturday</label>
                   <label class="checkbox-inline"id="label-margin-padding">
-                    <input type="checkbox" value="">Saturday</label>
-                    <label class="checkbox-inline"id="label-margin-padding">
-                      <input type="checkbox" value="">Select All</label><br>
-                      <button type="button" class="btn btn-info m-auto  d-block">Save</button>
-                    </form>
+                    <input type="checkbox" ng-model="all"> Select All</label><br>
+                    <button type="button" class="btn btn-info m-auto  d-block" id="btn-margin"submit-required="true" ng-click="category(data);">Save</button>
+                  </form>
+
 
   <!--<table class=" table table-bordered">
   <thead ><h4 class="font-weight-bold text-white border unique-color">Working Days</h4></thead>
@@ -159,6 +160,7 @@
 <button type="button" class="btn btn-primary btn-block" submit-required="true" ng-click="">Save</button>
 =======
 <button type="button" class="btn btn-primary btn-block" submit-required="true" ng-click="category(data);">Save</button>-->
+
 
 <!--===========================Invoice date==================================-->
 <h4 class="font-weight-bold text-white border unique-color">Invoice Date</h4>
@@ -188,25 +190,130 @@
 </form>
 
 
+<!--===========================Invoice date==================================-->
+<h4 class="font-weight-bold text-white border unique-color">Additional Requirements</h4>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
+                <th>Menu</th>
+                <th>Cost</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="menuDetail in menuDetails">
+                <td>
+                  <input type="checkbox" ng-model="menuDetail.selected"/></td>
+                  <td>
+                    <input type="text" class="form-control" ng-model="menuDetail.Menu" required/></td>
+                    <td>
+                      <input type="text" class="form-control" ng-model="menuDetail.Cost" required/></td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="menuDetail.Quantity" required/></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="form-group">
+                    <input ng-hide="!menuDetails.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
+                    <input type="submit" class="btn btn-success addnew pull-right" value="Add New">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
 
 
-<!-- ==============================================Requirement start================ -->
-
-<div ng-if="RequirementBool">
 
 
-</div>
-<!-- ==============================================Item Check start================ -->
-<div ng-if="ItemCheckBool">
+      <!-- ==============================================Requirement start================ -->
 
-</div>
-<!-- ==============================================Assigned start================ -->
+      <div ng-if="RequirementBool">
 
 
-<div ng-if="AssignedBool">
-  <div class="container">
+      </div>
+      <!-- ==============================================Item Check start================ -->
+      <div ng-if="ItemCheckBool">
 
+      </div>
+      <!-- ==============================================Assigned start================ -->
+
+
+      <div ng-if="AssignedBool">
+        <div class="container contmargin ">
+
+          <div class="row  ml-3 container-fluid">
+           <div class="col-lg-3 col-md-3  col-xs-12 deep-orange darken-1 ">
+            <div class=" text-center py-4 deep-orange darken-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x  "></i> 
+             <span class=" text-white">Breakfast Assign</span>     
+           </div>  
+         </div>
+
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 purple ml-5 ">
+            <div class="col-6 purple lighten-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x"></i>
+            </div> 
+            <div class="col-6 purple lighten-3"> 
+             <h4 class=" text-white">Lunch Assign</h4>     
+           </div>  
+         </div>
+
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 deep-orange darken-1 ml-5">
+            <div class="col-6 deep-orange darken-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x "></i>
+            </div> 
+            <div class="col-6 deep-orange darken-3"> 
+             <h4 class=" text-white">Snacks Assign</h4>     
+           </div>  
+         </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 deep-orange darken-1 ml-5">
+            <div class="col-6 deep-orange darken-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x "></i>
+            </div> 
+            <div class="col-6 deep-orange darken-3"> 
+             <h4 class=" text-white">Dinner Assign</h4>     
+           </div>  
+         </div>
+
+          <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 deep-orange darken-1 row">
+            <div class="col-6 deep-orange darken-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x mt-2 ml-2 mb-2 "></i>
+            </div> 
+            <div class="col-6 deep-orange darken-3"> 
+             <h4 class=" text-white">Cash & Carry Assign</h4>     
+           </div>  
+         </div>
+
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 deep-orange darken-1 row">
+            <div class="col-6 deep-orange darken-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x mt-2 ml-2 mb-2 "></i>
+            </div> 
+            <div class="col-6 deep-orange darken-3"> 
+             <h4 class=" text-white">Mid-Night Sancks</h4>     
+           </div>  
+         </div>
+
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 deep-orange darken-1 row">
+            <div class="col-6 deep-orange darken-3 ">                     
+              <i class="fas fa-coffee text-white fa-3x mt-2 ml-2 mb-2 "></i>
+            </div> 
+            <div class="col-6 deep-orange darken-3"> 
+             <h4 class=" text-white">Early Morning</h4>     
+           </div>  
+         </div> -->
+  </div>
  <!--    <div class="ml-10">
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
@@ -214,7 +321,7 @@
  <button class="btn blue-gradient btn-rounded waves-effect waves-light">Blue</button>
 </div -->
 
-   <table class="table table-hover" id="table-margin">
+   <!-- <table class="table table-hover" id="table-margin">
 
      <tbody class="info-color">
 
@@ -225,7 +332,7 @@
 
 
           <!-- Full Height Modal Right -->
-          <div class="modal fade" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <!-- <div class="modal fade" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 
            <div class="modal-dialog" role="document">
@@ -245,9 +352,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- End Modal Right -->
-  </td>
+  <!-- </td>
 
 
   <td>
@@ -271,7 +378,7 @@
   </td>
 </tr>
 </tbody>
-</table>
+</table> --> <!-- --> 
 
 </div>
 </div>
@@ -340,17 +447,17 @@
       <td>
        <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
         <mdb-tooltip :options="{placement: 'top'}">
-          <div class="tooltip">
-           {{feed.commen}}
-         </div>
-         <mdb-btn slot="reference" color="primary">
-           <i class="far fa-comments fa-2x" ></i>
-         </mdb-btn>
-       </mdb-tooltip>
-     </div>
-   </td>
-   <td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
- </tr>
+        <div class="tooltip">
+         {{feed.commen}}
+       </div>
+       <mdb-btn slot="reference" color="primary">
+       <i class="far fa-comments fa-2x" ></i>
+     </mdb-btn>
+   </mdb-tooltip>
+ </div>
+</td>
+<td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
+</tr>
 </tbody>
 </table>
 
@@ -383,7 +490,7 @@
 
 
 
-</div>
+
 
 <!-----===================================main content==========================-->
 
@@ -391,4 +498,5 @@
 
 
 
+</div>
 </div>
