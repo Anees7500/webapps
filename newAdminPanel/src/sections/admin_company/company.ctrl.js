@@ -10,12 +10,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
      $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.ConfigurationBool = false;
-      $scope.RequirementBool=false;
+      $scope.ClientRequirementBool=false;
+      $scope.VendorRequirementBool=false;
       $scope.ItemCheckBool=false;
       $scope.AssignedBool=false;
       $scope.SetPasswordBool=false;
       $scope.EmpFeedbackBool=false;
-      $scope.MonthlyDetailsBool=false;
+      $scope.ClientMonthlyDetails=false; 
       $scope.VendorMonthlyDetailsBool=false;
       $scope.DispatchDetailsBool=false;
 

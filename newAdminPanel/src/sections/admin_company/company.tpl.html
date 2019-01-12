@@ -46,15 +46,15 @@
 
         </li>
         <li>
-          <a href="" ng-click="boolFunction('RequirementBool')" data-toggle="collapse" 
+          <a href=""  data-toggle="collapse" 
           aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw green-text"></i> <span class="font-weight-normal"> Requirement</span><span class="badge badge-pill badge-danger ml-2"></span> <i class="fa fa-chevron-down ml-5"></i></a>
           <ul  class="collapse list-unstyled" id="pageSubmenu">
             <li class="ml-3 ">
-              <a href="" >Client Requirement</a>
+              <a href="" ng-click="boolFunction('ClientRequirementBool')" >Client Requirement</a>
             </li>
 
             <li class="ml-3">
-              <a href="" >Vendor Requirement</a>
+              <a href="" ng-click="boolFunction('VendorRequirementBool')">Vendor Requirement</a>
             </li>
           </ul>
         </li>
@@ -73,11 +73,22 @@
           <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw red-text"></i><span class=" font-weight-normal">Employee Feedback</span><span class="badge badge-pill badge-danger ml-2"></span></a>
         </li>
         <li>
-          <a href="" ng-click="boolFunction('MonthlyDetailsBool')"><i class="fas fa-cart-plus fa-fw cyan-text"></i><span class="font-weight-normal"> Monthly Details</span></a>
+          <a href="" data-toggle="collapse" 
+          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw cyan-text"></i><span class="font-weight-normal"> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
+           <ul  class="collapse list-unstyled" id="pageSubmenu1">
+            <li class="ml-3 ">
+              <a href="" ng-click="boolFunction('ClientMonthlyDetails')" >Client Monthly Details</a>
+            </li>
+
+            <li class="ml-3">
+              <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')" >
+                Vendor Monthly Details</a>
+            </li>
+          </ul>
         </li>
-        <li>
+       <!--  <li>
           <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')"><i class="fas fa-file-invoice-dollar fa-fw deep-orange-text"></i><span class=" font-weight-normal"> Vendor Monthly Details</span></a>
-        </li>
+        </li> -->
         <li>
           <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw green-text"></i><span class=" font-weight-normal"> Dispatch Details</span></a>
         </li>
@@ -497,38 +508,26 @@
                                                       </div>
                                                     </div>
                                                   </div>
-                                                </div>
-                                              </div>
+   </div>
+</div>
 
-                                              <!-- ==============================================Requirement start================ -->
-
-                                              <div ng-if="RequirementBool">
-
-
-                                              </div>
-                                              <!-- ==============================================Item Check start================ -->
-                                              <div ng-if="ItemCheckBool">
-
-                                              </div>
-                                              <!-- ==============================================Assigned start================ -->
+ <!-- ==============================================Client RequirementBool start================ -->
+      <div ng-if="ClientRequirementBool">
 
 
+      </div>
+      <!-- ==============================================Vendor RequirementBool start================ -->
+      <div ng-if="VendorRequirementBool">
 
 
+      </div>
 
+  <!-- ==============================================Item Check start================ -->
 
+       <div ng-if="ItemCheckBool">
 
-                                              <!-- ==============================================Requirement start================ -->
-
-                                              <div ng-if="RequirementBool">
-
-
-                                              </div>
-                                              <!-- ==============================================Item Check start================ -->
-                                              <div ng-if="ItemCheckBool">
-
-                                              </div>
-                                              <!-- ==============================================Assigned start================ -->
+       </div>
+   <!-- ==============================================Assigned start================ -->
 
 
                                               <div ng-if="AssignedBool">
@@ -666,19 +665,19 @@
                          </div>
                        </div>
 
-                       <!-- ==============================================Monthly Details start================ -->
-                       <div ng-if="MonthlyDetailsBool">
+                       <!-- ==========================================ClientMonthly Details start================ -->
+                       <div ng-if="ClientMonthlyDetails">
 
 
                        </div>
 
-                       <!-- ==============================================Vendor Monthly Details start================ -->
+                       <!-- ========================================Vendor Monthly Details start================ -->
                        <div ng-if="VendorMonthlyDetailsBool">
 
 
                        </div>
 
-                       <!-- ==============================================Dispatch Details start================ -->
+                       <!-- =========================================Dispatch Details start================ -->
                        <div ng-if="DispatchDetailsBool">
 
 
