@@ -226,24 +226,47 @@
 
 <!-- ====================== Add-New-Company ================================== -->
 <div  ng-if="AddNewCompanyBool">
-  <form class="border">
-  <div class="input-group md-form form-sm form-lg form-2 pl-0">
+  <div class="container">
+    <div class="input-group md-form form-sm form-lg form-2 pl-0">
       <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
       <div class="input-group-append">
         <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
       </div>
     </div>
+
+  <form class="border mt-5 mb-5">
+  
     
-      <div class="map-center">
-                  <div id="map"></div>
-                </div>
-                <div class="form-header blue-gradient">
-            <h3><i class="fa fa-user"></i> Register:</h3>
-        </div>
+ <!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half mb-5 " id="map-height">
+  <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+<!--Google Maps-->
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <label for="usr">Company Name</label>
+  <input type="text" class="form-control" placeholder="Company Name">
+  </div>
+
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <label for="usr">  Latitude</label>
+  <input type="text" class="form-control" placeholder="Latitude">
+ 
+  </div>
+
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <label for="usr">Longitude</label>
+  <input type="text" class="form-control" placeholder="Longitude">
+
+  </div>
+</div>
+
 
 </form>
 
-
+</div>
 </div>
 
 

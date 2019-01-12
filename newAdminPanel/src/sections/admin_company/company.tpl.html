@@ -46,8 +46,19 @@
 
         </li>
         <li>
-          <a href="" ng-click="boolFunction('RequirementBool')"><i class="far fa-check-square fa-fw green-text"></i> <span class="font-weight-normal"> Requirement</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a href="" ng-click="boolFunction('RequirementBool')" data-toggle="collapse" 
+          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw green-text"></i> <span class="font-weight-normal"> Requirement</span><span class="badge badge-pill badge-danger ml-2"></span> <i class="fa fa-chevron-down ml-5"></i></a>
+          <ul  class="collapse list-unstyled" id="pageSubmenu">
+            <li class="ml-3 ">
+              <a href="" >Client Requirement</a>
+            </li>
+
+            <li class="ml-3">
+              <a href="" >Vendor Requirement</a>
+            </li>
+          </ul>
         </li>
+
         <li>
           <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw amber-text"></i><span class=" font-weight-normal">Item Check List</span><span class="badge badge-pill badge-danger ml-2"></span></a>
 
