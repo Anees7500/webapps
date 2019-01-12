@@ -93,9 +93,11 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
 
 
       //dropdown selection
-     $scope.Starting_date=['1','2','3','4','5','6','7','8','9','10'];
-     $scope.Mid_of_date=['11','12','13','14','15','16','17','18','19','20'];
-     $scope.End_of_date=['21','22','23','24','25','26','27','28','29','30'];
+     $scope.Starting_date=[];
+     $scope.Mid_of_date=['1','2','3','4','5','6','7','8','9','10','11','12',
+                         '13','14','15','16','17','18','19','20','21','22',
+                         '23','24','25','26','27','28','29','30','31'];
+     $scope.End_of_date=[];
       
       //Assigned
       $scope.vendor_list=['Fancy Vendor','Yummy Tummy','Naveen Caters','GMR','Rang De Basanti','Buffet Lo',
