@@ -1,0 +1,92 @@
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: auto;
+    z-index: 1;
+    background-size: cover;
+    background-position: center center;}
+
+.sidebar .sidebar-wrapper {
+    position: relative;
+    overflow: auto;
+    width: 260px;
+    z-index: 4;}
+
+.sidebar .nav {
+    margin-top: 20px;
+    float: none;}
+
+.sidebar .nav .open > a,
+.sidebar .nav li.dropdown .dropdown-menu li:hover > a,
+.sidebar .nav li:hover > a {
+    background-color:#eceff1;
+    opacity: 1;
+    color:#fff;}
+
+.sidebar .nav li > a {
+    color: #000000;
+    margin: 5px 20px;
+    opacity: .86;
+    border-radius: 8px;
+    display: block;
+    padding: 10px;}
+
+.card{
+ width: 260px;
+    height: 320px;
+    margin-left: 50px;}
+#card_design{
+
+     margin-left: 30px;
+     width: 290px;
+    height: 320px;}
+
+
+.card-img-top{
+    width: 250px;
+    margin: auto;}
+
+#margin{margin-left: 260px;}
+
+.md-form{margin-top: 58px;}
+
+#map-height{height: 450px;width: 200px;}
+
+/************main panel************/
+.main-panel {
+    position: relative;
+    z-index: 2;
+    float: right;
+    width: calc(100% - 260px);
+}
+
+
+/***************media query for responsive in mobile view************************/
+@media (max-width: 768px) {
+
+    #navbar_collapse{
+        margin-left: -250px;
+        box-shadow: none;
+    }
+    .sidebar{
+        box-shadow: none;
+    }
+    .sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+    #margin{
+        margin-left: 0px;
+       }
+.main-panel{
+        margin-left: -19px;
+        float: none;
+        width: 100%;}
+    }
+}
+
+

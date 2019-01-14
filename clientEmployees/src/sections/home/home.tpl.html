@@ -80,8 +80,14 @@
               <td>{{e.working_date}}</td>
               <td>{{e.type}}</td>
               <td>
+<<<<<<< HEAD
+                
+                <md-switch class="inset switchdemoBasicUsage" ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'" ng-false-value="'Nope'"
+                  ng-disabled="e.disabled" ng-click="updateStatus(e)">
+=======
                 <md-switch class="inset switchdemoBasicUsage" ng-model="e.status" aria-label="Switch 2" ng-true-value="'Yes'"
                   ng-false-value="'Nope'" ng-disabled="e.disabled">
+>>>>>>> 9c9d24af74d2e730197761df1fe55bf6a3c399b0
                   {{ e.status }}
                 </md-switch>
               </td>

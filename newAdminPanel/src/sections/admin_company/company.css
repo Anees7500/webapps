@@ -1,0 +1,24 @@
+/***************assigned*******************/
+.navbar{height: 50px;}
+.sidebar{ margin-top: 50px;}
+#table-margin{margin-top: 95px;}
+#btn-margin{margin-top: 90px;}
+#cont-margin{margin-top: 95px;}
+.modal-backdrop.show{ 
+position: static;}
+.modal{margin-top: 35px;}
+.modal-content{width: 700px;}
+/***************employee feeback*******************/
+#table-margin-top{margin-top: 50px;}
+#header{font-size: 0.8rem;}
+.contmargin{margin-top: 90px;}
+
+#label-margin-padding{padding: 15px;
+margin-left: 6px;}
+#form-lenght{width: 1000px;}
+#form-padding{padding-right: 210px; margin-left: 20px;}
+#txt-margin{margin-bottom: -10px;}
+#btn-margin{margin-bottom: 10px !important;}
+#div-height{height: 30px;}
+#btn-circle{border-radius: 55px; padding:5px;}
+#row-width{margin-right: 10px;}

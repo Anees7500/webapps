@@ -49,7 +49,7 @@
       </div>
     </li><br>
     <li class="menu--item">
-      <a href="" ng-click="boolFunction('addDashboardBool')" class="menu--link">
+      <a href="" ng-click="boolFunction('addDashboardBool')" class="menu--link"> 
         <i class="menu--icon fas fa-qrcode"></i>
         <span class="menu--label"><strong>Companies</strong><span class="btn-dsgn">{{allCompanies.length}}<span></span>
       </a>
@@ -81,7 +81,7 @@
     <li class="menu--item">
       <a href="" ng-click="boolFunction('unassignedVendorListBool')" class="menu--link">
         <i class="menu--icon far fa-clipboard"></i>
-        <span class="menu--label"><strong>Unasigned Vendors</strong><span class="btn-dsgn-v">{{unassignedVendorlist.length}}</span></span>
+        <span class="menu--label"><strong>Unasigned Vendors</strong><span class="btn-dsgn-v">{{unassignedVendorslist.length}}</span></span>
       </a>
     </li>
     <li class="menu--item">
@@ -129,7 +129,7 @@
     <span class="wrap"></span>
   </a> -->
         </h5>
-      </div>
+      </div> 
       <ul class="nav">
         <form><br><br>
           <input type="text"ng-model="search1" class="searchNew" name="search" placeholder="Search...">
@@ -142,7 +142,7 @@
             <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
               <md-content class="md-padding" layout-xs="column" layout="row">
                 <div flex-xs flex-gt-xs="100" layout="column">
-
+ 
                   <md-card>
                     <a class="b-clr font" href="#/admin/company/{{cpny.id}}">
                       <div class="company-dp">
@@ -173,7 +173,7 @@
       </div><br><br>
       <div class="company-details">
 
-        <!-- GOOGLE MAP API ------------------------->
+        GOOGLE MAP API ------------------------->
         <div class="container" ng-controller="newPlaceCtrl">
 
           <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
@@ -221,7 +221,7 @@
                 <!-- <br>
           <label for="label">Company Name</label>
           <br>
-          <input type="text" placeholder="Enter Company Name" name="companyName" class="form-control" required ng-model="place.companyName"> -->
+          <input type="text" placeholder="Enter Company Name" name="companyName" class="form-control" required ng-model="place.companyName">
 
                 <br>
                 <label for="label">Contact Person Name</label>
@@ -261,7 +261,7 @@
           <input type="text" ng-model="search2" class="searchNew" name="search" placeholder="Search...">
           <!-- <h3 style="margin-top:6px;">Assigned Companies : {{assignedCompany.length}}</h3> -->
         </form>
-        <div class="row">
+        <div class="row"> 
           <li ng-repeat="cpny in assignedCompany | filter:search2">
             <div class="col-sm-4 col-sm-4 col-md-4 col-lg-4">
               <md-content class="md-padding" layout-xs="column" layout="row">

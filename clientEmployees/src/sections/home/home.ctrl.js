@@ -15,6 +15,11 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
     $scope.ShowHide = function (val) {
       val.visible = val.visible ? false : true;
     }
+    $scope.updateStatus = function (val) {
+      // val.visible = val.visible ? false : true;
+      Notification.success('Successfully updated the status');
+    }
+    
 
     $http.get("http://fancymonk.com:9124/api/client/get-time-of-day-and-tmr-date")
       .then(function (response) {
@@ -28,7 +33,7 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
           }
 
           self.tomorrowDate = response.data.tomorrowDate;
-          var empUrl = "http://fancymonk.com:9125/api/client/get-employee-default-data?employeeRowId=77&startDate=2018-12-24&endDate=2018-12-29";
+          var empUrl = "http://fancymonk.com:9125/api/client/get-employee-default-data?employeeRowId=77&startDate=2018-12-17&endDate=2018-12-22";
           $http.get(empUrl)
             .then(function (response) {
               if (response.data.data != null) {
@@ -42,7 +47,7 @@ ceApp.controller('HomeController', ['$scope', '$rootScope', '$http', '$log', 'ho
                   tmpObj.working_date = ob.working_date;
                   tmpObj.status = "Yes";
 
-                  if (Date.parse(new Date(tmpObj.working_date)) < Date.parse(new Date("2018-12-27"))) {
+                  if (Date.parse(new Date(tmpObj.working_date)) < Date.parse(new Date("2018-12-19"))) {
                     tmpObj.disabled = true;
                   } else {
                     tmpObj.disabled = false;
