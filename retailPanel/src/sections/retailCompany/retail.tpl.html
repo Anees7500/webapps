@@ -1,35 +1,29 @@
 <!---   Navbar part              -->
-
 <div class="md_nabvar">
-	<md-toolbar class=" md-theme-light " style="background-color: white">
-		<md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-			<md-nav-item ng-repeat="node in menuNode" md-nav-href="#{{node.menuName}}">
-				{{node.menuName}}
-			</md-nav-item>
-			
-			<md-icon md-badge md-svg-icon="image/shopping-cart.svg" ng-click="showCart($event)" style="position:absolute;top:10px;right:30px;cursor:pointer;"></md-icon>
-		
-		</md-nav-bar>
-	</md-toolbar>
+	<nav class="navbar navbar-expand-sm navbar-dark primary-color">
+		<a ng-repeat="node in menuNode" class="navbar-brand" href="#{{node.menuName}}">{{node.menuName}}</a>
+		<div class="float-sm-right mx-auto">
+			<i ng-click="showCart($event)" class="canvas  fas fa-shopping-basket"></i>
+		</div>
+	</nav>
 </div>
-<!-----------carousel work --------------------->
+<!-- ---------carousel work ------------------- -->
 <div id="myCarousel" class="carousel slide">
-	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1"></li>
 		<li data-target="#myCarousel" data-slide-to="2"></li>
 	</ol>
-	<!-- Wrapper for Slides -->
 	<div class="carousel-inner">
 		<div class="item active">
-			
+
 			<div class="fill">
 				<img src="../image/7.jpg" class="img-responsive">
 			</div>
 			<div class="carousel-caption">
 				<h2 class="animated fadeInLeft">Fancymonk</h2>
-				<p class="animated fadeInUp">Fancymonk empowers companies to be healthier and more productive. We provide customised corporate catering with delicious food and exceptional service.</p>
+				<p class="animated fadeInUp">Fancymonk empowers companies to be healthier and more productive. We provide
+					customised corporate catering with delicious food and exceptional service.</p>
 				<p class="animated fadeInUp"><a href="" class="btn btn-transparent btn-rounded btn-large">Learn More</a></p>
 			</div>
 		</div>
@@ -39,23 +33,24 @@
 			</div>
 			<div class="carousel-caption">
 				<h2 class="animated fadeInDown">Fancymonk</h2>
-				<p class="animated fadeInUp">Fancymonk empowers companies to be healthier and more productive. We provide customised corporate catering with delicious food and exceptional service.</p>
+				<p class="animated fadeInUp">Fancymonk empowers companies to be healthier and more productive. We provide
+					customised corporate catering with delicious food and exceptional service.</p>
 				<p class="animated fadeInUp"><a href="" class="btn btn-transparent btn-rounded btn-large">Learn More</a></p>
 			</div>
 		</div>
 		<div class="item">
-		
+
 			<div class="fill">
 				<img src="../image/5.jpg" class="img-responsive">
 			</div>
 			<div class="carousel-caption">
 				<h2 class="animated fadeInRight">Fancymonk</h2>
-				<p class="animated fadeInRight">Fancymonk empowers companies to be healthier and more productive. We provide customised corporate catering with delicious food and exceptional service.</p>
+				<p class="animated fadeInRight">Fancymonk empowers companies to be healthier and more productive. We provide
+					customised corporate catering with delicious food and exceptional service.</p>
 				<p class="animated fadeInRight"><a href="" class="btn btn-transparent btn-rounded btn-large">Learn More</a></p>
 			</div>
 		</div>
 	</div>
-	<!-- Controls -->
 	<a class="left carousel-control" href="" data-slide="prev">
 		<span class="icon-prev"></span>
 	</a>
@@ -72,28 +67,26 @@
 	<div class="md_Cartbody">
 		<div ng-cloak ng-repeat="node in menuNode">
 			<!-------Menu Heading --------->
-			<md-toolbar class="md-theme-light" ng-attr-id="{{node.menuName}}">
-				<h2 class="md-toolbar-tools">
-					<span><strong>{{node.menuName}}</strong></span>
-				</h2>
-			</md-toolbar>
+			<nav class="navbar navbar-light blue lighten-4" ng-attr-id="{{node.menuName}}">
+				<span class="navbar-brand">{{node.menuName}}</span>
+			</nav>
 			<!-------Menu Heading End--------->
 			<div class="row">
-				<div class="col-sm-12 ">
-					<md-content class="md-padding">
-						<!-- <div class="col-md-4" flex-xs flex-gt-xs="50" layout="column" ng-repeat="n in node.menuNode"> -->
-						<div class="md-card col-md-4 col-sm-6 col-xs-12" ng-repeat="n in node.menuNode">
-							<!-------Card  --------->
-							<md-card class="box-shadow">
+				<div class="col-sm-12">
+					<!-- <md-content class="md-padding"> -->
+
+					<div class="md-card col-md-4 col-sm-6 col-xs-12 row m-t-2" ng-repeat="n in node.menuNode">
+
+						<!-- <md-card class="box-shadow">
 								<img ng-src="image/PizzaHut.png" class="md-card-image" alt="Washed Out">
-								<!---Title Name-->
+								
 								<md-card-title>
 									<md-card-title-text>
-										<!-- <span class="md-headline">{{n.menuName}}</span> -->
+										
 										<span style="display: -webkit-box;">{{n.menuName}}</span>
 									</md-card-title-text>
 								</md-card-title>
-								<!---Title Name-->
+								
 								<md-card-actions>
 									<md-card-icon-actions class="col-sm-4 col-xs-4">
 										<md-button class="md-icon-button" aria-label="Favorite">
@@ -101,7 +94,7 @@
 										</md-button>
 									</md-card-icon-actions>
 									<div class="col-sm-4 col-xs-4">
-										<!-- <md-icon md-font-icon="fa fa-money">₹</md-icon> -->
+										
 										<h4><span>₹&nbsp;</span>
 											<span ng-bind="n.price"></span></h4>
 									</div>
@@ -117,10 +110,55 @@
 								<md-card-content>
 									<p class="md-description"><span ng-bind="n.description"></span></p>
 								</md-card-content>
-							</md-card>
-							<!-------Card End --------->
+							</md-card> -->
+
+						<!-------Card End --------->
+						<!--Card-->
+						<div class="card card-cascade card-ecommerce view overlay zoom">
+
+							<!--Card image-->
+							<div class="view view-cascade overlay">
+								<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/belt.jpg" alt="">
+								<a>
+									<div class="mask rgba-white-slight"></div>
+								</a>
+							</div>
+							<!--/.Card image-->
+
+							<!--Card content-->
+							<div class="card-body card-body-cascade text-center card-block text-xs-center">
+								<!--Category & Title-->
+
+								<h4 class="card-title"><strong><a href="">{{n.menuName}}</a></strong></h4>
+
+								<!--Description-->
+								<p class="card-text">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+									eveniet ut et voluptates.
+								</p>
+
+								<!--Card footer-->
+								<div class="card-footer">
+									<span ng-bind="n.price" class="float-left"> <span class="discount">199$</span></span>
+									<div class="col-sm-4 col-xs-4 pull-right">
+										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="cartItems[n.id].addedInCart" style="color:ghostwhite;width: 73px;">
+											<span class="bg-dark pull-left " min="0" ng-click="reduceCount(cartItems[n.id])">-</span>
+											<input type="number" class="count" name="qty" value="0" ng-model="cartItems[n.id].count">
+											<span class="bg-dark pull-right " min="0" ng-click="addCount(cartItems[n.id])">+</span></a>
+										<a class="addcartbutton  md-raised md-primary pull-right" ng-if="!cartItems[n.id].addedInCart" ng-click="addToCart(n)"
+										 style="color:ghostwhite;width: 73px;">Add to Cart</a>
+									</div>
+									<!-- <span class="float-right"><a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><button type="button" class="btn btn-danger btn-rounded">Danger</button></a></span> -->
+								</div>
+
+							</div>
+							<!--/.Card content-->
+
 						</div>
-					</md-content>
+						<!--/.Card-->
+
+					</div>
+					<!-- </md-content> -->
+
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 var rtApp = angular.module("rtApp", ['ngRoute', 'rtApp.config', 'ui.tree', 'ngAnimate', 'ngAria', 'ngMessages',
-	'ngMaterial', 'ui-notification', 'uiGmapgoogle-maps', 'ngCookies', 'ui.carousel']);
+	 'ui-notification', 'uiGmapgoogle-maps', 'ngCookies', 'ui.carousel']);
 
 rtApp.config(['$routeProvider',
   function ($routerProvider) {

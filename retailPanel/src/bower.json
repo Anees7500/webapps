@@ -12,20 +12,14 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.5.11",
     "components-font-awesome": "^5.0.6",
-    "angular-route": "1.5.11",
     "angular-ui-tree": "^2.22.6",
     "underscore": "^1.9.1",
     "ng-dialog": "^1.4.0",
-    "angular-material": "^1.1.10",
     "google-maps": "^3.3.0",
     "angular-google-maps": "^2.4.1",
     "angular-ui-notification": "^0.3.6",
     "angular-cookies": "^1.7.4",
     "angular-ui-carousel": "^0.1.10"
-  },
-  "resolutions": {
-    "angular": "1.5.11"
   }
 }

@@ -537,9 +537,9 @@ html {
 		 
 }
 
-.md-padding {
+/* .md-padding {
 	background-color: transparent;
-}
+} */
 
 .md-description {
 	font-size: 15px;
@@ -579,7 +579,6 @@ html {
 	padding: 0 2px;
 	min-width: 35px;
 	text-align: center;
-
 }
 
 .qty .plus {
@@ -745,7 +744,7 @@ body {
 .addcartbutton {
 	padding: 5px;
 	margin-top: 4px;
-	background-color: #df561d;
+	background-color: rgb(153, 8, 15);
 	color: wheat;
 	border-radius: 15px;
 	font-size: 12px;
@@ -922,7 +921,7 @@ summary {
 .carousel,
 .item,
 .active {
-	height: 85%;
+	height: 86%;
 }
 
 .carousel-inner {
@@ -1026,3 +1025,7 @@ p {
 /* .md-dialog-is-showing{
 	top: 0%;
 } */
+.canvas {
+
+	cursor: pointer;
+}
