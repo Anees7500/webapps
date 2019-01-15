@@ -1,5 +1,6 @@
-adminApp.controller('VendorController',['$scope','$routeParams','$rootScope', 'getAllCompanyToVendorUrl','$http','getAllCompanyUrl','getVendorProfileUrl',
-function($scope,$routeParams,$rootScope,getAllCompanyToVendorUrl,$http,getAllCompanyUrl,getVendorProfileUrl)
+adminApp.controller('VendorController',['$scope','$routeParams','$rootScope', 'getAllCompanyToVendorUrl',
+  '$http','getVendorProfileUrl',
+function($scope,$routeParams,$rootScope,getAllCompanyToVendorUrl,$http,getVendorProfileUrl)
 {
 
  

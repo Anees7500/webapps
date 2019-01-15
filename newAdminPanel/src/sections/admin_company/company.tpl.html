@@ -13,14 +13,14 @@
 
 
    <div class="collapse navbar-collapse" id="toggledemo">
-    <ul class=" nav navbar-nav navbar-left ml-auto">
+    <ul class=" btn-group navbar-nav  ml-auto">
 
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown btn-outline-white ml-auto ">
         <a class="nav-link dropdown-toggle"  id="Dropdowndemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user"></i> Profile </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-info mt-1">
-            <a class="dropdown-item text-center" href="#">My account</a>
-            <a class="dropdown-item text-center" href="#">Log out</a>
+          <div class="dropdown-menu dropdown-menu-center dropdown-info mt-1">
+            <a class="dropdown-item text-center" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+            <a class="dropdown-item text-center" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
           </div>
         </li>
 
@@ -42,39 +42,39 @@
       <ul class="nav active ">
 
         <li id="li-wdth">
-          <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw brown-text "></i> <span class="font-weight-normal">Configuration</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
         </li>
         <li  id="li-wdth">
           <a href=""  data-toggle="collapse" 
-          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw green-text"></i> <span class="font-weight-normal"> Requirement</span><span class="badge badge-pill badge-danger ml-2"></span> <i class="fa fa-chevron-down ml-5"></i></a>
+          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal"> Requirement</span><i class="fa fa-chevron-down ml-5"></i></a>
           <ul  class="collapse list-unstyled" id="pageSubmenu">
             <li class="ml-3 ">
-              <a href="" ng-click="boolFunction('ClientRequirementBool')" >Client Requirement</a>
+              <a href="" ng-click="boolFunction('ClientRequirementBool')"><i class="fas fa-fire mr-2"></i>Client Requirement</a>
             </li>
 
             <li class="ml-3">
-              <a href="" ng-click="boolFunction('VendorRequirementBool')">Vendor Requirement</a>
+              <a href="" ng-click="boolFunction('VendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i>Vendor Requirement</a>
          
        
         </li></ul>
 
         <li id="li-wdth" >
-          <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw amber-text"></i><span class=" font-weight-normal">Item Check List</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
 
         </li>
         <li id="li-wdth">
-          <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw deep-purple-text"></i><span class="font-weight-normal"> Assigned</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
         </li>
         <li id="li-wdth">
-          <a href="" ng-click="boolFunction('SetPasswordBool')"><i class="fas fa-user-check fa-fw light-green-text"></i><span class=" font-weight-normal">Set Password</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a href="" ng-click="boolFunction('SetPasswordBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Set Password</span></a>
         </li>
         <li id="li-wdth">
-          <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw red-text"></i><span class=" font-weight-normal">Employee Feedback</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+          <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
         </li>
         <li id="li-wdth">
           <a href=""  data-toggle="collapse" 
-          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw cyan-text"></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
+          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
            <ul  class="collapse list-unstyled" id="pageSubmenu1">
             <li class="ml-3 ">
               <a href="" ng-click="boolFunction('ClientMonthlyDetails')" >Client Monthly Details</a>
@@ -90,7 +90,7 @@
           <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')"><i class="fas fa-file-invoice-dollar fa-fw deep-orange-text"></i><span class=" font-weight-normal"> Vendor Monthly Details</span></a>
         </li> -->
         <li id="li-wdth">
-          <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw green-text"></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+          <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
         </li>
       </ul>
     </div>
@@ -103,7 +103,7 @@
     <!----=============menuitem checkbox start====================-->
 
     <div class="container contmargin" ng-if="ConfigurationBool">
-      <h4 class="font-weight-bold text-white border unique-color ml-3"><i class="fas fa-hot-tub ml-3 deep-orange-text"></i> Category</h4>
+      <h4 class="font-weight-bold blue-gradient text-white border unique-color ml-3"><i class="fas fa-hot-tub ml-3 white-text"></i> Category</h4>
       <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
         <div class="list-group checkbox-list-group custom-control custom-checkbox mb-3">
          <div class="list-group-item"><div class="custom-control custom-checkbox">
@@ -135,7 +135,7 @@
           <label class="custom-control-label" for="Check">Cash & Carry</label>
         </div></div>
       </div>
-      <button type="button" class="btn btn-info m-auto d-block mb-5" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
+      <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
     </form>
 
 
@@ -143,10 +143,11 @@
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white border unique-color ml-3"><i class="far fa-calendar-alt ml-3 deep-orange-text"></i> Working Days</h4>
     <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght" >
-        <label class="checkbox-inline" id="label-margin-padding" ng-repeat="d in WorkingDays">
-        <input type="checkbox"  ng-model="all" ng-checked="all"> {{d.day}}</label>
+        <label class="checkbox-inline" id="label-margin-padding"  ng-repeat="d in WorkingDays">
+        <input type="checkbox"  ng-model="d.Selected" ng-checked="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
         <input type="checkbox" ng-model="all"> Select All</label><br>
-        <button type="button" class="btn btn-info m-auto  d-block" id="btn-margin"submit-required="true" ng-click="category(data);">Save</button>
+        
+        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"submit-required="true" ng-click="WkingDayGetVl()" >Save</button>
       </form>
 
 
@@ -178,15 +179,18 @@
 
  <!--===========================Breakfast==================================-->
 
+
+       
         <h4 class="text-white font-weight-bold"><div class="custom-control custom-checkbox ml-3 unique-color">
 
-          <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide()">
-          <label class="custom-control-label" for="check02">Additional Requirements</label>
+
+          <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
+          <label class="custom-control-label" for="check02"  >Additional Requirements</label>
         </div></h4>
-        <div class=" ml-3 " id="form-lenght">
+        <div class=" ml-3 " id="form-lenght"  >
           <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
-            <input type="checkbox" class="custom-control-input" id="ch1" data-toggle="collapse" data-target="#demo">
-            <label class="custom-control-label" for="ch1">Breakfast</label>
+            <input type="checkbox" class="custom-control-input"  id="ch1" data-toggle="collapse" data-target="#demo">
+            <label class="custom-control-label" for="ch1" >Breakfast</label>
           </div>
           <div id="demo" class="collapse">
 
@@ -523,8 +527,9 @@
 
 
    </div>
- 
-</div>
+
+ </div>
+
 
 
 
@@ -546,8 +551,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="Weeks in WorkingDays">
-                <th scope="row col">{{Weeks.day}}</th>
+              <tr ng-repeat="Weeks in WorkingDays" ng-if="Weeks.Selected">
+                <th scope="row col" >{{Weeks.day}}</th>
                 <td> <div class="row">
                     <div class="col-md-6"><input type="Text" class="form-control form-control-sm" id=""></div>
                     <div class="col-md-6"><input type="Text" class="form-control form-control-sm" id=""></div>
@@ -580,7 +585,9 @@
      <div class="container mt-5">
   
 
+
 <div class="row  ml-3 mr-0" id="menu-top">
+
   <div class="col-md-3 col-sm-3" >
     <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="col-width">
       <div class="card-body mb-3">
@@ -641,6 +648,7 @@
     </div>
      </div>
    </div>
+
 
      <div class="row mt-5  ml-3 mr-0">
        <div class="col-md-4 col-sm-4" id="menu-item1">

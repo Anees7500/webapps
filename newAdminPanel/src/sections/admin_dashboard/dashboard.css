@@ -17,17 +17,13 @@
     margin-top: 20px;
     float: none;}
 
-.sidebar .nav li:hover > a {
-    
-    color:#33b5e5;}
-.fa-building .fa-check-square:hover {
-  color: #33b5e5;}
+.sidebar .nav li:hover > a {color:#0099CC;}
 
 
 .sidebar .nav .open > a,
 .sidebar .nav li.dropdown .dropdown-menu li:hover,
 .sidebar .nav li:hover {
-    background-color:#eceff1;
+    background-color:#e3f2fd;
     color:#fff;
    }
 

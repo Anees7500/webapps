@@ -11,7 +11,8 @@ adminApp.factory('vendorassignService', ['$http','$httpParamSerializerJQLike', '
                 var deferred = $q.defer();
                 var respMenuJson = deferred.promise;
 
-                console.log("json made : ", jsonObj);
+                console.log("json made : ", jsonObj); 
+                
                 $http({
                     method: 'POST',
                     url: postVendorAssignUrl,
@@ -24,7 +25,7 @@ adminApp.factory('vendorassignService', ['$http','$httpParamSerializerJQLike', '
                     if (response.data.status == 1) {
                         deferred.resolve(response.data.vendorId);
                         console.log("vendore id testing---->", response.data.vendorId);
-                        Notification.success('Successfully Vendor Assigned');
+                        // Notification.success('Successfully Vendor Assigned');
                         // $route.reload();
                     } else {
                         // console.log('error registering');
@@ -48,7 +49,7 @@ adminApp.factory('vendorassignService', ['$http','$httpParamSerializerJQLike', '
                     console.log('response', JSON.stringify(response));
                     //console.log('response', response);
                     if (response.data.status == 1) {
-                        Notification.success('Successfully Saved !!!');
+                        // Notification.success('Successfully Saved !!!');
                         // console.log('Successfully registered breakfast details ');
                         // $location.path('/admin/company/:id');
                     } else {
