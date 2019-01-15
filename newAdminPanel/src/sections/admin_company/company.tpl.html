@@ -41,13 +41,13 @@
 
       <ul class="nav active ">
 
-        <li>
-          <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw brown-text "></i> <span class="font-weight-normal">Configuration</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+        <li id="li-wdth">
+          <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
         </li>
-        <li>
+        <li  id="li-wdth">
           <a href=""  data-toggle="collapse" 
-          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw green-text"></i> <span class="font-weight-normal"> Requirement</span><span class="badge badge-pill badge-danger ml-2"></span> <i class="fa fa-chevron-down ml-5"></i></a>
+          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal"> Requirement</span><i class="fa fa-chevron-down ml-5"></i></a>
           <ul  class="collapse list-unstyled" id="pageSubmenu">
             <li class="ml-3 ">
               <a href="" ng-click="boolFunction('ClientRequirementBool')"><i class="fas fa-fire mr-2"></i>Client Requirement</a>
@@ -59,22 +59,22 @@
        
         </li></ul>
 
-        <li>
-          <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw amber-text"></i><span class=" font-weight-normal">Item Check List</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+        <li id="li-wdth" >
+          <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
 
         </li>
-        <li>
-          <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw deep-purple-text"></i><span class="font-weight-normal"> Assigned</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+        <li id="li-wdth">
+          <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
         </li>
-        <li>
-          <a href="" ng-click="boolFunction('SetPasswordBool')"><i class="fas fa-user-check fa-fw light-green-text"></i><span class=" font-weight-normal">Set Password</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+        <li id="li-wdth">
+          <a href="" ng-click="boolFunction('SetPasswordBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Set Password</span></a>
         </li>
-        <li>
-          <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw red-text"></i><span class=" font-weight-normal">Employee Feedback</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+        <li id="li-wdth">
+          <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
         </li>
-        <li>
-          <a href="" data-toggle="collapse" 
-          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw cyan-text"></i><span class="font-weight-normal"> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
+        <li id="li-wdth">
+          <a href=""  data-toggle="collapse" 
+          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
            <ul  class="collapse list-unstyled" id="pageSubmenu1">
             <li class="ml-3 ">
               <a href="" ng-click="boolFunction('ClientMonthlyDetails')"><i class="fas fa-radiation-alt mr-2"></i>Client Monthly Details</a>
@@ -89,8 +89,8 @@
        <!--  <li>
           <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')"><i class="fas fa-file-invoice-dollar fa-fw deep-orange-text"></i><span class=" font-weight-normal"> Vendor Monthly Details</span></a>
         </li> -->
-        <li>
-          <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw green-text"></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+        <li id="li-wdth">
+          <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
         </li>
       </ul>
     </div>
@@ -584,9 +584,9 @@
    <div ng-if="AssignedBool">
      <div class="container mt-5">
   
-<div class="row  ml-3 mr-0" id="menu-top">
 
-<div class="row z-depth-1 ml-3 mr-0" id="menu-top">
+
+<div class="row  ml-3 mr-0" id="menu-top">
 
   <div class="col-md-3 col-sm-3" >
     <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="col-width">
