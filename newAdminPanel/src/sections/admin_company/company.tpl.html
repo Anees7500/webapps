@@ -551,7 +551,7 @@
 
 
      <div ng-if="AssignedBool">
-      <div class="container">
+      <div class="container mt-5">
        <table class="table table-hover" id="table-margin">
 
          <tbody class="info-color">
@@ -559,11 +559,11 @@
            <tr>
             <th scope="row"></th>
             <td>
-              <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id01').style.display='block'" data-target="#fullHeightModalRight" data-toggle="modal">BREAKFAST ASSIGN</button>
+              <button type="button" class="btn btn-light"  id="btn-pd" onclick="document.getElementById('id01').style.display='block'" data-target="#fullHeightModalRight" data-toggle="modal">BREAKFAST ASSIGN</button>
 
 
               <!-- Full Height Modal Right -->
-              <div class="modal fade" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 
                <div class="modal-dialog" role="document">
@@ -589,27 +589,28 @@
 
 
       <td>
-        <button type="button" class="btn btn-light m-0" onclick="document.getElementById('id02').style.display='block'">LUNCH ASSIGN</button>
+        <button type="button" class="btn btn-light m-0" id="btn-pd" onclick="document.getElementById('id02').style.display='block'">LUNCH ASSIGN</button>
       </td>
       <td>
-        <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id03').style.display='block'"> SNACKS ASSIGN</button>
+        <button type="button" class="btn btn-light  m-0"  id="btn-pd" onclick="document.getElementById('id03').style.display='block'"> SNACKS ASSIGN</button>
       </td>
       <td>
-        <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id04').style.display='block'">DINNER ASSIGN</button>
+        <button type="button" class="btn btn-light  m-0" id="btn-pd" onclick="document.getElementById('id04').style.display='block'">DINNER ASSIGN</button>
       </td>
       <td>
-        <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id05').style.display='block'" >CASH & CARRY ASSIGN</button>
+        <button type="button" class="btn btn-light  m-0" id="btn-pd" onclick="document.getElementById('id05').style.display='block'" >CASH & CARRY ASSIGN</button>
       </td>
       <td>
-        <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id06').style.display='block'" >Mid-NIGHT
+        <button type="button" class="btn btn-light  m-0" id="btn-pd" onclick="document.getElementById('id06').style.display='block'" >Mid-NIGHT
         SNACKS ASSIGH</button>
       </td>
       <td>
-        <button type="button" class="btn btn-light  m-0" onclick="document.getElementById('id07').style.display='block'" >EARLY MORNING SNACKS ASSIGH</button>
+        <button type="button" class="btn btn-light  m-0" id="btn-pd" onclick="document.getElementById('id07').style.display='block'" >EARLY MORNING SNACKS ASSIGH</button>
       </td>
     </tr>
   </tbody>
 </table>
+
 </div>
 </div>
 
