@@ -512,7 +512,37 @@
 </div>
 
  <!-- ==============================================Client RequirementBool start================ -->
-      <div ng-if="ClientRequirementBool">
+ <div ng-if="ClientRequirementBool"  class="container contmargin" >
+        <div class="table-responsive" ><h6>Breakfast</h6>
+          <table class="table table-bordered" ng-if="data.breakfast">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user" aria-hidden="true"></i> <b> Person</b></div>
+                    <div class="col-md-6"><i class="fas fa-rupee-sign" aria-hidden="true"></i> <b> Price</b></div>
+                  </div>
+                </th>
+                <th scope="col"></th>
+          
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="Weeks in WorkingDays">
+                <th scope="row col">{{Weeks.day}}</th>
+                <td> <div class="row">
+                    <div class="col-md-6"><input type="Text" class="form-control form-control-sm" id=""></div>
+                    <div class="col-md-6"><input type="Text" class="form-control form-control-sm" id=""></div>
+                  </td>
+               <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2">Save</button></td>
+              </tr>
+            
+            </tbody>
+          </table>
+  
+
+        </div>
 
 
       </div>
