@@ -18,7 +18,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
       $scope.EmpFeedbackBool=false;
       $scope.ClientMonthlyDetails=false; 
       $scope.VendorMonthlyDetailsBool=false;
-      $scope.DispatchDetailsBool=false;
+      $scope.DispatchDetailsBool=false; 
 
       
       $scope[value] = true;
@@ -75,19 +75,23 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
     // ==================== Working days==============  
 
 $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
-                       {  day: "TUESDAY", Selected: false },
-                       {  day: "WEDNESDAY", Selected: false },
+                       {   day: "TUESDAY", Selected: false },
+                       {   day: "WEDNESDAY", Selected: false },
                        {  day: "THURSDAY", Selected: false },
-                       {  day: "FRIDAY", Selected: false },
-                       {  day: "SATURDAY", Selected: false },
+                       {   day: "FRIDAY", Selected: false },
+                       {   day: "SATURDAY", Selected: false },
                        {  day: "SUNDAY", Selected: false }
     ];
-      
-           /* $scope.toggleSelect = function(){
-    angular.forEach($scope.WorkingDays, function(item){
-      item.selected = event.target.checked;
-    });
-  };*/
+    $scope.WkingDayGetVl = function () {
+                
+                for (var i = 0; i < $scope.WorkingDays.length; i++) {
+                    if ($scope.WorkingDays[i].Selected) {
+                        var dayName = $scope.WorkingDays[i].day;
+                       
+                        console.log("WorkingDays in selectbox",$scope.WorkingDays[i]);
+                    }
+                }
+              }
  
    
 
@@ -147,7 +151,7 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
 
     
      $scope.IsVisible = false;
-            $scope.ShowHide = function () {
+            $scope.ShowHide = function (data) {    
                 //If DIV is visible it will be hidden and vice versa.
                 $scope.IsVisible = $scope.IsVisible ? false : true;
             }

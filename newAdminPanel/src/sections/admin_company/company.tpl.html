@@ -143,10 +143,10 @@
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white border unique-color ml-3"><i class="far fa-calendar-alt ml-3 deep-orange-text"></i> Working Days</h4>
     <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght" >
-        <label class="checkbox-inline" id="label-margin-padding" ng-repeat="d in WorkingDays">
-        <input type="checkbox"  ng-model="all" ng-checked="all"> {{d.day}}</label>
+        <label class="checkbox-inline" id="label-margin-padding"  ng-repeat="d in WorkingDays">
+        <input type="checkbox"  ng-model="d.Selected" ng-checked="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
         <input type="checkbox" ng-model="all"> Select All</label><br>
-        <button type="button" class="btn btn-info m-auto  d-block" id="btn-margin"submit-required="true" ng-click="category(data);">Save</button>
+        <button type="button" class="btn btn-info m-auto  d-block" id="btn-margin"submit-required="true" ng-click="WkingDayGetVl()" >Save</button>
       </form>
 
 
@@ -177,10 +177,10 @@
 
         <h4 class="text-white font-weight-bold"><div class="custom-control custom-checkbox ml-3 unique-color">
 
-          <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide()">
-          <label class="custom-control-label" for="check02">Additional Requirements</label>
+          <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
+          <label class="custom-control-label" for="check02"  >Additional Requirements</label>
         </div></h4>
-        <div class=" ml-3 " id="form-lenght">
+        <div class=" ml-3 " id="form-lenght" ng-if="data.breakfast">
           <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
             <input type="checkbox" class="custom-control-input" id="ch1" data-toggle="collapse" data-target="#demo">
             <label class="custom-control-label" for="ch1">Breakfast</label>
@@ -529,8 +529,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="Weeks in WorkingDays">
-                <th scope="row col">{{Weeks.day}}</th>
+              <tr ng-repeat="Weeks in WorkingDays" ng-if="Weeks.Selected">
+                <th scope="row col" >{{Weeks.day}}</th>
                 <td> <div class="row">
                     <div class="col-md-6"><input type="Text" class="form-control form-control-sm" id=""></div>
                     <div class="col-md-6"><input type="Text" class="form-control form-control-sm" id=""></div>
