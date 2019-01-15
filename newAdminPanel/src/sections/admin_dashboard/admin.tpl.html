@@ -68,7 +68,7 @@
     <div class="collapse navbar-collapse" id="toggledemo">
       <ul class=" nav navbar-nav navbar-left ml-auto">
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown btn-outline-white ml-auto ">
           <a class="nav-link dropdown-toggle"  id="Dropdowndemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user"></i> Profile </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-info mt-1">
@@ -234,7 +234,7 @@
       </div>
     </div>
 
-  <form class="border mt-5 mb-5">
+  <form class=" mt-5 mb-5">
   
     
  <!--Google map-->
@@ -253,7 +253,7 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <label for="usr">  Latitude</label>
-  <input type="text" class="form-control" placeholder="Latitude">
+  <input type="number" class="form-control" placeholder="Latitude">
  
   </div>
 
@@ -267,11 +267,37 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <label for="usr">Longitude</label>
-  <input type="text" class="form-control" placeholder="Longitude">
+  <input type="number" class="form-control" placeholder="Longitude">
 
   </div>
 </div>
 
+<div class="row mt-3">
+  <div class="col-md-6 col-sm-6">
+    <label for="usr">Contact Person Name</label>
+  <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name">
+   <label for="usr">Contact Number</label>
+  <input type="text" class="form-control mb-3" placeholder="Enter Contact Number">
+  <label for="comment">Address</label>
+  <textarea class="form-control" placeholder="Enter Your Address" id="comment"></textarea>
+  </div>
+  <div class="col-md-6 col-sm-6 mt-3">
+    <form>
+  
+    <div class="z-depth-1-half" id="adjust">
+      <img src="img/upload.png" class="img-fluid img-height m-auto d-block" alt="example placeholder">
+    </div>
+    <div class="d-flex justify-content-center" id="adjust">
+      <div class="btn btn-mdb-color btn-rounded float-left">
+        <span>Choose file</span>
+        <input type="file">
+      </div>
+    </div>
+</form>
+
+  </div>
+</div>
+<button type="button" class="btn btn-info m-auto  d-block" id="btn-margin">Submit</button>
 
 </form>
 

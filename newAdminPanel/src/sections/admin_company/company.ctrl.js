@@ -147,7 +147,7 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
         });
     };    
     
-    //show hide
+    //show hide for additional requirement checkbox
 
     
      $scope.IsVisible = false;
@@ -156,5 +156,6 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
                 $scope.IsVisible = $scope.IsVisible ? false : true;
             }
     
+
     }
     ]);
