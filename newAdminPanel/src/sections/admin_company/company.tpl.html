@@ -18,7 +18,7 @@
       <li class="nav-item dropdown btn-outline-white ml-auto ">
         <a class="nav-link dropdown-toggle"  id="Dropdowndemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user"></i> Profile </a>
-          <div class="dropdown-menu dropdown-menu-center dropdown-info mt-1">
+          <div class="dropdown-menu dropdown-menu-right dropdown-info mt-1">
             <a class="dropdown-item text-center" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
             <a class="dropdown-item text-center" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
           </div>
@@ -77,11 +77,11 @@
           aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw cyan-text"></i><span class="font-weight-normal"> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
            <ul  class="collapse list-unstyled" id="pageSubmenu1">
             <li class="ml-3 ">
-              <a href="" ng-click="boolFunction('ClientMonthlyDetails')" >Client Monthly Details</a>
+              <a href="" ng-click="boolFunction('ClientMonthlyDetails')"><i class="fas fa-radiation-alt mr-2"></i>Client Monthly Details</a>
             </li>
 
             <li class="ml-3">
-              <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')" >
+              <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
                 Vendor Monthly Details</a>
             </li>
           </ul>
@@ -103,7 +103,7 @@
     <!----=============menuitem checkbox start====================-->
 
     <div class="container contmargin" ng-if="ConfigurationBool">
-      <h4 class="font-weight-bold blue-gradient text-white border unique-color ml-3"><i class="fas fa-hot-tub ml-3 white-text"></i> Category</h4>
+      <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
       <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
         <div class="list-group checkbox-list-group custom-control custom-checkbox mb-3">
          <div class="list-group-item"><div class="custom-control custom-checkbox">
@@ -141,7 +141,7 @@
 
 
     <!--===========================working days==================================-->
-    <h4 class="font-weight-bold text-white border unique-color ml-3"><i class="far fa-calendar-alt ml-3 deep-orange-text"></i> Working Days</h4>
+    <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
     <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght" >
         <label class="checkbox-inline" id="label-margin-padding"  ng-repeat="d in WorkingDays">
         <input type="checkbox"  ng-model="d.Selected" ng-checked="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
@@ -154,14 +154,14 @@
 
 
       <!--===========================Invoice date==================================-->
-      <h4 class="font-weight-bold text-white border unique-color ml-3"><i class="fas fa-file-invoice-dollar ml-3 deep-orange-text"></i> Invoice Date</h4>
-      <form class="border  z-depth-1 form-check-inline ml-3 mb-5" id="form-lenght">
+      <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoice Date</h4>
+      <form class="z-depth-1 form-check-inline ml-3 mb-5" id="form-lenght">
        <div class="form-group" id="form-padding">
         <label class="checkbox-inline"id="label-margin-padding">
           <input type="checkbox" > Month Starting</label>
         </div>
 
-        <div class="form-group" id="form-padding">
+        <div class="form-group-sm" id="form-padding">
           <label for="sel1" class="font-weight-bold">Mid of Month</label>
           <select class="form-control" id="sel1">
             <option>Select Date</option>
@@ -181,7 +181,7 @@
 
 
        
-        <h4 class="text-white font-weight-bold"><div class="custom-control custom-checkbox ml-3 unique-color">
+        <h4 class="text-white font-weight-bold "><div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">
 
 
           <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
@@ -535,8 +535,8 @@
 
  <!-- ==============================================Client RequirementBool start================ -->
  <div ng-if="ClientRequirementBool"  class="container contmargin" >
-        <div class="table-responsive" ><h6>Breakfast</h6>
-          <table class="table table-bordered" ng-if="data.breakfast">
+        <div class="table-responsive " ><h6 class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">Breakfast</h6>
+          <table class="table table-bordered " ng-if="data.breakfast">
             <thead>
               <tr>
                 <th scope="col"></th>
@@ -712,54 +712,54 @@
 
      <!-- ==============================================EmpFeedback start================ -->
 
-                                           <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
+     <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
 
-                                            <div class="container" id="cont-margin">
-                                              <form class="border  z-depth-1 mb-5 ml-3">
-                                               <table class="table  table-hover" id="table-margin-top">
-                                                <thead>
-                                                 <tr>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
-                                                  <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
+      <div class="container" id="cont-margin">
+        <form class="border  z-depth-1 mb-5 ml-3">
+         <table class="table  table-hover" id="table-margin-top">
+          <thead>
+           <tr>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
+            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
 
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                               <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
-                                                <td>{{feed.reviewerName}}</td>
-                                                <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
-                                                <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
-                                                <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
-                                                <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
-                                                <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
-                                                <td class="text-center font-weight-normal">{{feed.mobile}}</td>
-                                                <td>
-                                                 <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
-                                                  <mdb-tooltip :options="{placement: 'top'}">
-                                                    <div class="tooltip">
-                                                     {{feed.commen}}
-                                                   </div>
-                                                   <mdb-btn slot="reference" color="primary">
-                                                     <i class="far fa-comments fa-2x" ></i>
-                                                   </mdb-btn>
-                                                 </mdb-tooltip>
-                                               </div>
-                                             </td>
-                                             <td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
-                                           </tr>
-                                         </tbody>
-                                       </table>
+          </tr>
+        </thead>
+        <tbody>
+         <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
+          <td>{{feed.reviewerName}}</td>
+          <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
+          <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
+          <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
+          <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
+          <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
+          <td class="text-center font-weight-normal">{{feed.mobile}}</td>
+          <td>
+           <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
+            <mdb-tooltip :options="{placement: 'top'}">
+            <div class="tooltip">
+             {{feed.commen}}
+           </div>
+           <mdb-btn slot="reference" color="primary">
+           <i class="far fa-comments fa-2x" ></i>
+         </mdb-btn>
+       </mdb-tooltip>
+     </div>
+   </td>
+   <td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
+ </tr>
+</tbody>
+</table>
 
-                                     </form>
-                                   </div>
-                                 </div>
+</form>
+</div>
+</div>
 
        
 
