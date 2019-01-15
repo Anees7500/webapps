@@ -4,10 +4,9 @@
 #table-margin{margin-top: 95px;}
 #btn-margin{margin-top: 90px;}
 #cont-margin{margin-top: 95px;}
-.modal-backdrop.show{ 
-position: static;}
 .modal{margin-top: 35px;}
 .modal-content{width: 700px;}
+.modal-backdrop{z-index: 1;}
 /***************employee feeback*******************/
 #table-margin-top{margin-top: 50px;}
 #header{font-size: 0.8rem;}
@@ -23,3 +22,8 @@ margin-left: 6px;}
 #btn-circle{border-radius: 55px; padding:5px;}
 #row-width{margin-right: 10px;}
 #btn-pd{padding: 0px;}
+#menu-item{width: 310px;}
+#menu-top{margin-top: 80px;}
+#col-width{width: 230px;}
+#font-weignt{font-size: 0.9rem;}
+#menu-item1{width: 400px;}
