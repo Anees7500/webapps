@@ -1,4 +1,4 @@
-var adminApp = angular.module("adminApp", ['ngRoute', 'adminApp.config']);
+var adminApp = angular.module("adminApp", ['ngRoute', 'adminApp.config','ngFileUpload']);
 
 adminApp.config(['$routeProvider', '$locationProvider',
     function ($routerProvider, $locationProvider) {

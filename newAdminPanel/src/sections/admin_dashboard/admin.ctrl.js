@@ -1,5 +1,5 @@
 adminApp.controller('AdminController', ['$scope', '$http','companydetailsService', 'getAllCompanyUrl', 
-  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl',
+  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 
   function($scope, $http, companydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
   getAllVendorListUrl ) {
 
@@ -18,7 +18,23 @@ adminApp.controller('AdminController', ['$scope', '$http','companydetailsService
       }
       $scope.boolFunction("CompanyBool");
       // bool Logic end
-
+      $scope.onFileSelect = function($files) {
+    //$files: an array of files selected, each file has name, size, and type.
+    for (var i = 0; i < $files.length; i++) {
+      var file = $files[i];
+      $scope.upload = $upload.upload({
+        url: 'server/upload/url', //upload.php script, node.js route, or servlet url
+        data: {myObj: $scope.myModelObj},
+        file: file,
+      }).progress(function(evt) {
+        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+      }).then(function(response) {
+        var data = response.data;
+        // file is uploaded successfully
+        console.log(data);
+      });
+    }
+  };
       $scope.companySignup = function (company) {
         // console.log("lat & lng in cntrl file : ",company);
         companydetailsService.companySignup(company, companySignupUrl);
@@ -43,6 +59,8 @@ adminApp.controller('AdminController', ['$scope', '$http','companydetailsService
       $http.get(getAllCompanyUrl).then(function (response) {
         $scope.allCompanies = response.data.data.companies;
       });
+
+      
    
    
     

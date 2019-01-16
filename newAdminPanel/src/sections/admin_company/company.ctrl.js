@@ -14,7 +14,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
       $scope.VendorRequirementBool=false;
       $scope.ItemCheckBool=false;
       $scope.AssignedBool=false;
-      $scope.SetPasswordBool=false;
+      $scope.CompanySettingsBool=false;
       $scope.EmpFeedbackBool=false;
       $scope.ClientMonthlyDetails=false; 
       $scope.VendorMonthlyDetailsBool=false;

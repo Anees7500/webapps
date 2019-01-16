@@ -67,9 +67,6 @@
           <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
         </li>
         <li id="li-wdth">
-          <a href="" ng-click="boolFunction('SetPasswordBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Set Password</span></a>
-        </li>
-        <li id="li-wdth">
           <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
         </li>
         <li id="li-wdth">
@@ -86,11 +83,15 @@
             </li>
           </ul>
         </li>
+
        <!--  <li>
           <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')"><i class="fas fa-file-invoice-dollar fa-fw deep-orange-text"></i><span class=" font-weight-normal"> Vendor Monthly Details</span></a>
         </li> -->
         <li id="li-wdth">
           <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+        </li>
+        <li id="li-wdth">
+          <a href="" ng-click="boolFunction('CompanySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
         </li>
       </ul>
     </div>
@@ -154,14 +155,14 @@
 
 
       <!--===========================Invoice date==================================-->
-      <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoice Date</h4>
-      <form class="z-depth-1 form-check-inline ml-3 mb-5" id="form-lenght">
+      <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoicing Date</h4>
+      <form class="border z-depth-1 form-check-inline ml-3 mb-5" id="form-lenght">
        <div class="form-group" id="form-padding">
-        <label class="checkbox-inline"id="label-margin-padding">
-          <input type="checkbox" > Month Starting</label>
+        <label class="checkbox-inline font-weight-bold"id="label-margin-padding">
+          <input type="checkbox" > 1st of Next Month</label>
         </div>
 
-        <div class="form-group-sm" id="form-padding">
+        <div class="form-group-" id="form-padding">
           <label for="sel1" class="font-weight-bold">Mid of Month</label>
           <select class="form-control" id="sel1">
             <option>Select Date</option>
@@ -169,10 +170,12 @@
           </select>
         </div>
         <div class="form-group">
-          <label class="checkbox-inline"id="label-margin-padding">
+          <label class="checkbox-inline font-weight-bold"id="label-margin-padding">
             <input type="checkbox"> End of Month</label>
           </div>
+          <!-- <button type="button" class="btn btn-outline-default waves-effect" id="btn-margin" submit-required="true" n>Save</button> -->
         </form>
+
 
         <!--===========================Additional Requiment==================================-->
 
@@ -187,8 +190,8 @@
           <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
           <label class="custom-control-label" for="check02"  >Additional Requirements</label>
         </div></h4>
-        <div class=" ml-3 " id="form-lenght"  >
-          <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+        <div class=" ml-3 " id="form-lenght" ng-show="IsVisible">
+          <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.breakfast" >
             <input type="checkbox" class="custom-control-input"  id="ch1" data-toggle="collapse" data-target="#demo">
             <label class="custom-control-label" for="ch1" >Breakfast</label>
           </div>
@@ -236,7 +239,7 @@
               </div>
 
      <!--=========================Lunch======================================-->
-              <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+              <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.lunch" >
                 <input type="checkbox" class="custom-control-input" id="ch2" data-toggle="collapse" data-target="#demo1">
                 <label class="custom-control-label" for="ch2">Lunch</label>
               </div>
@@ -284,7 +287,7 @@
                      </div>
                      
  <!--=========================Snacks======================================-->
- <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+ <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.snacks" >
   <input type="checkbox" class="custom-control-input" id="ch3" data-toggle="collapse" data-target="#demo2">
   <label class="custom-control-label" for="ch3">Snacks</label>
 </div>
@@ -333,7 +336,7 @@
 
        <!--=========================Dinner======================================-->
 
-       <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+       <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.dinner">
         <input type="checkbox" class="custom-control-input" id="ch4" data-toggle="collapse" data-target="#demo3">
         <label class="custom-control-label" for="ch4">Dinner</label>
       </div>
@@ -381,7 +384,7 @@
             </div>
 
              <!--=========================Mid-Night Snacks======================================-->
-             <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+             <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.midNightSnacks">
               <input type="checkbox" class="custom-control-input" id="ch5" data-toggle="collapse" data-target="#demo4">
               <label class="custom-control-label" for="ch5">Mid-Night Snacks</label>
             </div>
@@ -430,7 +433,8 @@
 
        
   <!--=========================Early Morning Snacks======================================-->
-  <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+  <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" 
+  ng-if="data.earlyMorningSnacks">
     <input type="checkbox" class="custom-control-input" id="ch6" data-toggle="collapse" data-target="#demo5">
     <label class="custom-control-label" for="ch6">Early Morning Snacks</label>
   </div>
@@ -477,7 +481,8 @@
           </div>
         </div>
         <!--=========================Cash & Carry======================================-->
-   <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-show="IsVisible">
+   <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" 
+   ng-if="data.cashNCarry">
     <input type="checkbox" class="custom-control-input" id="ch7" data-toggle="collapse" data-target="#demo6">
     <label class="custom-control-label" for="ch7">Cash & Carry</label>
   </div>
@@ -681,36 +686,10 @@
        </div>
      
 </div>
-
-
-
-
-
 </div>
 </div>
 
-
-
-
-  <!-- ==============================================Set Password start================ -->
-                                              <div ng-if="SetPasswordBool">
-                                                <div class="container" id="cont-margin">
-                                                 <h2 class="text-center border unique-color font-weight-normal" id="txt-margin">Company password for employee feedback app...!!!</h2><br>
-                                                 <form class="border  z-depth-1 mb-5 ml-3 " id="form-lenght">
-                                                  <div class="form-group ml-5 mr-5">
-                                                   <input type="email" class="form-control mt-3" id="email" placeholder="Set Username app" ng-model="c.username">
-                                                 </div>
-                                                 <div class="form-group ml-5 mr-5">
-                                                   <input type="password" class="form-control" id="pwd" placeholder="Set Mobile app Password"  ng-model="c.password">
-                                                 </div>
-
-                                                 <button type="submit" class="btn btn-default m-auto d-block" ng-click="companyLoginIdSet(c)">Submit</button>
-                                               </form> 
-
-                                             </div>
-                                           </div>
-
-     <!-- ==============================================EmpFeedback start================ -->
+    <!-- ==============================================EmpFeedback start================ -->
 
      <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
 
@@ -782,6 +761,10 @@
 
 
                      </div>
+  <!-- ==============================================Company Settings start================ -->
+  <div ng-if="CompanySettingsBool">
+    
+</div>
 
 
 
