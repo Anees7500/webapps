@@ -962,13 +962,35 @@
                      </div>
   <!-- ==============================================Company Settings start================ -->
   <div ng-if="CompanySettingsBool">
-    
+    <div class="container mt-5">
+      <form class="border mb-5 grey lighten-5" id="row-top">
+    <div class="row ml-3" >
+  <div class="col-md-6 col-sm-6">
+    <label for="usr">Contact Person Name</label>
+  <input type="text" class="form-control mb-3" id="check-width"placeholder="Enter Contact Person Name" required ng-model="place.companyName">
+   <label for="usr">Contact Number</label>
+  <input type="text" class="form-control mb-3" id="check-width" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
+  <label for="comment">Address</label>
+  <textarea class="form-control mb-5" placeholder="Enter Your Address" id="check-width" name="address" required ng-model="place.address" ></textarea>
+  </div>
+  <div class="col-md-6 col-sm-6 mt-3">
+  
+  <label for="usr">Set Mobile App Username</label>
+  <input type="text" class="form-control mb-3" placeholder="Set Username" id="check-width"><br>
+   <label for="usr">Set Mobile App Password</label>
+  <input type="text" class="form-control mb-3" id="check-width" placeholder="Set App Password" >
+   <div class="d-flex mb-5 ">
+      <div class="btn btn-mdb-color btn-rounded float-left">
+        <span>Choose file</span>
+        <input type="file" ngf-select="onFileSelect($files)" multiple>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</div>
 </div>
 
 
-
-                 </div>
-
-                     </div>
 
 
