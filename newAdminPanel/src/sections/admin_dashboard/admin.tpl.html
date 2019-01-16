@@ -78,11 +78,12 @@
  
 
   <div class="main-panel">
-     <div class="content">
-      <div class="container-fluid">
+    <div class="content">
+      <div class="container">
 
        <!--===============================company start===============================-->
        <div ng-if="CompanyBool">
+        
         <div class="input-group md-form form-sm form-lg form-2 pl-0">
           <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search1" aria-label="Search">
           <div class="input-group-append">
@@ -91,7 +92,7 @@
         </div>
         <div class="row">
          <div ng-repeat="cpny in allCompanies | filter:search1">
-          <!-- <div  > -->
+        
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="card example z-depth-1 mt-5">
                 <div class="view overlay  hm-black-light zoom" ripple-radius>
@@ -109,10 +110,11 @@
             </div>
             </div>
           </div>
-          <!-- </div> -->
-
-        </div>
+        
+     
       </div>
+</div>
+
       <!--===============================/row ends company ends=============================== --> 
       <!-- ===============================-Assigned company=============================== -->
       <div ng-if="AssignedCompanyBool">
@@ -183,6 +185,7 @@
   <!-- ====================== Vender ================================== -->
 
   <div ng-if="VendorListBool">
+    <div class="container">
     <div class="input-group md-form form-sm form-lg form-2 pl-0">
       <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
       <div class="input-group-append">
@@ -211,6 +214,7 @@
    
    </div>
  </div>
+</div>
 </div>
 
 

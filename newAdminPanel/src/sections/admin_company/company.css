@@ -19,11 +19,13 @@ margin-left: 6px;}
 #txt-margin{margin-bottom: -10px;}
 #btn-margin{margin-bottom: 10px !important;}
 #div-height{height: 30px;}
-#btn-circle{border-radius: 55px; padding:5px;}
 #row-width{margin-right: 10px;}
 #btn-pd{padding: 0px;}
 #menu-item{width: 310px;}
 #menu-top{margin-top: 80px;}
 #col-width{width: 230px;}
 #font-weignt{font-size: 0.9rem;}
-#menu-item1{width: 400px;}
+#number{width: 120px;height: 26px;margin-left: 3px;}
+#form-lenght1{width: 850px;}
+#btn-bg{border: none;background-color: inherit;}
+

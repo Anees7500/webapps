@@ -113,8 +113,9 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
 
      $scope.menuDetails = [
         {
-            'Menu':'Dal Fry',
-            'Cost':'30'
+            'ColumnName':'Dal Fry',
+            'Pax':'01',
+            'Price':'10'
 
         }];
     
@@ -122,6 +123,7 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
             $scope.menuDetails.push({ 
                 'Menu': "", 
                 'Cost': "",
+                'Action':"",
             });
         };
     
