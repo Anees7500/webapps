@@ -1,39 +1,96 @@
-<div class="wrapper h-100 t-0">
+<!--wrapper  class start for whole page-->
+<div class="wrapper">
 
-	<nav class="navbar navbar-expand-sm navbar-dark info-color mb-5 fixed-top" >
+<!-- ===============================header navbar start=============================== -->
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
+   <a class="navbar-brand" href="" id="sidebarCollapse">
+    <img src="img/logo.png" class="img fixed-top rounded-circle mt-1 mr-1" width="35px">
+    <span class="text-danger font-weight-normal ml-3"> Fancymonk</span></a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggledemo"
-    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+<!--=============================sidebar collapse============================-->
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo"
+    aria-controls="navbardemo" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand font-weight-bold" href="" id="sidebarCollapse">
-   <img src="img/logo.png" class="img img-responsive rounded-circle mt-1" width="35px">
-   <span class="text-danger font-weight-normal">Fancymonk</span></a>
+  <div class="collapse navbar-collapse" id="navbardemo">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown ml-auto">
+      <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
+        <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+          <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
 
-
-
-   <div class="collapse navbar-collapse" id="toggledemo">
-    <ul class=" btn-group navbar-nav  ml-auto">
-
-      <li class="nav-item dropdown btn-outline-white ml-auto ">
-        <a class="nav-link dropdown-toggle"  id="Dropdowndemo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i> Profile </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-info mt-1">
-            <a class="dropdown-item text-center" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
-            <a class="dropdown-item text-center" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-          </div>
-        </li>
-
-      </ul>
-    </div>
-
-  </nav>
-
-  <!--===================/end header-nav=========================-->
 
   <!--===================sidenavbar start=========================-->
 
-  <nav class="sidebar  bg-white text-white d-block w-260 ml-0 mb-0  font-weight-200 z-depth-1-half" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+
+<nav id="sidebar" class="z-depth-1-half">
+<ul class="list-unstyled components mt-5">
+  <li>
+    <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
+
+  </li>
+  <li>
+    <a href=""  data-toggle="collapse" 
+          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal"> Requirement</span><i class="fa fa-chevron-down ml-5"></i></a>
+          <ul  class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <a href="" ng-click="boolFunction('ClientRequirementBool')"><i class="fas fa-fire mr-2"></i>
+                <span class="font-weight-normal">Client Requirement</span></a>
+            </li>
+
+            <li>
+              <a href="" ng-click="boolFunction('VendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
+          </li>
+       
+       </ul>
+  </li>
+  <li>
+    <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
+
+  </li>
+  <li>
+    <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
+  </li>
+  <li>
+    <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
+  </li>
+
+  <li>
+   <a href=""  data-toggle="collapse" 
+          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
+           <ul  class="collapse list-unstyled" id="pageSubmenu1">
+            <li>
+              <a href="" ng-click="boolFunction('ClientMonthlyDetails')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
+            </li>
+
+            <li>
+              <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
+                <span class="font-weight-normal">Vendor Monthly Details</span></a>
+            </li>
+          </ul>
+  </li>
+
+  <li>
+    <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+  </li>
+  <li>
+    <a href="" ng-click="boolFunction('CompanySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
+  </li>
+</ul>
+  </nav>
+  <!--<nav class="sidebar  bg-white text-white d-block w-260 ml-0 mb-0  font-weight-200 z-depth-1-half" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
 
 
@@ -92,11 +149,13 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </nav>-->
 
 
 
-  <div class="main-panel ">
+ <div class="main-content">
+
+  <div class="container mt-5">
 
     <!----=============menuitem checkbox start====================-->
 
@@ -140,10 +199,10 @@
 
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
-    <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght" >
-        <label class="checkbox-inline" id="label-margin-padding"  ng-repeat="d in WorkingDays">
+  <form class="border  z-depth-1 mb-5 ml-3" >
+        <label class="checkbox-inline mr-3 ml-3" id="label-margin-padding"  ng-repeat="d in WorkingDays">
         <input type="checkbox"  ng-model="d.Selected" ng-checked="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
-        <input type="checkbox" ng-model="all"> Select All</label><br>
+        <input type="checkbox" ng-model="all"> SELECT ALL<br>
         
         <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"submit-required="true" ng-click="WkingDayGetVl()" >Save</button>
       </form>
@@ -153,22 +212,26 @@
 
       <!--===========================Invoice date==================================-->
       <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoicing Date</h4>
-      <form class="border z-depth-1 form-check-inline ml-3 mb-5" id="form-lenght">
-       <div class="form-group" id="form-padding">
-        <label class="checkbox-inline font-weight-bold"id="label-margin-padding">
-          <input type="checkbox" > 1st of Next Month</label>
+      <form class="border z-depth-1  ml-3 mb-5 form-inline">
+       <div class="form-group">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="C1">
+          <label class="custom-control-label mr-5 ml-3" for="C1">1st of Next Months</label>
+        </div>
         </div>
 
-        <div class="form-group-" id="form-padding">
-          <label for="sel1" class="font-weight-bold">Mid of Month</label>
-          <select class="form-control" id="sel1">
+        <div class="form-group-">
+          
+          <select class="form-control mr-5 ml-3" id="sel1">
             <option>Select Date</option>
             <option ng-repeat="q in Mid_of_date">{{q}}</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="checkbox-inline font-weight-bold"id="label-margin-padding">
-            <input type="checkbox"> End of Month</label>
+          <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="C2">
+          <label class="custom-control-label  ml-3" for="C2">1st of Next Months</label>
+        </div>
           </div>
           <!-- <button type="button" class="btn btn-outline-default waves-effect" id="btn-margin" submit-required="true" n>Save</button> -->
         </form>
@@ -181,9 +244,8 @@
 
 
        
-        <h4 class="text-white font-weight-bold "><div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">
-
-
+        <h4 class="text-white font-weight-bold ">
+          <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">
           <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
           <label class="custom-control-label" for="check02"  >Additional Requirements</label>
         </div></h4>
@@ -555,7 +617,8 @@
 
  <!-- ==============================================Client RequirementBool start================ -->
  <div ng-if="ClientRequirementBool"  class="container contmargin" >
-        <div class="table-responsive " ><h6 class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">Breakfast</h6>
+        
+          <h6 class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">Breakfast</h6>
           <table class="table table-bordered " ng-if="data.breakfast">
             <thead>
               <tr>
@@ -588,7 +651,7 @@
         </div>
 
 
-      </div>
+      
       <!-- ==============================================Vendor RequirementBool start================ -->
       <div ng-if="VendorRequirementBool">
 
@@ -598,75 +661,67 @@
 
      <!-- ==============================================Item Check start================ -->
      <div ng-if="ItemCheckBool">
-      <div class="container mt-5">
-        <table class="table mt-3">
+      <div class="container border">
+
+         <h4 class="text-center font-weight-normal display-18">Enter the Requirements Stuff</h4>
+        <table class="table" id="top-margin">
           <tbody>
             <tr>
           <td>
         <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity: </label>
+      <label for="number" class="font-weight-normal">Bain Merie</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default">
-          <label class="custom-control-label font-weight-normal" for="default"> Bain Merie</label>
-        </div>
         </form>
       </td> 
 
        <td>
         <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal"> Plates</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default1">
-          <label class="custom-control-label font-weight-normal" for="default1"> Plates</label>
-        </div>
         </form>
       </td> 
        <td>
         <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Steel Spoons</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default2">
-          <label class="custom-control-label font-weight-normal" for="default2"> Steel Spoons</label>
-        </div>
+        
         </form>
       </td> 
-      </tr><br><br>
+       <td>
+          <form class="form-inline " >
+      <label for="number" class="font-weight-normal">Disposable Spoons</label>
+      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
+        </form>
+        </td>
+      </tr><br>
 
 
       <tr>
+       
+
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Chafing dish</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default3">
-          <label class="custom-control-label font-weight-normal" for="default3">  Disposable Spoons</label>
-        </div>
         </form>
         </td>
 
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal"> Plastic Cups</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default4">
-          <label class="custom-control-label font-weight-normal" for="default4">  Chafing dish</label>
-        </div>
         </form>
         </td>
-
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Thermocol Bowls</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default5">
-          <label class="custom-control-label font-weight-normal" for="default5">  Plastic Cups</label>
-        </div>
+        </form>
+        </td>
+         <td>
+          <form class="form-inline " >
+      <label for="number" class="font-weight-normal">POS Machine</label>
+      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
         </form>
         </td>
       </tr>
@@ -674,47 +729,50 @@
       <tr>
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Tissues</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default6">
-          <label class="custom-control-label font-weight-normal" for="default6">   Thermocol Bowls</label>
-        </div>
         </form>
         </td>
-
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Tongs</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default7">
-          <label class="custom-control-label font-weight-normal" for="default7">  POS Machine</label>
-        </div>
         </form>
         </td>
-
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Tongs</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default8">
-          <label class="custom-control-label font-weight-normal" for="default8">   Tissues</label>
-        </div>
+        </form>
+        </td>
+        <td>
+          <form class="form-inline " >
+      <label for="number" class="font-weight-normal">Pickle</label>
+      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
         </form>
         </td>
       </tr>
 
       <tr>
+        
         <td>
           <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
+      <label for="number" class="font-weight-normal">Mouth Freshner</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default9">
-          <label class="custom-control-label font-weight-normal" for="default9">Tongs</label>
-        </div>
+        </form>
+        </td>
+    
+        <td>
+          <form class="form-inline " >
+      <label for="number" class="font-weight-normal">Salt</label>
+      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
+        </form>
+        </td>
+
+        <td>
+          <form class="form-inline " >
+      <label for="number" class="font-weight-normal"> Caps</label>
+      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
         </form>
         </td>
 
@@ -722,56 +780,6 @@
           <form class="form-inline " >
       <label for="number" class="font-weight-normal">Quantity:</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default10">
-          <label class="custom-control-label font-weight-normal" for="default10"> Pickle</label>
-        </div>
-        </form>
-        </td>
-
-        <td>
-          <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
-      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default11">
-          <label class="custom-control-label font-weight-normal" for="default11">    Mouth Freshner</label>
-        </div>
-        </form>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
-      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default12">
-          <label class="custom-control-label font-weight-normal" for="default12">    Salt</label>
-        </div>
-        </form>
-        </td>
-
-        <td>
-          <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
-      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default13">
-          <label class="custom-control-label font-weight-normal" for="default13">     Caps</label>
-        </div>
-        </form>
-        </td>
-
-        <td>
-          <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Quantity:</label>
-      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="default14">
-          <label class="custom-control-label font-weight-normal" for="default14"> Gloves</label>
-        </div>
         </form>
         </td>
       </tr>
@@ -788,11 +796,11 @@
 
 
    <div ng-if="AssignedBool">
-     <div class="container mt-5">
+     <div class="container">
   
 
 
-<div class="row  ml-3 mr-0" id="menu-top">
+<div class="row mr-0" id="menu-top">
 
   <div class="col-md-3 col-sm-3" >
     <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="col-width">
@@ -856,7 +864,7 @@
    </div>
 
 
-     <div class="row mt-5  ml-3 mr-0">
+     <div class="row mt-5  mr-0">
        <div class="col-md-4 col-sm-4" id="menu-item1">
         <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="menu-item">
       <div class="card-body mb-3">
@@ -894,8 +902,8 @@
 
      <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
 
-      <div class="container" id="cont-margin">
-        <form class="border  z-depth-1 mb-5 ml-3">
+      <div class="container">
+        <form class="border  z-depth-1 mb-5">
          <table class="table  table-hover" id="table-margin-top">
           <thead>
            <tr>
@@ -988,6 +996,11 @@
   </div>
 </div>
 </form>
+</div>
+</div>
+
+
+</div>
 </div>
 </div>
 

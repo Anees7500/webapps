@@ -1,96 +1,78 @@
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: auto;
-    z-index: 1;
-    background-size: cover;
-    background-position: center center;}
-.sidebar .sidebar-wrapper {
-    position: relative;
-    overflow: auto;
-    width: 260px;
-    z-index: 4;}
-
-.sidebar .nav {
-    margin-top: 20px;
-    float: none;}
-
-.sidebar .nav li:hover > a {color:#0099CC;}
-
-
-.sidebar .nav .open > a,
-.sidebar .nav li.dropdown .dropdown-menu li:hover,
-.sidebar .nav li:hover {
-    background-color:#e3f2fd;
-    color:#fff;
-   }
-
-.sidebar .nav li > a {
-    color: #000000;
-    margin: 5px 20px;
-    opacity: .86;
-    border-radius: 8px;
-    display: block;
-    padding: 6px;}
-
 .card{
  width: 260px;
     height: 320px;
-    margin-left: 50px;}
-#card_design{
-
-     margin-left: 30px;
-     width: 290px;
-    height: 320px;}
-
+    margin-right: 50px; }
 
 .card-img-top{
     width: 250px;
     margin: auto;}
 
-#margin{margin-left: 260px;}
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;}
+#sidebar {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    display: none;}
+#sidebar.visible {
+    display: block;}
+#sidebar ul {
+    margin: 0;
+    padding: 0;}
+#sidebar ul li {
+    padding: 10px 08px;
+     position: relative;}
+#sidebar ul li.active:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;}
+#sidebar ul li a {
+    color: black;
+    display: block;
+    text-decoration: none;}
+#sidebar ul li i {
+    color: #0497df;
+    min-width: 20px;
+    text-align: center;}
+#sidebar ul li span:nth-child(2) {
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 600;}
+#sidebar ul li:hover > a {color:#0099CC;}
+#sidebar ul .open > a,
+#sidebar ul li.dropdown .dropdown-menu li:hover,
+#sidebar ul li:hover {background-color:#e3f2fd;color:#fff;}
+.main-content {
+    padding: 40px;
+    margin-top: 5px;
+    padding: 0;
+    padding-top: 44px;
+    height: 100%;
+    margin-left: 50px;
+    width: 100%;
+    /*overflow: scroll;*/}
 
-.md-form{margin-top: 58px;}
-#li-wdth{width: 260px;}
-#map-height{height: 450px;width: 200px;}
-.img-height{height: 150px}
-#adjust{width: 300px; margin-left: 70px;}
-
-/************main panel************/
-.main-panel {
-    position: relative;
-    z-index: 2;
-    float: right;
-    width: calc(100% - 260px);
-}
 
 
-/***************media query for responsive in mobile view************************/
-@media (max-width: 768px) {
-
-    #navbar_collapse{
-        margin-left: -250px;
-        box-shadow: none;
-    }
-    .sidebar{
-        box-shadow: none;
-    }
-    .sidebar.active {
-        margin-left: 0;
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
-    #margin{
-        margin-left: 0px;
-       }
-.main-panel{
-        margin-left: -19px;
-        float: none;
-        width: 100%;}
-    }
-}
-
-
+/*----------page responsive-------------------------*/
+@media screen and (min-width: 600px) {
+     #sidebar { display: block; width: 70px; z-index: 2;}
+    #sidebar ul li span:nth-child(2) { display: none;}
+     #sidebar ul li i { font-size: 56px;}
+    #sidebar ul li a { text-align: center;}
+    .main-content{margin-left: 70px;}}
+/* set element styles for desktop */
+@media screen and (min-width: 800px) {
+    #sidebar { width: 220px; margin-top: 50px;}
+    #sidebar ul li span:nth-child(2) { display: inline-block;}
+    #sidebar ul li i  { font-size: 16px;}
+    #sidebar ul li a { text-align: left;}
+    .main-content{margin-left: 260px;}}
