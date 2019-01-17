@@ -16,7 +16,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
       $scope.AssignedBool=false;
       $scope.CompanySettingsBool=false;
       $scope.EmpFeedbackBool=false;
-      $scope.ClientMonthlyDetails=false; 
+      $scope.ClientMonthlyDetailsBool=false; 
       $scope.VendorMonthlyDetailsBool=false;
       $scope.DispatchDetailsBool=false; 
 
@@ -45,6 +45,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
         $scope.data = response.data.data.company;
       });
       // ==================== All Vender list==============
+      //  var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
+      // $http.get(getAllVendorToCompany).then(function (response) {
+      //   console.log("getAllVendorToCompanyUrl", response.data.data.details);
+      //   $scope.vendorList = response.data.data.details;
+      // });
 
    $http.get(getAllVendorListUrl).then(function (response) {
         // console.log("response.data 555", response.data.data.vendors);
@@ -98,26 +103,19 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
 
 
       //dropdown selection
-     $scope.Starting_date=[];
      $scope.Mid_of_date=['1','2','3','4','5','6','7','8','9','10','11','12',
                          '13','14','15','16','17','18','19','20','21','22',
                          '23','24','25','26','27','28','29','30','31'];
-     $scope.End_of_date=[];
       
-      //Assigned
-      $scope.vendor_list=['Fancy Vendor','Yummy Tummy','Naveen Caters','GMR','Rang De Basanti','Buffet Lo',
-      'Farooq','Raj Mahal','Savitha','Shine','Pintu','Gpfood','Priya Panjabi','Rolling Tummy','Adda','Vhs catering'
-      ,'Estern_Delight','Food Planet','Pal Caterers','Golden Star Service'];
       
     //additional requirement
 
      $scope.menuDetails = [
         {
-            'ColumnName':'Dal Fry',
-            'Pax':'01',
-            'Price':'10'
+            'ColumnName':'Dal Fry'
 
         }];
+
     
         $scope.addNew = function(menuDetail){
             $scope.menuDetails.push({ 
