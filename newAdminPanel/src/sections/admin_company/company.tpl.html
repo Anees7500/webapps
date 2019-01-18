@@ -72,7 +72,7 @@
           aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
            <ul  class="collapse list-unstyled" id="pageSubmenu1">
             <li>
-              <a href="" ng-click="boolFunction('ClientMonthlyDetails')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
+              <a href="" ng-click="boolFunction('ClientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
             </li>
 
             <li>
@@ -90,109 +90,49 @@
   </li>
 </ul>
   </nav>
-  <!--<nav class="sidebar  bg-white text-white d-block w-260 ml-0 mb-0  font-weight-200 z-depth-1-half" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-
-
-
-    <div class="sidebar-wrapper  pb-5" id="navbar_collapse">
-
-      <ul class="nav active ">
-
-        <li id="li-wdth">
-          <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
-
-        </li>
-        <li  id="li-wdth">
-          <a href=""  data-toggle="collapse" 
-          aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal"> Requirement</span><i class="fa fa-chevron-down ml-5"></i></a>
-          <ul  class="collapse list-unstyled" id="pageSubmenu">
-            <li class="ml-3 ">
-              <a href="" ng-click="boolFunction('ClientRequirementBool')"><i class="fas fa-fire mr-2"></i>Client Requirement</a>
-            </li>
-
-            <li class="ml-3">
-              <a href="" ng-click="boolFunction('VendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i>Vendor Requirement</a>
-         
-       
-        </li></ul>
-
-        <li id="li-wdth" >
-          <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
-
-        </li>
-        <li id="li-wdth">
-          <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
-        </li>
-        <li id="li-wdth">
-          <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
-        </li>
-        <li id="li-wdth">
-          <a href=""  data-toggle="collapse" 
-          aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
-           <ul  class="collapse list-unstyled" id="pageSubmenu1">
-            <li class="ml-3 ">
-              <a href="" ng-click="boolFunction('ClientMonthlyDetails')"><i class="fas fa-radiation-alt mr-2"></i>Client Monthly Details</a>
-            </li>
-
-            <li class="ml-3">
-              <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
-                Vendor Monthly Details</a>
-            </li>
-          </ul>
-        </li>
-
-        <li id="li-wdth">
-          <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
-        </li>
-        <li id="li-wdth">
-          <a href="" ng-click="boolFunction('CompanySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
-        </li>
-      </ul>
-    </div>
-  </nav>-->
-
-
+ 
 
  <div class="main-content">
 
-  <div class="container mt-5">
+ <div class="mt-5">
 
     <!----=============menuitem checkbox start====================-->
 
-    <div class="container contmargin" ng-if="ConfigurationBool">
+    <div ng-if="ConfigurationBool" class="ml-5">
+      <div class="container">
       <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
       <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
         <div class="list-group checkbox-list-group custom-control custom-checkbox mb-3">
          <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked1" ng-model="data.breakfast">
-          <label class="custom-control-label" for="Checked1">Breakfast</label>
+          <label class="custom-control-label font-weight-normal" for="Checked1">Breakfast</label>
         </div></div>
         <div class="list-group-item "><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked2" ng-model="data.lunch">
-          <label class="custom-control-label" for="Checked2">Lunch</label>
+          <label class="custom-control-label font-weight-normal" for="Checked2">Lunch</label>
         </div></div>
         <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked3" ng-model="data.snacks">
-          <label class="custom-control-label" for="Checked3">Snacks</label>
+          <label class="custom-control-label font-weight-normal" for="Checked3">Snacks</label>
         </div></div>
         <div class="list-group-item "><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked4" ng-model="data.dinner">
-          <label class="custom-control-label" for="Checked4">Dinner</label>
+          <label class="custom-control-label font-weight-normal" for="Checked4">Dinner</label>
         </div></div>
         <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Checked5" ng-model="data.midNightSnacks">
-          <label class="custom-control-label" for="Checked5">Mid-Night Snacks</label>
+          <label class="custom-control-label font-weight-normal" for="Checked5">Mid-Night Snacks</label>
         </div></div>
         <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="checked6"  ng-model="data.earlyMorningSnacks">
-          <label class="custom-control-label" for="checked6">Early Morning Snacks</label>
+          <label class="custom-control-label font-weight-normal" for="checked6">Early Morning Snacks</label>
         </div></div>
         <div class="list-group-item"><div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="Check" ng-model="data.cashNCarry">
-          <label class="custom-control-label" for="Check">Cash & Carry</label>
+          <label class="custom-control-label font-weight-normal" for="Check">Cash & Carry</label>
         </div></div>
       </div>
-      <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
+      <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
     </form>
 
 
@@ -200,11 +140,11 @@
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
   <form class="border  z-depth-1 mb-5 ml-3" >
-        <label class="checkbox-inline mr-3 ml-3" id="label-margin-padding"  ng-repeat="d in WorkingDays">
+        <label class="checkbox-inline mr-3 ml-3 font-weight-normal" id="label-margin-padding"  ng-repeat="d in WorkingDays">
         <input type="checkbox"  ng-model="d.Selected" ng-checked="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
-        <input type="checkbox" ng-model="all"> SELECT ALL<br>
+        <input type="checkbox" ng-model="all"> <span class="font-weight-normal">SELECT ALL</span><br>
         
-        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"submit-required="true" ng-click="WkingDayGetVl()" >Save</button>
+        <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block" id="btn-margin"submit-required="true" ng-click="WkingDayGetVl()" >Save</button>
       </form>
 
 
@@ -212,25 +152,25 @@
 
       <!--===========================Invoice date==================================-->
       <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoicing Date</h4>
-      <form class="border z-depth-1  ml-3 mb-5 form-inline">
+      <form class="border z-depth-1 mr-5 ml-3 mb-5 form-inline">
        <div class="form-group">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="C1">
-          <label class="custom-control-label mr-5 ml-3" for="C1">1st of Next Months</label>
+          <label class="custom-control-label mr-5 ml-3 font-weight-normal" for="C1">1ST OF MONTH</label>
         </div>
         </div>
 
-        <div class="form-group-">
+        <div class="form-group ml-3 mr-5 ">
           
-          <select class="form-control mr-5 ml-3" id="sel1">
+          <span class="font-weight-normal">MID OF MONTH:</span><select class="form-control mr-5" id="sel1">
             <option>Select Date</option>
             <option ng-repeat="q in Mid_of_date">{{q}}</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group ml-3">
           <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="C2">
-          <label class="custom-control-label  ml-3" for="C2">1st of Next Months</label>
+          <label class="custom-control-label font-weight-normal ml-3" for="C2">END OF MONTH</label>
         </div>
           </div>
           <!-- <button type="button" class="btn btn-outline-default waves-effect" id="btn-margin" submit-required="true" n>Save</button> -->
@@ -249,6 +189,7 @@
           <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
           <label class="custom-control-label" for="check02"  >Additional Requirements</label>
         </div></h4>
+
         <div class=" ml-3 " id="form-lenght" ng-show="IsVisible">
           <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.breakfast" >
             <input type="checkbox" class="custom-control-input"  id="ch1" data-toggle="collapse" data-target="#demo">
@@ -257,11 +198,11 @@
           <div id="demo" class="collapse">
 
            <div class="mt-3">
-            <div class="row ml-5">
-              <div class="col-md-12">
-                <div class="panel panel-default">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--<div class="panel panel-default">-->
                   <div class="panel-body" id="row-width">
-                    <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
+                    <form ng-submit="addNew()" class="z-depth-1 mb-5">
                       <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -285,20 +226,21 @@
                                  <td>
                                     <a ng-hide="!menuDetails.length" href=""  class="pull-right ml-5" ng-click="remove()" ><i class="fas fa-trash-alt fa-2x"></i></a>
 
-                                     <button class="addnew pull-right ml-5" id="btn-bg"><i class="fas fa-plus fa-2x"></i></button>
-                                 </td>
+                                    <button class="addnew pull-right ml-5" id="btn-bg"><i class="fas fa-plus fa-2x"></i></button>
+                                
+                               </td>
                                 </tr>
                               </tbody>
                             </table>
                             <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"submit-required="true" >Save</button>
                           </form>
                         </div>
-                      </div>
+                   
                     </div>
                   </div>
                 </div>
               </div>
-
+               </div>
      <!--=========================Lunch======================================-->
               <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.lunch" >
                 <input type="checkbox" class="custom-control-input" id="ch2" data-toggle="collapse" data-target="#demo1">
@@ -307,8 +249,8 @@
 
               <div id="demo1" class="collapse">
                 <div class="mt-3">
-                  <div class="row ml-5">
-                    <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <div class="panel panel-default">
                         <div class="panel-body" id="row-width">
                           <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
@@ -356,8 +298,8 @@
 </div>
 <div id="demo2" class="collapse">
   <div class="mt-3">
-    <div class="row ml-5">
-      <div class="col-md-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="panel panel-default" id="row-width">
           <div class="panel-body">
             <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
@@ -408,8 +350,8 @@
       </div>
       <div id="demo3" class="collapse">
         <div class="mt-3">
-          <div class="row ml-5">
-            <div class="col-md-12">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="panel panel-default" id="row-width">
                 <div class="panel-body">
                   <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
@@ -451,6 +393,8 @@
                 </div>
               </div>
             </div>
+          
+
 
              <!--=========================Mid-Night Snacks======================================-->
              <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.midNightSnacks">
@@ -459,8 +403,8 @@
             </div>
             <div id="demo4" class="collapse">
               <div class="mt-3">
-                <div class="row ml-5">
-                  <div class="col-md-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default" id="row-width">
                       <div class="panel-body">
                         <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
@@ -512,8 +456,8 @@
   </div>
   <div id="demo5" class="collapse">
     <div class="mt-3">
-      <div class="row ml-5">
-        <div class="col-md-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="panel panel-default" id="row-width">
             <div class="panel-body">
               <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
@@ -563,8 +507,8 @@
   </div>
   <div id="demo6" class="collapse">
     <div class="mt-3">
-      <div class="row ml-5" >
-        <div class="col-md-12">
+      <div class="row" >
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="panel panel-default" id="row-width">
             <div class="panel-body">
               <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
@@ -616,7 +560,7 @@
 
 
  <!-- ==============================================Client RequirementBool start================ -->
- <div ng-if="ClientRequirementBool"  class="container contmargin" >
+ <div ng-if="ClientRequirementBool"  class="ml-5" >
         
           <h6 class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">Breakfast</h6>
           <table class="table table-bordered " ng-if="data.breakfast">
@@ -653,15 +597,15 @@
 
       
       <!-- ==============================================Vendor RequirementBool start================ -->
-      <div ng-if="VendorRequirementBool">
+      <div ng-if="VendorRequirementBool" class="ml-5">
 
 
       </div>
 
 
      <!-- ==============================================Item Check start================ -->
-     <div ng-if="ItemCheckBool">
-      <div class="container border">
+     <div ng-if="ItemCheckBool" class="ml-5">
+      <div class="container border ml-3">
 
          <h4 class="text-center font-weight-normal display-18">Enter the Requirements Stuff</h4>
         <table class="table" id="top-margin">
@@ -795,15 +739,15 @@
    <!-- ==============================================Assigned start================ -->
 
 
-   <div ng-if="AssignedBool">
+   <div ng-if="AssignedBool" class="ml-5">
      <div class="container">
   
 
 
 <div class="row mr-0" id="menu-top">
 
-  <div class="col-md-3 col-sm-3" >
-    <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="col-width">
+  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+    <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" >
       <div class="card-body mb-3">
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class=" mb-5 text-info" data-toggle="modal" data-target="#fullHeightModalRight" > BREAKFAST</span></a></h6>
 
@@ -833,8 +777,8 @@
 </div>
 
 
-   <div class="col-md-3 col-sm-3">
-     <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="col-width">
+   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+     <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" >
       <div class="card-body mb-3" >
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class="mb-5 text-info"> LUNCH ASSIGN</span></a></h6>
 
@@ -844,8 +788,8 @@
  
     
 
-     <div class="col-md-3 col-sm-3">
-        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="col-width">
+     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable">
       <div class="card-body mb-3">
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class="mb-5 text-info">SNACKS ASSIGN</span></a></h6>
 
@@ -853,8 +797,8 @@
     </div>
      </div>
 
-     <div class="col-md-3 col-sm-3">
-        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable"id="col-width" >
+     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" >
       <div class="card-body mb-3">
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class=" mb-5 text-info"> DINNER ASSIGN</span></a></h6>
 
@@ -865,8 +809,8 @@
 
 
      <div class="row mt-5  mr-0">
-       <div class="col-md-4 col-sm-4" id="menu-item1">
-        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="menu-item">
+       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable">
       <div class="card-body mb-3">
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class=" mb-5 text-info"> CASH & CARRY ASSIGN</span></a></h6>
 
@@ -874,8 +818,8 @@
     </div>
        </div>
 
-       <div class="col-md-4 col-sm-4" id="menu-item1">
-        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" id="menu-item">
+       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+        <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable" >
       <div class="card-body mb-3">
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class=" mb-5 text-info"> Mid-NIGHT SNACKS ASSIGH</span></a></h6>
 
@@ -884,8 +828,8 @@
      
        </div>
 
-       <div class="col-md-4 col-sm-4" id="menu-item1">
-       <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable " id="menu-item">
+       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+       <div class="card bg-info mt-5 ml-0 h-50 btn-outline-info waves-effect hoverable " >
         
       <div class="card-body mb-3">
       <h6 id="font-weignt"> <a href=""><i class="fas fa-coffee fa-2x fa-fw text-info"></i><span class="mb-5 text-info">EARLY MORNING SNACKS ASSIGH</span></a></h6>
@@ -900,22 +844,21 @@
 
     <!-- ==============================================EmpFeedback start================ -->
 
-     <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
+     <div ng-if="EmpFeedbackBool" class="ml-5 mr-5">
 
-      <div class="container">
-        <form class="border  z-depth-1 mb-5">
-         <table class="table  table-hover" id="table-margin-top">
+     
+         <table class="table border table-hover ml-3" id="table-width">
           <thead>
            <tr>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
-            <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Name</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Overall Rating</th> 
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Presentation Rating</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Quality Rating</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Quantity Rating</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Taste Rating</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Contact</th>
+            <th class=" font-weight-normal pt-0 pb-3" id="header">Comment</th>
+            <th class="font-weight-normal pt-0 pb-3" id="header">Date & Time</th>
 
           </tr>
         </thead>
@@ -945,8 +888,7 @@
 </tbody>
 </table>
 
-</form>
-</div>
+
 </div>
 
        
@@ -954,22 +896,57 @@
       
 
      <!-- ==========================================ClientMonthly Details start================ -->
-       <div ng-if="ClientMonthlyDetails">
+       <div ng-if="ClientMonthlyDetailsBool" class="ml-5">
          
         </div>
-              <!-- ========================================Vendor Monthly Details start================ -->
-                       <div ng-if="VendorMonthlyDetailsBool">
+     <!-- ========================================Vendor Monthly Details start================ -->
+     <div ng-if="VendorMonthlyDetailsBool" class="ml-5">
+      <div class="table-responsive">
+       <table id="dtBasicExample" class="table table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+          <tr >
+          <th class="font-weight-normal text-center" id="td-wdth">DATE</th>
+          <th class="font-weight-normal text-center" id="td-wdth">DAY</th>
+          <th class="font-weight-normal text-center" id="td-wdth">PAX</th>
+          <th class="font-weight-normal text-center" id="td-wdth">PRICE</th>
+          <th class="font-weight-normal text-center" id="td-wdth">AMOUNT</th>
+           <th class="font-weight-normal text-center" id="td-wdth">Name</th>
+          <th class="font-weight-normal text-center" id="td-wdth">Age</th>
+           <th class="font-weight-normal text-center" id="td-wdth">contact</th>
+          <th class="font-weight-normal text-center" id="td-wdth">Address</th>
+          <th class="font-weight-normal text-center" id="td-wdth"></th>
+          
+         
+         
+        </tr>
+        </thead>
+        <tbody ng-repeat= "V in vendorMNthyDts">
+        <tr class="justify-content-center">
+          <td class="text-center w-15" id="td-wdth">{{V.Date}}</td>
+             <td class="text-center" id="td-wdth">{{V.Day}}</td>
+              <td class="text-center" id="td-wdth">{{V.Pax}}</td>
+               <td class="text-center" id="td-wdth">{{V.Price}}</td>
+                <td class="text-center" id="td-wdth">{{V.Amount}}</td>
+                 <td class="text-center" id="td-wdth">{{V.Pax}}</td>
+               <td class="text-center" id="td-wdth">{{V.Price}}</td>
+                <td class="text-center" id="td-wdth">{{V.Amount}}</td>
+                 <td class="text-center" id="td-wdth">{{V.Pax}}</td>
+     
+                <td class="text-center" id="td-wdth">
+                <button type="button" class="btn btn btn-outline-default btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal" submit-required="true" id="btn-margin">Save</button></td>
+          </tr>
+        </tbody>
+       </table>
+      </div>
+       </div>
 
-
-                       </div>
-
-             <!-- =========================================Dispatch Details start================ -->
-                      <div ng-if="DispatchDetailsBool">
+    <!-- =========================================Dispatch Details start================ -->
+                      <div ng-if="DispatchDetailsBool" class="ml-5">
 
 
                      </div>
   <!-- ==============================================Company Settings start================ -->
-  <div ng-if="CompanySettingsBool">
+  <div ng-if="CompanySettingsBool" class="ml-5">
     <div class="container mt-5">
       <form class="border mb-5 grey lighten-5" id="row-top">
     <div class="row ml-3" >
@@ -1000,10 +977,7 @@
 </div>
 
 
-</div>
-</div>
-</div>
-
+</td></tr></tbody></table></div></div></div></div>
 
 
 

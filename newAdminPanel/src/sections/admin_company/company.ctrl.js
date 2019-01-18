@@ -16,7 +16,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
       $scope.AssignedBool=false;
       $scope.CompanySettingsBool=false;
       $scope.EmpFeedbackBool=false;
-      $scope.ClientMonthlyDetails=false; 
+      $scope.ClientMonthlyDetailsBool=false; 
       $scope.VendorMonthlyDetailsBool=false;
       $scope.DispatchDetailsBool=false; 
 
@@ -82,6 +82,15 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
                        {   day: "SATURDAY", Selected: false },
                        {  day: "SUNDAY", Selected: false }
     ];
+
+$scope.vendorMNthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
+                          {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },
+                          {  Date: '1/03/2019', Day: 'WEDNESDAY', Pax: '12', Price: '10', Amount: '100' },
+                          { Date: '1/04/2019',  Day: 'THURSDAY',  Pax: '10', Price: '10', Amount: '100' },
+                          { Date: '1/05/2019',  Day: 'FRIDAY',    Pax: '10', Price: '10', Amount: '100' },
+                          { Date: '1/06/2019',  Day: 'SATURDAY',  Pax: '10', Price: '10', Amount: '100' },
+                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' }
+    ];
     $scope.WkingDayGetVl = function () {
                 
                 for (var i = 0; i < $scope.WorkingDays.length; i++) {
@@ -97,12 +106,11 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
 
 
 
-      //dropdown selection
-     $scope.Starting_date=[];
+   
      $scope.Mid_of_date=['1','2','3','4','5','6','7','8','9','10','11','12',
                          '13','14','15','16','17','18','19','20','21','22',
                          '23','24','25','26','27','28','29','30','31'];
-     $scope.End_of_date=[];
+     
       
       //Assigned
       $scope.vendor_list=['Fancy Vendor','Yummy Tummy','Naveen Caters','GMR','Rang De Basanti','Buffet Lo',
@@ -158,6 +166,9 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
                 $scope.IsVisible = $scope.IsVisible ? false : true;
             }
     
+//vendor monthly details
+
+
 
     }
     ]);

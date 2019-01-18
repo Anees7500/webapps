@@ -76,7 +76,7 @@
 
   <div class="container mt-5">
       <!--===============================company start===============================-->
-       <div ng-if="CompanyBool">
+       <div ng-if="CompanyBool" class="ml-5 ml-sm-5 ml-xs-5">
         
         <div class="input-group md-form form-sm form-lg form-2 pl-0">
           <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search1" aria-label="Search">
@@ -84,7 +84,7 @@
             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
           </div>
         </div>
-        <div class="row mr-0 ml-0">
+        <div class="row mr-0">
          <div ng-repeat="cpny in allCompanies | filter:search1">
         
           <div class="col-md-4 col-sm-4 col-xs-12">
@@ -110,14 +110,14 @@
 </div>
      
       <!-- ===============================-Assigned company=============================== -->
-      <div ng-if="AssignedCompanyBool">
+      <div ng-if="AssignedCompanyBool" class="ml-5">
         <div class="input-group md-form form-sm form-lg form-2 pl-0">
           <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search2" aria-label="Search">
           <div class="input-group-append">
             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
           </div>
         </div>
-        <div class="row  mr-0 ml-0">
+        <div class="row  mr-0 ">
          <div ng-repeat=" cpny in assignedCompany | filter:search2">
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="card example z-depth-1 mt-5">
@@ -144,14 +144,14 @@
 
 
     <!-- ===============================-unassigned company=============================== -- > 
-    <div ng-if="UnAssignedCompanyBool">
+    <div ng-if="UnAssignedCompanyBool" class="ml-5">
       <div class="input-group md-form form-sm form-lg form-2 pl-0">
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search2" aria-label="Search">
         <div class="input-group-append">
           <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
         </div>
       </div>
-      <div class="row  mr-0 ml-0">
+      <div class="row  mr-0 ">
        <div ng-repeat="cpny in unassignedCompanies  | filter:search2">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="card example z-depth-1 mt-5">
@@ -177,7 +177,7 @@
 
   <!-- ====================== Vender ================================== -->
 
-  <div ng-if="VendorListBool">
+  <div ng-if="VendorListBool" class="ml-5">
     <div class="container">
     <div class="input-group md-form form-sm form-lg form-2 pl-0">
       <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search1" placeholder="Search" aria-label="Search" class="searchNew">
@@ -185,7 +185,7 @@
         <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
       </div>
     </div>
-    <div class="row  mr-0 ml-0" >
+    <div class="row  mr-0 " >
      <div ng-repeat="vendor in AllVendorslist | filter:search1">
       <div class="col-lg-3 col-md-4 col-sm-12">
         <div class="card example z-depth-1 mt-5">
@@ -212,15 +212,15 @@
 
 
 <!-- ====================== Add-New-Company ================================== -->
-<div  ng-if="AddNewCompanyBool"> 
+<div  ng-if="AddNewCompanyBool" class="ml-5"> 
   <div ng-controller="newPlaceCtrl">
-  <form class="border mr-5">
-  <div class="row ml-0 mr-0">
+  <form class="border mr-5 ml-5">
+  <div class="row  mr-0">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">Maps container</div>
   </div>
 </form>
 <!--Google Maps-->
-<form class="border mr-5">
+<form class="border mr-5 ml-5">
 <div class="row mt-5 ml-0 mr-0">
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <label for="usr">Company Name</label>
@@ -229,17 +229,17 @@
 
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <label for="usr">  Latitude</label>
-  <input type="number" class="form-control" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required>
+  <input type="number" class="form-control" class="form-control" ng-disabled="true" placeholder=" Latitude" ng-model="place.latitude" id="latitude" required>
  
   </div>
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
     <label for="usr">Longitude</label>
-  <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required>
+  <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" placeholder=" Longitude" ng-model="place.longitute" required>
   </div>
 </div>
 
 <div class="row mt-3 ml-0 mr-0">
-  <div class="col-md-6 col-sm-6">
+  <div class="col-md-6 col-sm-6 col-xs-6">
     <label for="usr">Contact Person Name</label>
   <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
    <label for="usr">Contact Number</label>
@@ -247,16 +247,17 @@
   <label for="comment">Address</label>
   <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
   </div>
-  <div class="col-md-6 col-sm-6 mt-3">
-  
-    <div class="z-depth-1-half w-75 ml-5">
+  <div class="col-md-6 col-sm-6 col-xs-12 ">
+    
+    <div class="z-depth-1-half w-50 ml-5 mt-3">
       <img src="img/upload.png" class="img-fluid img-height m-auto d-block" alt="example placeholder">
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="btn btn-mdb-color btn-rounded float-left">
-        <span>Choose file</span>
-        <input type="file" ngf-select="onFileSelect($files)" multiple>
-      </div>
+
+    
+      <div class="btn btn-rounded bg-light w-50 ml-5">
+        <span class="text-left">Choose file</span>
+        <input type="file"  class="text-left" ngf-select="onFileSelect($files)" multiple>
+     
     </div>
   </div>
 </div>
@@ -264,7 +265,7 @@
 
  
 
-<button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-3" id="btn-margin1">Submit</button>
+<button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-5">Submit</button>
 
 </form>
 </div>
