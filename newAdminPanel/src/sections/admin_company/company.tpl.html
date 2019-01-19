@@ -38,7 +38,7 @@
 <nav id="sidebar" class="z-depth-1-half">
 <ul class="list-unstyled components mt-5">
   <li>
-    <a ng-click="boolFunction('ConfigurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
+    <a ng-click="boolFunction('configurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
   </li>
   <li>
@@ -46,25 +46,25 @@
           aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal"> Requirement</span><i class="fa fa-chevron-down ml-5"></i></a>
           <ul  class="collapse list-unstyled" id="pageSubmenu">
             <li>
-              <a href="" ng-click="boolFunction('ClientRequirementBool')"><i class="fas fa-fire mr-2"></i>
+              <a href="" ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
                 <span class="font-weight-normal">Client Requirement</span></a>
             </li>
 
             <li>
-              <a href="" ng-click="boolFunction('VendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
+              <a href="" ng-click="boolFunction('vendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
           </li>
        
        </ul>
   </li>
   <li>
-    <a href="" ng-click="boolFunction('ItemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
+    <a href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
 
   </li>
   <li>
-    <a href=""  ng-click="boolFunction('AssignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
+    <a href=""  ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
   </li>
   <li>
-    <a href="" ng-click="boolFunction('EmpFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
+    <a href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
   </li>
 
   <li>
@@ -72,21 +72,21 @@
           aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
            <ul  class="collapse list-unstyled" id="pageSubmenu1">
             <li>
-              <a href="" ng-click="boolFunction('ClientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
+              <a href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
             </li>
 
             <li>
-              <a href="" ng-click="boolFunction('VendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
+              <a href="" ng-click="boolFunction('vendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
                 <span class="font-weight-normal">Vendor Monthly Details</span></a>
             </li>
           </ul>
   </li>
 
   <li>
-    <a href="" ng-click="boolFunction('DispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+    <a href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
   </li>
   <li>
-    <a href="" ng-click="boolFunction('CompanySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
+    <a href="" ng-click="boolFunction('companySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
   </li>
 </ul>
   </nav>
@@ -98,7 +98,7 @@
 
     <!----=============menuitem checkbox start====================-->
 
-    <div class="container contmargin" ng-if="ConfigurationBool">
+    <div class="container contmargin" ng-if="configurationBool">
       <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
       <form class="border  z-depth-1 mb-5 ml-3" id="form-lenght"> 
         <div class="list-group checkbox-list-group custom-control custom-checkbox mb-3">
@@ -183,10 +183,10 @@
 
         <h4 class="text-white font-weight-bold ">
           <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">
-          <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="ShowHide();" >
+          <input type="checkbox" class="custom-control-input ml-5" id="check02" ng-click="showHide();" >
           <label class="custom-control-label" for="check02"  >Additional Requirements</label>
         </div></h4>
-        <div class=" ml-3 " id="form-lenght" ng-show="IsVisible">
+        <div class=" ml-3 " id="form-lenght" ng-show="isVisible">
           <div class="custom-control custom-checkbox ml-3 z-depth-1  grey lighten-4 mb-3 h-80" ng-if="data.breakfast" >
             <input type="checkbox" class="custom-control-input"  id="ch1" data-toggle="collapse" data-target="#demo">
             <label class="custom-control-label" for="ch1" >Breakfast</label>
@@ -198,7 +198,7 @@
               <div class="col-md-12">
                 <div class="panel panel-default">
                   <div class="panel-body" id="row-width">
-                    <form ng-submit="addNew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
+                    <form ng-submit="addnew()" class="z-depth-1 mb-5 ml-3" id="form-lenght1">
                       <table class="table table-bordered">
                         <thead>
                           <tr>
@@ -555,7 +555,7 @@
 
 
  <!-- ==============================================Client RequirementBool start================ -->
- <div ng-if="ClientRequirementBool"  class="container contmargin" >
+ <div ng-if="clientRequirementBool"  class="container contmargin" >
   <div class="table-responsive-sm table-responsive-md table-responsive-lg" ><h6 class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">Breakfast</h6>
     <table class="table table-bordered w-auto " ng-if="data.breakfast">
       <thead>
@@ -572,7 +572,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="Weeks in WorkingDays" ng-if="Weeks.Selected">
-          <th class="text-center font-weight-normal" scope="row col" >{{Weeks.day}}</th>
+          <th class="text-center font-weight-normal "  >{{Weeks.day}}</th>
           <td class="text-center font-weight-normal"> <input type="Text" class="form-control form-control-sm" id=""></td>
             <td class="text-center font-weight-normal"><input type="Text" class="form-control form-control-sm" id=""></td>
             <td class="text-center font-weight-normal"> <input type="Text" class="form-control form-control-sm" id=""></td>
@@ -595,14 +595,14 @@
 
 
       <!-- ==============================================Vendor RequirementBool start================ -->
-      <div ng-if="VendorRequirementBool">
+      <div ng-if="vendorRequirementBool">
 
 
       </div>
 
 
      <!-- ==============================================Item Check start================ -->
-     <div ng-if="ItemCheckBool">
+     <div ng-if="itemCheckBool">
       <div class="container border">
 
          <h4 class="text-center font-weight-normal display-18">Enter the Requirements Stuff</h4>
@@ -737,7 +737,7 @@
    <!-- ==============================================Assigned start================ -->
 
 
-   <div ng-if="AssignedBool">
+   <div ng-if="assignedBool">
      <div class="container col-lg-12">
       <div class="row   mr-0" id="menu-top"> 
 
@@ -1005,7 +1005,7 @@
 
     <!-- ==============================================EmpFeedback start================ -->
 
-     <div ng-if="EmpFeedbackBool" class="ml-0 mr-0">
+     <div ng-if="empFeedbackBool" class="ml-0 mr-0">
 
       <div class="container">
         <form class="border  z-depth-1 mb-5">
@@ -1059,7 +1059,7 @@
       
 
      <!-- ==========================================ClientMonthly Details start================ -->
-       <div ng-if="ClientMonthlyDetailsBool" class="ml-0 mr-0">
+       <div ng-if="clientMonthlyDetailsBool" class="ml-0 mr-0">
          <div class="container" >
         <div class="pos-f-t">
 
@@ -1079,13 +1079,13 @@
          
     </div>
     <!-- ========================================Vendor Monthly Details start================ -->
-                       <div ng-if="VendorMonthlyDetailsBool">
+                       <div ng-if="vendorMonthlyDetailsBool">
 
 
                        </div>
 
    <!-- =========================================Dispatch Details start================ -->
-   <div ng-if="DispatchDetailsBool">
+   <div ng-if="dispatchDetailsBool">
     <div class="table-responsive container mt-5">
       <table class="table table-hover">
         <thead>
@@ -1121,7 +1121,7 @@
 
   </div>
   <!-- ==============================================Company Settings start================ -->
-  <div ng-if="CompanySettingsBool">
+  <div ng-if="companySettingsBool">
     <div class="container mt-5">
       <form class="border mb-5 grey lighten-5" id="row-top">
     <div class="row ml-3" >

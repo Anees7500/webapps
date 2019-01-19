@@ -1,4 +1,4 @@
-adminApp.factory('vendorassignService', ['$http','$httpParamSerializerJQLike', '$routeParams',
+adminApp.factory('VendorassignService', ['$http','$httpParamSerializerJQLike', '$routeParams',
     function ($http, $httpParamSerializerJQLike , $routeParams ) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
