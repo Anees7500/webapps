@@ -1,6 +1,6 @@
 adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignService', 'postCategoryUrl', '$routeParams',
   'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl',
-  function($scope, $http ,VendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl,
+  function($scope, $http ,VendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl, 
    getCompanyProfileUrl, getAllVendorListUrl
    ) {
 
@@ -29,7 +29,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
     $scope.category = function (data) {
       $scope.data.companyId = $routeParams.compId;
       console.log("Task Active Field", $scope.data.companyId);
-      vendorassignService.activeCategory(data, postCategoryUrl);
+      VendorassignService.activeCategory(data, postCategoryUrl);
     }
      // ================ feedback ====================
     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
@@ -97,8 +97,74 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
                     }
                 }
               }
+
+    // ==================== Item check list ==============             
  
-   
+   // $scope.selectedItemCheckList = [];
+   //    $http.get(getItemCheckListForVendor).then(function (response) {
+   //      $scope.itemCheckList = response.data.data.items;
+   //    }); 
+   //    // console.log("response form url : ", getItemCheckListedForVendor);
+   //    $http.get(getItemCheckListedForVendor + $routeParams.compId).then(function (response) {
+   //      console.log("response form listed : ", JSON.stringify(response));
+   //      if (response.data.data.items != null) {
+   //        console.log("hello world");
+   //        for (var i = 0; i < $scope.itemCheckList.length; i++) {
+   //          var itemEle = $scope.itemCheckList[i];
+   //          console.log("item element : ", JSON.stringify(itemEle));
+   //          for (var j = 0; j < response.data.data.items.length; j++) {
+   //            var dbItem = response.data.data.items[j];
+   //            if (itemEle.id == dbItem.id) {
+   //              itemEle.quantity = dbItem.quantity;
+   //              itemEle.enabled = dbItem.enabled;
+   //            }
+   //          }
+   //        }
+   //      }
+   //    });
+
+   //    $scope.toggle = function (item, list) {
+   //      if (item.enabled) {
+   //        item.enabled = false;
+   //        item.quantity = null;
+   //      } else {
+   //        item.enabled = true;
+   //      }
+        // var idx = list.indexOf(item);
+        // if (idx > -1) {
+        //   list.splice(idx, 1);
+        // } else {
+        //   list.push(item);
+        // }
+        //
+        // console.log("selected List : ", JSON.stringify($scope.selectedItemCheckList));
+      // };
+
+      // $scope.exists = function (item, list) {
+      //   return item.enabled;
+      // };
+
+      // $scope.getQuantity = function (item, list) {
+      //   var val = list.some(function (element) {
+      //     if (element.id === item.id) {
+
+      //       return element.quantity;
+      //     }
+      //   });
+
+      //   console.log("quantiit value : ", val);
+      //   return val;
+      // };
+
+      // $scope.saveCheckListIndb = function () {
+      //   var tempOb = {};
+      //   tempOb.companyId = $routeParams.compId;
+      //   tempOb.vendorId = -1;
+      //   var jj = {};
+      //   jj.items = $scope.itemCheckList;
+      //   tempOb.data = JSON.stringify(jj);
+      //   vendorassignService.saveCheckListIndb(tempOb);
+      // } 
 
 
 

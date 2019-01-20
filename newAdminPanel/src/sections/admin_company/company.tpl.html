@@ -139,8 +139,8 @@
     <!--===========================working days==================================-->
     <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
   <form class="border  z-depth-1 mb-5 ml-3" >
-        <label class="checkbox-inline mr-3 ml-3" id="label-margin-padding"  ng-repeat="d in WorkingDays">
-        <input type="checkbox"  ng-model="d.Selected" ng-checked="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
+        <label class="checkbox-inline mr-3 ml-3" id="label-margin-padding"  ng-repeat="d in workingDays">
+        <input type="checkbox"  ng-model="d.Selected" id="chkCustomer_{{d.id}}" > {{d.day}}</label>
         <input type="checkbox" ng-model="all"> SELECT ALL<br>
         
         <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"submit-required="true" ng-click="WkingDayGetVl()" >Save</button>
@@ -609,17 +609,18 @@
         <table class="table" id="top-margin">
           <tbody>
             <tr>
-          <td>
+          <td ng-repeat="item in itemCheckList" >
         <form class="form-inline " >
-      <label for="number" class="font-weight-normal">Bain Merie</label>
+      <label for="number" class="font-weight-normal"ng-click="toggle(item, itemCheckList)">
+          {{ item.itemName }}</label>
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
         </form>
       </td> 
 
-       <td>
+      <!--  <td>
         <form class="form-inline " >
       <label for="number" class="font-weight-normal"> Plates</label>
-      <input type="number" class="form-control mb-2 mr-sm-2" id="number">
+      <input type="number" class="form-control mb-2 mr-sm-2" id="number"> 
         </form>
       </td> 
        <td>
@@ -724,10 +725,11 @@
       <input type="number" class="form-control mb-2 mr-sm-2" id="number">
         </form>
         </td>
-      </tr>
+      </tr> -->
       </tbody>
         </table>
-         <button type="button" class="btn btn btn-outline-default waves-effect m-auto btn-lg d-block mb-5" >Save</button>
+         <button type="button" class="btn btn btn-outline-default waves-effect m-auto btn-lg d-block mb-5" 
+         ng-click="saveCheckListIndb()"  >Save</button>
       </div>
 
      </div>

@@ -1,7 +1,7 @@
-adminApp.controller('AdminLoginController', ['$scope', 'AdminLoginService', '$http',
-  function($scope, AdminLoginService, $http) {
+adminApp.controller('AdminLoginController', ['$scope', 'AdminLoginService', '$http', 'adminLoginUrl',
+  function($scope, AdminLoginService, $http,adminLoginUrl) {
     $scope.login = function(user) {
-      AdminLoginService.login(user, 'http://fancymonk.com:9125/api/admin/login');
+      AdminLoginService.login(user, adminLoginUrl);
     }
    
     
