@@ -55,6 +55,7 @@ vmApp.controller('newPlaceCtrl', function ($scope, Map) {
                     $scope.apiError = true;
                     $scope.apiStatus = status;
                 }
+                
             );
     }
 
