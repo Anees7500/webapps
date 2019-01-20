@@ -1,22 +1,22 @@
-adminApp.controller('AdminController', ['$scope', '$http','companydetailsService', 'getAllCompanyUrl', 
+adminApp.controller('AdminController', ['$scope', '$http','CompanydetailsService', 'getAllCompanyUrl', 
   'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 
-  function($scope, $http, companydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
+  function($scope, $http, CompanydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
   getAllVendorListUrl ) {
 
   	 // bool Logic start
       $scope.boolFunction = function (value) {
         console.log("boolFunction", value);
-        $scope.CompanyBool = false;
-        $scope.AddNewCompanyBool = false;
-        $scope.AssignedCompanyBool = false;
-        $scope.UnAssignedCompanyBool = false;
-        $scope.InvoiceBool = false;
-        $scope.VendorListBool = false;
-        $scope.UnAssignedVendorListBool = false;
-        $scope.AssignedVendorListBool = false;
+        $scope.companyBool = false;
+        $scope.addNewCompanyBool = false;
+        $scope.assignedCompanyBool = false;
+        $scope.unAssignedCompanyBool = false;
+        $scope.invoiceBool = false;
+        $scope.vendorListBool = false;
+        $scope.unAssignedVendorListBool = false;
+        $scope.assignedVendorListBool = false;
         $scope[value] = true;
       }
-      $scope.boolFunction("CompanyBool");
+      $scope.boolFunction("companyBool");
       // bool Logic end
       $scope.onFileSelect = function($files) {
     //$files: an array of files selected, each file has name, size, and type.

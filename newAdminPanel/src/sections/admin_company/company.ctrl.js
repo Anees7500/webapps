@@ -1,6 +1,6 @@
-adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignService', 'postCategoryUrl', '$routeParams',
+adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignService', 'postCategoryUrl', '$routeParams',
   'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl',
-  function($scope, $http ,vendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl,
+  function($scope, $http ,VendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl,
    getCompanyProfileUrl, getAllVendorListUrl
    ) {
 
@@ -9,22 +9,22 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
   	 // bool Logic start
      $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
-      $scope.ConfigurationBool = false;
-      $scope.ClientRequirementBool=false;
-      $scope.VendorRequirementBool=false;
-      $scope.ItemCheckBool=false;
-      $scope.AssignedBool=false;
-      $scope.CompanySettingsBool=false;
-      $scope.EmpFeedbackBool=false;
-      $scope.ClientMonthlyDetailsBool=false; 
-      $scope.VendorMonthlyDetailsBool=false;
-      $scope.DispatchDetailsBool=false; 
+      $scope.configurationBool = false;
+      $scope.clientRequirementBool=false;
+      $scope.vendorRequirementBool=false;
+      $scope.itemCheckBool=false;
+      $scope.assignedBool=false;
+      $scope.companySettingsBool=false;
+      $scope.empFeedbackBool=false;
+      $scope.clientMonthlyDetailsBool=false; 
+      $scope.vendorMonthlyDetailsBool=false;
+      $scope.dispatchDetailsBool=false; 
 
       
       $scope[value] = true;
     }
 
-    $scope.boolFunction("ConfigurationBool");
+    $scope.boolFunction("configurationBool");
     $scope.data = {};
     $scope.category = function (data) {
       $scope.data.companyId = $routeParams.compId;
@@ -79,7 +79,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'vendorassignServic
 
     // ==================== Working days==============  
 
-$scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
+$scope.workingDays = [ {  day: "MONDAY", Selected: false },
                        {   day: "TUESDAY", Selected: false },
                        {   day: "WEDNESDAY", Selected: false },
                        {  day: "THURSDAY", Selected: false },
@@ -87,6 +87,19 @@ $scope.WorkingDays = [ {  day: "MONDAY", Selected: false },
                        {   day: "SATURDAY", Selected: false },
                        {  day: "SUNDAY", Selected: false }
     ];
+
+    $scope.wrkDayGetVl = function () {
+
+                
+                for (var i = 0; i < $scope.workingDays.length; i++) {
+                    if ($scope.workingDays[i].Selected) {
+                        var dayName = $scope.WorkingDays[i].day;
+                       
+                        console.log("WorkingDays in selectbox",$scope.workingDays[i]);
+                    }
+                }
+              }
+
 
 $scope.vendorMNthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
                           {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },
@@ -96,17 +109,8 @@ $scope.vendorMNthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
                           { Date: '1/06/2019',  Day: 'SATURDAY',  Pax: '10', Price: '10', Amount: '100' },
                           { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' }
     ];
-    $scope.WkingDayGetVl = function () {
-                
-                for (var i = 0; i < $scope.WorkingDays.length; i++) {
-                    if ($scope.WorkingDays[i].Selected) {
-                        var dayName = $scope.WorkingDays[i].day;
-                       
-                        console.log("WorkingDays in selectbox",$scope.WorkingDays[i]);
-                    }
-                }
-              }
- 
+   
+  
    
 
 
@@ -168,10 +172,10 @@ $scope.vendorMNthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
     //show hide for additional requirement checkbox
 
     
-     $scope.IsVisible = false;
-            $scope.ShowHide = function (data) {    
+     $scope.isVisible = false;
+            $scope.showHide = function (data) {    
                 //If DIV is visible it will be hidden and vice versa.
-                $scope.IsVisible = $scope.IsVisible ? false : true;
+                $scope.isVisible = $scope.isVisible ? false : true;
             }
     
 //vendor monthly details
