@@ -75,8 +75,9 @@
 <div class="main-content">
 
   <div class="container mt-5">
+
     <!--===============================company start===============================-->
-    <div ng-if="companyBool">
+    <div ng-if="companyBool" class="ml-5 ml-sm-5 ml-xs-5">
 
       <div class="input-group md-form form-sm form-lg form-2 pl-0">
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search" aria-label="Search">
@@ -94,6 +95,7 @@
               <a>
                 <div class="mask flex-center"></div>
               </a>
+
             </div>
             <div class="card-block">
               <a  ng-href="#!/dashboard/company/{{cpny.id}}">
@@ -107,10 +109,12 @@
         
 
       </div>
-    </div>
+
+</div>
+
 
     <!-- ===============================-Assigned company=============================== -->
-    <div ng-if="assignedCompanyBool">
+    <div ng-if="assignedCompanyBool" class="ml-5">
       <div class="input-group md-form form-sm form-lg form-2 pl-0">
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search" aria-label="Search">
         <div class="input-group-append">
@@ -129,6 +133,7 @@
             </div>
             <div class="card-block">
               <a  ng-href="#!/dashboard/company/{{cpny.id}}">
+
                 <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{cpny.companyName | uppercase}} </h6>
                 <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{cpny.address}} </p>
                 <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
@@ -140,10 +145,12 @@
       </div>
     </div>
 
-    <!--===============================-/assigned company===============================-->
+  
 
+    
        <!--===============================-unassigned company===============================--> 
-<div ng-if="unAssignedCompanyBool">
+<div ng-if="unAssignedCompanyBool" class="ml-5">
+
       <div class="input-group md-form form-sm form-lg form-2 pl-0">
         <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search" ng-model="search" aria-label="Search">
         <div class="input-group-append">
@@ -152,6 +159,7 @@
       </div>
       <div class="row  mr-0 ml-0">
        <div ng-repeat="cpny in unassignedCompanies  | filter:search">
+
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
@@ -172,14 +180,9 @@
       </div>
     </div>
 
-
- 
-
-
-
     <!-- ====================== Vender ================================== -->
 
-    <div ng-if="vendorListBool">
+    <div ng-if="vendorListBool" class="ml-5">
       <div class="container">
         <div class="input-group md-form form-sm form-lg form-2 pl-0">
           <input class="form-control my-0 py-1 amber-border" type="text" ng-model="search" placeholder="Search" aria-label="Search" class="searchNew">
@@ -212,9 +215,8 @@
  </div>
 
 
-
  <!-- ====================== Add-New-Company ================================== -->
- <div  ng-if="addNewCompanyBool"> 
+ <div  ng-if="addNewCompanyBool" class="ml-5"> 
   <div ng-controller="newPlaceCtrl">
     <form class="border mr-5">
       <div class="row ml-0 mr-0">
@@ -238,7 +240,7 @@
           <label for="usr">Longitude</label>
           <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required>
         </div>
-      </div>
+
 
       <div class="row mt-3 ml-0 mr-0">
         <div class="col-md-6 col-sm-6">
@@ -264,9 +266,7 @@
       </div>
 
 
-
-
-      <button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-3" id="btn-margin1">Submit</button>
+<button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-5">Submit</button>
 
     </form>
   </div>
@@ -275,7 +275,7 @@
 
 
 
-<!--===============================/end of content and container fuild=============================== -->
+
 </div>
 </div>
 <!--===============================/content end===============================-->
