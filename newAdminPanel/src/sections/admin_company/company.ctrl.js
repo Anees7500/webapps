@@ -116,8 +116,13 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
        // =================Requirements ================
 
         $scope.clientRequirement = {};
-        $scope.saveReq = function () {
+        $scope.clientSaveReq = function () {
             console.log("client reqs : ", JSON.stringify($scope.clientRequirement));
+        }
+
+         $scope.vendorRequirement = {};
+        $scope.vendorSaveReq = function () {
+            console.log("vendor reqs : ", JSON.stringify($scope.vendorRequirement));
         }
 
         //=====================additional requirement=======================
@@ -125,6 +130,7 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
           breakfast : [
             {
                 'columnName': 'Pax',
+                'vendorAmount': 'vndrAmount',
                 'disabled': true
             }],
           lunch : [

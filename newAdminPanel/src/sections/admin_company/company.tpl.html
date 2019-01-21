@@ -204,7 +204,7 @@
                         <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled"
                         ng-model="menuDetail.columnName" required /></td>
                         <td>
-                          <a ng-hide="!(menuDetails.length > 1)" href="" class="pull-right ml-5" ng-if="!menuDetail.disabled"
+                          <a ng-hide="(!menuDetails.length > 1)" href="" class="pull-right ml-5" ng-if="!menuDetail.disabled"
                             ng-click="remove()"><i class="fas fa-trash-alt fa-2x"></i></a>
 
                             <button class="addnew pull-right ml-5" id="btn-bg" 
@@ -252,7 +252,7 @@
         <input type="number" class="form-control form-control-sm" id="" 
         ng-model="clientRequirement[category.dbName][week.day][m.columnName].price">
       </td>
-      <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="saveReq()">Save</button></td>
+      <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientSaveReq()">Save</button></td>
     </tr>
 
   </tbody>
@@ -262,10 +262,50 @@
 
 
 <!-- ==============================================Vendor RequirementBool start================ -->
-  <div ng-if="vendorRequirementBool" class="ml-5">
+<div ng-if="vendorRequirementBool" class="ml-5">
+ <div class="table-responsive-sm table-responsive-md table-responsive-lg"
+ ng-repeat="category in categories" ng-if="data[category.dbName]">
+ <h6 class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
+ <table class="table table-bordered w-auto ml-3">
+  <thead>
+   <tr>
+    <th scope="col">Day</th>
+    <th ng-repeat-start="m in additionalReqDetails[category.dbName]">{{m.columnName}} Pax</th>
+    <th ng-repeat-end> {{m.columnName}} Price</th>
+    <th scope="col">Vendor Amount</th>
+    <th scope="col">% To Vendor</th>
+    <th scope="col"></th>
+  </tr>
+</thead>
+<tbody>
+ <tr ng-repeat="week in workingDays" ng-if="week.Selected">
+  <th class="text-center font-weight-normal ">{{week.day}}</th>
+  <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
+    <input type="number" class="form-control form-control-sm"  
+    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pax" 
+    ng-init="additionalReqDetails[m.columnName].pax">
+  </td>
+  <td class="text-center font-weight-normal" ng-repeat-end>
+    <input type="number" class="form-control form-control-sm" 
+    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].price"
+     ng-init="additionalReqDetails[m.columnName].price">
+  </td>
+  <td class="text-center font-weight-normal" >
+    <input type="number" class="form-control form-control-sm" 
+     ng-model="vendorRequirement[category.dbName][week.day].amount"><!-- {{vendorRequirement[category.dbName][week.day][m.columnName] * vendorRequirement[category.dbName][week.day][m.columnName]}} -->
+  </td>
+    <td class="text-center font-weight-normal" >
+      <input type="number" class="form-control form-control-sm" ng-model="vendorRequirement[category.dbName][week.day].pctToVendor" >
+    </td>
+      <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="vendorSaveReq()">Save</button></td>
+    </tr>
 
+  </tbody>
+</table>
+</div>
 
-  </div>
+</div>
+
 
 
   <!-- ==============================================Item Check start================ -->
