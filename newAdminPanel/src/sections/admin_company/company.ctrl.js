@@ -1,11 +1,8 @@
 adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignService', 'postCategoryUrl', '$routeParams',
-  'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl',
-  function($scope, $http ,VendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl,
-   getCompanyProfileUrl, getAllVendorListUrl
+  'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor', 'getItemCheckListedForVendor',
+  function($scope, $http ,VendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl, 
+   getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor, getItemCheckListedForVendor
    ) {
-
-
-
   	 // bool Logic start
      $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
@@ -18,19 +15,14 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
       $scope.empFeedbackBool=false;
       $scope.clientMonthlyDetailsBool=false; 
       $scope.vendorMonthlyDetailsBool=false;
-      $scope.dispatchDetailsBool=false; 
-
-      
+      $scope.dispatchDetailsBool=false;       
       $scope[value] = true;
     }
 
     $scope.boolFunction("configurationBool");
-    $scope.data = {};
-    $scope.category = function (data) {
-      $scope.data.companyId = $routeParams.compId;
-      console.log("Task Active Field", $scope.data.companyId);
-      vendorassignService.activeCategory(data, postCategoryUrl);
-    }
+   
+    
+
      // ================ feedback ====================
     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
     $http.get(getFeedbackUrl).then(function (response) {
@@ -74,8 +66,30 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
         var jj = {};
         jj.items = $scope.itemCheckList;
         tempOb.data = JSON.stringify(jj);
-        vendorassignService.saveCheckListIndb(tempOb);
+        VendorassignService.saveCheckListIndb(tempOb);
       }
+
+   // ================== Configuration ===============//
+        // ========== Category ============
+
+        $scope.categories = [
+            { displayName: "Breakfast", dbName: "breakfast"},
+            { displayName: "Lunch", dbName: "lunch" },
+            { displayName: "Snacks", dbName: "snacks"},
+            { displayName: "Dinner", dbName: "dinner"},
+            { displayName: "Mid-Night Snacks", dbName: "midNightSnacks"},
+            { displayName: "Early Morning Snacks", dbName: "earlyMorningSnacks"},
+            { displayName: "Cash & Carry", dbName: "cashNCarry"}
+        ];
+        
+        $scope.data = {};
+
+
+        $scope.category = function (data) {
+            $scope.data.companyId = $routeParams.compId;
+            console.log("Task Active Field", $scope.data.companyId);
+            VendorassignService.activeCategory(data, postCategoryUrl);
+          }
 
     // ==================== Working days==============  
 
@@ -85,91 +99,96 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
                        {  day: "THURSDAY", Selected: false },
                        {   day: "FRIDAY", Selected: false },
                        {   day: "SATURDAY", Selected: false },
-                       {  day: "SUNDAY", Selected: false }
-    ];
+                       {  day: "SUNDAY", Selected: false } ];
 
-    $scope.wrkDayGetVl = function () {
-
-                
+    $scope.wrkDayGetVl = function () {                
                 for (var i = 0; i < $scope.workingDays.length; i++) {
                     if ($scope.workingDays[i].Selected) {
-                        var dayName = $scope.WorkingDays[i].day;
-                       
+                        var dayName = $scope.workingDays[i].day;                       
                         console.log("WorkingDays in selectbox",$scope.workingDays[i]);
                     }
                 }
               }
-
-
-$scope.vendorMNthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
-                          {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },
-                          {  Date: '1/03/2019', Day: 'WEDNESDAY', Pax: '12', Price: '10', Amount: '100' },
-                          { Date: '1/04/2019',  Day: 'THURSDAY',  Pax: '10', Price: '10', Amount: '100' },
-                          { Date: '1/05/2019',  Day: 'FRIDAY',    Pax: '10', Price: '10', Amount: '100' },
-                          { Date: '1/06/2019',  Day: 'SATURDAY',  Pax: '10', Price: '10', Amount: '100' },
-                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' }
-    ];
-   
-  
-   
-
-
-
-
-   
-     $scope.Mid_of_date=['1','2','3','4','5','6','7','8','9','10','11','12',
+      // ====================  Invoicing Date =============================================
+              $scope.Mid_of_date=['1','2','3','4','5','6','7','8','9','10','11','12',
                          '13','14','15','16','17','18','19','20','21','22',
                          '23','24','25','26','27','28','29','30','31'];
-     
+       // =================Requirements ================
 
-      //dropdown selection
-     $scope.Mid_of_date=['1','2','3','4','5','6','7','8','9','10','11','12',
-                         '13','14','15','16','17','18','19','20','21','22',
-                         '23','24','25','26','27','28','29','30','31'];
+        $scope.clientRequirement = {};
+        $scope.saveReq = function () {
+            console.log("client reqs : ", JSON.stringify($scope.clientRequirement));
+        }
 
-      
-      
-    //additional requirement
+        //=====================additional requirement=======================
+        $scope.additionalReqDetails = {
+          breakfast : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }],
+          lunch : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }],
+          snacks : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }],
+          dinner : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }],
+          midNightSnacks : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }],
+          earlyMorningSnacks : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }],
+          cashNCarry : [
+            {
+                'columnName': 'Pax',
+                'disabled': true
+            }]
+        };
 
-     $scope.menuDetails = [
-        {
-            'ColumnName':'Dal Fry'
 
-        }];
-
-    
-        $scope.addNew = function(menuDetail){
-          console.log("hahahahhaahahh");
-            $scope.menuDetails.push({ 
-                'Menu': "", 
-                'Cost': "",
-                'Action':"",
+        $scope.addNew = function (menuDetails) {
+            menuDetails.push({
+                'columnName': ""
             });
         };
-    
-        $scope.remove = function(){
-            var newDataList=[];
+
+        $scope.remove = function () {
+            var newDataList = [];
             $scope.selectedAll = false;
-            angular.forEach($scope.menuDetails, function(selected){
-                if(!selected.selected){
+            angular.forEach($scope.menuDetails, function (selected) {
+                if (!selected.selected) {
                     newDataList.push(selected);
                 }
-            }); 
+            });
             $scope.menuDetails = newDataList;
         };
-    
-    $scope.checkAll = function () {
-        if (!$scope.selectedAll) {
-            $scope.selectedAll = true;
-        } else {
-            $scope.selectedAll = false;
-        }
-        angular.forEach($scope.menuDetails, function(menuDetail) {
-            menuDetail.selected = $scope.selectedAll;
-        });
-    };    
-    
-    //show hide for additional requirement checkbox
+
+        $scope.checkAll = function () {
+            if (!$scope.selectedAll) {
+                $scope.selectedAll = true;
+            } else {
+                $scope.selectedAll = false;
+            }
+            angular.forEach($scope.menuDetails, function (menuDetail) {
+                menuDetail.selected = $scope.selectedAll;
+            });
+        };
+
+        //===========show hide for additional requirement checkbox============
 
     
      $scope.isVisible = false;
@@ -177,6 +196,91 @@ $scope.vendorMNthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
                 //If DIV is visible it will be hidden and vice versa.
                 $scope.isVisible = $scope.isVisible ? false : true;
             }
+      
+
+    // ==================== Item check list ==============             
+ 
+   $scope.selectedItemCheckList = [];
+      $http.get(getItemCheckListForVendor).then(function (response) {
+        $scope.itemCheckList = response.data.data.items;
+      }); 
+      // console.log("response form url : ", getItemCheckListedForVendor);
+      $http.get(getItemCheckListedForVendor + $routeParams.compId).then(function (response) {
+        console.log("response form listed : ", JSON.stringify(response));
+        if (response.data.data.items != null) {
+          console.log("hello world");
+          for (var i = 0; i < $scope.itemCheckList.length; i++) {
+            var itemEle = $scope.itemCheckList[i];
+            console.log("item element : ", JSON.stringify(itemEle));
+            for (var j = 0; j < response.data.data.items.length; j++) {
+              var dbItem = response.data.data.items[j];
+              if (itemEle.id == dbItem.id) {
+                itemEle.quantity = dbItem.quantity;
+                itemEle.enabled = dbItem.enabled;
+              }
+            }
+          }
+        }
+      });
+
+      $scope.toggle = function (item, list) {
+        if (item.enabled) {
+          item.enabled = false;
+          item.quantity = null;
+        } else {
+          item.enabled = true;
+        }
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+          list.splice(idx, 1);
+        } else {
+          list.push(item);
+        }
+        
+        console.log("selected List : ", JSON.stringify($scope.selectedItemCheckList));
+      };
+
+      $scope.exists = function (item, list) {
+        return item.enabled;
+      };
+
+      $scope.getQuantity = function (item, list) {
+        var val = list.some(function (element) {
+          if (element.id === item.id) {
+
+            return element.quantity;
+          }
+        });
+
+        console.log("quantiit value : ", val);
+        return val;
+      };
+
+      $scope.saveCheckListIndb = function () {
+        var tempOb = {};
+        tempOb.companyId = $routeParams.compId;
+        tempOb.vendorId = -1;
+        var jj = {};
+        jj.items = $scope.itemCheckList;
+        tempOb.data = JSON.stringify(jj);
+        VendorassignService.saveCheckListIndb(tempOb);
+      } 
+
+        // =========================  vendor Monthly Details ======================================
+$scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
+                          {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },
+                          {  Date: '1/03/2019', Day: 'WEDNESDAY', Pax: '12', Price: '10', Amount: '100' },
+                          { Date: '1/04/2019',  Day: 'THURSDAY',  Pax: '10', Price: '10', Amount: '100' },
+                          { Date: '1/05/2019',  Day: 'FRIDAY',    Pax: '10', Price: '10', Amount: '100' },
+                          { Date: '1/06/2019',  Day: 'SATURDAY',  Pax: '10', Price: '10', Amount: '100' },
+                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' },
+                      
+                          ];
+   
+     
+     
+      
+   
     
 //vendor monthly details
 

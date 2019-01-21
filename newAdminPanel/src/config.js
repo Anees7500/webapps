@@ -15,4 +15,6 @@ angular.module("adminApp.config", [])
 .constant("getAssignedVendor", "http://fancymonk.com:9125/api/admin/vendors?type=assigned")
 .constant("getUnassignedVendor", "http://fancymonk.com:9125/api/admin/vendors?type=unassigned")
 .constant("postCategoryUrl", "http://fancymonk.com:9125/api/admin/corporate-companies/update")
-.constant("corporateReviewsUrl", "http://fancymonk.com:9125/api/admin/corporate-reviews?companyId=");
+.constant("corporateReviewsUrl", "http://fancymonk.com:9125/api/admin/corporate-reviews?companyId=")
+.constant("getItemCheckListForVendor", "http://fancymonk.com:9125/api/admin/get-item-checklist")
+.constant("getItemCheckListedForVendor", "http://fancymonk.com:9125/api/admin/get-company-item-list?companyId=");
