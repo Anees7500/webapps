@@ -14,7 +14,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
       $scope.companySettingsBool=false;
       $scope.empFeedbackBool=false;
       $scope.clientMonthlyDetailsBool=false; 
-      $scope.vendorMonthlyDetailsBool=false;
+      $scope.vendorMonthlyDetailsBool=false; 
       $scope.dispatchDetailsBool=false;       
       $scope[value] = true;
     }
@@ -93,13 +93,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
 
     // ==================== Working days==============  
 
-$scope.workingDays = [ {  day: "MONDAY", Selected: false },
-                       {   day: "TUESDAY", Selected: false },
-                       {   day: "WEDNESDAY", Selected: false },
-                       {  day: "THURSDAY", Selected: false },
-                       {   day: "FRIDAY", Selected: false },
-                       {   day: "SATURDAY", Selected: false },
-                       {  day: "SUNDAY", Selected: false } ];
+$scope.workingDays = [ {  day: "Monday", Selected: false },
+                       {   day: "Tuesday", Selected: false },
+                       {   day: "Wednesday", Selected: false },
+                       {  day: "Thursday", Selected: false },
+                       {   day: "Friday", Selected: false },
+                       {   day: "Saturday", Selected: false },
+                       {  day: "Sunday", Selected: false } ];
 
     $scope.wrkDayGetVl = function () {                
                 for (var i = 0; i < $scope.workingDays.length; i++) {
@@ -279,8 +279,9 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
                           { Date: '1/04/2019',  Day: 'THURSDAY',  Pax: '10', Price: '10', Amount: '100' },
                           { Date: '1/05/2019',  Day: 'FRIDAY',    Pax: '10', Price: '10', Amount: '100' },
                           { Date: '1/06/2019',  Day: 'SATURDAY',  Pax: '10', Price: '10', Amount: '100' },
-                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' }
-    ];
+                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' },
+                      
+                          ];
    
      
      

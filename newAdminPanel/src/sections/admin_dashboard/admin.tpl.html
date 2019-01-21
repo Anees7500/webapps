@@ -190,6 +190,7 @@
             <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"aria-hidden="true"></i></span>
           </div>
         </div>
+        
         <div class="row  mr-0 ml-0" >
          <div ng-repeat="vendor in AllVendorslist | filter:search">
           <div class="col-lg-3 col-md-4 col-sm-12">
@@ -202,9 +203,9 @@
               </div>
               <div class="card-block">
                 <a  ng-href="#!/dashboard/vendor/{{vendor.id}}">
-                 <h5 class="card-title text-danger b-clr ng-binding  mt-3 ml-2">{{vendor.name | uppercase}}</h5>
-                 <p class="card-text  ml-2 b-clr font ng-binding"><i class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
-                 <p class="card-text  ml-2 b-clr font ng-binding"><i class="fas fa-phone ml-2"></i><a class="ml-2">{{vendor.mobile}}</a></p>
+                 <h5 class="card-title font-weight-normal text-danger b-clr ng-binding  mt-3 ml-3">{{vendor.name | uppercase}}</h5>
+                 <p class="card-text font-size  ml-2 b-clr font ng-binding" id="font-size"><i class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
+                 <p class="card-text  ml-2 b-clr font ng-binding" id="font-size"><i class="fas fa-phone ml-2"></i><a class="ml-2">{{vendor.mobile}}</a></p>
                </a>
              </div>
            </div>
