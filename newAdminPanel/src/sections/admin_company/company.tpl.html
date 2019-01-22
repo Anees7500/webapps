@@ -206,7 +206,7 @@
                             ng-model="menuDetail.columnName" required /></td>
                             <td>
                               <a ng-hide="(!menuDetails.length > 1)" href="" class="pull-right ml-5" ng-if="!menuDetail.disabled"
-                                ng-click="remove()"><i class="fas fa-trash-alt fa-2x"></i></a>
+                                ng-click="remove(additionalReqDetails[category.dbName],$index)"><i class="fas fa-trash-alt fa-2x"></i></a>
 
                                 <button class="addnew pull-right ml-5" id="btn-bg" 
                                 ng-click="addNew(additionalReqDetails[category.dbName])">
@@ -233,7 +233,7 @@
     <div class="table-responsive-sm table-responsive-md table-responsive-lg"
     ng-repeat="category in categories" ng-if="data[category.dbName]">
     <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
-    <table class="table table-bordered w-auto ml-3">
+    <table class="table table-bordered w-auto ml-3 ">
       <thead>
        <tr>
         <th class="font-weight-bold" scope="col">Day</th>
@@ -273,7 +273,6 @@
     <th class="font-weight-bold" scope="col">Day</th>
     <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName]">{{m.columnName}} Pax</th>
     <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
-    <th class="font-weight-bold" scope="col">Vendor Amount</th>
     <th class="font-weight-bold"  scope="col">% To Vendor</th>
     <th class="font-weight-bold" scope="col"></th>
   </tr>
@@ -283,18 +282,13 @@
   <th class="text-center font-weight-normal ">{{week.day}}</th>
   <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
     <input type="number" class="form-control form-control-sm"  
-    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pax" 
-    ng-init="additionalReqDetails[m.columnName].pax">
+    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pax">
   </td>
   <td class="text-center font-weight-normal" ng-repeat-end>
     <input type="number" class="form-control form-control-sm" 
-    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].price"
-    ng-init="additionalReqDetails[m.columnName].price">
+    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].price">
   </td>
-  <td class="text-center font-weight-normal" >
-    <input type="number" class="form-control form-control-sm" 
-    ng-model="vendorRequirement[category.dbName][week.day].amount"><!-- {{vendorRequirement[category.dbName][week.day][m.columnName] * vendorRequirement[category.dbName][week.day][m.columnName]}} -->
-  </td>
+  
   <td class="text-center font-weight-normal" >
     <input type="number" class="form-control form-control-sm" ng-model="vendorRequirement[category.dbName][week.day].pctToVendor" >
   </td>
@@ -616,7 +610,7 @@
 </thead>
 <tbody>
  <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
-  <td>{{feed.reviewerName}}</td>
+  <td class="text-center font-weight-normal">{{feed.reviewerName}}</td>
   <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
   <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
   <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
@@ -624,13 +618,12 @@
   <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
   <td class="text-center font-weight-normal">{{feed.mobile}}</td>
   <td>
-   <div ng-if="feed.comment.length > 0"><span class="badge badge-danger" ng-if="feed.comment.length > 0">1</span>
+   <div ng-if="feed.comment.length > 1"><span class="badge badge-danger" >1</span>
     <mdb-tooltip :options="{placement: 'top'}">
     <div class="tooltip">
      {{feed.commen}}
    </div>
    <mdb-btn slot="reference" color="primary">
-   <i class="far fa-comments fa-2x" ></i>
  </mdb-btn>
 </mdb-tooltip>
 
@@ -649,29 +642,51 @@
 
 
 <!-- ==========================================ClientMonthly Details start================ -->
-<div ng-if="clientMonthlyDetailsBool" class="ml-0 mr-0">
- <div class="container" >
-  <div class="pos-f-t">
+<div ng-if="clientMonthlyDetailsBool" class="container contmargin">
 
-    <nav class="navbar navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-      aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-  <div class="collapse" id="navbarToggleExternalContent">
-    <h4 class="">Collapsed content</h4>
-    <span class="text-muted">Toggleable via the navbar brand.</span>
-  </div>
+    <div class="table-responsive-sm table-responsive-md table-responsive-lg"
+    ng-repeat="category in categories" ng-if="data[category.dbName]">
+    <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
+    <table class="table table-bordered w-auto ml-3 ">
+      <thead>
+       <tr>
+        <th class="font-weight-bold" scope="col">Date</th>
+        <th class="font-weight-bold" scope="col">Day</th>
+        <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName]">{{m.columnName}} Pax</th>
+        <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
+        <th class="font-weight-bold" scope="col">{{category.displayName}} Amount</th>
+        <th class="font-weight-bold" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="dnd in monthlyDateNDays">
+      <th class="text-center font-weight-normal ">{{dnd.date}}</th>
+      <th class="text-center font-weight-normal ">{{dnd.day}}</th>
+      <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
+        <input  id="" 
+        ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" ng-init=0>
+      </td>
+      <td class="text-center font-weight-normal" ng-repeat-end>
+        <input  id="" 
+        ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price" ng-init=0>
+      </td>
+      <td class="text-center font-weight-normal">
+        <input id="" 
+        ng-value="getAmount(clientRequirement[category.dbName][dnd.day])"
+        ng-model="clientRequirement[category.dbName][dnd.day].amount">
+      </td>
+      <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientMonthlyDetailsSave()">Save</button></td>
+    </tr>
 
+  </tbody>
+</table>
 </div>
 </div>
 
-</div>
 <!-- ========================================Vendor Monthly Details start================ -->
 
 <div ng-if="vendorMonthlyDetailsBool" class="ml-5">
-  <div class="container position-fixed ">
+  <div class="container ">
     <div class="table-responsive">
      <table id="dtBasicExample" class="table table-bordered table-sm mr-3" cellspacing="0" width="100%">
       <thead>
