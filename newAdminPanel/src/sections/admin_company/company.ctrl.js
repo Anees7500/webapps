@@ -14,7 +14,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
       $scope.companySettingsBool=false;
       $scope.empFeedbackBool=false;
       $scope.clientMonthlyDetailsBool=false; 
-      $scope.vendorMonthlyDetailsBool=false;
+      $scope.vendorMonthlyDetailsBool=false; 
       $scope.dispatchDetailsBool=false;       
       $scope[value] = true;
     }
@@ -93,13 +93,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
 
     // ==================== Working days==============  
 
-$scope.workingDays = [ {  day: "MONDAY", Selected: false },
-                       {   day: "TUESDAY", Selected: false },
-                       {   day: "WEDNESDAY", Selected: false },
-                       {  day: "THURSDAY", Selected: false },
-                       {   day: "FRIDAY", Selected: false },
-                       {   day: "SATURDAY", Selected: false },
-                       {  day: "SUNDAY", Selected: false } ];
+$scope.workingDays = [ {  day: "Monday", Selected: false },
+                       {   day: "Tuesday", Selected: false },
+                       {   day: "Wednesday", Selected: false },
+                       {  day: "Thursday", Selected: false },
+                       {   day: "Friday", Selected: false },
+                       {   day: "Saturday", Selected: false },
+                       {  day: "Sunday", Selected: false } ];
 
     $scope.wrkDayGetVl = function () {                
                 for (var i = 0; i < $scope.workingDays.length; i++) {
@@ -116,45 +116,50 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
        // =================Requirements ================
 
         $scope.clientRequirement = {};
-        $scope.saveReq = function () {
+        $scope.clientSaveReq = function () {
             console.log("client reqs : ", JSON.stringify($scope.clientRequirement));
+        }
+
+         $scope.vendorRequirement = {};
+        $scope.vendorSaveReq = function () {
+            console.log("vendor reqs : ", JSON.stringify($scope.vendorRequirement));
         }
 
         //=====================additional requirement=======================
         $scope.additionalReqDetails = {
           breakfast : [
             {
-                'columnName': 'Pax',
+                'columnName': 'breakfast',
                 'disabled': true
             }],
           lunch : [
             {
-                'columnName': 'Pax',
+                'columnName': 'lunch',
                 'disabled': true
             }],
           snacks : [
             {
-                'columnName': 'Pax',
+                'columnName': 'snacks',
                 'disabled': true
             }],
           dinner : [
             {
-                'columnName': 'Pax',
+                'columnName': 'dinner',
                 'disabled': true
             }],
           midNightSnacks : [
             {
-                'columnName': 'Pax',
+                'columnName': 'midNightSnacks',
                 'disabled': true
             }],
           earlyMorningSnacks : [
             {
-                'columnName': 'Pax',
+                'columnName': 'earlyMorningSnacks',
                 'disabled': true
             }],
           cashNCarry : [
             {
-                'columnName': 'Pax',
+                'columnName': 'cashNCarry',
                 'disabled': true
             }]
         };
@@ -166,15 +171,11 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
             });
         };
 
-        $scope.remove = function () {
+        $scope.remove = function (menuDetails, $index) {
+          console.log('inside remove function ', $index);
             var newDataList = [];
-            $scope.selectedAll = false;
-            angular.forEach($scope.menuDetails, function (selected) {
-                if (!selected.selected) {
-                    newDataList.push(selected);
-                }
-            });
-            $scope.menuDetails = newDataList;
+              menuDetails.splice($index,1);
+            console.log('inside remove function 2', JSON.stringify(menuDetails));
         };
 
         $scope.checkAll = function () {
@@ -266,6 +267,33 @@ $scope.workingDays = [ {  day: "MONDAY", Selected: false },
         VendorassignService.saveCheckListIndb(tempOb);
       } 
 
+      // monthly details 
+      $scope.monthlyDateNDays = [ {  date: "1/01/2019", day: "Monday"},
+                          {  date: '1/02/2019', day: 'Tuesday'},
+                          {  date: '1/03/2019', day: 'Wednesday'},
+                          { date: '1/04/2019',  day: 'Thursday'},
+                          { date: '1/05/2019',  day: 'Friday'},
+                          { date: '1/06/2019',  day: 'Saturday'},
+                          { date: '1/07/2019',  day: 'Sunday'}
+                          ];
+
+      $scope.getAmount = function(obj)
+      {
+        var amount = 0;
+         for (var key in obj) {
+          console.log("key : ", key);
+            if (obj.hasOwnProperty(key)) {
+              obj[key].amount = (obj[key].pax*obj[key].price);
+              console.log("amount  : ", amount);
+            }
+          }
+          return amount;
+      };
+
+      $scope.clientMonthlyDetailsSave = function()
+      {
+         console.log("client monthly reqs : ", JSON.stringify($scope.clientRequirement));
+      }
         // =========================  vendor Monthly Details ======================================
 $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
                           {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },
@@ -273,8 +301,7 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
                           { Date: '1/04/2019',  Day: 'THURSDAY',  Pax: '10', Price: '10', Amount: '100' },
                           { Date: '1/05/2019',  Day: 'FRIDAY',    Pax: '10', Price: '10', Amount: '100' },
                           { Date: '1/06/2019',  Day: 'SATURDAY',  Pax: '10', Price: '10', Amount: '100' },
-                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' },
-                      
+                          { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' }
                           ];
    
      
@@ -283,8 +310,7 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
    
     
 //vendor monthly details
-
-
+$scope.checkboxId=["brkfstCheck","lunchCkbox","snkCheck","dnrCheck","midngtCheck","erlyCheck","cshCheck"];
 
     }
     ]);

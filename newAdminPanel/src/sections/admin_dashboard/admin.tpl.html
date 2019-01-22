@@ -78,10 +78,10 @@
 
     <!--===============================company start===============================-->
     <div ng-if="companyBool">
-      <nav class="navbar navbar-expand-lg  mb-3">
-       <small class="display-30"><a class="navbar-brand w-clr" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Home</a></small>
-        <form class="form-inline  ml-auto">
-      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search">
+      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+       <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>home</small></a></h6>
+        <form class="form-inline ml-auto">
+      <input class="form-control " ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
       </nav>
 
@@ -116,10 +116,10 @@
 
     <!-- ===============================-Assigned company=============================== -->
     <div ng-if="assignedCompanyBool">
-       <nav class="navbar navbar-expand-lg  mb-3">
-       <small><a class="navbar-brand w-clr" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Assigned company</a></small>
+       <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+       <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>assigned company</small></a></h6>
         <form class="form-inline  ml-auto">
-      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search">
+      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
       </nav>
       <div class="row  mr-0 ml-5 ml-sm-5 ml-xs-5">
@@ -152,10 +152,10 @@
        <!--===============================-unassigned company===============================--> 
 <div ng-if="unAssignedCompanyBool">
 
-      <nav class="navbar navbar-expand-lg  mb-3">
-       <small><a class="navbar-brand w-clr" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Unassigned company</a></small>
+      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+       <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>unassigned company</small></a></h6>
         <form class="form-inline  ml-auto">
-      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search">
+      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
       </nav>
       <div class="row  mr-0 ml-sm-5 ml-xs-5">
@@ -185,10 +185,10 @@
 
     <div ng-if="vendorListBool">
       <!--<div class="container">-->
-        <nav class="navbar navbar-expand-lg  mb-3">
-       <small><a class="navbar-brand w-clr" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Vendor</a></small>
+        <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+       <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>vendor</small></a></h6>
         <form class="form-inline  ml-auto">
-      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search">
+      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
       </nav>
         
@@ -218,63 +218,76 @@
 
 
  <!-- ====================== Add-New-Company ================================== -->
- <div  ng-if="addNewCompanyBool" class="ml-5 mt-5"> 
-  <div ng-controller="newPlaceCtrl">
-    <form class="border mr-5">
-      <div class="row ml-0 mr-0">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">Maps container</div>
-      </div>
+ <div  ng-if="addNewCompanyBool" > 
+        <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+       <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>add new-company</small></a></h6>
+        <form class="form-inline  ml-auto">
+      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
-    <!--Google Maps-->
-    <form class="border mr-5">
-      <div class="row mt-5 ml-0 mr-0">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-          <label for="usr">Company Name</label>
-          <input type="text" class="form-control" ng-disabled=""placeholder="Company Name" ng-model="place.companyName">
-        </div>
-
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-          <label for="usr">  Latitude</label>
-          <input type="number" class="form-control" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required>
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-          <label for="usr">Longitude</label>
-          <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required>
-        </div>
-
-
-      <div class="row mt-3 ml-0 mr-0">
-        <div class="col-md-6 col-sm-6">
-          <label for="usr">Contact Person Name</label>
-          <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
-          <label for="usr">Contact Number</label>
-          <input type="text" class="form-control mb-3" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
-          <label for="comment">Address</label>
-          <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
-        </div>
-        <div class="col-md-6 col-sm-6 mt-3">
-
-          <div class="z-depth-1-half w-75 ml-5">
-            <img src="img/upload.png" class="img-fluid img-height m-auto d-block" alt="example placeholder">
+      </nav>
+  <div ng-controller="newPlaceCtrl" class="ml-5 mt-5">
+    <form name="resForm" class="border mr-5 form-horizontal" novalidate ng-submit="send()">
+      <div class="row ml-0 mr-0">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+          <div class="map-center">
+            <div id="map"><input class="form-control" >/div>
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="btn btn-mdb-color btn-rounded float-left">
-              <span>Choose file</span>
-              <input type="file" ngf-select="onFileSelect($files)" multiple>
+        </div>        
+      </div>
+
+      <!--Google Maps-->
+      <form class="border mr-5">
+        <div class="row mt-5 ml-0 mr-0">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <label for="usr">Company Name</label>
+            <input type="text" class="form-control" ng-disabled=""placeholder="Company Name" ng-model="place.companyName">
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <label for="usr">  Latitude</label>
+            <input type="number" class="form-control" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <label for="usr">Longitude</label>
+            <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required>
+          </div>
+
+
+          <div class="row mt-3 ml-0 mr-0">
+            <div class="col-md-6 col-sm-6">
+              <label for="usr">Contact Person Name</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
+              <label for="usr">Contact Number</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
+              <label for="comment">Address</label>
+              <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
+            </div>
+            <div class="col-md-6 col-sm-6 mt-3">
+
+              <div class="z-depth-1-half w-75 ml-5">
+                <img src="img/upload.png" class="img-fluid img-height m-auto d-block" alt="example placeholder">
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="btn btn-mdb-color btn-rounded float-left">
+                  <span>Choose file</span>
+                  <input type="file" ngf-select="onFileSelect($files)" multiple>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
 
-<button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-5">Submit</button>
+        <button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-5">Submit</button>
 
-    </form>
+      </form>
+
+    </form>  
   </div>
 </div>
 
-
+<!--===============================/Add-New-Company end===============================-->
 
 
 

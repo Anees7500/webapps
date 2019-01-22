@@ -7,7 +7,8 @@
     width: 250px;
     margin: auto;}
 #font-size{ font-size: 0.8rem;}
-
+#head-height{height: 44px;}
+#search-height{height: 28px;}
 .wrapper {
     display: flex;
     width: 100%;

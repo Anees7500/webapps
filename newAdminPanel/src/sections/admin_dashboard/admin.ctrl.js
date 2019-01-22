@@ -19,7 +19,7 @@ adminApp.controller('AdminController', ['$scope', '$http','CompanydetailsService
       $scope.boolFunction("companyBool");
       // bool Logic end
       $scope.onFileSelect = function($files) {
-    //$files: an array of files selected, each file has name, size, and type.
+ 
     for (var i = 0; i < $files.length; i++) {
       var file = $files[i];
       $scope.upload = $upload.upload({
