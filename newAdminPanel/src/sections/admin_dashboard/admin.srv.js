@@ -1,5 +1,5 @@
-adminApp.factory('CompanydetailsService', ['$http', '$route', '$httpParamSerializerJQLike', '$location',
-    function ($http, $route, $httpParamSerializerJQLike, $location) {
+adminApp.factory('CompanydetailsService', ['$http', '$route', '$httpParamSerializerJQLike',
+    function ($http, $route, $httpParamSerializerJQLike) {
         return {
             companySignup: function (company, companySignupUrl) {
                 // console.log("passsed value : ", company);

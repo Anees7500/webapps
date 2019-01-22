@@ -18,23 +18,23 @@ adminApp.controller('AdminController', ['$scope', '$http','CompanydetailsService
       }
       $scope.boolFunction("companyBool");
       // bool Logic end
-      $scope.onFileSelect = function($files) {
+  //     $scope.onFileSelect = function($files) {
  
-    for (var i = 0; i < $files.length; i++) {
-      var file = $files[i];
-      $scope.upload = $upload.upload({
-        url: 'server/upload/url', //upload.php script, node.js route, or servlet url
-        data: {myObj: $scope.myModelObj},
-        file: file,
-      }).progress(function(evt) {
-        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-      }).then(function(response) {
-        var data = response.data;
-        // file is uploaded successfully
-        console.log(data);
-      });
-    }
-  };
+  //   for (var i = 0; i < $files.length; i++) {
+  //     var file = $files[i];
+  //     $scope.upload = $upload.upload({
+  //       url: 'server/upload/url', //upload.php script, node.js route, or servlet url
+  //       data: {myObj: $scope.myModelObj},
+  //       file: file,
+  //     }).progress(function(evt) {
+  //       console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+  //     }).then(function(response) {
+  //       var data = response.data;
+  //       // file is uploaded successfully
+  //       console.log(data);
+  //     });
+  //   }
+  // };
       $scope.companySignup = function (company) {
         // console.log("lat & lng in cntrl file : ",company);
         companydetailsService.companySignup(company, companySignupUrl);
