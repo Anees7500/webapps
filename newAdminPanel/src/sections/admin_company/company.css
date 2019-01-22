@@ -1,7 +1,1 @@
-.tableFixHead    { overflow-y: auto; height: 100px; }
-.tableFixHead td { position: sticky; left: 0; }
-
-/* Just common table stuff. Really. */
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; }
-th     { background:#eee; }
+table.table td, table.table th {   padding-top: .2rem;   padding-bottom: .2rem;}
