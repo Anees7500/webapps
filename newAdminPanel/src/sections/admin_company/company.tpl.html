@@ -1,3 +1,4 @@
+
 <!--wrapper  class start for whole page-->
 <div class="wrapper">
 
@@ -108,8 +109,8 @@
       </nav>
     <div class="container">
 
-      <!--=============Category start====================-->
-      <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
+     <!--=============Category start====================-->
+        <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
         <form class="border  z-depth-1  mb-5 ml-5" id="form-lenght"> 
           <div class="list-group custom-control custom-checkbox ">
             <div class="list-group-item" ng-repeat="category in categories">
@@ -124,17 +125,15 @@
         <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
       </form>
 
-    <!--===========================working days==================================-->
+      <!--===========================working days==================================-->
       <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-5"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
       <form class="border  z-depth-1 mb-5 ml-5 font-weight-normal font-small " >
-        <label class="checkbox-inline mr-3 ml-5  " id="label-margin-padding"  ng-repeat="week in workingDays">
+        <label class="checkbox-inline mr-3 ml-3  " id="label-margin-padding"  ng-repeat="week in workingDays">
           <input type="checkbox"  ng-model="week.Selected" ng-checked="week.Selected" id="chkCustomer_{{week.id}}" > {{week.day}}</label>
           <input type="checkbox" ng-model="all"> <span class="font-weight-normal">Select all</span><br>
 
           <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block" id="btn-margin"submit-required="true" ng-click="wrkDayGetVl()" >Save</button>
         </form>
-
-
 
 
 
@@ -170,24 +169,20 @@
     </div>
 
 
-      
 
 
-  <!--===========================Additional Requiment==================================-->
+    <!--===========================Additional Requiment==================================-->
 
 
-   <!--===========================Breakfast==================================-->
-
-
-   <h4 class="text-white font-weight-bold ">
-      <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-5">
+    <h4 class="text-white font-weight-bold ">
+      <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-5 ">
         <input type="checkbox" class="custom-control-input ml-5" id="AdditionalRequirements" ng-click="showHide();" >
-        <label class="custom-control-label" for="AdditionalRequirements"  >Additional Requirements</label>
+        <label class="custom-control-label mr-5 ml-3" for="AdditionalRequirements"  >Additional Requirements</label>
       </div></h4>
 
-      <div class=" ml-3 " id="form-lenght" ng-if="isVisible">
+      <div class=" ml-5 " id="form-lenght" ng-if="isVisible">
         <div ng-repeat="category in categories" ng-if="data[category.dbName]">
-          <div class="custom-control ml-5 z-depth-1  grey lighten-4 mb-3 h-80">
+          <div class="custom-control ml-3 z-depth-1  grey lighten-4 mb-3 h-80">
             <input type="checkbox" ng-model="category.additionalReqToggle">
             <label class="checkbox-inline font-weight-normal"  >{{category.displayName}}</label>
           </div>
@@ -199,27 +194,25 @@
                   <form class="z-depth-1 mb-5">
                     <table class="table table-bordered">
                       <thead>
-                        <tr>
-                          <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
+                        <tr>                         
                           <th>Column Name</th>
                           <th>Pax</th>
                         </tr>
                       </thead>
                       <tbody>
-                       <tr ng-repeat="menuDetail in additionalReqDetails[category.dbName]">
-                        <td>
-                          <input type="checkbox" ng-disabled="menuDetail.disabled" ng-model="menuDetail.selected" /></td> 
+                       <tr ng-repeat="menuDetail in additionalReqDetails[category.dbName]"> 
                           <td>
                             <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled"
                             ng-model="menuDetail.columnName" required /></td>
                             <td>
-                              <a ng-hide="(!menuDetails.length > 1)" href="" class="pull-right ml-5" ng-if="!menuDetail.disabled"
-                                ng-click="remove(additionalReqDetails[category.dbName],$index)"><i class="fas fa-trash-alt fa-2x"></i></a>
-
-                                <button class="addnew pull-right ml-5" id="btn-bg" 
+                                <a class="addnew pull-right ml-5 text-success z-depth-1" id="btn-bg" 
                                 ng-click="addNew(additionalReqDetails[category.dbName])">
-                                <i class="fas fa-plus fa-2x"></i>
-                              </button>
+                                <i class="far fa-plus-square fa-2x"></i>
+                              </a>
+                              <a ng-hide="(!menuDetails.length > 1)" class="z-depth-1 text-danger pull-right ml-5" ng-if="!menuDetail.disabled"
+                                ng-click="remove(additionalReqDetails[category.dbName],$index)"><i class="fas fa-trash-alt fa-2x"></i>
+                              </a>
+                            
                             </td>
                           </tr>
                         </tbody>
@@ -233,6 +226,7 @@
           </div>
         </div>
       </div>
+
 
     </div>
   </div>
@@ -625,7 +619,9 @@
           <a href="" class="w-clr">employee feedback</a></small></h6>
       </nav>
 <div class="ml-5 mr-5">
-  <table class="table border table-hover ml-3" id="table-width">
+  <button class="ml-3" ng-click="exportToExcel('#feedback')">XLS</button>
+ <button class="ml-3" ng-click="exportToPdf('#feedback')">PDF</button>
+  <table class="table border table-hover ml-3" id="feedback">
   <thead>
    <tr>
     <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
@@ -882,7 +878,6 @@
 
 
 </td></tr></tbody></table></div></div>
-
 
 
 

@@ -1,7 +1,8 @@
 adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignService', 'postCategoryUrl', '$routeParams',
-  'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor', 'getItemCheckListedForVendor',
+  'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor', 
+  'getItemCheckListedForVendor', 'Excel', '$timeout',
   function($scope, $http ,VendorassignService, postCategoryUrl, $routeParams, corporateReviewsUrl, 
-   getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor, getItemCheckListedForVendor
+   getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor, getItemCheckListedForVendor, Excel, $timeout
    ) {
   	 // bool Logic start
      $scope.boolFunction = function (value) {
@@ -28,6 +29,29 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
     $http.get(getFeedbackUrl).then(function (response) {
       $scope.feedback = response.data.data.reviews;
     });
+     $scope.exportData = function () {
+                $('#feedback').tableExport({ type: 'json', escape: 'false' });
+            };
+            $scope.exportToExcel=function(tableId){ // ex: '#my-table'
+            var exportHref=Excel.tableToExcel(tableId,'WireWorkbenchDataExport');
+            $timeout(function(){location.href=exportHref;},500); // trigger download
+        }
+
+      //        $scope.exportToPdf = function(){
+      //   html2canvas(document.getElementById('feedback'), {
+      //       onrendered: function (canvas) {
+      //           var data = canvas.toDataURL();
+      //           var docDefinition = {
+      //               content: [{
+      //                   image: data,
+      //                   width: 1000,
+      //               }]
+      //           };
+      //           pdfMake.createPdf(docDefinition).download("feedback.pdf");
+      //           pdfMake.createPdf(docDefinition).download("feedback.pdf");
+      //       }
+      //   });
+      // }
 
     // ==================== getCompProfileUrl==============
 
