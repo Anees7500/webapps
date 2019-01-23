@@ -61,10 +61,6 @@
   <a href="" ng-click="boolFunction('addNewCompanyBool')"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
 </li>
 <li>
-  <a href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span></a>
-</li>
-
-<li>
   <a href=""><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Check Confirmation</span></a>
 </li>
 </ul>
@@ -90,7 +86,7 @@
        <div ng-repeat="cpny in allCompanies | filter:search">
 
         <div class="col-md-4 col-sm-4 col-xs-12">
-          <div class="card example z-depth-1 mt-5">
+         <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
               <img id="image" src= "http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
               <a>
@@ -106,12 +102,13 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
         
 
       </div>
 
-</div>
+
 
 
     <!-- ===============================-Assigned company=============================== -->
@@ -121,6 +118,7 @@
         <form class="form-inline  ml-auto">
       <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
+  
       </nav>
       <div class="row  mr-0 ml-5 ml-sm-5 ml-xs-5">
        <div ng-repeat=" cpny in assignedCompany | filter:search">
@@ -144,9 +142,7 @@
         </div>
 
       </div>
-    </div>
-
-  
+    </div>  
 
     
        <!--===============================-unassigned company===============================--> 
@@ -230,11 +226,12 @@
       <div class="row ml-0 mr-0">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
           <div class="map-center">
-            <div id="map"><input class="form-control" ></div>
+            <div id="map"><input class="form-control" >
+
           </div>
         </div>        
       </div>
-
+</div>
       <!--Google Maps-->
       <form class="border mr-5">
         <div class="row mt-5 ml-0 mr-0">
@@ -293,11 +290,14 @@
 
 
 
-</div>
+
+
 <!--===============================/content end===============================-->
+</div>
 
 
 
+</div>
 
 
 

@@ -12,6 +12,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
       $scope.vendorRequirementBool=false;
       $scope.itemCheckBool=false;
       $scope.assignedBool=false;
+      $scope.invoiceBool = false;
       $scope.companySettingsBool=false;
       $scope.empFeedbackBool=false;
       $scope.clientMonthlyDetailsBool=false; 
@@ -42,6 +43,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
     var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
       $http.get(getCompProfileUrl).then(function (response) {
         $scope.cmpyName = response.data.data.company.companyName;
+        $scope.cmpyAddress = response.data.data.company.address;
         $scope.data = response.data.data.company;
       });
       // ==================== All Vender list==============
@@ -192,7 +194,6 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
             console.log('inside remove function 2', JSON.stringify(menuDetails));
         };
 
-
         //===========show hide for additional requirement checkbox============
 
     
@@ -298,7 +299,7 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
       {
          console.log("client monthly reqs : ", JSON.stringify($scope.clientRequirement));
       }
-      //====================== Excel or Pdf ==================================================
+      //====================== Excel==================================================
       $scope.exportData = function () {
                 $('#clientMonthlyDetailsSave').tableExport({ type: 'json', escape: 'false' });
             };
@@ -307,8 +308,9 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
             $timeout(function(){location.href=exportHref;},500); // trigger download
         }
 
-             $scope.exportToPdf = function(){
-        html2canvas(document.getElementById('clientMonthlyDetailsSave'), {
+ //======================  Pdf ==================================================
+    $scope.exportToPdf = function(){
+        html2canvas(document.getElementById('invoice'), {
             onrendered: function (canvas) {
                 var data = canvas.toDataURL();
                 var docDefinition = {
@@ -317,12 +319,11 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
                         width: 500,
                     }]
                 };
-                pdfMake.createPdf(docDefinition).download("clientMonthlyDetailsSave.pdf");
-                pdfMake.createPdf(docDefinition).download("clientMonthlyDetailsSave.pdf");
+                pdfMake.createPdf(docDefinition).download("invoice.pdf");
+                pdfMake.createPdf(docDefinition).download("invoice.pdf");
             }
         });
       }
-
         // =========================  vendor Monthly Details ======================================
 $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
                           {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },
