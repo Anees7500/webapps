@@ -348,11 +348,55 @@
 
 <div ng-if="assignedBool">
   <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-       <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
-            Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a href="" class="w-clr">assigned</a></small></h6>
-      </nav>
- <div class="container col-lg-12">
+   <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
+    Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+    <a href="" class="w-clr">assigned</a></small></h6>
+  </nav>
+  <div class="container col-lg-12">
+    <div class="row ml-5  mr-0" id="menu-top"> 
+      <div ng-repeat="assign in categories">
+       <div class=" col-xl-3 col-md-6  w-50" >
+        <div class="card bg-info mt-5 h-50 btn-outline-info waves-effect hoverable " id="col-width">
+          <div class="card-body ">
+            <div class="media text-info ">
+              <a class="d-flex mr-3"  ><i class="fas fa-glass-cheers fa-2x"></i></a>
+              <div class="ml-2" data-toggle="modal" data-target="#fullHeightModalRight"><h6 class="mt-0 font-weight">{{assign.displayName}}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+
+
+           <div class="modal-dialog" role="document">
+
+
+            <div class="modal-content">
+             <div class="modal-header">
+              <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For {{assign.displayName}}</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+            <div class="list-group">
+              <div class="active-cyan-4 mb-4 mr-auto">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              </div>
+              <a href="#" class="list-group-item list-group-item-action" ng-repeat="vendor in allVendorsList | filter:vendorSearch">{{vendor.name}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+ <!-- <div class="container col-lg-12">
   <div class="row ml-5  mr-0" id="menu-top"> 
 
 
@@ -613,7 +657,7 @@
 </div>
 </div>
 
-
+ -->
 <!-- ==============================================EmpFeedback start================ -->
 <div ng-if="empFeedbackBool">
  <nav class="navbar navbar-expand-lg  mb-5 mt-1">
@@ -623,7 +667,6 @@
       </nav>
 <div class="ml-5 mr-5">
   <button class="ml-3" ng-click="exportToExcel('#feedback')">XLS</button>
- <button class="ml-3" ng-click="exportToPdf('#feedback')">PDF</button>
   <table class="table border table-hover ml-3" id="feedback">
   <thead>
    <tr>
@@ -680,7 +723,11 @@
             Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
           <a href="" class="w-clr">clientMonthly details</a></small><h6>
       </nav>
-         <div class="container">
+
+      <button class="d-inline ml-5" ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
+      <button class="d-inline ml-3" ng-click="exportToPdf('#clientMonthlyDetailsSave')">PDF</button>
+  
+         <div class="container" id="clientMonthlyDetailsSave">
         <div class="table-responsive-sm table-responsive-md table-responsive-lg ml-5"
     ng-repeat="category in categories" ng-if="data[category.dbName]">
     <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
@@ -705,12 +752,10 @@
       </td>
       <td class="text-center font-weight-normal" ng-repeat-end>
         <input  id="" 
-        ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price" ng-init=0>
+        ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price" >
       </td>
       <td class="text-center font-weight-normal">
-        <input id="" 
-        ng-value="getAmount(clientRequirement[category.dbName][dnd.day])"
-        ng-model="clientRequirement[category.dbName][dnd.day].amount">
+        <input id="" ng-model="clientRequirement[category.dbName][dnd.day].amount">
       </td>
       <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientMonthlyDetailsSave()">Save</button></td>
     </tr>
@@ -811,7 +856,7 @@
     <table class="table table-hover">
       <thead>
         <tr class="aqua-gradient">
-          <th scope="col">Company</th>
+          <th scope="col"  class="text-center font-weight-bold pt-0 pb-3" id="header">Company</th>
           <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Vendor</th>
           <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Day</th> 
           <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Menu Type</th>
@@ -849,7 +894,7 @@
           <a href="" class="w-clr">company setting</small></a></h6>
       </nav>
   <div class="container mt-5">
-    <div class="ml-5">
+    <div class="ml-5 font-weight-normal">
     <form class="border mb-5 grey lighten-5" id="row-top">
       <div class="row ml-3" >
         <div class="col-md-6 col-sm-6">
@@ -861,19 +906,20 @@
           <textarea class="form-control mb-5" placeholder="Enter Your Address" id="check-width" name="address" required ng-model="place.address" ></textarea>
         </div>
         <div class="col-md-6 col-sm-6 mt-3">
-
+           <label for="usr">GST Number</label>
+          <input type="text" class="form-control mb-3" placeholder="Set Username" id="check-width"><br>
           <label for="usr">Set Mobile App Username</label>
           <input type="text" class="form-control mb-3" placeholder="Set Username" id="check-width"><br>
           <label for="usr">Set Mobile App Password</label>
           <input type="text" class="form-control mb-3" id="check-width" placeholder="Set App Password" >
-          <div class="d-flex mb-5 ">
-            <div class="btn btn-mdb-color btn-rounded float-left">
-              <span>Choose file</span>
-              <input type="file" ngf-select="onFileSelect($files)" multiple>
-            </div>
+          <div class="d-flex ">
+            <input type="file" ng-file-select="onFileSelect($files)" ng-model="imageSrc">    
+            <img id="image" ng-src="{{imageSrc}}" />
           </div>
         </div>
+        <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal" submit-required="true" ng-click="" id="btn-margin">Save</button>
       </div>
+
     </form>
   </div>
 </div>
