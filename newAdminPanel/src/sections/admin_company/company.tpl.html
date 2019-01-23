@@ -131,8 +131,10 @@
       <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-5"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
       <form class="border  z-depth-1 mb-5 ml-5 font-weight-normal font-small " >
         <label class="checkbox-inline mr-3 ml-3  " id="label-margin-padding"  ng-repeat="week in workingDays">
-          <input type="checkbox"  ng-model="week.Selected" ng-checked="week.Selected" id="chkCustomer_{{week.id}}" > {{week.day}}</label>
-          <input type="checkbox" ng-model="all"> <span class="font-weight-normal">Select all</span><br>
+          <input type="checkbox"  ng-model="week.Selected"   > {{week.day}}</label>
+
+          <span class="font-weight-normal">
+           <input type="checkbox" ng-click="selectAll()">Select all</span><br>
 
           <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block" id="btn-margin"submit-required="true" ng-click="wrkDayGetVl()" >Save</button>
         </form>
@@ -234,9 +236,9 @@
   </div>
  <!-- ==============================================Client RequirementBool start================ -->
  <div ng-if="clientRequirementBool">
-  <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+  <nav class="navbar navbar-expand-lg  mb-5 " id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
-            Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+            Home</a> <a class="w-clr">/</a><a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
           <a href="" class="w-clr">client requirement</a></small></h6>
       </nav>
  <div class="container" >
@@ -254,6 +256,7 @@
     </thead>
     <tbody>
      <tr ng-repeat="week in workingDays" ng-if="week.Selected">
+     
       <th class="text-center font-weight-normal ">{{week.day}}</th>
       <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
         <input type="number" class="form-control form-control-sm" id="" 
@@ -696,8 +699,8 @@
     </thead>
     <tbody>
      <tr ng-repeat="dnd in monthlyDateNDays">
-      <th class="text-center font-weight-normal ">{{dnd.date}}</th>
-      <th class="text-center font-weight-normal ">{{dnd.day}}</th>
+      <th class="text-center font-weight-normal">{{dnd.date}}</th>
+      <th class="text-center font-weight-normal">{{dnd.day}}</th>
       <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
         <input  id="" 
         ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" ng-init=0>
