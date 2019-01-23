@@ -125,6 +125,12 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
                        {   day: "Saturday", Selected: false },
                        {  day: "Sunday", Selected: false } ];
 
+      $scope.selectAll = function(){
+    angular.forEach($scope.workingDays, function(item){
+      item.Selected = event.target.checked;
+    });
+  }
+
     $scope.wrkDayGetVl = function () {                
                 for (var i = 0; i < $scope.workingDays.length; i++) {
                     if ($scope.workingDays[i].Selected) {
@@ -202,16 +208,6 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
             console.log('inside remove function 2', JSON.stringify(menuDetails));
         };
 
-        $scope.checkAll = function () {
-            if (!$scope.selectedAll) {
-                $scope.selectedAll = true;
-            } else {
-                $scope.selectedAll = false;
-            }
-            angular.forEach($scope.menuDetails, function (menuDetail) {
-                menuDetail.selected = $scope.selectedAll;
-            });
-        };
 
         //===========show hide for additional requirement checkbox============
 
@@ -298,7 +294,8 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
                           { date: '1/04/2019',  day: 'Thursday'},
                           { date: '1/05/2019',  day: 'Friday'},
                           { date: '1/06/2019',  day: 'Saturday'},
-                          { date: '1/07/2019',  day: 'Sunday'}
+                          { date: '1/07/2019',  day: 'Sunday'},
+                          {  date: "3/01/2019", day: "Monday"}
                           ];
 
       $scope.getAmount = function(obj)
@@ -334,8 +331,7 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
    
     
 //vendor monthly details
-
-
+$scope.checkboxId=["brkfstCheck","lunchCkbox","snkCheck","dnrCheck","midngtCheck","erlyCheck","cshCheck"];
 
     }
     ]);
