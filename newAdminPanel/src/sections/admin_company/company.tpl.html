@@ -83,7 +83,9 @@
             </li>
           </ul>
   </li>
-
+<li>
+  <a href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span></a>
+</li>
   <li>
     <a href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
   </li>
@@ -790,7 +792,120 @@
   </div>
 </div>
 </div>
+<!----------===============================invoice=================================-->
+   <div ng-if="invoiceBool">
+     <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+       <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>invoice</small></a></h6>
+        <form class="form-inline  ml-auto">
+      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
+    </form>
+      </nav>
+      <button class="ml-5" ng-click="exportToExcel('#invoice')">XLS</button>
+      <button  ng-click="exportToPdf('#invoice')">PDF</button>
+      
+      <div class="container" id="invoice">
+        <nav class="navbar   red darken-3 ml-3 mt-5">
+        </nav>
+        <div class="row ml-3">
+          <div class="col-md-6 col-sm-12 ml-3">
+            <div class="media">
+              <img src="img/comp_logo.jpg" class="img-responsive borderless mt-2 d-flex align-self-center" width="65px">
+              <span class="h3 font-small font-weight-bold ml-3 font-weight-normal pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES PVT. LTD.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 ml-3">
+      <div class="col-md-5 ml-3 ">
+         <p>#1722,First Floor, 19th Main Rd,<br>
+          Sector 2, HSR Layout,<br>
+          Bengaluru, Karnataka 560102<br>
+          PHONE: 9739684336<br>
+          GSTIN: 29AACCF9318B1ZQ<br>
+          STATE: KARNATAKA<br>
+          CODE – KA 29<br></p>
+         <form class="form-inline border-0"" role="form">
+           <div class="form-group">
+           <label for="name">SAC Code:</label>
+          <input type="name" class="form-control border-0" id="name" placeholder="GSTIN" value="996333">
+          </div>
+        </form>
+        </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <form class="form-inline border-0"" role="form">
+           <div class="form-group">
+           <label for="date">Date:</label>
+          <input type="date" class="form-control border-0" id="date">
+          </div>
+        </form>
+      </div>
+    </div>
 
+    <div class="row ml-3 mt-5">
+
+      <div class="col-md-4 ml-3">
+        <h5 class="font-weight-bold">Invoice for</h5>
+        <div class="card border-0 w-100" id="address-card">
+          <div class="card-body">
+            <small class="card-title h6">{{cmpyName | uppercase}}</small>
+            <p class="card-text">{{cmpyAddress | lowercase}}</p>
+            <p>GSTIN:<span><input type="text" class="border-0 ml-1" value="29AAACZ8319C1Z7"></span></p>
+
+          </div>
+
+        </div>
+
+</div>
+
+        
+      <div class="col-md-5">
+        <h5 class="font-weight-bold">Payable to</h5>
+        <small class="h6 mt-3">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
+      </div>
+      <div class="col-md-2">
+        <h5 class="font-weight-bold">Invoice #</h5>
+        <form>
+          <div class="form-group">
+           <input type="text" class="form-control border-0" value="515">
+            </div>
+        </form>
+      </div>
+  </div>
+  <hr class="ml-5 bg-dark">
+
+  <div class="row mt-3 ml-3">
+    <div class="col-md-5 ml-3">
+      <h6 class="pink-text font-weight-bold">Description</h6>
+      <p>Cup cakes</p>
+    </div>
+    <div class="col-md-2">
+      <h6 class="pink-text font-weight-bold">Qty</h6>
+      <p>250</p>
+    </div>
+    <div class="col-md-2">
+      <h6 class="pink-text font-weight-bold">Unit price</h6>
+      <p>INR54.00</p>
+    </div>
+    <div class="col-md-2">
+      <h6 class="pink-text font-weight-bold">Total price</h6>
+      INR13,500.00
+    </div>
+  </div>
+<hr class="ml-5 bg-dark">
+  <div class="row ml-3 mt-3">
+    <div class="col-md-7 ml-3">
+      <p>Account Details<br>
+      Company Name : Fancymonk Technologies Private Limited<br>
+      Account Number : 0012020317<br>
+      IFSC Code : KKBK0008040<br>
+      Branch code : 8040<br>
+      Bank Name:Kotak Mahindra Bank
+      </p>
+    </div>
+  </div>
+
+   </div>
+ </div>
 
                    
 

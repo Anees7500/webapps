@@ -72,6 +72,7 @@
 
 /*----------page responsive-------------------------*/
 
+
 @media screen and (min-width: 500px) {
      #sidebar { display: block; width: 70px; z-index: 2;}
     #sidebar ul li span:nth-child(2) { display: none;}
@@ -79,7 +80,7 @@
     #sidebar ul li a { text-align: center;}
     .main-content{margin-left: 40px;}}
 /* set element styles for desktop */
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
     #sidebar { width: 220px; margin-top: 50px;}
     #sidebar ul li span:nth-child(2) { display: inline-block;}
     #sidebar ul li i  { font-size: 16px;}

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
+
 #head-height{height: 40px;}
-=======
+
 .tableFixHead    { overflow-y: auto; height: 100px; }
 .tableFixHead td { position: sticky; left: 0; }
-
-/* Just common table stuff. Really. */
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; }
-th     { background:#eee; }
->>>>>>> 6055c997962c6116d184f8dfd82373f5f223166a
+#address-card{margin-left: -17px; margin-top: -12px;height: 160px}

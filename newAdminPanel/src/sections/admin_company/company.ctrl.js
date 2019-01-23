@@ -12,6 +12,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
       $scope.vendorRequirementBool=false;
       $scope.itemCheckBool=false;
       $scope.assignedBool=false;
+      $scope.invoiceBool = false;
       $scope.companySettingsBool=false;
       $scope.empFeedbackBool=false;
       $scope.clientMonthlyDetailsBool=false; 
@@ -37,27 +38,28 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
             $timeout(function(){location.href=exportHref;},500); // trigger download
         }
 
-      //        $scope.exportToPdf = function(){
-      //   html2canvas(document.getElementById('feedback'), {
-      //       onrendered: function (canvas) {
-      //           var data = canvas.toDataURL();
-      //           var docDefinition = {
-      //               content: [{
-      //                   image: data,
-      //                   width: 1000,
-      //               }]
-      //           };
-      //           pdfMake.createPdf(docDefinition).download("feedback.pdf");
-      //           pdfMake.createPdf(docDefinition).download("feedback.pdf");
-      //       }
-      //   });
-      // }
+             $scope.exportToPdf = function(){
+        html2canvas(document.getElementById('invoice'), {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500,
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("invoice.pdf");
+                pdfMake.createPdf(docDefinition).download("invoice.pdf");
+            }
+        });
+      }
 
     // ==================== getCompProfileUrl==============
 
     var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
       $http.get(getCompProfileUrl).then(function (response) {
         $scope.cmpyName = response.data.data.company.companyName;
+        $scope.cmpyAddress = response.data.data.company.address;
         $scope.data = response.data.data.company;
       });
       // ==================== All Vender list==============
@@ -202,16 +204,16 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
             console.log('inside remove function 2', JSON.stringify(menuDetails));
         };
 
-        $scope.checkAll = function () {
-            if (!$scope.selectedAll) {
-                $scope.selectedAll = true;
-            } else {
-                $scope.selectedAll = false;
-            }
-            angular.forEach($scope.menuDetails, function (menuDetail) {
-                menuDetail.selected = $scope.selectedAll;
-            });
-        };
+        // $scope.checkAll = function () {
+        //     if (!$scope.selectedAll) {
+        //         $scope.selectedAll = true;
+        //     } else {
+        //         $scope.selectedAll = false;
+        //     }
+        //     angular.forEach($scope.menuDetails, function (menuDetail) {
+        //         menuDetail.selected = $scope.selectedAll;
+        //     });
+        // };
 
         //===========show hide for additional requirement checkbox============
 
