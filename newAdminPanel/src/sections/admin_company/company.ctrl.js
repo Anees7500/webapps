@@ -38,22 +38,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
             $timeout(function(){location.href=exportHref;},500); // trigger download
         }
 
-             $scope.exportToPdf = function(){
-        html2canvas(document.getElementById('invoice'), {
-            onrendered: function (canvas) {
-                var data = canvas.toDataURL();
-                var docDefinition = {
-                    content: [{
-                        image: data,
-                        width: 500,
-                    }]
-                };
-                pdfMake.createPdf(docDefinition).download("invoice.pdf");
-                pdfMake.createPdf(docDefinition).download("invoice.pdf");
-            }
-        });
-      }
-
     // ==================== getCompProfileUrl==============
 
     var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
@@ -92,7 +76,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
         var jj = {};
         jj.items = $scope.itemCheckList;
         tempOb.data = JSON.stringify(jj);
-        VendorassignService.saveCheckListIndb(tempOb);
+        VendorassignService.saveCheckListIndb(tempOb); 
       }
 
    // ================== Configuration ===============//
@@ -210,18 +194,6 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
             console.log('inside remove function 2', JSON.stringify(menuDetails));
         };
 
-        // $scope.checkAll = function () {
-        //     if (!$scope.selectedAll) {
-        //         $scope.selectedAll = true;
-        //     } else {
-        //         $scope.selectedAll = false;
-        //     }
-        //     angular.forEach($scope.menuDetails, function (menuDetail) {
-        //         menuDetail.selected = $scope.selectedAll;
-        //     });
-        // };
-
-
         //===========show hide for additional requirement checkbox============
 
     
@@ -307,8 +279,7 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
                           { date: '1/04/2019',  day: 'Thursday'},
                           { date: '1/05/2019',  day: 'Friday'},
                           { date: '1/06/2019',  day: 'Saturday'},
-                          { date: '1/07/2019',  day: 'Sunday'},
-                          {  date: "3/01/2019", day: "Monday"}
+                          { date: '1/07/2019',  day: 'Sunday'}
                           ];
 
       $scope.getAmount = function(obj)
@@ -327,6 +298,31 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
       $scope.clientMonthlyDetailsSave = function()
       {
          console.log("client monthly reqs : ", JSON.stringify($scope.clientRequirement));
+      }
+      //====================== Excel==================================================
+      $scope.exportData = function () {
+                $('#clientMonthlyDetailsSave').tableExport({ type: 'json', escape: 'false' });
+            };
+            $scope.exportToExcel=function(tableId){ // ex: '#my-table'
+            var exportHref=Excel.tableToExcel(tableId,'WireWorkbenchDataExport');
+            $timeout(function(){location.href=exportHref;},500); // trigger download
+        }
+
+ //======================  Pdf ==================================================
+    $scope.exportToPdf = function(){
+        html2canvas(document.getElementById('invoice'), {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500,
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("invoice.pdf");
+                pdfMake.createPdf(docDefinition).download("invoice.pdf");
+            }
+        });
       }
         // =========================  vendor Monthly Details ======================================
 $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
