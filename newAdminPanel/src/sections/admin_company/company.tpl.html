@@ -117,7 +117,7 @@
           <div class="list-group custom-control custom-checkbox ">
             <div class="list-group-item" ng-repeat="category in categories">
              <div class="custom-control"  >
-              <input type="checkbox" ng-model="data[category.dbName]" >
+              <input type="checkbox"ng-model="data[category.dbName]" >
               <label class="checkbox-inline font-weight-normal"  >{{category.displayName}}</label>
             </div>
           </div>
@@ -209,8 +209,8 @@
                             <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled"
                             ng-model="menuDetail.columnName" required /></td>
                             <td>
-                                <a class="addnew pull-right ml-5 text-success z-depth-1" id="btn-bg" 
-                                ng-click="addNew(additionalReqDetails[category.dbName])">
+                                <a class="addnewRow pull-right ml-5 text-success z-depth-1" id="btn-bg" 
+                                ng-click="addNewRow(additionalReqDetails[category.dbName])">
                                 <i class="far fa-plus-square fa-2x"></i>
                               </a>
                               <a ng-hide="(!menuDetails.length > 1)" class="z-depth-1 text-danger pull-right ml-5" ng-if="!menuDetail.disabled"

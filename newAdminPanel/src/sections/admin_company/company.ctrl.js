@@ -197,7 +197,7 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
         };
 
 
-        $scope.addNew = function (menuDetails) {
+        $scope.addNewRow = function (menuDetails) {
             menuDetails.push({
                 'columnName': ""
             });
