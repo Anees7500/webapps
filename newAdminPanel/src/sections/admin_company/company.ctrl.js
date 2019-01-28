@@ -336,11 +336,10 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
    
      
      
-      
-   
+
     
-//vendor monthly details
-$scope.checkboxId=["brkfstCheck","lunchCkbox","snkCheck","dnrCheck","midngtCheck","erlyCheck","cshCheck"];
+//invoice details
+$scope.itemInvoice=["brkfstCheck","2","100","200"];
 
     }
     ]);

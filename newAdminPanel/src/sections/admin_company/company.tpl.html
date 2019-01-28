@@ -3,27 +3,27 @@
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
-  <header>
-    <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
-      
-     <a class="navbar-brand" href="" id="sidebarCollapse">
+ <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
+       <a class="navbar-brand" href="" id="sidebarCollapse">
        <div class="media">
         <img src="img/logo.png" class="img fixed-top rounded-circle mt-2 mr-3" width="35px">
         <div class="media-body">
           <span class="text-danger font-weight-normal ml-3"> Fancymonk</span>
         </div>
       </div></a>
+
       <!--=============================sidebar collapse============================-->
 
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo"
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo"
       aria-controls="navbardemo" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbardemo">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item dropdown mr-5">
-          <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
+          <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
           <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
             <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
@@ -32,92 +32,91 @@
         </li>
       </ul>
     </div>
+
   </nav>
-</header>
+
 
 
 <!--===================sidenavbar start=========================-->
 
 
-<nav id="sidebar" class="z-depth-1-half">
-
-  <ul class="list-unstyled components mt-5">
-    <li>
-      <a ng-click="boolFunction('configurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
+ <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
+  <ul class="list-unstyled components mt-3">
+    <li class="p-1">
+      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
     </li>
-    <li>
-      <a href=""  data-toggle="collapse" 
-      aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal"> Requirement</span><i class="fa fa-chevron-down ml-5"></i></a>
+    <li class="p-1">
+      <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse"  aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal h5"> Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
       <ul  class="collapse list-unstyled" id="pageSubmenu">
-        <li>
-          <a href="" ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
+        <li class="p-1">
+          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
             <span class="font-weight-normal">Client Requirement</span></a>
           </li>
 
-          <li>
-            <a href="" ng-click="boolFunction('vendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
+          <li class="p-1">
+            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
           </li>
 
         </ul>
       </li>
-      <li>
-        <a href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
+      <li class="p-1">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
 
       </li>
-      <li>
-        <a href=""  ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
+      <li class="p-1">
+        <a class="text-dark d-block text-decoration-none" href=""  ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
       </li>
-      <li>
-        <a href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
+      <li class="p-1">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
       </li>
 
-      <li>
-       <a href=""  data-toggle="collapse" 
-       aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fa fa-chevron-down ml-5"></i></a>
+      <li class="p-1">
+       <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse" aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fas fa-chevron-down ml-5"></i></a>
        <ul  class="collapse list-unstyled" id="pageSubmenu1">
-        <li>
-          <a href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
+        <li class="p-1">
+          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
         </li>
 
-        <li>
-          <a href="" ng-click="boolFunction('vendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
+        <li class="p-1">
+          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
             <span class="font-weight-normal">Vendor Monthly Details</span></a>
           </li>
         </ul>
       </li>
-      <li>
-        <a href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span></a>
+      <li class="p-1">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span></a>
       </li>
 
-      <li>
-        <a href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+      <li class="p-1">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
       </li>
-      <li>
-        <a href="" ng-click="boolFunction('companySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
+      <li class="p-1">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
       </li>
     </ul>
   </nav>
 
     
   <!--============================main content stat=====================================-->
-  <div class="main-content">
+        <!-- Page Content  -->
+      <div id="content" class="mt-5"> 
   
 
    <!--=============configuration start====================-->
 
    <div ng-if="configurationBool">
 
-     <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-       <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
+   <nav class="navbar navbar-expand-lg">
+  <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
             Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
           <a href="" class="w-clr">category</a></small></h6>
-      </nav>
+  </nav>
     <div class="container">
 
      <!--=============Category start====================-->
-        <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
-        <form class="border  z-depth-1  mb-5 ml-5" id="form-lenght"> 
+        <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3 mt-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
+        <form class="border  z-depth-1  mb-5 ml-3" id="form-lenght"> 
           <div class="list-group custom-control custom-checkbox ">
             <div class="list-group-item" ng-repeat="category in categories">
              <div class="custom-control"  >
@@ -132,8 +131,8 @@
       </form>
 
       <!--===========================working days==================================-->
-      <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-5"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
-      <form class="border  z-depth-1 mb-5 ml-5 font-weight-normal font-small " >
+      <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
+      <form class="border  z-depth-1 mb-5 ml-3 font-weight-normal font-small " >
         <label class="checkbox-inline mr-3 ml-3  " id="label-margin-padding"  ng-repeat="week in workingDays">
           <input type="checkbox"  ng-model="week.Selected"   > {{week.day}}</label>
 
@@ -147,8 +146,8 @@
 
 
         <!--===========================Invoice date==================================-->
-        <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-5 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoicing Date</h4>
-        <div class=" border ml-5 mb-5 z-depth-1 font-weight-normal font-small">
+        <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i> Invoicing Date</h4>
+        <div class=" border ml-3 mb-5 z-depth-1 font-weight-normal font-small">
           <form class=" form-inline">
            <div class="form-group">
             <div class="custom-control custom-checkbox">
@@ -183,19 +182,19 @@
 
 
     <h4 class="text-white font-weight-bold ">
-      <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-5 ">
-        <input type="checkbox" class="custom-control-input ml-5" id="AdditionalRequirements" ng-click="showHide();" >
+      <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3 ">
+        <input type="checkbox" class="custom-control-input ml-3" id="AdditionalRequirements" ng-click="showHide();" >
         <label class="custom-control-label mr-5 ml-3" for="AdditionalRequirements"  >Additional Requirements</label>
       </div></h4>
 
-      <div class=" ml-5 " id="form-lenght" ng-if="isVisible">
+      <div class=" ml-3 " id="form-lenght" ng-if="isVisible">
         <div ng-repeat="category in categories" ng-if="data[category.dbName]">
           <div class="custom-control ml-3 z-depth-1  grey lighten-4 mb-3 h-80">
             <input type="checkbox" ng-model="category.additionalReqToggle">
             <label class="checkbox-inline font-weight-normal"  >{{category.displayName}}</label>
           </div>
           <div ng-if="category.additionalReqToggle">
-           <div class="mt-3 ml-5">
+           <div class="mt-3 ml-3">
             <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="panel-body" id="row-width">
@@ -238,15 +237,17 @@
 
     </div>
   </div>
+
  <!-- ==============================================Client RequirementBool start================ -->
  <div ng-if="clientRequirementBool">
+
   <nav class="navbar navbar-expand-lg  mb-5 " id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
             Home</a> <a class="w-clr">/</a><a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
           <a href="" class="w-clr">client requirement</a></small></h6>
       </nav>
  <div class="container" >
-  <div class="table-responsive-sm table-responsive-md table-responsive-lg ml-3"
+  <div class="table-responsive-sm table-responsive-md table-responsive-lg"
     ng-repeat="category in categories" ng-if="data[category.dbName]">
     <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
     <table class="table table-bordered w-auto ml-3 ">
@@ -288,7 +289,7 @@
           <a href="" class="w-clr">vendor requirement</a></small></h6>
       </nav>
 <div class="container">
- <div class="table-responsive-sm table-responsive-md table-responsive-lg ml-3"
+ <div class="table-responsive-sm table-responsive-md table-responsive-lg"
  ng-repeat="category in categories" ng-if="data[category.dbName]">
  <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
  <table class="table table-bordered w-auto ml-3">
@@ -326,7 +327,7 @@
 </div>
 
 
-  <!-- ==============================================Item Check start================ -->
+<!-- ==============================================Item Check start================ -->
   <div ng-if="itemCheckBool">
      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
@@ -334,8 +335,8 @@
           <a href="" class="w-clr">item checklist</a></small></h6>
       </nav>
     <div class="container posiborder">
-  <h4 class="text-center font-weight-normal text-white border cyan accent-4 display-18 ml-5">Enter the Requirements Stuff</h4>
-  <ul class="list-inline ml-5">
+  <h4 class="text-center font-weight-normal text-white border cyan accent-4 display-18 ">Enter the Requirements Stuff</h4>
+  <ul class="list-inline">
   <li class="list-inline-item ml-3" ng-repeat="item in itemCheckList">
     <label for="number" class="font-weight-normal" ng-click="toggle(item, itemCheckList)">
           {{ item.itemName }}</label>
@@ -348,8 +349,6 @@
 
 </div>
 
-
-
 <!-- ==============================================Assigned start================ -->
 
 <div ng-if="assignedBool">
@@ -358,8 +357,8 @@
     Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
     <a href="" class="w-clr">assigned</a></small></h6>
   </nav>
-  <div class="container col-lg-12">
-    <div class="row ml-5  mr-0" id="menu-top"> 
+  <div class="container">
+    <div class="row ml-3  mr-0" id="menu-top"> 
       <div ng-repeat="assign in categories">
        <div class=" col-xl-3 col-md-6  w-50" >
         <div class="card bg-info mt-5 h-50 btn-outline-info waves-effect hoverable " id="col-width">
@@ -400,6 +399,8 @@
 </div>
 </div>
 </div>
+
+
 <!-- ==============================================EmpFeedback start================ -->
 <div ng-if="empFeedbackBool">
  <nav class="navbar navbar-expand-lg  mb-5 mt-1">
@@ -407,7 +408,8 @@
             Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
           <a href="" class="w-clr">employee feedback</a></small></h6>
       </nav>
-<div class="ml-5 mr-5">
+  <div class="container">
+
   <button class="ml-3" ng-click="exportToExcel('#feedback')">XLS</button>
   <table class="table border table-hover ml-3" id="feedback">
   <thead>
@@ -455,10 +457,7 @@
 </div>
 </div>
 
-
-
-
-     <!-- ==========================================ClientMonthly Details start================ -->
+<!-- ==========================================ClientMonthly Details start================ -->
        <div ng-if="clientMonthlyDetailsBool">
         <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
@@ -466,12 +465,11 @@
           <a href="" class="w-clr">clientMonthly details</a></small><h6>
       </nav>
 
-      <button class="d-inline ml-5" ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
+      <button type="button" class="btn btn-outline-info m-auto d-block" ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
       
   
-         <div class="container" id="clientMonthlyDetailsSave">
-        <div class="table-responsive-sm table-responsive-md table-responsive-lg ml-5"
-    ng-repeat="category in categories" ng-if="data[category.dbName]">
+        <div class="container " id="clientMonthlyDetailsSave">
+        <div class="table-responsive-sm table-responsive-md table-responsive-lg" ng-repeat="category in categories" ng-if="data[category.dbName]">
     <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
     <table class="table table-bordered w-auto ml-3 ">
       <thead>
@@ -505,18 +503,19 @@
   </tbody>
 </table>
 </div>
-      </div>
-         
-    </div>
-    <!-- ========================================Vendor Monthly Details start================ -->
+ </div>    
+</div>
+
+
+ <!-- ========================================Vendor Monthly Details start================ -->
                       
 <div ng-if="vendorMonthlyDetailsBool">
   <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
-            Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+            Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr"></a>
           <a href="" class="w-clr">vendorMonthly details</a></small></h6>
       </nav>
-  <div class="container position-fixed ">
+       <div class="container position-fixed ml-3">
   <div class="table-responsive ml-5">
    <table id="dtBasicExample" class="table table-bordered table-sm mr-3" cellspacing="0" width="100%">
     <thead>
@@ -581,6 +580,7 @@
 </div>
 </div>
 
+
 <!----------===============================invoice=================================-->
 <div ng-if="invoiceBool">
  <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
@@ -599,7 +599,7 @@
     <div class="col-md-6 col-sm-12 ml-3">
       <div class="media">
         <img src="img/comp_logo.jpg" class="img-responsive borderless mt-2 d-flex align-self-center" width="65px">
-        <span class="h4 font-weight-bold ml-3 font-weight-normal pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES PVT. LTD.</span>
+        <span class="h5 font-weight-bold ml-3 font-weight-normal pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES PVT. LTD.</span>
       </div>
     </div>
   </div>
@@ -662,7 +662,7 @@
 </div>
 <hr class="ml-5 bg-dark">
 <div class="table-responsive-sm ml-3">
-    <table class="table table-borderless table-striped ml-3">
+    <table class="table table-borderless ml-3">
       <thead>
          <tr>
           <th class="h6 pink-text">Description</th>
@@ -673,24 +673,44 @@
    </thead>
    <tbody>
      <tr>
-       <td class="text-dark font-weight-bold">Veg Lunch</td>
-       <td class="font-weight-bold text-muted">263</td>
-       <td class="font-weight-bold text-muted">INR95.00</td>
-       <td class="font-weight-bold text-muted">INR24,985.00</td>
-     </tr>
-     <tr>
-       <td class="font-weight-bold text-muted">Egg</td>
-       <td class="font-weight-bold text-muted">80</td>
-       <td class="font-weight-bold text-muted">INR10.00</td>
-       <td class="font-weight-bold text-muted">INR800.00</td>
-     </tr>
+       <td class="text-dark font-weight-bold">
+          <form>
+      <div class="form-group">
+       <input type="text" class="form-control border-0" value="Veg Lunch">
+     </div>
+   </form>
+    </td>
+
+     <td class="text-dark font-weight-bold">
+          <form>
+      <div class="form-group">
+       <input type="text" class="form-control border-0" value="263">
+     </div>
+   </form>
+    </td>
+
+     <td class="text-dark font-weight-bold">
+          <form>
+      <div class="form-group">
+       <input type="text" class="form-control border-0" value="INR95.00">
+     </div>
+   </form>
+    </td>
+
+     <td class="text-dark font-weight-bold">
+          <form>
+      <div class="form-group">
+       <input type="text" class="form-control border-0" value="INR24,985.00">
+     </div>
+   </form>
+    </td>
    </tbody>
  </table>
 </div>
 <hr class="ml-5 bg-dark">
 <div class="row">
   <div class="col-md-5"></div>
-   <div class="col-md-3">
+   <div class="col-md-3 text-center">
      <table class="table table-borderless ml-3">
       <tbody>
         <tr>
@@ -708,7 +728,7 @@
       </tbody>
     </table>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 text-center">
     <table class="table table-borderless ml-3">
       <tbody>
         <tr>
@@ -740,10 +760,8 @@
   </p>
 </div>
 </div>
-
 </div>
 </div>
-                  
 
 
 
@@ -755,7 +773,7 @@
           <a href="" class="w-clr">dispatch details</a></small></h6>
       </nav>
       <div class="container">
-  <div class="table-responsive container mt-5 ml-3">
+  <div class="table-responsive container mt-5">
     <table class="table table-hover">
       <thead>
         <tr class="aqua-gradient">
@@ -787,50 +805,69 @@
     <h3 ng-show="!yesterdayStatus_5.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
   </div>
  </div>
-
 </div>
+
 <!-- ==============================================Company Settings start================ -->
 <div ng-if="companySettingsBool">
   <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
       <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
             Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
-          <a href="" class="w-clr">company setting</small></a></h6>
+          <a href="" class="w-clr">company setting </a></small></h6>
       </nav>
- <div class="container mt-5">
-    <div class="ml-5 font-weight-normal">
-    <form class="border mb-5 grey lighten-5" id="row-top">
-      <div class="row ml-3" >
-        <div class="col-md-5 col-sm-7 mt-3">
-          <label for="usr" class="mt-1">Contact Person Name</label>
-          <input type="text" class="form-control btn-outline-info waves-effect" id="check-width"placeholder="Enter Contact Person Name" required ng-model="place.companyName">
-          <label for="usr" class="mt-1">Contact Number</label>
-          <input type="text" class="form-control btn-outline-info waves-effect" id="check-width" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
-          <label for="comment" class="mt-1">Address</label>
-          <textarea class="form-control btn-outline-info waves-effect" placeholder="Enter Your Address" id="check-width" name="address" required ng-model="place.address" ></textarea>
-           <label for="usr" class="mt-1">GST Number</label>
-          <input type="text" class="form-control btn-outline-info waves-effect" placeholder="Set Username" id="check-width"><br>
-        </div>
+        <div class="container">
+           <form class="border mb-5 grey lighten-5">
+              <div class="row ml-3" >
+              <div class="col-md-5 col-sm-7 mt-3">
+            <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="firstname" id="person-name" required>
+                <label alt="Contact Person Name" for="person-name" placeholder="Enter Contact Person Name">Contact Person Name</label>
+            </div>
+            <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="lastname" id="Contact Number" required>
+                <label alt="Contact Number" for="Contact Number" placeholder="Enter Contact Number">Contact Number</label>
+            </div>
+            <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="address" id="address" required>
+                <label alt="Adresse" for="address" placeholder="Enter Your Company Address">Address</label>
+            </div>
         
-      
-    <div class="col-md-5 col-sm-4 mt-3">
-          <label for="usr">Set Mobile App Username</label>
-          <input type="text" class="form-control btn-outline-info waves-effect" placeholder="Set Username" id="check-width"><br>
-          <label for="usr">Set Mobile App Password</label>
-          <input type="text" class="form-control mb-3 btn-outline-info waves-effect" id="check-width" placeholder="Set App Password" >
-          <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom">
+            <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="GST Number" id="GST Number" required>
+                <label alt="GST Number" for="GST Number" placeholder="Enter GST Number">GST Number</label>
+            </div>
+           
+ </div>
+ <div class="col-md-5 col-sm-4 mt-3">
+   <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="GST Number" id="mobileUsername" required >
+                <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App Username</label>
+            </div>
+
+         <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="GST Number" id="mobilePassword" required>
+                <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App Password</label>
+            </div>
+
+             <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3">
           <div class="d-flex ">
-            <input type="file" ng-file-select="onFileSelect($files)" ng-model="imageSrc">    
+            <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">    
           </div>
-        </div>
-      </div>
-        <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal" submit-required="true" ng-click="" id="btn-margin">Save</button>
+ </div>
+
+</div>
+ <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 mt-5 font-weight-normal" submit-required="true" ng-click="" id="btn-margin">Save</button>
 </form>
-  </div>
+
 </div>
 </div>
 
+ </div>
+</div>
 
-</td></tr></tbody></table></div></div>
-
-
-
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
