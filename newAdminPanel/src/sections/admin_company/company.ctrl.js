@@ -309,21 +309,30 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
         }
 
  //======================  Pdf ==================================================
-    $scope.exportToPdf = function(){
-        html2canvas(document.getElementById('invoice'), {
-            onrendered: function (canvas) {
-                var data = canvas.toDataURL();
-                var docDefinition = {
-                    content: [{
-                        image: data,
-                        width: 500,
-                    }]
-                };
-                pdfMake.createPdf(docDefinition).download("invoice.pdf");
-                pdfMake.createPdf(docDefinition).download("invoice.pdf");
-            }
-        });
-      }
+ $scope.exportToPdf = function(){
+  html2canvas(document.getElementById('invoice'), {
+    onrendered: function (canvas) {
+      var data = canvas.toDataURL();
+      var docDefinition = {
+        content: [{
+          image: data,
+          width: 500,
+          pageSize: 'LEGAL',
+          extend: 'pdfHtml5',
+         orientation: 'landscape',
+         layout: 'noBorders',
+
+        }]
+      };
+                 // var doc = new jsPDF('p', 'mm', 'a4');
+                 //  var position = 0;
+                 pdfMake.createPdf(docDefinition).download("invoice.pdf");
+                 pdfMake.createPdf(docDefinition).download("invoice.pdf");
+               }
+             });
+}
+
+        
         // =========================  vendor Monthly Details ======================================
 $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },
                           {  Date: '1/02/2019', Day: 'TUESDAY',   Pax: '12', Price: '10', Amount: '120' },

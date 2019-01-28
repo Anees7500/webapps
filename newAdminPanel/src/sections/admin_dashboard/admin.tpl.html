@@ -60,9 +60,6 @@
 <li>
   <a href="" ng-click="boolFunction('addNewCompanyBool')"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
 </li>
-<li>
-  <a href=""><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Check Confirmation</span></a>
-</li>
 </ul>
 </nav>
 
@@ -212,6 +209,12 @@
   
  </div>
 
+<!-- ====================== Add-New-Company ================================== -->
+ <div  ng-if="assignedVendorListBool" > 
+        <nav class="navbar navbar-expand-lg  mb-3 mt-1 ml-5" id="head-height">
+        </nav>
+        
+ </div>
 
  <!-- ====================== Add-New-Company ================================== -->
  <div  ng-if="addNewCompanyBool" > 
