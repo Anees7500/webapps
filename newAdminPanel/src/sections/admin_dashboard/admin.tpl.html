@@ -113,14 +113,14 @@
 <!-- ===============================-Assigned company=============================== -->
     <div ng-if="assignedCompanyBool">
  <nav class="navbar navbar-expand-lg">
-  <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Unassigned company</a></h6>
+  <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>assigned company</a></h6>
   <form class="form-inline my-2 my-lg-0 ml-auto">
     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
   </form>
 </nav>
     <div class="container"> 
         <div class="row ml-3 mr-0">
-            <div ng-repeat=" cpny in unassignedCompanies | filter:search">
+            <div ng-repeat=" cpny in assignedCompany | filter:search">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
@@ -154,7 +154,7 @@
     </form>
       </nav>
       <div class="container">
-      <div class="row  mr-0 ml-sm-5 ml-xs-5">
+      <div class="row  mr-0 ml-3">
        <div ng-repeat="cpny in unassignedCompanies  | filter:search">
 
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -188,7 +188,7 @@
     </form>
       </nav>
       <div class="container">
-      <div class="row  mr-0 ml-sm-5 ml-xs-5">
+      <div class="row  mr-0 ml-sm-3 ml-xs-3">
        <div ng-repeat="vendor in AllVendorslist | filter:search">
 
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -221,69 +221,73 @@
       <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
       </nav>
-         <div class="container">
-  <div ng-controller="newPlaceCtrl">
+     <div class="container ">
+  <div  class="ml-5">
     <form name="resForm" class="border mr-5 form-horizontal" novalidate ng-submit="send()">
       <div class="row ml-0 mr-0">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-          <div class="map-center">
-            <div id="map"><input class="form-control" >
-
-          </div>
-        </div>        
+        <div class="h5 ">Maps container</div>       
       </div>
 </div>
+</form>
       <!--Google Maps-->
       <form class="border mr-5">
         <div class="row mt-5 ml-0 mr-0">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <label for="usr">Company Name</label>
-            <input type="text" class="form-control" ng-disabled=""placeholder="Company Name" ng-model="place.companyName">
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <label for="usr">  Latitude</label>
             <input type="number" class="form-control" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <label for="usr">Longitude</label>
             <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required>
           </div>
 
-
+         </div>
           <div class="row mt-3 ml-0 mr-0">
-            <div class="col-md-6 col-sm-6">
-              <label for="usr">Contact Person Name</label>
-              <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
-              <label for="usr">Contact Number</label>
-              <input type="text" class="form-control mb-3" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
-              <label for="comment">Address</label>
-              <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
+
+           <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <label for="usr">Company Name</label>
+            <input type="text" class="form-control" ng-disabled=""placeholder="Company Name" ng-model="place.companyName">
+          </div>
+
+            <div class="col-md-5 col-sm-5">
               <label for="usr">GST Number</label>
               <input type="text" class="form-control mb-3" placeholder="Enter GST Number"  required ng-model="place.gstNumber">
             </div>
-            <div class="col-md-6 col-sm-6 mt-3">
-
-              <div class="z-depth-1-half w-75 ml-5">
-                <img src="img/upload.png" class="img-fluid img-height m-auto d-block" alt="example placeholder">
-              </div>
-              <div class="d-flex justify-content-center">
-                <div class="btn btn-mdb-color btn-rounded float-left">
-                  <span>Choose file</span>
-                  <input type="file" ngf-select="onFileSelect($files)" multiple>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
+           <div class="row mt-3 ml-0 mr-0">
+              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <label for="usr">Contact Person Name</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
+              </div>
+
+               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <label for="usr">Contact Number</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
+               </div>
+               </div>
+                <div class="row mt-3 ml-0 mr-0">
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <label for="comment">Address</label>
+              <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
+                  </div>
+           <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3">
+          <div class="d-flex ">
+            <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">    
+          </div>
+            </div>
+          </div> 
+        
 
 
-        <button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-5">Submit</button>
+        <button type="button" class="btn btn-outline-default waves-effect mb-5 mt-5" id="btn-block">Submit</button>
 
       </form>
 
-    </form>  
+   
   </div>
 </div>
  </div>
