@@ -2,22 +2,18 @@
 
  <!-- ===============================header navbar start=============================== -->
  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
-       <a class="navbar-brand" href="" id="sidebarCollapse">
-       <div class="media">
-        <img src="img/logo.png" class="img fixed-top rounded-circle mt-2 mr-3" width="35px">
+ <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
+  <div class="media">
+        <i class="fa fa-th-list mt-1"></i>
         <div class="media-body">
-          <span class="text-danger font-weight-normal ml-3"> Fancymonk</span>
+          <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
         </div>
       </div></a>
-
       <!--=============================sidebar collapse============================-->
 
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo"
-      aria-controls="navbardemo" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button"aria-expanded="false" aria-label="Toggle navigation">
     </button>
-    <div class="collapse navbar-collapse" id="navbardemo">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -25,11 +21,8 @@
           <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
             <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-
-          </div>
         </li>
       </ul>
-    </div>
 
   </nav>
 
@@ -40,30 +33,30 @@
   <!-- ===========================-sidebar start===================================== -->
         <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
   <ul class="list-unstyled components mt-3">
-    <li class="p-1">
+    <li class="p-2">
      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('companyBool')" href="" ><i class="fas fa-building fa-fw "></i> <span class="font-weight-normal"> Companies</span><span class="badge badge-pill badge-danger ml-2">{{allCompanies.length}}</span></a>
    </li>
-   <li class="p-1">
+   <li class="p-2">
     <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i class="fas fa-check-square fa-fw "></i> <span class="font-weight-normal"> Assigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
   </li>
-  <li class="p-1">
+  <li class="p-2">
    <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedCompanyBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal"> Unassigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
  </li>
- <li class="p-1">
+ <li class="p-2">
   <a class="text-dark d-block text-decoration-none" href=""  ng-click="boolFunction('vendorListBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Vendors</span><span class="badge badge-pill badge-danger ml-2">{{AllVendorslist.length}}</span></a>
 </li>
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedVendorListBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal"> Assigned Vendors</span><span class="badge badge-pill badge-danger ml-2">{{assignedVendorslist.length}}</span></a>
 </li>
 
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedVendorListBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal"> Unassigned Vendors</span><span class="badge badge-pill badge-danger ml-2">{{unassignedVendorslist.length}}</span></a>
 </li>
 
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
 </li>
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href=""><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Check Confirmation</span></a>
 </li>
 </ul>
@@ -78,7 +71,7 @@
           <nav class="navbar navbar-expand-lg">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>home</a></h6>
           <form class="form-inline my-2 my-lg-0 ml-auto">
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
   </form>
     </nav>
           <div class="container"> 
@@ -115,7 +108,7 @@
  <nav class="navbar navbar-expand-lg">
   <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>assigned company</a></h6>
   <form class="form-inline my-2 my-lg-0 ml-auto">
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
   </form>
 </nav>
     <div class="container"> 

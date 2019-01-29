@@ -3,23 +3,19 @@
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
- <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
-       <a class="navbar-brand" href="" id="sidebarCollapse">
-       <div class="media">
-        <img src="img/logo.png" class="img fixed-top rounded-circle mt-2 mr-3" width="35px">
+<nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
+ <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
+  <div class="media">
+        <i class="fa fa-th-list mt-1"></i>
         <div class="media-body">
-          <span class="text-danger font-weight-normal ml-3"> Fancymonk</span>
+          <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
         </div>
       </div></a>
-
       <!--=============================sidebar collapse============================-->
 
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo"
-      aria-controls="navbardemo" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button"aria-expanded="false" aria-label="Toggle navigation">
     </button>
-    <div class="collapse navbar-collapse" id="navbardemo">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -27,14 +23,10 @@
           <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
             <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-
-          </div>
         </li>
       </ul>
-    </div>
 
   </nav>
-
 
 
 <!--===================sidenavbar start=========================-->
@@ -42,12 +34,12 @@
 
  <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
   <ul class="list-unstyled components mt-3">
-    <li class="p-1">
+    <li class="p-2">
       <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
     </li>
-    <li class="p-1">
-      <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse"  aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal h5"> Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
+    <li class="p-2">
+      <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse"  aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal "> Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
       <ul  class="collapse list-unstyled" id="pageSubmenu">
         <li class="p-1">
           <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
@@ -60,38 +52,38 @@
 
         </ul>
       </li>
-      <li class="p-1">
+      <li class="p-2">
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
 
       </li>
-      <li class="p-1">
+      <li class="p-2">
         <a class="text-dark d-block text-decoration-none" href=""  ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
       </li>
-      <li class="p-1">
+      <li class="p-2">
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
       </li>
 
-      <li class="p-1">
+      <li class="p-2">
        <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse" aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fas fa-chevron-down ml-5"></i></a>
        <ul  class="collapse list-unstyled" id="pageSubmenu1">
-        <li class="p-1">
+        <li class="p-2">
           <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
         </li>
 
-        <li class="p-1">
+        <li class="p-2">
           <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
             <span class="font-weight-normal">Vendor Monthly Details</span></a>
           </li>
         </ul>
       </li>
-      <li class="p-1">
+      <li class="p-2">
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span></a>
       </li>
 
-      <li class="p-1">
+      <li class="p-2">
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
       </li>
-      <li class="p-1">
+      <li class="p-2">
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
       </li>
     </ul>
@@ -117,15 +109,13 @@
      <!--=============Category start====================-->
         <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3 mt-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> Category</h4>
         <form class="border  z-depth-1  mb-5 ml-3" id="form-lenght"> 
-          <div class="list-group custom-control custom-checkbox ">
+          <div class="list-group ">
             <div class="list-group-item" ng-repeat="category in categories">
-             <div class="custom-control"  >
-              <input type="checkbox"ng-model="data[category.dbName]" >
+            <!--  <div class="custom-control"  > -->
+              <input type="checkbox" ng-model="data[category.dbName]" >
               <label class="checkbox-inline font-weight-normal"  >{{category.displayName}}</label>
             </div>
-          </div>
-
-
+        <!--   </div> -->
         </div>
         <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
       </form>
@@ -133,11 +123,10 @@
       <!--===========================working days==================================-->
       <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3"><i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
       <form class="border  z-depth-1 mb-5 ml-3 font-weight-normal font-small " >
-        <label class="checkbox-inline mr-3 ml-3  " id="label-margin-padding"  ng-repeat="week in workingDays">
-          <input type="checkbox"  ng-model="week.Selected"   > {{week.day}}</label>
-
-          <span class="font-weight-normal">
-           <input type="checkbox" ng-click="selectAll()">Select all</span><br>
+        <label class=" mr-3 ml-3 mt-3 h5 font-weight-normal "  ng-repeat="week in workingDays">
+          <input type="checkbox"  ng-model="week.Selected" id="zoom" > {{week.day}}</label>
+           <span class="font-weight-normal h5">
+           <input type="checkbox" ng-click="selectAll()" class="h5">Select all</span><br>
 
           <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block" id="btn-margin"submit-required="true" ng-click="wrkDayGetVl()" >Save</button>
         </form>
@@ -191,7 +180,7 @@
         <div ng-repeat="category in categories" ng-if="data[category.dbName]">
           <div class="custom-control ml-3 z-depth-1  grey lighten-4 mb-3 h-80">
             <input type="checkbox" ng-model="category.additionalReqToggle">
-            <label class="checkbox-inline font-weight-normal"  >{{category.displayName}}</label>
+            <label class="checkbox-inline font-weight-normal  grey lighten-4"  >{{category.displayName}}</label>
           </div>
           <div ng-if="category.additionalReqToggle">
            <div class="mt-3 ml-3">
@@ -427,7 +416,7 @@
   </tr>
 </thead>
 <tbody>
- <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
+ <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse "> 
   <td class="text-center font-weight-normal">{{feed.reviewerName}}</td>
   <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
   <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
@@ -472,9 +461,11 @@
       
   
         <div class="container " id="clientMonthlyDetailsSave">
-        <div class="table-responsive-sm table-responsive-md table-responsive-lg" ng-repeat="category in categories" ng-if="data[category.dbName]">
-    <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
-    <table class="table table-bordered w-auto ml-3 ">
+        <div  ng-repeat="category in categories" ng-if="data[category.dbName]">
+    <!-- <h6 class="custom-control font-weight-bold text-white cyan accent-4 form-control-sm custom-checkbox ml-3">{{category.displayName}}</h6> -->
+     <h6 class="font-weight-bold  text-white form-control cyan accent-4 ml-3 mt-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i> {{category.displayName}}</h6>
+     <div class="table-responsive">
+    <table class="table table-bordered w-auto ml-3">
       <thead>
        <tr>
         <th class="font-weight-bold" scope="col">Date</th>
@@ -490,21 +481,21 @@
       <th class="text-center font-weight-normal">{{dnd.date}}</th>
       <th class="text-center font-weight-normal">{{dnd.day}}</th>
       <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
-        <input  id="" 
-        ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" ng-init=0>
-      </td>
+        <input id="" class="form-control" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" ng-init=0>
+      </td> 
       <td class="text-center font-weight-normal" ng-repeat-end>
-        <input  id="" 
+     <input  id="" class="form-control" 
         ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price" >
-      </td>
+      </td> 
       <td class="text-center font-weight-normal">
-        <input id="" ng-model="clientRequirement[category.dbName][dnd.day].amount">
-      </td>
+    <input id="" class="form-control"  ng-model="clientRequirement[category.dbName][dnd.day].amount">
+      </td> 
       <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientMonthlyDetailsSave()">Save</button></td>
     </tr>
 
   </tbody>
 </table>
+</div>
 </div>
  </div>    
 </div>
@@ -608,7 +599,7 @@
   </div>
   <div class="row mt-5 ml-3">
     <div class="col-md-5 ml-3 ">
-     <p class="h6 font-weight-normal">#1722,First Floor, 19th Main Rd,<br>
+     <p class="h6 font-weight-bold">#1722,First Floor, 19th Main Rd,<br>
       Sector 2, HSR Layout,<br>
       Bengaluru, Karnataka 560102<br>
       PHONE: 9739684336<br>
@@ -668,10 +659,10 @@
     <table class="table table-borderless ml-3">
       <thead>
          <tr>
-          <th class="h6 pink-text">Description</th>
-          <th class="h6 pink-text">Qty</th>
-          <th class="h6 pink-text">Unit price</th>
-          <th class="h6 pink-text">Total price</th>
+          <th class="h6 pink-text ml-5">Description</th>
+          <th class="h6 pink-text ml-3">Qty</th>
+          <th class="h6 pink-text ml-3">Unit price</th>
+          <th class="h6 pink-text ml-3">Total price</th>
         </tr>
    </thead>
    <tbody>
@@ -754,7 +745,8 @@
 
 <div class="row ml-3 mt-3">
   <div class="col-md-7 ml-3">
-   <p class="h6 font-weight-normal">Account Details<br>
+    <h5 class="font-weight-bold">Account Details<br></h5>
+   <p class="h6 font-weight-bold">
     Company Name : Fancymonk Technologies Private Limited<br>
     Account Number : 0012020317<br>
     IFSC Code : KKBK0008040<br>

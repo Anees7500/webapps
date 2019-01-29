@@ -20,6 +20,8 @@
     "angular": "^1.7.5",
     "MDBootstrap": "^4.6.1",
     "html2canvas": "^0.4.1",
-    "pdfmake": "^0.1.40"
+    "pdfmake": "^0.1.40",
+    "components-font-awesome":"^5.4.2"
+   
   }
 }
