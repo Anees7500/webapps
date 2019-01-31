@@ -52,7 +52,7 @@ adminApp.controller('DashboardController', ['$scope', '$http','CompanydashboardS
       $http.get(getUnassignedCompanyUrl).then(function (response) {
         $scope.unassignedCompanies = response.data.data.companies;
          for(var i = 0; i < $scope.unassignedCompanies.length; i++)
-        {
+        { 
           $scope.unassignedCompanies[i].fileName = getImageUrl+ $scope.unassignedCompanies[i].fileName;
         }
       });

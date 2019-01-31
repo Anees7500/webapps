@@ -35,7 +35,14 @@ input:focus + label, input:valid + label{
   top: 0em;
   left: 2em;
 }
+ 
 
-/*<td >
-        <button type="button" class="btn btn btn-outline-default border-0 btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal" submit-required="true" id="btn-margin">Save</button>
-      </td>*/
+/*input[type=checkbox] {
+    zoom: 1.5;
+}
+*/
+input[type=checkbox] {
+  transform: scale(1.2);
+}
+
+
