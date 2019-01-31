@@ -181,7 +181,7 @@ $scope.workingDays = [ {  day: "Monday", Selected: false },
         };
 
 
-        $scope.addNew = function (menuDetails) {
+        $scope.addNewRow = function (menuDetails) {
             menuDetails.push({
                 'columnName': ""
             });
@@ -345,11 +345,10 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
    
      
      
-      
-   
+
     
-//vendor monthly details
-$scope.checkboxId=["brkfstCheck","lunchCkbox","snkCheck","dnrCheck","midngtCheck","erlyCheck","cshCheck"];
+//invoice details
+$scope.itemInvoice=["brkfstCheck","2","100","200"];
 
     }
     ]);

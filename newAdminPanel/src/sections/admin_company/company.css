@@ -1,10 +1,41 @@
-
+#drag-image{width: 300px;height: 100px;}
 #image{width:200px; height:100px;}
-
-
-#head-height{height: 40px;}
-
 .tableFixHead    { overflow-y: auto; height: 100px; }
 .tableFixHead td { position: sticky; left: 0; }
 #address-card{margin-left: -17px; margin-top: -12px;height: 160px}
 
+
+/*--------------------------company setting----------------*/
+
+.formfield>input, .formfield>label{
+  padding: 0.8em;
+  margin: 0.5em;
+  width: 100%;
+}
+.formfield>input{
+  border: 1px solid #00bafa;
+  border-radius: 1.5em;
+  outline: none;
+}
+.formfield>label{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  color: #ccc;
+}
+input:focus + label, input:valid + label{
+  color: black;
+  width: auto;
+  height: 1.3em;
+  padding: 0px 0.5em 0px 0.5em;
+  margin: 0px;
+  background: white;
+  transition: 0.2s ease-in-out;
+  top: 0em;
+  left: 2em;
+}
+
+/*<td >
+        <button type="button" class="btn btn btn-outline-default border-0 btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal" submit-required="true" id="btn-margin">Save</button>
+      </td>*/
