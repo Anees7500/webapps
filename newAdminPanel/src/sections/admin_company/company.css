@@ -37,6 +37,12 @@ input:focus + label, input:valid + label{
 }
  
 
-input[type=checkbox] {
+/*input[type=checkbox] {
     zoom: 1.5;
 }
+*/
+input[type=checkbox] {
+  transform: scale(1.2);
+}
+
+

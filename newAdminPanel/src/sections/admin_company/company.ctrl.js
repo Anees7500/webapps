@@ -84,7 +84,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
 
         $scope.categories = [
             { displayName: "Breakfast", dbName: "breakfast"},
-            { displayName: "Lunch", dbName: "lunch" },
+            { displayName: "Lunch", dbName: "lunch"},
             { displayName: "Snacks", dbName: "snacks"},
             { displayName: "Dinner", dbName: "dinner"},
             { displayName: "Mid-Night Snacks", dbName: "midNightSnacks"},
@@ -103,13 +103,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'VendorassignServic
 
     // ==================== Working days==============  
 
-$scope.workingDays = [ {  day: "Monday", Selected: false },
-                       {   day: "Tuesday", Selected: false },
-                       {   day: "Wednesday", Selected: false },
-                       {  day: "Thursday", Selected: false },
-                       {   day: "Friday", Selected: false },
-                       {   day: "Saturday", Selected: false },
-                       {  day: "Sunday", Selected: false } ];
+$scope.workingDays = [ {  day: "Monday", Selected: false , id: "1"},
+                       {   day: "Tuesday", Selected: false, id: "2" },
+                       {   day: "Wednesday", Selected: false, id: "3" },
+                       {  day: "Thursday", Selected: false, id: "4" },
+                       {   day: "Friday", Selected: false, id: "5" },
+                       {   day: "Saturday", Selected: false, id: "6" },
+                       {  day: "Sunday", Selected: false, id: "7" } ];
 
       $scope.selectAll = function(){
     angular.forEach($scope.workingDays, function(item){
@@ -334,7 +334,8 @@ $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Pri
                           { Date: '1/07/2019',  Day: 'SUNDAY',    Pax: '10', Price: '10', Amount: '100' }
                           ];
    
-     
+  $scope.clientMnthyDtls=["DATE","DAY","PAX","PRICE","AMOUNT","Name","Age",
+                          "contact","Address","Email","Telephone",""];
      
 
     
