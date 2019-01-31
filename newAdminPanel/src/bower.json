@@ -21,7 +21,7 @@
     "MDBootstrap": "^4.6.1",
     "html2canvas": "^0.4.1",
     "pdfmake": "^0.1.40",
+    "angular-ui-notification": "^0.3.6",
     "components-font-awesome":"^5.4.2"
-   
   }
 }
