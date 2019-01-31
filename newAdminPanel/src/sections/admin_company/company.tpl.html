@@ -535,7 +535,7 @@
               <tr ng-repeat="dnd in monthlyDateNDays">
                 <th class="text-center font-weight-normal">{{dnd.date}}</th>
                 <th class="text-center font-weight-normal">{{dnd.day}}</th>
-                <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
+                <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
                   <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" ng-init=0>
                 </td>
                 <td class="text-center font-weight-normal" ng-repeat-end>
