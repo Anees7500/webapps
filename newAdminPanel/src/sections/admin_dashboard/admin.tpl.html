@@ -2,22 +2,18 @@
 
  <!-- ===============================header navbar start=============================== -->
  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
-       <a class="navbar-brand" href="" id="sidebarCollapse">
-       <div class="media">
-        <img src="img/logo.png" class="img fixed-top rounded-circle mt-2 mr-3" width="35px">
+ <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
+  <div class="media">
+        <i class="fa fa-th-list mt-1"></i>
         <div class="media-body">
-          <span class="text-danger font-weight-normal ml-3"> Fancymonk</span>
+          <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
         </div>
       </div></a>
-
       <!--=============================sidebar collapse============================-->
 
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo"
-      aria-controls="navbardemo" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button"aria-expanded="false" aria-label="Toggle navigation">
     </button>
-    <div class="collapse navbar-collapse" id="navbardemo">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -25,11 +21,8 @@
           <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
             <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-
-          </div>
         </li>
       </ul>
-    </div>
 
   </nav>
 
@@ -40,30 +33,30 @@
   <!-- ===========================-sidebar start===================================== -->
         <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
   <ul class="list-unstyled components mt-3">
-    <li class="p-1">
+    <li class="p-2">
      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('companyBool')" href="" ><i class="fas fa-building fa-fw "></i> <span class="font-weight-normal"> Companies</span><span class="badge badge-pill badge-danger ml-2">{{allCompanies.length}}</span></a>
    </li>
-   <li class="p-1">
+   <li class="p-2">
     <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i class="fas fa-check-square fa-fw "></i> <span class="font-weight-normal"> Assigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
   </li>
-  <li class="p-1">
+  <li class="p-2">
    <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedCompanyBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal"> Unassigned Comp.</span><span class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
  </li>
- <li class="p-1">
+ <li class="p-2">
   <a class="text-dark d-block text-decoration-none" href=""  ng-click="boolFunction('vendorListBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Vendors</span><span class="badge badge-pill badge-danger ml-2">{{AllVendorslist.length}}</span></a>
 </li>
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedVendorListBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal"> Assigned Vendors</span><span class="badge badge-pill badge-danger ml-2">{{assignedVendorslist.length}}</span></a>
 </li>
 
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedVendorListBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal"> Unassigned Vendors</span><span class="badge badge-pill badge-danger ml-2">{{unassignedVendorslist.length}}</span></a>
 </li>
 
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
 </li>
-<li class="p-1">
+<li class="p-2">
   <a class="text-dark d-block text-decoration-none" href=""><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Check Confirmation</span></a>
 </li>
 </ul>
@@ -78,7 +71,7 @@
           <nav class="navbar navbar-expand-lg">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>home</a></h6>
           <form class="form-inline my-2 my-lg-0 ml-auto">
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
   </form>
     </nav>
           <div class="container"> 
@@ -113,14 +106,14 @@
 <!-- ===============================-Assigned company=============================== -->
     <div ng-if="assignedCompanyBool">
  <nav class="navbar navbar-expand-lg">
-  <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Unassigned company</a></h6>
+  <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>assigned company</a></h6>
   <form class="form-inline my-2 my-lg-0 ml-auto">
-    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+    <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
   </form>
 </nav>
     <div class="container"> 
         <div class="row ml-3 mr-0">
-            <div ng-repeat=" cpny in unassignedCompanies | filter:search">
+            <div ng-repeat=" cpny in assignedCompany | filter:search">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
@@ -154,7 +147,7 @@
     </form>
       </nav>
       <div class="container">
-      <div class="row  mr-0 ml-sm-5 ml-xs-5">
+      <div class="row  mr-0 ml-3">
        <div ng-repeat="cpny in unassignedCompanies  | filter:search">
 
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -188,7 +181,7 @@
     </form>
       </nav>
       <div class="container">
-      <div class="row  mr-0 ml-sm-5 ml-xs-5">
+      <div class="row  mr-0 ml-sm-3 ml-xs-3">
        <div ng-repeat="vendor in AllVendorslist | filter:search">
 
         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -221,69 +214,73 @@
       <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
     </form>
       </nav>
-         <div class="container">
-  <div ng-controller="newPlaceCtrl">
+     <div class="container ">
+  <div  class="ml-5">
     <form name="resForm" class="border mr-5 form-horizontal" novalidate ng-submit="send()">
       <div class="row ml-0 mr-0">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-          <div class="map-center">
-            <div id="map"><input class="form-control" >
-
-          </div>
-        </div>        
+        <div class="h5 ">Maps container</div>       
       </div>
 </div>
+</form>
       <!--Google Maps-->
       <form class="border mr-5">
         <div class="row mt-5 ml-0 mr-0">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <label for="usr">Company Name</label>
-            <input type="text" class="form-control" ng-disabled=""placeholder="Company Name" ng-model="place.companyName">
-          </div>
-
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <label for="usr">  Latitude</label>
             <input type="number" class="form-control" class="form-control" ng-disabled="true" ng-model="place.latitude" id="latitude" required>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <label for="usr">Longitude</label>
             <input type="number" class="form-control"id="lan" class="form-control" ng-disabled="true" ng-model="place.longitute" required>
           </div>
 
-
+         </div>
           <div class="row mt-3 ml-0 mr-0">
-            <div class="col-md-6 col-sm-6">
-              <label for="usr">Contact Person Name</label>
-              <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
-              <label for="usr">Contact Number</label>
-              <input type="text" class="form-control mb-3" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
-              <label for="comment">Address</label>
-              <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
+
+           <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <label for="usr">Company Name</label>
+            <input type="text" class="form-control" ng-disabled=""placeholder="Company Name" ng-model="place.companyName">
+          </div>
+
+            <div class="col-md-5 col-sm-5">
               <label for="usr">GST Number</label>
               <input type="text" class="form-control mb-3" placeholder="Enter GST Number"  required ng-model="place.gstNumber">
             </div>
-            <div class="col-md-6 col-sm-6 mt-3">
-
-              <div class="z-depth-1-half w-75 ml-5">
-                <img src="img/upload.png" class="img-fluid img-height m-auto d-block" alt="example placeholder">
-              </div>
-              <div class="d-flex justify-content-center">
-                <div class="btn btn-mdb-color btn-rounded float-left">
-                  <span>Choose file</span>
-                  <input type="file" ngf-select="onFileSelect($files)" multiple>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
+           <div class="row mt-3 ml-0 mr-0">
+              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <label for="usr">Contact Person Name</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required ng-model="place.companyName">
+              </div>
+
+               <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <label for="usr">Contact Number</label>
+              <input type="text" class="form-control mb-3" placeholder="Enter Contact Number"  required ng-model="place.companyPerson">
+               </div>
+               </div>
+                <div class="row mt-3 ml-0 mr-0">
+                  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <label for="comment">Address</label>
+              <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required ng-model="place.address"></textarea>
+                  </div>
+           <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+                <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3">
+          <div class="d-flex ">
+            <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">    
+          </div>
+            </div>
+          </div> 
+        
 
 
-        <button type="button" class="btn btn-outline-default waves-effect m-auto d-block mt-5">Submit</button>
+        <button type="button" class="btn btn-outline-default waves-effect mb-5 mt-5" id="btn-block">Submit</button>
 
       </form>
 
-    </form>  
+   
   </div>
 </div>
  </div>

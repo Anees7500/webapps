@@ -2,24 +2,19 @@
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
-  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
-    <a class="navbar-brand" href="" id="sidebarCollapse">
-      <div class="media">
-        <img src="img/logo.png" class="img fixed-top rounded-circle mt-2 mr-3" width="35px">
+<nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
+ <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
+  <div class="media">
+        <i class="fa fa-th-list mt-1"></i>
         <div class="media-body">
-          <span class="text-danger font-weight-normal ml-3"> Fancymonk</span>
+          <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
         </div>
-      </div>
-    </a>
-
-    <!--=============================sidebar collapse============================-->
+      </div></a>
+      <!--=============================sidebar collapse============================-->
 
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardemo" aria-controls="navbardemo"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button"aria-expanded="false" aria-label="Toggle navigation">
     </button>
-    <div class="collapse navbar-collapse" id="navbardemo">
       <ul class="navbar-nav ml-auto mr-3">
         <li class="nav-item dropdown mr-5">
           <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -27,35 +22,27 @@
           <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
             <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-
-          </div>
         </li>
       </ul>
-    </div>
 
   </nav>
 
 
+<!--===================sidenavbar start=========================-->
 
-  <!--===================sidenavbar start=========================-->
 
+ <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
+  <ul class="list-unstyled components mt-3">
+    <li class="p-2">
+      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href="" ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
-  <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
-    <ul class="list-unstyled components mt-3">
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""><i class="fas fa-building fa-fw  "></i>
-          <span class="font-weight-normal">Configuration</span></a>
-
-      </li>
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
-          data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal h5">
-            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientRequirementBool')"><i
-                class="fas fa-fire mr-2"></i>
-              <span class="font-weight-normal">Client Requirement</span></a>
+    </li>
+    <li class="p-2">
+      <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse"  aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal "> Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
+      <ul  class="collapse list-unstyled" id="pageSubmenu">
+        <li class="p-1">
+          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
+            <span class="font-weight-normal">Client Requirement</span></a>
           </li>
 
           <li class="p-1">
@@ -65,49 +52,39 @@
 
         </ul>
       </li>
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span
-            class=" font-weight-normal">Item Check List</span></a>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span></a>
 
       </li>
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span
-            class="font-weight-normal"> Assigned</span></a>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href=""  ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
       </li>
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span
-            class=" font-weight-normal">Employee Feedback</span></a>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
       </li>
 
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
-          data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly
-            Details</span><i class="fas fa-chevron-down ml-5"></i></a>
-        <ul class="collapse list-unstyled" id="pageSubmenu1">
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i
-                class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
-          </li>
+      <li class="p-2">
+       <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse" aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fas fa-chevron-down ml-5"></i></a>
+       <ul  class="collapse list-unstyled" id="pageSubmenu1">
+        <li class="p-2">
+          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
+        </li>
 
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')"><i
-                class="fas fa-holly-berry mr-2"></i>
-              <span class="font-weight-normal">Vendor Monthly Details</span></a>
+        <li class="p-2">
+          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
+            <span class="font-weight-normal">Vendor Monthly Details</span></a>
           </li>
         </ul>
       </li>
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span
-            class=" font-weight-normal"> Invoice</span></a>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span></a>
       </li>
 
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i
-            class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
       </li>
-      <li class="p-1">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i
-            class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
       </li>
     </ul>
   </nav>
@@ -460,42 +437,57 @@
               class="w-clr">/</a>
             <a href="" class="w-clr">employee feedback</a></small></h6>
       </nav>
-      <div class="container">
+  <div class="container">
 
-        <button class="ml-3" ng-click="exportToExcel('#feedback')">XLS</button>
-        <table class="table border table-hover ml-3" id="feedback">
-          <thead>
-            <tr>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
-              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
+  <button class="ml-3" ng-click="exportToExcel('#feedback')">XLS</button>
+  <table class="table border table-hover ml-3" id="feedback">
+  <thead>
+   <tr>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
+    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
 
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse ">
-              <td class="text-center font-weight-normal">{{feed.reviewerName}}</td>
-              <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
-              <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
-              <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
-              <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
-              <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
-              <td class="text-center font-weight-normal">{{feed.mobile}}</td>
-              <td>
-                <div ng-if="feed.comment.length > 1"><span class="badge badge-danger">1</span>
-                  <mdb-tooltip :options="{placement: 'top'}">
-                    <div class="tooltip">
-                      {{feed.commen}}
-                    </div>
-                    <mdb-btn slot="reference" color="primary">
-                    </mdb-btn>
-                  </mdb-tooltip>
+  </tr>
+</thead>
+<tbody>
+ <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchFish | orderBy:sortType:sortReverse "> 
+  <td class="text-center font-weight-normal">{{feed.reviewerName}}</td>
+  <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
+  <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
+  <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
+  <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
+  <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
+  <td class="text-center font-weight-normal">{{feed.mobile}}</td>
+  <td>
+   <div ng-if="feed.comment.length > 1"><span class="badge badge-danger" >1</span>
+    <mdb-tooltip :options="{placement: 'top'}">
+    <div class="tooltip">
+     {{feed.commen}}
+   </div>
+   <mdb-btn slot="reference" color="primary">
+ </mdb-btn>
+</mdb-tooltip>
+
+</div>
+<mdb-btn slot="reference" color="primary">
+<i class="far fa-comments fa-2x" ></i>
+</mdb-btn>
+</td>
+<td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
+</tr>
+</tbody>
+</table>
+<div data-pagination="" data-num-pages="numOfPages()" 
+      data-current-page="curPage" data-max-size="maxSize"  
+      data-boundary-links="true"></div>
+</div>
+</div>
 
                 </div>
                 <mdb-btn slot="reference" color="primary">
@@ -920,9 +912,11 @@
             </div>
 
           </div>
-          <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 mt-5 font-weight-normal"
-            submit-required="true" ng-click="" id="btn-margin">Save</button>
-        </form>
+ </div>
+
+</div>
+ <button type="button" class="btn btn btn-outline-default waves-effect mb-5 mt-5 font-weight-normal" submit-required="true" ng-click="" id="btn-block">Save</button>
+</form>
 
       </div>
     </div>
