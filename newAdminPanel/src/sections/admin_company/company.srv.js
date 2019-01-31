@@ -1,5 +1,11 @@
-adminApp.factory('VendorassignService', ['$http','$httpParamSerializerJQLike', '$routeParams',
-    function ($http, $httpParamSerializerJQLike , $routeParams ) {
+adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike', 
+'$routeParams','postCompanyWorkingDaysUrl', 'postCompanyWorkingDaysUpdateUrl',
+'postCompanyInvoicingDateUrl','postCompanyInvoicingDateUpdateUrl','postCompanyAdditionalRequirementsUrl',
+'postCompanyRequirementsUrl','postVendorRequirementsUrl',
+    function ($http, $httpParamSerializerJQLike , $routeParams,
+        postCompanyWorkingDaysUrl, postCompanyWorkingDaysUpdateUrl ,
+        postCompanyInvoicingDateUrl, postCompanyInvoicingDateUpdateUrl,
+        postCompanyAdditionalRequirementsUrl,postCompanyRequirementsUrl,postVendorRequirementsUrl) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
                 console.log("I am in srv.js file : ", vendorId, type, companyId);
@@ -58,7 +64,98 @@ adminApp.factory('VendorassignService', ['$http','$httpParamSerializerJQLike', '
                     }
                 });
             },
-
+            saveWorkingDaysForCompany: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postCompanyWorkingDaysUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                })
+            },
+            updateWorkingDaysForCompany: function (data) {
+                $http({
+                    method: 'POST',
+                    url: postCompanyWorkingDaysUpdateUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                }).then(function (response) {
+                    console.log('response', JSON.stringify(response));
+                    //console.log('response', response);
+                    if (response.data.status == 1) {
+                        // Notification.success('Successfully Saved !!!');
+                        // console.log('Successfully registered breakfast details ');
+                        // $location.path('/admin/company/:id');
+                    } else {
+                        console.log('error registering');
+                        
+                    }
+                });
+            },
+            saveInvoicingDateForCompany: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postCompanyInvoicingDateUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                })
+            },
+            updateInvoicingDateForCompany: function (data) {
+                $http({
+                    method: 'POST',
+                    url: postCompanyInvoicingDateUpdateUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                }).then(function (response) {
+                    console.log('response', JSON.stringify(response));
+                    //console.log('response', response);
+                    if (response.data.status == 1) {
+                        // Notification.success('Successfully Saved !!!');
+                        // console.log('Successfully registered breakfast details ');
+                        // $location.path('/admin/company/:id');
+                    } else {
+                        console.log('error registering');
+                        
+                    }
+                });
+            },
+            saveAdditionalRequirementForCompany: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postCompanyAdditionalRequirementsUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                })
+            },
+            saveRequirementForCompany: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postCompanyRequirementsUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                })
+            },
+            saveVendorRequirementForCompany: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postVendorRequirementsUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                })
+            },
         }
     }
 ]);
