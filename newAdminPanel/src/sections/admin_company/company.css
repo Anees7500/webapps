@@ -1,3 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.font-size{
+  /*font-size:1.3vw;*/
+  font-family: 'Roboto', sans-serif;
+}
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+
+
 #drag-image{width: 300px;height: 100px;}
 #image{width:200px; height:100px;}
 .tableFixHead    { overflow-y: auto; height: 100px; }
