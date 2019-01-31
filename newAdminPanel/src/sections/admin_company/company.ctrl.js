@@ -65,12 +65,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
     // ==================== Working days==============  
 
-    $scope.workingDays = [{ day: "Monday", selected: false, dbName: "monday" },
+    $scope.workingDays = [{ day: "Monday", selected: false, dbName: "monday"},
     { day: "Tuesday", selected: false, dbName: "tuesday" },
-    { day: "Wednesday", selected: false, dbName: "wednesday" },
-    { day: "Thursday", selected: false, dbName: "thursday" },
-    { day: "Friday", selected: false, dbName: "friday" },
-    { day: "Saturday", selected: false, dbName: "saturday" },
+    { day: "Wednesday", selected: false, dbName: "wednesday"},
+    { day: "Thursday", selected: false, dbName: "thursday"},
+    { day: "Friday", selected: false, dbName: "friday"},
+    { day: "Saturday", selected: false, dbName: "saturday"},
     { day: "Sunday", selected: false, dbName: "sunday" }];
     // ==================== getCompanyWorkingDays ============
     var getCompanyWorkingDaysUrl = getCompanyWorkingDaysUrl + $routeParams.compId;
@@ -601,7 +601,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     { Date: '1/06/2019', Day: 'SATURDAY', Pax: '10', Price: '10', Amount: '100' },
     { Date: '1/07/2019', Day: 'SUNDAY', Pax: '10', Price: '10', Amount: '100' }
     ];
-
 
 
 
