@@ -526,7 +526,7 @@
 <div class="container">
 <div class=" grey lighten-4  ml-5">  
  <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-  <li class="nav-item"ng-repeat="category in categories" ng-if="data[category.dbName]">
+  <li class="nav-item active"ng-repeat="category in categories" ng-if="data[category.dbName]">
     <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href="" data-target="#{{category.displayName}}" role="tab"aria-controls="pills-brkfst" aria-selected="true">{{category.displayName}}</a>
     </li>
   </ul>
@@ -580,7 +580,7 @@
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-              class="w-clr"></a>
+              class="w-clr">/</a>
             <a href="" class="w-clr">vendorMonthly details</a></small></h6>
       </nav>
       <div class="container position-fixed ml-3">
@@ -653,7 +653,11 @@
     <!----------===============================invoice=================================-->
     <div ng-if="invoiceBool">
       <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
-        <h6><a class="navbar-brand w-clr disabled" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i><small>invoice</small></a></h6>
+         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+            <a href="#!/dashboard" class="w-clr">
+              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+              class="w-clr">/</a>
+            <a href="" class="w-clr">invoice</a></small></h6>
         <form class="form-inline  ml-auto">
           <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search" id="search-height">
         </form>
@@ -668,29 +672,29 @@
           <div class="col-md-6 col-sm-12 ml-3">
             <div class="media">
               <img src="img/comp_logo.jpg" class="img-responsive borderless mt-2 d-flex align-self-center" width="65px">
-              <span class="h5 font-weight-bold ml-3 font-weight-normal font-size pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES
+              <span class=" ml-3 h5 font-weight-bold pull-right mt-5 mb-0"  >FANCYMONK TECHNOLOGIES
                 PVT. LTD.</span>
             </div>
           </div>
         </div>
         <div class="row mt-5 ml-3">
           <div class="col-md-5 ml-3 ">
-            <p class="h6 font-weight-normal font-size">#1722,First Floor, 19th Main Rd,<br>
+            <p class="text-muted" id="font-add">#1722,First Floor, 19th Main Rd,<br>
               Sector 2, HSR Layout,<br>
               Bengaluru, Karnataka 560102<br>
               PHONE: 9739684336<br>
               GSTIN: 29AACCF9318B1ZQ<br>
               STATE: KARNATAKA<br>
-              CODE – KA 29<br></p>
-          
-             <p class="font-size font-weight-bold">SAC Code:<span><input type="text" class="border-0 ml-1 font-size" value="996333"></span></p>
+              CODE – KA 29<br>
+            SAC Code: 996333</p>
           </div>
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <form class="form-inline border-0" role="form">
-              <div class="form-group h6 font-weight-normal">
-                <label for="date" class="font-size">Date:</label>
-                <input type="date" class="form-control border-0" id="date">
+          <div class="col-md-2"></div>
+          <div class="col-md-4 ml-3">
+            <form class="form-inline border-0 ml-3" role="form">
+              <div class="form-group">
+                <label for="date" >Date:</label>
+                <input type="date" class="form-control border-0 p-0 mb-0" id="date">
+
               </div>
             </form>
           </div>
@@ -699,12 +703,12 @@
         <div class="row ml-3 mt-5">
 
           <div class="col-md-4 ml-3">
-            <h5 class="font-weight-bold font-size">Invoice for</h5>
+            <h5 class="font-weight-bold">Invoice for</h5>
             <div class="card border-0 w-100" id="address-card">
-              <div class="card-body">
-                <small class="card-title font-size h5">{{cmpyName | uppercase}}</small>
-                <p class="h6 card-text font-weight-bold font-size text-dark">{{cmpyAddress | lowercase}}</p>
-                <p class="font-size">GSTIN:<span><input type="text" class="border-0 ml-1 font-size" value="29AAACZ8319C1Z7"></span></p>
+              <div class="card-body mb-2">
+                <small class="card-title font-weight-bold h6" id="cmp-font">{{cmpyName | uppercase}}</small>
+                <p class=" card-text text-dark font-weight-normal " id="cmp-font">{{cmpyAddress | lowercase}}</p>
+                <p class="text-muted font-weight-bold">GSTIN:<span><input type="text" class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
 
               </div>
 
@@ -713,84 +717,96 @@
           </div>
 
 
-          <div class="col-md-5">
-            <h5 class="font-weight-bold font-size">Payable to</h5>
-            <small class="h6 mt-3 font-size">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
+          <div class="col-md-4">
+            <h5 class="font-weight-bold">Payable to</h5>
+            <small class="font-weight-bold h6" id="cmp-font">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
+
+            
           </div>
-          <div class="col-md-2">
-            <h5 class="font-weight-bold font-size">Invoice #</h5>
+          <div class="col-md-3">
+            <h5 class="font-weight-bold">Invoice #</h5>
             <form>
-              <div class="form-group font-size">
-                <input type="text" class="form-control border-0 font-size" value="515">
+              <div class="form-group">
+                <input type="text" class="form-control text-dark border-0" value="515">
               </div>
             </form>
+            <div class=" mt-5">
+              <h4>Nature Of Service</h4>
+              <p>Service provided in Canteen<br>
+              and other similar establishments</p>
+            </div>
           </div>
         </div>
-        <hr class="ml-5 bg-dark">
-        <div class="table-responsive-sm ml-3">
-          <table class="table table-borderless ml-3">
+   <hr class="ml-5 bg-dark mt-1 font-weight-bold"> 
+     <div class="row ml-3 pb-0">
+        <div class="table-responsive ml-3 pb-0">
+          <table class="table table-borderless pb-0 ml-3">
             <thead>
               <tr>
-                <th class="h6 pink-text font-weight-bold font-size">Description</th>
-                <th class="h6 pink-text font-weight-bold font-size">Qty</th>
-                <th class="h6 pink-text font-weight-bold font-size">Unit price</th>
-                <th class="h6 pink-text  font-weight-bold font-size">Total price</th>
+                <th id="font-color" class="h5 font-weight-bold ">Description</th>
+                <th id="font-color" class="h5 font-weight-bold">Qty</th>
+                <th id="font-color" class="h5 font-weight-bold">Unit price</th>
+                <th id="font-color" class="h5 font-weight-bold">Total price</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="text-dark font-weight-bold">
+            <tbody class="pb-0 pt-0 mt-0">
+              <tr class="pb-0 pt-0">
+                <td class="pb-0 pt-0">
                   <form>
-                    <div class="form-group">
-                      <input type="text" class="form-control border-0 p-0 font-size" value="Veg Lunch">
+                    <div class="form-group text-muted">
+                      <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" value="Veg Lunch">
                     </div>
                   </form>
                 </td>
 
-                <td class="text-dark font-weight-bold">
+                <td class="pb-0 pt-0">
                   <form>
-                    <div class="form-group">
-                      <input type="text" class="form-control border-0 p-0 font-size" value="263">
+                    <div class="form-group text-muted">
+                      <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold" value="263">
                     </div>
                   </form>
                 </td>
 
-                <td class="text-dark font-weight-bold">
+                <td class="pb-0 pt-0">
                   <form>
-                    <div class="form-group">
-                      <input type="text" class="form-control border-0 p-0 font-size" value="INR95.00">
+                    <div class="form-group text-muted">
+                      <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" value="INR 95.00">
                     </div>
                   </form>
                 </td>
 
-                <td class="text-dark font-weight-bold">
+                <td class="pb-0 pt-0">
                   <form>
-                    <div class="form-group">
-                      <input type="text" class="form-control border-0 p-0 font-size" value="INR24,985.00">
+                    <div class="form-group text-muted">
+                      <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" value="INR 24,985.00">
                     </div>
                   </form>
                 </td>
               </tr>
+
+
+          
             </tbody>
           </table>
         </div>
-        <hr class="ml-5 bg-dark">
-        <div class="row">
+      </div>
+        <hr class="ml-5 bg-dark font-weight-bold" id="top-margin-hr">
+        <div class="row ">
           <div class="col-md-6"></div>
           <div class="col-md-3">
             <table class="table table-borderless ml-3">
               <tbody>
-                <tr>
-                  <td class="center right pink-text font-size font-weight-bold h6">Subtotal</td>
+                <tr >
+                  <td class="center pb-0  h5 right"id="font-color" >Subtotal</td>
                 </tr>
                 <tr>
-                  <td class="center right pink-text font-size font-weight-bold h6">CGST (9%)</td>
+                  <td class="center pb-0 h5 right"id="font-color">CGST (9%)</td>
                 </tr>
                 <tr>
-                  <td class="center right pink-text font-size font-weight-bold h6">SGST (9%)</td>
+                  <td class="center h5 pb-0 right"id="font-color">SGST (9%)</td>
                 </tr>
                 <tr>
-                  <td class="center right pink-text font-size font-weight-bold h6">Total</td>
+                  <td class="center right h2 font-weight-bold "id="font-color">Grand Total</td>
                 </tr>
               </tbody>
             </table>
@@ -799,16 +815,16 @@
             <table class="table table-borderless ml-3">
               <tbody>
                 <tr>
-                  <td class="right font-size font-weight-bold">INR33,585.00</td>
+                  <td class="right h5 pb-0 font-weight-bold">INR 33,585.00</td>
                 </tr>
                 <tr>
-                  <td class="right font-size font-weight-bold text-muted">INR3,585.00</td>
+                  <td class="right  pb-0 h5" id="font-color">INR 3,585.00</td>
                 </tr>
                 <tr>
-                  <td class="right font-size text-muted font-weight-bold">INR1,585.00</td>
+                  <td class="right h5  pb-0 " id="font-color">INR 1,585.00</td>
                 </tr>
                 <tr>
-                  <td class="right font-size text-muted font-weight-bold">INR35,585.00</td>
+                  <td class="right h2 font-weight-bold" id="font-color">INR 35,585.00</td>
                 </tr>
               </tbody>
             </table>
@@ -818,12 +834,12 @@
 
         <div class="row ml-3 mt-3">
           <div class="col-md-7 ml-3">
-            <p class="h6 font-weight-normal font-size"><span class="font-weight-bold">Account Details</span><br>
-              Company Name : Fancymonk Technologies Private Limited<br>
-              Account Number : 0012020317<br>
-              IFSC Code : KKBK0008040<br>
-              Branch code : 8040<br>
-              Bank Name:Kotak Mahindra Bank
+            <p><span class="font-weight-bold">Account Details</span><br>
+              Company  Name  :  Fancymonk Technologies Private Limited<br>
+              Account  Number  :  0012020317<br>
+              IFSC  Code  :  KKBK0008040<br>
+              Branch  code  :  8040<br>
+              Bank  Name  :  Kotak Mahindra Bank
             </p>
           </div>
         </div>
@@ -892,7 +908,7 @@
               <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
                 <input type="text" name="firstname" id="person-name" required>
                 <label alt="Contact Person Name" for="person-name" placeholder="Enter Contact Person Name">Contact
-                  Person Name</label>
+                Person Name</label>
               </div>
               <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
                 <input type="text" name="lastname" id="Contact Number" required>
@@ -907,32 +923,34 @@
                 <input type="text" name="GST Number" id="GST Number" required>
                 <label alt="GST Number" for="GST Number" placeholder="Enter GST Number">GST Number</label>
               </div>
+             </div>
 
+              <div class="col-md-5 col-sm-4 mt-3">
+                <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                  <input type="text" name="GST Number" id="mobileUsername" required>
+                  <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App Username</label>
+                </div>
+
+                <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
+                  <input type="text" name="GST Number" id="mobilePassword" required>
+                  <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App Password</label>
+                </div>
+
+                <img  ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3" width="300px">
+                <div class="d-flex">
+                  <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+                </div>
+
+              </div>
             </div>
-            <div class="col-md-5 col-sm-4 mt-3">
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="mobileUsername" required>
-                <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App Username</label>
-              </div>
-
-              <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="mobilePassword" required>
-                <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App Password</label>
-              </div>
-
-              <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3">
-              <div class="d-flex ">
-                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-              </div>
-            </div>
-
-          </div>
-        </form>
-       </div>
+            <button type="button" class="btn btn-outline-default waves-effect m-auto d-block" id="btn-margin"
+            >Save</button>
+          </form>
+        </div>
       </div>
-   </div></div>
-    </div>
-    </div>
+    </div></div>
+  </div>
+</div>
 
 
 <script type="text/javascript">
