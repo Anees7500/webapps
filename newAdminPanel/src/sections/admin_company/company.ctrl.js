@@ -611,7 +611,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
           var docDefinition = {
             content: [{
               image: data,
-              width: 500,
+              width: 550,
+            
             }]
           };
           pdfMake.createPdf(docDefinition).download("invoice.pdf");
@@ -634,6 +635,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
     //invoice details
     $scope.itemInvoice = ["brkfstCheck", "2", "100", "200"];
+
+   
 
   }
 ]);
