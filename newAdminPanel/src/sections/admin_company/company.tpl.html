@@ -109,7 +109,7 @@
       <nav class="navbar navbar-expand-lg">
         <h6><small>
           <a href="#!/dashboard" class="disabled">
-            <i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+            <i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i></a>
           <a href="#!/dashboard" class="w-clr">
           Home</a> 
           <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> 
@@ -127,7 +127,7 @@
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="input{{$index + 1}}" ng-model="data[category.dbName]">
                 <label class="custom-control-label" for="input{{$index + 1}}">{{category.displayName}}</label>
-              </div>
+              </div>  
             </div>
 
         </div>
@@ -178,7 +178,7 @@
                 <label class="custom-control-label font-weight-normal ml-3" for="EndMonth">End of Month</label>
 
               </div>
-            </div>
+            </div>  
           </form>
           <button type="button" class="btn btn-outline-default waves-effect m-auto d-block" id="btn-margin"
             submit-required="true" ng-click="saveCompanyInvoicingDate(invoicingDate)" ng-if="invoicingDateDbRowId == null">Save</button>
@@ -222,8 +222,7 @@
                           <tbody>
                             <tr ng-repeat="menuDetail in additionalReqDetails[category.dbName].arrVal">
                               <td>
-                                <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled"
-                                  ng-model="menuDetail.columnName" required /></td>
+                                <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled" ng-model="menuDetail.columnName" required /></td>
                               <td>
                                 <a class="addnewRow pull-right ml-5 text-success z-depth-1" id="btn-bg" 
                                 ng-click="addNewRow(additionalReqDetails[category.dbName].arrVal)">
@@ -238,8 +237,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"
-                          submit-required="true" ng-if="additionalReqDetails[category.dbName].additionaRequirementDbRowId == null"
+                        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin" submit-required="true" ng-if="additionalReqDetails[category.dbName].additionaRequirementDbRowId == null"
                           ng-click="saveAdditionalRequirements(additionalReqDetails[category.dbName], category.dbName)">Save</button>
 
                         <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"

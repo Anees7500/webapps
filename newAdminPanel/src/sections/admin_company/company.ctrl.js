@@ -259,17 +259,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
    // ================== Configuration ===============//
         // ========== Category ============
 
-        $scope.categories = [
-            { displayName: "Breakfast", dbName: "breakfast"},
-            { displayName: "Lunch", dbName: "lunch"},
-            { displayName: "Snacks", dbName: "snacks"},
-            { displayName: "Dinner", dbName: "dinner"},
-            { displayName: "Mid-Night Snacks", dbName: "midNightSnacks"},
-            { displayName: "Early Morning Snacks", dbName: "earlyMorningSnacks"},
-            { displayName: "Cash & Carry", dbName: "cashNCarry"}
-        ];
-        
-        $scope.data = {};
+   
 
 
         $scope.category = function (data) {

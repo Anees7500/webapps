@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+     <div class="col-md-3"></div>
+     <div class="col-md-6 mt-5">
+      <div class="card mb-5">
+        <div class="form-header blue-gradient">
+            <h4 class="card-header info-color white-text text-center py-4">
+                   <i class="fa fa-user mr-1"></i><strong>Login</strong> </h4>
+           </div>
+
+        <div class="md-form ml-3 mr-1">
+            <i class="fa fa-user prefix"></i>
+            <input type="text" id="materialLoginFormEmail" class="form-control" required>
+            <label for="materialLoginFormEmail"><span class=" h6 font-weight-normal">Employee ID</span></label>
+       </div>
+
+       <div class="md-form ml-3 mr-1">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" id="materialLoginFormPassword" class="form-control" required>
+            <label for="materialLoginFormPassword"><span class=" h6 font-weight-normal">Password</span></label>
+       </div>
+
+       <div class="d-flex justify-content-between ml-3 mr-1">
+            <div>
+               <div class="custom-control custom-checkbox">
+                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                 <label class="custom-control-label" for="defaultUnchecked">Remember me</label>
+                </div>
+          </div>
+          <div>
+            <a href="" data-toggle="modal" data-target="#resetPassword">Forgot password?</a>
+         </div>
+     </div>
+    <div  class="d-flex justify-content-center">
+     <button class="btn btn-outline-info waves-effect btn-lg w-50 d-block  rounded-pill  z-depth-0 mt-5 mb-5" type="submit">Sign in</button></div>
+    </div>
+</div>
+
+<div class="col-md-3"></div>
+
+
+</div> 
+<!------------=============================RESET PASSWORD MODALS-----------=======================-->
+<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">RESET YOUR PASSWORD</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="md-form mb-5">
+          <i class="fas fa-phone prefix grey-text"></i>
+         
+          <input type="text" id="form1" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form1"><span class=" h6 font-weight-normal">Enter Your Register Mobile Number</span></label>
+        </div>
+
+           <div class="md-form">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="number" id="form2" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form2"><span class=" h6 font-weight-normal">Enter OTP</span></label>
+        </div>
+
+         <div class="md-form">
+          <i class="fas fa-lock-open prefix grey-text"></i>
+          <input type="text" id="form3" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="form3"><span class=" h6 font-weight-normal">Reset New Password</span></label>
+        </div>
+       <div  class="d-flex justify-content-center">
+        <button class="btn btn-outline-info waves-effect btn-md w-50 d-block  rounded-pill  z-depth-0 mt-3 mb-3" type="submit"><span class="font-weight-bold h6">Save Changes</span></button></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
