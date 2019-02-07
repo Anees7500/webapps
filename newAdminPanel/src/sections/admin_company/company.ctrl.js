@@ -39,7 +39,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       { displayName: "Cash & Carry", dbName: "cashNCarry" }
     ];
 
-    $scope.data = {};
+  
 
     // ================ feedback ====================
     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
@@ -532,7 +532,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     { date: '1/03/2019', day: 'Wednesday' },
     { date: '1/04/2019', day: 'Thursday' },
     { date: '1/05/2019', day: 'Friday' },
-    { date: '1/06/2019', day: 'Saturday' },
+    { date: '1/06/2019', day: 'Saturday' }, 
     { date: '1/07/2019', day: 'Sunday' }
     ];
 
@@ -550,28 +550,28 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
  //======================  Pdf ==================================================
- $scope.exportToPdf = function(){
-  html2canvas(document.getElementById('invoice'), {
-    onrendered: function (canvas) {
-      var data = canvas.toDataURL();
-      var docDefinition = {
-        content: [{
-          image: data,
-          width: 500,
-          pageSize: 'LEGAL',
-          extend: 'pdfHtml5',
-         orientation: 'landscape',
-         layout: 'noBorders',
+//  $scope.exportToPdf = function(){
+//   html2canvas(document.getElementById('invoice'), {
+//     onrendered: function (canvas) {
+//       var data = canvas.toDataURL();
+//       var docDefinition = {
+//         content: [{
+//           image: data,
+//           width: 500,
+//           pageSize: 'LEGAL',
+//           extend: 'pdfHtml5',
+//           orientation: 'landscape',
+//           layout: 'noBorders',
 
-        }]
-      };
-                 // var doc = new jsPDF('p', 'mm', 'a4');
-                 //  var position = 0;
-                 pdfMake.createPdf(docDefinition).download("invoice.pdf");
-                 pdfMake.createPdf(docDefinition).download("invoice.pdf");
-               }
-             });
-}
+//         }]
+//       };
+//                  // var doc = new jsPDF('p', 'mm', 'a4');
+//                  //  var position = 0;
+//       pdfMake.createPdf(docDefinition).download("invoice.pdf");
+//       pdfMake.createPdf(docDefinition).download("invoice.pdf");
+//     }
+//   });
+// }
 
         
 

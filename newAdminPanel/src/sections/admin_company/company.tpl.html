@@ -515,63 +515,63 @@
     <div ng-if="clientMonthlyDetailsBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
-            <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-              class="w-clr">/</a>
+          <a href="#!/dashboard" class="w-clr">
+            Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+            class="w-clr">/</a>
             <a href="" class="w-clr">clientMonthly details</a></small>
           </h6>
-      </nav>
+        </nav>
 
-      <button type="button" class="btn btn-outline-info m-auto d-block" ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
-<div class="container">
-<div class=" grey lighten-4  ml-5">  
- <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-  <li class="nav-item active"ng-repeat="category in categories" ng-if="data[category.dbName]">
-    <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href="" data-target="#{{category.displayName}}" role="tab"aria-controls="pills-brkfst" aria-selected="true">{{category.displayName}}</a>
-    </li>
-  </ul>
-</div>
- <div class="tab-content pt-2 pl-1 ml-5" id="{{category.displayName}}">
-  <div class="tab-pane fade show active " id="pills-brkfst" role="tabpanel" aria-labelledby="pills-home-tab">
-   <div class="table-responsive">
-  <table class="table table-bordered w-auto ml-3 ">
-            <thead>
-              <tr>
-                <th class="font-weight-bold" scope="col">Date</th>
-                <th class="font-weight-bold" scope="col">Day</th>
-                <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">{{m.columnName}}
-                  Pax</th>
-                <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
-                <th class="font-weight-bold" scope="col">{{category.displayName}} Amount</th>
-              
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="dnd in monthlyDateNDays">
-                <th class="text-center font-weight-normal">{{dnd.date}}</th>
-                <th class="text-center font-weight-normal">{{dnd.day}}</th>
-                <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
-                  <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" >
-                </td>
-                <td class="text-center font-weight-normal" ng-repeat-end>
-                  <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price">
-                </td>
-                <td class="text-center font-weight-normal">
-                  <input id="" ng-model="clientRequirement[category.dbName][dnd.day].amount">
-                </td>
-           
-              </tr>
+        <button type="button" class="btn btn-outline-info m-auto d-block" ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
+        <div class="container">
+          <div class=" grey lighten-4  ml-5">  
+           <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item active"ng-repeat="category in categories" ng-if="data[category.dbName]">
+              <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href="" data-target="#{{category.displayName}}" role="tab"aria-controls="pills-brkfst" aria-selected="true">{{category.displayName}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content pt-2 pl-1 ml-5" id="{{category.displayName}}">
+          <div class="tab-pane fade show active " id="pills-brkfst" role="tabpanel" aria-labelledby="pills-home-tab">
+           <div class="table-responsive">
+            <table class="table table-bordered w-auto ml-3 ">
+              <thead>
+                <tr>
+                  <th class="font-weight-bold" scope="col">Date</th>
+                  <th class="font-weight-bold" scope="col">Day</th>
+                  <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">{{m.columnName}}
+                    Pax</th>
+                    <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
+                    <th class="font-weight-bold" scope="col">{{category.displayName}} Amount</th>
+                    
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr ng-repeat="dnd in monthlyDateNDays">
+                    <th class="text-center font-weight-normal">{{dnd.date}}</th>
+                    <th class="text-center font-weight-normal">{{dnd.day}}</th>
+                    <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
+                      <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" >
+                    </td>
+                    <td class="text-center font-weight-normal" ng-repeat-end>
+                      <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price">
+                    </td>
+                    <td class="text-center font-weight-normal">
+                      <input id="" ng-model="clientRequirement[category.dbName][dnd.day].amount">
+                    </td>
+                    
+                  </tr>
 
-            </tbody>
-            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientMonthlyDetailsSave()">Save</button>
-          </table>
-  </div>   
+                </tbody>
+                <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientMonthlyDetailsSave()">Save</button>
+              </table>
+            </div>   
+          </div>
+          
+
+        </div> 
+      </div>
     </div>
- 
-
-    </div> 
-  </div>
-</div>
 
 
     <!-- ========================================Vendor Monthly Details start================ -->
