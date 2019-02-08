@@ -23,7 +23,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.dispatchDetailsBool = false;
       $scope[value] = true;
     }
-
+ 
     $scope.boolFunction("configurationBool");
 
 
@@ -39,8 +39,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       { displayName: "Cash & Carry", dbName: "cashNCarry" }
     ];
 
+<<<<<<< HEAD
     $scope.data = {};
     console.log("data : ", $scope.data );
+=======
+  
+
+>>>>>>> 57b71d32667ef427007c64f8b1f505b30a4fa249
     // ================ feedback ====================
     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
     $http.get(getFeedbackUrl).then(function (response) {
@@ -517,7 +522,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     { date: '1/03/2019', day: 'Wednesday' },
     { date: '1/04/2019', day: 'Thursday' },
     { date: '1/05/2019', day: 'Friday' },
-    { date: '1/06/2019', day: 'Saturday' },
+    { date: '1/06/2019', day: 'Saturday' }, 
     { date: '1/07/2019', day: 'Sunday' }
     ];
 
@@ -532,6 +537,33 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       }      
       return amount;
     };
+
+
+ //======================  Pdf ==================================================
+//  $scope.exportToPdf = function(){
+//   html2canvas(document.getElementById('invoice'), {
+//     onrendered: function (canvas) {
+//       var data = canvas.toDataURL();
+//       var docDefinition = {
+//         content: [{
+//           image: data,
+//           width: 500,
+//           pageSize: 'LEGAL',
+//           extend: 'pdfHtml5',
+//           orientation: 'landscape',
+//           layout: 'noBorders',
+
+//         }]
+//       };
+//                  // var doc = new jsPDF('p', 'mm', 'a4');
+//                  //  var position = 0;
+//       pdfMake.createPdf(docDefinition).download("invoice.pdf");
+//       pdfMake.createPdf(docDefinition).download("invoice.pdf");
+//     }
+//   });
+// }
+
+        
 
         // =========================  vendor Monthly Details ======================================
 // $scope.vendorMnthyDts = [ {  Date: "1/01/2019", Day: "MONDAY",    Pax: '10', Price: '10', Amount: '100' },

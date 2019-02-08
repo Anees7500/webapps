@@ -1,7 +1,7 @@
-adminApp.controller('AdminController', ['$scope', '$http','CompanydetailsService', 'getAllCompanyUrl', 
-  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 
-  function($scope, $http, CompanydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
-  getAllVendorListUrl ) {
+adminApp.controller('DashboardController', ['$scope', '$http','CompanydashboardService', 'getAllCompanyUrl', 
+  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl', 
+  function($scope, $http, CompanydashboardService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
+  getAllVendorListUrl, getImageUrl ) {
 
   	 // bool Logic start
       $scope.boolFunction = function (value) {
@@ -51,12 +51,25 @@ adminApp.controller('AdminController', ['$scope', '$http','CompanydetailsService
 
       $http.get(getUnassignedCompanyUrl).then(function (response) {
         $scope.unassignedCompanies = response.data.data.companies;
+         for(var i = 0; i < $scope.unassignedCompanies.length; i++)
+        { 
+          $scope.unassignedCompanies[i].fileName = getImageUrl+ $scope.unassignedCompanies[i].fileName;
+        }
       });
       $http.get(getAssignedCompanyUrl).then(function (response) {
         $scope.assignedCompany = response.data.data.companies;
+        for(var i = 0; i < $scope.assignedCompany.length; i++)
+        {
+          $scope.assignedCompany[i].fileName = getImageUrl+ $scope.assignedCompany[i].fileName;
+        }
       });
       $http.get(getAllCompanyUrl).then(function (response) {
         $scope.allCompanies = response.data.data.companies;
+        for(var i = 0; i < $scope.allCompanies.length; i++)
+        {
+          $scope.allCompanies[i].fileName = getImageUrl+ $scope.allCompanies[i].fileName;
+        }
+
       });
 
       
