@@ -3,7 +3,7 @@
 .dropdown-menu {margin-left: -108px;}
 .dropdown:hover>.dropdown-menu {display: block;}
 .dropdown>.dropdown-toggle:active { pointer-events: none;}
-#sidebar {margin-top: -5px;width: 250px;z-index: 1;transition: all 0.3s;}
+#sidebar {width: 250px;z-index: 1;transition: all 0.3s;position: fixed;}
 #content {
     width: calc(100% - 250px);
     min-height: 100vh;
