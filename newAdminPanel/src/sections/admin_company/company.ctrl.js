@@ -23,7 +23,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.dispatchDetailsBool = false;
       $scope[value] = true;
     }
-
+ 
     $scope.boolFunction("configurationBool");
 
 

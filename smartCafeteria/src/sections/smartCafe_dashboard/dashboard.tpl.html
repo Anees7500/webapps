@@ -40,36 +40,100 @@
         </div>
          <hr class="bg-red red w-100 font-weight-bold">
       </div>
-
+      <ul class="list-unstyled components mt-5">
+        <li class="p-2">
+          <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('homeBool')" href=""  >
+              <i class="fas fa-home"></i> <span class="font-weight-normal">home</span></a>    
+        </li>
+        <li class="p-2">
+            <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('myOdersBool')" href=""  >
+                <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal">My orders</span></a>    
+          </li>
+          <li class="p-2">
+              <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('notificationBool')" href=""  >
+                  <i class="fas fa-bell"></i> <span class="font-weight-normal">Notification</span></a>    
+            </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('walletBool')" href=""  >
+                    <i class="fas fa-wallet"></i></i> <span class="font-weight-normal">Wallet</span></a>    
+              </li>
+              <li class="p-2">
+                  <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')" href=""  >
+                      <i class="far fa-comment-alt"></i> <span class="font-weight-normal">Feedback</span></a>    
+                </li>
+                <li class="p-2">
+                    <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('settingsBool')" href=""  >
+                        <i class="fas fa-cogs"></i><span class="font-weight-normal">Settings</span></a>    
+                  </li>
+                  <li class="p-2">
+                      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('termsAndPolicyBool')" href=""  >
+                          <i class="fas fa-file-contract"></i> <span class="font-weight-normal">Terms and Policy</span></a>    
+                    </li>
+      </ul>
  </nav>
 
 
  <!---------======================================main content start=====================================-->
 
- <div id="content" class="mt-5">
+ <div id="content" class="mt-1">
   <div class="container">
-  <div class="row"> 
-    <div class="col-md-4">
-<div class="card card-cascade narrower">
-  <div class="view view-cascade overlay">
-    <img  class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
-    <a>
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
-  <div class="card-body card-body-cascade">
-    <h5 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i> Culinary</h5>
-    <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
-    <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>
-    <a class="btn btn-unique">Button</a>
+
+    <!---------======================================Home=====================================-->
+    <div ng-if="homeBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-home"></i> Home</a>
+        </nav>
+
+    </div>
+    <!---------======================================End Home=====================================-->
+
+    <!---------======================================My orders=====================================-->
+     <div ng-if="myOdersBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-shopping-cart"></i> My orders</a>
+        </nav>
+     </div>
+    <!---------======================================End My orders=====================================-->
+    <!---------======================================Notification=====================================-->
+    <div ng-if="notificationBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-bell"></i> Notification</a>
+        </nav>
+
+      </div>
+     <!---------======================================End Notification=====================================-->
+     <!---------======================================Wallet====================================-->
+     <div ng-if="walletBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"><i class="fas fa-wallet"></i> Wallet</a>
+        </nav>
+      </div>
+     <!---------======================================End Wallet=====================================-->
+     <!---------======================================Feedback=====================================-->
+     <div ng-if="feedbackBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"> <i class="far fa-comment-alt"></i> Feedback</a>
+        </nav>
+      </div>
+     <!---------======================================End Feedback=====================================-->
+     <!---------======================================Settings=====================================-->
+     <div ng-if="settingsBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-cogs"></i> Settings</a>
+        </nav>
+      </div>
+     <!---------======================================End Settings=====================================-->
+     <!---------======================================Terms and Policy=====================================-->
+     <div ng-if="termsAndPolicyBool">
+        <nav class="navbar  btn-outline-info ">
+            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-file-contract"></i> Terms and Policy</a>
+        </nav>
+
+      </div>
+     <!---------======================================End Terms and Policy=====================================-->
+    
 
   </div>
-
-</div>
-</div>
-</div>
-  </div>
-
-
  </div>
+ <!---------======================================End main content start=====================================-->
 </div>
