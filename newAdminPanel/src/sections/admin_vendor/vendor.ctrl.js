@@ -1,6 +1,6 @@
 adminApp.controller('VendorController',['$scope','$routeParams','$rootScope', 'getAllCompanyToVendorUrl',
-  '$http','getVendorProfileUrl',
-function($scope,$routeParams,$rootScope,getAllCompanyToVendorUrl,$http,getVendorProfileUrl)
+  '$http','getVendorProfileUrl', 'getImageUrl',
+function($scope,$routeParams,$rootScope,getAllCompanyToVendorUrl,$http,getVendorProfileUrl, getImageUrl)
 {
 
  
@@ -19,7 +19,11 @@ function($scope,$routeParams,$rootScope,getAllCompanyToVendorUrl,$http,getVendor
 
       var getCompanies = getAllCompanyToVendorUrl+vendorId;
   		$http.get(getCompanies).then(function(response)  {
-  		      $scope.companies = response.data.data.companies;
+            $scope.companies = response.data.data.companies;
+            for(var i = 0; i < $scope.companies.length; i++)
+            {
+              $scope.companies[i].fileName = getImageUrl+ $scope.companies[i].fileName;
+            }
   		});
 
   }

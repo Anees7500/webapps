@@ -1,4 +1,4 @@
-adminApp.factory('CompanydetailsService', ['$http', '$route', '$httpParamSerializerJQLike',
+adminApp.factory('CompanydashboardService', ['$http', '$route', '$httpParamSerializerJQLike',
     function ($http, $route, $httpParamSerializerJQLike) {
         return {
             companySignup: function (company, companySignupUrl) {

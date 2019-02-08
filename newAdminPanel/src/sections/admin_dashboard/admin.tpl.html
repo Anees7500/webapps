@@ -1,4 +1,4 @@
- <div class="wrapper">
+     <div class="wrapper">
 
  <!-- ===============================header navbar start=============================== -->
  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
@@ -6,7 +6,7 @@
   <div class="media">
         <i class="fa fa-th-list mt-1"></i>
         <div class="media-body">
-          <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
+          <span class="text-white h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
         </div>
       </div></a>
       <!--=============================sidebar collapse============================-->
@@ -56,9 +56,7 @@
 <li class="p-2">
   <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
 </li>
-<li class="p-2">
-  <a class="text-dark d-block text-decoration-none" href=""><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Check Confirmation</span></a>
-</li>
+
 </ul>
  </nav>
 
@@ -83,7 +81,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
          <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
-              <img id="image" src= "http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
+              <img id="image"  ng-src= "{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
               <a>
                 <div class="mask flex-center"></div>
               </a>
@@ -107,27 +105,27 @@
 <!-- ===============================-Assigned company=============================== -->
     <div ng-if="assignedCompanyBool">
  <nav class="navbar navbar-expand-lg">
-  <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>assigned company</a></h6>
+  <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Assigned company</a></h6>
   <form class="form-inline my-2 my-lg-0 ml-auto">
     <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
   </form>
 </nav>
     <div class="container"> 
         <div class="row ml-3 mr-0">
-            <div ng-repeat=" cpny in assignedCompany | filter:search">
+            <div ng-repeat=" assignedcpny in assignedCompany | filter:search">
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="card example z-depth-1 mt-5">
             <div class="view overlay  hm-black-light zoom" ripple-radius>
-              <img id="image" src= "http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
+              <img id="image" ng-src= "{{assignedcpny.fileName}}" class="card-img-top img img-responsive mb-3">
               <a>
                 <div class="mask flex-center"></div>
               </a>
             </div>
             <div class="card-block">
-              <a  ng-href="#!/dashboard/company/{{cpny.id}}">
+              <a  ng-href="#!/dashboard/company/{{assignedcpny.id}}">
 
-                <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{cpny.companyName | uppercase}} </h6>
-                <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{cpny.address}} </p>
+                <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{assignedcpny.companyName | uppercase}} </h6>
+                <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{assignedcpny.address}} </p>
                 <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
               </div>
             </div>
@@ -139,38 +137,38 @@
 
 
        <!--===============================-unassigned company===============================--> 
-<div ng-if="unAssignedCompanyBool">
+       <div ng-if="unAssignedCompanyBool">
 
-      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
-       <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Unassigned company</a></h6>
-        <form class="form-inline  ml-auto">
-      <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
-    </form>
+        <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+         <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Unassigned company</a></h6>
+         <form class="form-inline  ml-auto">
+          <input class="form-control" ng-model="search"  type="text" placeholder="Search" aria-label="Search" id="search-height">
+        </form>
       </nav>
       <div class="container">
-      <div class="row  mr-0 ml-3">
-       <div ng-repeat="cpny in unassignedCompanies  | filter:search">
+        <div class="row  mr-0 ml-3 ">
+         <div ng-repeat="unassignedcpny in unassignedCompanies  | filter:search">
 
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <div class="card example z-depth-1 mt-5">
-            <div class="view overlay  hm-black-light zoom" ripple-radius>
-              <img id="image" src= "http://fancymonk.com:9124/companyImages/400/{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
-              <a>
-                <div class="mask flex-center"></div>
-              </a>
-            </div>
-            <div class="card-block">
-              <a  ng-href="#!/dashboard/company/{{cpny.id}}">
-                <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{cpny.companyName | uppercase}} </h6>
-                <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{cpny.address}} </p>
-                <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="card example z-depth-1 mt-5">
+              <div class="view overlay  hm-black-light zoom" ripple-radius>
+                <img id="image" ng-src= "{{unassignedcpny.fileName}}" class="card-img-top img img-responsive mb-3">
+                <a>
+                  <div class="mask flex-center"></div>
+                </a>
+              </div>
+              <div class="card-block">
+                <a  ng-href="#!/dashboard/company/{{unassignedcpny.id}}">
+                  <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i class="fas fa-address-card deep-purple-text cyan-text "></i>  {{unassignedcpny.companyName | uppercase}} </h6>
+                  <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{unassignedcpny.address}} </p>
+                  <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i class="fas fa-angle-double-right ml-2 "></i></h5></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
  <!-- ====================== Vender ================================== -->
 
@@ -200,12 +198,15 @@
                  <p class="card-text  ml-2 b-clr font ng-binding" id="font-size"><i class="fas fa-phone ml-2"></i><a class="ml-2">{{vendor.mobile}}</a></p>
                </a>
              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
 
  <!-- ====================== Add-New-Company ================================== -->
  <div  ng-if="addNewCompanyBool" > 
@@ -268,7 +269,7 @@
                   </div>
            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 
-                <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3">
+                <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png" class="card-img-top img img-responsive btn-outline-info waves-effect zoom ml-3">
           <div class="d-flex ">
             <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">    
           </div>

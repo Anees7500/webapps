@@ -21,7 +21,14 @@
     "MDBootstrap": "^4.6.1",
     "html2canvas": "^0.4.1",
     "pdfmake": "^0.1.40",
+    "canvg": "https://github.com/canvg/canvg.git#v1.5.3",
     "angular-ui-notification": "^0.3.6",
+<<<<<<< HEAD
     "components-font-awesome":"^5.4.2"
+
+=======
+    "components-font-awesome": "^5.4.2",
+    "angularjs-datepicker": "^2.1.23"
+>>>>>>> 7e3604455b771e6148236645b5f0e5c10d237bd0
   }
 }

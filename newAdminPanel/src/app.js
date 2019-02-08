@@ -6,7 +6,7 @@ adminApp.config(['$routeProvider', '$locationProvider',
         .when('/dashboard', {
             templateUrl: 'sections/admin_dashboard/admin.tpl.html',
             title: 'Header-part',
-            controller: 'AdminController'
+            controller: 'DashboardController'
         })
         .when('/dashboard/company/:compId', {
            templateUrl: 'sections/admin_company/company.tpl.html',

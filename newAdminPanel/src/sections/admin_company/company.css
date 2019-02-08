@@ -1,10 +1,27 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
+/*
 .font-size{
-  /*font-size:1.3vw;*/
+  font-size:1.3vw;
   font-family: 'Roboto', sans-serif;
+font-size:large;
+}*/
+body {
+    font-weight: 300;
+    font-family: inherit;
+    font-weight: inherit;
 }
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-weight: inherit;
+    word-spacing:0.5em;
+}
+#font-color{color: #e91e63;}
+#top-margin-hr{margin-top: -40px;}
+#font-add{font-weight: 800;}
+#cmp-font{font-size: 1.0rem;}
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 
