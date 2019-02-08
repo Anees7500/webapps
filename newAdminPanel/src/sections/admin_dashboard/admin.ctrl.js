@@ -50,6 +50,7 @@ adminApp.controller('AdminController', ['$scope', '$http','CompanydetailsService
       // });
 
       $http.get(getUnassignedCompanyUrl).then(function (response) {
+        console.log("respoinse : ", JSON.stringify(response));
         $scope.unassignedCompanies = response.data.data.companies;
       });
       $http.get(getAssignedCompanyUrl).then(function (response) {

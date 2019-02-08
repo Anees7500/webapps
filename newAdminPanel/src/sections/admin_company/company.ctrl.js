@@ -536,6 +536,14 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     { date: '1/07/2019', day: 'Sunday' }
     ];
 
+    $scope.assignCategoryForClientMonthlyDtls = function(obj)
+    {
+      $scope.tempCategoryForClientMonthlyDtls = {};
+      $scope.tempCategoryForClientMonthlyDtls.dbName = obj.dbName;
+      $scope.tempCategoryForClientMonthlyDtls.displayName = obj.displayName;
+
+    }
+
     $scope.getAmount = function (obj) {
       var amount = 0;
       for (var key in obj) {
