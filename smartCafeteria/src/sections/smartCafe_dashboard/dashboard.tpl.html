@@ -1,139 +1,188 @@
 <div class="wrapper">
-<!--==================================Navbar start================================= -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-toggleable-md rgba-cyan-strong navbar-fixed text-white nav-justified ">
-  <button class="navbar-toggler pink" type="button"  aria-expanded="false" aria-label="Toggle navigation">
-    <span class="white-text"><i class="fas fa-bars fa-1x"></i></span>
-  </button>
- 
+  <!--==================================Navbar start================================= -->
+  <nav class="mb-1 navbar navbar-expand-lg navbar-toggleable-md rgba-cyan-strong navbar-fixed text-white nav-justified ">
+    <button class="navbar-toggler pink" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="white-text"><i class="fas fa-bars fa-1x"></i></span>
+    </button>
+
     <a class="navbar-brand text-white " href="#"><span class="h5">FANCYMONK</span></a>
-  
-  <div class=" d-block ml-auto ">
-    <ul class="navbar-nav ml-auto mr-3 smooth-scroll d-block">
-      <li class="nav-item dropdown d-block">
 
-       
-        <span class="avatar-status avatar-online ">
-          <img src="img/profile.png" id="avtar" class="bg-red" type="button" id="dropdownMenuMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <i></i>
-        </span>
-        <div class="dropdown-menu p-0 justify-content-center mr-3" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
-          <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-        </div>
-   
-    </li>
+    <div class=" d-block ml-auto ">
+      <ul class="navbar-nav ml-auto mr-3 smooth-scroll d-block">
+        <li class="nav-item dropdown d-block">
 
 
-  </ul>
-</div>  
-</nav>
-<!-----------=====================================sidebar start===========================================-->
+          <span class="avatar-status avatar-online ">
+            <img src="img/profile.png" id="avtar" class="bg-red" type="button" id="dropdownMenuMenu" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            <i></i>
+          </span>
+          <div class="dropdown-menu p-0 justify-content-center mr-3" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+            <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
+          </div>
 
-    <nav id="sidebar" class="z-depth-1-half bg-white position-fixed h-100">
-      <div class="card testimonial-card h-25 shadow-none ">
-        <div class="avatar mx-auto white mt-1">
-          <img src="img/profile.png" class="rounded-circle img-fluid w-25 m-auto d-block bg-info">
-        </div>
-        <div class="card-body ">
-          <h4 class="font-weight-bold text-center">User Profile</h4>
-          
-        </div>
-         <hr class="bg-red red w-100 font-weight-bold">
-      </div>
-      <ul class="list-unstyled components mt-5">
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('homeBool')" href=""  >
-              <i class="fas fa-home"></i> <span class="font-weight-normal">home</span></a>    
         </li>
-        <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('myOdersBool')" href=""  >
-                <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal">My orders</span></a>    
-          </li>
-          <li class="p-2">
-              <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('notificationBool')" href=""  >
-                  <i class="fas fa-bell"></i> <span class="font-weight-normal">Notification</span></a>    
-            </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('walletBool')" href=""  >
-                    <i class="fas fa-wallet"></i></i> <span class="font-weight-normal">Wallet</span></a>    
-              </li>
-              <li class="p-2">
-                  <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')" href=""  >
-                      <i class="far fa-comment-alt"></i> <span class="font-weight-normal">Feedback</span></a>    
-                </li>
-                <li class="p-2">
-                    <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('settingsBool')" href=""  >
-                        <i class="fas fa-cogs"></i><span class="font-weight-normal">Settings</span></a>    
-                  </li>
-                  <li class="p-2">
-                      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('termsAndPolicyBool')" href=""  >
-                          <i class="fas fa-file-contract"></i> <span class="font-weight-normal">Terms and Policy</span></a>    
-                    </li>
+
+
       </ul>
- </nav>
+    </div>
+  </nav>
+  <!-----------=====================================sidebar start===========================================-->
+
+  <nav id="sidebar" class="z-depth-1-half bg-white position-fixed h-100">
+    <div class="card testimonial-card h-25 shadow-none ">
+      <div class="avatar mx-auto white mt-1">
+        <img src="img/profile.png" class="rounded-circle img-fluid w-25 m-auto d-block bg-info">
+      </div>
+      <div class="card-body ">
+        <h4 class="font-weight-bold text-center">User Profile</h4>
+
+      </div>
+      <hr class="bg-red red w-100 font-weight-bold">
+    </div>
+    <ul class="list-unstyled components mt-5">
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('homeBool')" href="">
+          <i class="fas fa-home"></i> <span class="font-weight-normal">home</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('myOdersBool')" href="">
+          <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal">My orders</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('notificationBool')" href="">
+          <i class="fas fa-bell"></i> <span class="font-weight-normal">Notification</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('walletBool')" href="">
+          <i class="fas fa-wallet"></i></i> <span class="font-weight-normal">Wallet</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')" href="">
+          <i class="far fa-comment-alt"></i> <span class="font-weight-normal">Feedback</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('settingsBool')" href="">
+          <i class="fas fa-cogs"></i><span class="font-weight-normal">Settings</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('termsAndPolicyBool')" href="">
+          <i class="fas fa-file-contract"></i> <span class="font-weight-normal">Terms and Policy</span></a>
+      </li>
+    </ul>
+  </nav>
 
 
- <!---------======================================main content start=====================================-->
+  <!---------======================================main content start=====================================-->
 
- <div id="content" class="mt-1">
-  <div class="container">
+  <div id="content" class="mt-1">
+    <div class="container">
 
-    <!---------======================================Home=====================================-->
-    <div ng-if="homeBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-home"></i> Home</a>
+      <!---------======================================Home=====================================-->
+      <div ng-if="homeBool" class="font-weight-normal ">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"><i class="fas fa-home"></i> Home
+          </li>
+          </ol>
         </nav>
+        <div class="row mt-2  mr-1 ml-1 ">
+          <div class="col-md-2 mt-2 " ng-repeat="vender in venderList">
+            <div class="z-depth-1-half text-center  rounded mb-0 border border-danger waves-effect">
+              <!-- <p class="font-small text-black ">ORDER FOOD ONLINE FROM</p> -->
+              <!-- <hr> -->
+              <h6 class=" font-weight-bold text-danger ">{{vender.venderName}}</h6><!-- <hr> -->
+              <span class="font-small">{{vender.area}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2  mr-1 ml-1">
+          <div class="col-md-8 ">
+            <div class="col-md-4 "  ng-repeat="menuList in menuList">
+              <h6>{{menuList.menuType}}</h6>
+            </div>
+          </div>
+          <div class="col-md-4 danger-color ">
+            col-4
+          </div>
+        </div>
+
+      </div>
+      <!---------======================================End Home=====================================-->
+
+      <!---------======================================My orders=====================================-->
+      <div ng-if="myOdersBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"> <i class="fas fa-shopping-cart"></i> My orders
+          </li>
+          </ol>
+        </nav>
+      </div>
+      <!---------======================================End My orders=====================================-->
+      <!---------======================================Notification=====================================-->
+      <div ng-if="notificationBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"> <i class="fas fa-bell"></i> Notification
+          </li>
+          </ol>
+        </nav>
+
+      </div>
+      <!---------======================================End Notification=====================================-->
+      <!---------======================================Wallet====================================-->
+      <div ng-if="walletBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"><i class="fas fa-wallet"></i> Wallet
+          </li>
+          </ol>
+        </nav>
+      </div>
+      <!---------======================================End Wallet=====================================-->
+      <!---------======================================Feedback=====================================-->
+      <div ng-if="feedbackBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
+          </li>
+          </ol>
+        </nav>
+      </div>
+      <!---------======================================End Feedback=====================================-->
+      <!---------======================================Settings=====================================-->
+      <div ng-if="settingsBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
+          </li>
+          </ol>
+        </nav>
+      </div>
+      <!---------======================================End Settings=====================================-->
+      <!---------======================================Terms and Policy=====================================-->
+      <div ng-if="termsAndPolicyBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"> <i class="fas fa-file-contract"></i> Terms and Policy
+          </li>
+          </ol>
+        </nav>
+
+      </div>
+      <!---------======================================End Terms and Policy=====================================-->
+
 
     </div>
-    <!---------======================================End Home=====================================-->
-
-    <!---------======================================My orders=====================================-->
-     <div ng-if="myOdersBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-shopping-cart"></i> My orders</a>
-        </nav>
-     </div>
-    <!---------======================================End My orders=====================================-->
-    <!---------======================================Notification=====================================-->
-    <div ng-if="notificationBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-bell"></i> Notification</a>
-        </nav>
-
-      </div>
-     <!---------======================================End Notification=====================================-->
-     <!---------======================================Wallet====================================-->
-     <div ng-if="walletBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"><i class="fas fa-wallet"></i> Wallet</a>
-        </nav>
-      </div>
-     <!---------======================================End Wallet=====================================-->
-     <!---------======================================Feedback=====================================-->
-     <div ng-if="feedbackBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="far fa-comment-alt"></i> Feedback</a>
-        </nav>
-      </div>
-     <!---------======================================End Feedback=====================================-->
-     <!---------======================================Settings=====================================-->
-     <div ng-if="settingsBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-cogs"></i> Settings</a>
-        </nav>
-      </div>
-     <!---------======================================End Settings=====================================-->
-     <!---------======================================Terms and Policy=====================================-->
-     <div ng-if="termsAndPolicyBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-file-contract"></i> Terms and Policy</a>
-        </nav>
-
-      </div>
-     <!---------======================================End Terms and Policy=====================================-->
-    
-
   </div>
- </div>
- <!---------======================================End main content start=====================================-->
+  <!---------======================================End main content start=====================================-->
 </div>
