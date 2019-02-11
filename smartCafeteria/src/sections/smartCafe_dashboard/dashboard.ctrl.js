@@ -38,5 +38,17 @@ empApp.controller('DashboardController', ['$scope',
       { menuType: "Combos"},
       { menuType: "Chaat"}
     ];
+
+
+
+
+
+    //Ratingfeedback
+    $scope.maxRating = 5;
+    $scope.ratedBy = 0;
+    $scope.rateBy = function (star) {
+        $scope.ratedBy = star;
+    }
+   
   }
 ]);																

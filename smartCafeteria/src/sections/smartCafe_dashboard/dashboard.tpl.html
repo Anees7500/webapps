@@ -1,7 +1,7 @@
-<div class="wrapper">
+<div class="wrapper w-100">
   <!--==================================Navbar start================================= -->
-  <nav class="mb-1 navbar navbar-expand-lg navbar-toggleable-md rgba-cyan-strong navbar-fixed text-white nav-justified ">
-    <button class="navbar-toggler pink" type="button" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="mb-1 navbar navbar-expand-lg navbar-toggleable-md rgba-cyan-strong navbar-fixed text-white nav-justified fixed-top">
+    <button class="navbar-toggler pink" type="button" id="sidebarCollapse">
       <span class="white-text"><i class="fas fa-bars fa-1x"></i></span>
     </button>
 
@@ -11,28 +11,14 @@
       <ul class="navbar-nav ml-auto mr-3 smooth-scroll d-block">
         <li class="nav-item dropdown d-block">
 
-
-          <span class="avatar-status avatar-online ">
-            <img src="img/profile.png" id="avtar" class="bg-red" type="button" id="dropdownMenuMenu" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-            <i></i>
-          </span>
-          <div class="dropdown-menu p-0 justify-content-center mr-3" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
-            <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-          </div>
-
-        </li>
-
-
       </ul>
     </div>
   </nav>
-  <!-----------=====================================sidebar start===========================================-->
+  <!-----------====================sidebar start===============================-->
 
-  <nav id="sidebar" class="z-depth-1-half bg-white position-fixed h-100">
+  <nav id="sidebar" class="z-depth-1-half bg-white position-fixed h-100 mt-5">
     <div class="card testimonial-card h-25 shadow-none ">
-      <div class="avatar mx-auto white mt-1">
+      <div class="avatar mx-auto white mt-3">
         <img src="img/profile.png" class="rounded-circle img-fluid w-25 m-auto d-block bg-info">
       </div>
       <div class="card-body ">
@@ -70,103 +56,233 @@
         <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('termsAndPolicyBool')" href="">
           <i class="fas fa-file-contract"></i> <span class="font-weight-normal">Terms and Policy</span></a>
       </li>
+
     </ul>
-  </nav>
+</div>
+</nav>
 
 
-  <!---------======================================main content start=====================================-->
 
-  <div id="content" class="mt-1">
-    <div class="container">
+<!---------======================================main content start=====================================-->
 
-      <!---------======================================Home=====================================-->
-      <div ng-if="homeBool" class="font-weight-normal ">
-        <nav aria-label="breadcrumb" btn-outline-info ">
+<div id="content" class="mt-5">
+  <div class="container">
+
+    <!---------======================================Home=====================================-->
+    <div ng-if="homeBool" class="font-weight-normal ">
+      <nav aria-label="breadcrumb" btn-outline-info ">
             <ol class=" breadcrumb font-small
-          font-weight-normal">
-          <li class="breadcrumb-item active"><i class="fas fa-home"></i> Home
-          </li>
-          </ol>
-        </nav>
-        <div class="row mt-2  mr-1 ml-1 ">
-          <div class="col-md-2 mt-2 " ng-repeat="vender in venderList">
-            <div class="z-depth-1-half text-center  rounded mb-0 border border-danger waves-effect">
-              <!-- <p class="font-small text-black ">ORDER FOOD ONLINE FROM</p> -->
-              <!-- <hr> -->
-              <h6 class=" font-weight-bold text-danger ">{{vender.venderName}}</h6><!-- <hr> -->
-              <span class="font-small">{{vender.area}}</span>
-            </div>
+        font-weight-normal">
+        <li class="breadcrumb-item active"><i class="fas fa-home"></i> Home
+        </li>
+        </ol>
+      </nav>
+      <div class="row mt-2  mr-1 ml-1 ">
+        <div class="col-md-2 mt-2 " ng-repeat="vender in venderList">
+          <div class="z-depth-1-half text-center  rounded mb-0 border border-danger waves-effect">
+            <h6 class=" font-weight-bold text-danger ">{{vender.venderName}}</h6><!-- <hr> -->
+            <span class="font-small">{{vender.area}}</span>
           </div>
         </div>
-        <div class="row mt-2  mr-1 ml-1">
-          <div class="col-md-8 ">
-            <div class="col-md-4 "  ng-repeat="menuList in menuList">
-              <h6>{{menuList.menuType}}</h6>
-            </div>
-          </div>
-          <div class="col-md-4 danger-color ">
-            col-4
+      </div>
+      <div class="row mt-2  mr-1 ml-1">
+        <div class="col-md-8 ">
+          <div class="col-md-4 " ng-repeat="menuList in menuList">
+            <h6>{{menuList.menuType}}</h6>
           </div>
         </div>
+        <div class="col-md-4 danger-color ">
+          col-4
+        </div>
+      </div>
+    </div>
+    <!---------======================================End Home=====================================-->
+    <!---------=====================My orders==============================-->
+    <div ng-if="myOdersBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+        <ol class=" breadcrumb font-small font-weight-normal">
+        <li class="breadcrumb-item active"> <i class="fas fa-shopping-cart"></i> My orders
+        </li>
+        </ol>
+      </nav>
+
+      <div>
+        <h4 class="text-dark font-weight-normal mt-3">Your Orders</h4>
+      </div>
+      <div class="classic-tabs mx-2">
+        <ul class="nav nav-pills mb-3 pt-0" id="pills-tab" role="tablist">
+          <li class="nav-item  ">
+            <a class="nav-link " id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab"
+              aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Active Orders</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab"
+              aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Orders History</span></a>
+          </li>
+
+        </ul>
+        <hr class="font-weight-bold black h3 mt-0">
+        <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Consequat
+            occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt incididunt
+            nostrud.</div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
+            pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt
+            duis.</div>
+
+        </div>
+
 
       </div>
-      <!---------======================================End Home=====================================-->
+    </div>
+    <!---------======================================End My orders=====================================-->
+    <!---------======================================Notification=====================================-->
+    <div ng-if="notificationBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"> <i class="fas fa-bell"></i> Notification
+        </li>
+        </ol>
+      </nav>
+    </div>
+    <!---------======================================End Notification=====================================-->
+    <!---------======================================Wallet====================================-->
+    <div ng-if="walletBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"><i class="fas fa-wallet"></i> Wallet
+        </li>
+        </ol>
+      </nav>
+    </div>
+    <!---------======================================End Wallet=====================================-->
+    <!---------======================================Feedback=====================================-->
+    <div ng-if="feedbackBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
+        </li>
+        </ol>
+      </nav>
 
-      <!---------======================================My orders=====================================-->
-      <div ng-if="myOdersBool">
-        <nav aria-label="breadcrumb" btn-outline-info ">
-            <ol class=" breadcrumb font-small
-          font-weight-normal">
-          <li class="breadcrumb-item active"> <i class="fas fa-shopping-cart"></i> My orders
-          </li>
-          </ol>
-        </nav>
+      <div class="row mt-2">
+        <div class="col-md-8  justify-content-center ml-5">
+          <select class="browser-default custom-select">
+            <option selected>Choose Vendor</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
       </div>
-      <!---------======================================End My orders=====================================-->
-      <!---------======================================Notification=====================================-->
-      <div ng-if="notificationBool">
-        <nav aria-label="breadcrumb" btn-outline-info ">
+      <div class="row ">
+        <div class="col-md-8 justify-content-center ml-5 font-weight-normal ">
+          <div class="md-form md-outline">
+            <input type="text" id="inputIconEx1" class="form-control">
+            <label for="inputIconEx1">Enter Employee Name</label>
+          </div>
+          <div class="md-form md-outline">
+            <input type="text" id="inputIconEx2" class="form-control">
+            <label for="inputIconEx2">Enter Mobile Name</label>
+          </div>
+          <h6 class="font-weight-bold">Presentation</h6>
+          <ul class="justify-content list-unstyled rating">
+            <li class="list-unstyled text-center justify-conten fa-4x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          <hr>
+          <h6 class="font-weight-bold">Quality</h6>
+          <ul class="justify-content list-unstyled rating">
+            <li class="list-unstyled text-center justify-conten fa-4x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          <hr>
+          <h6 class="font-weight-bold">Taste</h6>
+          <ul class="justify-content list-unstyled rating">
+            <li class="list-unstyled text-center justify-conten fa-4x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          <hr>
+          <h6 class="font-weight-bold">Quantity</h6>
+          <ul class="justify-content list-unstyled rating">
+            <li class="list-unstyled text-center justify-conten fa-4x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          <hr>
+          <div class="md-form md-outline">
+            <textarea type="text" id="form75" class="form-control" rows="3"></textarea>
+            <label for="form75">Comment</label>
+          </div>
+          <div class="text-center ">
+            <button type="button" class="btn btn-info ">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---------======================================End Feedback=====================================-->
+    <!---------======================================Settings=====================================-->
+    <div ng-if="settingsBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
             <ol class=" breadcrumb font-small
-          font-weight-normal">
-          <li class="breadcrumb-item active"> <i class="fas fa-bell"></i> Notification
-          </li>
-          </ol>
-        </nav>
+        font-weight-normal">
+        <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
+        </li>
+        </ol>
+      </nav>
+      <form>
+        <div class="row  font-weight-bold">
+          <div class="col-md-6   ">
+            <label for="exampleForm2">Name</label>
+            <input type="text" class="form-control " placeholder="Enetr Your Name">
+          </div>
+          <div class="col-md-6   ">
+            <label for="exampleForm2">Employee Id</label>
+            <input type="text" class="form-control " placeholder="Enetr Your Employee Id">
+          </div>
+          <div class="col-md-6 ">
+            <label for="exampleForm2">Mobile Number</label>
+            <input class="form-control" placeholder="Enetr your mobile number">
+          </div>
+          <div class="col-md-6 ">
+            <label for="inputIconEx2">Email Id</label>
+            <input type="text" class="form-control " placeholder="Enetr your Email id">
+          </div>
 
-      </div>
-      <!---------======================================End Notification=====================================-->
-      <!---------======================================Wallet====================================-->
-      <div ng-if="walletBool">
-        <nav aria-label="breadcrumb" btn-outline-info ">
-            <ol class=" breadcrumb font-small
-          font-weight-normal">
-          <li class="breadcrumb-item active"><i class="fas fa-wallet"></i> Wallet
-          </li>
-          </ol>
-        </nav>
-      </div>
-      <!---------======================================End Wallet=====================================-->
-      <!---------======================================Feedback=====================================-->
-      <div ng-if="feedbackBool">
-        <nav aria-label="breadcrumb" btn-outline-info ">
-            <ol class=" breadcrumb font-small
-          font-weight-normal">
-          <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
-          </li>
-          </ol>
-        </nav>
-      </div>
-      <!---------======================================End Feedback=====================================-->
-      <!---------======================================Settings=====================================-->
-      <div ng-if="settingsBool">
-        <nav aria-label="breadcrumb" btn-outline-info ">
-            <ol class=" breadcrumb font-small
-          font-weight-normal">
-          <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
-          </li>
-          </ol>
-        </nav>
-      </div>
+          <label for="inputPassword6" class="ml-3">Change Password</label>
+          <div class="col-md-12 row ">
+            <div class="col-md-6 ">
+              <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                placeholder="New Password">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                placeholder="Confirm Password">
+            </div>
+
+          </div>
+
+        </div>
+        <div class="text-center ">
+          <button type="button" class="btn btn-info ">Submit</button>
+        </div>
+
+      </form>
+
+
+
+
       <!---------======================================End Settings=====================================-->
       <!---------======================================Terms and Policy=====================================-->
       <div ng-if="termsAndPolicyBool">
@@ -184,5 +300,16 @@
 
     </div>
   </div>
-  <!---------======================================End main content start=====================================-->
 </div>
+<!---------============================End main content start======================-->
+</div>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
+  });
+</script>

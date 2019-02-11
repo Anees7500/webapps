@@ -39,8 +39,13 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       { displayName: "Cash & Carry", dbName: "cashNCarry" }
     ];
 
+<<<<<<< HEAD
+    $scope.data = {};
+    console.log("data : ", $scope.data );
+=======
   
 
+>>>>>>> 57b71d32667ef427007c64f8b1f505b30a4fa249
     // ================ feedback ====================
     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
     $http.get(getFeedbackUrl).then(function (response) {
@@ -65,7 +70,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
     // ==================== Working days==============  
 
-    $scope.workingDays = [{ day: "Monday", selected: false, dbName: "monday"},
+    $scope.workingDays = [
+    { day: "Monday", selected: false, dbName: "monday"},
     { day: "Tuesday", selected: false, dbName: "tuesday" },
     { day: "Wednesday", selected: false, dbName: "wednesday"},
     { day: "Thursday", selected: false, dbName: "thursday"},
@@ -285,12 +291,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 //     });
 //   }
 
-
-    $scope.category = function (data) {
-      $scope.data.companyId = $routeParams.compId;
-      console.log("Task Active Field", $scope.data.companyId);
-      AdminCompanyServices.activeCategory(data, postCategoryUrl);
-    }
 
     $scope.selectAll = function () {
       angular.forEach($scope.workingDays, function (item) {
