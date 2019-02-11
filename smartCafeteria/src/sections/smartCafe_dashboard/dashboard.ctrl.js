@@ -13,22 +13,42 @@ empApp.controller('DashboardController', ['$scope',
       $scope.termsAndPolicyBool = false;
       $scope[value] = true;
     }
-
     $scope.boolFunction("homeBool");
 
+    $scope.venderList = [
+      { venderName: "Meghana Foods", area: "Indiranagar "},
+      { venderName: "Absolute Barbecues", area: "Koramangala "},
+      { venderName: "The Bier Library", area: "Marathahalli "   },
+      { venderName: "Meghana Foods", area: "Indiranagar " },
+      { venderName: "Absolute Barbecues", area: "Koramangala " },
+      { venderName: "The Bier Library", area: "Marathahalli " },
+      { venderName: "Meghana Foods", area: "Indiranagar " },
+      { venderName: "Absolute Barbecues", area: "Koramangala "},
+      { venderName: "The Bier Library", area: "Marathahalli " },
+      { venderName: "Big Pitcher", area: "Old Airport Road " }
+      // { vanderName: "Meghana Foods", area: "JP Nagar Bangalore" }
+    ];
+
+    $scope.menuList = [
+      { menuType: "Breakfast"},
+      { menuType: "Lunch"},
+      { menuType: "Snacks"},
+      { menuType: "Dinner"},
+      { menuType: "Dosa"},
+      { menuType: "Combos"},
+      { menuType: "Chaat"}
+    ];
 
 
 
 
 
     //Ratingfeedback
-
-      // $scope.maxRating = 10;
-      //       $scope.ratedBy = 0;
-      //       $scope.rateBy = function (star) {
-      //           $scope.ratedBy = star;
-      //       }
-
+    $scope.maxRating = 5;
+    $scope.ratedBy = 0;
+    $scope.rateBy = function (star) {
+        $scope.ratedBy = star;
+    }
    
   }
 ]);																

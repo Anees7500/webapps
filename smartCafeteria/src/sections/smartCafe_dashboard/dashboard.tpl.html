@@ -1,98 +1,99 @@
+
 <div class="wrapper ">
 <!--==================================Navbar start================================= -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color  text-white nav-justified fixed-top">
-  <button class="navbar-toggler pink" type="button" id="sidebarCollapse">
-    <span class="white-text"><i class="fas fa-bars fa-1x"></i></span>
+
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top">
+  <a class="navbar-brand text-white" href="">FANCYMONK</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active mr-5">
+        <a class="nav-link" href="">
+          <i class="fas fa-wallet fa-lg "></i> Wallet
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item mr-5 ">
+        <a class="nav-link" href="">
+          <i class="fas fa-bell fa-lg"></i> Notification</a>
+      </li>
+
+   <li class="dropdown nav-item mr-3">
+  <a class=" nav-link " href="" id="dropdownMenuLink" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-user fa-lg"></i> Hello User </a>
  
-    <a class="navbar-brand text-white " href="#"><span class="h5">FANCYMONK</span></a>
+
+  <div class="dropdown-menu dropdown-secondary dropdown-menu-center">
+     <form class="w-100"> 
+     
+        <a  class="dropdown-item" ng-click="boolFunction('homeBool')" href="">
+          <i class="fas fa-home"></i> <span class="font-weight-normal"> home</span></a>
+     
+        <a  class="dropdown-item" ng-click="boolFunction('myOdersBool')" href="">
+          <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal"> My orders</span></a>
+    
+        <a  class="dropdown-item" ng-click="boolFunction('feedbackBool')" href="">
+          <i class="far fa-comment-alt"></i> <span class="font-weight-normal"> Feedback</span></a>
+ 
+        <a  class="dropdown-item" ng-click="boolFunction('settingsBool')" href="">
+          <i class="fas fa-cogs"></i><span class="font-weight-normal"> Settings</span></a>
+    
+        <a  class="dropdown-item" ng-click="boolFunction('termsAndPolicyBool')" href="">
+          <i class="fas fa-file-contract"></i> <span class="font-weight-normal"> Terms and Policy</span></a>
+     
+    </form>
+    </div>
+  </li> 
+
   
-  <div class=" d-block ml-auto ">
-    <ul class="navbar-nav ml-auto mr-3 smooth-scroll d-block">
-      <li class="nav-item dropdown d-block">
-
-       
-        <span class="avatar-status avatar-online ">
-          <img src="img/profile.png" id="avtar" class="bg-red" type="button" id="dropdownMenuMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <i></i>
-        </span>
-        <div class="dropdown-menu p-0 justify-content-center mr-3" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href=""><i class="far fa-user-circle mr-3"></i>My account</a>
-          <a class="dropdown-item" href=""><i class="far fa-question-circle mr-3"></i>Log out</a>
-        </div>
-   
-    </li>
-
-
-  </ul>
-</div>  
+    </ul>
+  
+  </div>
 </nav>
-<!-----------====================sidebar start===============================-->
-
-    <nav id="sidebar" class="z-depth-1-half bg-white h-100 mt-5">
-      <div class="card testimonial-card h-25 shadow-none ">
-        <div class="avatar mx-auto white mt-3">
-          <img src="img/profile.png" class="rounded-circle img-fluid w-25 m-auto d-block bg-info">
-        </div>
-        <div class="card-body ">
-          <h4 class="font-weight-bold text-center">User Profile</h4>
-          
-        </div>
-         <hr class="bg-red red w-100 font-weight-bold">
-      </div>
-      <ul class="list-unstyled components mt-5">
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('homeBool')" href=""  >
-              <i class="fas fa-home"></i> <span class="font-weight-normal">home</span></a>    
-        </li>
-        <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('myOdersBool')" href=""  >
-                <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal">My orders</span></a>    
-          </li>
-          <li class="p-2">
-              <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('notificationBool')" href=""  >
-                  <i class="fas fa-bell"></i> <span class="font-weight-normal">Notification</span></a>    
-            </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('walletBool')" href=""  >
-                    <i class="fas fa-wallet"></i></i> <span class="font-weight-normal">Wallet</span></a>    
-              </li>
-              <li class="p-2">
-                  <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')" href=""  >
-                      <i class="far fa-comment-alt"></i> <span class="font-weight-normal">Feedback</span></a>    
-                </li>
-                <li class="p-2">
-                    <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('settingsBool')" href=""  >
-                        <i class="fas fa-cogs"></i><span class="font-weight-normal">Settings</span></a>    
-                  </li>
-                  <li class="p-2">
-                      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('termsAndPolicyBool')" href=""  >
-                          <i class="fas fa-file-contract"></i> <span class="font-weight-normal">Terms and Policy</span></a>    
-                    </li>
-      </ul>
- </nav>
+<!--/.Navbar -->
 
 
- <!---------======================main content start=========================-->
 
+<!---------======================================main content start=====================================-->
  <div id="content" class="mt-5">
-  
+
+
 
 
     <!---------======================================Home=====================================-->
-    <div ng-if="homeBool">
-        <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active">Home</li>
-  </ol>
-</nav>
-
-
-
+    <div ng-if="homeBool" class="font-weight-normal ">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"><i class="fas fa-home"></i> Home
+        </li>
+        </ol>
+      </nav>
+      <div class="row mt-2  mr-1 ml-1 ">
+        <div class="col-md-2 mt-2 " ng-repeat="vender in venderList">
+          <div class="z-depth-1-half text-center  rounded mb-0 border border-danger waves-effect">
+            <h6 class=" font-weight-bold text-danger ">{{vender.venderName}}</h6><!-- <hr> -->
+            <span class="font-small">{{vender.area}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2  mr-1 ml-1">
+        <div class="col-md-8 ">
+          <div class="col-md-4 " ng-repeat="menuList in menuList">
+            <h6>{{menuList.menuType}}</h6>
+          </div>
+        </div>
+        <div class="col-md-4 danger-color ">
+          col-4
+        </div>
+      </div>
     </div>
-    <!---------==========================End Home===========================-->
-
+    <!---------======================================End Home=====================================-->
     <!---------=====================My orders==============================-->
+
      <div ng-if="myOdersBool">
         <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -124,9 +125,28 @@
         <h5 class="mt-3 mb-1 font-weight-bold">FANCY VENDOR-HSR LAYOUT</h5>
          <P> 1 Veg Biryani, 1 Paneer Tikka</P>
          <p>Total Amount - ₹ 196.90</p>
+         <div class="d-flex justify-content-left">
+           <div class="confirm">
+             <i class="fas fa-check-circle fa-lg rounded-pill grey"></i>   
+        <span class="line green d-block w-25 position-absolute"></span>
+        <p>Confirmed Order</p>
+      </div>
+       <div class="procee ml-5">
+             <i class="fas fa-hot-tub fa-lg rounded-pill grey"></i>   
+        <span class=" green d-block w-25 position-absolute" id="line"></span>
+        <p>Food is being prepared</p>
+      </div>
+         <div class="dispatch">
+             <i class="fas fa-ambulance fa-lg rounded-pill grey"></i> 
+        <p class="ml-3">Food is on the way</p>
+      </div>
+         </div>
       </div>
       <div class="col-md-4">
         <p class="mt-3 font-weight-bold text-dark h6 mr-3 text-right">Febraury 10,2019</p>
+        <div class="justify-content-end d-flex mt-3">
+         <button class="btn btn-info waves-effect btn-lg   ml-auto  rounded-pill  z-depth-0 mt-5" type="cancel">Cancel</button>
+       </div>
       </div>
     </div>
     </div>
@@ -136,75 +156,218 @@
     pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute sunt incididunt
    duis.</div>
 
-</div>
-
-     </div>  
-     </div>
    </div>
+ </div>
+</div>
+</div>
     <!---------===========================End My orders=========================-->
-    <!---------===========================Notification==========================-->
+    
+    <!---------======================================Notification=====================================-->
     <div ng-if="notificationBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-bell"></i> Notification</a>
-        </nav>
-      
-
-
-
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"> <i class="fas fa-bell"></i> Notification
+        </li>
+        </ol>
+      </nav>
+    </div>
+    <!---------======================================End Notification=====================================-->
+    <!---------======================================Wallet====================================-->
+    <div ng-if="walletBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"><i class="fas fa-wallet"></i> Wallet
+        </li>
+        </ol>
+      </nav>
+    </div>
+    <!---------======================================End Wallet=====================================-->
+    <!---------======================================Feedback=====================================-->
+    <div ng-if="feedbackBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
+        </li>
+        </ol>
+      </nav>
+      <div class="container  justify-content-center">
+        <form class="z-depth-1 w-75 ml-5   py-3 px-3">
+      <div class="row mt-2 justify-content-center">
+        <div class="col-md-8 ">
+          <select class="browser-default custom-select mt-3">
+            <option selected>Choose Vendor</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        
+    
+          <div class="md-form md-outline pb-0 mb-0">
+            <input type="text" id="inputIconEx1" class="form-control">
+            <label for="inputIconEx1">Enter Employee Name</label>
+          </div>
+          <div class="md-form md-outline pb-0 mb-0">
+            <input type="text" id="inputIconEx2" class="form-control">
+            <label for="inputIconEx2">Enter Mobile Name</label>
+          </div>
+    
+          <div class="row justify-content-center pb-0">
+          <div class="col-md-4 col-sm-4 col-xs-6  pb-0">
+          <h5 class="font-weight-bold mt-3">Presentation</h5>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-6  pb-0">
+          <ul class=" list-unstyled rating">
+            <li class="list-unstyled  fa-2x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          </div>
+        </div>
+          <hr class="mt-0">
+          <div class="row justify-content-center  pb-0">
+          <div class="col-md-4 col-sm-4 col-xs-6  pb-0">
+          <h5 class="font-weight-bold mt-3">Quality</h5>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-6  pb-0">
+          <ul class=" list-unstyled rating">
+            <li class="list-unstyled  fa-2x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          </div>
+        </div>
+          <hr class="mt-0">
+          <div class="row justify-content-center">
+          <div class="col-md-4 col-sm-4 col-xs-6">
+          <h5 class="font-weight-bold mt-3">Taste</h5>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-6">
+          <ul class=" list-unstyled rating">
+            <li class="list-unstyled  fa-2x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          </div>
+        </div>
+          <hr class="mt-0">
+         <div class="row justify-content-center">
+          <div class="col-md-4 col-sm-4 col-xs-6">
+          <h5 class="font-weight-bold mt-3">Quantity</h5>
+          </div>
+          <div class="col-md-8 col-sm-8 col-xs-6">
+          <ul class=" list-unstyled rating">
+            <li class="list-unstyled  fa-2x" ng-repeat="n in [].constructor(maxRating) track by $index">
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy($index+1)" ng-show="ratedBy <= $index">&#9733;</span>
+            </li>
+          </ul>
+          </div>
+        </div>
+          <hr class="mt-0">
+          <div class="md-form md-outline">
+            <textarea type="text" id="form75" class="form-control" rows="3"></textarea>
+            <label for="form75">Comment</label>
+          </div>
+          <div class="text-center ">
+            <button type="button" class="btn btn-info ">Submit</button>
+          </div>
+        </div>
       </div>
-     <!---------===========================End Notification========================-->
-     <!---------=============================Wallet========================-->
-     <div ng-if="walletBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"><i class="fas fa-wallet"></i> Wallet</a>
-        </nav>
-      </div>
-     <!---------===================End Wallet================================-->
+    </form>
+    </div>
+  </div>
+    <!---------======================================End Feedback=====================================-->
+    <!---------======================================Settings=====================================-->
+    <div ng-if="settingsBool">
+      <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+        font-weight-normal">
+        <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
+        </li>
+        </ol>
+      </nav>
+      <div class="container">
+      <form class="z-depth-1 py-3 px-3">
+        <div class="row  font-weight-bold">
+          <div class="col-md-6   ">
+            <label for="exampleForm2">Name</label>
+            <input type="text" class="form-control " placeholder="Enetr Your Name">
+          </div>
+          <div class="col-md-6   ">
+            <label for="exampleForm2">Employee Id</label>
+            <input type="text" class="form-control " placeholder="Enetr Your Employee Id">
+          </div>
+          <div class="col-md-6 ">
+            <label for="exampleForm2">Mobile Number</label>
+            <input class="form-control" placeholder="Enetr your mobile number">
+          </div>
+          <div class="col-md-6 ">
+            <label for="inputIconEx2">Email Id</label>
+            <input type="text" class="form-control " placeholder="Enetr your Email id">
+          </div>
 
+          <label for="inputPassword6" class="ml-3">Change Password</label>
+          <div class="col-md-12 row ">
+            <div class="col-md-6 ">
+              <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                placeholder="New Password">
+            </div>
 
+            <div class="col-md-6 ">
+              <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                placeholder="Confirm Password">
+            </div>
 
-     <!---------=============================Feedback=========================-->
-     <div ng-if="feedbackBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="far fa-comment-alt"></i> Feedback</a>
-        </nav>
+          </div>
+
+        </div>
+        <div class="text-center ">
+          <button type="button" class="btn btn-info ">Submit</button>
+        </div>
 
 
        
 
-</div>
-<!---------===========================End Feedback=========================-->
+      </form>
+    </div>
+    </div>
 
 
 
-     <!---------======================================Settings=====================================-->
-     <div ng-if="settingsBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-cogs"></i> Settings</a>
+
+      <!---------======================================End Settings=====================================-->
+      <!---------======================================Terms and Policy=====================================-->
+      <div ng-if="termsAndPolicyBool">
+        <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small
+          font-weight-normal">
+          <li class="breadcrumb-item active"> <i class="fas fa-file-contract"></i> Terms and Policy
+          </li>
+          </ol>
         </nav>
-      </div>
-     <!---------============================End Settings===========================-->
-     <!---------=======================Terms and Policy=======================-->
-     <div ng-if="termsAndPolicyBool">
-        <nav class="navbar  btn-outline-info ">
-            <a class="navbar-brand  font-small font-weight-normal"> <i class="fas fa-file-contract"></i> Terms and Policy</a>
-        </nav>
 
       </div>
-     <!---------======================End Terms and Policy=============-->
-    
+      <!---------======================================End Terms and Policy=====================================-->
 
+
+    </div>
   </div>
- </div>
- <!---------============================End main content start======================-->
-</div>
+
+<!---------============================End main content start======================-->
 
 
 
-     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
+  });
+</script>
