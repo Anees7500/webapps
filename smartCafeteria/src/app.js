@@ -6,6 +6,13 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'empLoginController'
         })
 
+
+        .when('/registration', {
+            templateUrl: 'sections/emp_registration/empRegistration.tpl.html',
+            title: 'Header-part',
+            controller: 'empRegistrationController'
+        })
+
         .when('/dashboard', {
             templateUrl: 'sections/smartCafe_dashboard/dashboard.tpl.html',
             title: 'Header-part',
