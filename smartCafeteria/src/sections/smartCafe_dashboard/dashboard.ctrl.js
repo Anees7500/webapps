@@ -6,6 +6,7 @@ empApp.controller('DashboardController', ['$scope',
       console.log("boolFunction", value);
       $scope.homeBool = false;
       $scope.myOdersBool = false;
+      $scope.favouritesBool = false;
       $scope.notificationBool = false;
       $scope.walletBool = false;
       $scope.feedbackBool = false;
@@ -26,7 +27,6 @@ empApp.controller('DashboardController', ['$scope',
       { venderName: "Absolute Barbecues", area: "Koramangala " },
       { venderName: "The Bier Library", area: "Marathahalli " },
       { venderName: "Big Pitcher", area: "Old Airport Road " }
-      // { vanderName: "Meghana Foods", area: "JP Nagar Bangalore" }
     ];
 
     $scope.menuList = [
@@ -69,6 +69,22 @@ empApp.controller('DashboardController', ['$scope',
       console.log("hhhshs : ", JSON.stringify($scope.stars));
       j.rating = star;
     
+    }
+
+    $scope.submitted = false;
+    $scope.edit = false;
+    $scope.employeeDetails = [{
+      name : "Pallavi Gupta", employeeId : "207997" , mobile : "8871128039", emailId : "pallavig033@gmail.com"
+    }];
+    $scope.submit = function(employeeDetails){
+      console.log(employeeDetails);
+      $scope.edit = false;
+      $scope.submitted = false;
+    }
+
+    $scope.makeFavouritNReverse = function()
+    {
+      $scope.favourite = $scope.favourite ? false : true;
     }
 
   }
