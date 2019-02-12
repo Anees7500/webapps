@@ -29,3 +29,16 @@
 
 span.line { height: 5px;left: 7%;margin-top: -13px;}
 #line{height: 5px;margin-top: -13px;margin-left: 22px;}
+.input-group {
+    position: relative;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -moz-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+}

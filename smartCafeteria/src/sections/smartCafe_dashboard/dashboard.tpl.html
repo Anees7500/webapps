@@ -20,15 +20,11 @@
             <i class="fas fa-bell fa-lg"></i> Notification</a>
         </li>
 
-        <li class="nav-item mr-5 mt-2 text-white  ">     
-            <a  class=" btn-sm btn-so">
-                <i class="fas fa-cart-plus fa-lg "></i>card
-             
-                        </a>
-              <span class="counter">22</span>       
-            <!-- <a class="nav-link" href="" ng-click="boolFunction('walletBool')">Card -->
-                <!-- <span class="badge badge-pill pink text-top ml-1">0</span> </a>             -->
-          </li>
+        <li class="nav-item mr-5 mt-2 text-white  ">
+          <a class=" btn-sm btn-so" ng-click="boolFunction('cardBool')">
+            <i class="fas fa-cart-plus fa-lg "></i>card
+          </a>
+        </li>
 
         <li class="dropdown nav-item mr-3">
           <a class=" nav-link " href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,8 +40,8 @@
               <a class="dropdown-item" ng-click="boolFunction('myOdersBool')" href="">
                 <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal"> My orders</span></a>
 
-                <a class="dropdown-item" ng-click="boolFunction('favouritesBool')" href="">
-                    <i class="far fa-heart" ></i><span class="font-weight-normal"> Favourites</span></a>
+              <a class="dropdown-item" ng-click="boolFunction('favouritesBool')" href="">
+                <i class="far fa-heart"></i><span class="font-weight-normal"> Favourites</span></a>
 
               <a class="dropdown-item" ng-click="boolFunction('feedbackBool')" href="">
                 <i class="far fa-comment-alt"></i> <span class="font-weight-normal"> Feedback</span></a>
@@ -94,16 +90,16 @@
                   <P> <i class="fas fa-map-marker-alt text-danger"></i> HSR-7 layout</P>
                   <p>Desserts, Ice Cream</p>
                 </div>
-               
+
                 <div class="col-md-4">
                   <p class="mt-3 font-weight-bold text-dark h6 mr-3 text-right">
                     <i class="fas fa-star text-warning"></i> 4.5</p>
                 </div>
                 <div class="col-md-4">
-                  <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-default" ng-if="!favourite">Favourit
-                    <i class="far fa-heart ml-3" aria-hidden="true"></i></button>
-                  <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-danger" ng-if="favourite">Favourited
-                    <i class="fas fa-heart" aria-hidden="true"></i></button>
+                  <a type="" ng-click="makeFavouritNReverse()" class="" ng-if="!favourite">
+                    <i class="far fa-heart fa-4x" aria-hidden="true"></i></a>
+                  <a type="" ng-click="makeFavouritNReverse()" ng-if="favourite">
+                    <i class="fas fa-heart fa-4x text-danger" aria-hidden="true"></i></a>
                 </div>
               </div>
             </div>
@@ -124,7 +120,6 @@
             <h4 class="font-weight-bold  ">Cart</h4>
             <p class=" font-weight-normal ">from The Bowl Company</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -205,14 +200,38 @@
     <!---------===========================Favourites============================================-->
 
     <div ng-if="favouritesBool">
-        <nav aria-label="breadcrumb">
-          <ol class=" breadcrumb font-small
+      <nav aria-label="breadcrumb">
+        <ol class=" breadcrumb font-small
           font-weight-normal">
-            <li class="breadcrumb-item active">Favourites
-            </li>
-          </ol>
-        </nav>
+          <li class="breadcrumb-item active">Favourites
+          </li>
+        </ol>
+      </nav>
+      <div class="container z-depth-1 py-3 px-3 text-center  col-md-6 ">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
+            <i class="fas fa-edit"></i> Edit</button>
+          <br><br>
+          <tr>
+            <th class="text-center">Person Name</th>
+            <th class="text-center">Age</th>
+            <th class="text-center">Area</th>
+
+          </tr>
+          <tr ng-repeat="e in employeeTable">
+            <td class="pt-3-half" contenteditable="true">
+              <input type="text" ng-disabled="!editEmployeeDetails" placeholder="{{e.name }}">
+            </td>
+            <td class="pt-3-half" contenteditable="true">
+              <input type="text" ng-disabled="!editEmployeeDetails" placeholder="{{e.age }}">
+            </td>
+            <td class="pt-3-half" contenteditable="true">
+              <input type="text" ng-disabled="!editEmployeeDetails" placeholder="{{e.area }}">
+            </td>
+          </tr>
+        </table>
       </div>
+    </div>
     <!---------===========================End Favourites =========================-->
 
     <!---------======================================Notification=====================================-->
@@ -224,6 +243,7 @@
           </li>
         </ol>
       </nav>
+
     </div>
     <!---------======================================End Notification=====================================-->
     <!---------======================================Wallet====================================-->
@@ -235,51 +255,81 @@
         </ol>
       </nav>
       <div class="container">
-      <div class="col-md-10 card text-center   z-depth-1-half">
-        <div class="text-white font-weight-bold cyan lighten-1 border border-secondary ">
-          <h4 class=" fa-2x mt-3 "><i class="fas fa-rupee-sign "></i> 100</h4>
-          <span class="">Fancymonk Wallet Balance</span>
+        <div class="col-md-10 card text-center   z-depth-1-half">
+          <div class="text-white font-weight-bold cyan lighten-1 border border-secondary ">
+            <h4 class=" fa-2x mt-3 "><i class="fas fa-rupee-sign "></i> 100</h4>
+            <span class="">Fancymonk Wallet Balance</span>
+          </div>
+          <div class="mt-4 row text">
+            <div class="col-md-1 mt-4 ml-3">
+              <a class="btn-floating btn-lg cyan lighten-1 z-depth-1-half">
+                <i class="fas fa-wallet white-text " aria-hidden="true "></i>
+              </a>
+            </div>
+            <div class="md-form font-weight-bold col-md-6 ">
+              <input type="text" id="inputIconEx2" class="form-control">
+              <label for="inputIconEx2" class="ml-3">Enter Amount to be Added in Wallet</label>
+            </div>
+            <div class="col-md-4 mt-3 ">
+              <button type="button" class="btn btn-primary">Add Money to Wallet</button>
+            </div>
+          </div>
         </div>
-        <div class="mt-4 row text">
-          <div class="col-md-1 mt-4 ml-3">
-            <a class="btn-floating btn-lg cyan lighten-1 z-depth-1-half">
-              <i class="fas fa-wallet white-text " aria-hidden="true "></i>
-            </a>
-          </div>
-          <div class="md-form font-weight-bold col-md-6 ">
-            <input type="text" id="inputIconEx2" class="form-control">
-            <label for="inputIconEx2" class="ml-3">Enter Amount to be Added in Wallet</label>
-          </div>
-          <div class="col-md-4 mt-3 ">
-            <button type="button" class="btn btn-primary">Add Money to Wallet</button>
-          </div>
+        <div class=" z-depth-1-half col-md-10 mt-3 card p-1">
+          <h5 class="float-left">Transaction ID: 7326619325</h5>
+          <h5 class=" pull-right  ">Total payment <i class="fas fa-rupee-sign "></i> 12
+          </h5>
         </div>
       </div>
-      <div class=" z-depth-1-half col-md-10 mt-3 card p-1">
-        <h5  class="float-left">Transaction ID: 7326619325</h5>
-        <h5  class=" pull-right  ">Total payment <i class="fas fa-rupee-sign "></i> 12
-        </h5 >
-        </div>
-      </div> 
-      
-      </div>
-      
-      
-  
-    <!---------======================================End Wallet=====================================-->
 
-    <!---------======================================Feedback=====================================-->
-    <div ng-if="feedbackBool">
+    </div>
+
+
+
+    <!---------======================================End Wallet=====================================-->
+    <!---------======================================Card=====================================-->
+    <div ng-if="cardBool">
       <nav aria-label="breadcrumb">
-        <ol class=" breadcrumb font-small
-        font-weight-normal">
-          <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
+        <ol class=" breadcrumb font-small  font-weight-normal">
+          <li class="breadcrumb-item active"></i> Card
           </li>
         </ol>
       </nav>
+      <div class="container z-depth-1 py-3 px-3 text-center  col-md-6 mb-4 ">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-center font-weight-bold">Your cart</span>
+          <span class="badge badge-secondary badge-pill">3</span>
+        </h4>
 
-      <div class="row mt-2">
-        <div class="col-md-8  justify-content-center ml-5" ng-model="venderName">
+        <ul class="list-group mb-3 z-depth-1"  >
+          <li class="list-group-item d-flex justify-content-between lh-condensed" ng-repeat="d in cardInfo">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-muted">{{d.productName}}</small>
+            </div>
+            <span class="text-muted"><i class="fas fa-rupee-sign "></i> {{d.price}}</span>
+          </li>
+        </ul>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------====================================== End Card=====================================-->
+
+<!---------====================================== Feedback=====================================-->
+<div ng-if="feedbackBool">
+  <nav aria-label="breadcrumb">
+    <ol class=" breadcrumb font-small  font-weight-normal">
+      <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
+      </li>
+    </ol>
+  </nav>
+
+  <div class="container z-depth-1 py-3 px-3 text-center  col-md-6 ">
+    <form class="">
+      <div class="row text-center">
+        <div class="col-md-8 justify-content-center ml-5" ng-model="venderName">
           <select class="browser-default custom-select">
             <option selected>Choose Vendor</option>
             <option value="1">One</option>
@@ -289,23 +339,23 @@
         </div>
       </div>
       <div class="row ">
-        <div class="col-md-8 justify-content-center ml-5 font-weight-normal ">
-          <div class="md-form md-outline">
+        <div class="col-md-8  ml-5 font-weight-normal">
+          <div class="md-form justify-content-center md-outline">
             <input type="text" id="inputIconEx1" class="form-control" ng-model="employee.name">
             <label for="inputIconEx1">Enter Employee Name</label>
           </div>
-          <div class="md-form md-outline">
+          <div class="md-form justify-content-center md-outline">
             <input type="text" id="inputIconEx2" class="form-control" ng-mixlength="10" ng-model="employee.mobile">
             <label for="inputIconEx2">Enter Mobile Name</label>
           </div>
-          <h6 class="font-weight-bold" ng-repeat="parames in ratingParameters">{{parames.name}}
-            <ul class="justify-content list-unstyled rating" ng-model=employee[parames.ratingParameters]>
-              <li class="list-unstyled text-center justify-conten fa-4x" ng-repeat="n in stars track by $index">
+          <h6 class="font-weight-bold " ng-repeat="parames in ratingParameters">{{parames.name}}
+            <ul class=" list-unstyled rating" ng-model=employee[parames.ratingParameters]>
+              <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
                 <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating > $index" class="filled">&#9733;</span>
                 <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating <= $index">&#9733;</span>
               </li>
             </ul>
-            <hr>
+            <hr class="font-weight-bold black h3 mt-0">
           </h6>
           <div class="md-form md-outline">
             <textarea type="text" id="form75" class="form-control" rows="3"></textarea>
@@ -316,80 +366,79 @@
           </div>
         </div>
       </div>
-      </form>
-    </div>
+    </form>
   </div>
-    <!---------======================================End Feedback=====================================-->
+</div>
+<!---------======================================End Feedback=====================================-->
 
-    <!---------======================================Settings=====================================-->
-    <div ng-if="settingsBool">
-      <nav aria-label="breadcrumb" btn-outline-info ">
-            <ol class=" breadcrumb font-small
-        font-weight-normal">
-        <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
-        </li>
-      </ol>
-    </nav>
-    <div class="container">
-      <form class="z-depth-1 py-3 px-3">
-        <button class="btn btn-primary font-weight-bold float-right waves-effect btn-sm" ng-click="edit = true">
-          <i class="fas fa-pencil-alt mr-2"></i>Edit</button>
-        <div class="row  font-weight-bold" ng-repeat="employeeeInfo in employeeDetails">
+<!---------======================================Settings=====================================-->
+<div ng-if="settingsBool">
+  <nav aria-label="breadcrumb" btn-outline-info ">
+            <ol class=" breadcrumb font-small font-weight-normal">
+    <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
+    </li>
+    </ol>
+  </nav>
+  <div class="container z-depth-1 py-3 px-3   col-md-6 ">
+    <form class="">
+
+      <div class="font-weight-bold" ng-repeat="employeeeInfo in employeeDetails">
+        <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
+          <i class="fas fa-edit"></i> Edit</button>
+        <br><br>
+        <div class="row">
           <div class="col-md-6   ">
             <label for="exampleForm2">Name</label>
-            <span ng-show="!edit"></span>
-            <input type="text" class="form-control" ng-model="employee.name" placeholder="{{employeeeInfo.name}}">
+            <input type="text" class="form-control" ng-disabled="!editEmployeeDetails" ng-model="employee.name"
+              placeholder="{{employeeeInfo.name }}">
           </div>
           <div class="col-md-6   ">
             <label for="exampleForm2">Employee Id</label>
-            <span ng-show="!edit"></span>
-            <input type="text" class="form-control " placeholder="{{employeeeInfo.employeeId}}">
+            <input type="text" class="form-control " ng-disabled="!editEmployeeDetails" placeholder="{{employeeeInfo.employeeId}}">
           </div>
           <div class="col-md-6 ">
             <label for="exampleForm2">Mobile Number</label>
-            <span ng-show="!edit"></span>
-            <input class="form-control" placeholder="{{employeeeInfo.mobile}}">
+            <input class="form-control" placeholder="{{employeeeInfo.mobile}}" ng-disabled="!editEmployeeDetails">
           </div>
           <div class="col-md-6 ">
             <label for="inputIconEx2">Email Id</label>
-            <span ng-show="!edit"></span>
-            <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}">
+            <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}" ng-disabled="!editEmployeeDetails">
           </div>
 
           <label for="inputPassword6" class="ml-3">Change Password</label>
           <div class="col-md-12 row ">
             <div class="col-md-6 ">
               <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
-                placeholder="New Password">
+                placeholder="New Password" ng-disabled="!editEmployeeDetails">
             </div>
 
-            <div class="col-md-6 ">
+            <div class="col-md-6 ml-0">
               <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline"
-                placeholder="Confirm Password">
+                placeholder="Confirm Password" ng-disabled="!editEmployeeDetails">
             </div>
-
           </div>
-
         </div>
+
         <div class="text-center ">
-          <button type="button" class="btn btn-info ">Submit</button>
+          <button type="button" class="btn btn-info " ng-click="makeEmployeeDetailsEditable(employeeDetails)">Submit</button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>
 
 
 
 
-  <!---------======================================End Settings=====================================-->
-  <!---------======================================Terms and Policy=====================================-->
-  <div ng-if="termsAndPolicyBool " class="mt-4">
-    <nav class=" card   font-weight-bold  text-center  ">
-      <h6 class="text-info">Terms and Policy </h6>
-    </nav>
+<!---------======================================End Settings=====================================-->
+<!---------======================================Terms and Policy=====================================-->
+<div ng-if="termsAndPolicyBool " class="mt-4">
+  <nav class=" card   font-weight-bold  text-center  ">
+    <h6 class="text-info">Terms and Policy </h6>
+  </nav>
 
-  </div>
-  <!---------======================================End Terms and Policy=====================================-->
+</div>
+<!---------======================================End Terms and Policy=====================================-->
 
 
 </div>
@@ -406,4 +455,7 @@
       $('#sidebar').toggleClass('active');
     });
   });
+</script>
+<script>
+  $("input[type='number']").inputSpinner()
 </script>
