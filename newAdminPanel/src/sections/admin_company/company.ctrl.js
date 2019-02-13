@@ -39,13 +39,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       { displayName: "Cash & Carry", dbName: "cashNCarry" }
     ];
 
-<<<<<<< HEAD
-    $scope.data = {};
-    console.log("data : ", $scope.data );
-=======
   
 
->>>>>>> 57b71d32667ef427007c64f8b1f505b30a4fa249
     // ================ feedback ====================
     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
     $http.get(getFeedbackUrl).then(function (response) {
