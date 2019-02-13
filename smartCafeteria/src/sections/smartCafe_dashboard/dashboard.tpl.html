@@ -84,8 +84,8 @@
           </li>
         </ol>
       </nav>
-      <div class="row">
-      <div class="col-md-5 mt-2  ml-3 text-center">
+      <div class="row ml-3 mr-1">
+      <div class="col-md-5 mt-2">
         <ul class="list-unstyled border">
           <li class="media ">
             <img alt="thumbnail" class="img-thumbnail" style="width: 200px" src="img/food.jpg">
@@ -98,18 +98,25 @@
                   <div class="d-flex justify-content-left">
                     <p><i class="fas fa-map-marker-alt text-danger"></i> HSR-7 layout</p>  
                  </div>
-                  <div class="d-flex justify-content-left">
-                    <h6 class="font-weight-normal text-left">Biryani, juice
-                    <span class=" font-weight-bold text-dark text-right ml-5 mr-5">
+                    <div class="row">
+                      <div class="col-md-4  border-right border-dark">
+                       <h6 class="font-weight-normal text-left">Biryani, juice
+                       </h6>
+                      </div>
+
+                       <div class="col-md-3  border-right border-dark">
+                         <h6 class=" font-weight-bold text-dark ">
                     <i class="fas fa-star text-warning"></i> 4.5
-                    </span>
-                    <span>
-                       <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-default btn-md" ng-if="!favourite">Favourit
+                    </h6>
+                       </div>
+
+                        <div class="col-md-5">
+                        <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-default btn-md" ng-if="!favourite">Favourit  
                   <i class="far fa-heart" aria-hidden="true"></i></button>
-                  <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-danger btn-md"ng-if="favourite">Favourited<i class="fas fa-heart" aria-hidden="true"></i></button>
-                    </span>
-                    </h6>  
-                 </div>
+                  <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-danger btn-md"ng-if="favourite">Favourited <i class="fas fa-heart" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+            
                                    
                 
               
@@ -119,7 +126,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-6 mt-2">    
+      <div class="col-md-7 mt-2">    
     <form>
 <div class="card">
   <h5 class="card-header info-color white-text text-center">
@@ -144,7 +151,7 @@
        <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
     </p>
     <h6 class="card-title text-dark">North Indian 
-     <span class="font-weight-bold text-dark h6 ml-3 mr-0 text-right">
+     <span class="font-weight-bold text-dark ml-1 mr-0 text-right">
       <i class="fas fa-star text-warning"></i> 4.5</span></h6>
   </div>
 </div>
@@ -158,7 +165,7 @@
        <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
     </p>
     <h6 class="card-title text-dark">South Indian 
-     <span class="font-weight-bold text-dark h6 ml-3 mr-0 text-right">
+     <span class="font-weight-bold text-dark  ml-1 mr-0 text-right">
       <i class="fas fa-star text-warning"></i> 4.3</span></h6>
   </div>
 </div>
@@ -172,7 +179,7 @@
        <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
     </p>
     <h6 class="card-title text-dark">South Indian 
-     <span class="font-weight-bold text-dark h6 ml-3 mr-0 text-right">
+     <span class="font-weight-bold text-dark  ml-1 mr-0 text-right">
       <i class="fas fa-star text-warning"></i> 4.3</span></h6>
   </div>
 </div>
@@ -186,7 +193,7 @@
        <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
     </p>
     <h6 class="card-title text-dark">North Indian 
-     <span class="font-weight-bold text-dark h6 ml-3 mr-0 text-right">
+     <span class="font-weight-bold text-dark  ml-1 mr-0 text-right">
       <i class="fas fa-star text-warning"></i> 4.5</span></h6>
   </div>
 </div>
