@@ -1,28 +1,16 @@
 /**********dropdown hover***********************************/
 #avtar{width: 25px;border-radius: 1000px;background-color: aliceblue;}
-.dropdown-menu {margin-left: -108px;}
-.dropdown:hover>.dropdown-menu {display: block;}
-.dropdown>.dropdown-toggle:active { pointer-events: none;}
+.dropdown-menu {margin-left: -15px;}
 #mr-top{margin-top: 8px;}
 #form-mrgin{margin-top: -15px}
 
-/*******************responsive************************/
-@media (max-width: 768px) {
-	.navbar-brand{margin:auto; display: block;}
-	 #sidebar {margin-left: -250px;}
-    #sidebar.active {margin-left: 0;}
-    #content {width: 100%;}
-}
 .rating li {
     list-style-type: none;
     display: inline-block;
-    cursor: pointer;
-}
+    cursor: pointer;}
 
 .rating .filled {
-    color: rgb(218, 11, 11);
-}
-
+    color: rgb(218, 11, 11);}
 
 span.line { height: 5px;left: 7%;margin-top: -13px;}
 #line{height: 5px;margin-top: -13px;margin-left: 22px;}
@@ -31,15 +19,20 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
    background:red;
    position:relative;
    top: -9px;
-   left: -52px;
-}
+   left: -52px;}
 
 #collapseExample {
   position: absolute;
-  z-index: 1;
+  z-index: 1;}
+.list-group{
+    max-height: 400px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
 }
-.center{
-    width: 150px;
-      margin: 40px auto;
-      
-    }
+/*******************responsive************************/
+@media (max-width: 768px) {
+    .navbar-brand{margin:auto; display: block;}
+     #sidebar {margin-left: -250px;}
+    #sidebar.active {margin-left: 0;}
+    #content {width: 100%;}
+}
