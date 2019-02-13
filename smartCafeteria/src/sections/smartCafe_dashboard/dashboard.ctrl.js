@@ -9,6 +9,7 @@ empApp.controller('DashboardController', ['$scope',
       $scope.favouritesBool = false;
       $scope.notificationBool = false;
       $scope.walletBool = false;
+      $scope.cardBool = false;
       $scope.feedbackBool = false;
       $scope.settingsBool = false;
       $scope.termsAndPolicyBool = false;
@@ -28,6 +29,13 @@ empApp.controller('DashboardController', ['$scope',
       { venderName: "The Bier Library", area: "Marathahalli " },
       { venderName: "Big Pitcher", area: "Old Airport Road " }
     ];
+
+    $scope.cardInfo = [{ productName : "Brief description", price : "100" },
+    { productName : "Brief description", price : "100" },
+    { productName : "Brief description", price : "100" },
+    { productName : "Brief description", price : "100" },
+    { productName : "Brief description", price : "100" }
+  ];
 
     $scope.menuList = [
       { menuType: "Breakfast" },
@@ -79,16 +87,14 @@ empApp.controller('DashboardController', ['$scope',
     
     }
 
-    $scope.submitted = false;
-    $scope.edit = false;
+   
     $scope.employeeDetails = [{
       name : "Pallavi Gupta", employeeId : "207997" , mobile : "8871128039", emailId : "pallavig033@gmail.com"
     }];
-    $scope.submit = function(employeeDetails){
-      console.log(employeeDetails);
-      $scope.edit = false;
-      $scope.submitted = false;
-    }
+   $scope.makeEmployeeDetailsEditable = function( employeeDetails)
+   {
+    $scope.editEmployeeDetails = $scope.favourite ? false : true;
+   }
 
     $scope.makeFavouritNReverse = function()
     {
