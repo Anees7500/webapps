@@ -1,4 +1,4 @@
-var empApp = angular.module("empApp", ['ngRoute']);
+var empApp = angular.module("empApp", ['ngRoute', 'ngMessages']);
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
