@@ -34,9 +34,17 @@ empApp.controller('DashboardController', ['$scope',
       { menuType: "Lunch" },
       { menuType: "Snacks" },
       { menuType: "Dinner" },
-      { menuType: "Dosa" },
-      { menuType: "Combos" },
-      { menuType: "Chaat" }
+      { menuType: "Pizza" },
+      { menuType: "Burger" },
+      { menuType: "Icecream" },
+      { menuType: "Cold-drinks" },
+      { menuType: "Coffee" },
+      { menuType: "Tea" },
+      { menuType: "Chaat" },
+      { menuType: "Samoosa" },
+      { menuType: "Idli" },
+      { menuType: "Dosha" },
+      { menuType: "Sambhar" }
     ];
 
 
