@@ -99,22 +99,24 @@
                       <p><i class="fas fa-map-marker-alt text-danger"></i> HSR-7 layout</p>
                     </div>
                     <div class="row">
-                    <div class="d-flex justify-content-left col-sm-3 mr-5">
-                      <h6 class="font-weight-normal text-left">Biryani, juice</h6>
+                      <div class="d-flex justify-content-left col-sm-4 ml-4">
+                        <h6 class="font-weight-normal text-left">Biryani, juice</h6>
+                      </div>
+                      <div class=" font-weight-bold text-dark text-right col-sm-2">
+                        <i class="fas fa-star text-warning"></i> 4.5
+                      </div>
+                      <div class="col-sm-6 ">
+                        <button type="button" class="btn btn-outline-success btn-sm  waves-effect" ng-click="makeFavouritNReverse()"
+                          ng-if="!favourite">
+                          <i class="far fa-heart  fa-2x ml-2"></i>Favourit
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-sm waves-effect" ng-click="makeFavouritNReverse()"
+                          ng-if="favourite">
+                          <i class="fas fa-heart fa-2x "></i>Favourited
+                        </button>
+                      </div>
+
                     </div>
-                        <div class=" font-weight-bold text-dark text-right col-sm-3">
-                          <i class="fas fa-star text-warning"></i> 4.5
-                        </div>
-                        <div class="col-sm-3 mr-5 ">
-                          <a  ng-click="makeFavouritNReverse()"  ng-if="!favourite">
-                            <i class="far fa-heart  fa-2x" ></i>
-                        </a>
-                          <a ng-click="makeFavouritNReverse()" ng-if="favourite">
-                            <i class="fas fa-heart fa-2x text-danger " ></i>
-                          </a>
-                          </div>
-                      
-                        </div>
                   </div>
                 </div>
               </div>
@@ -318,28 +320,7 @@
         </ol>
       </nav>
       <div class="container z-depth-1 py-3 px-3 text-center  col-md-6 ">
-        <table class="table table-bordered table-responsive-md table-striped text-center">
-          <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
-            <i class="fas fa-edit"></i> Edit</button>
-          <br><br>
-          <tr>
-            <th class="text-center">Person Name</th>
-            <th class="text-center">Age</th>
-            <th class="text-center">Area</th>
 
-          </tr>
-          <tr ng-repeat="e in employeeTable">
-            <td class="pt-3-half" contenteditable="true">
-              <input type="text" ng-disabled="!editEmployeeDetails" placeholder="{{e.name }}">
-            </td>
-            <td class="pt-3-half" contenteditable="true">
-              <input type="text" ng-disabled="!editEmployeeDetails" placeholder="{{e.age }}">
-            </td>
-            <td class="pt-3-half" contenteditable="true">
-              <input type="text" ng-disabled="!editEmployeeDetails" placeholder="{{e.area }}">
-            </td>
-          </tr>
-        </table>
       </div>
     </div>
     <!---------===========================End Favourites =========================-->
@@ -429,7 +410,7 @@
 <!---------====================================== End Card=====================================-->
 
 <!---------====================================== Feedback=====================================-->
-<div ng-if="feedbackBool">
+<div ng-if="feedbackBool" class="">
   <nav aria-label="breadcrumb">
     <ol class=" breadcrumb font-small  font-weight-normal">
       <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
@@ -437,48 +418,69 @@
     </ol>
   </nav>
 
-  <div class="container z-depth-1 py-3 px-3 text-center  col-md-6 ">
-    <form class="">
-      <div class="row text-center">
-        <div class="col-md-8 justify-content-center ml-5" ng-model="venderName">
-          <select class="browser-default custom-select">
+  <div class="container z-depth-1 py-3 px-3  col-md-6 ">
+   
+    <form class="font-weight-bold">
+        <nav class="info-color z-depth-1"><h4 class="text-center text-white font-weight-bold ">Feedback</h4></nav>
+      <div class="row justify-content-center ml-2 mt-2">
+          <div class=" col-md-3 ">
+              <label class="">Select vender</label>
+          </div>       
+        <div class="text-center col-md-9 " ng-model="venderName">
+          <select class="browser-default custom-select" aria-placeholder="Choose Vendor">
             <option selected>Choose Vendor</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
         </div>
+        <div class=" col-md-3 ">
+            <label for="inputIconEx1"  class="mt-4">Employee Name</label>
+        </div>
+        
+        <div class="md-form justify-content-center md-outline col-md-9 ">
+          <input type="text" id="inputIconEx1" class="form-control" ng-model="employee.name">
+          <label for="inputIconEx1"  class="ml-3" >Enter Employee Name</label>
+        </div>
+        <div class=" col-md-3 ">
+            <label for="inputIconEx2" class="mt-4">Mobile Name</label>
+        </div>
+        
+      
+      <div class="md-form justify-content-center md-outline col-md-9 ">
+        <input type="text" id="inputIconEx2" class="form-control" ng-mixlength="10" ng-model="employee.mobile">
+        <label for="inputIconEx2"  class="ml-3">Enter Mobile Name</label>
       </div>
-      <div class="row ">
-        <div class="col-md-8  ml-5 font-weight-normal">
-          <div class="md-form justify-content-center md-outline">
-            <input type="text" id="inputIconEx1" class="form-control" ng-model="employee.name">
-            <label for="inputIconEx1">Enter Employee Name</label>
-          </div>
-          <div class="md-form justify-content-center md-outline">
-            <input type="text" id="inputIconEx2" class="form-control" ng-mixlength="10" ng-model="employee.mobile">
-            <label for="inputIconEx2">Enter Mobile Name</label>
-          </div>
-          <h6 class="font-weight-bold " ng-repeat="parames in ratingParameters">{{parames.name}}
-            <ul class=" list-unstyled rating" ng-model=employee[parames.ratingParameters]>
-              <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
-                <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating > $index" class="filled">&#9733;</span>
-                <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating <= $index">&#9733;</span>
-              </li>
-            </ul>
-            <hr class="font-weight-bold black h3 mt-0">
-          </h6>
-          <div class="md-form md-outline">
-            <textarea type="text" id="form75" class="form-control" rows="3"></textarea>
-            <label for="form75">Comment</label>
-          </div>
-          <div class="text-center ">
-            <button type="button" class="btn btn-info ">Submit</button>
-          </div>
+    </div>
+
+
+      <div class=" row ml-2 " ng-repeat="parames in ratingParameters">
+        <div class=" col-md-3 ">
+          <h5 class=" font-weight-bold float-left mt-4">{{parames.name}}
+          </h5>
+        </div>
+
+        <div class="col-md-9">
+          <ul class=" list-unstyled rating" ng-model=employee[parames.ratingParameters]>
+            <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
+              <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating > $index" class="filled">&#9733;</span>
+              <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating <= $index">&#9733;</span>
+            </li>
+          </ul>
+          <hr class="font-weight-bold black h3 mt-0">
         </div>
       </div>
-    </form>
+
+      <div class="md-form md-outline col-md-12">
+        <textarea type="text" id="form75" class="form-control" rows="3"></textarea>
+        <label for="form75" class="ml-3">Enter Your Comment</label>
+      </div>
+ 
+  </form>
+  <div class="text-center ">
+    <button type="button" class="btn btn-info ">Submit</button>
   </div>
+</div>
 </div>
 <!---------======================================End Feedback=====================================-->
 

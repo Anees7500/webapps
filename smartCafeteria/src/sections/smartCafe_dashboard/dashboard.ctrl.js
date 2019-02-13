@@ -29,18 +29,6 @@ empApp.controller('DashboardController', ['$scope',
       { venderName: "The Bier Library", area: "Marathahalli " },
       { venderName: "Big Pitcher", area: "Old Airport Road " }
     ];
-    $scope.employeeTable = [
-      { name: "Meghana Foods", age : "25", area: "Indiranagar " },
-      { name: "Absolute Barbecues",  age : "25", area: "Koramangala " },
-      { name: "The Bier Library",  age : "25",area: "Marathahalli " },
-      { name: "Meghana Foods",  age : "25", area: "Indiranagar " },
-      { name: "Absolute Barbecues",  age : "25", area: "Koramangala " },
-      { name: "The Bier Library",  age : "25", area: "Marathahalli " },
-      { name: "Meghana Foods",  age : "25", area: "Indiranagar " },
-      { name: "Absolute Barbecues",  age : "25", area: "Koramangala " },
-      { name: "The Bier Library",  age : "25", area: "Marathahalli " },
-      { name: "Big Pitcher",  age : "25", area: "Old Airport Road " }
-    ];
 
     $scope.cardInfo = [{ productName : "Brief description", price : "100" },
     { productName : "Brief description", price : "100" },
