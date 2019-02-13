@@ -17,19 +17,6 @@ empApp.controller('DashboardController', ['$scope',
     }
     $scope.boolFunction("homeBool");
 
-    $scope.venderList = [
-      { venderName: "Meghana Foods", area: "Indiranagar " },
-      { venderName: "Absolute Barbecues", area: "Koramangala " },
-      { venderName: "The Bier Library", area: "Marathahalli " },
-      { venderName: "Meghana Foods", area: "Indiranagar " },
-      { venderName: "Absolute Barbecues", area: "Koramangala " },
-      { venderName: "The Bier Library", area: "Marathahalli " },
-      { venderName: "Meghana Foods", area: "Indiranagar " },
-      { venderName: "Absolute Barbecues", area: "Koramangala " },
-      { venderName: "The Bier Library", area: "Marathahalli " },
-      { venderName: "Big Pitcher", area: "Old Airport Road " }
-    ];
-
     $scope.cardInfo = [{ productName : "Brief description", price : "100" },
     { productName : "Brief description", price : "100" },
     { productName : "Brief description", price : "100" },
@@ -80,7 +67,7 @@ empApp.controller('DashboardController', ['$scope',
     }
 
    
-    $scope.employeeDetails = [{
+    $scope.employeeDetails = [{ 
       name : "Pallavi Gupta", employeeId : "207997" , mobile : "8871128039", emailId : "pallavig033@gmail.com"
     }];
    $scope.makeEmployeeDetailsEditable = function( employeeDetails)

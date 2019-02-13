@@ -371,50 +371,47 @@
           </div>
         </div>
 
-        <div class=" z-depth-1-half row mt-3 text-center ">
-          <div class="col-md-6">Transaction ID: 7326619325</div>
-          <div class=" col-md-6  ">Total payment <i class="fas fa-rupee-sign "></i> 12</div>
-          <hr>
-          <div class="d-block my-3">
-            <div class="custom-control custom-radio">
-              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+        <form class="z-depth-1-half py-3 px-3 mt-3">
+          <div class=" row   ">
+
+            <div class="col-md-6 font-weight-bold">Transaction ID: 7326619325</div>
+            <div class=" col-md-6  font-weight-bold">Total payment <i class="fas fa-rupee-sign "></i> 12</div>
+
+            <!-- <hr class="font-weight-bold border-dark"> -->
+
+            <div class="custom-control custom-radio font-weight-bold col-md-12 ml-3 mt-4">
+              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="credit">Credit card</label>
             </div>
-            <div class="custom-control custom-radio">
-              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <div class="custom-control custom-radio font-weight-bold col-md-12 ml-3 mt-4">
+              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
               <label class="custom-control-label" for="debit">Debit card</label>
             </div>
-            <div class="custom-control custom-radio">
-              <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-              <label class="custom-control-label" for="paypal">Paypal</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="cc-name">Name on card</label>
+            <div class="col-md-6 mb-3 mt-4">
+              <label for="cc-name" class="font-weight-normal">Name on card</label>
               <input type="text" class="form-control" id="cc-name" placeholder="" required>
               <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
+              <div class="invalid-feedback ">
                 Name on card is required
               </div>
             </div>
-            <div class="col-md-6 mb-3">
-              <label for="cc-number">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <div class="col-md-6 mb-3 mt-4">
+              <label for="cc-number" class="font-weight-normal">Credit card number</label>
+              <input type="text" class="form-control" id="cc-number" ng-model="user.info" placeholder="" required>
               <div class="invalid-feedback">
                 Credit card number is required
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 mb-3">
+
+            <div class="col-md-6 mb-6 font-weight-normal">
               <label for="cc-expiration">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+              <input type="text" class="form-control" ng-model="user.expiration" id="cc-expiration" placeholder=""
+                required>
               <div class="invalid-feedback">
                 Expiration date required
               </div>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-6 mb-3 font-weight-normal">
               <label for="cc-expiration">CVV</label>
               <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
               <div class="invalid-feedback">
@@ -422,9 +419,15 @@
               </div>
             </div>
           </div>
-        </div>
+          <div class="float-right  ">
+            <button class="btn btn-primary btn-md btn-block" type="submit">Continue to checkout</button>
+          </div>
+        </form>
+        <form class="z-depth-1-half py-3 px-3 mt-3">
+            <h4>pallavi</h4>
+          </form>
       </div>
-
+     
     </div>
 
 
@@ -558,7 +561,7 @@
         <label for="form75" class="ml-3">Enter Your Comment</label>
       </div>
       <div class="text-center ">
-        <button type="button" class="btn btn-info waves-effect" ng-disabled="!(employee.employeeId && employee.name && employee.mobile && 
+        <button type="button" ng-click="addEmpDtls(item)" class="btn btn-info waves-effect" ng-disabled="!(employee.employeeId && employee.name && employee.mobile && 
           employee.venderName && employee.Comment)"><strong
             class="">Submit</strong></button>
       </div>
