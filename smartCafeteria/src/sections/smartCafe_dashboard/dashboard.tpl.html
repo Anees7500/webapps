@@ -3,7 +3,7 @@
   <!--==================================Navbar start================================= -->
 
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top pb-0">
-    <a class="navbar-brand text-white font-weight-bold" href="">FANCYMONK</a>
+    <a class="navbar-brand text-white font-weight-bold"  ng-click="boolFunction('homeBool')" href="">FANCYMONK</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
       aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,8 +38,8 @@
 
 
             <div class="dropdown-menu dropdown-primary">
-              <a class="dropdown-item" ng-click="boolFunction('homeBool')" href="">
-                <i class="fas fa-home"></i> <span class="font-weight-normal"> home</span></a>
+              <!-- <a class="dropdown-item" ng-click="boolFunction('homeBool')" href="">
+                <i class="fas fa-home"></i> <span class="font-weight-normal"> home</span></a> -->
               <a class="dropdown-item" ng-click="boolFunction('myOdersBool')" href="">
                 <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal"> My orders</span></a>
 
@@ -226,7 +226,7 @@
                   <div class="card booking-card">
 
 
-                    <div class="view overlay">
+                    <div class="view overlay z-depth-1-half ">
                       <img class="card-img-top" src="img/food.jpg" alt="Card image cap">
                       <a href="">
                         <div class="mask rgba-white-slight"></div>
@@ -412,15 +412,8 @@
                       <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel">Cancel</button>
                     </div>
                   </div>
-
                 </div>
               </div>
-
-
-
-
-
-
             </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div class="row ml-1 mr-1">
@@ -476,9 +469,46 @@
           </li>
         </ol>
       </nav>
-      <div class="container z-depth-1 py-3 px-3 text-center  col-md-6 ">
+      
+      <div class="row ml-3 mr-1">
+        <div class="col-md-7 z-depth-1 mt-2 text-center ml-2">
+          <div class="row">
+          <div class="card col-md-3  z-depth-2">
+            <div class="view overlay z-depth-1">
+              <img class="card-img-top  " src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+              <!-- <a href="">
+                <div class="mask rgba-white-slight"> pallavi</div>
+              </a> -->
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>  
+              <a href="" class="card-link"> link</a>
+              <a href="" class="card-link"> link</a>
+              <a href="" class="card-link"> link</a>
+            </div>        
+          </div>
 
+          <div class="card col-md-3  z-depth-2 ml-2">
+              <div class="view overlay z-depth-1-half">
+                <img class="card-img-top " src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                <!-- <a href="">
+                  <div class="mask rgba-white-slight"> pallavi</div>
+                </a> -->
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>  
+                <a href="#!" class="card-link"> link</a>
+                <a href="#!" class="card-link"> link</a>
+              </div>        
+            </div>
+          
+          </div>
       </div>
+
+      <div class=" z-depth-1  text-center  col-md-4 ml-2 ">
+        <h2>Aman</h2>
+      </div>
+    </div>
     </div>
     <!---------===========================End Favourites =========================-->
 
@@ -526,6 +556,7 @@
         </div>
 
         <form class="z-depth-1-half py-3 px-3 mt-3">
+          
           <div class=" row   ">
 
             <div class="col-md-6 font-weight-bold">Transaction ID: 7326619325</div>
@@ -577,7 +608,7 @@
             <button class="btn btn-primary btn-md btn-block" type="submit">Continue to checkout</button>
           </div>
         </form>
-        <form class="z-depth-1-half py-3 px-3 mt-3">
+        <form class="info-color py-3 px-3 ">
             <h4>pallavi</h4>
           </form>
       </div>
@@ -644,8 +675,8 @@
   </nav>
 
   <div class="container z-depth-1 py-3 px-3  col-md-6 ">
-
-    <form class="font-weight-bold">
+        <form class="font-weight-bold" name="myForm">
+        
       <nav class="info-color z-depth-1">
         <h4 class="text-center text-white font-weight-bold ">Feedback</h4>
       </nav>
@@ -664,31 +695,53 @@
           <!-- <div ng-message="required">This field is required</div> -->
         </div>
         <div class=" col-md-3 ">
-          <label for="inputIconEx1" class="mt-4">Employee Name *</label>
+          <label for="inputIconEx1" class="mt-4 font-small">Employee Name </label>
         </div>
 
         <div class="md-form justify-content-center md-outline col-md-9 ">
-          <input type="text" id="inputIconEx1" class="form-control" ng-model="employee.name" required>
+          <input type="text" id="inputIconEx1" name="name" ng-minlength="3"
+           ng-maxlength="20" class="form-control" ng-model="employee.name" required/>
           <label for="inputIconEx1" class="ml-3">Enter Your Name</label>
+          <div ng-messages="myForm.name.$error" class=" text-danger font-small" role="alert">
+              <div ng-message="required" class="">* You did not enter your name</div>
+              <div ng-message="minlength">* Your field is too short</div>
+              <div ng-message="maxlength">* Your field is too long</div>
+              <div ng-message-default>* This field has an input error</div>
+            </div>
         </div>
         <div class=" col-md-3 ">
           <label for="inputIconEx1" class="mt-4">Employee Id *</label>
         </div>
 
         <div class="md-form justify-content-center md-outline col-md-9 ">
-          <input type="text" id="inputIconEx1" class="form-control" ng-model="employee.employeeId" required>
+          <input type="text" id="inputIconEx1" 
+          name="employeeId" ng-minlength="3"
+           ng-maxlength="20" class="form-control" ng-model="employee.employeeId" required/>
           <label for="inputIconEx1" class="ml-3">Enter Your Employee Id</label>
+          <div ng-messages="myForm.employeeId.$error" class=" text-danger font-small" role="alert">
+              <div ng-message="required" class="">* You did not enter your employee Id</div>
+              <div ng-message="minlength">* Your field is too short</div>
+              <div ng-message="maxlength">* Your field is too long</div>
+              <div ng-message-default>* This field has an input error</div>
+            </div>
         </div>
 
         <div class=" col-md-3 ">
-          <label class="mt-4">Mobile Number *</a></label>
+          <label class="mt-4">Mobile Number </a></label>
         </div>
 
 
         <div class="md-form justify-content-center md-outline col-md-9 ">
-          <input type="number" id="inputIconEx2" ng-pattern="/^[0-9]{10,10}$/" class="form-control" ng-mixlength="10"
+          <input type="number" id="inputIconEx2"
+          name="mobile" ng-minlength="10" ng-pattern="/^[0-9]{10,10}$/" class="form-control" ng-mixlength="10"
             ng-model="employee.mobile" required>
           <label for="inputIconEx2" class="ml-3">Enter Your Mobile Number</label>
+          <div ng-messages="myForm.mobile.$error" class=" text-danger font-small" role="alert">
+              <div ng-message="required" class="">* You did not enter your mobile number </div>
+              <div ng-message="pattern">* Your number should be 10 digit</div>
+              <div ng-message="minlength">* invalid number</div>
+              <div ng-message-default>* This field has an input error</div>
+            </div>
         </div>
       </div>
 
