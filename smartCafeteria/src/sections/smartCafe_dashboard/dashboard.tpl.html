@@ -11,7 +11,7 @@
   <!--==================================Navbar start================================= -->
 
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top pb-0">
-    <a class="navbar-brand text-white font-weight-bold"  ng-click="boolFunction('homeBool')" href="">FANCYMONK</a>
+    <a class="navbar-brand text-white font-weight-bold" ng-click="boolFunction('homeBool')" href="">FANCYMONK</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
       aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
         </li>
         <li class="nav-item mr-3">
 
-          <button class="btn btn-info pb-0  btn-link" ng-click="boolFunction('notificationBool')">
+          <button class="btn btn-info pb-0  btn-link" ng-click="">
             <i class="fas fa-bell fa-2x text-white"></i>
           </button>
           <span class="badge badge-notify">3</span>
@@ -53,9 +53,6 @@
 
               <a class="dropdown-item" ng-click="boolFunction('favouritesBool')" href="">
                 <i class="far fa-heart"></i><span class="font-weight-normal"> Favourites</span></a>
-
-              <a class="dropdown-item" ng-click="boolFunction('feedbackBool')" href="">
-                <i class="far fa-comment-alt"></i> <span class="font-weight-normal"> Feedback</span></a>
 
               <a class="dropdown-item" ng-click="boolFunction('settingsBool')" href="">
                 <i class="fas fa-cogs"></i><span class="font-weight-normal"> Settings</span></a>
@@ -116,7 +113,7 @@
                           ng-if="!favourite">Favourit
                           <i class="far fa-heart" aria-hidden="true"></i></button>
                         <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-danger btn-md"
-                          ng-if="favourite">Favourited <i class="fas fa-heart" aria-hidden="true"></i></button>
+                          ng-if="favourite">Favourited <i class="fas fa-heart " aria-hidden="true"></i></button>
                       </div>
                     </div>
                   </div>
@@ -132,8 +129,9 @@
                 <strong>Choose your favorite vendors</strong></h5>
               <div class="card-body px-lg-5 pt-0">
                 <div class="md-form mt-2">
-                  <input class="form-control" type="text" placeholder="Search for vendors or cuisine" aria-label="Search"
-                    data-toggle="collapse" href="" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  <input class="form-control" type="text" placeholder="Search for vendors or cuisine"
+                    aria-label="Search" data-toggle="collapse" href="" data-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample">
                 </div>
               </div>
             </div>
@@ -217,9 +215,10 @@
                 <h4 class="panel-title font-weight-normal">FOOD ITEMS</h4>
               </div>
               <div class="panel-body">
-                <ul class="list-group" id="list-group-scroll">
-                  <li class="list-group-item" ng-repeat="menuList in menuList">
-                    <a href=""><strong><i class="fab fa-instagram fa-2x mr-4 blue p-3 white-text rounded " aria-hidden="true"></i>{{menuList.menuType}}</strong></a>
+                <ul class="list-group">
+                  <li class="list-group-item" ng-repeat="menuList in vendorManuList">
+                    <a href=""><strong><i class="fab fa-instagram fa-2x mr-4 blue p-3 white-text rounded "
+                          aria-hidden="true"></i>{{menuList.menuName}}</strong></a>
                   </li>
                 </ul>
               </div>
@@ -356,12 +355,14 @@
         <div class="classic-tabs mx-2">
           <ul class="nav nav-pills mb-3 mt-3 pt-0" id="pills-tab" role="tablist">
             <li class="nav-item  border-0 pb-0 mb-0">
-              <a class="nav-link active " id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab"
-                aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Active Orders</span></a>
+              <a class="nav-link active " id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home"
+                role="tab" aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Active
+                  Orders</span></a>
             </li>
             <li class="nav-item border-0 pb-0 mb-0">
-              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab"
-                aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Orders History</span></a>
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile"
+                role="tab" aria-controls="pills-profile" aria-selected="false"><span
+                  class="h5 font-weight-normal">Orders History</span></a>
             </li>
 
           </ul>
@@ -372,8 +373,8 @@
               <div class="row ml-1 mr-1 border">
                 <div class="col-md-12  ">
                   <div class="media ">
-                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
-                      style="width: 200px">
+                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg"
+                      alt="Generic placeholder image" style="width: 200px">
                     <div class="media-body ml-3">
                       <div class="row">
                         <div class="col-md-5">
@@ -419,7 +420,8 @@
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                      <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel">Cancel</button>
+                      <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0"
+                        type="cancel">Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -429,8 +431,8 @@
               <div class="row ml-1 mr-1">
                 <div class="col-md-12  ">
                   <div class="media border">
-                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
-                      style="width: 200px">
+                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg"
+                      alt="Generic placeholder image" style="width: 200px">
                     <div class="media-body ml-3">
                       <div class="row">
                         <div class="col-md-5">
@@ -439,33 +441,128 @@
                           <p>Total Amount Paid - ₹ 196.90</p>
                         </div>
                         <div class="col-md-2"></div>
-                        <div class="col-md-5">
-                          <p class="mt-3 font-weight-bold text-muted h6 mr-3 text-right">Delivered on Mon,Feb 10
-                            <i class="far fa-check-circle fa-lg ml-1 badge-success rounded-circle border-0"></i></p>
-                          <button class="btn btn-info waves-effect btn-md  d-block m-auto  rounded-pill  z-depth-0"
-                            type="cancel">Reorder</button>
+                        <div class=" col-md-5">
+                          <h4 class="mt-3 font-weight-bold text-muted h6 mr-3 ">Delivered on Mon,Feb 10
+                            <i class="far fa-check-circle fa-lg ml-1 badge-success rounded-circle border-0"></i></h4>
+                          <div class="row">
+                            <div class=" col-md-6 mt-4">
+                              <button type="button" data-toggle="modal" data-target="#feedback"
+                                class="btn btn-outline-warning waves-effect rounded-pill btn-sm  ">Feedback</button>
+
+                              <div class="modal fade" id="feedback" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog " role="document">
+                                  <div class="modal-content">
+                                    <!--Header-->
+                                    <div class="modal-header success-color" id="myModalLabel">
+                                      <p class="heading lead text-white font-weight-bold ml-2 ">Feedback request
+                                        <i class="far fa-file-alt fa-1x animated rotateIn white-text"></i>
+                                      </p>
+
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="white-text">×</span>
+                                      </button>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                      <div class="form-row float-left ml-3">
+                                        <div class="form-group col-md-4">
+                                          <label class="font-small font-weight-bold">Select vendor </label>
+                                        </div>
+                                        <div class="text-center form-group col-md-8">
+                                          <select class="browser-default custom-select" ng-model="employee.venderName"
+                                            aria-placeholder="Choose Vendor" required>
+                                            <option selected>Choose Vendor</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-md-8  mt-3">
+                                          <div class="form-row " ng-repeat="employeeInfo in employeeDetails">
+                                            <div class="md-form col-md-10">
+                                              <input type="text" id="inputDisabledEx" class="form-control" disabled>
+                                              <label for="inputDisabledEx"
+                                                class="disabled ">{{employeeInfo.name}}</label>
+                                            </div>
+                                            <div class="md-form col-md-6 ">
+                                              <input type="text" id="inputDisabledEx" class="form-control" disabled>
+                                              <label for="inputDisabledEx"
+                                                class="disabled">{{employeeInfo.employeeId}}</label>
+                                            </div>
+                                            <div class="md-form col-md-6">
+                                              <input type="text" id="inputDisabledEx" class="form-control" disabled>
+                                              <label for="inputDisabledEx"
+                                                class="disabled ">{{employeeInfo.mobile}}</label>
+                                            </div>
+
+                                          </div>
+
+                                        </div>
+
+                                        <div class="col-md-12 form-group">
+                                          <div class=" form-row " ng-repeat="parames in ratingParameters">
+                                            <div class=" col-md-4 form-group">
+                                              <h5 class=" font-weight-bold font-small mt-4">{{parames.name}}
+                                              </h5>
+                                            </div>
+
+                                            <div class="col-md-8 form-group">
+                                              <ul class=" list-unstyled rating"
+                                                ng-model=employee[parames.ratingParameters]>
+                                                <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
+                                                  <span ng-click="rateBy(parames, $index+1)"
+                                                    ng-show="parames.rating > $index" class="filled">&#9733;</span>
+                                                  <span ng-click="rateBy(parames, $index+1)"
+                                                    ng-show="parames.rating <= $index"
+                                                    class="animated pulse">&#9733;</span>
+                                                </li>
+                                              </ul>
+                                              <hr class="font-weight-bold black h3 mt-0">
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="md-form md-outline col-md-12 form-group">
+                                          <textarea type="text" id="form75" class="form-control" rows="3"
+                                            ng-model="employee.Comment" required></textarea>
+                                          <label for="form75" class="ml-3">Enter Your Comment</label>
+                                        </div>
+                                        <div class="modal-footer  form-row">
+                                          <div class=" col-md-6 form-group">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light"
+                                              class="btn btn-info waves-effect"
+                                              ng-disabled="!(employee.venderName)">Send
+                                              <i class="fa fa-paper-plane ml-1"></i>
+                                            </button>
+                                          </div>
+                                          <div class="col-md-4 form-group">
+                                            <button type="button" class="btn btn-outline-primary waves-effect"
+                                              data-dismiss="modal">Cancel</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class=" col-md-6 mt-4"> <button
+                                class="btn btn-outline-info waves-effect btn-sm    rounded-pill  "
+                                type="cancel">Re-order</button>
+                            </div>
+                          </div>
                         </div>
                       </div>
-
-
                     </div>
-
                   </div>
-
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
       </div>
-
-
-
-
-
-
     </div>
     <!---------===========================End My orders=========================-->
 
@@ -479,46 +576,43 @@
           </li>
         </ol>
       </nav>
-      
-      <div class="row ml-3 mr-1">
-        <div class="col-md-7 z-depth-1 mt-2 text-center ml-2">
-          <div class="row">
-          <div class="card col-md-3  z-depth-2">
-            <div class="view overlay z-depth-1">
-              <img class="card-img-top  " src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-              <!-- <a href="">
-                <div class="mask rgba-white-slight"> pallavi</div>
-              </a> -->
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>  
-              <a href="" class="card-link"> link</a>
-              <a href="" class="card-link"> link</a>
-              <a href="" class="card-link"> link</a>
+      <!-- <div class="container"> -->
+      <div class="row  ">       
+        <div class="col-md-7 ml-2  mt-2 text-center ">
+            <h3 class="text-white  z-depth-2 success-color">Favourites</h3>
+          <div class="row mt-3 justify-content-center ">
+            <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat= "favoriteItmeList in favouriteTiemList">
+              
+              <div class="view overlay z-depth-1-half">                
+                <img class="card-img-top  " src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                  alt="Card image cap">  
+                  <div class="mask rgba-white-slight"></div>
+                </a>             
+              </div>             
+                <div class="mr-1 mt-1">
+                 <a ng-click="removeFavourit(f , $index)">
+                    <i class="fas fa-heart fa-2x text-danger " aria-hidden="true"></i>
+                  </a>
+                </div>
+              <div class="card-body">
+                <h6 class="card-title font-small font-weight-bold"><a>{{favoriteItmeList.vendorName}}</a></h6>
+                <hr class="h4 font-weight-bold">
+                <p class="card-text"><i class="far fa-stop-circle text-success"></i> {{favoriteItmeList.itemName}}</p>                
+                </div>
+                <div class="row">
+                    <a class="px-2 fa-md li-ic mt-1"><i class="fas fa-star text-warning"></i>{{favoriteItmeList.rating}}</a>
+                    <a class="fa-sm tw-ic ml-1 "><a class="btn btn-primary btn-sm">Button</a></a>
+                </div>
+
             </div>        
           </div>
+        </div>
 
-          <div class="card col-md-3  z-depth-2 ml-2">
-              <div class="view overlay z-depth-1-half">
-                <img class="card-img-top " src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-                <!-- <a href="">
-                  <div class="mask rgba-white-slight"> pallavi</div>
-                </a> -->
-              </div>
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>  
-                <a href="#!" class="card-link"> link</a>
-                <a href="#!" class="card-link"> link</a>
-              </div>        
-            </div>
-          
-          </div>
+        <div class=" z-depth-1  text-center  col-md-4 ">
+         
+        </div>
       </div>
-
-      <div class=" z-depth-1  text-center  col-md-4 ml-2 ">
-        <h2>Aman</h2>
-      </div>
-    </div>
+    <!-- </div> -->
     </div>
     <!---------===========================End Favourites =========================-->
 
@@ -565,16 +659,16 @@
           </div>
         </div>
 
-        <form class="z-depth-1-half py-3 px-3 mt-3">
-          
-          <div class="row">
+        <!-- <form class="z-depth-1-half py-3 px-3 mt-3">
+
+          <div class=" row   ">
 
             <div class="col-md-6 font-weight-bold">Transaction ID: 7326619325</div>
-            <div class=" col-md-6  font-weight-bold">Total payment <i class="fas fa-rupee-sign "></i> 12</div>
+            <div class=" col-md-6  font-weight-bold">Total payment <i class="fas fa-rupee-sign "></i> 12</div> -->
 
-            
+        <!-- <hr class="font-weight-bold border-dark"> -->
 
-            <div class="custom-control custom-radio font-weight-bold col-md-12 ml-3 mt-4">
+        <!-- <div class="custom-control custom-radio font-weight-bold col-md-12 ml-3 mt-4">
               <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
               <label class="custom-control-label" for="credit">Credit card</label>
             </div>
@@ -619,10 +713,11 @@
           </div>
         </form>
         <form class="info-color py-3 px-3 ">
-            <h4>pallavi</h4>
-          </form>
+          <h4>pallavi</h4>
+        </form> -->
       </div>
-     
+      <span class="year">2018</span>
+
     </div>
 
 
@@ -690,119 +785,6 @@
 </div>
 <!---------====================================== End Card=====================================-->
 
-<!---------====================================== Feedback=====================================-->
-<div ng-if="feedbackBool" class="">
-  <nav aria-label="breadcrumb">
-    <ol class=" breadcrumb font-small  font-weight-normal">
-      <li class="breadcrumb-item active"> <i class="far fa-comment-alt"></i> Feedback
-      </li>
-    </ol>
-  </nav>
-
-  <div class="container z-depth-1 py-3 px-3  col-md-6 ">
-        <form class="font-weight-bold" name="myForm">
-        
-      <nav class="info-color z-depth-1">
-        <h4 class="text-center text-white font-weight-bold ">Feedback</h4>
-      </nav>
-      <div class="row justify-content-center ml-2 mt-2">
-        <div class=" col-md-3 ">
-          <label class="">Select vender *</label>
-        </div>
-        <div class="text-center col-md-9 ">
-          <select class="browser-default custom-select" ng-model="employee.venderName" aria-placeholder="Choose Vendor"
-            required>
-            <option selected>Choose Vendor</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <!-- <div ng-message="required">This field is required</div> -->
-        </div>
-        <div class=" col-md-3 ">
-          <label for="inputIconEx1" class="mt-4 font-small">Employee Name </label>
-        </div>
-
-        <div class="md-form justify-content-center md-outline col-md-9 ">
-          <input type="text" id="inputIconEx1" name="name" ng-minlength="3"
-           ng-maxlength="20" class="form-control" ng-model="employee.name" required/>
-          <label for="inputIconEx1" class="ml-3">Enter Your Name</label>
-          <div ng-messages="myForm.name.$error" class=" text-danger font-small" role="alert">
-              <div ng-message="required" class="">* You did not enter your name</div>
-              <div ng-message="minlength">* Your field is too short</div>
-              <div ng-message="maxlength">* Your field is too long</div>
-              <div ng-message-default>* This field has an input error</div>
-            </div>
-        </div>
-        <div class=" col-md-3 ">
-          <label for="inputIconEx1" class="mt-4">Employee Id *</label>
-        </div>
-
-        <div class="md-form justify-content-center md-outline col-md-9 ">
-          <input type="text" id="inputIconEx1" 
-          name="employeeId" ng-minlength="3"
-           ng-maxlength="20" class="form-control" ng-model="employee.employeeId" required/>
-          <label for="inputIconEx1" class="ml-3">Enter Your Employee Id</label>
-          <div ng-messages="myForm.employeeId.$error" class=" text-danger font-small" role="alert">
-              <div ng-message="required" class="">* You did not enter your employee Id</div>
-              <div ng-message="minlength">* Your field is too short</div>
-              <div ng-message="maxlength">* Your field is too long</div>
-              <div ng-message-default>* This field has an input error</div>
-            </div>
-        </div>
-
-        <div class=" col-md-3 ">
-          <label class="mt-4">Mobile Number </a></label>
-        </div>
-
-
-        <div class="md-form justify-content-center md-outline col-md-9 ">
-          <input type="number" id="inputIconEx2"
-          name="mobile" ng-minlength="10" ng-pattern="/^[0-9]{10,10}$/" class="form-control" ng-mixlength="10"
-            ng-model="employee.mobile" required>
-          <label for="inputIconEx2" class="ml-3">Enter Your Mobile Number</label>
-          <div ng-messages="myForm.mobile.$error" class=" text-danger font-small" role="alert">
-              <div ng-message="required" class="">* You did not enter your mobile number </div>
-              <div ng-message="pattern">* Your number should be 10 digit</div>
-              <div ng-message="minlength">* invalid number</div>
-              <div ng-message-default>* This field has an input error</div>
-            </div>
-        </div>
-      </div>
-
-
-      <div class=" row ml-2 " ng-repeat="parames in ratingParameters">
-        <div class=" col-md-3 ">
-          <h5 class=" font-weight-bold float-left mt-4">{{parames.name}}
-          </h5>
-        </div>
-
-        <div class="col-md-9">
-          <ul class=" list-unstyled rating" ng-model=employee[parames.ratingParameters]>
-            <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
-              <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating > $index" class="filled">&#9733;</span>
-              <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating <= $index">&#9733;</span>
-            </li>
-          </ul>
-          <hr class="font-weight-bold black h3 mt-0">
-        </div>
-      </div>
-
-      <div class="md-form md-outline col-md-12">
-        <textarea type="text" id="form75" class="form-control" rows="3" ng-model="employee.Comment" required></textarea>
-        <label for="form75" class="ml-3">Enter Your Comment</label>
-      </div>
-      <div class="text-center ">
-        <button type="button" ng-click="addEmpDtls(item)" class="btn btn-info waves-effect" ng-disabled="!(employee.employeeId && employee.name && employee.mobile && 
-          employee.venderName && employee.Comment)"><strong
-            class="">Submit</strong></button>
-      </div>
-    </form>
-
-  </div>
-</div>
-<!---------======================================End Feedback=====================================-->
-
 <!---------======================================Settings=====================================-->
 <div ng-if="settingsBool">
   <nav aria-label="breadcrumb" >
@@ -826,7 +808,8 @@
           </div>
           <div class="col-md-6   ">
             <label for="exampleForm2">Employee Id</label>
-            <input type="text" class="form-control " ng-disabled="!editEmployeeDetails" placeholder="{{employeeeInfo.employeeId}}">
+            <input type="text" class="form-control " ng-disabled="!editEmployeeDetails"
+              placeholder="{{employeeeInfo.employeeId}}">
           </div>
           <div class="col-md-6 ">
             <label for="exampleForm2">Mobile Number</label>
@@ -834,7 +817,8 @@
           </div>
           <div class="col-md-6 ">
             <label for="inputIconEx2">Email Id</label>
-            <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}" ng-disabled="!editEmployeeDetails">
+            <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}"
+              ng-disabled="!editEmployeeDetails">
           </div>
 
           <label for="inputPassword6" class="ml-3">Change Password</label>
@@ -852,7 +836,8 @@
         </div>
 
         <div class="text-center ">
-          <button type="button" class="btn btn-info " ng-click="makeEmployeeDetailsEditable(employeeDetails)">Submit</button>
+          <button type="button" class="btn btn-info "
+            ng-click="makeEmployeeDetailsEditable(employeeDetails)">Submit</button>
         </div>
       </div>
     </form>

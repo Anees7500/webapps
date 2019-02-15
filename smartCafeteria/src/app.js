@@ -1,11 +1,5 @@
-var empApp = angular.module("empApp", ['ngRoute', 'ngMessages']);
-
-// empApp.config(function($locationProvider) {
-//     $locationProvider.hashPrefix('');
-//   });
-  
-empApp.config(['$routeProvider',
- function ($routeProvider) {
+var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config']);
+empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'sections/emp_login/emp.tpl.html',

@@ -9,7 +9,7 @@
     cursor: pointer;}
 
 .rating .filled {
-    color: rgb(218, 11, 11);}
+    color: #ffc107 }
 
 span.line { height: 5px;left: 7%;margin-top: -13px;}
 #line{height: 5px;margin-top: -13px;margin-left: 22px;}
