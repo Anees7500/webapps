@@ -29,18 +29,42 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
     $scope.vendorManuListType =    response.data.data.menus.menuNode; 
   });
 
-
+ //=================== Cusinine List =========================
+ $scope.cuisineList =[
+   {itemName : "Poori Chole", price : "100", rating : "4.5"},
+   {itemName : "Namak para", price : "50", rating : "4.3"},
+   {itemName : "Stuffed Bread Pakora", price : "30", rating : "3.3"},
+   {itemName : "Chatkara Spicy Fries", price : "30", rating : "3.3"},
+   {itemName : "Pindi Chole", price : "95", rating : "2.3"},
+   {itemName : "Cheese Chilli Maggi", price : "40", rating : "4.3"},
+   
+   
+   
+   
+ ]
     //================ Favourite itme list ================
+    $scope.addItemInfavouriteList = function(item) {
+      var addCuisine = {};
+      addCuisine.vendorName = item.vendorName;
+      addCuisine.itemName = item.itemName;
+      addCuisine.rating = item.rating;
+    
+      if ($scope.favouriteTiemList == null) {
+        $scope.favouriteTiemList = [];
+      }
+      $scope.favouriteTiemList.push(addCuisine);
+      console.log ("Favourute cuisine list", $scope.addCuisine );
+    }
 
-    $scope.favouriteTiemList = [
-      { vendorName : "Corner House Ice Cream ", itemName : "Chicken Wings", rating : "4.5"},
-      { vendorName : "Corner House Ice Cream ", itemName : "Jalapeno Cheese Bites", rating : "4.5"},
-      { vendorName : "Wild Thyme Restaurant", itemName : "Jalapeno Cheese Bites", rating : "3.2"},
-      { vendorName : "Kaati Zone", itemName : "Paneer Tikka Roll", rating : "3.8"},
-      { vendorName : "Kanti Sweets", itemName : "Dry Fruit Laddu", rating : "2.3"},
-      { vendorName : "Pulp Juice Bar", itemName : "Mosambi Juice", rating : "1.1"}
+    // $scope.favouriteTiemList = [
+    //   { vendorName : "Corner House Ice Cream ", itemName : "Chicken Wings", rating : "4.5"},
+    //   { vendorName : "Corner House Ice Cream ", itemName : "Jalapeno Cheese Bites", rating : "4.5"},
+    //   { vendorName : "Wild Thyme Restaurant", itemName : "Jalapeno Cheese Bites", rating : "3.2"},
+    //   { vendorName : "Kaati Zone", itemName : "Paneer Tikka Roll", rating : "3.8"},
+    //   { vendorName : "Kanti Sweets", itemName : "Dry Fruit Laddu", rating : "2.3"},
+    //   { vendorName : "Pulp Juice Bar", itemName : "Mosambi Juice", rating : "1.1"}
 
-    ]
+    // ]
     $scope.removeFavourit = function(item, ind) {
       console.log("hello inside delete function");
       $scope.favouriteTiemList.splice(ind, 1);
