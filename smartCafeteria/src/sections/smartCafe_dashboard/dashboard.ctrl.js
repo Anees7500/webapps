@@ -29,23 +29,6 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
     $scope.vendorManuListType =    response.data.data.menus.menuNode; 
   });
 
-    $scope.menuList = [
-      { menuType: "Breakfast" },
-      { menuType: "Lunch" },
-      { menuType: "Snacks" },
-      { menuType: "Dinner" },
-      { menuType: "Pizza" },
-      { menuType: "Burger" },
-      { menuType: "Icecream" },
-      { menuType: "Cold-drinks" },
-      { menuType: "Coffee" },
-      { menuType: "Tea" },
-      { menuType: "Chaat" },
-      { menuType: "Samoosa" },
-      { menuType: "Idli" },
-      { menuType: "Dosha" },
-      { menuType: "Sambhar" }
-    ];
 
     //================ Favourite itme list ================
 
@@ -113,6 +96,10 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
     $scope.makeFavouritNReverse = function()
     {
       $scope.favourite = $scope.favourite ? false : true;
+    }
+    $scope.addToCartReverse = function()
+    {
+      $scope.add = $scope.add ? false : true;
     }
 
   }
