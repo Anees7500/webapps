@@ -25,19 +25,59 @@
           </a>
         </li>
         <li class="nav-item mr-3">
-
-          <button class="btn btn-info pb-0  btn-link" ng-click="">
+            <div class="dropdown">
+          <button class="btn btn-info pb-0  btn-link" ng-click=""type="button"id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-2x text-white"></i>
           </button>
           <span class="badge badge-notify">3</span>
+            <div class="dropdown-menu">
+              
+                      <ul class="list-group dropdown-header p-0">
+                          <li class="list-group-item d-flex justify-content-between text-left">
+                            NOTIFICATIONS
+                            <span class="badge badge-danger badge-pill">3</span>
+                          </li>
+                          </ul>
+                          <form class="px-4 py-3">
+                            <div class="form-group">
+                                <div class="list-group">
+                                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                                      <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-2 h6">You Have New Order</h5>
+                                        <small>2 mins ago</small>
+                                      </div>
+                                      <p class="mb-2 text-muted font-weight-bold">Item: 1 Biryani, 1 chicken Fry</p>
+                                      <small>Order has been confirmed from vendors</small>
+                                    </a>
+
+                                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                          <h6 class="mb-2 h6">Your order has been placed</h6>
+                                          <small class="text-muted">10 mins ago</small>
+                                        </div>
+                                        <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
+                                        <small>Enjoy your food</small>
+                                      </a>
+                                    </div>
+                            </div>
+                          </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-right font-weight-bold text-danger" href="">See more..</a>
+                
+              </div>
+          </div>
         </li>
 
 
-        <li class="nav-item mr-3 text-white  ">
+        <li class="nav-item mr-3 text-white">
+            <div class="dropdown">
           <button class="btn btn-info pb-0  btn-link" ng-click="boolFunction('cardBool')">
             <i class="fas fa-cart-plus fa-2x text-white"></i></button>
           <span class="badge badge-notify">0</span>
         </li>
+
+           
         <li class="nav-item dropdown mr-5" id="mr-top">
           <div class="dropdown">
             <button class=" btn-info  border-0 mt-2" type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -255,56 +295,6 @@
                   </div>
 
                 </div>
-                <!-- <div class="col-md-4">
-                  <div class="card booking-card">
-                    <div class="view">
-                        <img src="img/food2.jpg" class="img-fluid" alt="Image of ballons flying over canyons with mask pattern one.">
-                        <a href=""><div class="mask  flex-top text-right">
-                            <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
-                        </div></a>
-                    </div>
-                    <div class="card-body">
-                      <h6 class="card-title font-weight-bold"><a>CLASSIC VENDOR</a></h6>
-                      <ul class="list-unstyled list-inline rating mb-0">
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
-                        <li class="list-inline-item">
-                          <p class="text-muted">4.5</p>
-                        </li>
-                      </ul>
-                      <p class="mb-2">North Indian,South Indian, Chainses</p>
-
-                    </div>
-                  </div>
-                </div> -->
-                <!-- <div class="col-md-4">
-                  <div class="card booking-card">
-                    <div class="view">
-                        <img src="img/food2.jpg" class="img-fluid" alt="Image of ballons flying over canyons with mask pattern one.">
-                        <a href=""><div class="mask  flex-top text-right ">
-                            <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
-                        </div></a>
-                    </div>
-                    <div class="card-body">
-                      <h6 class="card-title font-weight-bold"><a>MODERATE VENDOR</a></h6>
-                      <ul class="list-unstyled list-inline rating mb-0">
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"> </i></li>
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fas fa-star amber-text"></i></li>
-                        <li class="list-inline-item"><i class="fas fa-star-half-alt amber-text"></i></li>
-                        <li class="list-inline-item">
-                          <p class="text-muted">4.5</p>
-                        </li>
-                      </ul>
-                      <p class="mb-2">North Indian,South Indian, Chainses</p>
-
-                    </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
