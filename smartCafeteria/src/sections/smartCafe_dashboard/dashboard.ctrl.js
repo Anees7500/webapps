@@ -56,15 +56,15 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
       console.log ("Favourute cuisine list", $scope.addCuisine );
     }
 
-    // $scope.favouriteTiemList = [
-    //   { vendorName : "Corner House Ice Cream ", itemName : "Chicken Wings", rating : "4.5"},
-    //   { vendorName : "Corner House Ice Cream ", itemName : "Jalapeno Cheese Bites", rating : "4.5"},
-    //   { vendorName : "Wild Thyme Restaurant", itemName : "Jalapeno Cheese Bites", rating : "3.2"},
-    //   { vendorName : "Kaati Zone", itemName : "Paneer Tikka Roll", rating : "3.8"},
-    //   { vendorName : "Kanti Sweets", itemName : "Dry Fruit Laddu", rating : "2.3"},
-    //   { vendorName : "Pulp Juice Bar", itemName : "Mosambi Juice", rating : "1.1"}
+    $scope.favouriteTiemList = [
+      { vendorName : "Corner House Ice Cream ", itemName : "Chicken Wings", rating : "4.5"},
+      { vendorName : "Corner House Ice Cream ", itemName : "Jalapeno Cheese Bites", rating : "4.5"},
+      { vendorName : "Wild Thyme Restaurant", itemName : "Jalapeno Cheese Bites", rating : "3.2"},
+      { vendorName : "Kaati Zone", itemName : "Paneer Tikka Roll", rating : "3.8"},
+      { vendorName : "Kanti Sweets", itemName : "Dry Fruit Laddu", rating : "2.3"},
+      { vendorName : "Pulp Juice Bar", itemName : "Mosambi Juice", rating : "1.1"}
 
-    // ]
+    ]
     $scope.removeFavourit = function(item, ind) {
       console.log("hello inside delete function");
       $scope.favouriteTiemList.splice(ind, 1);
