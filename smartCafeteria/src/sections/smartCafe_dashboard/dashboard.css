@@ -3,8 +3,6 @@
 .dropdown-menu {margin-left: -15px;}
 #mr-top{margin-top: 8px;}
 #form-mrgin{margin-top: -15px}
-.scrollspy-example {
-    height: 360px }
 .rating li {
     list-style-type: none;
     display: inline-block;
@@ -25,7 +23,7 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
 #collapseExample {
   position: absolute;
   z-index: 1;}
-.list-group{
+#list-group-scroll{
     max-height: 400px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
@@ -37,3 +35,5 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
     #sidebar.active {margin-left: 0;}
     #content {width: 100%;}
 }
+
+/*********************************cart*****************************/
