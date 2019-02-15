@@ -10,7 +10,7 @@
     cursor: pointer;}
 
 .rating .filled {
-    color: rgb(218, 11, 11);}
+    color: #ffc107 }
 
 span.line { height: 5px;left: 7%;margin-top: -13px;}
 #line{height: 5px;margin-top: -13px;margin-left: 22px;}
@@ -36,3 +36,57 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
     #sidebar.active {margin-left: 0;}
     #content {width: 100%;}
 }
+.year{
+    display: block;
+    width: 80%;
+    height: 50px;
+    background: #c47c48;
+    padding: 0 0 0 50px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4) inset;
+    border-radius: 10px 10px 10px 0;
+    position: absolute;
+    /* top: 200px; */
+    left: 20px;
+}
+
+.year1{
+    width: 10%;
+    height: 20px;
+    background: #c47c48;
+    padding: 0 0 0 50px;
+    font-size: 10px;
+    color : rgb(144, 212, 17);
+    line-height: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4) inset;
+    border-radius: 10px 10px 10px 0;
+    left: 20px;
+}
+#mdb-scrollspy-ex .nav-item {
+    width: 100%;
+
+    }
+    
+    /* #mdb-scrollspy-ex a {
+    font-size: .8rem;
+    font-weight: 400;
+    line-height: 1.1rem;
+    padding: 0 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    color: black;
+    }
+     */
+    #mdb-scrollspy-ex li .active {
+    font-weight: 600;
+    font-style: italic;
+    }
+    
+    .scrollspy-example {
+    height: 200px;
+    overflow : scroll;
+    -webkit-overflow-scrolling: touch;
+    }
