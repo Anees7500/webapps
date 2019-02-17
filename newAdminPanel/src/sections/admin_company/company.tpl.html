@@ -1,4 +1,4 @@
-<!--wrapper  class start for whole page-->
+<!-- wrapper  class start for whole page -->
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
@@ -573,67 +573,68 @@
       </nav>
 
       <div class="container">
-          <div class=" grey lighten-4  ml-5">
-            <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-              <li class="nav-item" ng-repeat="(type, monthObj) in monthsForMonthlyDetails">
-                <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
-                  data-target="#{{monthObj.name}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
-                  ng-click="selectMonthForMonthlyDetails(monthObj)">{{monthObj.name}} {{monthObj.year}}</a>
-              </li>
-            </ul>
-      </div>
-
-      <button type="button" class="btn btn-outline-info m-auto d-block"
-        ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
-      <div class="container">
         <div class=" grey lighten-4  ml-5">
           <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-            <li class="nav-item" ng-repeat="category in categories" ng-if="data[category.dbName]">
+            <li class="nav-item" ng-repeat="(type, monthObj) in monthsForMonthlyDetails">
               <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
-                data-target="#{{category.displayName}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
-                ng-click="assignCategoryForClientMonthlyDtls(category)">{{category.displayName}}</a>
+                data-target="#{{monthObj.name}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
+                ng-click="selectMonthForMonthlyDetails(monthObj)">{{monthObj.name}} {{monthObj.year}}</a>
             </li>
           </ul>
         </div>
 
-        <div class="tab-content pt-2 pl-1 ml-5" id="{{tempCategoryForClientMonthlyDtls.dbName}}" ng-if="tempCategoryForClientMonthlyDtls != null">
-          <div class="tab-pane fade show active " id="pills-brkfst" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="table-responsive">
-              <table class="table table-bordered w-auto ml-3 ">
-                <thead>
-                  <tr>
-                    <th class="font-weight-bold" scope="col">Date</th>
-                    <th class="font-weight-bold" scope="col">Day</th>
-                    <th class="font-weight-bold"
-                      ng-repeat-start="m in additionalReqDetails[tempCategoryForClientMonthlyDtls.dbName].arrVal">
-                      {{m.columnName}}
-                      Pax</th>
-                    <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
-                    <th class="font-weight-bold" scope="col">{{tempCategoryForClientMonthlyDtls.displayName}} Amount
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="dnd in clientMonthlyDetails[selectedWeekForMonthlyDetails].details">
-                    <th class="text-center font-weight-normal">{{dnd.date}}</th>
-                    <th class="text-center font-weight-normal">{{dnd.day}}</th>
-                    <td class="text-center font-weight-normal"
-                      ng-repeat-start="(addReqName,addReqVal) in dnd[tempCategoryForClientMonthlyDtls.dbName].dtls">
-                      <input id="" ng-model="addReqVal.pax">
-                    </td>
-                    <td class="text-center font-weight-normal" ng-repeat-end>
-                      <input id="" ng-model="addReqVal.price">
-                    </td>
-                    <td class="text-center font-weight-normal">
-                      <input id="" ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-            </div>
+        <button type="button" class="btn btn-outline-info m-auto d-block"
+          ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
+        <div class="container">
+          <div class=" grey lighten-4  ml-5">
+            <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+              <li class="nav-item" ng-repeat="category in categories" ng-if="data[category.dbName]">
+                <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
+                  data-target="#{{category.displayName}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
+                  ng-click="assignCategoryForClientMonthlyDtls(category)">{{category.displayName}}</a>
+              </li>
+            </ul>
+          </div>
 
-            <div class="container">
+          <div class="tab-content pt-2 pl-1 ml-5" id="{{tempCategoryForClientMonthlyDtls.dbName}}"
+            ng-if="tempCategoryForClientMonthlyDtls != null">
+            <div class="tab-pane fade show active " id="pills-brkfst" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class="table-responsive">
+                <table class="table table-bordered w-auto ml-3 ">
+                  <thead>
+                    <tr>
+                      <th class="font-weight-bold" scope="col">Date</th>
+                      <th class="font-weight-bold" scope="col">Day</th>
+                      <th class="font-weight-bold"
+                        ng-repeat-start="m in additionalReqDetails[tempCategoryForClientMonthlyDtls.dbName].arrVal">
+                        {{m.columnName}}
+                        Pax</th>
+                      <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
+                      <th class="font-weight-bold" scope="col">{{tempCategoryForClientMonthlyDtls.displayName}} Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="dnd in clientMonthlyDetails[selectedWeekForMonthlyDetails].details">
+                      <th class="text-center font-weight-normal">{{dnd.date}}</th>
+                      <th class="text-center font-weight-normal">{{dnd.day}}</th>
+                      <td class="text-center font-weight-normal"
+                        ng-repeat-start="(addReqName,addReqVal) in dnd[tempCategoryForClientMonthlyDtls.dbName].dtls">
+                        <input id="" ng-model="addReqVal.pax">
+                      </td>
+                      <td class="text-center font-weight-normal" ng-repeat-end>
+                        <input id="" ng-model="addReqVal.price">
+                      </td>
+                      <td class="text-center font-weight-normal">
+                        <input id="" ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <div class="container">
                 <div class=" grey lighten-4  ml-5">
                   <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
                     <li class="nav-item" ng-repeat="(weekNum, weekVal) in clientMonthlyDetails">
@@ -642,421 +643,424 @@
                         ng-click="selectWeekForMonthlyDetails(weekNum)">{{weekNum}}</a>
                     </li>
                   </ul>
-            </div>
+                </div>
 
-            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-                  ng-click="saveClientMonthlyDetails(clientMonthlyDetails[selectedWeekForMonthlyDetails])"
-                  ng-if="clientMonthlyDetails[selectedWeekForMonthlyDetails].
+                <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                  ng-click="saveClientMonthlyDetails(clientMonthlyDetails[selectedWeekForMonthlyDetails])" ng-if="clientMonthlyDetails[selectedWeekForMonthlyDetails].
                   dbRowId[tempCategoryForClientMonthlyDtls.dbName] == null">Save</button>
-            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-                  ng-click="clientMonthlyDetailsSave()"
-                  ng-if="clientMonthlyDetails[selectedWeekForMonthlyDetails].
-                  dbRowId[tempCategoryForClientMonthlyDtls.dbName] != null" >Update</button>
-            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                  ng-click="clientMonthlyDetailsSave()" ng-if="clientMonthlyDetails[selectedWeekForMonthlyDetails].
+                  dbRowId[tempCategoryForClientMonthlyDtls.dbName] != null">Update</button>
+                <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
                   ng-click="clientMonthlyDetailsSave()">Delete</button>
-            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-                 ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approve" 
-                 ng-click="clientMonthlyDetailsSave()">Approve</button>
-            
-          </div>
+                <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                  ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approve"
+                  ng-click="clientMonthlyDetailsSave()">Approve</button>
 
-        </div>
-      </div>
-    </div>
+              </div>
 
-
-    <!-- ========================================Vendor Monthly Details start================ -->
-
-    <div ng-if="vendorMonthlyDetailsBool">
-      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
-                aria-hidden="true"></i></a>
-            <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-              class="w-clr">/</a>
-            <a href="" class="w-clr">vendorMonthly details</a></small></h6>
-      </nav>
-      <div class="container position-fixed ml-3">
-        <div class="table-responsive ml-5">
-          <table id="dtBasicExample" class="table table-bordered table-sm mr-3" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th class="font-weight-normal text-center">DATE</th>
-                <th class="font-weight-normal text-center">DAY</th>
-                <th class="font-weight-normal text-center">PAX</th>
-                <th class="font-weight-normal text-center">PRICE</th>
-                <th class="font-weight-normal text-center">AMOUNT</th>
-                <th class="font-weight-normal text-center">Name</th>
-                <th class="font-weight-normal text-center">Age</th>
-                <th class="font-weight-normal text-center">contact</th>
-                <th class="font-weight-normal text-center">Address</th>
-                <th class="font-weight-normal text-center">Name</th>
-                <th class="font-weight-normal text-center">Age</th>
-                <th class="font-weight-normal text-center">contact</th>
-                <th class="font-weight-normal text-center">Address</th>
-                <th class="font-weight-normal text-center">Name</th>
-                <th class="font-weight-normal text-center">Age</th>
-                <th class="font-weight-normal text-center">contact</th>
-                <th class="font-weight-normal text-center">Address</th>
-                <th class="font-weight-normal text-center">Name</th>
-                <th class="font-weight-normal text-center">Age</th>
-                <th class="font-weight-normal text-center">contact</th>
-                <th class="font-weight-normal text-center">Address</th>
-                <th class="font-weight-normal text-center"></th>
-
-
-
-              </tr>
-            </thead>
-            <tbody ng-repeat="V in vendorMnthyDts">
-              <tr class="justify-content-center">
-                <td class="text-center w-15">{{V.Date}}</td>
-                <td class="text-center">{{V.Day}}</td>
-                <td class="text-center">{{V.Pax}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Amount}}</td>
-                <td class="text-center">{{V.Pax}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Amount}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Amount}}</td>
-                <td class="text-center">{{V.Pax}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Amount}}</td>
-                <td class="text-center">{{V.Pax}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Pax}}</td>
-                <td class="text-center">{{V.Amount}}</td>
-                <td class="text-center">{{V.Pax}}</td>
-                <td class="text-center">{{V.Price}}</td>
-                <td class="text-center">{{V.Price}}</td>
-
-                <td class="text-center">
-                  <button type="button"
-                    class="btn btn btn-outline-default btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal"
-                    submit-required="true" id="btn-margin">Save</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-
-    <!----------===============================invoice=================================-->
-    <div ng-if="invoiceBool">
-      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
-                aria-hidden="true"></i></a>
-            <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-              class="w-clr">/</a>
-            <a href="" class="w-clr">invoice</a></small></h6>
-        <form class="form-inline  ml-auto">
-          <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
-            id="search-height">
-        </form>
-      </nav>
-
-      <button class="ml-5" ng-click="exportToPdf('#invoice')">PDF</button>
-
-      <div class="container" id="invoice">
-        <nav class="navbar   red darken-3 ml-3 mt-5">
-        </nav>
-        <div class="row ml-3">
-          <div class="col-md-6 col-sm-12 ml-3">
-            <div class="media">
-              <img src="img/comp_logo.jpg" class="img-responsive borderless mt-2 d-flex align-self-center" width="65px">
-              <span class=" ml-3 h5 font-weight-bold pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES
-                PVT. LTD.</span>
             </div>
           </div>
         </div>
-        <div class="row mt-5 ml-3">
-          <div class="col-md-5 ml-3 ">
-            <p class="text-muted" id="font-add">#1722,First Floor, 19th Main Rd,<br>
-              Sector 2, HSR Layout,<br>
-              Bengaluru, Karnataka 560102<br>
-              PHONE: 9739684336<br>
-              GSTIN: 29AACCF9318B1ZQ<br>
-              STATE: KARNATAKA<br>
-              CODE – KA 29<br>
-              SAC Code: 996333</p>
+      </div>
+    </div>
+
+
+        <!-- ========================================Vendor Monthly Details start================ -->
+
+        <div ng-if="vendorMonthlyDetailsBool">
+          <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+            <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                    aria-hidden="true"></i></a>
+                <a href="#!/dashboard" class="w-clr">
+                  Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+                  class="w-clr">/</a>
+                <a href="" class="w-clr">vendorMonthly details</a></small></h6>
+          </nav>
+          <div class="container position-fixed ml-3">
+            <div class="table-responsive ml-5">
+              <table id="dtBasicExample" class="table table-bordered table-sm mr-3" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th class="font-weight-normal text-center">DATE</th>
+                    <th class="font-weight-normal text-center">DAY</th>
+                    <th class="font-weight-normal text-center">PAX</th>
+                    <th class="font-weight-normal text-center">PRICE</th>
+                    <th class="font-weight-normal text-center">AMOUNT</th>
+                    <th class="font-weight-normal text-center">Name</th>
+                    <th class="font-weight-normal text-center">Age</th>
+                    <th class="font-weight-normal text-center">contact</th>
+                    <th class="font-weight-normal text-center">Address</th>
+                    <th class="font-weight-normal text-center">Name</th>
+                    <th class="font-weight-normal text-center">Age</th>
+                    <th class="font-weight-normal text-center">contact</th>
+                    <th class="font-weight-normal text-center">Address</th>
+                    <th class="font-weight-normal text-center">Name</th>
+                    <th class="font-weight-normal text-center">Age</th>
+                    <th class="font-weight-normal text-center">contact</th>
+                    <th class="font-weight-normal text-center">Address</th>
+                    <th class="font-weight-normal text-center">Name</th>
+                    <th class="font-weight-normal text-center">Age</th>
+                    <th class="font-weight-normal text-center">contact</th>
+                    <th class="font-weight-normal text-center">Address</th>
+                    <th class="font-weight-normal text-center"></th>
+
+
+
+                  </tr>
+                </thead>
+                <tbody ng-repeat="V in vendorMnthyDts">
+                  <tr class="justify-content-center">
+                    <td class="text-center w-15">{{V.Date}}</td>
+                    <td class="text-center">{{V.Day}}</td>
+                    <td class="text-center">{{V.Pax}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Amount}}</td>
+                    <td class="text-center">{{V.Pax}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Amount}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Amount}}</td>
+                    <td class="text-center">{{V.Pax}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Amount}}</td>
+                    <td class="text-center">{{V.Pax}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Pax}}</td>
+                    <td class="text-center">{{V.Amount}}</td>
+                    <td class="text-center">{{V.Pax}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+                    <td class="text-center">{{V.Price}}</td>
+
+                    <td class="text-center">
+                      <button type="button"
+                        class="btn btn btn-outline-default btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal"
+                        submit-required="true" id="btn-margin">Save</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="col-md-2"></div>
-          <div class="col-md-4 ml-3">
-            <form class="form-inline border-0 ml-3" role="form">
-              <div class="form-group">
-                <label for="date">Date:</label>
-                <input type="date" class="form-control border-0 p-0 mb-0" id="date">
+        </div>
+      
+
+
+        <!----------===============================invoice=================================-->
+        <div ng-if="invoiceBool">
+          <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+            <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                    aria-hidden="true"></i></a>
+                <a href="#!/dashboard" class="w-clr">
+                  Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+                  class="w-clr">/</a>
+                <a href="" class="w-clr">invoice</a></small></h6>
+            <form class="form-inline  ml-auto">
+              <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
+                id="search-height">
+            </form>
+          </nav>
+
+          <button class="ml-5" ng-click="exportToPdf('#invoice')">PDF</button>
+
+          <div class="container" id="invoice">
+            <nav class="navbar   red darken-3 ml-3 mt-5">
+            </nav>
+            <div class="row ml-3">
+              <div class="col-md-6 col-sm-12 ml-3">
+                <div class="media">
+                  <img src="img/comp_logo.jpg" class="img-responsive borderless mt-2 d-flex align-self-center"
+                    width="65px">
+                  <span class=" ml-3 h5 font-weight-bold pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES
+                    PVT. LTD.</span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5 ml-3">
+              <div class="col-md-5 ml-3 ">
+                <p class="text-muted" id="font-add">#1722,First Floor, 19th Main Rd,<br>
+                  Sector 2, HSR Layout,<br>
+                  Bengaluru, Karnataka 560102<br>
+                  PHONE: 9739684336<br>
+                  GSTIN: 29AACCF9318B1ZQ<br>
+                  STATE: KARNATAKA<br>
+                  CODE – KA 29<br>
+                  SAC Code: 996333</p>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-4 ml-3">
+                <form class="form-inline border-0 ml-3" role="form">
+                  <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control border-0 p-0 mb-0" id="date">
+
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="row ml-3 mt-5">
+
+              <div class="col-md-4 ml-3">
+                <h5 class="font-weight-bold">Invoice for</h5>
+                <div class="card border-0 w-100" id="address-card">
+                  <div class="card-body mb-2">
+                    <small class="card-title font-weight-bold h6" id="cmp-font">{{cmpyName | uppercase}}</small>
+                    <p class=" card-text text-dark font-weight-normal " id="cmp-font">{{cmpyAddress | lowercase}}</p>
+                    <p class="text-muted font-weight-bold">GSTIN:<span><input type="text"
+                          class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
+
+                  </div>
+
+                </div>
 
               </div>
+
+
+              <div class="col-md-4">
+                <h5 class="font-weight-bold">Payable to</h5>
+                <small class="font-weight-bold h6" id="cmp-font">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
+
+
+              </div>
+              <div class="col-md-3">
+                <h5 class="font-weight-bold">Invoice #</h5>
+                <form>
+                  <div class="form-group">
+                    <input type="text" class="form-control text-dark border-0" value="515">
+                  </div>
+                </form>
+                <div class=" mt-5">
+                  <h4>Nature Of Service</h4>
+                  <p>Service provided in Canteen<br>
+                    and other similar establishments</p>
+                </div>
+              </div>
+            </div>
+            <hr class="ml-5 bg-dark mt-1 font-weight-bold">
+            <div class="row ml-3 pb-0">
+              <div class="table-responsive ml-3 pb-0">
+                <table class="table table-borderless pb-0 ml-3">
+                  <thead>
+                    <tr>
+                      <th id="font-color" class="h5 font-weight-bold ">Description</th>
+                      <th id="font-color" class="h5 font-weight-bold">Qty</th>
+                      <th id="font-color" class="h5 font-weight-bold">Unit price</th>
+                      <th id="font-color" class="h5 font-weight-bold">Total price</th>
+                    </tr>
+                  </thead>
+                  <tbody class="pb-0 pt-0 mt-0">
+                    <tr class="pb-0 pt-0">
+                      <td class="pb-0 pt-0">
+                        <form>
+                          <div class="form-group text-muted">
+                            <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                              value="Veg Lunch">
+                          </div>
+                        </form>
+                      </td>
+
+                      <td class="pb-0 pt-0">
+                        <form>
+                          <div class="form-group text-muted">
+                            <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold"
+                              value="263">
+                          </div>
+                        </form>
+                      </td>
+
+                      <td class="pb-0 pt-0">
+                        <form>
+                          <div class="form-group text-muted">
+                            <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                              value="INR 95.00">
+                          </div>
+                        </form>
+                      </td>
+
+                      <td class="pb-0 pt-0">
+                        <form>
+                          <div class="form-group text-muted">
+                            <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                              value="INR 24,985.00">
+                          </div>
+                        </form>
+                      </td>
+                    </tr>
+
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <hr class="ml-5 bg-dark font-weight-bold" id="top-margin-hr">
+            <div class="row ">
+              <div class="col-md-6"></div>
+              <div class="col-md-3">
+                <table class="table table-borderless ml-3">
+                  <tbody>
+                    <tr>
+                      <td class="center pb-0  h5 right" id="font-color">Subtotal</td>
+                    </tr>
+                    <tr>
+                      <td class="center pb-0 h5 right" id="font-color">CGST (9%)</td>
+                    </tr>
+                    <tr>
+                      <td class="center h5 pb-0 right" id="font-color">SGST (9%)</td>
+                    </tr>
+                    <tr>
+                      <td class="center right h2 font-weight-bold " id="font-color">Grand Total</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 ">
+                <table class="table table-borderless ml-3">
+                  <tbody>
+                    <tr>
+                      <td class="right h5 pb-0 font-weight-bold">INR 33,585.00</td>
+                    </tr>
+                    <tr>
+                      <td class="right  pb-0 h5" id="font-color">INR 3,585.00</td>
+                    </tr>
+                    <tr>
+                      <td class="right h5  pb-0 " id="font-color">INR 1,585.00</td>
+                    </tr>
+                    <tr>
+                      <td class="right h2 font-weight-bold" id="font-color">INR 35,585.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+            <div class="row ml-3 mt-3">
+              <div class="col-md-7 ml-3">
+                <p><span class="font-weight-bold">Account Details</span><br>
+                  Company Name : Fancymonk Technologies Private Limited<br>
+                  Account Number : 0012020317<br>
+                  IFSC Code : KKBK0008040<br>
+                  Branch code : 8040<br>
+                  Bank Name : Kotak Mahindra Bank
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- =========================================Dispatch Details start================ -->
+        <div ng-if="dispatchDetailsBool">
+          <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+            <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                    aria-hidden="true"></i></a>
+                <a href="#!/dashboard" class="w-clr">
+                  Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+                  class="w-clr">/</a>
+                <a href="" class="w-clr">dispatch details</a></small></h6>
+          </nav>
+          <div class="container">
+            <div class="table-responsive container mt-5">
+              <table class="table table-hover">
+                <thead>
+                  <tr class="aqua-gradient">
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Company</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Vendor</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Day</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Menu Type</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Dispatched Time</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Reached Time</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Remark</th>
+                    <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Status</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="today in yesterdayStatus_5">
+                    <td class="text-center font-weight-normal">{{today.companyName}}</td>
+                    <td class="text-center font-weight-normal">{{today.vendorName}}</td>
+                    <td class="text-center font-weight-normal">{{today.dayName}}</td>
+                    <td class="text-center font-weight-normal">{{today.menuType}}</td>
+                    <td class="text-center font-weight-normal">{{today.dispatchedTime}}</td>
+                    <td class="text-center font-weight-normal">{{today.reachedTime}}</td>
+                    <td class="text-center font-weight-normal">{{today.remarks}}</td>
+                    <td class="text-center font-weight-normal">{{today.status}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+              <h3 ng-show="!yesterdayStatus_5.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================Company Settings start================ -->
+        <div ng-if="companySettingsBool">
+          <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+            <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                    aria-hidden="true"></i></a>
+                <a href="#!/dashboard" class="w-clr">
+                  Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+                  class="w-clr">/</a>
+                <a href="" class="w-clr">company setting </a></small></h6>
+          </nav>
+          <div class="container">
+            <form class="border mb-5 grey lighten-5">
+              <div class="row ml-3">
+                <div class="col-md-5 col-sm-7 mt-3">
+                  <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                    <input type="text" name="firstname" id="person-name" required>
+                    <label alt="Contact Person Name" for="person-name" placeholder="Enter Contact Person Name">Contact
+                      Person Name</label>
+                  </div>
+                  <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                    <input type="text" name="lastname" id="Contact Number" required>
+                    <label alt="Contact Number" for="Contact Number" placeholder="Enter Contact Number">Contact
+                      Number</label>
+                  </div>
+                  <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                    <input type="text" name="address" id="address" required>
+                    <label alt="Adresse" for="address" placeholder="Enter Your Company Address">Address</label>
+                  </div>
+
+                  <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                    <input type="text" name="GST Number" id="GST Number" required>
+                    <label alt="GST Number" for="GST Number" placeholder="Enter GST Number">GST Number</label>
+                  </div>
+                </div>
+
+                <div class="col-md-5 col-sm-4 mt-3">
+                  <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                    <input type="text" name="GST Number" id="mobileUsername" required>
+                    <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App
+                      Username</label>
+                  </div>
+
+                  <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
+                    <input type="text" name="GST Number" id="mobilePassword" required>
+                    <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App
+                      Password</label>
+                  </div>
+
+                  <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
+                    width="300px">
+                  <div class="d-flex">
+                    <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+                  </div>
+
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-default waves-effect m-auto d-block"
+                id="btn-margin">Save</button>
             </form>
           </div>
         </div>
-
-        <div class="row ml-3 mt-5">
-
-          <div class="col-md-4 ml-3">
-            <h5 class="font-weight-bold">Invoice for</h5>
-            <div class="card border-0 w-100" id="address-card">
-              <div class="card-body mb-2">
-                <small class="card-title font-weight-bold h6" id="cmp-font">{{cmpyName | uppercase}}</small>
-                <p class=" card-text text-dark font-weight-normal " id="cmp-font">{{cmpyAddress | lowercase}}</p>
-                <p class="text-muted font-weight-bold">GSTIN:<span><input type="text"
-                      class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="col-md-4">
-            <h5 class="font-weight-bold">Payable to</h5>
-            <small class="font-weight-bold h6" id="cmp-font">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
-
-
-          </div>
-          <div class="col-md-3">
-            <h5 class="font-weight-bold">Invoice #</h5>
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control text-dark border-0" value="515">
-              </div>
-            </form>
-            <div class=" mt-5">
-              <h4>Nature Of Service</h4>
-              <p>Service provided in Canteen<br>
-                and other similar establishments</p>
-            </div>
-          </div>
-        </div>
-        <hr class="ml-5 bg-dark mt-1 font-weight-bold">
-        <div class="row ml-3 pb-0">
-          <div class="table-responsive ml-3 pb-0">
-            <table class="table table-borderless pb-0 ml-3">
-              <thead>
-                <tr>
-                  <th id="font-color" class="h5 font-weight-bold ">Description</th>
-                  <th id="font-color" class="h5 font-weight-bold">Qty</th>
-                  <th id="font-color" class="h5 font-weight-bold">Unit price</th>
-                  <th id="font-color" class="h5 font-weight-bold">Total price</th>
-                </tr>
-              </thead>
-              <tbody class="pb-0 pt-0 mt-0">
-                <tr class="pb-0 pt-0">
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          value="Veg Lunch">
-                      </div>
-                    </form>
-                  </td>
-
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold" value="263">
-                      </div>
-                    </form>
-                  </td>
-
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          value="INR 95.00">
-                      </div>
-                    </form>
-                  </td>
-
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          value="INR 24,985.00">
-                      </div>
-                    </form>
-                  </td>
-                </tr>
-
-
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <hr class="ml-5 bg-dark font-weight-bold" id="top-margin-hr">
-        <div class="row ">
-          <div class="col-md-6"></div>
-          <div class="col-md-3">
-            <table class="table table-borderless ml-3">
-              <tbody>
-                <tr>
-                  <td class="center pb-0  h5 right" id="font-color">Subtotal</td>
-                </tr>
-                <tr>
-                  <td class="center pb-0 h5 right" id="font-color">CGST (9%)</td>
-                </tr>
-                <tr>
-                  <td class="center h5 pb-0 right" id="font-color">SGST (9%)</td>
-                </tr>
-                <tr>
-                  <td class="center right h2 font-weight-bold " id="font-color">Grand Total</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="col-md-3 ">
-            <table class="table table-borderless ml-3">
-              <tbody>
-                <tr>
-                  <td class="right h5 pb-0 font-weight-bold">INR 33,585.00</td>
-                </tr>
-                <tr>
-                  <td class="right  pb-0 h5" id="font-color">INR 3,585.00</td>
-                </tr>
-                <tr>
-                  <td class="right h5  pb-0 " id="font-color">INR 1,585.00</td>
-                </tr>
-                <tr>
-                  <td class="right h2 font-weight-bold" id="font-color">INR 35,585.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-
-        <div class="row ml-3 mt-3">
-          <div class="col-md-7 ml-3">
-            <p><span class="font-weight-bold">Account Details</span><br>
-              Company Name : Fancymonk Technologies Private Limited<br>
-              Account Number : 0012020317<br>
-              IFSC Code : KKBK0008040<br>
-              Branch code : 8040<br>
-              Bank Name : Kotak Mahindra Bank
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- =========================================Dispatch Details start================ -->
-    <div ng-if="dispatchDetailsBool">
-      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
-                aria-hidden="true"></i></a>
-            <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-              class="w-clr">/</a>
-            <a href="" class="w-clr">dispatch details</a></small></h6>
-      </nav>
-      <div class="container">
-        <div class="table-responsive container mt-5">
-          <table class="table table-hover">
-            <thead>
-              <tr class="aqua-gradient">
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Company</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Vendor</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Day</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Menu Type</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Dispatched Time</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Reached Time</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Remark</th>
-                <th scope="col" class="text-center font-weight-bold pt-0 pb-3" id="header">Status</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="today in yesterdayStatus_5">
-                <td class="text-center font-weight-normal">{{today.companyName}}</td>
-                <td class="text-center font-weight-normal">{{today.vendorName}}</td>
-                <td class="text-center font-weight-normal">{{today.dayName}}</td>
-                <td class="text-center font-weight-normal">{{today.menuType}}</td>
-                <td class="text-center font-weight-normal">{{today.dispatchedTime}}</td>
-                <td class="text-center font-weight-normal">{{today.reachedTime}}</td>
-                <td class="text-center font-weight-normal">{{today.remarks}}</td>
-                <td class="text-center font-weight-normal">{{today.status}}</td>
-              </tr>
-
-            </tbody>
-          </table>
-          <h3 ng-show="!yesterdayStatus_5.length" style="color:#88888c;">None of the Vendor Delivered Food !!!</h3>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==============================================Company Settings start================ -->
-    <div ng-if="companySettingsBool">
-      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
-                aria-hidden="true"></i></a>
-            <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-              class="w-clr">/</a>
-            <a href="" class="w-clr">company setting </a></small></h6>
-      </nav>
-      <div class="container">
-        <form class="border mb-5 grey lighten-5">
-          <div class="row ml-3">
-            <div class="col-md-5 col-sm-7 mt-3">
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="firstname" id="person-name" required>
-                <label alt="Contact Person Name" for="person-name" placeholder="Enter Contact Person Name">Contact
-                  Person Name</label>
-              </div>
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="lastname" id="Contact Number" required>
-                <label alt="Contact Number" for="Contact Number" placeholder="Enter Contact Number">Contact
-                  Number</label>
-              </div>
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="address" id="address" required>
-                <label alt="Adresse" for="address" placeholder="Enter Your Company Address">Address</label>
-              </div>
-
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="GST Number" required>
-                <label alt="GST Number" for="GST Number" placeholder="Enter GST Number">GST Number</label>
-              </div>
-            </div>
-
-            <div class="col-md-5 col-sm-4 mt-3">
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="mobileUsername" required>
-                <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App
-                  Username</label>
-              </div>
-
-              <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="mobilePassword" required>
-                <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App
-                  Password</label>
-              </div>
-
-              <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
-                width="300px">
-              <div class="d-flex">
-                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-              </div>
-
-            </div>
-          </div>
-          <button type="button" class="btn btn-outline-default waves-effect m-auto d-block"
-            id="btn-margin">Save</button>
-        </form>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>
 
 
