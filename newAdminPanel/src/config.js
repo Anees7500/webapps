@@ -36,4 +36,10 @@ angular.module("adminApp.config", [])
 .constant("getVendorRequirements", "http://fancymonk.com:9125/api/admin/get-company-vendor-requirements?companyId=")
 .constant("postVendorRequirementsUrl", "http://fancymonk.com:9125/api/admin/company-vendor-requirements/add")
 .constant("postVendorRequirementsUpdateUrl", "http://fancymonk.com:9125/api/admin/company-vendor-requirements/update")
-.constant("postVendorRequirementsDeleteUrl", "http://fancymonk.com:9125/api/admin/company-vendor-requirements/delete");
+.constant("postVendorRequirementsDeleteUrl", "http://fancymonk.com:9125/api/admin/company-vendor-requirements/delete")
+.constant("getMonthlyDetailsUrl", "http://fancymonk.com:9125/api/admin/get-company-monthly-details?companyId=")
+.constant("postMonthlyDetailsUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/add")
+.constant("postMonthlyDetailsUpdateUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/update")
+.constant("postMonthlyDetailsDeleteUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/delete")
+.constant("postMonthlyDetailsApproveUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/approve")
+.constant("getMonthsForMonthlyDetailsUrl", "http://fancymonk.com:9125/api/common/get-current-and-previous-month");

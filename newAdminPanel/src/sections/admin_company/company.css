@@ -21,9 +21,10 @@ p {
 #font-color{color: #e91e63;}
 #top-margin-hr{margin-top: -40px;}
 #font-add{font-weight: 800;}
-#cmp-font{font-size: 1.0rem;}
+#cmp-font{font-size: 1.0rem;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
+}
 
 
 #drag-image{width: 300px;height: 100px;}

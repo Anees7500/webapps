@@ -1,100 +1,118 @@
-  <!--wrapper  class start for whole page-->
+<!--wrapper  class start for whole page-->
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
-  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top" >
-   <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
+  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
+    <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href=""
+      id="sidebarCollapse">
 
-    <div class="media">
-      <i class="fa fa-th-list mt-1"></i>
+      <div class="media">
+        <i class="fa fa-th-list mt-1"></i>
 
 
 
-      <div class="media-body">
-        <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
+        <div class="media-body">
+          <span class="text-danger h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
+        </div>
       </div>
-    </div>
-  </a>
-      <!--=============================sidebar collapse============================-->
+    </a>
+    <!--=============================sidebar collapse============================-->
 
 
-  <button class="navbar-toggler" type="button"aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
     </button>
-      <ul class="navbar-nav ml-auto mr-3">
-        <li class="nav-item dropdown mr-5">
-          <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
-          <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
-            <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
-          </div>
-        </li>
-      </ul>
+    <ul class="navbar-nav ml-auto mr-3">
+      <li class="nav-item dropdown mr-5">
+        <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
+        <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+          <a class="dropdown-item" href="#"><i class="far fa-question-circle mr-3"></i>Log out</a>
+        </div>
+      </li>
+    </ul>
 
   </nav>
 
 
-<!--===================sidenavbar start=========================-->
+  <!--===================sidenavbar start=========================-->
 
 
-<nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
-  <ul class="list-unstyled components mt-5">
-    <li class="p-2">
-      <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""  ><i class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
+  <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
+    <ul class="list-unstyled components mt-5">
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""><i
+            class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
-    </li>
-    <li class="p-2">
-      <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse"  aria-expanded="false" data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal "> Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
-      <ul  class="collapse list-unstyled" id="pageSubmenu">
-        <li class="p-1">
-          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
-            <span class="font-weight-normal">Client Requirement</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+          data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal ">
+            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li class="p-1">
+            <a class="text-dark d-block text-decoration-none" href=""
+              ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
+              <span class="font-weight-normal">Client Requirement</span></a>
           </li>
 
           <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorRequirementBool')"><i
-              class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
-            </li>
+            <a class="text-dark d-block text-decoration-none" href=""
+              ng-click="boolFunction('vendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span
+                class="font-weight-normal">Vendor Requirement</span></a>
+          </li>
 
-          </ul>
-        </li>
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span>
-          </a>
+        </ul>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i
+            class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span>
+        </a>
 
-        </li>
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" href=""  ng-click="boolFunction('assignedBool')"><i class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
-        </li>
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
-        </li>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedBool')"><i
+            class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i
+            class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
+      </li>
 
-        <li class="p-2">
-         <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse" aria-expanded="false" data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly Details</span><i class="fas fa-chevron-down ml-5"></i></a>
-         <ul  class="collapse list-unstyled" id="pageSubmenu1">
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+          data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly
+            Details</span><i class="fas fa-chevron-down ml-5"></i></a>
+        <ul class="collapse list-unstyled" id="pageSubmenu1">
           <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span class="font-weight-normal">Client Monthly Details</span></a>
+            <a class="text-dark d-block text-decoration-none" href=""
+              ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span
+                class="font-weight-normal">Client Monthly Details</span></a>
           </li>
 
           <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')" ><i class="fas fa-holly-berry mr-2"></i>
+            <a class="text-dark d-block text-decoration-none" href=""
+              ng-click="boolFunction('vendorMonthlyDetailsBool')"><i class="fas fa-holly-berry mr-2"></i>
               <span class="font-weight-normal">Vendor Monthly Details</span></a>
-            </li>
-          </ul>
-        </li>
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span>
-          </a>
-        </li>
+          </li>
+        </ul>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i
+            class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span>
+        </a>
+      </li>
 
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
-        </li>
-        <li class="p-2">
-          <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
-        </li>
-      </ul>
-    </nav>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i
+            class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i
+            class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
+      </li>
+    </ul>
+  </nav>
 
 
   <!--============================main content stat=====================================-->
@@ -108,33 +126,36 @@
 
       <nav class="navbar navbar-expand-lg">
         <h6><small>
-          <a href="#!/dashboard" class="disabled">
-            <i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i></a>
-          <a href="#!/dashboard" class="w-clr">
-          Home</a> 
-          <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> 
-          <a class="w-clr">/</a>
-          <a href="" class="w-clr">category</a></small></h6>
-        </nav>
-        <div class="container">
+            <a href="#!/dashboard" class="disabled">
+              <i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+            <a href="#!/dashboard" class="w-clr">
+              Home</a>
+            <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a>
+            <a class="w-clr">/</a>
+            <a href="" class="w-clr">category</a></small></h6>
+      </nav>
+      <div class="container">
 
         <!--=============Category start====================-->
-        <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3 mt-5"><i class="fas fa-hot-tub ml-3 text-white mr-2"></i>
+        <h4 class="font-weight-bold  text-white form-control-sm cyan accent-4 ml-3 mt-5"><i
+            class="fas fa-hot-tub ml-3 text-white mr-2"></i>
           Category</h4>
         <form class="border  z-depth-1  mb-5 ml-3" id="form-lenght">
           <div class="list-group custom-control custom-checkbox ">
             <div class="list-group-item" ng-repeat="category in categories">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="input{{$index + 1}}" ng-model="data[category.dbName]">
+                <input type="checkbox" class="custom-control-input" id="input{{$index + 1}}"
+                  ng-model="data[category.dbName]">
                 <label class="custom-control-label" for="input{{$index + 1}}">{{category.displayName}}</label>
-              </div>  
+              </div>
             </div>
 
-        </div>
-        <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal" submit-required="true" ng-click="category(data);" id="btn-margin">Save</button>
-      </form>
+          </div>
+          <button type="button" class="btn btn btn-outline-default waves-effect m-auto  d-block mb-5 font-weight-normal"
+            submit-required="true" ng-click="saveCategory(data);" id="btn-margin">Save</button>
+        </form>
 
-    
+
         <!--===========================working days==================================-->
         <h4 class="font-weight-bold text-white form-control-sm  cyan accent-4 ml-3">
           <i class="far fa-calendar-alt ml-3 text-white mr-2"></i> Working Days</h4>
@@ -146,21 +167,26 @@
           <span class="font-weight-normal">
             <input type="checkbox" ng-click="selectAll()">Select all</span><br>
 
-          <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block" id="btn-margin"
-            submit-required="true" ng-if="workingDaysDbRowId == null" ng-click="saveCompanyWorkingDays()">Save</button>
-          <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block" id="btn-margin"
-            submit-required="true" ng-if="workingDaysDbRowId != null" ng-click="updateCompanyWorkingDays()">Update</button>
+          <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block"
+            id="btn-margin" submit-required="true" ng-if="workingDaysDbRowId == null"
+            ng-click="saveCompanyWorkingDays()">Save</button>
+          <button type="button" class="btn btn-outline-default waves-effect m-auto font-weight-normal d-block"
+            id="btn-margin" submit-required="true" ng-if="workingDaysDbRowId != null"
+            ng-click="updateCompanyWorkingDays()">Update</button>
         </form>
 
         <!--===========================Invoice date==================================-->
-        <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i>
+        <h4 class="font-weight-bold text-white  form-control-sm  cyan accent-4 ml-3 "><i
+            class="fas fa-file-invoice-dollar ml-3 text-white mr-2"></i>
           Invoicing Date</h4>
         <div class=" border ml-3 mb-5 z-depth-1 font-weight-normal font-small">
           <form class=" form-inline">
             <div class="form-group">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="FirstMonth" ng-model="invoicingDate.firstOfNextMonth">
-                <label class="custom-control-label mr-5 ml-3 font-weight-normal" for="FirstMonth">1st of Next Month</label>
+                <input type="checkbox" class="custom-control-input" id="FirstMonth"
+                  ng-model="invoicingDate.firstOfNextMonth">
+                <label class="custom-control-label mr-5 ml-3 font-weight-normal" for="FirstMonth">1st of Next
+                  Month</label>
               </div>
             </div>
 
@@ -178,12 +204,14 @@
                 <label class="custom-control-label font-weight-normal ml-3" for="EndMonth">End of Month</label>
 
               </div>
-            </div>  
+            </div>
           </form>
           <button type="button" class="btn btn-outline-default waves-effect m-auto d-block" id="btn-margin"
-            submit-required="true" ng-click="saveCompanyInvoicingDate(invoicingDate)" ng-if="invoicingDateDbRowId == null">Save</button>
+            submit-required="true" ng-click="saveCompanyInvoicingDate(invoicingDate)"
+            ng-if="invoicingDateDbRowId == null">Save</button>
           <button type="button" class="btn btn-outline-default waves-effect m-auto d-block" id="btn-margin"
-            submit-required="true" ng-click="updateCompanyInvoicingDate(invoicingDate)" ng-if="invoicingDateDbRowId != null">Update</button>
+            submit-required="true" ng-click="updateCompanyInvoicingDate(invoicingDate)"
+            ng-if="invoicingDateDbRowId != null">Update</button>
         </div>
 
 
@@ -194,8 +222,10 @@
 
         <h4 class="text-white font-weight-bold ">
           <div class="custom-control form-control-sm cyan accent-4 custom-checkbox ml-3 ">
-            <input type="checkbox" class="custom-control-input ml-3" id="AdditionalRequirements" ng-model="companyAdditionalRequirementBoolean">
-            <label class="custom-control-label cyan text-white mr-5 ml-3" for="AdditionalRequirements">Additional Requirements</label>
+            <input type="checkbox" class="custom-control-input ml-3" id="AdditionalRequirements"
+              ng-model="companyAdditionalRequirementBoolean">
+            <label class="custom-control-label cyan text-white mr-5 ml-3" for="AdditionalRequirements">Additional
+              Requirements</label>
 
           </div>
         </h4>
@@ -222,14 +252,16 @@
                           <tbody>
                             <tr ng-repeat="menuDetail in additionalReqDetails[category.dbName].arrVal">
                               <td>
-                                <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled" ng-model="menuDetail.columnName" required /></td>
+                                <input type="text" id="number" class="form-control" ng-disabled="menuDetail.disabled"
+                                  ng-model="menuDetail.columnName" required /></td>
                               <td>
-                                <a class="addnewRow pull-right ml-5 text-success z-depth-1" id="btn-bg" 
-                                ng-click="addNewRow(additionalReqDetails[category.dbName].arrVal)">
+                                <a class="addnewRow pull-right ml-5 text-success z-depth-1" id="btn-bg"
+                                  ng-click="addNewRow(additionalReqDetails[category.dbName].arrVal)">
                                   <i class="far fa-plus-square fa-2x"></i>
                                 </a>
                                 <a ng-hide="(!menuDetails.length > 1)" class="z-depth-1 text-danger pull-right ml-5"
-                                  ng-if="!menuDetail.disabled" ng-click="remove(additionalReqDetails[category.dbName].arrVal,$index)">
+                                  ng-if="!menuDetail.disabled"
+                                  ng-click="remove(additionalReqDetails[category.dbName].arrVal,$index)">
                                   <i class="fas fa-trash-alt fa-2x"></i>
                                 </a>
 
@@ -237,11 +269,14 @@
                             </tr>
                           </tbody>
                         </table>
-                        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin" submit-required="true" ng-if="additionalReqDetails[category.dbName].additionaRequirementDbRowId == null"
+                        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block"
+                          id="btn-margin" submit-required="true"
+                          ng-if="additionalReqDetails[category.dbName].additionaRequirementDbRowId == null"
                           ng-click="saveAdditionalRequirements(additionalReqDetails[category.dbName], category.dbName)">Save</button>
 
-                        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block" id="btn-margin"
-                          submit-required="true" ng-if="additionalReqDetails[category.dbName].additionaRequirementDbRowId != null"
+                        <button type="button" class="btn btn-outline-default waves-effect m-auto  d-block"
+                          id="btn-margin" submit-required="true"
+                          ng-if="additionalReqDetails[category.dbName].additionaRequirementDbRowId != null"
                           ng-click="saveAdditionalRequirements(additionalReqDetails[category.dbName], category.dbName)">Update</button>
                       </form>
                     </div>
@@ -260,20 +295,24 @@
     <div ng-if="clientRequirementBool">
 
       <nav class="navbar navbar-expand-lg  mb-5 " id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a><a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+              Home</a> <a class="w-clr">/</a><a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+              class="w-clr">/</a>
             <a href="" class="w-clr">client requirement</a></small></h6>
       </nav>
       <div class="container">
         <div class="table-responsive-sm table-responsive-md table-responsive-lg" ng-repeat="category in categories"
           ng-if="data[category.dbName]">
-          <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
+          <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">
+            {{category.displayName}}</h6>
           <table class="table table-bordered w-auto ml-3 ">
             <thead>
               <tr>
                 <th class="font-weight-bold" scope="col">Day</th>
-                <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">{{m.columnName}}
+                <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
+                  {{m.columnName}}
                   Pax</th>
                 <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
               </tr>
@@ -281,23 +320,24 @@
             <tbody>
               <tr ng-repeat="week in workingDays" ng-if="week.selected">
                 <th class="text-center font-weight-normal ">{{week.day}}</th>
-                <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
-                  <input type="number" class="form-control form-control-sm" id="" 
-                  ng-model="clientRequirement[category.dbName][week.day][m.columnName].pax">
+                <td class="text-center font-weight-normal"
+                  ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
+                  <input type="number" class="form-control form-control-sm" id=""
+                    ng-model="clientRequirement[category.dbName][week.day][m.columnName].pax">
                 </td>
                 <td class="text-center font-weight-normal" ng-repeat-end>
-                  <input type="number" class="form-control form-control-sm" id="" 
-                  ng-model="clientRequirement[category.dbName][week.day][m.columnName].price">
+                  <input type="number" class="form-control form-control-sm" id=""
+                    ng-model="clientRequirement[category.dbName][week.day][m.columnName].price">
                 </td>
               </tr>
             </tbody>
           </table>
           <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-           ng-click="saveCompanyRequirements(clientRequirement[category.dbName],category.dbName)"
-           ng-if="clientRequirement[category.dbName].companyRequirementDbRowId == null">Save</button>
-           <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-           ng-click="saveCompanyRequirements(clientRequirement[category.dbName],category.dbName)"
-           ng-if="clientRequirement[category.dbName].companyRequirementDbRowId != null">Update</button>
+            ng-click="saveCompanyRequirements(clientRequirement[category.dbName],category.dbName)"
+            ng-if="clientRequirement[category.dbName].companyRequirementDbRowId == null">Save</button>
+          <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+            ng-click="saveCompanyRequirements(clientRequirement[category.dbName],category.dbName)"
+            ng-if="clientRequirement[category.dbName].companyRequirementDbRowId != null">Update</button>
         </div>
       </div>
     </div>
@@ -306,7 +346,8 @@
     <!-- ==============================================Vendor RequirementBool start================ -->
     <div ng-if="vendorRequirementBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
@@ -315,41 +356,46 @@
       <div class="container">
         <div class="table-responsive-sm table-responsive-md table-responsive-lg" ng-repeat="category in categories"
           ng-if="data[category.dbName]">
-          <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
+          <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">
+            {{category.displayName}}</h6>
           <table class="table table-bordered w-auto ml-3">
             <thead>
               <tr>
                 <th class="font-weight-bold" scope="col">Day</th>
-                <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">{{m.columnName}}
+                <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
+                  {{m.columnName}}
                   Pax</th>
-                <th class="font-weight-bold" > {{m.columnName}} Price</th>
+                <th class="font-weight-bold"> {{m.columnName}} Price</th>
                 <th class="font-weight-bold" scope="col" ng-repeat-end>% To Vendor</th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="week in workingDays" ng-if="week.selected">
                 <th class="text-center font-weight-normal ">{{week.day}}</th>
-                <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
-                  <input type="number" class="form-control form-control-sm" ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pax">
+                <td class="text-center font-weight-normal"
+                  ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
+                  <input type="number" class="form-control form-control-sm"
+                    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pax">
                 </td>
-                <td class="text-center font-weight-normal" >
-                  <input type="number" class="form-control form-control-sm" ng-model="vendorRequirement[category.dbName][week.day][m.columnName].price">
+                <td class="text-center font-weight-normal">
+                  <input type="number" class="form-control form-control-sm"
+                    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].price">
                 </td>
 
                 <td class="text-center font-weight-normal" ng-repeat-end>
-                  <input type="number" class="form-control form-control-sm" ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pctToVendor">
+                  <input type="number" class="form-control form-control-sm"
+                    ng-model="vendorRequirement[category.dbName][week.day][m.columnName].pctToVendor">
                 </td>
               </tr>
 
             </tbody>
           </table>
-          <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" 
-          ng-click="saveVendorRequirements(vendorRequirement[category.dbName], category.dbName)" 
-          ng-if="vendorRequirement[category.dbName].companyVendorRequirementDbRowId == null">Save</button>
+          <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+            ng-click="saveVendorRequirements(vendorRequirement[category.dbName], category.dbName)"
+            ng-if="vendorRequirement[category.dbName].companyVendorRequirementDbRowId == null">Save</button>
 
-          <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" 
-          ng-click="vendorSaveReq()"
-          ng-if="vendorRequirement[category.dbName].companyVendorRequirementDbRowId != null">Update</button>
+          <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="vendorSaveReq()"
+            ng-if="vendorRequirement[category.dbName].companyVendorRequirementDbRowId != null">Update</button>
 
         </div>
       </div>
@@ -359,7 +405,8 @@
     <!-- ==============================================Item Check start================ -->
     <div ng-if="itemCheckBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
@@ -385,27 +432,28 @@
 
     <div ng-if="assignedBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
-          <a href="#!/dashboard" class="w-clr">
-          Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-          class="w-clr">/</a>
-          <a href="" class="w-clr">assigned</a></small></h6>
-        </nav>
-        <div class="container">
-          <div class="row ml-3  mr-0" id="menu-top">
-            <div ng-repeat="assign in categories">
-              <div class=" col-xl-3 col-md-6  w-50">
-                <div class="card bg-info mt-5 h-50 btn-outline-info waves-effect hoverable " id="col-width">
-                  <div class="card-body ">
-                    <div class="media text-info ">
-                      <a class="d-flex mr-3"><i class="fas fa-glass-cheers fa-2x"></i></a>
-                      <div class="ml-2" data-toggle="modal" data-target="#fullHeightModalRight">
-                        <h6 class="mt-0 font-weight">{{assign.displayName}}</h6>
-                      </div>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
+            <a href="#!/dashboard" class="w-clr">
+              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+              class="w-clr">/</a>
+            <a href="" class="w-clr">assigned</a></small></h6>
+      </nav>
+      <div class="container">
+        <div class="row ml-3  mr-0" id="menu-top">
+          <div ng-repeat="assign in categories">
+            <div class=" col-xl-3 col-md-6  w-50">
+              <div class="card bg-info mt-5 h-50 btn-outline-info waves-effect hoverable " id="col-width">
+                <div class="card-body ">
+                  <div class="media text-info ">
+                    <a class="d-flex mr-3"><i class="fas fa-glass-cheers fa-2x"></i></a>
+                    <div class="ml-2" data-toggle="modal" data-target="#fullHeightModalRight">
+                      <h6 class="mt-0 font-weight">{{assign.displayName}}</h6>
                     </div>
                   </div>
-                  <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                </div>
+                <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog"
+                  aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
 
 
                   <div class="modal-dialog" role="document">
@@ -423,7 +471,8 @@
                           <div class="active-cyan-4 mb-4 mr-auto">
                             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                           </div>
-                          <a href="#" class="list-group-item list-group-item-action" ng-repeat="vendor in allVendorsList | filter:vendorSearch">{{vendor.name}}</a>
+                          <a href="#" class="list-group-item list-group-item-action"
+                            ng-repeat="vendor in allVendorsList | filter:vendorSearch">{{vendor.name}}</a>
                         </div>
                       </div>
                     </div>
@@ -440,133 +489,178 @@
     <!-- ==============================================EmpFeedback start================ -->
     <div ng-if="empFeedbackBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
-          <a href="#!/dashboard" class="w-clr">
-          Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-          class="w-clr">/</a>
-          <a href="" class="w-clr">employee feedback</a></small></h6>
-        </nav>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
+            <a href="#!/dashboard" class="w-clr">
+              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+              class="w-clr">/</a>
+            <a href="" class="w-clr">employee feedback</a></small></h6>
+      </nav>
 
 
-  <div class="container">
-  <div  class="navbar navbar-light light-blue lighten-4 ml-3">
-   <button class="navbar-light" ng-click="exportToExcel('#feedback')">Download xsl file <i class="fas fa-download ml-1"></i></button> 
-<!--  <a href="" data-toggle="tooltip" title="Default tooltip">you probably</a> -->
-    <form class="form-inline my-2 my-lg-0 ml-auto">
+      <div class="container">
+        <div class="navbar navbar-light light-blue lighten-4 ml-3">
+          <button class="navbar-light" ng-click="exportToExcel('#feedback')">Download xsl file <i
+              class="fas fa-download ml-1"></i></button>
+          <!--  <a href="" data-toggle="tooltip" title="Default tooltip">you probably</a> -->
+          <form class="form-inline my-2 my-lg-0 ml-auto">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
           </form>
-          
-  </div>
-  <table class="table border table-hover table-sm ml-3" id="feedback">
-  <thead>
-   <tr>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th> 
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
-    <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
 
-  </tr>
-</thead>
-<tbody>
- <tr ng-repeat="feed in feedback.slice().reverse() | filter:search | orderBy:sortType:sortReverse ">
-  <td class="text-center font-weight-normal">{{feed.reviewerName}}</td>
-  <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
-  <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
-  <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
-  <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
-  <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
-  <td class="text-center font-weight-normal">{{feed.mobile}}</td>
-  <td>
-   <div ng-if="feed.comment.length > 1"><span class="badge badge-danger" >1</span>
-    <mdb-tooltip :options="{placement: 'top'}">
-    <div data-toggle="tooltip" >
-     {{feed.commen}}
-   </div>
-   <mdb-btn slot="reference" color="primary">
- </mdb-btn>
-</mdb-tooltip>
+        </div>
+        <table class="table border table-hover table-sm ml-3" id="feedback">
+          <thead>
+            <tr>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Name</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Overall Rating</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Presentation Rating</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quality Rating</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Quantity Rating</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Taste Rating</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Contact</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Comment</th>
+              <th class="text-center font-weight-bold pt-0 pb-3" id="header">Date & Time</th>
 
-</div>
-<mdb-btn slot="reference" color="primary">
-<i class="far fa-comments fa-2x" ></i>
-</mdb-btn>
-</td>
-<td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="feed in feedback.slice().reverse() | filter:search | orderBy:sortType:sortReverse ">
+              <td class="text-center font-weight-normal">{{feed.reviewerName}}</td>
+              <td class="text-center font-weight-normal">{{feed.overAllRating}}</td>
+              <td class="text-center font-weight-normal">{{feed.presentationRating}}</td>
+              <td class="text-center font-weight-normal">{{feed.qualityRating}}</td>
+              <td class="text-center font-weight-normal">{{feed.quantityRating}}</td>
+              <td class="text-center font-weight-normal">{{feed.tasteRating}}</td>
+              <td class="text-center font-weight-normal">{{feed.mobile}}</td>
+              <td>
+                <div ng-if="feed.comment.length > 1"><span class="badge badge-danger">1</span>
+                  <mdb-tooltip :options="{placement: 'top'}">
+                    <div data-toggle="tooltip">
+                      {{feed.commen}}
+                    </div>
+                    <mdb-btn slot="reference" color="primary">
+                    </mdb-btn>
+                  </mdb-tooltip>
+
+                </div>
+                <mdb-btn slot="reference" color="primary">
+                  <i class="far fa-comments fa-2x"></i>
+                </mdb-btn>
+              </td>
+              <td class="text-center font-weight-normal" id="header">{{feed.createdAt}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
 
 
- 
-                      
+
+
 
 
     <!-- ==========================================ClientMonthly Details start================ -->
     <div ng-if="clientMonthlyDetailsBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
-          <a href="#!/dashboard" class="w-clr">
-            Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
-            class="w-clr">/</a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
+            <a href="#!/dashboard" class="w-clr">
+              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+              class="w-clr">/</a>
             <a href="" class="w-clr">clientMonthly details</a></small>
-          </h6>
-        </nav>
-        <button type="button" class="btn btn-outline-info m-auto d-block" ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
-        <div class="container">
-          <div class=" grey lighten-4  ml-5">  
-           <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-            <li class="nav-item active"ng-repeat="category in categories" ng-if="data[category.dbName]">
-              <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href="" data-target="#{{category.displayName}}" role="tab"aria-controls="pills-brkfst" aria-selected="true">{{category.displayName}}</a>
+        </h6>
+      </nav>
+
+      <div class="container">
+          <div class=" grey lighten-4  ml-5">
+            <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+              <li class="nav-item" ng-repeat="(type, monthObj) in monthsForMonthlyDetails">
+                <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
+                  data-target="#{{monthObj.name}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
+                  ng-click="selectMonthForMonthlyDetails(monthObj)">{{monthObj.name}} {{monthObj.year}}</a>
+              </li>
+            </ul>
+      </div>
+
+      <button type="button" class="btn btn-outline-info m-auto d-block"
+        ng-click="exportToExcel('#clientMonthlyDetailsSave')">XLS</button>
+      <div class="container">
+        <div class=" grey lighten-4  ml-5">
+          <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" ng-repeat="category in categories" ng-if="data[category.dbName]">
+              <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
+                data-target="#{{category.displayName}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
+                ng-click="assignCategoryForClientMonthlyDtls(category)">{{category.displayName}}</a>
             </li>
           </ul>
         </div>
-        <div class="tab-content pt-2 pl-1 ml-5" id="{{category.displayName}}">
+
+        <div class="tab-content pt-2 pl-1 ml-5" id="{{tempCategoryForClientMonthlyDtls.dbName}}" ng-if="tempCategoryForClientMonthlyDtls != null">
           <div class="tab-pane fade show active " id="pills-brkfst" role="tabpanel" aria-labelledby="pills-home-tab">
-           <div class="table-responsive">
-            <table class="table table-bordered w-auto ml-3 ">
-              <thead>
-                <tr>
-                  <th class="font-weight-bold" scope="col">Date</th>
-                  <th class="font-weight-bold" scope="col">Day</th>
-                  <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">{{m.columnName}}
-                    Pax</th>
+            <div class="table-responsive">
+              <table class="table table-bordered w-auto ml-3 ">
+                <thead>
+                  <tr>
+                    <th class="font-weight-bold" scope="col">Date</th>
+                    <th class="font-weight-bold" scope="col">Day</th>
+                    <th class="font-weight-bold"
+                      ng-repeat-start="m in additionalReqDetails[tempCategoryForClientMonthlyDtls.dbName].arrVal">
+                      {{m.columnName}}
+                      Pax</th>
                     <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
-                    <th class="font-weight-bold" scope="col">{{category.displayName}} Amount</th>
-                    
+                    <th class="font-weight-bold" scope="col">{{tempCategoryForClientMonthlyDtls.displayName}} Amount
+                    </th>
                   </tr>
                 </thead>
-                <tbody> 
-                  <tr ng-repeat="dnd in monthlyDateNDays">
+                <tbody>
+                  <tr ng-repeat="dnd in clientMonthlyDetails[selectedWeekForMonthlyDetails].details">
                     <th class="text-center font-weight-normal">{{dnd.date}}</th>
                     <th class="text-center font-weight-normal">{{dnd.day}}</th>
-                    <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName].arrVal">
-                      <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].pax" >
+                    <td class="text-center font-weight-normal"
+                      ng-repeat-start="(addReqName,addReqVal) in dnd[tempCategoryForClientMonthlyDtls.dbName].dtls">
+                      <input id="" ng-model="addReqVal.pax">
                     </td>
                     <td class="text-center font-weight-normal" ng-repeat-end>
-                      <input id="" ng-model="clientRequirement[category.dbName][dnd.day][m.columnName].price">
+                      <input id="" ng-model="addReqVal.price">
                     </td>
                     <td class="text-center font-weight-normal">
-                      <input id="" ng-model="clientRequirement[category.dbName][dnd.day].amount">
+                      <input id="" ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount">
                     </td>
-                    
                   </tr>
-
                 </tbody>
-                <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientMonthlyDetailsSave()">Save</button>
               </table>
-            </div>   
-          </div>
-          
+              
+            </div>
 
-        </div> 
+            <div class="container">
+                <div class=" grey lighten-4  ml-5">
+                  <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+                    <li class="nav-item" ng-repeat="(weekNum, weekVal) in clientMonthlyDetails">
+                      <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
+                        data-target="#{{monthObj.name}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
+                        ng-click="selectWeekForMonthlyDetails(weekNum)">{{weekNum}}</a>
+                    </li>
+                  </ul>
+            </div>
+
+            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                  ng-click="saveClientMonthlyDetails(clientMonthlyDetails[selectedWeekForMonthlyDetails])"
+                  ng-if="clientMonthlyDetails[selectedWeekForMonthlyDetails].
+                  dbRowId[tempCategoryForClientMonthlyDtls.dbName] == null">Save</button>
+            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                  ng-click="clientMonthlyDetailsSave()"
+                  ng-if="clientMonthlyDetails[selectedWeekForMonthlyDetails].
+                  dbRowId[tempCategoryForClientMonthlyDtls.dbName] != null" >Update</button>
+            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                  ng-click="clientMonthlyDetailsSave()">Delete</button>
+            <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
+                 ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approve" 
+                 ng-click="clientMonthlyDetailsSave()">Approve</button>
+            
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -575,7 +669,8 @@
 
     <div ng-if="vendorMonthlyDetailsBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
@@ -638,7 +733,8 @@
                 <td class="text-center">{{V.Price}}</td>
 
                 <td class="text-center">
-                  <button type="button" class="btn btn btn-outline-default btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal"
+                  <button type="button"
+                    class="btn btn btn-outline-default btn-responsive waves-effect m-auto btn-sm px-3 d-block font-weight-normal"
                     submit-required="true" id="btn-margin">Save</button></td>
               </tr>
             </tbody>
@@ -651,13 +747,15 @@
     <!----------===============================invoice=================================-->
     <div ng-if="invoiceBool">
       <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
-         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
             <a href="" class="w-clr">invoice</a></small></h6>
         <form class="form-inline  ml-auto">
-          <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search" id="search-height">
+          <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
+            id="search-height">
         </form>
       </nav>
 
@@ -670,7 +768,7 @@
           <div class="col-md-6 col-sm-12 ml-3">
             <div class="media">
               <img src="img/comp_logo.jpg" class="img-responsive borderless mt-2 d-flex align-self-center" width="65px">
-              <span class=" ml-3 h5 font-weight-bold pull-right mt-5 mb-0"  >FANCYMONK TECHNOLOGIES
+              <span class=" ml-3 h5 font-weight-bold pull-right mt-5 mb-0">FANCYMONK TECHNOLOGIES
                 PVT. LTD.</span>
             </div>
           </div>
@@ -684,13 +782,13 @@
               GSTIN: 29AACCF9318B1ZQ<br>
               STATE: KARNATAKA<br>
               CODE – KA 29<br>
-            SAC Code: 996333</p>
+              SAC Code: 996333</p>
           </div>
           <div class="col-md-2"></div>
           <div class="col-md-4 ml-3">
             <form class="form-inline border-0 ml-3" role="form">
               <div class="form-group">
-                <label for="date" >Date:</label>
+                <label for="date">Date:</label>
                 <input type="date" class="form-control border-0 p-0 mb-0" id="date">
 
               </div>
@@ -706,7 +804,8 @@
               <div class="card-body mb-2">
                 <small class="card-title font-weight-bold h6" id="cmp-font">{{cmpyName | uppercase}}</small>
                 <p class=" card-text text-dark font-weight-normal " id="cmp-font">{{cmpyAddress | lowercase}}</p>
-                <p class="text-muted font-weight-bold">GSTIN:<span><input type="text" class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
+                <p class="text-muted font-weight-bold">GSTIN:<span><input type="text"
+                      class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
 
               </div>
 
@@ -719,7 +818,7 @@
             <h5 class="font-weight-bold">Payable to</h5>
             <small class="font-weight-bold h6" id="cmp-font">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
 
-            
+
           </div>
           <div class="col-md-3">
             <h5 class="font-weight-bold">Invoice #</h5>
@@ -731,80 +830,83 @@
             <div class=" mt-5">
               <h4>Nature Of Service</h4>
               <p>Service provided in Canteen<br>
-              and other similar establishments</p>
+                and other similar establishments</p>
             </div>
           </div>
         </div>
-   <hr class="ml-5 bg-dark mt-1 font-weight-bold"> 
-     <div class="row ml-3 pb-0">
-        <div class="table-responsive ml-3 pb-0">
-          <table class="table table-borderless pb-0 ml-3">
-            <thead>
-              <tr>
-                <th id="font-color" class="h5 font-weight-bold ">Description</th>
-                <th id="font-color" class="h5 font-weight-bold">Qty</th>
-                <th id="font-color" class="h5 font-weight-bold">Unit price</th>
-                <th id="font-color" class="h5 font-weight-bold">Total price</th>
-              </tr>
-            </thead>
-            <tbody class="pb-0 pt-0 mt-0">
-              <tr class="pb-0 pt-0">
-                <td class="pb-0 pt-0">
-                  <form>
-                    <div class="form-group text-muted">
-                      <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" value="Veg Lunch">
-                    </div>
-                  </form>
-                </td>
+        <hr class="ml-5 bg-dark mt-1 font-weight-bold">
+        <div class="row ml-3 pb-0">
+          <div class="table-responsive ml-3 pb-0">
+            <table class="table table-borderless pb-0 ml-3">
+              <thead>
+                <tr>
+                  <th id="font-color" class="h5 font-weight-bold ">Description</th>
+                  <th id="font-color" class="h5 font-weight-bold">Qty</th>
+                  <th id="font-color" class="h5 font-weight-bold">Unit price</th>
+                  <th id="font-color" class="h5 font-weight-bold">Total price</th>
+                </tr>
+              </thead>
+              <tbody class="pb-0 pt-0 mt-0">
+                <tr class="pb-0 pt-0">
+                  <td class="pb-0 pt-0">
+                    <form>
+                      <div class="form-group text-muted">
+                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                          value="Veg Lunch">
+                      </div>
+                    </form>
+                  </td>
 
-                <td class="pb-0 pt-0">
-                  <form>
-                    <div class="form-group text-muted">
-                      <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold" value="263">
-                    </div>
-                  </form>
-                </td>
+                  <td class="pb-0 pt-0">
+                    <form>
+                      <div class="form-group text-muted">
+                        <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold" value="263">
+                      </div>
+                    </form>
+                  </td>
 
-                <td class="pb-0 pt-0">
-                  <form>
-                    <div class="form-group text-muted">
-                      <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" value="INR 95.00">
-                    </div>
-                  </form>
-                </td>
+                  <td class="pb-0 pt-0">
+                    <form>
+                      <div class="form-group text-muted">
+                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                          value="INR 95.00">
+                      </div>
+                    </form>
+                  </td>
 
-                <td class="pb-0 pt-0">
-                  <form>
-                    <div class="form-group text-muted">
-                      <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" value="INR 24,985.00">
-                    </div>
-                  </form>
-                </td>
-              </tr>
+                  <td class="pb-0 pt-0">
+                    <form>
+                      <div class="form-group text-muted">
+                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                          value="INR 24,985.00">
+                      </div>
+                    </form>
+                  </td>
+                </tr>
 
 
-          
-            </tbody>
-          </table>
+
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
         <hr class="ml-5 bg-dark font-weight-bold" id="top-margin-hr">
         <div class="row ">
           <div class="col-md-6"></div>
           <div class="col-md-3">
             <table class="table table-borderless ml-3">
               <tbody>
-                <tr >
-                  <td class="center pb-0  h5 right"id="font-color" >Subtotal</td>
+                <tr>
+                  <td class="center pb-0  h5 right" id="font-color">Subtotal</td>
                 </tr>
                 <tr>
-                  <td class="center pb-0 h5 right"id="font-color">CGST (9%)</td>
+                  <td class="center pb-0 h5 right" id="font-color">CGST (9%)</td>
                 </tr>
                 <tr>
-                  <td class="center h5 pb-0 right"id="font-color">SGST (9%)</td>
+                  <td class="center h5 pb-0 right" id="font-color">SGST (9%)</td>
                 </tr>
                 <tr>
-                  <td class="center right h2 font-weight-bold "id="font-color">Grand Total</td>
+                  <td class="center right h2 font-weight-bold " id="font-color">Grand Total</td>
                 </tr>
               </tbody>
             </table>
@@ -833,11 +935,11 @@
         <div class="row ml-3 mt-3">
           <div class="col-md-7 ml-3">
             <p><span class="font-weight-bold">Account Details</span><br>
-              Company  Name  :  Fancymonk Technologies Private Limited<br>
-              Account  Number  :  0012020317<br>
-              IFSC  Code  :  KKBK0008040<br>
-              Branch  code  :  8040<br>
-              Bank  Name  :  Kotak Mahindra Bank
+              Company Name : Fancymonk Technologies Private Limited<br>
+              Account Number : 0012020317<br>
+              IFSC Code : KKBK0008040<br>
+              Branch code : 8040<br>
+              Bank Name : Kotak Mahindra Bank
             </p>
           </div>
         </div>
@@ -849,7 +951,8 @@
     <!-- =========================================Dispatch Details start================ -->
     <div ng-if="dispatchDetailsBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
@@ -893,7 +996,8 @@
     <!-- ==============================================Company Settings start================ -->
     <div ng-if="companySettingsBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a>
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+                aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
@@ -906,11 +1010,12 @@
               <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
                 <input type="text" name="firstname" id="person-name" required>
                 <label alt="Contact Person Name" for="person-name" placeholder="Enter Contact Person Name">Contact
-                Person Name</label>
+                  Person Name</label>
               </div>
               <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
                 <input type="text" name="lastname" id="Contact Number" required>
-                <label alt="Contact Number" for="Contact Number" placeholder="Enter Contact Number">Contact Number</label>
+                <label alt="Contact Number" for="Contact Number" placeholder="Enter Contact Number">Contact
+                  Number</label>
               </div>
               <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
                 <input type="text" name="address" id="address" required>
@@ -921,33 +1026,37 @@
                 <input type="text" name="GST Number" id="GST Number" required>
                 <label alt="GST Number" for="GST Number" placeholder="Enter GST Number">GST Number</label>
               </div>
-             </div>
-
-              <div class="col-md-5 col-sm-4 mt-3">
-                <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                  <input type="text" name="GST Number" id="mobileUsername" required>
-                  <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App Username</label>
-                </div>
-
-                <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
-                  <input type="text" name="GST Number" id="mobilePassword" required>
-                  <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App Password</label>
-                </div>
-
-                <img  ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3" width="300px">
-                <div class="d-flex">
-                  <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-                </div>
-
-              </div>
             </div>
-            <button type="button" class="btn btn-outline-default waves-effect m-auto d-block" id="btn-margin"
-            >Save</button>
-          </form>
-        </div>
+
+            <div class="col-md-5 col-sm-4 mt-3">
+              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="GST Number" id="mobileUsername" required>
+                <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App
+                  Username</label>
+              </div>
+
+              <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
+                <input type="text" name="GST Number" id="mobilePassword" required>
+                <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App
+                  Password</label>
+              </div>
+
+              <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
+                width="300px">
+              <div class="d-flex">
+                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+              </div>
+
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-default waves-effect m-auto d-block"
+            id="btn-margin">Save</button>
+        </form>
       </div>
-    </div></div>
+    </div>
   </div>
+</div>
+</div>
 </div>
 
 
