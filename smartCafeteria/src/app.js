@@ -1,5 +1,9 @@
 var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config']);
 empApp.config(['$routeProvider', function ($routeProvider) {
+    // $locationProvider.html5Mode({
+    //     enabled: true,
+    //     requireBase: false
+    // });
     $routeProvider
         .when('/', {
             templateUrl: 'sections/emp_login/emp.tpl.html',
@@ -29,5 +33,7 @@ empApp.config(['$routeProvider', function ($routeProvider) {
         .otherwise({
             redirectTo: '/'
         });
+
+        
        
 }]);
