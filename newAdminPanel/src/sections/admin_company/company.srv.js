@@ -1,11 +1,12 @@
 adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike', 
 '$routeParams','postCompanyWorkingDaysUrl', 'postCompanyWorkingDaysUpdateUrl',
 'postCompanyInvoicingDateUrl','postCompanyInvoicingDateUpdateUrl','postCompanyAdditionalRequirementsUrl',
-'postCompanyRequirementsUrl','postVendorRequirementsUrl',
+'postCompanyRequirementsUrl','postVendorRequirementsUrl','postMonthlyDetailsUrl',
     function ($http, $httpParamSerializerJQLike , $routeParams,
         postCompanyWorkingDaysUrl, postCompanyWorkingDaysUpdateUrl ,
         postCompanyInvoicingDateUrl, postCompanyInvoicingDateUpdateUrl,
-        postCompanyAdditionalRequirementsUrl,postCompanyRequirementsUrl,postVendorRequirementsUrl) {
+        postCompanyAdditionalRequirementsUrl,postCompanyRequirementsUrl,postVendorRequirementsUrl,
+        postMonthlyDetailsUrl) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
                 console.log("I am in srv.js file : ", vendorId, type, companyId);
@@ -156,6 +157,16 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                     data: $httpParamSerializerJQLike(data)
                 })
             },
+            saveClientMonthlyDetails: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postMonthlyDetailsUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                })
+            }
         }
     }
 ]);

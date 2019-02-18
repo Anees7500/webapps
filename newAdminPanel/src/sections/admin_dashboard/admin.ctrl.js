@@ -50,6 +50,7 @@ adminApp.controller('DashboardController', ['$scope', '$http','CompanydashboardS
       // });
 
       $http.get(getUnassignedCompanyUrl).then(function (response) {
+        console.log("respoinse : ", JSON.stringify(response));
         $scope.unassignedCompanies = response.data.data.companies;
          for(var i = 0; i < $scope.unassignedCompanies.length; i++)
         { 
