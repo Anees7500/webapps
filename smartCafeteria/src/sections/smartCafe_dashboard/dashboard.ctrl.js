@@ -36,12 +36,21 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
    {itemName : "Stuffed Bread Pakora", price : "30", rating : "3.3"},
    {itemName : "Chatkara Spicy Fries", price : "30", rating : "3.3"},
    {itemName : "Pindi Chole", price : "95", rating : "2.3"},
-   {itemName : "Cheese Chilli Maggi", price : "40", rating : "4.3"},
-   
-   
-   
-   
- ]
+   {itemName : "Cheese Chilli Maggi", price : "40", rating : "4.3"},]
+
+
+
+//==========================vendorlist================================
+$scope.vendorList=[{vendorName: "Fancy Vendor", cuisineName: "North Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.5" },
+{vendorName: "Modern Vendor", cuisineName: "South Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.6" },
+{vendorName: "Classic Vendor", cuisineName: "West Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.7" },
+{vendorName: "Moderate Vendor", cuisineName: "East Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.1" },
+{vendorName: "Pure-Veg Vendor", cuisineName: "North-East Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.6" },
+{vendorName: "Fancy Vendor", cuisineName: "North-West Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.8" },
+{vendorName: "Classic Vendor", cuisineName: "Italian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.9" },
+{vendorName: "Modern Vendor", cuisineName: "Japaniese", foodItems: "Veg, Non-Veg, Chainese", rating: "4." }
+]
+
     //================ Favourite itme list ================
     $scope.addItemInfavouriteList = function(item) {
       var addCuisine = {};
