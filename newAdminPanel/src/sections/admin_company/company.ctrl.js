@@ -737,7 +737,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
             }]
           };
           pdfMake.createPdf(docDefinition).download("invoice.pdf");
-          pdfMake.createPdf(docDefinition).download("invoice.pdf");
         }
       });
     }
