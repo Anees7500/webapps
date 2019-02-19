@@ -1,0 +1,15 @@
+{
+  "name": "MDBootstrap",
+  "homepage": "https://github.com/mdbootstrap/bootstrap-material-design",
+  "version": "4.7.0",
+  "_release": "4.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.7.0",
+    "commit": "d6cc3580518c6d4fc697c944b576336a6abd7447"
+  },
+  "_source": "https://github.com/mdbootstrap/bootstrap-material-design.git",
+  "_target": "^4.7.0",
+  "_originalSource": "MDBootstrap",
+  "_direct": true
+}

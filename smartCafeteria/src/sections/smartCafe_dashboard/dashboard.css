@@ -2,6 +2,7 @@
 #avtar{width: 25px;border-radius: 1000px;background-color: aliceblue;}
 .dropdown-menu {margin-left: -15px;}
 #mr-top{margin-top: 8px;}
+
 #form-mrgin{margin-top: -15px}
 .rating li {
     list-style-type: none;
@@ -23,17 +24,27 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
 #collapseExample {
   position: absolute;
   z-index: 1;}
-#list-group-scroll{
-    max-height: 400px;
-    overflow:scroll;
+#list-tab{
+    max-height: 380px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-color: white;
+}
+#scroll-content{
+    max-height: 420px;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
+#list-veg{  max-height: 420px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;}
 /*******************responsive************************/
 @media (max-width: 768px) {
     .navbar-brand{margin:auto; display: block;}
-     #sidebar {margin-left: -250px;}
-    #sidebar.active {margin-left: 0;}
+     /* #sidebar {margin-left: -250px;}
+    #sidebar.active {margin-left: 0;} */
     #content {width: 100%;}
 }
 
 /*********************************cart*****************************/
+.list-group-item.active{background-color:white;}

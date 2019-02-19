@@ -1,12 +1,4 @@
-<style>
-.scrollspy-example {
-  position: relative;
-  height: 250px;
-  overflow: auto;
-}
-</style>
-
-<div class="wrapper ">
+<div class="wrapper">
 
   <!--==================================Navbar start================================= -->
 
@@ -25,59 +17,59 @@
           </a>
         </li>
         <li class="nav-item mr-3">
-            <div class="dropdown">
-          <button class="btn btn-info pb-0  btn-link" ng-click=""type="button"id="dropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell fa-2x text-white"></i>
-          </button>
-          <span class="badge badge-notify">3</span>
+          <div class="dropdown">
+            <button class="btn btn-info pb-0  btn-link" ng-click="" type="button" id="dropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-bell fa-2x text-white"></i>
+            </button>
+            <span class="badge badge-notify">3</span>
             <div class="dropdown-menu">
-              
-                      <ul class="list-group dropdown-header p-0">
-                          <li class="list-group-item d-flex justify-content-between text-left">
-                            NOTIFICATIONS
-                            <span class="badge badge-danger badge-pill">3</span>
-                          </li>
-                          </ul>
-                          <form class="px-4 py-3">
-                            <div class="form-group">
-                                <div class="list-group">
-                                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-                                      <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-2 h6">You Have New Order</h5>
-                                        <small>2 mins ago</small>
-                                      </div>
-                                      <p class="mb-2 text-muted font-weight-bold">Item: 1 Biryani, 1 chicken Fry</p>
-                                      <small>Order has been confirmed from vendors</small>
-                                    </a>
 
-                                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="d-flex w-100 justify-content-between">
-                                          <h6 class="mb-2 h6">Your order has been placed</h6>
-                                          <small class="text-muted">10 mins ago</small>
-                                        </div>
-                                        <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
-                                        <small>Enjoy your food</small>
-                                      </a>
-                                    </div>
-                            </div>
-                          </form>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-right font-weight-bold text-danger" href="">See more..</a>
-                
-              </div>
+              <ul class="list-group dropdown-header p-0">
+                <li class="list-group-item d-flex justify-content-between text-left">
+                  NOTIFICATIONS
+                  <span class="badge badge-danger badge-pill mt-1">3</span>
+                </li>
+              </ul>
+              <form class="px-4 py-3">
+                <div class="form-group">
+                  <div class="list-group">
+                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-2 h6">You Have New Order</h5>
+                          <small>2 mins ago</small>
+                      </div>
+                      <p class="mb-2 text-muted font-weight-bold">Item: 1 Biryani, 1 chicken Fry</p>
+                      <small>Order has been confirmed from vendors</small>
+                    </a>
+
+                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-2 h6">Your order has been placed</h6>
+                        <small class="text-muted">10 mins ago</small>
+                      </div>
+                      <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
+                      <small>Enjoy your food</small>
+                    </a>
+                  </div>
+                </div>
+              </form>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-right font-weight-bold text-danger" href="">See more..</a>
+
+            </div>
           </div>
         </li>
 
 
         <li class="nav-item mr-3 text-white">
-            <div class="dropdown">
-          <button class="btn btn-info pb-0  btn-link" ng-click="boolFunction('cardBool')">
-            <i class="fas fa-cart-plus fa-2x text-white"></i></button>
-          <span class="badge badge-notify">0</span>
+          <div class="dropdown">
+            <button class="btn btn-info pb-0  btn-link" ng-click="boolFunction('cardBool')">
+              <i class="fas fa-cart-plus fa-2x text-white"></i></button>
+            <span class="badge badge-notify">0</span>
         </li>
 
-           
+
         <li class="nav-item dropdown mr-5" id="mr-top">
           <div class="dropdown">
             <button class=" btn-info  border-0 mt-2" type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -115,7 +107,7 @@
 
 
     <!---------==========================Home===========================-->
-    <div ng-if="homeBool" class="font-weight-normal ">
+    <div ng-if="homeBool" class="font-weight-normal">
       <nav aria-label="breadcrumb">
         <ol class=" breadcrumb font-small font-weight-normal mt-1">
           <li class="breadcrumb-item active text-center text-info">Home
@@ -162,6 +154,7 @@
             </li>
           </ul>
         </div>
+        <!--====================vendor search box start================-->
         <div class="col-md-7 mt-2">
           <form>
             <div class="card">
@@ -169,160 +162,256 @@
                 <strong>Choose your favorite vendors</strong></h5>
               <div class="card-body px-lg-5 pt-0">
                 <div class="md-form mt-2">
-                  <input class="form-control" type="text" placeholder="Search for vendors or cuisine"
-                    aria-label="Search" data-toggle="collapse" href="" data-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
+                  <input class="form-control" type="text" placeholder="Search for vendors or cuisine" aria-label="Search"
+                    data-toggle="collapse" href="" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 </div>
               </div>
             </div>
             <div class="collapse" id="collapseExample">
-              <div class="card card-block">
+              <div class="row z-depth-1  grey lighten-4">
+                <div class="col-md-3" ng-repeat="vendorDetails in vendorList">
+                  <div class="card-group pb-3">
+                    <div class="card">
+                      <div class="card-header bg-white text-dark"><span class="h6">{{vendorDetails.vendorName}}</span></div>
+                      <img class="card-img-top" src="img/food.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title"><span class="small">{{vendorDetails.cuisineName}}</span></h5>
+                        <div class="card-text  d-flex flex-row p-0">
 
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="card text-white mb-3" style="max-width: 20rem;">
-                          <div class="card-header bg-white text-dark">Fancy Vendor - HSR Layout</div>
-                          <div class="card-body">
-                            <p class="card-text text-white thumbnail">
-                              <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
-                            </p>
-                            <h6 class="card-title text-dark">North Indian
-                              <span class="font-weight-bold text-dark ml-1 mr-0 text-right">
-                                <i class="fas fa-star text-warning"></i> 4.5</span></h6>
+                          <div class="p-1">
+                            <p>{{vendorDetails.foodItems}}</p>
+
+                          </div>
+                          <div>
+                            <p><i class="fas fa-star text-warning"></i><span>{{vendorDetails.rating}}</span></p>
                           </div>
                         </div>
-                      </td>
+                      </div>
 
-                      <td>
-                        <div class="card text-white mb-3" style="max-width: 20rem;">
-                          <div class="card-header bg-white text-dark">Fancy Vendor - HSR Layout</div>
-                          <div class="card-body">
-                            <p class="card-text text-white thumbnail">
-                              <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
-                            </p>
-                            <h6 class="card-title text-dark">South Indian
-                              <span class="font-weight-bold text-dark  ml-1 mr-0 text-right">
-                                <i class="fas fa-star text-warning"></i> 4.3</span></h6>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td>
-                        <div class="card text-white mb-3" style="max-width: 20rem;">
-                          <div class="card-header bg-white text-dark">Fancy Vendor - HSR Layout</div>
-                          <div class="card-body">
-                            <p class="card-text text-white thumbnail">
-                              <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
-                            </p>
-                            <h6 class="card-title text-dark">South Indian
-                              <span class="font-weight-bold text-dark  ml-1 mr-0 text-right">
-                                <i class="fas fa-star text-warning"></i> 4.3</span></h6>
-                          </div>
-                        </div>
-                      </td>
-
-                      <td>
-                        <div class="card text-white mb-3" style="max-width: 20rem;">
-                          <div class="card-header bg-white text-dark">Fancy Vendor - HSR Layout</div>
-                          <div class="card-body">
-                            <p class="card-text text-white thumbnail">
-                              <img src="img/food.jpg" class="img-thumbnail" alt="Another alt text">
-                            </p>
-                            <h6 class="card-title text-dark">North Indian
-                              <span class="font-weight-bold text-dark  ml-1 mr-0 text-right">
-                                <i class="fas fa-star text-warning"></i> 4.5</span></h6>
-                          </div>
-                        </div>
-                      </td>
-
-                    </tr>
-                  </tbody>
-                </table>
-
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </form>
         </div>
+        <!--====================vendor search box end-->
       </div>
+      <!--====================food item list section start==========-->
       <div class="container-fluid">
         <div class="row">
-           <div class="col-md-3">
+          <div class="col-md-2">
 
             <div class="panel panel-primary" id="result_panel">
               <div class="panel-heading">
-                <h4 class="panel-title font-weight-normal">FOOD ITEMS</h4>
+                <h4 class="panel-title font-weight-normal font-small">FOOD ITEMS</h4>
               </div>
               <div class="panel-body">
-                <ul class="list-group">
-                  <li class="list-group-item" ng-repeat="menuList in vendorManuList">
-                    <a href=""><strong><i class="fab fa-instagram fa-2x mr-4 blue p-3 white-text rounded "
-                          aria-hidden="true"></i>{{menuList.menuName}}</strong></a>
-                  </li>
-                </ul>
+                <!-- start side list group to show food items -->
+                <div class="list-group" id="list-tab" role="tablist">
+                  <a class="list-group-item list-group-item-action info-color active" data-remote="true" href="" id="list-recommened-list"
+                    data-target="#list-recommened" role="tab" aria-controls="recommened">Recommened</a>
+
+                  <a class="list-group-item " data-remote="true" href="" data-toggle="collapse"
+                    id="list-brekfast-list" data-target="#sub_brekfast" role="tab" aria-controls="brekfast" data-parent="#sub_brekfast">Brekfast
+                    <span class="menu-ico-collapse ml-5"><i class="fa fa-chevron-down"></i></span></a>
+                  <div class="collapse" id="sub_brekfast">
+                    <a class="list-group-item" id="list-veg-list"  data-toggle="list" 
+                      data-target="#list-veg" role="tab" aria-controls="veg"><span class="ml-5">Veg</span></a>
+                    <a class="list-group-item" id="list-nonveg-list"  data-toggle="list" data-parent="#sub_brekfast"
+                      data-target="#list-nonVeg" role="tab" aria-controls="nonVeg"><span class="ml-5">Non-Veg</span></a>
+                  </div>
+
+                  <a class="list-group-item" id="list-messages-list" data-toggle="list"
+                    data-target="#list-messages" role="tab" aria-controls="messages">Lunch</a>
+                  <a class="list-group-item" id="list-settings-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Snacks</a>
+                  <a class="list-group-item" id="list-Dinner-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Dinner</a>
+                  <a class="list-group-item" id="list-MidNight-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Mid-Night Snacks</a>
+                  <a class="list-group-item" id="list-EarlyMorning-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Early-Morning Snacks</a>
+                </div>
+                <!-- end side list group to show food items -->
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <h4 class="ml-2 font-weight-normal">RECOMMENDED</h4>
-            <div class="border">
-              <div class="row mt-3 ml-2 mr-2">
-                <div class="col-md-4" ng-repeat="cuisineList in cuisineList">
-                  
-                  <div class="card booking-card">
-                    <div class="view">
-                        <img src="img/food.jpg" class="img-fluid" alt="Image of ballons flying over canyons with mask pattern one.">
-                        <a ng-click="addItemInfavouriteList(item)"><div class="mask  flex-top text-right">
-                            <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
-                        </div></a>
+          <div class="col-md-7">
+         
+            <div class="tab-content" id="nav-tabContent">
+                 <!-- RECOMMENDED content  -->
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                <h4 class="ml-2 font-weight-normal font-small">RECOMMENDED</h4>
+                <div class="border" id="scroll-content">
+                  <div class="row">
+                    <div class="col-md-4" ng-repeat="item in cuisineList">
+                      <div class="card-deck pb-3">
+                        <div class="card w-100">
+                          <div class="view">
+                            <img src="img/food2.jpg" class="card-img-top" alt="Card image cap">
+                            <a ng-click="addItemInfavouritList(item, $index)" ng-if="!item.favorited">
+                              <div class="mask  flex-top text-right">
+                                <i class="far fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
+                              </div>
+                            </a>
+                            <a ng-click="addItemInfavouritList(item, $index)" ng-if="item.favorited">
+                              <div class="mask  flex-top text-right">
+                                <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="card-block">
+                            <h4 class="card-title" ng-model="item.itemName"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1 ml-1"></i></span><span
+                                class="small">{{item.itemName}}</span></h4>
+                            <div class="card-text d-flex flex-row justify-content-between">
+                              <div class="p-1">
+                                <p><i class="fas fa-star text-warning"></i>
+                                  <span class="text-muted" ng-model="item.rating">{{item.rating}}</span>
+                                </p>
+
+                              </div>
+                              <div class="p-1">
+                                <p ng-model="item.price"><i class="fas fa-rupee-sign "></i>{{item.price}}</p>
+                              </div>
+                              <div class="p-1">
+                                <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill justify-content-right">ADD</button>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="card-body">
-                      <h6 class="card-title font-weight-bold" ng-model="item.vendorName"><a>{{cuisineList.itemName}}</a>
-                      <span>
-                        
-                      </span></h6>
-             
-                        <li class="list-inline-item mr-0"><i class="fas fa-star text-warning"> </i></li>
-                      
-                          <p class="text-muted" ng-model="item.rating">{{cuisineList.rating}}
-                            <i class="far fa-stop-circle text-success"></i></p>
+                  </div>
+                </div>
+              </div>
+                 <!-- end RECOMMENDED content  -->
+                 <!-- brekfast content start for veg category -->
+              <div class="tab-pane fade mt-3" id="list-veg" role="tabpanel" aria-labelledby="list-profile-list">
+                  <ul class="nav nav-pills mb-3 nav-justified mt-1" id="pills-tab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" role="tab"
+                          aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Sandwich</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" role="tab"
+                          aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Burger</span></a>
+                      </li>
+                     
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
+                            aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Dosha</span></a>
+                          </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
+                          aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Juice</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
+                          aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Coffee</span></a>
                         </li>
-                      </ul>
-                      <p class="mb-2" ng-model="item.Price">{{cuisineList.price}}</p>
+                    </ul>
+                    <hr class="bg-info font-weight-bold p-1">
+                    <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item" ng-repeat="Sandwich in sandwichItem">
+                               <div class="d-flex flex-row  justify-content-between">
+                                  <div class="p-2">
+                                      <p><i class="far fa-stop-circle text-success fa-sm mr-2" ng-model="Sandwich.itemName"></i>{{Sandwich.itemName}}</p>
+                                      <p class="ml-5 mt-0 pt-0"><i class="fas fa-rupee-sign text-danger" ng-model="Sandwich.Price"></i><span class="text-danger">{{Sandwich.Price}}</span></p> 
+                                  </div>
+                                  <div class="p-2">
+                                      <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill">ADD</button>  
+                                  </div>
+                                </div>
+                              </li>
+                              
+                            </ul>
+                       </div>
 
+
+                       
+                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
+                        pariatur nostrudtur ut ullamco ea tempor duis.</div>
+                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Est
+                        quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex.
+                       </div>
                     </div>
+                </div>
+                  <!-- brekfast content start for non-veg category -->
+                <div class="tab-pane fade" id="list-nonVeg" role="tabpanel" aria-labelledby="list-profile-list">
+                    Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad
+                    laborum.
                   </div>
 
-                </div>
-              </div>
             </div>
+
           </div>
-          <div class="col-md-3">
-            <h4 class="ml-2 font-weight-normal">ORDER SUMMARY</h4>
-            <div class="card">
-              <h5 class="card-header info-color white-text text-center py-4">
-                <strong>CHECKOUT</strong> </h5>
-              <div class="card-body px-lg-5">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h6 class="font-weight-normal">Product Details</h6>
-                    <p class="text-muted">Veg Sandwich</p>
-                  </div>
-                  <div class="col-md-6">
-                    <h6 class="font-weight-normal">Price Details</h6>
-                    <p class="text-muted">RS 50</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+    
 
+          <!--====================ORDER SUMMARY section start==========-->
+          <div class="col-md-3 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3 card-header info-color mt-4">
+              <span class="text-white">Your cart</span>
+              <span class="badge badge-secondary badge-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Poori Chole</h6>
+                  <small class="text-muted">Fancy Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
+                  <small class="text-muted">Classic Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
+                  <small class="text-muted">South Vendor </small>
+                </div>
+                <span>
+                  <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                <strong><i class="fas fa-rupee-sign"></i>48</strong>
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </div>
         </div>
 
 
-        
-        
+
+
 
       </div>
 
@@ -342,14 +431,13 @@
         <div class="classic-tabs mx-2">
           <ul class="nav nav-pills mb-3 mt-3 pt-0" id="pills-tab" role="tablist">
             <li class="nav-item  border-0 pb-0 mb-0">
-              <a class="nav-link active " id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home"
-                role="tab" aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Active
+              <a class="nav-link active " id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab"
+                aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Active
                   Orders</span></a>
             </li>
             <li class="nav-item border-0 pb-0 mb-0">
-              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile"
-                role="tab" aria-controls="pills-profile" aria-selected="false"><span
-                  class="h5 font-weight-normal">Orders History</span></a>
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab"
+                aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Orders History</span></a>
             </li>
 
           </ul>
@@ -360,8 +448,8 @@
               <div class="row ml-1 mr-1 border">
                 <div class="col-md-12  ">
                   <div class="media ">
-                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg"
-                      alt="Generic placeholder image" style="width: 200px">
+                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
+                      style="width: 200px">
                     <div class="media-body ml-3">
                       <div class="row">
                         <div class="col-md-5">
@@ -407,8 +495,7 @@
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                      <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0"
-                        type="cancel">Cancel</button>
+                      <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel">Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -418,8 +505,8 @@
               <div class="row ml-1 mr-1">
                 <div class="col-md-12  ">
                   <div class="media border">
-                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg"
-                      alt="Generic placeholder image" style="width: 200px">
+                    <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
+                      style="width: 200px">
                     <div class="media-body ml-3">
                       <div class="row">
                         <div class="col-md-5">
@@ -433,11 +520,10 @@
                             <i class="far fa-check-circle fa-lg ml-1 badge-success rounded-circle border-0"></i></h4>
                           <div class="row">
                             <div class=" col-md-6 mt-4">
-                              <button type="button" data-toggle="modal" data-target="#feedback"
-                                class="btn btn-outline-warning waves-effect rounded-pill btn-sm  ">Feedback</button>
+                              <button type="button" data-toggle="modal" data-target="#feedback" class="btn btn-outline-warning waves-effect rounded-pill btn-sm  ">Feedback</button>
 
-                              <div class="modal fade" id="feedback" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog " role="document">
                                   <div class="modal-content">
                                     <!--Header-->
@@ -470,18 +556,15 @@
                                           <div class="form-row " ng-repeat="employeeInfo in employeeDetails">
                                             <div class="md-form col-md-10">
                                               <input type="text" id="inputDisabledEx" class="form-control" disabled>
-                                              <label for="inputDisabledEx"
-                                                class="disabled ">{{employeeInfo.name}}</label>
+                                              <label for="inputDisabledEx" class="disabled ">{{employeeInfo.name}}</label>
                                             </div>
                                             <div class="md-form col-md-6 ">
                                               <input type="text" id="inputDisabledEx" class="form-control" disabled>
-                                              <label for="inputDisabledEx"
-                                                class="disabled">{{employeeInfo.employeeId}}</label>
+                                              <label for="inputDisabledEx" class="disabled">{{employeeInfo.employeeId}}</label>
                                             </div>
                                             <div class="md-form col-md-6">
                                               <input type="text" id="inputDisabledEx" class="form-control" disabled>
-                                              <label for="inputDisabledEx"
-                                                class="disabled ">{{employeeInfo.mobile}}</label>
+                                              <label for="inputDisabledEx" class="disabled ">{{employeeInfo.mobile}}</label>
                                             </div>
 
                                           </div>
@@ -496,13 +579,11 @@
                                             </div>
 
                                             <div class="col-md-8 form-group">
-                                              <ul class=" list-unstyled rating"
-                                                ng-model=employee[parames.ratingParameters]>
+                                              <ul class=" list-unstyled rating" ng-model=employee[parames.ratingParameters]>
                                                 <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
-                                                  <span ng-click="rateBy(parames, $index+1)"
-                                                    ng-show="parames.rating > $index" class="filled">&#9733;</span>
-                                                  <span ng-click="rateBy(parames, $index+1)"
-                                                    ng-show="parames.rating <= $index"
+                                                  <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating > $index"
+                                                    class="filled">&#9733;</span>
+                                                  <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating <= $index"
                                                     class="animated pulse">&#9733;</span>
                                                 </li>
                                               </ul>
@@ -512,15 +593,14 @@
                                         </div>
 
                                         <div class="md-form md-outline col-md-12 form-group">
-                                          <textarea type="text" id="form75" class="form-control" rows="3"
-                                            ng-model="employee.Comment" required></textarea>
+                                          <textarea type="text" id="form75" class="form-control" rows="3" ng-model="employee.Comment"
+                                            required></textarea>
                                           <label for="form75" class="ml-3">Enter Your Comment</label>
                                         </div>
                                         <div class="modal-footer  form-row">
                                           <div class=" col-md-6 form-group">
                                             <button type="button" class="btn btn-primary waves-effect waves-light"
-                                              class="btn btn-info waves-effect"
-                                              ng-disabled="!(employee.venderName)">Send
+                                              class="btn btn-info waves-effect" ng-disabled="!(employee.venderName)">Send
                                               <i class="fa fa-paper-plane ml-1"></i>
                                             </button>
                                           </div>
@@ -535,8 +615,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class=" col-md-6 mt-4"> <button
-                                class="btn btn-outline-info waves-effect btn-sm    rounded-pill  "
+                            <div class=" col-md-6 mt-4"> <button class="btn btn-outline-info waves-effect btn-sm    rounded-pill  "
                                 type="cancel">Re-order</button>
                             </div>
                           </div>
@@ -563,43 +642,102 @@
           </li>
         </ol>
       </nav>
-      <!-- <div class="container"> -->
-      <div class="row  ">       
+      <div class="row  ">
         <div class="col-md-7 ml-2  mt-2 text-center ">
-            <h3 class="text-white  z-depth-2 success-color">Favourites</h3>
+          <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
           <div class="row mt-3 justify-content-center ">
-            <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat= "favoriteItmeList in favouriteTiemList">
-              
-              <div class="view overlay z-depth-1-half">                
-                <img class="card-img-top  " src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
-                  alt="Card image cap">  
-                  <div class="mask rgba-white-slight"></div>
-                </a>             
-              </div>             
-                <div class="mr-1 mt-1">
-                 <a ng-click="removeFavourit(f , $index)">
+            <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat="fItem in favouritItemList">
+              <div class="view">
+                <img class="card-img-top  " src="img/food1.jpg" alt="Card image cap">
+                <a ng-click="removeFavouritItem(f , $index)">
+                  <div class="mask  flex-top text-right">
                     <i class="fas fa-heart fa-2x text-danger " aria-hidden="true"></i>
-                  </a>
-                </div>
-              <div class="card-body">
-                <h6 class="card-title font-small font-weight-bold"><a>{{favoriteItmeList.vendorName}}</a></h6>
-                <hr class="h4 font-weight-bold">
-                <p class="card-text"><i class="far fa-stop-circle text-success"></i> {{favoriteItmeList.itemName}}</p>                
-                </div>
-                <div class="row">
-                    <a class="px-2 fa-md li-ic mt-1"><i class="fas fa-star text-warning"></i>{{favoriteItmeList.rating}}</a>
-                    <a class="fa-sm tw-ic ml-1 "><a class="btn btn-primary btn-sm">Button</a></a>
+                  </div>
+                </a>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title text-left"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1"></i></span><span
+                    class="small">{{fItem.itemName}}</span></h4>
+
+                <div class="card-text d-flex flex-row justify-content-between">
+                  <div class="p-1">
+                    <p><i class="fas fa-star text-warning"></i>
+                      <span class="text-muted">{{fItem.rating}}</span>
+                    </p>
+
+                  </div>
+                  <div class="p-1">
+                    <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill justify-content-right">ADD</button>
+                  </div>
+
                 </div>
 
-            </div>        
+
+
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class=" z-depth-1  text-center  col-md-4 ">
-         
+        <div class="col-md-4">
+          <div class="z-depth-1">
+            <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
+              <span class="text-white">Your cart</span>
+              <span class="badge badge-secondary badge-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Poori Chole</h6>
+                  <small class="text-muted">Fancy Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
+                  <small class="text-muted">Classic Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
+                  <small class="text-muted">South Vendor </small>
+                </div>
+                <span>
+                  <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                <strong><i class="fas fa-rupee-sign"></i>48</strong>
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </div>
         </div>
       </div>
-    <!-- </div> -->
+      <!-- </div> -->
     </div>
     <!---------===========================End Favourites =========================-->
 
@@ -612,7 +750,7 @@
           </li>
         </ol>
       </nav>
-     
+
 
     </div>
     <!---------======================================End Notification=====================================-->
@@ -710,7 +848,7 @@
 
 
     <!---------======================================End Wallet=====================================-->
-    <!---------======================================Card=====================================-->
+    <!---------======================================Cart=====================================-->
     <div ng-if="cardBool">
       <nav aria-label="breadcrumb">
         <ol class=" breadcrumb font-small  font-weight-normal">
@@ -718,136 +856,161 @@
           </li>
         </ol>
       </nav>
-   
-  <div class="container">
-     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-<div class="card">
-    <h5 class="card-header info-color white-text text-center py-4">
-        <strong>Your Cart</strong>
-    </h5>
-    <div class="card-body px-lg-5 pt-0">
-   <div class="row mt-5">
-     <div class="col-md-4">
-      <h5 class="small font-weight-bold">ITEM LIST</h5>
-     <div class="mt-3">
-       <ul class="list-unstyled">
-         <li class="font-weight-normal text-muted">1 Dall Fry</li>
-         <li class="font-weight-normal  text-muted">Veg Fried Rice</li>
-       </ul>
-     </div>
-     
-     </div>
-     <div class="col-md-4">
-       <h5 class="small font-weight-bold">QANTITY</h5>
-       <div class="mt-3 mb-1" id="width-btn">
-          <div class="qty  border  rounded-pill border-info z-depth-0 text-center d-inline-block" >
-              <span class="minus info-color  d-inline-block text-white text-center">-</span>
-              <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-              <span class="plus info-color d-inline-block text-white text-center">+</span>
-          </div>
-          
-       </div>
-      
-     </div>
-     <div class="col-md-4">
-       <h5 class="small font-weight-bold">PRICE</h5>
-       <div class="mt-3">
-         <p class="font-weight-normal  text-muted"><i class="fas fa-rupee-sign "></i> 150</p>
-       </div>
-     </div>
-   </div>
-   
 
-    </div>
-    <div class="card-footer text-muted">
-        <button type="button" class="btn btn-success m-auto d-block">CHECKOUT</button>
-      </div> 
-</div>
-      </div>
-      <div class="col-md-3"></div>
-    </div>
-  </div>
-</div>
-<!---------====================================== End Card=====================================-->
-
-<!---------======================================Settings=====================================-->
-<div ng-if="settingsBool">
-  <nav aria-label="breadcrumb" >
-            <ol class=" breadcrumb font-small font-weight-normal">
-    <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
-    </li>
-    </ol>
-  </nav>
-  <div class="container z-depth-1 py-3 px-3   col-md-6 ">
-    <form class="">
-
-      <div class="font-weight-bold" ng-repeat="employeeeInfo in employeeDetails">
-        <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
-          <i class="fas fa-edit"></i> Edit</button>
-        <br><br>
+      <div class="container">
         <div class="row">
-          <div class="col-md-6   ">
-            <label for="exampleForm2">Name</label>
-            <input type="text" class="form-control" ng-disabled="!editEmployeeDetails" ng-model="employee.name"
-              placeholder="{{employeeeInfo.name }}">
-          </div>
-          <div class="col-md-6   ">
-            <label for="exampleForm2">Employee Id</label>
-            <input type="text" class="form-control " ng-disabled="!editEmployeeDetails"
-              placeholder="{{employeeeInfo.employeeId}}">
-          </div>
-          <div class="col-md-6 ">
-            <label for="exampleForm2">Mobile Number</label>
-            <input class="form-control" placeholder="{{employeeeInfo.mobile}}" ng-disabled="!editEmployeeDetails">
-          </div>
-          <div class="col-md-6 ">
-            <label for="inputIconEx2">Email Id</label>
-            <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}"
-              ng-disabled="!editEmployeeDetails">
-          </div>
-
-          <label for="inputPassword6" class="ml-3">Change Password</label>
-          <div class="col-md-12 row ">
-            <div class="col-md-6 ">
-              <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
-                placeholder="New Password" ng-disabled="!editEmployeeDetails">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="z-depth-1">
+              <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
+                <span class="text-white">Your cart</span>
+                <span class="badge badge-secondary badge-pill">3</span>
+              </h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0 text-dark font-weight-normal">Poori Chole</h6>
+                    <small class="text-muted">Fancy Vendor</small>
+                  </div>
+                  <span>
+                    <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
+                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                    </div>
+                  </span>
+                  <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
+                    <small class="text-muted">Classic Vendor</small>
+                  </div>
+                  <span>
+                    <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
+                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                    </div>
+                  </span>
+                  <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
+                    <small class="text-muted">South Vendor </small>
+                  </div>
+                  <span>
+                    <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
+                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                    </div>
+                  </span>
+                  <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                  <strong><i class="fas fa-rupee-sign"></i>48</strong>
+                </li>
+              </ul>
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </div>
-
-            <div class="col-md-6 ml-0">
-              <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline"
-                placeholder="Confirm Password" ng-disabled="!editEmployeeDetails">
-            </div>
           </div>
-        </div>
-
-        <div class="text-center ">
-          <button type="button" class="btn btn-info "
-            ng-click="makeEmployeeDetailsEditable(employeeDetails)">Submit</button>
+          <div class="col-md-2"></div>
         </div>
       </div>
-    </form>
+    </div>
+    <!---------====================================== End Card=====================================-->
+
+    <!---------======================================Settings=====================================-->
+    <div ng-if="settingsBool">
+      <nav aria-label="breadcrumb">
+        <ol class=" breadcrumb font-small font-weight-normal">
+          <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
+          </li>
+        </ol>
+      </nav>
+      <div class="container z-depth-1 py-3 px-3   col-md-6 ">
+        <form class="">
+
+          <div class="font-weight-bold" ng-repeat="employeeeInfo in employeeDetails">
+            <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
+              <i class="fas fa-edit"></i> Edit</button>
+            <br><br>
+            <div class="row">
+              <div class="col-md-6   ">
+                <label for="exampleForm2">Name</label>
+                <input type="text" class="form-control" ng-disabled="!editEmployeeDetails" ng-model="employee.name"
+                  placeholder="{{employeeeInfo.name }}">
+              </div>
+              <div class="col-md-6   ">
+                <label for="exampleForm2">Employee Id</label>
+                <input type="text" class="form-control " ng-disabled="!editEmployeeDetails" placeholder="{{employeeeInfo.employeeId}}">
+              </div>
+              <div class="col-md-6 ">
+                <label for="exampleForm2">Mobile Number</label>
+                <input class="form-control" placeholder="{{employeeeInfo.mobile}}" ng-disabled="!editEmployeeDetails">
+              </div>
+              <div class="col-md-6 ">
+                <label for="inputIconEx2">Email Id</label>
+                <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}" ng-disabled="!editEmployeeDetails">
+              </div>
+
+              <label for="inputPassword6" class="ml-3">Change Password</label>
+              <div class="col-md-12 row ">
+                <div class="col-md-6 ">
+                  <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
+                    placeholder="New Password" ng-disabled="!editEmployeeDetails">
+                </div>
+
+                <div class="col-md-6 ml-0">
+                  <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpInline"
+                    placeholder="Confirm Password" ng-disabled="!editEmployeeDetails">
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center ">
+              <button type="button" class="btn btn-info " ng-click="makeEmployeeDetailsEditable(employeeDetails)">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <!---------======================================End Settings=====================================-->
+    <!---------======================================Terms and Policy=====================================-->
+    <div ng-if="termsAndPolicyBool " class="mt-4">
+      <nav class=" card   font-weight-bold  text-center  ">
+        <h6 class="text-info">Terms and Policy </h6>
+      </nav>
+
+      
+
+
+    </div>
+    <!---------======================================End Terms and Policy=====================================-->
+
+
   </div>
-</div>
 
+  <!-- Footer -->
+<!-- <footer class="page-footer font-small black fixed bottom"> -->
 
-
-
-<!---------======================================End Settings=====================================-->
-<!---------======================================Terms and Policy=====================================-->
-<div ng-if="termsAndPolicyBool " class="mt-4">
-  <nav class=" card   font-weight-bold  text-center  ">
-    <h6 class="text-info">Terms and Policy </h6>
-  </nav>
- 
-</div>
-<!---------======================================End Terms and Policy=====================================-->
-
-
-</div>
-</div>
+    <!-- Copyright -->
+    <!-- <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href=""> SmartCafeteria</a>
+    </div> -->
+    <!-- Copyright -->
   
+  <!-- </footer> -->
+  <!-- Footer -->
+</div>
+
 
 
 <!---------============================End main content start======================-->
