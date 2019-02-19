@@ -84,7 +84,12 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
 
     };
 
-
+//itemlistSandiwh
+$scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
+{itemName: "Veg Spicy Sandwich", Price: "40"},
+{itemName: "Baby-Corn Sandwich", Price: "40"},
+{itemName: "Chessy Veg Sandwich", Price: "60"},
+{itemName: "Chocolate Sandwich", Price: "70"}];
 
     //================ Ratingfeedback ============================
     var maxRating = 5;

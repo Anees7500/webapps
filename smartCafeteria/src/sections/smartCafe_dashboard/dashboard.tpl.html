@@ -1,4 +1,4 @@
-<div class="wrapper ">
+<div class="wrapper">
 
   <!--==================================Navbar start================================= -->
 
@@ -107,7 +107,7 @@
 
 
     <!---------==========================Home===========================-->
-    <div ng-if="homeBool" class="font-weight-normal ">
+    <div ng-if="homeBool" class="font-weight-normal">
       <nav aria-label="breadcrumb">
         <ol class=" breadcrumb font-small font-weight-normal mt-1">
           <li class="breadcrumb-item active text-center text-info">Home
@@ -197,70 +197,159 @@
         </div>
         <!--====================vendor search box end-->
       </div>
-      <!--====================RECOMMENDED section start==========-->
+      <!--====================food item list section start==========-->
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
 
             <div class="panel panel-primary" id="result_panel">
               <div class="panel-heading">
                 <h4 class="panel-title font-weight-normal font-small">FOOD ITEMS</h4>
               </div>
               <div class="panel-body">
-                <ul class="list-group">
-                  <li class="list-group-item" ng-repeat="menuList in vendorManuList">
-                    <a><strong><i class="fab fa-instagram fa-sm mr-4 blue p-3 white-text rounded " aria-hidden="true"></i>{{menuList.menuName}}</strong></a>
-                  </li>
-                </ul>
+                <!-- start side list group to show food items -->
+                <div class="list-group" id="list-tab" role="tablist">
+                  <a class="list-group-item list-group-item-action info-color active" data-remote="true" href="" id="list-recommened-list"
+                    data-target="#list-recommened" role="tab" aria-controls="recommened">Recommened</a>
+
+                  <a class="list-group-item " data-remote="true" href="" data-toggle="collapse"
+                    id="list-brekfast-list" data-target="#sub_brekfast" role="tab" aria-controls="brekfast" data-parent="#sub_brekfast">Brekfast
+                    <span class="menu-ico-collapse ml-5"><i class="fa fa-chevron-down"></i></span></a>
+                  <div class="collapse" id="sub_brekfast">
+                    <a class="list-group-item" id="list-veg-list"  data-toggle="list" 
+                      data-target="#list-veg" role="tab" aria-controls="veg"><span class="ml-5">Veg</span></a>
+                    <a class="list-group-item" id="list-nonveg-list"  data-toggle="list" data-parent="#sub_brekfast"
+                      data-target="#list-nonVeg" role="tab" aria-controls="nonVeg"><span class="ml-5">Non-Veg</span></a>
+                  </div>
+
+                  <a class="list-group-item" id="list-messages-list" data-toggle="list"
+                    data-target="#list-messages" role="tab" aria-controls="messages">Lunch</a>
+                  <a class="list-group-item" id="list-settings-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Snacks</a>
+                  <a class="list-group-item" id="list-Dinner-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Dinner</a>
+                  <a class="list-group-item" id="list-MidNight-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Mid-Night Snacks</a>
+                  <a class="list-group-item" id="list-EarlyMorning-list" data-toggle="list"
+                    data-target="#list-settings" role="tab" aria-controls="settings">Early-Morning Snacks</a>
+                </div>
+                <!-- end side list group to show food items -->
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <h4 class="ml-2 font-weight-normal font-small">RECOMMENDED</h4>
-            <div class="border">
-              <div class="row">
-                <div class="col-md-4" ng-repeat="item in cuisineList">
-                  <div class="card-deck pb-3">
-                    <div class="card w-100">
-                      <div class="view">
-                        <img src="img/food2.jpg" class="card-img-top" alt="Card image cap">
-                        <a ng-click="addItemInfavouritList(item, $index)" ng-if="!item.favorited">
-                          <div class="mask  flex-top text-right">
-                            <i class="far fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
+          <div class="col-md-7">
+         
+            <div class="tab-content" id="nav-tabContent">
+                 <!-- RECOMMENDED content  -->
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                <h4 class="ml-2 font-weight-normal font-small">RECOMMENDED</h4>
+                <div class="border" id="scroll-content">
+                  <div class="row">
+                    <div class="col-md-4" ng-repeat="item in cuisineList">
+                      <div class="card-deck pb-3">
+                        <div class="card w-100">
+                          <div class="view">
+                            <img src="img/food2.jpg" class="card-img-top" alt="Card image cap">
+                            <a ng-click="addItemInfavouritList(item, $index)" ng-if="!item.favorited">
+                              <div class="mask  flex-top text-right">
+                                <i class="far fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
+                              </div>
+                            </a>
+                            <a ng-click="addItemInfavouritList(item, $index)" ng-if="item.favorited">
+                              <div class="mask  flex-top text-right">
+                                <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
+                              </div>
+                            </a>
                           </div>
-                        </a>
-                        <a ng-click="addItemInfavouritList(item, $index)" ng-if="item.favorited">
-                          <div class="mask  flex-top text-right">
-                            <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="card-block">
-                        <h4 class="card-title" ng-model="item.itemName"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1 ml-1"></i></span><span
-                            class="small">{{item.itemName}}</span></h4>
-                        <div class="card-text d-flex flex-row justify-content-between">
-                          <div class="p-1">
-                            <p><i class="fas fa-star text-warning"></i>
-                              <span class="text-muted" ng-model="item.rating">{{item.rating}}</span>
-                            </p>
+                          <div class="card-block">
+                            <h4 class="card-title" ng-model="item.itemName"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1 ml-1"></i></span><span
+                                class="small">{{item.itemName}}</span></h4>
+                            <div class="card-text d-flex flex-row justify-content-between">
+                              <div class="p-1">
+                                <p><i class="fas fa-star text-warning"></i>
+                                  <span class="text-muted" ng-model="item.rating">{{item.rating}}</span>
+                                </p>
 
-                          </div>
-                          <div class="p-1">
-                            <p ng-model="item.price"><i class="fas fa-rupee-sign "></i>{{item.price}}</p>
-                          </div>
-                          <div class="p-1">
-                            <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill justify-content-right">ADD</button>
-                          </div>
+                              </div>
+                              <div class="p-1">
+                                <p ng-model="item.price"><i class="fas fa-rupee-sign "></i>{{item.price}}</p>
+                              </div>
+                              <div class="p-1">
+                                <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill justify-content-right">ADD</button>
+                              </div>
 
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+                 <!-- end RECOMMENDED content  -->
+                 <!-- brekfast content start for veg category -->
+              <div class="tab-pane fade mt-3" id="list-veg" role="tabpanel" aria-labelledby="list-profile-list">
+                  <ul class="nav nav-pills mb-3 nav-justified mt-1" id="pills-tab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" role="tab"
+                          aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Sandwich</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" role="tab"
+                          aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Burger</span></a>
+                      </li>
+                     
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
+                            aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Dosha</span></a>
+                          </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
+                          aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Juice</span></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
+                          aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Coffee</span></a>
+                        </li>
+                    </ul>
+                    <hr class="bg-info font-weight-bold p-1">
+                    <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item" ng-repeat="Sandwich in sandwichItem">
+                               <div class="d-flex flex-row  justify-content-between">
+                                  <div class="p-2">
+                                      <p><i class="far fa-stop-circle text-success fa-sm mr-2" ng-model="Sandwich.itemName"></i>{{Sandwich.itemName}}</p>
+                                      <p class="ml-5 mt-0 pt-0"><i class="fas fa-rupee-sign text-danger" ng-model="Sandwich.Price"></i><span class="text-danger">{{Sandwich.Price}}</span></p> 
+                                  </div>
+                                  <div class="p-2">
+                                      <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill">ADD</button>  
+                                  </div>
+                                </div>
+                              </li>
+                              
+                            </ul>
+                       </div>
 
+
+                       
+                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
+                        pariatur nostrudtur ut ullamco ea tempor duis.</div>
+                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Est
+                        quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex.
+                       </div>
+                    </div>
+                </div>
+                  <!-- brekfast content start for non-veg category -->
+                <div class="tab-pane fade" id="list-nonVeg" role="tabpanel" aria-labelledby="list-profile-list">
+                    Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad
+                    laborum.
+                  </div>
+
+            </div>
+
+          </div>
+    
 
           <!--====================ORDER SUMMARY section start==========-->
           <div class="col-md-3 order-md-2 mb-4">
@@ -275,46 +364,46 @@
                   <small class="text-muted">Fancy Vendor</small>
                 </div>
                 <span>
-                    <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                        <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                        <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                        <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                    </div>
+                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
                 </span>
                 <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
               </li>
               <li class="list-group-item d-flex justify-content-between lh-condensed">
-                  <div>
-                    <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
-                    <small class="text-muted">Classic Vendor</small>
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
+                  <small class="text-muted">Classic Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
                   </div>
-                  <span>
-                      <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
-                          <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                          <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                          <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                      </div>
-                  </span>
-                  <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
-                      <small class="text-muted">South Vendor </small>
-                    </div>
-                    <span>
-                        <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
-                            <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                            <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                            <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                        </div>
-                    </span>
-                    <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-                  </li>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
+                  <small class="text-muted">South Vendor </small>
+                </div>
+                <span>
+                  <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
               <li class="list-group-item d-flex justify-content-between">
-                  <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                  <strong><i class="fas fa-rupee-sign"></i>48</strong>
-                </li>
+                <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                <strong><i class="fas fa-rupee-sign"></i>48</strong>
+              </li>
             </ul>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </div>
@@ -555,7 +644,7 @@
       </nav>
       <div class="row  ">
         <div class="col-md-7 ml-2  mt-2 text-center ">
-          <h3 class="text-white  z-depth-2 success-color">Favourites</h3>
+          <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
           <div class="row mt-3 justify-content-center ">
             <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat="fItem in favouritItemList">
               <div class="view">
@@ -590,8 +679,62 @@
           </div>
         </div>
 
-        <div class=" z-depth-1  text-center  col-md-4 ">
-
+        <div class="col-md-4">
+          <div class="z-depth-1">
+            <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
+              <span class="text-white">Your cart</span>
+              <span class="badge badge-secondary badge-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Poori Chole</h6>
+                  <small class="text-muted">Fancy Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
+                  <small class="text-muted">Classic Vendor</small>
+                </div>
+                <span>
+                  <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
+                  <small class="text-muted">South Vendor </small>
+                </div>
+                <span>
+                  <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
+                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  </div>
+                </span>
+                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                <strong><i class="fas fa-rupee-sign"></i>48</strong>
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </div>
         </div>
       </div>
       <!-- </div> -->
@@ -717,9 +860,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2"></div>
-          <div class="col-md-8"> 
+          <div class="col-md-8">
             <div class="z-depth-1">
-            <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
+              <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
                 <span class="text-white">Your cart</span>
                 <span class="badge badge-secondary badge-pill">3</span>
               </h4>
@@ -730,46 +873,46 @@
                     <small class="text-muted">Fancy Vendor</small>
                   </div>
                   <span>
-                      <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                          <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                          <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                          <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                      </div>
+                    <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
+                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                    </div>
                   </span>
                   <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                      <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
-                      <small class="text-muted">Classic Vendor</small>
+                  <div>
+                    <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
+                    <small class="text-muted">Classic Vendor</small>
+                  </div>
+                  <span>
+                    <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
+                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
                     </div>
-                    <span>
-                        <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
-                            <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                            <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                            <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                        </div>
-                    </span>
-                    <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                      <div>
-                        <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
-                        <small class="text-muted">South Vendor </small>
-                      </div>
-                      <span>
-                          <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
-                              <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                              <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                              <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                          </div>
-                      </span>
-                      <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-                    </li>
+                  </span>
+                  <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
+                    <small class="text-muted">South Vendor </small>
+                  </div>
+                  <span>
+                    <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
+                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                    </div>
+                  </span>
+                  <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+                </li>
                 <li class="list-group-item d-flex justify-content-between">
-                    <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                    <strong><i class="fas fa-rupee-sign"></i>48</strong>
-                  </li>   
+                  <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                  <strong><i class="fas fa-rupee-sign"></i>48</strong>
+                </li>
               </ul>
               <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </div>
@@ -846,7 +989,7 @@
         <h6 class="text-info">Terms and Policy </h6>
       </nav>
 
-
+      
 
 
     </div>
@@ -854,6 +997,18 @@
 
 
   </div>
+
+  <!-- Footer -->
+<!-- <footer class="page-footer font-small black fixed bottom"> -->
+
+    <!-- Copyright -->
+    <!-- <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href=""> SmartCafeteria</a>
+    </div> -->
+    <!-- Copyright -->
+  
+  <!-- </footer> -->
+  <!-- Footer -->
 </div>
 
 
