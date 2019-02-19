@@ -81,7 +81,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
 
 
     });
-
+ 
     $scope.employertypeeList = [];
     $scope.addEmpDtls = function(item) {
       var newEmp = {};

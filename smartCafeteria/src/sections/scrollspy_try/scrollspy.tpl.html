@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+<div class="qty  border  mt-5 rounded-pill info-color z-depth-0 btn-outline-info  text-center d-inline-block"  ng-if="add">
+    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
+    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
+    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+</div>
+<div >
+    <button type="button" ng-click="addToCartReverse()" class="btn btn-outline-default btn-lg px-0 py-0 pb-1 pt-1 w-50 rounded-pill mt-5"
+    ng-if="!add">ADD</button> 
+</div>
+
+
+<div class="view mt-5">
+		<img src="img/food1.jpg" class="img-fluid" alt="Image of ballons flying over canyons with mask pattern one.">
+		<div class="mask  flex-top text-right">
+				<i class="fas fa-heart fa-2x text-danger" aria-hidden="true"></i>
+		</div>
+</div>
+  </div>
+<div class="col-md-4">
+		
+</div>
+</div>
+
+<!-- <script>
+	$(document).ready(function(){
+		    $('.count').prop('disabled', true);
+   			$(document).on('click','.plus',function(){
+				$('.count').val(parseInt($('.count').val()) + 1 );
+    		});
+        	$(document).on('click','.minus',function(){
+    			$('.count').val(parseInt($('.count').val()) - 1 );
+    				if ($('.count').val() == 0) {
+						$('.count').val(1);
+					}
+    	    	});
+ 		});
+</script> -->
