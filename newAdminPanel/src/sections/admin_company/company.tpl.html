@@ -114,11 +114,20 @@
     </ul>
   </nav>
 
+<<<<<<< HEAD
+    
+  <!--============================
+
+ content stat=====================================-->
+  <div class="main-content">
+  
+=======
 
   <!--============================main content stat=====================================-->
   <!-- Page Content  -->
   <div id="content" class="mt-5">
 
+>>>>>>> b308b724d4ab276f9a534f4d2278768fbced5f8f
 
     <!--=============configuration start====================-->
 
@@ -289,6 +298,50 @@
 
       </div>
     </div>
+<<<<<<< HEAD
+  </div>
+ <!-- ==============================================Client RequirementBool start================ -->
+ <div ng-if="clientRequirementBool">
+  <nav class="navbar navbar-expand-lg  mb-5 " id="head-height">
+        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1" aria-hidden="true"></i></a> <a href="#!/dashboard" class="w-clr">
+            Home</a> <a class="w-clr">/</a><a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a class="w-clr">/</a>
+          <a href="" class="w-clr">client requirement</a></small></h6>
+      </nav>
+ <div class="container" >
+  <div class="table-responsive-sm table-responsive-md table-responsive-lg ml-3"
+    ng-repeat="category in categories" ng-if="data[category.dbName]">
+    <h6 class="custom-control font-weight-bold text-white cyan accent-4 custom-checkbox ml-3">{{category.displayName}}</h6>
+      <table class="table table-bordered w-auto ml-3 ">
+        <thead>
+         <tr>
+          <th class="font-weight-bold" scope="col">Day</th>
+          <th class="font-weight-bold" ng-repeat-start="m in additionalReqDetails[category.dbName]">{{m.columnName}} Pax</th>
+          <th class="font-weight-bold" ng-repeat-end> {{m.columnName}} Price</th>
+          <th class="font-weight-bold" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr ng-repeat="week in workingDays" ng-if="week.Selected">
+       
+        <th class="text-center font-weight-normal ">{{week.day}}</th>
+        <td class="text-center font-weight-normal" ng-repeat-start="m in additionalReqDetails[category.dbName]">
+          <input type="number" class="form-control form-control-sm" id="" 
+          ng-model="clientRequirement[category.dbName][week.day][m.columnName].pax">
+        </td>
+        <td class="text-center font-weight-normal" ng-repeat-end>
+          <input type="number" class="form-control form-control-sm" id="" 
+          ng-model="clientRequirement[category.dbName][week.day][m.columnName].price">
+        </td>
+        <td><button type="button" class="btn btn-outline-default waves-effect btn-sm px-2" ng-click="clientSaveReq()">Save</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+=======
+>>>>>>> b308b724d4ab276f9a534f4d2278768fbced5f8f
 
     <!-- ==============================================Client RequirementBool start================ -->
     <div ng-if="clientRequirementBool">
