@@ -1,3 +1,12 @@
+<style>
+.invoice_add
+{
+  font-size: 13px;
+  font-family: serif;
+}
+</style>
+
+
 <!-- wrapper  class start for whole page -->
 <div class="wrapper">
 
@@ -760,8 +769,9 @@
         </form>
       </nav>
 
-      <button class="ml-5" ng-click="exportToPdf('#invoice')">PDF</button>
-
+      <!-- <button class="ml-5" ng-click="exportToPdf('#invoice')">PDF</button> -->
+      <button class="ml-5 btn btn-light" ng-click="onclickPdf()">PDF</button>
+     
       <div class="container" id="invoice">
         <nav class="navbar   red darken-3 ml-3 mt-5">
         </nav>
@@ -775,7 +785,7 @@
           </div>
         </div>
         <div class="row mt-5 ml-3">
-          <div class="col-md-5 ml-3 ">
+          <div class="col-md-5 ml-3 invoice_add">
             <p class="text-muted" id="font-add">#1722,First Floor, 19th Main Rd,<br>
               Sector 2, HSR Layout,<br>
               Bengaluru, Karnataka 560102<br>
@@ -800,14 +810,12 @@
         <div class="row ml-3 mt-5">
 
           <div class="col-md-4 ml-3">
-            <h5 class="font-weight-bold">Invoice for</h5>
+            <h5 class="font-weight-bold" style="font-family: serif;font-size: 16px;">Invoice for</h5>
             <div class="card border-0 w-100" id="address-card">
-              <div class="card-body mb-2">
+              <div class="card-body mb-2" style="margin-top: 2px;">
                 <small class="card-title font-weight-bold h6" id="cmp-font">{{cmpyName | uppercase}}</small>
                 <p class=" card-text text-dark font-weight-normal " id="cmp-font">{{cmpyAddress | lowercase}}</p>
-                <p class="text-muted font-weight-bold">GSTIN:<span><input type="text"
-                      class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
-
+                <p class="text-muted font-weight-bold">GSTIN:<span><input type="text" class="border-0 ml-1 text-muted font-weight-bold p-0" value="29AAACZ8319C1Z7"></span></p>
               </div>
 
             </div>
@@ -816,22 +824,21 @@
 
 
           <div class="col-md-4">
-            <h5 class="font-weight-bold">Payable to</h5>
-            <small class="font-weight-bold h6" id="cmp-font">FANCYMONK TECHNOLOGIES PVT. LTD.</small>
+            <h5 class="font-weight-bold" style="font-size: 15px;font-family: serif;">Payable to</h5>
+            <h5 style="font-size: 16px;font-family: serif; margin-top: 19px;">FANCYMONK TECHNOLOGIES PVT. LTD.</h5>
 
 
           </div>
           <div class="col-md-3">
-            <h5 class="font-weight-bold">Invoice #</h5>
+            <h5 class="font-weight-bold" style="font-size: 15px;font-family: serif;">Invoice #</h5>
             <form>
               <div class="form-group">
                 <input type="text" class="form-control text-dark border-0" value="515">
               </div>
             </form>
-            <div class=" mt-5">
-              <h4>Nature Of Service</h4>
-              <p>Service provided in Canteen<br>
-                and other similar establishments</p>
+            <div class="mt-5">
+              <h4 style="font-family: serif;font-size: 15px;font-weight: 600;">Nature Of Service</h4>
+              <p>Service provided in Canteen and other similar establishments</p>
             </div>
           </div>
         </div>
@@ -934,7 +941,7 @@
           </div>
         </div>
         <hr class="ml-5 bg-dark font-weight-bold" id="top-margin-hr">
-        <div class="row ">
+        <div class="row mt-5">
           <div class="col-md-6"></div>
           <div class="col-md-3">
             <table class="table table-borderless ml-3">
@@ -946,10 +953,10 @@
                   <td class="center pb-0 h5 right" id="font-color">CGST (9%)</td>
                 </tr>
                 <tr>
-                  <td class="center h5 pb-0 right" id="font-color">SGST (9%)</td>
+                  <td class="center h5 pb-0 h5 right" id="font-color">SGST (9%)</td>
                 </tr>
                 <tr>
-                  <td class="center right h2 font-weight-bold " id="font-color">Grand Total</td>
+                  <td class="center right h5 font-weight-bold " id="font-color">Grand Total</td>
                 </tr>
               </tbody>
             </table>
@@ -967,7 +974,7 @@
                   <td class="right h5  pb-0 " id="font-color">INR 1,585.00</td>
                 </tr>
                 <tr>
-                  <td class="right h2 font-weight-bold" id="font-color">INR 35,585.00</td>
+                  <td class="right h5 font-weight-bold" id="font-color">INR 35,585.00</td>
                 </tr>
               </tbody>
             </table>
@@ -975,14 +982,14 @@
         </div>
 
 
-        <div class="row ml-3 mt-3">
-          <div class="col-md-7 ml-3">
-            <p><span class="font-weight-bold">Account Details</span><br>
+        <div class="row ml-3" style="margin-top:8%">
+          <div class="col-md-7 ml-3 invoice_add">
+            <p style="font-size: 16px"><b><span class="font-weight-bold">Account Details</span><br>
               Company Name : Fancymonk Technologies Private Limited<br>
               Account Number : 0012020317<br>
               IFSC Code : KKBK0008040<br>
               Branch code : 8040<br>
-              Bank Name : Kotak Mahindra Bank
+              Bank Name : Kotak Mahindra Bank</b>
             </p>
           </div>
         </div>

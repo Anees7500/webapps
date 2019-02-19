@@ -11,7 +11,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
   ) {
     // bool Logic start
     $scope.boolFunction = function (value) {
-      console.log("boolFunction", value);
+      console.log("boolFunction", value); 
       $scope.configurationBool = false;
       $scope.clientRequirementBool = false;
       $scope.vendorRequirementBool = false;
@@ -741,6 +741,32 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         }
       });
     }
+
+    // =========================================Convert html content to Pdf====================================
+      $scope.onclickPdf = function(){      
+            var draw = kendo.drawing;             
+                          
+          draw.drawDOM($("#invoice"), {
+              avoidLinks: true,
+              paperSize: "A3",            
+              margin: {
+                left   : "2mm",
+                top    : "3mm",
+                right  : "2mm",
+                bottom : "4mm"
+               }
+          })
+          .then(function(root) {
+              return draw.exportPDF(root);
+          })
+          .done(function(data) {
+              kendo.saveAs({
+                  dataURI: data,
+                  fileName: "avoid-links.pdf"
+              });
+          });
+      }
+    // =======================================================================================
     // =========================  vendor Monthly Details ======================================
     $scope.vendorMnthyDts = [{ Date: "1/01/2019", Day: "MONDAY", Pax: '10', Price: '10', Amount: '100' },
     { Date: '1/02/2019', Day: 'TUESDAY', Pax: '12', Price: '10', Amount: '120' },
