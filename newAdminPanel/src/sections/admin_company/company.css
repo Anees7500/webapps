@@ -16,9 +16,9 @@ p {
     margin-bottom: 1rem;
     font-family: inherit;
     font-weight: inherit;
-    word-spacing:0.5em;
+    /* word-spacing:0.2em; */
 }
-#font-color{color: #e91e63;}
+#font-color{color: #ce1f43;}
 #top-margin-hr{margin-top: -40px;}
 #font-add{font-weight: 800;}
 #cmp-font{font-size: 1.0rem;
