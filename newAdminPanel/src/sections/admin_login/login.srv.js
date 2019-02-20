@@ -1,5 +1,6 @@
-adminApp.factory('AdminLoginService', ['$http', '$httpParamSerializerJQLike', '$location',
-  function($http, $httpParamSerializerJQLike, $location) {
+adminApp.factory('AdminLoginService', ['$http', '$httpParamSerializerJQLike', 
+'$location', 'Notification',
+  function($http, $httpParamSerializerJQLike, $location,Notification) {
     return {
       login: function(admin, adminLoginUrl) {
         $http({
@@ -12,9 +13,8 @@ adminApp.factory('AdminLoginService', ['$http', '$httpParamSerializerJQLike', '$
           }).then(function(response) {
             console.log('response admin', response);
             if (response.data.status == 1) { 
-             
+             Notification.success("Successfully Logged in");
               // $cookies.put('admin_username', response.data.message);
-                console.log('error logging in');
                $location.path('/dashboard');
 
             } else {
