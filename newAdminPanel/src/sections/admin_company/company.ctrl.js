@@ -724,45 +724,25 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $timeout(function () { location.href = exportHref; }, 500); // trigger download
     }
 
-    //======================  Pdf ==================================================
-    $scope.exportToPdf = function () {
-      html2canvas(document.getElementById('invoice'), {
-        onrendered: function (canvas) {
-          var data = canvas.toDataURL();
-          var docDefinition = {
-            content: [{
-              image: data,
-              width: 550,
-
-            }]
-          };
-          pdfMake.createPdf(docDefinition).download("invoice.pdf");
-          pdfMake.createPdf(docDefinition).download("invoice.pdf");
-        }
-      });
-    }
 
     // =========================================Convert html content to Pdf====================================
-      $scope.onclickPdf = function(){      
+      $scope.exportToPdf = function(){      
             var draw = kendo.drawing;             
                           
           draw.drawDOM($("#invoice"), {
               avoidLinks: true,
-              paperSize: "A3",            
-              margin: {
-                left   : "2mm",
-                top    : "3mm",
-                right  : "2mm",
-                bottom : "4mm"
-               }
+              paperSize: "A4",
+              margin: "1cm",
+              scale: 0.5 
           })
           .then(function(root) {
               return draw.exportPDF(root);
           })
           .done(function(data) {
+            console.log("value",data);
               kendo.saveAs({
                   dataURI: data,
-                  fileName: "avoid-links.pdf"
+                  fileName: "invoice.pdf"
               });
           });
       }
