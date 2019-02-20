@@ -38,7 +38,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
         }
       });
 
-    // SHOW EMPLOYEE DETAILS.
+    //========================= SHOW EMPLOYEE DETAILS.=========================
     $scope.showDetails = function () {
       $scope.details =
         'Name: ' + $scope.employee.values.name + '\n' +
@@ -71,14 +71,13 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
         $scope.assignedCompany[i].fileName = getImageUrl + $scope.assignedCompany[i].fileName;
       }
     });
-    // card toggle //
+    //======================= card toggle================================================
     $scope.toggle = function () {
       $scope.state = !$scope.state;
     };
+    //  ================== All AssingendCOmpany URL End===================================
    
-    
-    //  ================== All AssingendCOmpany URL End==============================
-    // bool Logic start
+    //=========================== bool Logic start=========================================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.companyBool = false;
