@@ -769,8 +769,22 @@
         </form>
       </nav>
 
+      <div class=" grey lighten-4  ml-5">
+          <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" ng-repeat="(type, monthObj) in monthsForMonthlyDetails">
+              <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
+                data-target="#{{monthObj.name}}" role="tab" aria-controls="pills-brkfst" aria-selected="true"
+                ng-click="selectMonthForInvoice(monthObj)">{{monthObj.name}} {{monthObj.year}}</a>
+            </li>
+          </ul>
+        </div>
+
+      
+      <button class="ml-5 btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>
       <!-- <button class="ml-5" ng-click="exportToPdf('#invoice')">PDF</button> -->
       <button class="ml-5 btn btn-light" ng-click="onclickPdf()">PDF</button>
+
+
      
       <div class="container" id="invoice">
         <nav class="navbar   red darken-3 ml-3 mt-5">
@@ -855,12 +869,12 @@
                 </tr>
               </thead>
               <tbody class="pb-0 pt-0 mt-0">
-                <tr class="pb-0 pt-0">
+                <tr class="pb-0 pt-0" ng-repeat="obj in invoiceDetailsObj.invoiceDetailsArr">
                   <td class="pb-0 pt-0">
                     <form>
                       <div class="form-group text-muted">
-                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          value="Veg Lunch">
+                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold" 
+                        ng-model = "obj.description | capitalize">
                       </div>
                     </form>
                   </td>
@@ -868,16 +882,8 @@
                   <td class="pb-0 pt-0">
                     <form>
                       <div class="form-group text-muted">
-                        <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold" value="263">
-                      </div>
-                    </form>
-                  </td>
-
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          value="INR 95.00">
+                        <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold" 
+                        ng-model = "obj.quantiy">
                       </div>
                     </form>
                   </td>
@@ -886,56 +892,27 @@
                     <form>
                       <div class="form-group text-muted">
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          value="INR 24,985.00">
+                        ng-model = "'INR '+ obj.price">
+                      </div>
+                    </form>
+                  </td>
+
+                  <td class="pb-0 pt-0">
+                    <form>
+                      <div class="form-group text-muted">
+                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
+                        ng-model = "'INR ' + obj.amount">
                       </div>
                     </form>
                   </td>
                 </tr>
-                <tr>
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" id="number" class="form-control   p-0 text-muted font-weight-bold"
-                          required />
-
-                      </div>
-                    </form>
-                  </td>
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" id="number" class="form-control   p-0 text-muted font-weight-bold"
-                          required />
-
-                      </div>
-                    </form>
-                  </td>
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" id="number" class="form-control   p-0 text-muted font-weight-bold"
-                          required />
-
-                      </div>
-                    </form>
-                  </td>
-                  <td class="pb-0 pt-0">
-                    <form>
-                      <div class="form-group text-muted">
-                        <input type="text" id="number" class="form-control   p-0 text-muted font-weight-bold"
-                          required />
-
-                      </div>
-                    </form>
-                  </td>
-                  <span class="table-add ml-5 mb-3 ">
+                <span class="table-add ml-5 mb-3 ">
                     <a class="text-success " ng-click="addNewRow(additionalReqDetails)">
                       <i class="fas fa-plus " aria-hidden="true"></i></a></span>
                   <span class="table-add ml-5 mb-3 ">
                     <a ng-hide="(!menuDetails.length > 1)" class="text-danger " ng-if="!menuDetail.disabled"
                       ng-click="remove(addNewRow(additionalReqDetails),$index)">
                       <i class="fas fa-trash-alt" aria-hidden="true"></i></a></span>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -965,16 +942,16 @@
             <table class="table table-borderless ml-3">
               <tbody>
                 <tr>
-                  <td class="right h5 pb-0 font-weight-bold">INR 33,585.00</td>
+                  <td class="right h5 pb-0 font-weight-bold">INR {{invoiceDetailsObj.totalSum}}</td>
                 </tr>
                 <tr>
-                  <td class="right  pb-0 h5" id="font-color">INR 3,585.00</td>
+                  <td class="right  pb-0 h5" id="font-color">INR {{invoiceDetailsObj.cgst}}</td>
                 </tr>
                 <tr>
-                  <td class="right h5  pb-0 " id="font-color">INR 1,585.00</td>
+                  <td class="right h5  pb-0 " id="font-color">INR {{invoiceDetailsObj.sgst}}</td>
                 </tr>
                 <tr>
-                  <td class="right h5 font-weight-bold" id="font-color">INR 35,585.00</td>
+                  <td class="right h5 font-weight-bold" id="font-color">INR {{invoiceDetailsObj.totalAmount}}</td>
                 </tr>
               </tbody>
             </table>

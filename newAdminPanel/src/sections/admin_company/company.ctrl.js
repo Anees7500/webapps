@@ -2,12 +2,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
   'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor',
   'getItemCheckListedForVendor', 'Excel', '$timeout', 'getCompanyWorkingDaysUrl', 'getCompanyInvoicingDate',
   'getCompanyAdditionalRequirements', 'getCompanyRequirements', 'getVendorRequirements', 'getMonthlyDetailsUrl',
-  'getMonthsForMonthlyDetailsUrl',
+  'getMonthsForMonthlyDetailsUrl','getDetailsForInvoicesUrl',
   function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, corporateReviewsUrl,
     getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor,
     getItemCheckListedForVendor, Excel, $timeout, getCompanyWorkingDaysUrl,
     getCompanyInvoicingDate, getCompanyAdditionalRequirements, getCompanyRequirements,
-    getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl
+    getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl,getDetailsForInvoicesUrl
   ) {
     // bool Logic start
     $scope.boolFunction = function (value) {
@@ -355,6 +355,82 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
    //==============================================================
      
 
+   //==============================================================
+   /** Invoices Start */
+   //==============================================================
+   
+
+    $scope.getInvoiceDetails = function()
+    {
+      var detailsForInvoicesUrl = getDetailsForInvoicesUrl+"?companyId="+$routeParams.compId+
+      "&month="+$scope.selectedMonthForInvoice.name+"&year="+$scope.selectedMonthForInvoice.year;
+
+      if($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null)
+      {
+        detailsForInvoicesUrl = detailsForInvoicesUrl+"&startDate="+$scope.selectedMonthForInvoice.startDate+
+          "&endDate="+$scope.selectedMonthForInvoice.endDate;
+      }
+      $http.get(detailsForInvoicesUrl).then(function (response) {
+        $scope.invoiceDetailsObj = response.data.data;
+        var temporaryArr = [];
+        angular.forEach($scope.invoiceDetailsObj.invoiceDetails, function(value, key)
+        {
+          angular.forEach(value, function(subValue, subKey){
+            angular.forEach(subValue, function(subSubVal, subSubKey){
+              var obj = {};
+              var desName;
+              if(subKey === key)
+              {
+                desName = subKey;
+              }
+              else
+              {
+                desName = subKey+"-"+key;
+              }
+              obj.description = desName;
+              obj.quantiy = subSubVal.pax;
+              obj.price = subSubKey;
+              obj.amount = subSubVal.amount;
+
+              temporaryArr.push(obj);
+            });
+          });
+          
+        });
+        $scope.invoiceDetailsObj.invoiceDetailsArr = temporaryArr;
+
+        
+        $scope.$watchCollection("invoiceDetailsObj.invoiceDetailsArr", function(newVal, oldVal){
+
+
+          var totalSum = 0;
+          angular.forEach($scope.invoiceDetailsObj.invoiceDetailsArr, function(ob){
+          ob.amount = ob.quantity*ob.price;
+          
+          totalSum = totalSum + ob.amount;
+
+          $scope.invoiceDetailsObj.totalSum = totalSum;
+          $scope.invoiceDetailsObj.cgst = totalSum * 0.09;
+          $scope.invoiceDetailsObj.sgst = totalSum * 0.09;
+          $scope.invoiceDetailsObj.igst = totalSum * 0.18;
+          if($scope.invoiceDetailsObj.igstApplicable)
+          {
+            $scope.invoiceDetailsObj.totalAmount = $scope.invoiceDetailsObj.totalSum + $scope.invoiceDetailsObj.igst;
+          }
+          else
+          {
+            $scope.invoiceDetailsObj.totalAmount = $scope.invoiceDetailsObj.totalSum + $scope.invoiceDetailsObj.cgst + $scope.invoiceDetailsObj.sgst;
+          }
+        });
+        }. true);
+        
+      });
+    }
+
+   //==============================================================
+   /** Invoices End */
+   //==============================================================
+
 
     //==============================================================
     //================ GET DATA FROM DB PART END====================
@@ -573,6 +649,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.selectedWeekForMonthlyDetails = "week1";
       getMonthlyDetails();
     }
+
+    $scope.selectMonthForInvoice = function (obj) {
+      $scope.selectedMonthForInvoice = obj;
+    }
+
     $scope.selectWeekForMonthlyDetails = function (weekName) {
       $scope.selectedWeekForMonthlyDetails = weekName;
     }
