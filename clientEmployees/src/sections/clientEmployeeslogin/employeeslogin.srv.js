@@ -6,7 +6,7 @@ ceApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','$
                 $http({
                     method: 'POST',
                     url: url,
-                    headers: {
+                    headers: { 
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'type': 'clientPanel',
                         'scm': 'fancymonk',

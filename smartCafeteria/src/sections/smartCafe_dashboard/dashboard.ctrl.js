@@ -1,6 +1,13 @@
-empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http',
-  function ($scope, getVendorMenuList, $http) {
+empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http', '$location',
+  function ($scope, getVendorMenuList, $http, $location) {
 
+    // ============= Logout ==================================
+    $scope.logout = function(){
+      //Just clear values from scope
+      $scope.username = '';
+      $scope.password = '';
+      $location.path('/');
+  }
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
@@ -90,6 +97,14 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 {itemName: "Baby-Corn Sandwich", Price: "40"},
 {itemName: "Chessy Veg Sandwich", Price: "60"},
 {itemName: "Chocolate Sandwich", Price: "70"}];
+<<<<<<< HEAD
+=======
+
+//itemlistforCheckout
+$scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", checkPrice: "20"},
+{checkItem: "Namak Para", checkVendor: "Classic Vendor", checkPrice: "30"},
+{checkItem: "Masala Dhosa", checkVendor: "Pure-South Vendor", checkPrice: "50"}];
+>>>>>>> 9087f28379e335c6895fd360c45af1c0683bda9e
 
     //================ Ratingfeedback ============================
     var maxRating = 5;

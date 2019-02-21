@@ -42,4 +42,5 @@ angular.module("adminApp.config", [])
 .constant("postMonthlyDetailsUpdateUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/update")
 .constant("postMonthlyDetailsDeleteUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/delete")
 .constant("postMonthlyDetailsApproveUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/approve")
-.constant("getMonthsForMonthlyDetailsUrl", "http://fancymonk.com:9125/api/common/get-current-and-previous-month");
+.constant("getMonthsForMonthlyDetailsUrl", "http://fancymonk.com:9125/api/common/get-current-and-previous-month")
+.constant("getDetailsForInvoicesUrl", "http://fancymonk.com:9125/api/admin/company-invoice/generate");
