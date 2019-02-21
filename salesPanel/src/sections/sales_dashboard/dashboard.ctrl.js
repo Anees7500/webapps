@@ -47,7 +47,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     };
     //====================== sidebar hide and show End==========================
 
-    //  ================== All companies URL =======================================
+    //=================== All companies URL =======================================
 
     $http.get(getAllCompanyUrl).then(function (response) {
       console.log(" compay url : ", getAllCompanyUrl);
@@ -56,15 +56,15 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
         $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
       }
     });
-    //  ================== All companies URL End ===================================
+    //================== All companies URL End ===================================
 
-    //  ================== All VendorList URL ======================================
+    //================== All VendorList URL ======================================
     $http.get(getAllVendorListUrl).then(function (response) {
       $scope.allVendorsList = response.data.data.vendors;
     });
-    //  ================== All VendorList URL End==================================
+    //================== All VendorList URL End==================================
 
-    //  ================== All AssingendCOmpany URL=================================
+    //================== All AssingendCOmpany URL=================================
     $http.get(getAssignedCompanyUrl).then(function (response) {
       $scope.assignedCompany = response.data.data.companies;
       for (var i = 0; i < $scope.assignedCompany.length; i++) {

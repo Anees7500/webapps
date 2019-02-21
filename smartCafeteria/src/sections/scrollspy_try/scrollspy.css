@@ -9,7 +9,7 @@
   ;min-width: 30px;
   text-align: center;
 }
-/* #width-btn{width: 106px;} */
+
 .qty{width: 108px;}
 .qty .plus {
   cursor: pointer;
@@ -40,7 +40,7 @@
 .plus:hover{
   background-color: #717fe0 !important;
 }
-/*Prevent text selection*/
+
 span{
   -webkit-user-select: none;
   -moz-user-select: none;
