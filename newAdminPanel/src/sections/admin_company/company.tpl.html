@@ -753,7 +753,7 @@
 
     <!----------===============================invoice=================================-->
     <div ng-if="invoiceBool">
-      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+      <nav class="navbar navbar-expand-lg  mb-3 mt-1" >
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
                 aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
@@ -765,6 +765,11 @@
             id="search-height">
         </form>
       </nav>
+<<<<<<< HEAD
+    
+      <button class="ml-5 btn btn-light" ng-click="exportToPdf()">PDF</button>    
+      <button ng-click="exportJsonDataToExcel()">Export Data To Excel</button>
+=======
       
 
       <div class=" grey lighten-4  ml-5">
@@ -776,6 +781,7 @@
             </li>
           </ul>
         </div>
+>>>>>>> 08744fb506872c337401438be5c75ffd4b4da26e
 
       
       <button class="ml-5 btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>

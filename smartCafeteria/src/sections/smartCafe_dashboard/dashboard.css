@@ -25,13 +25,24 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
   position: absolute;
   z-index: 1;}
 #list-tab{
+    max-height: 380px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     background-color: white;
 }
-
-
+#scroll-content{
+    max-height: 420px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+#list-veg{  max-height: 420px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;}
 /*******************responsive************************/
 @media (max-width: 768px) {
     .navbar-brand{margin:auto; display: block;}
+     /* #sidebar {margin-left: -250px;}
+    #sidebar.active {margin-left: 0;} */
     #content {width: 100%;}
 }
 
