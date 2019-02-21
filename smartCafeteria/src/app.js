@@ -1,4 +1,4 @@
-var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config']);
+var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config','ui.tree']);
 empApp.config(['$routeProvider', function ($routeProvider) {
     // $locationProvider.html5Mode({
     //     enabled: true,

@@ -1,2 +1,3 @@
 angular.module("empApp.config", [])
-.constant("getVendorMenuList", "http://fancymonk.com:9125/api/vendor/cash-n-carry/get-formatted-menu?vendorId=1&companyId=1");
+.constant("getVendorList", "http://fancymonk.com:9125/api/client/get-cnc-vendors?companyId=")
+.constant("getVendorMenuList", "http://fancymonk.com:9124/api/vendor/cash-n-carry/get-formatted-menu");

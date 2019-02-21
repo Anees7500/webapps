@@ -123,14 +123,14 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="d-flex justify-content-left">
-                      <h6 class="mt-3 mb-1 font-weight-normal">FANCY VENDOR-HSR LAYOUT</h6>
+                      <h6 class="mt-3 mb-1 font-weight-normal">{{selectedVendor.name | uppercase}}</h6>
                     </div>
                     <div class="d-flex justify-content-left">
-                      <p><i class="fas fa-map-marker-alt text-danger"></i> HSR-7 layout</p>
+                      <p><i class="fas fa-map-marker-alt text-danger"></i>Bangalore</p>
                     </div>
                     <div class="row">
                       <div class="col-md-3  border-right border-dark">
-                        <h6 class="font-weight-normal text-left ml-1">Biryani, juice
+                        <h6 class="font-weight-normal text-left ml-1">{{selectedVendor.cuisine}}
                         </h6>
                       </div>
 
@@ -141,11 +141,11 @@
                       </div>
 
                       <div class="col-md-6">
-                        <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-default btn-md"
-                          ng-if="!favourite">Favourit
+                        <button type="button" ng-click="makeFavouritNReverse(selectedVendor)" class="btn btn-outline-default btn-md"
+                          ng-if="!selectedVendor.favourite">Favourit
                           <i class="far fa-heart" aria-hidden="true"></i></button>
-                        <button type="button" ng-click="makeFavouritNReverse()" class="btn btn-outline-danger btn-md"
-                          ng-if="favourite">Favourited <i class="fas fa-heart " aria-hidden="true"></i></button>
+                        <button type="button" ng-click="makeFavouritNReverse(selectedVendor)" class="btn btn-outline-danger btn-md"
+                          ng-if="selectedVendor.favourite">Favourited <i class="fas fa-heart " aria-hidden="true"></i></button>
                       </div>
                     </div>
                   </div>
@@ -170,20 +170,20 @@
             <div class="collapse" id="collapseExample">
               <div class="row z-depth-1  grey lighten-4">
                 <div class="col-md-3" ng-repeat="vendorDetails in vendorList">
-                  <div class="card-group pb-3">
+                  <div class="card-group pb-3" ng-click="selectVendor(vendorDetails)">
                     <div class="card">
-                      <div class="card-header bg-white text-dark"><span class="h6">{{vendorDetails.vendorName}}</span></div>
+                      <div class="card-header bg-white text-dark"><span class="h6">{{vendorDetails.name}}</span></div>
                       <img class="card-img-top" src="img/food.jpg" alt="Card image cap">
                       <div class="card-body">
-                        <h5 class="card-title"><span class="small">{{vendorDetails.cuisineName}}</span></h5>
+                        <h5 class="card-title"><span class="small"></span></h5>
                         <div class="card-text  d-flex flex-row p-0">
 
                           <div class="p-1">
-                            <p>{{vendorDetails.foodItems}}</p>
+                            <p>{{vendorDetails.cuisine}}</p>
 
                           </div>
                           <div>
-                            <p><i class="fas fa-star text-warning"></i><span>{{vendorDetails.rating}}</span></p>
+                            <p><i class="fas fa-star text-warning"></i><span>{{4}}</span></p>
                           </div>
                         </div>
                       </div>
@@ -209,29 +209,19 @@
               <div class="panel-body">
                 <!-- start side list group to show food items -->
                 <div class="list-group" id="list-tab" role="tablist">
-                  <a class="list-group-item list-group-item-action info-color active" data-remote="true" href="" id="list-recommened-list"
-                    data-target="#list-recommened" role="tab" aria-controls="recommened">Recommened</a>
+                  <!-- <a class="list-group-item list-group-item-action info-color active" data-remote="true" href="" id="list-recommened-list"
+                    data-target="#list-recommened" role="tab" aria-controls="recommened">Recommened</a> -->
+
 
                   <a class="list-group-item " data-remote="true" href="" data-toggle="collapse"
-                    id="list-brekfast-list" data-target="#sub_brekfast" role="tab" aria-controls="brekfast" data-parent="#sub_brekfast">Brekfast
-                    <span class="menu-ico-collapse ml-5"><i class="fa fa-chevron-down"></i></span></a>
-                  <div class="collapse" id="sub_brekfast">
+                    id="list-brekfast-list" data-target="#sub_brekfast" role="tab" aria-controls="brekfast" data-parent="#sub_brekfast"
+                    ng-repeat-start="menu in menuNode" ng-click="selectNodeToDisplay(menu.menuNode, menu, 1)"> {{menu.menuName}}
+                    <span class="menu-ico-collapse ml-5" ng-if="checkForSubMenu(menu.menuNode)" ng-click="toggleSubMenu(menu)"><i class="fa fa-chevron-down"></i></span></a>
+                  <div ng-if="menu.toggle" ng-repeat-end>
                     <a class="list-group-item" id="list-veg-list"  data-toggle="list" 
-                      data-target="#list-veg" role="tab" aria-controls="veg"><span class="ml-5">Veg</span></a>
-                    <a class="list-group-item" id="list-nonveg-list"  data-toggle="list" data-parent="#sub_brekfast"
-                      data-target="#list-nonVeg" role="tab" aria-controls="nonVeg"><span class="ml-5">Non-Veg</span></a>
+                       role="tab" aria-controls="veg"><span class="ml-5" ng-repeat="m in menu.menuNode" ng-if="!m.isFoodItem"
+                       ng-click="selectNodeToDisplay(m.menuNode)" >{{m.menuName}}</span></a>
                   </div>
-
-                  <a class="list-group-item" id="list-messages-list" data-toggle="list"
-                    data-target="#list-messages" role="tab" aria-controls="messages">Lunch</a>
-                  <a class="list-group-item" id="list-settings-list" data-toggle="list"
-                    data-target="#list-settings" role="tab" aria-controls="settings">Snacks</a>
-                  <a class="list-group-item" id="list-Dinner-list" data-toggle="list"
-                    data-target="#list-settings" role="tab" aria-controls="settings">Dinner</a>
-                  <a class="list-group-item" id="list-MidNight-list" data-toggle="list"
-                    data-target="#list-settings" role="tab" aria-controls="settings">Mid-Night Snacks</a>
-                  <a class="list-group-item" id="list-EarlyMorning-list" data-toggle="list"
-                    data-target="#list-settings" role="tab" aria-controls="settings">Early-Morning Snacks</a>
                 </div>
                 <!-- end side list group to show food items -->
               </div>
@@ -242,110 +232,55 @@
             <div class="tab-content" id="nav-tabContent">
                  <!-- RECOMMENDED content  -->
               <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                <h4 class="ml-2 font-weight-normal font-small">RECOMMENDED</h4>
-                <div class="border" id="scroll-content">
-                  <div class="row">
-                    <div class="col-md-4" ng-repeat="item in cuisineList">
-                      <div class="card-deck pb-3">
-                        <div class="card w-100">
-                          <div class="view">
-                            <img src="img/food2.jpg" class="card-img-top" alt="Card image cap">
-                            <a ng-click="addItemInfavouritList(item, $index)" ng-if="!item.favorited">
-                              <div class="mask  flex-top text-right">
-                                <i class="far fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
-                              </div>
-                            </a>
-                            <a ng-click="addItemInfavouritList(item, $index)" ng-if="item.favorited">
-                              <div class="mask  flex-top text-right">
-                                <i class="fas fa-heart fa-lg text-danger mr-1" aria-hidden="true"></i>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="card-block">
-                            <h4 class="card-title" ng-model="item.itemName"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1 ml-1"></i></span><span
-                                class="small">{{item.itemName}}</span></h4>
-                            <div class="card-text d-flex flex-row justify-content-between">
-                              <div class="p-1">
-                                <p><i class="fas fa-star text-warning"></i>
-                                  <span class="text-muted" ng-model="item.rating">{{item.rating}}</span>
-                                </p>
+                <!-- <h4 class="ml-2 font-weight-normal font-small">RECOMMENDED</h4> -->
 
-                              </div>
-                              <div class="p-1">
-                                <p ng-model="item.price"><i class="fas fa-rupee-sign "></i>{{item.price}}</p>
-                              </div>
-                              <div class="p-1">
-                                <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill justify-content-right">ADD</button>
-                              </div>
-
-                            </div>
-                          </div>
-                        </div>
+                <script type="text/ng-template" id="nodes_renderer.html">
+                  <div>
+                    <br>
+                    <!-- <a class="btn btn-clear btn-xs"  ng-if="node.menuNode.length>0" ng-click="expandNode(this,$event)">
+                      <i class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></i>
+                    </a> -->
+                      <div class='form-group' ng-if="!node.isFoodItem">
+                          <input class='form-control' ng-disabled="node.isInserted" ng-model='node.menuName' focus>
                       </div>
-                    </div>
-                  </div>
+                      <!-- hahahah {{$parentNodeScope}} -->
+                      <!-- <div ng-if="$parentNodeScope"> -->
+                          <div ng-if="node.isFoodItem">
+                              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item">
+                                       <div class="d-flex flex-row  justify-content-between">
+                                          <div class="p-2">
+                                              <p><i class="far fa-stop-circle text-success fa-sm mr-2"></i>{{node.menuName}}</p>
+                                              <p class="ml-5 mt-0 pt-0"><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{node.price}}</span></p>
+                                              <p class="ml-5 mt-0 pt-0"><i class="text-danger"></i><span class="text-danger">{{node.description}}</span></p> 
+                                          </div>
+                                          <div class="p-2">
+                                              <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill">ADD</button>  
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                               </div>
+                          </div>
+                      </div>
+                  <!-- </div> -->
+                  <ul ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: collapsed,displayed:!collapsed}">
+                      <li ng-repeat="node in node.menuNode" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
+                      </li>
+                  </ul>
+              </script>
+
+              <div ui-tree>
+                  <ul ui-tree-nodes ng-model="selectedMenuNode" id="tree-root" ng-init="$nodes = selectedMenuNode">
+                      <li ng-repeat="node in selectedMenuNode" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                  </ul>
+              </div>
+
+                <div class="border" id="scroll-content">
                 </div>
               </div>
                  <!-- end RECOMMENDED content  -->
-                 <!-- brekfast content start for veg category -->
-              <div class="tab-pane fade mt-3" id="list-veg" role="tabpanel" aria-labelledby="list-profile-list">
-                  <ul class="nav nav-pills mb-3 nav-justified mt-1" id="pills-tab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" role="tab"
-                          aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Sandwich</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" role="tab"
-                          aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Burger</span></a>
-                      </li>
-                     
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
-                            aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Dosha</span></a>
-                          </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
-                          aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Juice</span></a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" role="tab"
-                          aria-controls="pills-contact" aria-selected="false"><span class="h5 font-weight-normal">Coffee</span></a>
-                        </li>
-                    </ul>
-                    <hr class="bg-info font-weight-bold p-1">
-                    <div class="tab-content pt-2 pl-1" id="pills-tabContent">
-                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                          <ul class="list-group list-group-flush">
-                              <li class="list-group-item" ng-repeat="Sandwich in sandwichItem">
-                               <div class="d-flex flex-row  justify-content-between">
-                                  <div class="p-2">
-                                      <p><i class="far fa-stop-circle text-success fa-sm mr-2" ng-model="Sandwich.itemName"></i>{{Sandwich.itemName}}</p>
-                                      <p class="ml-5 mt-0 pt-0"><i class="fas fa-rupee-sign text-danger" ng-model="Sandwich.Price"></i><span class="text-danger">{{Sandwich.Price}}</span></p> 
-                                  </div>
-                                  <div class="p-2">
-                                      <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill">ADD</button>  
-                                  </div>
-                                </div>
-                              </li>
-                              
-                            </ul>
-                       </div>
-
-
-                       
-                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
-                        pariatur nostrudtur ut ullamco ea tempor duis.</div>
-                      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                        quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua irure ex.
-                       </div>
-                    </div>
-                </div>
-                  <!-- brekfast content start for non-veg category -->
-                <div class="tab-pane fade" id="list-nonVeg" role="tabpanel" aria-labelledby="list-profile-list">
-                    Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad
-                    laborum.
-                  </div>
-
             </div>
 
           </div>
