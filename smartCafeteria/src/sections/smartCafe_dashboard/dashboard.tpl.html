@@ -277,8 +277,19 @@
                                                 <p class="ml-5 mt-0 pt-0"><i class="text-danger"></i><span class="text-danger">{{node.description}}</span></p> 
                                             </div>
                                             <div class="p-2">
-                                                <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill">ADD</button>  
+                                                <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill"
+                                                ng-if="!cartItems[node.id].addedInCart" ng-click="addToCart(node)">ADD</button>  
                                             </div>
+                                            <div class="p-2 justify-content-between" ng-if="cartItems[node.id].addedInCart">
+                                                <div class="def-number-input number-input">
+                                                  <button ng-click="reduceCount(cartItems[node.id])"
+                                                    class="minus"></button>
+                                                    {{cartItems[node.id].count}}
+                                                  <!-- <input class="quantity" min="0" name="quantity" type="number" ng-model="cartItems[node.id].count"> -->
+                                                  <button ng-click="addCount(cartItems[node.id])"
+                                                    class="plus"></button>
+                                              </div>
+                                              </div>
                                           </div>
                                         </li>
                                       </ul>
@@ -305,34 +316,35 @@
           <div class="col-md-3 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center card-header info-color mt-4">
               <span class="text-white">Your cart</span>
-              <span class="badge badge-secondary badge-pill">3</span>
+              <span class="badge badge-secondary badge-pill">{{getCartItemSize()}}</span>
             </h4>
             <ul class="list-group">
-              <li class="list-group-item" ng-repeat="checkList in checkoutList">
+              <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartItems" ng-if="keyCart != 'totalAmount'">
                 <div class="d-flex flex-row justify-content-between" id="checkout-height">
                   <div class="p-2">
-                    <h6 class="my-0 text-dark font-weight-normal" ng-model="checkList.checkItem">{{checkList.checkItem}}
+                    <h6 class="my-0 text-dark font-weight-normal" ng-model="checkList.checkItem">{{valueCart.obj.menuName}}
                     </h6>
                     <small class="text-muted">{{checkList.checkVendor}}</small>
                   </div>
-                  <div class="p-3 justify-content-between">
-                    <div class="def-number-input number-input">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                        class="minus"></button>
-                      <input class="quantity" min="0" name="quantity" value="1" type="number">
-                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                        class="plus"></button>
-                    </div>
-                  </div>
+                  <div class="p-2 justify-content-between" >
+                        <div class="def-number-input number-input">
+                          <button ng-click="reduceCount(cartItems[keyCart])"
+                            class="minus"></button>
+                            {{cartItems[keyCart].count}}
+                          <!-- <input class="quantity" min="0" name="quantity" type="number" ng-model="cartItems[node.id].count"> -->
+                          <button ng-click="addCount(cartItems[keyCart])"
+                            class="plus"></button>
+                      </div>
+                      </div>
                   <div class="p-3">
                     <p><i class="fas fa-rupee-sign text-danger"></i><span
-                        class="text-danger">{{checkList.checkPrice}}</span></p>
+                        class="text-danger">{{valueCart.amount}}</span></p>
                   </div>
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                <strong><i class="fas fa-rupee-sign"></i>100</strong>
+                <strong><i class="fas fa-rupee-sign"></i>{{cartItems.totalAmount}}</strong>
               </li>
             </ul>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
