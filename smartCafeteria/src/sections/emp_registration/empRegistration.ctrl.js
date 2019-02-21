@@ -1,4 +1,4 @@
-empApp.controller('empRegistrationController', ['$scope',
+empApp.controller('EmpRegistrationController', ['$scope',
   function($scope) {
   
 

@@ -2,7 +2,7 @@
 #avtar{width: 25px;border-radius: 1000px;background-color: aliceblue;}
 .dropdown-menu {margin-left: -15px;}
 #mr-top{margin-top: 8px;}
-
+#checkout-height{height: 60px;}
 #form-mrgin{margin-top: -15px}
 .rating li {
     list-style-type: none;
@@ -25,6 +25,7 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
   position: absolute;
   z-index: 1;}
 #list-tab{
+<<<<<<< HEAD
     max-height: 380px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -43,6 +44,15 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
     .navbar-brand{margin:auto; display: block;}
      /* #sidebar {margin-left: -250px;}
     #sidebar.active {margin-left: 0;} */
+=======
+    background-color: white;
+}
+
+
+/*******************responsive************************/
+@media (max-width: 768px) {
+    .navbar-brand{margin:auto; display: block;}
+>>>>>>> 9087f28379e335c6895fd360c45af1c0683bda9e
     #content {width: 100%;}
 }
 
