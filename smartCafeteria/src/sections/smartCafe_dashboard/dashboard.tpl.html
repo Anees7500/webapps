@@ -898,29 +898,30 @@
         </ol>
       </nav>
       <div class="container z-depth-1 py-3 px-3   col-md-6 ">
-        <form class="">
+        <!-- <form class=""> -->
 
-          <div class="font-weight-bold" ng-repeat="employeeeInfo in employeeDetails">
+          <div class="font-weight-bold" >
+             
             <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
               <i class="fas fa-edit"></i> Edit</button>
             <br><br>
             <div class="row">
               <div class="col-md-6   ">
                 <label for="exampleForm2">Name</label>
-                <input type="text" class="form-control" ng-disabled="!editEmployeeDetails" ng-model="employee.name"
-                  placeholder="{{employeeeInfo.name }}">
+                <input type="text" class="form-control" ng-disabled="!editEmployeeDetails" ng-model="user.employeeId"
+                 >
               </div>
               <div class="col-md-6   ">
                 <label for="exampleForm2">Employee Id</label>
-                <input type="text" class="form-control " ng-disabled="!editEmployeeDetails" placeholder="{{employeeeInfo.employeeId}}">
+                <input type="text" class="form-control " ng-disabled="!editEmployeeDetails" >
               </div>
               <div class="col-md-6 ">
                 <label for="exampleForm2">Mobile Number</label>
-                <input class="form-control" placeholder="{{employeeeInfo.mobile}}" ng-disabled="!editEmployeeDetails">
+                <input class="form-control"  ng-disabled="!editEmployeeDetails">
               </div>
               <div class="col-md-6 ">
                 <label for="inputIconEx2">Email Id</label>
-                <input type="text" class="form-control " placeholder="{{employeeeInfo.emailId}}" ng-disabled="!editEmployeeDetails">
+                <input type="text" class="form-control " " ng-disabled="!editEmployeeDetails">
               </div>
 
               <label for="inputPassword6" class="ml-3">Change Password</label>
@@ -938,10 +939,10 @@
             </div>
 
             <div class="text-center ">
-              <button type="button" class="btn btn-info " ng-click="makeEmployeeDetailsEditable(employeeDetails)">Submit</button>
+              <button type="button" class="btn btn-info " ng-click="">Submit</button>
             </div>
           </div>
-        </form>
+        <!-- </form> -->
       </div>
     </div>
 

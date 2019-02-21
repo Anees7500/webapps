@@ -105,8 +105,10 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
         console.log("comment 3 ", $scope.newEmp);
       } else {
         Notification.error("User is already added");
+
         console.log("user already added");
       }
+      
 
     };
     // console.log("com details ", $rootScope.companyDetails);

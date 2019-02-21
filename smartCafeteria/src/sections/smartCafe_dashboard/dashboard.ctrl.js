@@ -1,13 +1,28 @@
-empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http', '$location',
-  function ($scope, getVendorMenuList, $http, $location) {
+empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendorMenuList', '$http', '$location', '$cookies',
+ 'Notification', '$route', '$rootScope',
+  function ($scope,DashboardService, getVendorMenuList, $http, $location, $cookies, Notification, $route, $rootScope) {
 
     // ============= Logout ==================================
-    $scope.logout = function(){
-      //Just clear values from scope
-      $scope.username = '';
-      $scope.password = '';
-      $location.path('/');
-  }
+
+    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails));
+    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails.employeeId));
+    
+
+  //   $scope.logout = function(){
+  //     $cookies.remove('eId');
+  //     $cookies.remove('rId');
+  //     $cookies.remove('cId');
+  //     // $scope.username = '';
+  //     // $scope.password = '';
+  //     $location.path('/');
+  // }
+  // if ($cookies.get('eId') == null) {
+  //   Notification.warning("Login required!!!");
+  //   $location.path('/');
+  //   $route.reload();
+  // } 
+  // else {
+  //   $rootScope.employeeDetails.employeeId;
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
@@ -22,6 +37,9 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
       $scope[value] = true;
     }
     $scope.boolFunction("homeBool");
+
+    // ============= Update Employee Details ==================================
+    
 
     $scope.cardInfo = [{ productName: "Brief description", price: "100" },
     { productName: "Brief description", price: "100" },
@@ -133,13 +151,9 @@ $scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", che
 
     }
 
-    //================ Employee Details ============================
+    //================ Setting Employee Details ============================
 
-    $scope.employeeDetails = [{
-      name: "Pallavi Gupta",
-      employeeId: "207997",
-      mobile: "8871128039", emailId: "pallavig033@gmail.com"
-    }];
+    
     // =================== Edit Button ======================
     $scope.makeEmployeeDetailsEditable = function (employeeDetails) {
       $scope.editEmployeeDetails = $scope.favourite ? false : true;
@@ -152,6 +166,6 @@ $scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", che
       $scope.add = $scope.add ? false : true;
     }
 
-   
   }
+  // }
 ]);																
