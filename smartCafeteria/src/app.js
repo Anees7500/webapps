@@ -1,5 +1,5 @@
 var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
-    'ngCookies', 'ui-notification']);
+    'ngCookies', 'ui-notification','ui.tree']);
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
