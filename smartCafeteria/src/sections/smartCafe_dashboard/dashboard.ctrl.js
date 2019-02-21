@@ -39,7 +39,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     $scope.vendorList = [];
 
     /* Cart items  */
-    $scope.cartItems = [];
+    $scope.cartItems = {};
     //==============================================================
     //================ DEFINITION PART END==========================
     //==============================================================
@@ -66,7 +66,6 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
         $scope.menuNode = response.data.data.menus;
       }
       $scope.selectedMenuNode = $scope.menuNode[0].menuNode;
-
       console.log("selected Menu : ", JSON.stringify($scope.selectedMenuNode));
     });
     }
@@ -124,6 +123,71 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
       console.log("selected Menu by functions: ", JSON.stringify($scope.selectedMenuNode));
     }
+
+    $scope.addToCart = function (itemObj) {
+      // console.log("item id  ", JSON.stringify(itemObj));
+      // console.log("check ", $scope.cartItems[itemObj.id]);
+      if ($scope.cartItems[itemObj.id]) {
+        // console.log("item  present");
+        $scope.cartItems[itemObj.id].count = $scope.cartItems[itemObj.id].count + 1;
+      } else {
+        // console.log("item not present");
+        // console.log("adding");
+        $scope.cartItems[itemObj.id] = {
+          obj: itemObj,
+          count: 1
+        };
+      }
+      $scope.cartItems[itemObj.id].addedInCart = true;
+      $scope.cartItems[itemObj.id].amount = getAmount($scope.cartItems[itemObj.id]);
+      $scope.cartItems.totalAmount = getTotalAmount();
+      console.log("cart items : ", JSON.stringify($scope.cartItems));
+    };
+
+
+    $scope.addCount = function (val) {
+      console.log("val passed : ", JSON.stringify(val));
+      $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count + 1;
+      $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+      $scope.cartItems.totalAmount = getTotalAmount();
+      console.log(" cart itmes : ", JSON.stringify($scope.cartItems));
+    }
+
+    $scope.reduceCount = function (val) {
+      if ($scope.cartItems[val.obj.id].count > 0) {
+        $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count - 1;
+        $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+        $scope.cartItems.totalAmount = getTotalAmount();
+
+        console.log(" cart itmes : ", JSON.stringify($scope.cartItems));
+      }
+    }
+
+    var getAmount = function(obj)
+    {
+      return (obj.count * obj.obj.price);
+    }
+
+    var getTotalAmount = function()
+    {
+      var amt = 0;
+      angular.forEach($scope.cartItems, function(val, key){
+        if(val.amount != null)
+        {
+          amt = amt + val.amount;
+        }
+      });
+      return amt;
+    }
+
+    $scope.getCartItemSize = function()
+    {
+      console.log("get size hshsh");
+      var len = Object.keys($scope.cartItems).length -1;
+      return len == -1 ? 0 : len;
+    }
+    
+
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
