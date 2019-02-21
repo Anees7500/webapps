@@ -33,31 +33,46 @@
               </ul>
               <form class="px-4 py-3">
                 <div class="form-group">
-                  <div class="list-group">
-                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-2 h6">You Have New Order</h5>
-                          <small>2 mins ago</small>
-                      </div>
-                      <p class="mb-2 text-muted font-weight-bold">Item: 1 Biryani, 1 chicken Fry</p>
-                      <small>Order has been confirmed from vendors</small>
-                    </a>
+                  <div class="scrollbar scrollbar-primary bg-white">
+                    <div class="force-overflow">
 
-                    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-2 h6">Your order has been placed</h6>
-                        <small class="text-muted">10 mins ago</small>
+                      <div class="list-group">
+                        <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-2 h6">You Have New Order</h5>
+                              <small>2 mins ago</small>
+                          </div>
+                          <p class="mb-2 text-muted font-weight-bold">Item: 1 Biryani, 1 chicken Fry</p>
+                          <small>Order has been confirmed from vendors</small>
+                        </a>
+
+                        <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-2 h6">Your order has been placed</h6>
+                            <small class="text-muted">10 mins ago</small>
+                          </div>
+                          <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
+                          <small>Enjoy your food</small>
+                        </a>
+                        <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                          <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-2 h6">Your order has been placed</h6>
+                            <small class="text-muted">10 mins ago</small>
+                          </div>
+                          <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
+                          <small>Enjoy your food</small>
+                        </a>
+
                       </div>
-                      <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
-                      <small>Enjoy your food</small>
-                    </a>
+                    </div>
+
                   </div>
                 </div>
+
               </form>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item text-right font-weight-bold text-danger" href="">See more..</a>
 
             </div>
+
           </div>
         </li>
 
@@ -78,8 +93,6 @@
 
 
             <div class="dropdown-menu dropdown-primary">
-              <!-- <a class="dropdown-item" ng-click="boolFunction('homeBool')" href="">
-                <i class="fas fa-home"></i> <span class="font-weight-normal"> home</span></a> -->
               <a class="dropdown-item" ng-click="boolFunction('myOdersBool')" href="">
                 <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal"> My orders</span></a>
 
@@ -91,6 +104,9 @@
 
               <a class="dropdown-item" ng-click="boolFunction('termsAndPolicyBool')" href="">
                 <i class="fas fa-file-contract"></i> <span class="font-weight-normal"> Terms and Policy</span></a>
+
+                <a class="dropdown-item" ng-click="logout()">
+                  <i class="fas fa-sign-out-alt"></i> <span class="font-weight-normal"> Logout</span></a>
             </div>
           </div>
         </li>
@@ -208,9 +224,10 @@
               </div>
               <div class="panel-body">
                 <!-- start side list group to show food items -->
-                <div class="list-group" id="list-tab" role="tablist">
-                  <!-- <a class="list-group-item list-group-item-action info-color active" data-remote="true" href="" id="list-recommened-list"
-                    data-target="#list-recommened" role="tab" aria-controls="recommened">Recommened</a> -->
+
+                <div class="list-group" id="list-tab" role="tablist"> 
+                  <a class="list-group-item list-group-item-action info-color active" data-remote="true" href="" id="list-recommened-list"
+                    data-target="#list-recommened" role="tab" aria-controls="recommened">Recommened</a> 
 
 
                   <a class="list-group-item " data-remote="true" href="" data-toggle="collapse"
@@ -222,29 +239,26 @@
                        role="tab" aria-controls="veg"><span class="ml-5" ng-repeat="m in menu.menuNode" ng-if="!m.isFoodItem"
                        ng-click="selectNodeToDisplay(m.menuNode)" >{{m.menuName}}</span></a>
                   </div>
+
                 </div>
                 <!-- end side list group to show food items -->
               </div>
             </div>
           </div>
           <div class="col-md-7">
+
          
             <div class="tab-content" id="nav-tabContent">
-                 <!-- RECOMMENDED content  -->
+
               <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                <!-- <h4 class="ml-2 font-weight-normal font-small">RECOMMENDED</h4> -->
+
 
                 <script type="text/ng-template" id="nodes_renderer.html">
                   <div>
                     <br>
-                    <!-- <a class="btn btn-clear btn-xs"  ng-if="node.menuNode.length>0" ng-click="expandNode(this,$event)">
-                      <i class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></i>
-                    </a> -->
                       <div class='form-group' ng-if="!node.isFoodItem">
                           <input class='form-control' ng-disabled="node.isInserted" ng-model='node.menuName' focus>
                       </div>
-                      <!-- hahahah {{$parentNodeScope}} -->
-                      <!-- <div ng-if="$parentNodeScope"> -->
                           <div ng-if="node.isFoodItem">
                               <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                   <ul class="list-group list-group-flush">
@@ -263,12 +277,8 @@
                                     </ul>
                                </div>
                           </div>
-                      </div>
-                  <!-- </div> -->
-                  <ul ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: collapsed,displayed:!collapsed}">
-                      <li ng-repeat="node in node.menuNode" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
-                      </li>
-                  </ul>
+                        </div>
+
               </script>
 
               <div ui-tree>
@@ -279,67 +289,55 @@
 
                 <div class="border" id="scroll-content">
                 </div>
-              </div>
+              </div> 
                  <!-- end RECOMMENDED content  -->
+            <!-- </div> -->
+
+
+              <!-- brekfast content start for non-veg category -->
+              <div class="tab-pane fade" id="list-nonVeg" role="tabpanel" aria-labelledby="list-profile-list">
+                Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad
+                laborum.
+              </div>
+
             </div>
 
           </div>
+
+          
+      
     
 
           <!--====================ORDER SUMMARY section start==========-->
           <div class="col-md-3 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3 card-header info-color mt-4">
+            <h4 class="d-flex justify-content-between align-items-center card-header info-color mt-4">
               <span class="text-white">Your cart</span>
               <span class="badge badge-secondary badge-pill">3</span>
             </h4>
-            <ul class="list-group mb-3">
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0 text-dark font-weight-normal">Poori Chole</h6>
-                  <small class="text-muted">Fancy Vendor</small>
-                </div>
-                <span>
-                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="checkList in checkoutList">
+                  <div class="d-flex flex-row justify-content-between" id="checkout-height">
+                    <div class="p-2">
+                      <h6 class="my-0 text-dark font-weight-normal" ng-model="checkList.checkItem">{{checkList.checkItem}}</h6>
+                      <small class="text-muted">{{checkList.checkVendor}}</small>
+                    </div>
+                    <div class="p-3 justify-content-between">
+                      <div class="def-number-input number-input">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                      </div>
+                    </div>
+                    <div class="p-3">
+                      <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{checkList.checkPrice}}</span></p>
+                    </div>
                   </div>
-                </span>
-                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
-                  <small class="text-muted">Classic Vendor</small>
-                </div>
-                <span>
-                  <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
-                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                  </div>
-                </span>
-                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
-                  <small class="text-muted">South Vendor </small>
-                </div>
-                <span>
-                  <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
-                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
-                  </div>
-                </span>
-                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                <strong><i class="fas fa-rupee-sign"></i>48</strong>
-              </li>
-            </ul>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                  <strong><i class="fas fa-rupee-sign"></i>100</strong>
+                </li>
+              </ul>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </div>
         </div>
@@ -347,10 +345,11 @@
 
 
 
-
+      </div>
       </div>
 
     </div>
+</div>
     <!---------=============================End Home=============================-->
     <!---------=====================My orders==============================-->
 
@@ -620,52 +619,29 @@
               <span class="text-white">Your cart</span>
               <span class="badge badge-secondary badge-pill">3</span>
             </h4>
-            <ul class="list-group mb-3">
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0 text-dark font-weight-normal">Poori Chole</h6>
-                  <small class="text-muted">Fancy Vendor</small>
-                </div>
-                <span>
-                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="checkList in checkoutList">
+                <div class="d-flex flex-row justify-content-between text-left" id="checkout-height">
+                  <div class="p-2">
+                    <h6 class="my-0 text-dark font-weight-normal" ng-model="checkList.checkItem">{{checkList.checkItem}}</h6>
+                    <small class="text-muted">{{checkList.checkVendor}}</small>
                   </div>
-                </span>
-                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0 text-dark font-weight-normal">Sandwich</h6>
-                  <small class="text-muted">Classic Vendor</small>
-                </div>
-                <span>
-                  <div class="qty  border  rounded-pill border-info  text-center d-inline-block mr-1 mt-1">
-                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  <div class="p-3">
+                    <div class="def-number-input number-input">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                      <input class="quantity" min="0" name="quantity" value="1" type="number">
+                      <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                    </div>
                   </div>
-                </span>
-                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0 text-dark font-weight-normal">Dhosa</h6>
-                  <small class="text-muted">South Vendor </small>
-                </div>
-                <span>
-                  <div class="qty  border rounded-pill border-info   text-center d-inline-block mr-1">
-                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill">-</span>
-                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1">
-                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill">+</span>
+                  <div class="p-3">
+                    <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{checkList.checkPrice}}</span></p>
                   </div>
-                </span>
-                <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
+                </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                <strong><i class="fas fa-rupee-sign"></i>48</strong>
+                <strong><i class="fas fa-rupee-sign"></i>100</strong>
               </li>
             </ul>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
@@ -718,65 +694,8 @@
             </div>
           </div>
         </div>
-
-        <!-- <form class="z-depth-1-half py-3 px-3 mt-3">
-
-          <div class=" row   ">
-
-            <div class="col-md-6 font-weight-bold">Transaction ID: 7326619325</div>
-            <div class=" col-md-6  font-weight-bold">Total payment <i class="fas fa-rupee-sign "></i> 12</div> -->
-
-        <!-- <hr class="font-weight-bold border-dark"> -->
-
-        <!-- <div class="custom-control custom-radio font-weight-bold col-md-12 ml-3 mt-4">
-              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
-              <label class="custom-control-label" for="credit">Credit card</label>
-            </div>
-            <div class="custom-control custom-radio font-weight-bold col-md-12 ml-3 mt-4">
-              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-              <label class="custom-control-label" for="debit">Debit card</label>
-            </div>
-            <div class="col-md-6 mb-3 mt-4">
-              <label for="cc-name" class="font-weight-normal">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback ">
-                Name on card is required
-              </div>
-            </div>
-            <div class="col-md-6 mb-3 mt-4">
-              <label for="cc-number" class="font-weight-normal">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" ng-model="user.info" placeholder="" required>
-              <div class="invalid-feedback">
-                Credit card number is required
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-6 font-weight-normal">
-              <label for="cc-expiration">Expiration</label>
-              <input type="text" class="form-control" ng-model="user.expiration" id="cc-expiration" placeholder=""
-                required>
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-            <div class="col-md-6 mb-3 font-weight-normal">
-              <label for="cc-expiration">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-          </div>
-          <div class="float-right  ">
-            <button class="btn btn-primary btn-md btn-block" type="submit">Continue to checkout</button>
-          </div>
-        </form>
-        <form class="info-color py-3 px-3 ">
-          <h4>pallavi</h4>
-        </form> -->
       </div>
-      <span class="year">2018</span>
+
 
     </div>
 
@@ -844,9 +763,28 @@
                   </span>
                   <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
                 </li>
+              <ul class="list-group">
+                <li class="list-group-item" ng-repeat="checkList in checkoutList">
+                  <div class="d-flex flex-row justify-content-between" id="checkout-height">
+                    <div class="p-2">
+                      <h6 class="my-0 text-dark font-weight-normal" ng-model="checkList.checkItem">{{checkList.checkItem}}</h6>
+                      <small class="text-muted">{{checkList.checkVendor}}</small>
+                    </div>
+                    <div class="p-3 justify-content-between">
+                      <div class="def-number-input number-input">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                      </div>
+                    </div>
+                    <div class="p-3">
+                      <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{checkList.checkPrice}}</span></p>
+                    </div>
+                  </div>
+                </li>
                 <li class="list-group-item d-flex justify-content-between">
                   <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                  <strong><i class="fas fa-rupee-sign"></i>48</strong>
+                  <strong><i class="fas fa-rupee-sign"></i>100</strong>
                 </li>
               </ul>
               <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
@@ -933,17 +871,8 @@
 
   </div>
 
-  <!-- Footer -->
-<!-- <footer class="page-footer font-small black fixed bottom"> -->
 
-    <!-- Copyright -->
-    <!-- <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href=""> SmartCafeteria</a>
-    </div> -->
-    <!-- Copyright -->
-  
-  <!-- </footer> -->
-  <!-- Footer -->
+
 </div>
 
 
