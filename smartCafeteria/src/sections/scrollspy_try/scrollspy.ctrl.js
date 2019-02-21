@@ -1,4 +1,4 @@
-empApp.controller('empScrollspyController', ['$scope',
+empApp.controller('EmpScrollspyController', ['$scope',
   function($scope) {
     $scope.addToCartReverse = function()
     {

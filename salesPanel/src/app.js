@@ -14,5 +14,9 @@ salesApp.config(['$routeProvider', '$locationProvider',
             templateUrl: 'sections/team_sales/sales.tpl.html',
             controller:'TeamController'
         })
+        .when('/test', {
+            templateUrl: 'sections/test/test.html',           
+            controller: 'testController'
+        })
 }
 ]);

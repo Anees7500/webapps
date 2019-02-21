@@ -23,15 +23,15 @@
     <link href="bower_components/font-awesome/css/fontawesome.css" rel="stylesheet" />
     <link href="bower_components/font-awesome/css/regular.css" rel="stylesheet" />
     <link href="bower_components/font-awesome/css/solid.css" rel="stylesheet" />
-    <link rel="stylesheet" href="bower_components/MDBootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="sections/sales_dashboard/dashboard.css">
-    
-   
+    <link href="bower_components/MDBootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="sections/sales_dashboard/dashboard.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" rel="stylesheet">
+
+
 </head>
 
 <body ng-app="salesApp" class=" app sidebar-mini rtl" style="background-color:whitesmoke">
-        <!-- <body ng-app="salesApp" class="grey lighten-4 app sidebar-mini rtl"> -->
     <section id="main">
         <div>
             <ng-view></ng-view>
@@ -48,22 +48,29 @@
     <script src="bower_components/datatables.net/js/jquery.dataTables.js"></script>
     <script src="bower_components/datatables.net-buttons/js/dataTables.buttons.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6-D4VbOvU42m61RtXKBinxf_bZGPU8zk&libraries=places"></script>
-    
-   
-    
-    
+    <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
 
-    
-   
+
+
+
+
+
+
     <script src="bower_components/MDBootstrap/js/popper.min.js"></script>
     <script src="bower_components/MDBootstrap/js/bootstrap.min.js"></script>
     <script src="bower_components/MDBootstrap/js/mdb.min.js"></script>
 
 
-    
+
     <script src="app.js"></script>
     <script src="config.js"></script>
     <script src="sections/sales_dashboard/dashboard.ctrl.js"></script>
     <script src="sections/sales_dashboard/dashboard.js"></script>
+    <script src="sections/test/test.ctrl.js"></script>
+
+    <!-------------------------------Export json data to excel--------------------------------> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
 </body>
+
 </html>

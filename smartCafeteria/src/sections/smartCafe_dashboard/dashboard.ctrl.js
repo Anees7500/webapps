@@ -1,6 +1,106 @@
 empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http',
-  function ($scope, getVendorMenuList, $http) {
+'getVendorList',
+  function ($scope, getVendorMenuList, $http, getVendorList) {
 
+    var companyId = 1;
+
+    $scope.try = function () {
+      console.log("hahahaah ");
+    }
+
+    //==============================================================
+    //================ DEFINITION PART START========================
+    //==============================================================
+    
+    /* vendor List */
+    $scope.vendorList = [];
+
+    /* Cart items  */
+    $scope.cartItems = [];
+    //==============================================================
+    //================ DEFINITION PART END==========================
+    //==============================================================
+
+    //==============================================================
+    //================ GET DATA FROM DB PART START==================
+    //==============================================================
+
+    /* Vendor List */
+    var vendorListUrl = getVendorList + companyId;
+    $http.get(vendorListUrl).then(function (response) {
+      $scope.vendorList = response.data.data.details;
+      $scope.selectedVendor = $scope.vendorList[0];
+      getMenus();
+      // console.log("selected vendor : ", JSON.stringify($scope.selectedVendor));
+    });
+
+    var getMenus = function()
+    {
+      var menuListUrl = getVendorMenuList + "?vendorId=" + $scope.selectedVendor.vendorId + "&companyId="+companyId+"&dayName=Monday";   
+      $http.get(menuListUrl).then(function (response) {
+      if(response.data.data != null)
+      {
+        $scope.menuNode = response.data.data.menus;
+      }
+      $scope.selectedMenuNode = $scope.menuNode[0].menuNode;
+
+      console.log("selected Menu : ", JSON.stringify($scope.selectedMenuNode));
+    });
+    }
+    
+    //==============================================================
+    //================ GET DATA FROM DB PART END====================
+    //==============================================================
+
+
+    // ===================functions=================================
+    
+    $scope.selectVendor = function(obj)
+    {
+      $scope.selectedVendor = obj;
+      getMenus();
+    }
+
+    $scope.makeFavouritNReverse = function (obj) {
+      obj.favourite = obj.favourite ? false : true;
+    }
+
+    $scope.checkForSubMenu = function(arr)
+    {
+      var resp = false;
+      angular.forEach(arr, function(e){
+        if(!e.isFoodItem)
+        {
+          console.log("name : ",e.menuName);
+          resp = true;
+        }
+      });
+      console.log("resp : ",resp);
+      return resp;
+    }
+
+    $scope.toggleSubMenu = function(obj)
+    {
+      obj.toggle = obj.toggle ? false : true;
+    }
+
+    $scope.selectNodeToDisplay = function(arr, obj, isChildNode)
+    {
+      debugger;
+      console.log("selected Menu by functions passed obj: ", JSON.stringify(arr));
+      if(isChildNode === 1)
+      {
+        if($scope.checkForSubMenu(arr))
+        {
+          $scope.toggleSubMenu(obj);
+          return;
+        }
+      }
+      
+      $scope.selectedMenuNode = arr;
+
+      console.log("selected Menu by functions: ", JSON.stringify($scope.selectedMenuNode));
+    }
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
@@ -44,22 +144,20 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
     ]
     //================ Favourite itme list ================
     $scope.addItemInfavouritList = function (item, ind) {
-      if($scope.favouritItemList == null)
-      {
+      if ($scope.favouritItemList == null) {
         $scope.favouritItemList = [];
       }
-      
-      if(item.favorited)
-      {
+
+      if (item.favorited) {
         item.favorited = false;
-        $scope.favouritItemList.slice(ind,1);
+        $scope.favouritItemList.slice(ind, 1);
       }
-      else{
+      else {
         item.favorited = true;
         $scope.favouritItemList.push(item);
       }
     }
-  
+
     // $scope.favouritItemList = [
     //   { vendorName: "Corner House Ice Cream ", itemName: "Chicken Wings", rating: "4.5" },
     //   { vendorName: "Corner House Ice Cream ", itemName: "Jalapeno Cheese Bites", rating: "4.5" },
@@ -69,20 +167,21 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
     //   { vendorName: "Pulp Juice Bar", itemName: "Mosambi Juice", rating: "1.1" }
 
     // ]
-    $scope.vendorList=[{vendorName: "Fancy Vendor", cuisineName: "North Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.5" },
-{vendorName: "Modern Vendor", cuisineName: "South Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.6" },
-{vendorName: "Classic Vendor", cuisineName: "West Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.7" },
-{vendorName: "Moderate Vendor", cuisineName: "East Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.1" },
-{vendorName: "Pure-Veg Vendor", cuisineName: "North-East Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.6" },
-{vendorName: "Fancy Vendor", cuisineName: "North-West Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.8" },
-{vendorName: "Classic Vendor", cuisineName: "Italian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.9" },
-{vendorName: "Modern Vendor", cuisineName: "Japaniese", foodItems: "Veg, Non-Veg, Chainese", rating: "4." }
-]
+    // $scope.vendorList = [{ vendorName: "Fancy Vendor", cuisineName: "North Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.5" },
+    // { vendorName: "Modern Vendor", cuisineName: "South Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.6" },
+    // { vendorName: "Classic Vendor", cuisineName: "West Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.7" },
+    // { vendorName: "Moderate Vendor", cuisineName: "East Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.1" },
+    // { vendorName: "Pure-Veg Vendor", cuisineName: "North-East Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.6" },
+    // { vendorName: "Fancy Vendor", cuisineName: "North-West Indian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.8" },
+    // { vendorName: "Classic Vendor", cuisineName: "Italian", foodItems: "Veg, Non-Veg, Chainese", rating: "4.9" },
+    // { vendorName: "Modern Vendor", cuisineName: "Japaniese", foodItems: "Veg, Non-Veg, Chainese", rating: "4." }
+    // ]
     $scope.removeFavouritItem = function (item, ind) {
       console.log("hello inside delete function");
       $scope.favouritItemList.splice(ind, 1);
 
     };
+
 
 //itemlistSandiwh
 $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
@@ -91,10 +190,6 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 {itemName: "Chessy Veg Sandwich", Price: "60"},
 {itemName: "Chocolate Sandwich", Price: "70"}];
 
-//itemlistforCheckout
-$scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", checkPrice: "20"},
-{checkItem: "Namak Para", checkVendor: "Classic Vendor", checkPrice: "30"},
-{checkItem: "Masala Dhosa", checkVendor: "Pure-South Vendor", checkPrice: "50"}];
 
     //================ Ratingfeedback ============================
     var maxRating = 5;
@@ -138,13 +233,11 @@ $scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", che
       $scope.editEmployeeDetails = $scope.favourite ? false : true;
     }
     //======================= Favourit Button =======================
-    $scope.makeFavouritNReverse = function () {
-      $scope.favourite = $scope.favourite ? false : true;
-    }
+    
     $scope.addToCartReverse = function () {
       $scope.add = $scope.add ? false : true;
     }
 
-   
+
   }
 ]);																

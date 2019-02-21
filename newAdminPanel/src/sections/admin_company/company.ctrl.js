@@ -805,25 +805,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $timeout(function () { location.href = exportHref; }, 500); // trigger download
     }
 
-<<<<<<< HEAD
-=======
-    //======================  Pdf ==================================================
-    $scope.exportToPdf = function () {
-      html2canvas(document.getElementById('invoice'), {
-        onrendered: function (canvas) {
-          var data = canvas.toDataURL();
-          var docDefinition = {
-            content: [{
-              image: data,
-              width: 550,
-
-            }]
-          };
-          pdfMake.createPdf(docDefinition).download("invoice.pdf");
-        }
-      });
-    }
->>>>>>> bfbd431aed8eb5ff9c80ac47444b7a881a2d9b22
 
     // =========================================Convert html content to Pdf====================================
       $scope.exportToPdf = function(){      
@@ -864,6 +845,67 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.itemInvoice = ["brkfstCheck", "2", "100", "200"];
 
 
+    // =====================================Export json data to excelsheet=========================
 
+      $http.get("http://fancymonk.com:9125/api/admin/company-invoice/generate?companyId=1&month=february&year=2019")
+      .then(function(response) {   
+
+        $scope.myWelcome = response.data.data;
+        console.log("my excel data of Fancymonk",$scope.myWelcome);
+
+        $scope.InvoicesData =  response.data.data.invoiceXlsx; 
+        $scope.newArray = $scope.InvoicesData.slice(0,5);    
+        console.log("my excel data of Invoices", $scope.newArray);
+
+      },function(reason){
+        console.log("Error : ",reason);
+
+      });
+
+    // https://docs.telerik.com/kendo-ui/framework/excel/introduction
+
+      $scope.exportJsonDataToExcel = function(){
+    
+        var workbook = new kendo.ooxml.Workbook({
+          sheets: [
+            {
+              // Column settings (width)
+              columns: [
+                { autoWidth: true },
+                { autoWidth: true }
+              ],
+              // Title of the sheet
+              title: "Customers",
+              // Rows of the sheet
+              rows: [
+                // First row (header)
+                {
+                  cells: [
+                    // First cell
+                    { value: "Date" },
+                    // Second cell
+                    { value: "Day" }
+                  ]
+                },             
+                {
+                  cells: [
+                    // First cell
+                    { value: $scope.newArray[0].date },
+                    // Second cell
+                    { value: $scope.newArray[0].day }
+                  ] 
+                }
+              ]
+            }
+          ]
+        });
+        kendo.saveAs({
+            dataURI: workbook.toDataURL(),
+            fileName: "Test.xlsx"
+        });
+      }
+    // ==============================================================================================
+  
   }
+  // =============================Company controller ends=============================================
 ]);

@@ -1,26 +1,23 @@
-var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config']);
+var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
+    'ngCookies', 'ui-notification','ui.tree']);
 empApp.config(['$routeProvider', function ($routeProvider) {
-    // $locationProvider.html5Mode({
-    //     enabled: true,
-    //     requireBase: false
-    // });
     $routeProvider
         .when('/', {
             templateUrl: 'sections/emp_login/emp.tpl.html',
-            controller: 'empLoginController'
+            controller: 'EmpLoginController'
         })
 
 
         .when('/registration', {
             templateUrl: 'sections/emp_registration/empRegistration.tpl.html',
             title: 'Header-part',
-            controller: 'empRegistrationController'
+            controller: 'EmpRegistrationController'
         })
 
         .when('/scrollspy', {
             templateUrl: 'sections/scrollspy_try/scrollspy.tpl.html',
             title: 'Header-part',
-            controller: 'empScrollspyController'
+            controller: 'EmpScrollspyController'
         })
 
 
