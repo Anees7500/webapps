@@ -91,6 +91,11 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 {itemName: "Chessy Veg Sandwich", Price: "60"},
 {itemName: "Chocolate Sandwich", Price: "70"}];
 
+//itemlistforCheckout
+$scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", checkPrice: "20"},
+{checkItem: "Namak Para", checkVendor: "Classic Vendor", checkPrice: "30"},
+{checkItem: "Masala Dhosa", checkVendor: "Pure-South Vendor", checkPrice: "50"}];
+
     //================ Ratingfeedback ============================
     var maxRating = 5;
     $scope.stars = [].constructor(maxRating);
