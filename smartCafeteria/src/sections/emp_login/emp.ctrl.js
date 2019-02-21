@@ -1,14 +1,22 @@
-empApp.controller('empLoginController', ['$scope',
-  function($scope) {
-  	$scope.hideDiv = function()
-  	{
-  		$scope.hide = true;
-  	}
+empApp.controller('EmpLoginController', ['$scope', 'EmployeesLoginService', '$rootScope', '$http', '$route',
+    'postEmployeeLogin',
+    function ($scope, EmployeesLoginService, $rootScope, $http, $route, postEmployeeLogin) {
+        // console.log("hello i am isnide login contriller");
+    // =============== LogIn =================================
+        $scope.login = function (user) {
+           
+            user.companyId = 1;
+            EmployeesLoginService.login(user, postEmployeeLogin);
+        }
+    
 
-  	$scope.forgotPassword = function()
-  	{
-  		$scope.hide = false;
-  	}
-  
-  }
-]);
+        $scope.hideDiv = function () {
+            $scope.hide = true;
+        }
+    // =============== Forgot Password =========================
+        $scope.forgotPassword = function () {
+            $scope.hide = false;
+        }
+
+    }
+]); 

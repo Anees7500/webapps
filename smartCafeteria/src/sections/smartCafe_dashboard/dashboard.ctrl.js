@@ -1,6 +1,13 @@
-empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http',
-  function ($scope, getVendorMenuList, $http) {
+empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http', '$location',
+  function ($scope, getVendorMenuList, $http, $location) {
 
+    // ============= Logout ==================================
+    $scope.logout = function(){
+      //Just clear values from scope
+      $scope.username = '';
+      $scope.password = '';
+      $location.path('/');
+  }
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);

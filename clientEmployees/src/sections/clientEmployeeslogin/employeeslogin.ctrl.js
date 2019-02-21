@@ -6,7 +6,7 @@ ceApp.controller('LoginController', ['$scope', 'EmployeesLoginService', '$rootSc
             // console.log("check ", JSON.stringify(user));
             user.companyId = 1;
             EmployeesLoginService.login(user, postEmployeeLogin);
-        }
+        } 
         // Login page work************//
 
         $(function () {
