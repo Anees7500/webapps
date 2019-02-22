@@ -1,12 +1,11 @@
 var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
-    'ngCookies', 'ui-notification','ui.tree']);
+    'ngCookies', 'ui-notification']);
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'sections/emp_login/emp.tpl.html',
+            templateUrl: 'sections/emp_login/login.tpl.html',
             controller: 'EmpLoginController'
         })
-
 
         .when('/registration', {
             templateUrl: 'sections/emp_registration/empRegistration.tpl.html',

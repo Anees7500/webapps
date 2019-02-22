@@ -10,7 +10,7 @@ vmApp.factory('AdminLoginService', ['$http', '$cookies', '$rootScope', '$httpPar
             },
             data: $httpParamSerializerJQLike(user)
           }).then(function(response) {
-            console.log('response admin 112', response);
+            console.log('response admin 112', response); 
             if (response.data.status == 1) {
               Notification.success('Welcome You Are In Admin Penal');
               $cookies.put('admin_username', response.data.message);

@@ -1,17 +1,31 @@
-adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServices', 'postCategoryUrl', '$routeParams',
-  'corporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor',
+adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServices', 'postCategoryUrl',
+  '$routeParams',
+  'getCorporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor',
   'getItemCheckListedForVendor', 'Excel', '$timeout', 'getCompanyWorkingDaysUrl', 'getCompanyInvoicingDate',
   'getCompanyAdditionalRequirements', 'getCompanyRequirements', 'getVendorRequirements', 'getMonthlyDetailsUrl',
-  'getMonthsForMonthlyDetailsUrl','getDetailsForInvoicesUrl',
-  function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, corporateReviewsUrl,
+  'getMonthsForMonthlyDetailsUrl', 'getDetailsForInvoicesUrl', 'getCompanyFebMonthInvoicedetails','$cookies',
+   '$location', '$route','Notification',
+  function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, getCorporateReviewsUrl,
     getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor,
     getItemCheckListedForVendor, Excel, $timeout, getCompanyWorkingDaysUrl,
     getCompanyInvoicingDate, getCompanyAdditionalRequirements, getCompanyRequirements,
-    getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl,getDetailsForInvoicesUrl
+    getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl, getDetailsForInvoicesUrl,
+    getCompanyFebMonthInvoicedetails, $cookies, $location, $route,Notification
+    
   ) {
+    // =============== log out ================//
+  //   $scope.logout = function(){
+  //     $cookies.remove('id');    
+  //      $location.path('/');
+  // }
+  // if ($cookies.get('id') == null) {
+  //   Notification.warning("Login required!!!");
+  //   $location.path('/');
+  //   $route.reload();
+  // } 
     // bool Logic start
-    $scope.boolFunction = function (value) {
-      console.log("boolFunction", value); 
+    $scope.boolFunction = function (value) { 
+      console.log("boolFunction", value);
       $scope.configurationBool = false;
       $scope.clientRequirementBool = false;
       $scope.vendorRequirementBool = false;
@@ -64,8 +78,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.invoicingDate = {};
 
     $scope.Mid_of_date = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-    '13', '14', '15', '16', '17', '18', '19', '20', '21', '22',
-    '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+      '13', '14', '15', '16', '17', '18', '19', '20', '21', '22',
+      '23', '24', '25', '26', '27', '28', '29', '30', '31'];
 
     /* Additional Requirements */
     $scope.additionalReqDetails = {
@@ -126,7 +140,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
     /** Requirement Section Start*/
     //==============================================================
-    
+
     /* Client Requirement */
     $scope.clientRequirement = {};
 
@@ -175,7 +189,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
 
 
-    
+
     //==============================================================
     /** Configuration Section Start*/
     //==============================================================
@@ -189,20 +203,20 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     });
 
     /* Working Days */
-     var getCompanyWorkingDaysUrl = getCompanyWorkingDaysUrl + $routeParams.compId;
+    var getCompanyWorkingDaysUrl = getCompanyWorkingDaysUrl + $routeParams.compId;
     //  console.log("working day url : ", getCompanyWorkingDaysUrl);
-     $http.get(getCompanyWorkingDaysUrl).then(function (response) {
-       var tempWorkingDaysArrObj = {};
-       if (response.data.data.workingDays.length == 1) {
-         tempWorkingDaysArrObj = response.data.data.workingDays[0];
-         $scope.workingDaysDbRowId = tempWorkingDaysArrObj.id;
-       }
-       for (var i = 0; i < $scope.workingDays.length; i++) {
-         if (tempWorkingDaysArrObj[$scope.workingDays[i].dbName]) {
-           $scope.workingDays[i].selected = true;
-         }
-       }
-     });
+    $http.get(getCompanyWorkingDaysUrl).then(function (response) {
+      var tempWorkingDaysArrObj = {};
+      if (response.data.data.workingDays.length == 1) {
+        tempWorkingDaysArrObj = response.data.data.workingDays[0];
+        $scope.workingDaysDbRowId = tempWorkingDaysArrObj.id;
+      }
+      for (var i = 0; i < $scope.workingDays.length; i++) {
+        if (tempWorkingDaysArrObj[$scope.workingDays[i].dbName]) {
+          $scope.workingDays[i].selected = true;
+        }
+      }
+    });
 
     /* Invoicing Date */
     var invoicingDateUrl = getCompanyInvoicingDate + $routeParams.compId;
@@ -232,12 +246,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         // console.log("additional req = ", JSON.stringify($scope.additionalReqDetails));
       }
     });
-    
+
     //==============================================================
     /** Configuration Section End*/
     //==============================================================
 
-    
+
     //==============================================================
     /** Requirement Section Start*/
     //==============================================================
@@ -257,16 +271,16 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     });
 
     /* Vendor Requirement */
-     var vendorRequirementsUrl = getVendorRequirements + $routeParams.compId;
-     $http.get(vendorRequirementsUrl).then(function (response) {
-       if (response.data.status == 1) {
-         var reqArr = response.data.data.requirements;
-         angular.forEach(reqArr, function (item) {
-           $scope.vendorRequirement[item.type] = JSON.parse(item.requirement);
-           $scope.vendorRequirement[item.type].companyVendorRequirementDbRowId = item.id;
-         });
-       }
-     });
+    var vendorRequirementsUrl = getVendorRequirements + $routeParams.compId;
+    $http.get(vendorRequirementsUrl).then(function (response) {
+      if (response.data.status == 1) {
+        var reqArr = response.data.data.requirements;
+        angular.forEach(reqArr, function (item) {
+          $scope.vendorRequirement[item.type] = JSON.parse(item.requirement);
+          $scope.vendorRequirement[item.type].companyVendorRequirementDbRowId = item.id;
+        });
+      }
+    });
     //==============================================================
     /** Requirement Section End*/
     //==============================================================
@@ -274,15 +288,15 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
     /** Employee Feedback Start */
     //==============================================================
-     var getFeedbackUrl = corporateReviewsUrl + $routeParams.compId;
-     $http.get(getFeedbackUrl).then(function (response) {
-       $scope.feedback = response.data.data.reviews;
-     });
+    var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
+    $http.get(getFeedbackUrl).then(function (response) {
+      $scope.feedback = response.data.data.reviews;
+    });
     //==============================================================
     /** Employee Feedback End */
     //==============================================================
 
-    
+
     //==============================================================
     /** Monthly Requirement Start */
     //==============================================================
@@ -306,8 +320,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
             angular.forEach($scope.clientMonthlyDetails[key].details, function (i) {
               angular.forEach($scope.clientRequirement, function (v, k) {
 
-                if(i[k] != null)
-                {
+                if (i[k] != null) {
                   // var kSize = Object.keys(i[k].dtls).length;
                   // var cRSize = Object.keys(v[i.day]).length;
                   // if(kSize != cRSize)
@@ -315,7 +328,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
                   // }
                 }
-                else{
+                else {
                   if (v[i.day] != null) {
                     var amountVal = 0;
                     i[k] = {};
@@ -341,7 +354,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
                     i[k].amount = amountVal;
                   }
                 }
-                
+
               });
             });
           });
@@ -350,42 +363,37 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       });
     }
 
-   //==============================================================
-   /** Monthly Requirement End */
-   //==============================================================
-     
+    //==============================================================
+    /** Monthly Requirement End */
+    //==============================================================
 
-   //==============================================================
-   /** Invoices Start */
-   //==============================================================
-   
 
-    $scope.getInvoiceDetails = function()
-    {
-      var detailsForInvoicesUrl = getDetailsForInvoicesUrl+"?companyId="+$routeParams.compId+
-      "&month="+$scope.selectedMonthForInvoice.name+"&year="+$scope.selectedMonthForInvoice.year;
+    //==============================================================
+    /** Invoices Start */
+    //==============================================================
 
-      if($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null)
-      {
-        detailsForInvoicesUrl = detailsForInvoicesUrl+"&startDate="+$scope.selectedMonthForInvoice.startDate+
-          "&endDate="+$scope.selectedMonthForInvoice.endDate;
+
+    $scope.getInvoiceDetails = function () {
+      var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
+        "&month=" + $scope.selectedMonthForInvoice.name + "&year=" + $scope.selectedMonthForInvoice.year;
+
+      if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
+        detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.selectedMonthForInvoice.startDate +
+          "&endDate=" + $scope.selectedMonthForInvoice.endDate;
       }
       $http.get(detailsForInvoicesUrl).then(function (response) {
         $scope.invoiceDetailsObj = response.data.data;
         var temporaryArr = [];
-        angular.forEach($scope.invoiceDetailsObj.invoiceDetails, function(value, key)
-        {
-          angular.forEach(value, function(subValue, subKey){
-            angular.forEach(subValue, function(subSubVal, subSubKey){
+        angular.forEach($scope.invoiceDetailsObj.invoiceDetails, function (value, key) {
+          angular.forEach(value, function (subValue, subKey) {
+            angular.forEach(subValue, function (subSubVal, subSubKey) {
               var obj = {};
               var desName;
-              if(subKey === key)
-              {
+              if (subKey === key) {
                 desName = subKey;
               }
-              else
-              {
-                desName = subKey+"-"+key;
+              else {
+                desName = subKey + "-" + key;
               }
               obj.description = desName;
               obj.quantiy = subSubVal.pax;
@@ -395,41 +403,39 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
               temporaryArr.push(obj);
             });
           });
-          
+
         });
         $scope.invoiceDetailsObj.invoiceDetailsArr = temporaryArr;
 
-        
-        $scope.$watchCollection("invoiceDetailsObj.invoiceDetailsArr", function(newVal, oldVal){
+
+        // $scope.$watchCollection("invoiceDetailsObj.invoiceDetailsArr", function(newVal, oldVal){
 
 
-          var totalSum = 0;
-          angular.forEach($scope.invoiceDetailsObj.invoiceDetailsArr, function(ob){
-          ob.amount = ob.quantity*ob.price;
-          
+        var totalSum = 0;
+        angular.forEach($scope.invoiceDetailsObj.invoiceDetailsArr, function (ob) {
+          ob.amount = ob.quantity * ob.price;
+
           totalSum = totalSum + ob.amount;
 
           $scope.invoiceDetailsObj.totalSum = totalSum;
           $scope.invoiceDetailsObj.cgst = totalSum * 0.09;
           $scope.invoiceDetailsObj.sgst = totalSum * 0.09;
           $scope.invoiceDetailsObj.igst = totalSum * 0.18;
-          if($scope.invoiceDetailsObj.igstApplicable)
-          {
+          if ($scope.invoiceDetailsObj.igstApplicable) {
             $scope.invoiceDetailsObj.totalAmount = $scope.invoiceDetailsObj.totalSum + $scope.invoiceDetailsObj.igst;
           }
-          else
-          {
+          else {
             $scope.invoiceDetailsObj.totalAmount = $scope.invoiceDetailsObj.totalSum + $scope.invoiceDetailsObj.cgst + $scope.invoiceDetailsObj.sgst;
           }
         });
-        }. true);
-        
+        // }. true);
+
       });
     }
 
-   //==============================================================
-   /** Invoices End */
-   //==============================================================
+    //==============================================================
+    /** Invoices End */
+    //==============================================================
 
 
     //==============================================================
@@ -579,7 +585,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.saveClientMonthlyDetails = function (obj) {
       var tempWeekArr = obj.details;
       var newWeekArr = [];
-      angular.forEach(tempWeekArr, function(weekEle){
+      angular.forEach(tempWeekArr, function (weekEle) {
         var weekDetailObj = {};
         weekDetailObj.date = weekEle.date;
         weekDetailObj.day = weekEle.day;
@@ -598,8 +604,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
       AdminCompanyServices.saveClientMonthlyDetails(dbObjToSave).then(function (response) {
         if (response.data.status == 1) {
-          if(obj.dbRowId == null)
-          {
+          if (obj.dbRowId == null) {
             obj.dbRowId = {}
           }
           obj.dbRowId[dbObjToSave.type] = response.data.data.id;
@@ -621,11 +626,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
 
 
-    
+
     //==============================================================
     //================ FUNCTIONS START==============================
     //==============================================================
-    
+
     /* Invoicing Date */
     $scope.selectAll = function () {
       angular.forEach($scope.workingDays, function (item) {
@@ -667,7 +672,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //================ FUNCTIONS END==============================
     //==============================================================
 
-    
+
 
     $scope.exportData = function () {
       $('#feedback').tableExport({ type: 'json', escape: 'false' });
@@ -677,19 +682,19 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $timeout(function () { location.href = exportHref; }, 500); // trigger download
     }
 
-    
-
-    
-
-    
 
 
-    
-
-    
 
 
-   
+
+
+
+
+
+
+
+
+
 
     // ==================== All Vender list==============
     //  var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
@@ -699,9 +704,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     // });
 
     $http.get(getAllVendorListUrl).then(function (response) {
-      // console.log("response.data 555", response.data.data.vendors);
       $scope.allVendorsList = response.data.data.vendors;
-      // console.log("response.data 560", $scope.allVendorsList);
+
     });
 
 
@@ -716,7 +720,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       AdminCompanyServices.saveCheckListIndb(tempOb);
     }
 
-    
+
 
 
     // ==================== Item check list ==============             
@@ -724,7 +728,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $http.get(getItemCheckListForVendor).then(function (response) {
       $scope.itemCheckList = response.data.data.items;
     });
-    // console.log("response form url : ", getItemCheckListedForVendor);
+
     $http.get(getItemCheckListedForVendor + $routeParams.compId).then(function (response) {
       // console.log("response form listed : ", JSON.stringify(response));
       if (response.data.data.items != null) {
@@ -807,26 +811,26 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     // =========================================Convert html content to Pdf====================================
-      $scope.exportToPdf = function(){      
-            var draw = kendo.drawing;             
-                          
-          draw.drawDOM($("#invoice"), {
-              avoidLinks: true,
-              paperSize: "A4",
-              margin: "1cm",
-              scale: 0.5 
-          })
-          .then(function(root) {
-              return draw.exportPDF(root);
-          })
-          .done(function(data) {
-            console.log("value",data);
-              kendo.saveAs({
-                  dataURI: data,
-                  fileName: "invoice.pdf"
-              });
+    $scope.exportToPdf = function () {
+      var draw = kendo.drawing;
+
+      draw.drawDOM($("#invoice"), {
+        avoidLinks: true,
+        paperSize: "A4",
+        margin: "1cm",
+        scale: 0.5
+      })
+        .then(function (root) {
+          return draw.exportPDF(root);
+        })
+        .done(function (data) {
+          console.log("value", data);
+          kendo.saveAs({
+            dataURI: data,
+            fileName: "invoice.pdf"
           });
-      }
+        });
+    }
     // =======================================================================================
     // =========================  vendor Monthly Details ======================================
     $scope.vendorMnthyDts = [{ Date: "1/01/2019", Day: "MONDAY", Pax: '10', Price: '10', Amount: '100' },
@@ -847,65 +851,62 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
     // =====================================Export json data to excelsheet=========================
 
-      $http.get("http://fancymonk.com:9125/api/admin/company-invoice/generate?companyId=1&month=february&year=2019")
-      .then(function(response) {   
+    $http.get(getCompanyFebMonthInvoicedetails).then(function (response) {
 
-        $scope.myWelcome = response.data.data;
-        console.log("my excel data of Fancymonk",$scope.myWelcome);
+      $scope.myWelcome = response.data.data;
+      console.log("my excel data of Fancymonk", $scope.myWelcome);
 
-        $scope.InvoicesData =  response.data.data.invoiceXlsx; 
-        $scope.newArray = $scope.InvoicesData.slice(0,5);    
-        console.log("my excel data of Invoices", $scope.newArray);
+      $scope.InvoicesData = response.data.data.invoiceXlsx;
+      $scope.newArray = $scope.InvoicesData.slice(0, 5);
+      console.log("my excel data of Invoices", $scope.newArray);
 
-      },function(reason){
-        console.log("Error : ",reason);
+    }, function (reason) {
+      console.log("Error : ", reason);
 
+    });
+    // =================== Exprot Excal Data =======================
+    $scope.exportJsonDataToExcel = function () {
+
+      var workbook = new kendo.ooxml.Workbook({
+        sheets: [
+          {
+            // Column settings (width)
+            columns: [
+              { autoWidth: true },
+              { autoWidth: true }
+            ],
+            // Title of the sheet
+            title: "Customers",
+            // Rows of the sheet
+            rows: [
+              // First row (header)
+              {
+                cells: [
+                  // First cell
+                  { value: "Date" },
+                  // Second cell
+                  { value: "Day" }
+                ]
+              },
+              {
+                cells: [
+                  // First cell
+                  { value: $scope.newArray[0].date },
+                  // Second cell
+                  { value: $scope.newArray[0].day }
+                ]
+              }
+            ]
+          }
+        ]
       });
-
-    // https://docs.telerik.com/kendo-ui/framework/excel/introduction
-
-      $scope.exportJsonDataToExcel = function(){
-    
-        var workbook = new kendo.ooxml.Workbook({
-          sheets: [
-            {
-              // Column settings (width)
-              columns: [
-                { autoWidth: true },
-                { autoWidth: true }
-              ],
-              // Title of the sheet
-              title: "Customers",
-              // Rows of the sheet
-              rows: [
-                // First row (header)
-                {
-                  cells: [
-                    // First cell
-                    { value: "Date" },
-                    // Second cell
-                    { value: "Day" }
-                  ]
-                },             
-                {
-                  cells: [
-                    // First cell
-                    { value: $scope.newArray[0].date },
-                    // Second cell
-                    { value: $scope.newArray[0].day }
-                  ] 
-                }
-              ]
-            }
-          ]
-        });
-        kendo.saveAs({
-            dataURI: workbook.toDataURL(),
-            fileName: "Test.xlsx"
-        });
-      }
+      kendo.saveAs({
+        dataURI: workbook.toDataURL(),
+        fileName: "Test.xlsx"
+      });
+    }
     // ==============================================================================================
-  
+
   }
   // =============================Company controller ends=============================================
 ]);

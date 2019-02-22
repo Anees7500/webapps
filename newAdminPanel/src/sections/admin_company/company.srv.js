@@ -1,12 +1,13 @@
-adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike', 
-'$routeParams','postCompanyWorkingDaysUrl', 'postCompanyWorkingDaysUpdateUrl',
-'postCompanyInvoicingDateUrl','postCompanyInvoicingDateUpdateUrl','postCompanyAdditionalRequirementsUrl',
-'postCompanyRequirementsUrl','postVendorRequirementsUrl','postMonthlyDetailsUrl',
-    function ($http, $httpParamSerializerJQLike , $routeParams,
-        postCompanyWorkingDaysUrl, postCompanyWorkingDaysUpdateUrl ,
+adminApp.factory('AdminCompanyServices', ['$http', '$httpParamSerializerJQLike',
+    '$routeParams', 'postCompanyWorkingDaysUrl', 'postCompanyWorkingDaysUpdateUrl',
+    'postCompanyInvoicingDateUrl', 'postCompanyInvoicingDateUpdateUrl', 'postCompanyAdditionalRequirementsUrl',
+    'postCompanyRequirementsUrl', 'postVendorRequirementsUrl', 'postMonthlyDetailsUrl', 
+    '$route', 'Notification', '$location',
+    function ($http, $httpParamSerializerJQLike, $routeParams,
+        postCompanyWorkingDaysUrl, postCompanyWorkingDaysUpdateUrl,
         postCompanyInvoicingDateUrl, postCompanyInvoicingDateUpdateUrl,
-        postCompanyAdditionalRequirementsUrl,postCompanyRequirementsUrl,postVendorRequirementsUrl,
-        postMonthlyDetailsUrl) {
+        postCompanyAdditionalRequirementsUrl, postCompanyRequirementsUrl, postVendorRequirementsUrl,
+        postMonthlyDetailsUrl, $route, Notification,$location) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
                 console.log("I am in srv.js file : ", vendorId, type, companyId);
@@ -18,8 +19,8 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                 var deferred = $q.defer();
                 var respMenuJson = deferred.promise;
 
-                console.log("json made : ", jsonObj); 
-                
+                console.log("json made : ", jsonObj);
+
                 $http({
                     method: 'POST',
                     url: postVendorAssignUrl,
@@ -32,10 +33,10 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                     if (response.data.status == 1) {
                         deferred.resolve(response.data.vendorId);
                         console.log("vendore id testing---->", response.data.vendorId);
-                        // Notification.success('Successfully Vendor Assigned');
-                        // $route.reload();
+                        Notification.success('Successfully Vendor Assigned');
+                        $route.reload();
                     } else {
-                        // console.log('error registering');
+                        console.log('error registering');
                         deferred.reject(null);
                         Notification.error('Could not assigne vendor');
                     }
@@ -43,7 +44,7 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                 return respMenuJson;
             },
             // ______________________Category_______________
-           activeCategory: function (data, postCategoryUrl) {
+            activeCategory: function (data, postCategoryUrl) {
                 console.log("In Services File DATA", data, postCategoryUrl);
                 $http({
                     method: 'POST',
@@ -56,12 +57,12 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                     console.log('response', JSON.stringify(response));
                     //console.log('response', response);
                     if (response.data.status == 1) {
-                        // Notification.success('Successfully Saved !!!');
+                        Notification.success('Successfully Saved  Category!!!');
                         // console.log('Successfully registered breakfast details ');
-                        // $location.path('/admin/company/:id');
+                        // $location.path('/dashboard/company/'+data.companyId);
                     } else {
                         console.log('error registering');
-                        
+
                     }
                 });
             },
@@ -87,12 +88,12 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                     console.log('response', JSON.stringify(response));
                     //console.log('response', response);
                     if (response.data.status == 1) {
-                        // Notification.success('Successfully Saved !!!');
+                        Notification.success('Successfully Saved Working days !!!');
                         // console.log('Successfully registered breakfast details ');
-                        // $location.path('/admin/company/:id');
+                        // $location.path('/dashboard/company/'+data.companyId);
                     } else {
                         console.log('error registering');
-                        
+
                     }
                 });
             },
@@ -118,12 +119,12 @@ adminApp.factory('AdminCompanyServices', ['$http','$httpParamSerializerJQLike',
                     console.log('response', JSON.stringify(response));
                     //console.log('response', response);
                     if (response.data.status == 1) {
-                        // Notification.success('Successfully Saved !!!');
-                        // console.log('Successfully registered breakfast details ');
-                        // $location.path('/admin/company/:id');
+                        Notification.success('Successfully Saved invoicing date !!!');
+                        // console.log('Successfully saved invoicing date  ');
+                        // $location.path('/dashboard/company/'+data.companyId);
                     } else {
                         console.log('error registering');
-                        
+
                     }
                 });
             },
