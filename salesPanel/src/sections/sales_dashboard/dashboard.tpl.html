@@ -251,125 +251,101 @@
         <!---Add leads-->
         <div ng-if="addleadsCompanyBool" class="ml-4">
             <!-- Search form -->
-            <div class="container" ng-app="myApp" ng-controller="newPlaceCtrl">
+            <div class="container" ng-app="myApp" ng-controller="newPlaceCtrl" style="background-color: #e9ecee;padding-top: 10px">
                 <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
                     <b>API Error : </b>
                     <span>{{ apiStatus }}</span>
                 </div>
-                <form name="searchForm " novalidate ng-submit="search()">
+                <form name="searchForm" novalidate ng-submit="search()">
                     <div class="input-group">
-                        <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
+                        <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace" required autofocus />
                         <span class="input-group-btn">
-                            <a class="btn btn-primary mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+                            <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
                         </span>
                     </div>
                 </form>
                 <div id="map"></div>
                 <form name="resForm" class="form-inline" novalidate ng-submit="send()">
+                    
                     <div class="form-group">
-                        <label for="resName" class="col-xs-2 control-label text-center text-info">Name:</label>
-                        <div class="col-xs-10">
-                            <input name="resName" type="text" class="form-control" ng-model="place.name" required />
+                        <label for="resName" class="col-xs-2 control-label text-center text-info font-weight-bold small">Company Name:</label>
+                        <div class="col-xs-10 ml-2">
+                            <input name="resName" type="text" style="width: 116%" class="form-control" ng-model="place.name" required />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="resLat" class="col-xs-2 control-label text-info">Latitude:</label>
-                        <div class="col-xs-10">
-                            <input name="resLat" type="number" class="form-control" ng-model="place.lat" required />
+                    <div class="form-group" style="margin-left: 118px;">
+                        <label for="resLat" class="col-xs-2 control-label text-info font-weight-bold small">Latitude:</label>
+                        <div class="col-xs-10 ml-2">
+                            <input name="resLat" type="number" class="form-control"  style="width: 111%" ng-model="place.lat" required />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="resLng" class="col-xs-2 control-label text-info">Longitude:</label>
-                        <div class="col-xs-10">
-                            <input name="resLng" type="number" class="form-control" ng-model="place.lng" required />
+                    <div class="form-group ml-5">
+                        <label for="resLng" class="col-xs-2 control-label text-info font-weight-bold small">Longitude:</label>
+                        <div class="col-xs-10 ml-2">
+                            <input name="resLng" type="number" class="form-control" style="width: 111%" ng-model="place.lng" required />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-offset-2 col-xs-10">
-                            <button class="btn btn-info" ng-disabled="resForm.$invalid">Confirm</button>
+                    </div>                   
+                    
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 p-0">
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">                                
+                                <legend class="text-info font-weight-bold mask small ">Company Address:</legend>
+                                <input class="form-control text-capitalize"  style="width: 100%;" type="text" placeholder="enter company address" aria-label="Search" ng-model="place.address" required>
+                            </div>
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
+                                <legend class="text-info font-weight-bold mask small">Contact person Name:</legend>
+                                <input class="form-control "  style="width: 100%;" type="text" placeholder="enter contact person" aria-label="Search">
+                             </div>
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">                                
+                                <legend class="text-info font-weight-bold mask small">Email Id:</legend>
+                                <input class="form-control "  style="width: 100%;" type="email" placeholder="enter email id" aria-label="Search">
+                            </div>
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">                                
+                                <h5 class="text-info md">Estimated Lead Value:</h5>
+                                <!-- <div class="slidecontainer">
+                                    <input type="range" min="1" max="100" value="0" class="slider" id="myRange" name="myRange"
+                                        data-show-value="true">
+                                    <p for="myRange">Value: <span id="demo"></span></p>
+                                </div> -->
+                                <form name="myForm">
+                                    Select range: <input type="range" name="range" ng-model="value">
+                                    <br>
+                                    Price: <input type="number" ng-model="value" style="width: 20%"><br>                                     
+                                  </form>
+                            </div>
+                            <div class="phone-list active-pink-3 active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12">
+                                <div class="input-group">
+                                    <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
+                                    <input type="text" name="phone[1][number]" class="form-control mt-2"
+                                        placeholder="enter your mobile no" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mr-5 ml-2 mt-2">
+                                <!-- Image upload  -->
+                                <div class="file-upload w-100 m-auto p-4 bg-light mr-auto mt-3">
+                                    <button class="file-upload-btn w-100 m-auto border-0 p-2 rounded mb-0  btn-info white-color" type="button">Add Image</button>
+                                    <div class="image-upload-wrap">
+                                        <input class="file-upload-input" type='file' accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Image upload  -->
+                            </div>
                         </div>
                     </div>
                 </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <center><button class="col-md-3 btn btn-info" >Submit</button></center>
+                    </div>
+                </div>
             </div> <br><br>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                        <fieldset>
-                            <legend class="text-info font-weight-bold mask small ">Company Name:</legend>
-                            <input class="form-control text-capitalize font-weight-bold" type="text" placeholder="enter company name"
-                                aria-label="Search">
-                        </fieldset>
-                    </div>
-                    <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                        <fieldset>
-                            <legend class="text-info font-weight-bold mask small ">Contact person Name:</legend>
-                            <input class="form-control font-weight-bold" type="text" placeholder="enter contact person"
-                                aria-label="Search">
-                        </fieldset>
-                    </div>
-                    <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                        <fieldset>
-                            <legend class="text-info font-weight-bold mask small">Email Id:</legend>
-                            <input class="form-control font-weight-bold" type="email" placeholder="Enter email id"
-                                aria-label="Search">
-                        </fieldset>
-                    </div>
-                    <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                        <!-- <div id="accordion" role="tablist" aria-multiselectable="true">
-
-                            <div class="card-header" role="tab" id="headingOne">
-                                <h5 class="mb-0">
-                                    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        A Estimated lead value
-                                    </a>
-                                </h5>
-                            </div>
-                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="card-block">
-                                    <p class="text-center"><textarea class="w-100" rows="6">1</textarea>
-                                    </p>
-                                </div>
-                            </div>
-                        </div> -->
-                        <h5 class="text-info md"> A Estimated lead:</h5>
-                        <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="0" class="slider" id="myRange" name="myRange"
-                                data-show-value="true">
-                            <p for="myRange">Value: <span id="demo"></span></p>
-                        </div>
-                    </div>
-                    <div class="phone-list active-pink-3 active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12">
-                        <div class="input-group">
-                            <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                    aria-expanded="false"><span class="type-text">Type</span> <span class="caret"></span></button>
-                            </span>
-                            <input type="hidden" name="phone[1][type]" class="type-input mt-2 font-weight-bold" value="" />
-                            <input type="text" name="phone[1][number]" class="form-control mt-2 font-weight-bold"
-                                placeholder="+1 (999) 999 9999" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row mr-5 ml-2 mt-2">
-                        <!-- Image upload  -->
-                        <div class="file-upload w-100 m-auto p-4 bg-light mr-auto mt-3">
-                            <button class="file-upload-btn w-100 m-auto border-0 p-2 rounded mb-0  btn-info white-color"
-                                type="button">Add
-                                Image</button>
-                            <div class="image-upload-wrap">
-                                <input class="file-upload-input" type='file' accept="image/*" />
-                                <div class="drag-text">
-                                    <h3>Drag and drop a file or select add Image</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Image upload  -->
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <!---Add leads end-->
         <!---All Team--->

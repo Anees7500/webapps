@@ -109,6 +109,11 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       console.log("value  of list",$scope.newList);
     }
 
+    $scope.value = 30;
+    $scope.min = 0;
+    $scope.max = 100;
+
+
   }
 
 ]);
