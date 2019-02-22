@@ -1,4 +1,5 @@
-var adminApp = angular.module("adminApp", ['ngRoute', 'adminApp.config', 'ui-notification']);
+var adminApp = angular.module("adminApp", ['ngRoute', 'adminApp.config', 'ui-notification',
+                                            'ngCookies']);
 
 adminApp.config(['$routeProvider', '$locationProvider',
     function ($routerProvider, $locationProvider) {
