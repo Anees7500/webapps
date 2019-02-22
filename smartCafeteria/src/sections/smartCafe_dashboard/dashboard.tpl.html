@@ -709,42 +709,6 @@
 
   </div>
 
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <div class="z-depth-1">
-          <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
-            <span class="text-white">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed" ng-repeat="(keyCart, valueCart) in cartItems" ng-if="keyCart != 'totalAmount'">
-              <div>
-                <h6 class="my-0 text-dark font-weight-normal">{{valueCart.obj.menuName}}</h6>
-                <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
-              </div>
-              <span>
-                <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                  <span class="minus info-color  d-inline-block text-white text-center  rounded-pill"
-                   ng-click="reduceCount(cartItems[keyCart])">-</span>
-                  <input type="number" class="count text-center text-dark font-weight-bold" name="qty" value="1" ng-model="cartItems[keyCart].count">
-                  <span class="plus info-color d-inline-block text-white text-center  rounded-pill"
-                  ng-click="addCount(cartItems[keyCart])">+</span>
-                </div>
-              </span>
-              <span class="text-muted"><i class="fas fa-rupee-sign"></i>12</span>
-            </li>
-            </ul>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-  </div>
   <!---------====================================== End Card=====================================-->
 
   <!---------======================================Settings=====================================-->
