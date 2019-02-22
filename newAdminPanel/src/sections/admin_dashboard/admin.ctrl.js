@@ -1,9 +1,18 @@
 adminApp.controller('DashboardController', ['$scope', '$http', 'CompanydashboardService', 'getAllCompanyUrl',
-  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl', 'getAssignedVendor',
-  'getUnassignedVendor',
+  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl','$cookies', '$location', '$route', 'Notification',
   function ($scope, $http, CompanydashboardService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
-    getAllVendorListUrl, getImageUrl, getAssignedVendor, getUnassignedVendor) {
+    getAllVendorListUrl, getImageUrl,  $cookies,$location,$route,
+    Notification) {
 
+      $scope.logout = function(){
+        $cookies.remove('id');    
+         $location.path('/');
+    }
+    // if ($cookies.get('id') == null) {
+    //   Notification.warning("Login required!!!");
+    //   $location.path('/');
+    //   $route.reload();
+    // } 
     // ================== bool Logic start ==============================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
@@ -29,14 +38,12 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'Companydashboard
     });
 
     // ======================= Assiged Vendor List =========================      
-    $http.get(getAssignedVendor).then(function (response) {
-      $scope.assignedVendorslist = response.data.data.assignedVendors;
-    });
+  
 
     // ======================= Unassigned Vendor List =========================      
-    $http.get(getUnassignedVendor).then(function (response) {
-      $scope.unassignedVendorlist = response.data.data.unassignedVendors;
-    });
+    // $http.get(getUnassignedVendor).then(function (response) {
+    //   $scope.unassignedVendorlist = response.data.data.unassignedVendors;
+    // });
     // ======================= All Unassigned Company List =========================
     $http.get(getUnassignedCompanyUrl).then(function (response) {
       console.log("respoinse : ", JSON.stringify(response));

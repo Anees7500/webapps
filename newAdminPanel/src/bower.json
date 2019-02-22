@@ -19,10 +19,11 @@
     "angular-route": "^1.7.5",
     "angular": "^1.7.5",
     "MDBootstrap": "^4.6.1",
-    "canvg": "https://github.com/canvg/canvg.git#v1.5.3",
     "angular-ui-notification": "^0.3.6",
     "components-font-awesome": "^5.4.2",
-    "angularjs-datepicker": "^2.1.23"
-
+    "angularjs-datepicker": "^2.1.23",
+    "jszip": "^3.2.0",
+    "kendo-ui": "kendo-ui-core#^2019.1.220+SP1",
+    "angular-cookies": "1.7.5"
   }
 }

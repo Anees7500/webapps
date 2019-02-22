@@ -5,23 +5,17 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     // ============= Logout ==================================
 
-    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails));
-    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails.employeeId));
-    
-
-  //   $scope.logout = function(){
-  //     $cookies.remove('eId');
-  //     $cookies.remove('rId');
-  //     $cookies.remove('cId');
-  //     // $scope.username = '';
-  //     // $scope.password = '';
-  //     $location.path('/');
-  // }
-  // if ($cookies.get('eId') == null) {
-  //   Notification.warning("Login required!!!");
-  //   $location.path('/');
-  //   $route.reload();
-  // } 
+    $scope.logout = function(){
+      $cookies.remove('eId');
+      $cookies.remove('rId');
+      $cookies.remove('cId');
+      $location.path('/');
+  }
+  if ($cookies.get('eId') == null) {
+    Notification.warning("Login required!!!");
+    $location.path('/');
+    $route.reload();
+  } 
   // else {
   //   $rootScope.employeeDetails.employeeId;
 

@@ -24,6 +24,7 @@
     "angular-messages": "^1.7.7",
     "angular-ui-router": "^1.0.20",
     "angular-cookies": "^1.7.7",
-    "angular-ui-notification": "^0.3.6"
+    "angular-ui-notification": "^0.3.6",
+    "jszip": "^3.2.0"
   }
 }
