@@ -132,10 +132,16 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
 
     $scope.reduceCount = function (val) {
       if ($scope.cartItems[val.obj.id].count > 0) {
-        $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count - 1;
-        $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+        if($scope.cartItems[val.obj.id].count == 1)
+        {
+          delete $scope.cartItems[val.obj.id];  
+        }
+        else
+        {
+          $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count - 1;
+          $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+        }
         $scope.cartItems.totalAmount = getTotalAmount();
-
         console.log(" cart itmes : ", JSON.stringify($scope.cartItems));
       }
     }
@@ -147,12 +153,20 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
 
     var getTotalAmount = function()
     {
+      if($scope.getCartItemSize() == 0)
+      {
+        return null;
+      }
       var amt = 0;
       angular.forEach($scope.cartItems, function(val, key){
-        if(val.amount != null)
+        if(val != null)
         {
-          amt = amt + val.amount;
+          if(val.amount != null)
+          {
+            amt = amt + val.amount;
+          }
         }
+        
       });
       return amt;
     }
@@ -164,6 +178,18 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
       return len == -1 ? 0 : len;
     }
     
+    $scope.getVendorName = function(id)
+    {
+      var vName = "";
+      angular.forEach($scope.vendorList, function(vl){
+        if(vl.vendorId == id)
+        {
+          vName =  vl.name;
+        }
+      });
+
+      return vName;
+    }
 
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
