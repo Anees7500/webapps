@@ -3,7 +3,7 @@ var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'sections/emp_login/emp.tpl.html',
+            templateUrl: 'sections/emp_login/login.tpl.html',
             controller: 'EmpLoginController'
         })
 

@@ -1,9 +1,20 @@
 adminApp.controller('VendorController', ['$scope', '$routeParams', '$rootScope', 'getAllCompanyToVendorUrl',
-  '$http', 'getVendorProfileUrl', 'getImageUrl',
-  function ($scope, $routeParams, $rootScope, getAllCompanyToVendorUrl, $http, getVendorProfileUrl, getImageUrl) {
+  '$http', 'getVendorProfileUrl', 'getImageUrl', '$cookies', '$location', '$route', 'Notification',
+  function ($scope, $routeParams, $rootScope, getAllCompanyToVendorUrl, $http, getVendorProfileUrl,
+     getImageUrl, $cookies, $location, $route, Notification) {
 
 
     // tongal baar script end
+    // =============== log out ================//
+  //   $scope.logout = function(){
+  //     $cookies.remove('id');    
+  //      $location.path('/');
+  // }
+  // if ($cookies.get('id') == null) {
+  //   Notification.warning("Login required!!!");
+  //   $location.path('/');
+  //   $route.reload();
+  // } 
 
     var vendorId = $routeParams.venId;
     $scope.vId = vendorId;

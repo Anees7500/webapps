@@ -3,16 +3,28 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
   'getCorporateReviewsUrl', 'getCompanyProfileUrl', 'getAllVendorListUrl', 'getItemCheckListForVendor',
   'getItemCheckListedForVendor', 'Excel', '$timeout', 'getCompanyWorkingDaysUrl', 'getCompanyInvoicingDate',
   'getCompanyAdditionalRequirements', 'getCompanyRequirements', 'getVendorRequirements', 'getMonthlyDetailsUrl',
-  'getMonthsForMonthlyDetailsUrl', 'getDetailsForInvoicesUrl', 'getCompanyFebMonthInvoicedetails',
+  'getMonthsForMonthlyDetailsUrl', 'getDetailsForInvoicesUrl', 'getCompanyFebMonthInvoicedetails','$cookies',
+   '$location', '$route','Notification',
   function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, getCorporateReviewsUrl,
     getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor,
     getItemCheckListedForVendor, Excel, $timeout, getCompanyWorkingDaysUrl,
     getCompanyInvoicingDate, getCompanyAdditionalRequirements, getCompanyRequirements,
     getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl, getDetailsForInvoicesUrl,
-    getCompanyFebMonthInvoicedetails
+    getCompanyFebMonthInvoicedetails, $cookies, $location, $route,Notification
+    
   ) {
+    // =============== log out ================//
+  //   $scope.logout = function(){
+  //     $cookies.remove('id');    
+  //      $location.path('/');
+  // }
+  // if ($cookies.get('id') == null) {
+  //   Notification.warning("Login required!!!");
+  //   $location.path('/');
+  //   $route.reload();
+  // } 
     // bool Logic start
-    $scope.boolFunction = function (value) {
+    $scope.boolFunction = function (value) { 
       console.log("boolFunction", value);
       $scope.configurationBool = false;
       $scope.clientRequirementBool = false;
