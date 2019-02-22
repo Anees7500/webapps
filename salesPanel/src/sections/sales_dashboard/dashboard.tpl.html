@@ -229,14 +229,10 @@
                                     </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="p-2 fa-lg pin-ic">
-                                        <i class="fab fa-pinterest"> </i>
-                                    </a>
+                                   
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="p-2 fa-lg ins-ic">
-                                        <i class="fab fa-instagram"> </i>
-                                    </a>
+                                   
                                 </li>
                                 <li class="list-inline-item">
                                     <a class="p-2 fa-lg tw-ic">
@@ -271,26 +267,26 @@
                 <div id="map"></div>
                 <form name="resForm" class="form-inline" novalidate ng-submit="send()">
                     <div class="form-group">
-                        <label for="resName" class="col-xs-2 control-label text-center">Name:</label>
+                        <label for="resName" class="col-xs-2 control-label text-center text-info">Name:</label>
                         <div class="col-xs-10">
                             <input name="resName" type="text" class="form-control" ng-model="place.name" required />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="resLat" class="col-xs-2 control-label text-danger">Latitude:</label>
+                        <label for="resLat" class="col-xs-2 control-label text-info">Latitude:</label>
                         <div class="col-xs-10">
                             <input name="resLat" type="number" class="form-control" ng-model="place.lat" required />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="resLng" class="col-xs-2 control-label text-danger">Longitude:</label>
+                        <label for="resLng" class="col-xs-2 control-label text-info">Longitude:</label>
                         <div class="col-xs-10">
                             <input name="resLng" type="number" class="form-control" ng-model="place.lng" required />
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-2 col-xs-10">
-                            <button class="btn btn-success" ng-disabled="resForm.$invalid">Confirm</button>
+                            <button class="btn btn-info" ng-disabled="resForm.$invalid">Confirm</button>
                         </div>
                     </div>
                 </form>
@@ -299,21 +295,21 @@
                 <div class="col-md-6">
                     <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                         <fieldset>
-                            <legend class="text-danger font-weight-bold mask small ">Company Name:</legend>
+                            <legend class="text-info font-weight-bold mask small ">Company Name:</legend>
                             <input class="form-control text-capitalize font-weight-bold" type="text" placeholder="enter company name"
                                 aria-label="Search">
                         </fieldset>
                     </div>
                     <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                         <fieldset>
-                            <legend class="text-danger font-weight-bold mask small ">Contact person Name:</legend>
+                            <legend class="text-info font-weight-bold mask small ">Contact person Name:</legend>
                             <input class="form-control font-weight-bold" type="text" placeholder="enter contact person"
                                 aria-label="Search">
                         </fieldset>
                     </div>
                     <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                         <fieldset>
-                            <legend class="text-danger font-weight-bold mask small">Email Id:</legend>
+                            <legend class="text-info font-weight-bold mask small">Email Id:</legend>
                             <input class="form-control font-weight-bold" type="email" placeholder="Enter email id"
                                 aria-label="Search">
                         </fieldset>
@@ -336,7 +332,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        <h5 class="text-danger md "> A Estimated lead:</h5>
+                        <h5 class="text-info md"> A Estimated lead:</h5>
                         <div class="slidecontainer">
                             <input type="range" min="1" max="100" value="0" class="slider" id="myRange" name="myRange"
                                 data-show-value="true">
@@ -345,7 +341,7 @@
                     </div>
                     <div class="phone-list active-pink-3 active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12">
                         <div class="input-group">
-                            <legend class="text-danger font-weight-bold mask small">Mobile No:</legend>
+                            <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                     aria-expanded="false"><span class="type-text">Type</span> <span class="caret"></span></button>
@@ -386,18 +382,19 @@
                                 <li>
                                     <ul>
                                         <div class="user z-depth-2">
-                                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
+                                            <img src="Image/Aman.jpg"
                                                 class="img-responsive" />
                                             <div class="name text-danger font-weight-bold">Aman Telkar</div>
                                             <div class="role">All Rounder</div>
                                             <a class="manager" href="">Co-founder at Fancymonk</a><br>
-                                            <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
+                                            <!-- <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span> -->
+                                            <span id="toggle-filter" class="caret"> <i class="fas fa-plus-circle mb-4"></i></span>
                                         </div>
                                     </ul>
-                                    <ul ng-show="state">
+                                    <ul ng-show="state"class="nested">
                                         <li>
                                             <div class="user z-depth-2">
-                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/nzcode/128.jpg"
+                                                <img src="Image/Aman.jpg"
                                                     class="img-responsive" />
                                                 <div class="name text-danger font-weight-bold">Aman Telkar</div>
                                                 <div class="role">All Rounder</div>
@@ -407,7 +404,7 @@
                                             <ul ng-show="state">
                                                 <li>
                                                     <div class="user z-depth-2">
-                                                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/towhidzaman/128.jpg"
+                                                        <img src="Image/Aman.jpg"
                                                             class="img-responsive" />
                                                         <div class="name">Fleta Odriscoll</div>
                                                         <div class="role">System Architect</div>
@@ -418,7 +415,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="user z-depth-2">
-                                                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/arashmil/128.jpg"
+                                                        <img src="Image/Aman.jpg"
                                                             class="img-responsive" />
                                                         <div class="name">Elfreda Grebin</div>
                                                         <div class="role">System Architect</div>
@@ -427,35 +424,11 @@
                                                     </div>
                                                     
                                                 </li>
-                                            </ul>
-                                            <ul ng-show="state">
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/towhidzaman/128.jpg"
-                                                            class="img-responsive" />
-                                                        <div class="name">Fleta Odriscoll</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Lynn Maynard</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-
-                                                </li>
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/arashmil/128.jpg"
-                                                            class="img-responsive" />
-                                                        <div class="name">Elfreda Grebin</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Lynn Maynard</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            
+                                            </ul>  
                                         </li>
                                         <li>
                                             <div class="user z-depth-2">
-                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vista/128.jpg"
+                                                <img src="Image/Aman.jpg"
                                                     class="img-responsive" />
                                                 <div class="name">Jahn Philson Doe</div>
                                                 <div class="role">System Architect</div>
@@ -465,7 +438,7 @@
                                             <ul ng-show="state">
                                                 <li>
                                                     <div class="user z-depth-2">
-                                                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/marcosmoralez/128.jpg"
+                                                        <img src="Image/Aman.jpg"
                                                             class="img-responsive" />
                                                         <div class="name">Roy Lemarie</div>
                                                         <div class="role">System Architect</div>
@@ -475,7 +448,7 @@
                                                 </li>
                                                 <li>
                                                     <div class="user z-depth-2">
-                                                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg"
+                                                        <img src="Image/Aman.jpg"
                                                             class="img-responsive" />
                                                         <div class="name">Eloisa Stubbolo</div>
                                                         <div class="role">System Architect</div>
@@ -512,24 +485,16 @@
                             </div>
                             <ul class="social list-inline list-unstyled">
                                 <li class="list-inline-item">
-                                    <a class="p-2 fa-lg fb-ic">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
+                                    
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="p-2 fa-lg pin-ic">
-                                        <i class="fab fa-pinterest"> </i>
-                                    </a>
+                                   
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="p-2 fa-lg ins-ic">
-                                        <i class="fab fa-instagram"> </i>
-                                    </a>
+                                    
                                 </li>
                                 <li class="list-inline-item">
-                                    <a class="p-2 fa-lg tw-ic">
-                                        <i class="fab fa-twitter"> </i>
-                                    </a>
+                                   
                                 </li>
                             </ul>
                         </div>
@@ -876,6 +841,21 @@
                                         <li>
                                             <p><span class="glyphicon glyphicon-new-window one"></span><a href="#">fancymonk.com</p></a>
                                     </ul>
+                                    <div class="row ml-3">
+                                        <!-- <a class="btn-floating btn-lg btn-fb mr-1 unique-color small social" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
+                                        <a class="btn-floating btn-lg btn-gplus mr-1 red darken-2 small" type="button" role="button"><i class="fab fa-google-plus-g"></i></a>
+                                       
+                                        <a class="btn-floating btn-lg btn-li mr-1 blue darken-1 small" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
+                                        <a class="btn-floating btn-lg btn-email mr-1 special-color small" type="button" role="button"><i class="fas fa-envelope"></i></a> -->
+                                        <div class="effect aeneas">
+                                            <div class="buttons">
+                                              <a href="" class="fb" title="Join us on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                              <a href="" class="tw" title="Join us on Twitter"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                                              <a href="" class="g-plus" title="Join us on Google+"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                              <a href="" class="in" title="Join us on Linked In"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                                            </div>
+                                          </div>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
