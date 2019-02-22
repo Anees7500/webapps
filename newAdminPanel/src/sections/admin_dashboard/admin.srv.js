@@ -15,11 +15,11 @@ adminApp.factory('CompanydashboardService', ['$http', '$route', '$httpParamSeria
                     console.log('response', response);
                     if (response.data.status == 1) {
                         // console.log('Successfully registered ');
-                        
+
                         $route.reload();
                     } else {
                         // console.log('error registering');
-                        
+
                         $route.reload();
                     }
                 });

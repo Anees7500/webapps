@@ -7,7 +7,6 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'EmpLoginController'
         })
 
-
         .when('/registration', {
             templateUrl: 'sections/emp_registration/empRegistration.tpl.html',
             title: 'Header-part',

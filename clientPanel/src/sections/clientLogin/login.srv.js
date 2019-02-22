@@ -13,7 +13,7 @@ clientApp.factory('ClientLoginService', ['$http', '$httpParamSerializerJQLike','
                         'scm': 'fancymonk',
                         'Authorization': 'Basic WVhCd1FHWmhibU41Ylc5dWEyRmhZV0Z1OjE1OjJDOjJBOkZFOjUxOkQwOkM3OjNCOjQ2OjFGOkREOjk2Ojk0OkFGOjkyOkE2OjFGOjUyOjBEOkUz',
                     },
-
+ 
                     data: $httpParamSerializerJQLike(clientCredential)
                 }).then(function(response) {
                   console.log("response logins ", JSON.stringify(response));
