@@ -91,6 +91,13 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     }
     $scope.boolFunction("companyBool");
 
+
+
+    $scope.searchListFun  = function(){
+      $scope.newList = $scope.searchList;
+      console.log("value  of list",$scope.newList);
+    }
+
   }
 
 ]);
