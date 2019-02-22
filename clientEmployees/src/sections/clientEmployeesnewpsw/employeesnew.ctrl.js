@@ -13,7 +13,7 @@ ceApp.controller('LoginNewPswController', ['$scope', 'EmployeesLoginNewService',
           }
           else
           {
-            Notification.error('Password do not match');
+            Notification.error('Password do not match'); 
           }
 
         }

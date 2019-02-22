@@ -1,6 +1,29 @@
-empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http',
-'getVendorList',
-  function ($scope, getVendorMenuList, $http, getVendorList) {
+empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendorMenuList', '$http', '$location', '$cookies',
+ 'Notification', '$route', '$rootScope', 'getVendorList',
+  function ($scope,DashboardService, getVendorMenuList, $http, $location, $cookies, Notification, 
+    $route, $rootScope, getVendorList) {
+
+    // ============= Logout ==================================
+
+    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails));
+    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails.employeeId));
+    
+
+  //   $scope.logout = function(){
+  //     $cookies.remove('eId');
+  //     $cookies.remove('rId');
+  //     $cookies.remove('cId');
+  //     // $scope.username = '';
+  //     // $scope.password = '';
+  //     $location.path('/');
+  // }
+  // if ($cookies.get('eId') == null) {
+  //   Notification.warning("Login required!!!");
+  //   $location.path('/');
+  //   $route.reload();
+  // } 
+  // else {
+  //   $rootScope.employeeDetails.employeeId;
 
     var companyId = 1;
 
@@ -16,7 +39,7 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
     $scope.vendorList = [];
 
     /* Cart items  */
-    $scope.cartItems = [];
+    $scope.cartItems = {};
     //==============================================================
     //================ DEFINITION PART END==========================
     //==============================================================
@@ -43,7 +66,6 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
         $scope.menuNode = response.data.data.menus;
       }
       $scope.selectedMenuNode = $scope.menuNode[0].menuNode;
-
       console.log("selected Menu : ", JSON.stringify($scope.selectedMenuNode));
     });
     }
@@ -101,6 +123,71 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
 
       console.log("selected Menu by functions: ", JSON.stringify($scope.selectedMenuNode));
     }
+
+    $scope.addToCart = function (itemObj) {
+      // console.log("item id  ", JSON.stringify(itemObj));
+      // console.log("check ", $scope.cartItems[itemObj.id]);
+      if ($scope.cartItems[itemObj.id]) {
+        // console.log("item  present");
+        $scope.cartItems[itemObj.id].count = $scope.cartItems[itemObj.id].count + 1;
+      } else {
+        // console.log("item not present");
+        // console.log("adding");
+        $scope.cartItems[itemObj.id] = {
+          obj: itemObj,
+          count: 1
+        };
+      }
+      $scope.cartItems[itemObj.id].addedInCart = true;
+      $scope.cartItems[itemObj.id].amount = getAmount($scope.cartItems[itemObj.id]);
+      $scope.cartItems.totalAmount = getTotalAmount();
+      console.log("cart items : ", JSON.stringify($scope.cartItems));
+    };
+
+
+    $scope.addCount = function (val) {
+      console.log("val passed : ", JSON.stringify(val));
+      $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count + 1;
+      $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+      $scope.cartItems.totalAmount = getTotalAmount();
+      console.log(" cart itmes : ", JSON.stringify($scope.cartItems));
+    }
+
+    $scope.reduceCount = function (val) {
+      if ($scope.cartItems[val.obj.id].count > 0) {
+        $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count - 1;
+        $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+        $scope.cartItems.totalAmount = getTotalAmount();
+
+        console.log(" cart itmes : ", JSON.stringify($scope.cartItems));
+      }
+    }
+
+    var getAmount = function(obj)
+    {
+      return (obj.count * obj.obj.price);
+    }
+
+    var getTotalAmount = function()
+    {
+      var amt = 0;
+      angular.forEach($scope.cartItems, function(val, key){
+        if(val.amount != null)
+        {
+          amt = amt + val.amount;
+        }
+      });
+      return amt;
+    }
+
+    $scope.getCartItemSize = function()
+    {
+      console.log("get size hshsh");
+      var len = Object.keys($scope.cartItems).length -1;
+      return len == -1 ? 0 : len;
+    }
+    
+
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
@@ -115,6 +202,9 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
       $scope[value] = true;
     }
     $scope.boolFunction("homeBool");
+
+    // ============= Update Employee Details ==================================
+    
 
     $scope.cardInfo = [{ productName: "Brief description", price: "100" },
     { productName: "Brief description", price: "100" },
@@ -157,6 +247,9 @@ empApp.controller('DashboardController', ['$scope', 'getVendorMenuList', '$http'
         $scope.favouritItemList.push(item);
       }
     }
+    $scope.checkoutList=[{checkItem: "Poori sabji", checkVendor: "Fancy Vendor", checkPrice: "20"},
+{checkItem: "Namak Para", checkVendor: "Classic Vendor", checkPrice: "30"},
+{checkItem: "Masala Dhosa", checkVendor: "Pure-South Vendor", checkPrice: "50"}];
 
     // $scope.favouritItemList = [
     //   { vendorName: "Corner House Ice Cream ", itemName: "Chicken Wings", rating: "4.5" },
@@ -221,13 +314,9 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 
     }
 
-    //================ Employee Details ============================
+    //================ Setting Employee Details ============================
 
-    $scope.employeeDetails = [{
-      name: "Pallavi Gupta",
-      employeeId: "207997",
-      mobile: "8871128039", emailId: "pallavig033@gmail.com"
-    }];
+    
     // =================== Edit Button ======================
     $scope.makeEmployeeDetailsEditable = function (employeeDetails) {
       $scope.editEmployeeDetails = $scope.favourite ? false : true;
@@ -238,6 +327,6 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
       $scope.add = $scope.add ? false : true;
     }
 
-
   }
+  // }
 ]);																

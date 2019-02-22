@@ -12,7 +12,7 @@ function($http,$cookies, $httpParamSerializerJQLike, Notification) {
 				// this callback will be called asynchronously if an error occurs or server returns response with an error status.
 			});
 
-		},
+		}, 
 
 		addEmployeeToDB : function(employee, employeeAddUrl) {
 			$http({

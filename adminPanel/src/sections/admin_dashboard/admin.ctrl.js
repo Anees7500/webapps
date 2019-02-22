@@ -12,7 +12,7 @@ vmApp.controller('AdminController', ['$cookies', 'getAllVendorListUrl', 'getAssi
       // $rootScope.barBool = false;
       // $rootScope.vId = false;
       // // $rootScope.notifBool = false;
-      $rootScope.adminSignOutBool = false;
+      $rootScope.adminSignOutBool = false; 
       $rootScope.footerBool = false;
       $location.path('/adminlogin');
     }
