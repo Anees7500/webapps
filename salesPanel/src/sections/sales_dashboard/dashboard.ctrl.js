@@ -76,16 +76,6 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.toggle = function () {
       $scope.state = !$scope.state;
     };
-
-    // ===========Team Work===============================================================
-    var toggler = document.getElementsByClassName("caret");
-    var i;
-    for (i = 0; i < toggler.length; i++) {
-      toggler[i].addEventListener("click", function () {
-        this.parentElement.querySelector(".nested").classList.toggle("active");
-        this.classList.toggle("caret-down");
-      });
-    }
     //  ================== All AssingendCOmpany URL End===================================
 
     //=========================== bool Logic start=========================================
