@@ -342,8 +342,17 @@
                 <span class="font-weight-bold text-danger">Total (Rupee)</span>
                 <strong><i class="fas fa-rupee-sign"></i>{{cartItems.totalAmount}}</strong>
               </li>
+              <li class="list-group-item d-flex" ng-if= "getCartItemSize() > 0">
+                  <span class="font-weight-bold text-danger">
+                      <input type="checkbox" ng-model="true">Online
+                  </span>
+
+                  <span class="font-weight-bold text-danger">
+                      <input type="checkbox" >Cash
+                  </span>
+                </li>
             </ul>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" ng-click="checkout()">Continue to checkout</button>
           </div>
         </div>
       </div>
