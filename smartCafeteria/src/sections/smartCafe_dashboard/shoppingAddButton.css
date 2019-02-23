@@ -68,7 +68,7 @@
    overflow-x: hidden;
    }
    .force-overflow {
-   min-height: 300px;
+   min-height: 150px;
    }
    
    .scrollbar-primary::-webkit-scrollbar {

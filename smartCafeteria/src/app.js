@@ -3,7 +3,7 @@ var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'sections/emp_login/emp.tpl.html',
+            templateUrl: 'sections/emp_login/login.tpl.html',
             controller: 'EmpLoginController'
         })
 
@@ -17,6 +17,12 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'sections/scrollspy_try/scrollspy.tpl.html',
             title: 'Header-part',
             controller: 'EmpScrollspyController'
+        })
+
+        .when('/dashboard/orders', {
+            templateUrl: 'sections/smartCafe_orders/orders.tpl.html',
+            title: 'Header-part',
+            controller: 'OrdersController'
         })
 
 

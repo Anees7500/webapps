@@ -5,23 +5,17 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     // ============= Logout ==================================
 
-    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails));
-    // console.log("emmmcnhb : ", JSON.stringify($rootScope.employeeDetails.employeeId));
-    
-
-  //   $scope.logout = function(){
-  //     $cookies.remove('eId');
-  //     $cookies.remove('rId');
-  //     $cookies.remove('cId');
-  //     // $scope.username = '';
-  //     // $scope.password = '';
-  //     $location.path('/');
-  // }
-  // if ($cookies.get('eId') == null) {
-  //   Notification.warning("Login required!!!");
-  //   $location.path('/');
-  //   $route.reload();
-  // } 
+    $scope.logout = function(){
+      $cookies.remove('eId');
+      $cookies.remove('rId');
+      $cookies.remove('cId');
+      $location.path('/');
+  }
+  if ($cookies.get('eId') == null) {
+    Notification.warning("Login required!!!");
+    $location.path('/');
+    $route.reload();
+  } 
   // else {
   //   $rootScope.employeeDetails.employeeId;
 
@@ -155,10 +149,16 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     $scope.reduceCount = function (val) {
       if ($scope.cartItems[val.obj.id].count > 0) {
-        $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count - 1;
-        $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+        if($scope.cartItems[val.obj.id].count == 1)
+        {
+          delete $scope.cartItems[val.obj.id];  
+        }
+        else
+        {
+          $scope.cartItems[val.obj.id].count = $scope.cartItems[val.obj.id].count - 1;
+          $scope.cartItems[val.obj.id].amount = getAmount($scope.cartItems[val.obj.id]);
+        }
         $scope.cartItems.totalAmount = getTotalAmount();
-
         console.log(" cart itmes : ", JSON.stringify($scope.cartItems));
       }
     }
@@ -170,12 +170,20 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     var getTotalAmount = function()
     {
+      if($scope.getCartItemSize() == 0)
+      {
+        return null;
+      }
       var amt = 0;
       angular.forEach($scope.cartItems, function(val, key){
-        if(val.amount != null)
+        if(val != null)
         {
-          amt = amt + val.amount;
+          if(val.amount != null)
+          {
+            amt = amt + val.amount;
+          }
         }
+        
       });
       return amt;
     }
@@ -187,15 +195,25 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
       return len == -1 ? 0 : len;
     }
     
+    $scope.getVendorName = function(id)
+    {
+      var vName = "";
+      angular.forEach($scope.vendorList, function(vl){
+        if(vl.vendorId == id)
+        {
+          vName =  vl.name;
+        }
+      });
+
+      return vName;
+    }
 
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.homeBool = false;
-      $scope.myOdersBool = false;
       $scope.favouritesBool = false;
       $scope.walletBool = false;
-      $scope.cardBool = false;
       $scope.feedbackBool = false;
       $scope.settingsBool = false;
       $scope.termsAndPolicyBool = false;
@@ -284,35 +302,7 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 {itemName: "Chocolate Sandwich", Price: "70"}];
 
 
-    //================ Ratingfeedback ============================
-    var maxRating = 5;
-    $scope.stars = [].constructor(maxRating);
-    $scope.ratingParameters = [
-      {
-        name: "Presentation",
-        rating: 3
-      },
-      {
-        name: "Quality",
-        rating: 3
-      },
-      {
-        name: "Taste",
-        rating: 4
-
-      },
-      {
-        name: "Quantity",
-        rating: 4
-      }
-    ];
-
-    $scope.rateBy = function (j, star) {
-      console.log("hhhsh cdhbdsjhs : ", star);
-      console.log("hhhshs : ", JSON.stringify($scope.stars));
-      j.rating = star;
-
-    }
+    
 
     //================ Setting Employee Details ============================
 

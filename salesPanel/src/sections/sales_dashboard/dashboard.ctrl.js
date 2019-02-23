@@ -72,11 +72,12 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       }
     });
     //======================= card toggle================================================
+     // ===========Team Work1===============================================================
     $scope.toggle = function () {
       $scope.state = !$scope.state;
     };
     //  ================== All AssingendCOmpany URL End===================================
-   
+
     //=========================== bool Logic start=========================================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
