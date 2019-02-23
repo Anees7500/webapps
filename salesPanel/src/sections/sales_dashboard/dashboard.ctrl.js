@@ -113,6 +113,11 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.min = 0;
     $scope.max = 100;
 
+    // ===============================Save Lead==========================================
+    $scope.saveLead = function(){
+      
+    }
+    // ==================================================================================
 
   }
 

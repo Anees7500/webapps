@@ -251,7 +251,7 @@
         <!---Add leads-->
         <div ng-if="addleadsCompanyBool" class="ml-4">
             <!-- Search form -->
-            <div class="container" ng-app="myApp" ng-controller="newPlaceCtrl" style="background-color: #e9ecee;padding-top: 10px">
+            <div class="container" style="background-color: #e9ecee;padding-top: 10px">
                 <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
                     <b>API Error : </b>
                     <span>{{ apiStatus }}</span>
@@ -341,7 +341,7 @@
                 </form>
                 <div class="row">
                     <div class="col-md-12">
-                        <center><button class="col-md-3 btn btn-info" >Submit</button></center>
+                        <center><button class="col-md-3 btn btn-info" ng-click="saveLead()">Submit</button></center>
                     </div>
                 </div>
             </div> <br><br>
