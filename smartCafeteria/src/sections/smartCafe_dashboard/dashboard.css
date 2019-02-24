@@ -24,23 +24,14 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
 #collapseExample {
   position: absolute;
   z-index: 1;}
-/* #list-tab{
-    max-height: 380px;
+#scroll-height{
+    max-height: 280px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background-color: white;
-} */
-/* .scrollbar{max-height: 420px;
-    overflow-y: scroll;
-     overflow-x: hidden;} */
-#scroll-content{
-    max-height: 420px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
 }
-#list-veg{  max-height: 420px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;}
+
+
 /*******************responsive************************/
 @media (max-width: 768px) {
     .navbar-brand{margin:auto; display: block;}

@@ -208,6 +208,62 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
       return vName;
     }
 
+
+    var makeRazorPayOptions = function(data){
+      var options = {
+        "key": "rzp_test_KgnTG2Mdqgd2WX",
+        "amount": 100,
+        "name": "Fancymonk",
+        "description": "Smart Cafeteria",
+        "prefill": {
+            "name": "Aman Telkar",
+            "email": "fancymonk@razorpay.com",
+            "phone":"9739420527"
+        },
+        "notes": {
+            "address": " Hello"
+        },
+        "theme": {
+            "color": "lightseagreen"
+        },
+        handler: function () {
+            alert('Payment successful')
+            console.log(arguments)
+        }
+     };
+      return options;
+    }
+    
+  var pay = function () {
+      $.getScript('https://checkout.razorpay.com/v1/checkout.js', function () {
+          var rzp = new Razorpay(makeRazorPayOptions());
+          rzp.open();
+      });
+  };
+
+
+    $scope.checkout = function()
+    {
+      // var objForDb = {};
+      // objForDb.companyId = companyId;
+      // objForDb.employeeId = "FM002";
+      // objForDb.menu = $scope.cartItems;
+      // objForDb.paymentType = "ONLINE";
+      // objForDb.mobile = "9388338322";
+      // objForDb.totalAmount = $scope.cartItems.totalAmount;
+      // DashboardService.saveBookings(objForDb).then(function(response){
+      //   if (response.data.status == 1) {
+      //      if(objForDb.paymentType === "ONLINE")
+      //      {
+      //        var params = makeRazorPayOptions(objForDb);
+      //      }
+      //   }
+      //   else{
+
+      //   }
+      // });
+      pay();
+    }
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
