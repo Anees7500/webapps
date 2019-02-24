@@ -1,7 +1,9 @@
 empApp.factory('DashboardService', ['$http', '$httpParamSerializerJQLike','$location',
-    function ($http, $httpParamSerializerJQLike,$location) {
+'postSmartCafeteriaBookingUrl',
+    function ($http, $httpParamSerializerJQLike,$location,postSmartCafeteriaBookingUrl) {
         return {
             saveBookings: function (data) {
+                console.log("data passed in save bookings ", JSON.stringify(data));
                 return $http({
                     method: 'POST',
                     url: postSmartCafeteriaBookingUrl,

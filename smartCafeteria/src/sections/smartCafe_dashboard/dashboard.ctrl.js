@@ -209,12 +209,13 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     }
 
 
-    var makeRazorPayOptions = function(data){
+    var makeRazorPayOptions = function(data, orderId){
       var options = {
         "key": "rzp_test_KgnTG2Mdqgd2WX",
-        "amount": 100,
+        "amount": (data.totalAmount * 100),
         "name": "Fancymonk",
         "description": "Smart Cafeteria",
+        "order_id":orderId,
         "prefill": {
             "name": "Aman Telkar",
             "email": "fancymonk@razorpay.com",
@@ -228,15 +229,15 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
         },
         handler: function () {
             alert('Payment successful')
-            console.log(arguments)
+            console.log("after payment success ",JSON.stringify(arguments));
         }
      };
       return options;
     }
     
-  var pay = function () {
+  var pay = function (params) {
       $.getScript('https://checkout.razorpay.com/v1/checkout.js', function () {
-          var rzp = new Razorpay(makeRazorPayOptions());
+          var rzp = new Razorpay(params);
           rzp.open();
       });
   };
@@ -244,25 +245,25 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     $scope.checkout = function()
     {
-      // var objForDb = {};
-      // objForDb.companyId = companyId;
-      // objForDb.employeeId = "FM002";
-      // objForDb.menu = $scope.cartItems;
-      // objForDb.paymentType = "ONLINE";
-      // objForDb.mobile = "9388338322";
-      // objForDb.totalAmount = $scope.cartItems.totalAmount;
-      // DashboardService.saveBookings(objForDb).then(function(response){
-      //   if (response.data.status == 1) {
-      //      if(objForDb.paymentType === "ONLINE")
-      //      {
-      //        var params = makeRazorPayOptions(objForDb);
-      //      }
-      //   }
-      //   else{
+      var objForDb = {};
+      objForDb.companyId = companyId;
+      objForDb.employeeId = "FM002";
+      objForDb.menu = JSON.stringify($scope.cartItems);
+      objForDb.paymentType = "ONLINE";
+      objForDb.mobile = "9388338322";
+      objForDb.totalAmount = $scope.cartItems.totalAmount;
+      DashboardService.saveBookings(objForDb).then(function(response){
+        if (response.data.status == 1) {
+           if(objForDb.paymentType === "ONLINE")
+           {
+             var params = makeRazorPayOptions(objForDb, response.data.data.rzpOrderId);
+             pay(params);
+           }
+        }
+        else{
 
-      //   }
-      // });
-      pay();
+        }
+      });
     }
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
