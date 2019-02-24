@@ -19,6 +19,12 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'EmpScrollspyController'
         })
 
+        .when('/dashboard/orders', {
+            templateUrl: 'sections/smartCafe_orders/orders.tpl.html',
+            title: 'Header-part',
+            controller: 'OrdersController'
+        })
+
 
         .when('/dashboard', {
             templateUrl: 'sections/smartCafe_dashboard/dashboard.tpl.html',

@@ -269,10 +269,8 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.homeBool = false;
-      $scope.myOdersBool = false;
       $scope.favouritesBool = false;
       $scope.walletBool = false;
-      $scope.cardBool = false;
       $scope.feedbackBool = false;
       $scope.settingsBool = false;
       $scope.termsAndPolicyBool = false;
@@ -361,35 +359,7 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 {itemName: "Chocolate Sandwich", Price: "70"}];
 
 
-    //================ Ratingfeedback ============================
-    var maxRating = 5;
-    $scope.stars = [].constructor(maxRating);
-    $scope.ratingParameters = [
-      {
-        name: "Presentation",
-        rating: 3
-      },
-      {
-        name: "Quality",
-        rating: 3
-      },
-      {
-        name: "Taste",
-        rating: 4
-
-      },
-      {
-        name: "Quantity",
-        rating: 4
-      }
-    ];
-
-    $scope.rateBy = function (j, star) {
-      console.log("hhhsh cdhbdsjhs : ", star);
-      console.log("hhhshs : ", JSON.stringify($scope.stars));
-      j.rating = star;
-
-    }
+    
 
     //================ Setting Employee Details ============================
 

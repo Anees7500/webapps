@@ -24,20 +24,14 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
 #collapseExample {
   position: absolute;
   z-index: 1;}
-#list-tab{
-    max-height: 380px;
+#scroll-height{
+    max-height: 280px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background-color: white;
+    overflow-x: hidden;
 }
-#scroll-content{
-    max-height: 420px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-#list-veg{  max-height: 420px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;}
+
+
 /*******************responsive************************/
 @media (max-width: 768px) {
     .navbar-brand{margin:auto; display: block;}
@@ -47,4 +41,5 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
 }
 
 /*********************************cart*****************************/
-.list-group-item.active{background-color:white;}
+/* .list-group-item.active{background-color:white;} */
+.sub-item.active{color:green; border-color: white;background-color: aliceblue;}
