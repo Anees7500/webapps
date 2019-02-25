@@ -6,10 +6,15 @@ salesApp.service('Map', function ($q) {
             zoom: 12,
             disableDefaultUI: true
         }
+        var input = document.getElementById('searchTextField');
+        console.log("get input value",input);
+        new google.maps.places.Autocomplete(input);
+
         this.map = new google.maps.Map(
             document.getElementById("map"), options
         );
         this.places = new google.maps.places.PlacesService(this.map);
+
     }
 
     this.search = function (str) {
@@ -54,10 +59,10 @@ salesApp.controller('newPlaceCtrl', function ($scope, Map) {
                 function (res) { // success
                     Map.addMarker(res);
                     console.log("response : ", JSON.stringify(res));
-                    $scope.place.companyName = res.name;
+                    $scope.place.name = res.name;
                     $scope.place.address = res.formatted_address;
-                    $scope.place.latitude = res.geometry.location.lat();
-                    $scope.place.longitute = res.geometry.location.lng();
+                    $scope.place.lat = res.geometry.location.lat();
+                    $scope.place.lng = res.geometry.location.lng();
                 },
                 function (status) { // error
                     $scope.apiError = true;

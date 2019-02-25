@@ -16,14 +16,14 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     $location.path('/');
     $route.reload();
   } 
-  // else {
-  //   $rootScope.employeeDetails.employeeId;
+  
 
     var companyId = 1;
-
-    $scope.try = function () {
-      console.log("hahahaah ");
-    }
+  
+    // $scope.try = function () {
+    //   console.log("hahahaah ");
+    // }
+  
 
     //==============================================================
     //================ DEFINITION PART START========================
@@ -53,7 +53,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     var getMenus = function()
     {
-      var menuListUrl = getVendorMenuList + "?vendorId=" + $scope.selectedVendor.vendorId + "&companyId="+companyId+"&dayName=Monday";   
+      var menuListUrl = getVendorMenuList + "?vendorId=" + $scope.selectedVendor.vendorId + "&companyId="+companyId;   
       $http.get(menuListUrl).then(function (response) {
       if(response.data.data != null)
       {
@@ -102,7 +102,6 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     $scope.selectNodeToDisplay = function(arr, obj, isChildNode)
     {
-      debugger;
       console.log("selected Menu by functions passed obj: ", JSON.stringify(arr));
       if(isChildNode === 1)
       {
@@ -119,6 +118,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     }
 
     $scope.addToCart = function (itemObj) {
+     
       // console.log("item id  ", JSON.stringify(itemObj));
       // console.log("check ", $scope.cartItems[itemObj.id]);
       if ($scope.cartItems[itemObj.id]) {
@@ -197,8 +197,10 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     
     $scope.getVendorName = function(id)
     {
+      // debugger;
       var vName = "";
       angular.forEach($scope.vendorList, function(vl){
+        // debugger;
         if(vl.vendorId == id)
         {
           vName =  vl.name;
@@ -208,14 +210,96 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
       return vName;
     }
 
+
+    var makeRazorPayOptions = function(data, orderId){
+      var options = {
+        "key": "rzp_test_KgnTG2Mdqgd2WX",
+        "amount": (data.totalAmount * 100),
+        "name": "Fancymonk",
+        "description": "Smart Cafeteria",
+        "order_id":orderId,
+        "prefill": {
+            "name": "Aman Telkar",
+            "email": "fancymonk@razorpay.com",
+            "phone":"9739420527"
+        },
+        "notes": {
+            "address": " Hello"
+        },
+        "theme": {
+            "color": "lightseagreen"
+        },
+        handler: function () {
+            // alert('Payment successful')
+            console.log("after payment success ",JSON.stringify(arguments));
+            var updateObj = {};
+            updateObj.bookingId = $scope.bookingResponse.bookingId;
+            updateObj.status = "USERREQUESTED";
+            DashboardService.updateBookings(updateObj);
+
+            updateObj.status = "CONFIRMED";
+            if(arguments['0'] != null)
+            {
+              updateObj.paymentId = arguments['0'].razorpay_payment_id;
+            }
+            DashboardService.updatePayments(updateObj);
+        }
+     };
+      return options;
+    }
+    
+  var pay = function (params) {
+      $.getScript('https://checkout.razorpay.com/v1/checkout.js', function () {
+          var rzp = new Razorpay(params);
+          rzp.open();
+      });
+  };
+
+
+  var getMenuForBookings = function()
+  {
+    var bookingMenuArr = [];
+    angular.forEach($scope.cartItems, function(cartValue, cartKey){
+      if(cartKey != 'totalAmount')
+      {
+        var temp = {};
+      temp.menuId = cartKey;
+      temp.quantity = cartValue.count;
+
+      bookingMenuArr.push(temp);
+      }
+    });
+    return bookingMenuArr;
+  }
+    $scope.checkout = function()
+    {
+      var objForDb = {};
+      objForDb.companyId = companyId;
+      objForDb.employeeId = "FM002";
+      objForDb.menu = JSON.stringify(getMenuForBookings());
+      objForDb.paymentType = "ONLINE";
+      objForDb.mobile = "9388338322";
+      objForDb.totalAmount = $scope.cartItems.totalAmount;
+      DashboardService.saveBookings(objForDb).then(function(response){
+        if (response.data.status == 1) {
+          $scope.bookingResponse = response.data.data;
+           if(objForDb.paymentType === "ONLINE")
+           {
+             var params = makeRazorPayOptions(objForDb, response.data.data.rzpOrderId);
+             pay(params);
+           }
+        }
+        else{
+
+        }
+      });
+    }
     // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.homeBool = false;
-      $scope.myOdersBool = false;
       $scope.favouritesBool = false;
       $scope.walletBool = false;
-      $scope.cardBool = false;
       $scope.feedbackBool = false;
       $scope.settingsBool = false;
       $scope.termsAndPolicyBool = false;
@@ -304,35 +388,7 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
 {itemName: "Chocolate Sandwich", Price: "70"}];
 
 
-    //================ Ratingfeedback ============================
-    var maxRating = 5;
-    $scope.stars = [].constructor(maxRating);
-    $scope.ratingParameters = [
-      {
-        name: "Presentation",
-        rating: 3
-      },
-      {
-        name: "Quality",
-        rating: 3
-      },
-      {
-        name: "Taste",
-        rating: 4
-
-      },
-      {
-        name: "Quantity",
-        rating: 4
-      }
-    ];
-
-    $scope.rateBy = function (j, star) {
-      console.log("hhhsh cdhbdsjhs : ", star);
-      console.log("hhhshs : ", JSON.stringify($scope.stars));
-      j.rating = star;
-
-    }
+    
 
     //================ Setting Employee Details ============================
 
@@ -343,9 +399,10 @@ $scope.sandwichItem=[{itemName: "Paneer Sandwich", Price: "50"},
     }
     //======================= Favourit Button =======================
     
-    $scope.addToCartReverse = function () {
-      $scope.add = $scope.add ? false : true;
+    $scope.makeFavouritNReverse = function () {
+      $scope.favourite = $scope.add ? false : true;
     }
+  
 
   }
   // }

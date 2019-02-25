@@ -92,6 +92,23 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     }
     $scope.boolFunction("companyBool");
 
+
+
+    $scope.searchListFun  = function(){
+      $scope.newList = $scope.searchList;
+      console.log("value  of list",$scope.newList);
+    }
+
+    $scope.value = 30;
+    $scope.min = 0;
+    $scope.max = 100;
+
+    // ===============================Save Lead==========================================
+    $scope.saveLead = function(){
+      
+    }
+    // ==================================================================================
+
   }
 
 ]);

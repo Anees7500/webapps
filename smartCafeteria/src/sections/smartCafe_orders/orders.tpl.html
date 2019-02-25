@@ -1,0 +1,231 @@
+<div class="wrapper">
+    <ng-include src="'sections/commons/navbar.tpl.html'"></ng-include>
+   
+    <div id="content" class="mt-5">
+     <nav aria-label="breadcrumb mt-5">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#!/dashboard">Home</a></li>
+      <li class="breadcrumb-item active">orders</li>
+    </ol>
+  </nav>
+  <div class="container mt-5">
+    <h4 class="text-dark font-weight-normal mt-3">Your Orders</h4>
+
+    <div class="classic-tabs mx-2">
+      <ul class="nav nav-pills mb-3 mt-3 pt-0" id="pills-tab" role="tablist">
+        <li class="nav-item  border-0 pb-0 mb-0">
+          <a class="nav-link active " id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab"
+            aria-controls="pills-home" aria-selected="true"><span class="h5 font-weight-normal">Active
+              Orders</span></a>
+        </li>
+        <li class="nav-item border-0 pb-0 mb-0">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab"
+            aria-controls="pills-profile" aria-selected="false"><span class="h5 font-weight-normal">Orders
+              History</span></a>
+        </li>
+
+      </ul>
+      <hr class="font-weight-bold black h3 mt-0">
+      <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+          ng-if="activeBookingBool">
+
+          <div class="row ml-1 mr-1 border" ng-repeat="booking in activeBookingList">
+            <div class="col-md-12">
+              <div class="media ">
+                <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
+                  style="width: 200px">
+                <div class="media-body ml-3">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <h5 class="mt-3 font-weight-bold">{{getVendorCombinations(booking.menu)}}</h5>
+                      <p ng-bind="getMenuForOrdersPage(booking.menu)"></p>
+                      <p ng-bind="'Total Amount - ₹ '+booking.totalAmount"></p>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5">
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">order on {{booking.formattedCreatedAt}}</p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode : {{booking.paymentType}}</p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status : {{booking.paymentStatus}}</p>
+                    </div>
+                  </div>
+
+
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <ul class="d-flex justify-content-center stepper stepper-horizontal p-0 mt-0">
+                    <li class="completed p-0">
+                      <a href="">
+                        <span class="circle green">1</span>
+                       
+                        <span class="label"ng-bind="getBookingStatusForUser(booking)"></span>
+                      </a>
+                    </li>
+                    <li class="active p-0">
+                      <a href="">
+                        <span class="circle">2</span>
+                        <span class="label">Confirmed/Rejected</span>
+                      </a>
+                    </li>
+                    <li class="warning p-0">
+                      <a href="">
+                        <span class="circle"><i class="fas fa-exclamation"></i></span>
+                        <span class="label">Complete</span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                  <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel" 
+                    ng-if="booking.status == 'USERREQUESTED'">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div class="row ml-1 mr-1" ng-repeat="booking in allBookingList">
+            <div class="col-md-12  ">
+              <div class="media border">
+                <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
+                  style="width: 200px">
+                <div class="media-body ml-3">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <h5 class="mt-3 font-weight-bold">{{getVendorCombinations(booking.menu)}}</h5>
+                      <p ng-bind="getMenuForOrdersPage(booking.menu)"></p>
+                      <p ng-bind="'Total Amount - ₹ '+booking.totalAmount"></p>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class=" col-md-6">
+   
+                      <h4 class="mt-3 font-weight-bold text-muted h6 mr-1">order on {{booking.formattedCreatedAt}}
+                        <i class="far fa-check-circle fa-lg ml-1 badge-success rounded-circle border-0"></i> <span>
+                            <i class="far fa-times-circle fa-lg ml-1 badge-danger rounded-circle border-0"></i> 
+                        </span></h4> 
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center"
+                       ng-bind="'Order Status : '+ getBookingStatusForUser(booking)"></p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode : {{booking.paymentType}}</p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status : {{booking.paymentStatus}}</p>
+                      <div class="row">
+                        <div class=" col-md-6">
+                          <button type="button" data-toggle="modal" data-target="#feedback" class="btn btn-outline-warning waves-effect rounded-pill btn-sm  ">Feedback</button>
+
+                          <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog " role="document">
+                              <div class="modal-content">
+                                <!--Header-->
+                                <div class="modal-header info-color" id="myModalLabel">
+                                  <p class="heading lead text-white font-weight-bold ml-2 ">Feedback request
+                                    <i class="far fa-file-alt fa-1x animated rotateIn white-text"></i>
+                                  </p>
+
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="white-text">×</span>
+                                  </button>
+                                </div>
+
+                                <!--Body-->
+                                <div class="modal-body">
+                                  <div class="form-row float-left ml-3">
+                                    <div class="form-group col-md-4">
+                                      <label class="font-small font-weight-bold">Select vendor </label>
+                                    </div>
+                                    <div class="text-center form-group col-md-8">
+                                      <select class="browser-default custom-select" ng-model="employee.venderName"
+                                        aria-placeholder="Choose Vendor" required>
+                                        <option selected>Choose Vendor</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                      <div class="form-row " ng-repeat="employeeInfo in employeeDetails">
+                                        <div class="md-form col-md-10">
+                                          <input type="text" id="inputDisabledEx" class="form-control" disabled>
+                                          <label for="inputDisabledEx" class="disabled ">{{employeeInfo.name}}</label>
+                                        </div>
+                                        <div class="md-form col-md-6 ">
+                                          <input type="text" id="inputDisabledEx" class="form-control" disabled>
+                                          <label for="inputDisabledEx" class="disabled">{{employeeInfo.employeeId}}</label>
+                                        </div>
+                                        <div class="md-form col-md-6">
+                                          <input type="text" id="inputDisabledEx" class="form-control" disabled>
+                                          <label for="inputDisabledEx" class="disabled ">{{employeeInfo.mobile}}</label>
+                                        </div>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class="col-md-12 form-group">
+                                      <div class=" form-row " ng-repeat="parames in ratingParameters">
+                                        <div class=" col-md-4 form-group">
+                                          <h5 class=" font-weight-bold font-small mt-4">{{parames.name}}
+                                          </h5>
+                                        </div>
+
+                                        <div class="col-md-8 form-group">
+                                          <ul class=" list-unstyled rating" ng-model=employee[parames.ratingParameters]>
+                                            <li class="list-unstyled  fa-3x" ng-repeat="n in stars track by $index">
+                                              <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating > $index"
+                                                class="filled">&#9733;</span>
+                                              <span ng-click="rateBy(parames, $index+1)" ng-show="parames.rating <= $index"
+                                                class="animated pulse">&#9733;</span>
+                                            </li>
+                                          </ul>
+                                          <hr class="font-weight-bold black h3 mt-0">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="md-form md-outline col-md-12 form-group">
+                                      <textarea type="text" id="form75" class="form-control" rows="3" ng-model="employee.Comment"
+                                        required></textarea>
+                                      <label for="form75" class="ml-3">Enter Your Comment</label>
+                                    </div>
+                                    <div class="modal-footer  form-row">
+                                      <div class=" col-md-6 form-group">
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" class="btn btn-info waves-effect"
+                                          ng-disabled="!(employee.venderName)">Send
+                                          <i class="fa fa-paper-plane ml-1"></i>
+                                        </button>
+                                      </div>
+                                      <div class="col-md-4 form-group">
+                                        <button type="button" class="btn btn-outline-primary waves-effect"
+                                          data-dismiss="modal">Cancel</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6"> <button class="btn btn-outline-info waves-effect btn-sm    rounded-pill  "
+                            type="cancel">Re-order</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
