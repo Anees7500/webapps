@@ -263,15 +263,17 @@
                       <!-- <a class="btn btn-clear btn-xs"  ng-if="node.menuNode.length>0" ng-click="expandNode(this,$event)"> 
                         <i class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></i>
                       </a> -->
-                        <div class='form-group' ng-if="!node.isFoodItem">
-                          <!-- januka this the header input -->
-                            <input class='form-control' ng-disabled="node.isInserted" ng-model='node.menuName' focus>
+                       
+                         <div ng-if="!node.isFoodItem">
+                         <h5 class="card-header info-color">
+                            <span class="text-white" ng-disabled="node.isInserted" ng-model='node.menuName' focus>{{node.menuName}}</span>
+                          </h5>
                         </div>
-                        
                             <div ng-if="node.isFoodItem">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                     <ul class="list-group-flush">
-                                        <li class="list-group-item">
+                                    
+                                     <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-bottom">
                                          <div class="d-flex flex-row  justify-content-between">
                                             <div class="p-2">
                                                 <p><i class="far fa-stop-circle text-success fa-sm mr-2"></i>{{node.menuName}}</p>
@@ -282,19 +284,17 @@
                                                 <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill"
                                                 ng-if="!cartItems[node.id].addedInCart" ng-click="addToCart(node)">ADD</button>  
                                             </div>
-                                            <div class="p-2 justify-content-between" ng-if="cartItems[node.id].addedInCart">
-                                                <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                                                    <span class="minus info-color  d-inline-block text-white text-center  rounded-pill"
-                                                     ng-click="reduceCount(cartItems[node.id])">-</span>
-                                                    <input type="number" class="count text-center text-dark font-weight-bold" name="qty" ng-model="cartItems[node.id].count">
-                                                    <span class="plus info-color d-inline-block text-white text-center  rounded-pill"
-                                                    ng-click="addCount(cartItems[node.id])">+</span>
-                                                  </div>
-                                              </div>
+                                              <div class="p-2 justify-content-between" ng-if="cartItems[node.id].addedInCart">
+                                                  <div class="def-number-input number-input">
+                                                          <button class="minus" ng-click="reduceCount(cartItems[node.id])"></button>
+                                                          <input class="quantity" min="0" name="quantity" value="1" type="number" ng-model="cartItems[node.id].count">
+                                                          <button class="plus" ng-click="addCount(cartItems[node.id])"></button>
+                                                        </div>
+                                                      </div>
                                           </div>
                                         </li>
-                                        
-                                      </ul> 
+                                      </ul>
+                                      
                                       
                                  </div>
                             </div>
@@ -329,22 +329,17 @@
           <ul class="list-group" id="scroll-height">
             <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartItems" ng-if="keyCart != 'totalAmount'">
               <div class="d-flex flex-row justify-content-between" id="checkout-height">
-                <div class="p-2">
+                <div class="p-2 w-50">
                   <h6 class="my-0 text-dark font-weight-normal">{{valueCart.obj.menuName}}
                   </h6>
                   <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
                 </div>
-
-                <div class="p-2 justify-content-between" ng-if="cartItems[keyCart].addedInCart">
-                  <div class="qty  border  rounded-pill border-info text-center d-inline-block mr-1">
-                      <span class="minus info-color  d-inline-block text-white text-center  rounded-pill"
-                       ng-click="reduceCount(cartItems[keyCart])">-</span>
-                      <input type="number" class="count text-center text-dark font-weight-bold" name="qty" 
-                          ng-model="cartItems[keyCart].count">
-                      <span class="plus info-color d-inline-block text-white text-center  rounded-pill"
-                        ng-click="addCount(cartItems[keyCart])">+</span>
-                    </div>
-                </div>
+                        <div class="p-2 w-25 mr-3" ng-if="cartItems[keyCart].addedInCart">
+                            <div class="def-number-input number-input">
+                                    <button class="minus text-white"ng-click="reduceCount(cartItems[keyCart])"></button>
+                                    <input class="quantity" min="0" name="quantity" value="1" type="number"ng-model="cartItems[keyCart].count">
+                                    <button class="plus text-white" ng-click="addCount(cartItems[keyCart])"></button>
+                                  </div></div>
 
                 <div class="p-2">
                 <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{cartItems[keyCart].amount}}</span></p>
@@ -352,25 +347,45 @@
                 </div>
                 
               </li>
-              
-              <li class="list-group-item d-flex justify-content-between">
-                <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                <strong><i class="fas fa-rupee-sign"></i>{{cartItems.totalAmount}}</strong>
-              </li>
-              <li class="list-group-item d-flex" ng-if= "getCartItemSize() > 0">
-                  <span class="font-weight-bold text-danger">
-                      <input type="checkbox" ng-model="true">Online
-                  </span>
-
-                  <span class="font-weight-bold text-danger">
-                      <input type="checkbox" >Cash
-                  </span>
-                </li>
             </ul>
+          <div class="d-flex flex-row justify-content-between" id="checkout-height">
+            <div class="p-2">
+                <span class="font-weight-bold text-danger">Total (Rupee)</span>
+            </div>
+            <div class="p-2 mr-5">
+                <strong><i class="fas fa-rupee-sign"></i>{{cartItems.totalAmount}}</strong>
+            </div>
+            </div>
+            <h5 class="small ml-2">Choose Payment Mode</h5>
+            <div class="d-flex flex-row justify-content-between" id="checkout-height">
+              
+               
+                <div class="p-2">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="Cashon" name="defaultExampleRadios">
+                        <label class="custom-control-label" for="Cashon">Cash on</label>
+                      </div>
+                </div>
+                <div class="p-2">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="Wallet" name="defaultExampleRadios">
+                        <label class="custom-control-label" for="Wallet">Wallet</label>
+                      </div>
+                </div>
+                <div class="p-2  mr-3">
+                    <div class="custom-control custom-radio"ng-if= "getCartItemSize() > 0">
+                        <input type="radio" class="custom-control-input" id="online" name="defaultExampleRadios">
+                        <label class="custom-control-label" for="online">Online</label>
+                      </div>
+                </div>
+                </div>
+              
             <button class="btn btn-primary btn-lg btn-block" type="submit" ng-click="checkout()">Continue to checkout</button>
           </div>
      
-  
+  </div>
+  </div>
+  </div>
   
 
 

@@ -25,7 +25,7 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
   position: absolute;
   z-index: 1;}
 #scroll-height{
-    max-height: 280px;
+    max-height: 160px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
