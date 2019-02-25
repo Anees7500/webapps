@@ -13,10 +13,10 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'EmpRegistrationController'
         })
 
-        .when('/scrollspy', {
-            templateUrl: 'sections/scrollspy_try/scrollspy.tpl.html',
+        .when('/dashboard/checkout', {
+            templateUrl: 'sections/smartCafe_checkout/checkout.tpl.html',
             title: 'Header-part',
-            controller: 'EmpScrollspyController'
+            controller: 'CheckoutController'
         })
 
         .when('/dashboard/orders', {
@@ -32,9 +32,9 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'DashboardController'
         })
         
-        .otherwise({
-            redirectTo: '/'
-        });
+        // .otherwise({
+        //     redirectTo: '/'
+        // });
 
         
        

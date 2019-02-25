@@ -1,0 +1,78 @@
+<div class="wrapper">
+<ng-include src="'sections/commons/navbar.tpl.html'"></ng-include>
+   
+        <div id="content" class="mt-5">
+         <nav aria-label="breadcrumb mt-5">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#!/dashboard">Home</a></li>
+          <li class="breadcrumb-item active">checkout</li>
+        </ol>
+      </nav>
+<div class="row">
+    <div class="col-md-3"></div>
+        <div class="col-md-6">
+                <h4 class="d-flex justify-content-between align-items-center card-header info-color">
+                  <span class="text-white">Your cart</span>
+                  <span class="badge badge-secondary badge-pill">{{getCartItemSize()}}</span>
+                </h4>
+                <ul class="list-group" id="scroll-height">
+                  <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartItems" ng-if="keyCart != 'totalAmount'">
+                    <div class="d-flex flex-row justify-content-between" id="checkout-height">
+                      <div class="p-2 w-50">
+                        <h6 class="my-0 text-dark font-weight-normal">{{valueCart.obj.menuName}}
+                        </h6>
+                        <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
+                      </div>
+                              <div class="p-2 w-25 mr-3" ng-if="cartItems[keyCart].addedInCart">
+                                  <div class="def-number-input number-input">
+                                          <button class="minus text-white"ng-click="reduceCount(cartItems[keyCart])"></button>
+                                          <input class="quantity" min="0" name="quantity" value="1" type="number"ng-model="cartItems[keyCart].count">
+                                          <button class="plus text-white" ng-click="addCount(cartItems[keyCart])"></button>
+                                        </div></div>
+      
+                      <div class="p-2">
+                      <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{cartItems[keyCart].amount}}</span></p>
+                      </div>
+                      </div>
+                      
+                    </li>
+                  </ul>
+                <div class="d-flex flex-row justify-content-between" id="checkout-height">
+                  <div class="p-2">
+                      <span class="font-weight-bold text-danger">Total (Rupee)</span>
+                  </div>
+                  <div class="p-2 mr-5">
+                      <strong><i class="fas fa-rupee-sign"></i>{{cartItems.totalAmount}}</strong>
+                  </div>
+                  </div>
+                  <h5 class="small ml-2">Choose Payment Mode</h5>
+                  <div class="d-flex flex-row justify-content-between" id="checkout-height">
+                    
+                     
+                      <div class="p-2">
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="Cashon" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="Cashon">Cash on</label>
+                            </div>
+                      </div>
+                      <div class="p-2">
+                          <div class="custom-control custom-radio">
+                              <input type="radio" class="custom-control-input" id="Wallet" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="Wallet">Wallet</label>
+                            </div>
+                      </div>
+                      <div class="p-2  mr-3">
+                          <div class="custom-control custom-radio"ng-if= "getCartItemSize() > 0">
+                              <input type="radio" class="custom-control-input" id="online" name="defaultExampleRadios">
+                              <label class="custom-control-label" for="online">Online</label>
+                            </div>
+                      </div>
+                      </div>
+                    
+                  <button class="btn btn-primary btn-lg btn-block" type="submit" ng-click="checkout()">Continue to Pay</button>
+                
+                  
+                </div>
+                <div class="col-md-3"></div>
+</div>
+</div>
