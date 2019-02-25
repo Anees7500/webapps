@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* ------------------side bar----------------------- */
+#btn-block {
+    margin-left: 340px;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #fff;
+    color: #7386D5;
+    transition: all 0.3s;
+}
+
+#sidebar ul li span:nth-child(2) {
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    opacity: 0.7 linear;
+}
+
+#sidebar ul .open>a,
+#sidebar ul li.dropdown .dropdown-menu li:hover,
+#sidebar ul li:hover {
+    background-color: #e3f2fd;
+    color: #fff;
+}

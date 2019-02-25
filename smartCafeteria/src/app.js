@@ -1,4 +1,4 @@
-var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
+var empApp = angular.module("empApp", ['ngRoute',  'empApp.config',
     'ngCookies', 'ui-notification']);
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

@@ -1,0 +1,89 @@
+<!---------------------------------Main Navigation------------------------------->
+
+<div class="wrapper">
+
+    <!-- ===============================header navbar start=============================== -->
+    <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
+        <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href=""
+            id="sidebarCollapse">
+            <div class="media">
+                <i class="fa fa-th-list mt-1"></i>
+                <div class="media-body">
+                    <span class="text-white h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
+                </div>
+            </div>
+        </a>
+        <!--=============================sidebar collapse============================-->
+
+
+        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <ul class="navbar-nav ml-auto mr-3">
+            <li class="nav-item dropdown mr-5">
+                <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
+                <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+                    <a class="dropdown-item" ng-click="logout()"><i class="far fa-question-circle mr-3"></i>Log out</a>
+            </li>
+        </ul>
+
+    </nav>
+    <!---------------------------- Navbar End----------------------->
+
+    <!--------------------Main Navigation------------------------------------->
+    <nav id="sidebar" class="z-depth-1-half position-fixed h-100">
+        <ul class="list-unstyled components mt-5">
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('pendingBool')">
+                    <i class="fas fa-hourglass-half text-warning"></i></i> <span class="font-weight-normal"> Pending
+                        Oders </span><span
+                        class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
+            </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('confirmedOdersBool')"><i
+                        class="fas fa-check-circle text-success"></i></i> <span class="font-weight-normal"> confirmed
+                        Oders
+                    </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
+            </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('cancelOdersBool')">
+                    <i class="fas fa-ban text-danger"></i> <span class="font-weight-normal"> Cancel Oders
+                    </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
+            </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('completedOdersBool')"><i
+                        class="fas fa-tasks text-secondary"></i></i> <span class="font-weight-normal"> Completed Oders
+                    </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
+            </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i
+                        class="far fa-credit-card text-primary"></i> <span class="font-weight-normal"> Payment Status
+                    </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
+            </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+                    data-target="#pageSubmenu">
+                    <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
+                        Weekly Menu</span><i class="fas fa-angle-right ml-5"></i></a>
+                <ul class="collapse list-unstyled" id="pageSubmenu" ng-repeat="days in workingDays">
+                    <li class="p-1">
+                        <a class="text-dark d-block text-decoration-none" href="">
+                            <i class="fas fa-fire mr-2"></i>
+                            <span class="font-weight-normal">{{days.day}}</span></a>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- ===================== Main Navigation Content =======================  -->
+    <div id="content" class="mt-5">
+
+
+
+
+        <!---profile end-->
+    </div>
+</div>
