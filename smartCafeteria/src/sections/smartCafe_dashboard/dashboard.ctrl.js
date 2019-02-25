@@ -53,7 +53,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     var getMenus = function()
     {
-      var menuListUrl = getVendorMenuList + "?vendorId=" + $scope.selectedVendor.vendorId + "&companyId="+companyId+"&dayName=Monday";   
+      var menuListUrl = getVendorMenuList + "?vendorId=" + $scope.selectedVendor.vendorId + "&companyId="+companyId;   
       $http.get(menuListUrl).then(function (response) {
       if(response.data.data != null)
       {
@@ -102,7 +102,6 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     $scope.selectNodeToDisplay = function(arr, obj, isChildNode)
     {
-      debugger;
       console.log("selected Menu by functions passed obj: ", JSON.stringify(arr));
       if(isChildNode === 1)
       {
@@ -197,8 +196,10 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
     
     $scope.getVendorName = function(id)
     {
+      // debugger;
       var vName = "";
       angular.forEach($scope.vendorList, function(vl){
+        // debugger;
         if(vl.vendorId == id)
         {
           vName =  vl.name;
@@ -228,8 +229,19 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
             "color": "lightseagreen"
         },
         handler: function () {
-            alert('Payment successful')
+            // alert('Payment successful')
             console.log("after payment success ",JSON.stringify(arguments));
+            var updateObj = {};
+            updateObj.bookingId = $scope.bookingResponse.bookingId;
+            updateObj.status = "USERREQUESTED";
+            DashboardService.updateBookings(updateObj);
+
+            updateObj.status = "CONFIRMED";
+            if(arguments['0'] != null)
+            {
+              updateObj.paymentId = arguments['0'].razorpay_payment_id;
+            }
+            DashboardService.updatePayments(updateObj);
         }
      };
       return options;
@@ -243,17 +255,33 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
   };
 
 
+  var getMenuForBookings = function()
+  {
+    var bookingMenuArr = [];
+    angular.forEach($scope.cartItems, function(cartValue, cartKey){
+      if(cartKey != 'totalAmount')
+      {
+        var temp = {};
+      temp.menuId = cartKey;
+      temp.quantity = cartValue.count;
+
+      bookingMenuArr.push(temp);
+      }
+    });
+    return bookingMenuArr;
+  }
     $scope.checkout = function()
     {
       var objForDb = {};
       objForDb.companyId = companyId;
       objForDb.employeeId = "FM002";
-      objForDb.menu = JSON.stringify($scope.cartItems);
+      objForDb.menu = JSON.stringify(getMenuForBookings());
       objForDb.paymentType = "ONLINE";
       objForDb.mobile = "9388338322";
       objForDb.totalAmount = $scope.cartItems.totalAmount;
       DashboardService.saveBookings(objForDb).then(function(response){
         if (response.data.status == 1) {
+          $scope.bookingResponse = response.data.data;
            if(objForDb.paymentType === "ONLINE")
            {
              var params = makeRazorPayOptions(objForDb, response.data.data.rzpOrderId);

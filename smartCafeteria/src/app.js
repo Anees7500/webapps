@@ -32,9 +32,9 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'DashboardController'
         })
         
-        .otherwise({
-            redirectTo: '/'
-        });
+        // .otherwise({
+        //     redirectTo: '/'
+        // });
 
         
        

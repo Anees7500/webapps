@@ -24,25 +24,29 @@
       </ul>
       <hr class="font-weight-bold black h3 mt-0">
       <div class="tab-content pt-2 pl-1" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+          ng-if="activeBookingBool">
 
-          <div class="row ml-1 mr-1 border">
-            <div class="col-md-12  ">
+          <div class="row ml-1 mr-1 border" ng-repeat="booking in activeBookingList">
+            <div class="col-md-12">
               <div class="media ">
                 <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
                   style="width: 200px">
                 <div class="media-body ml-3">
                   <div class="row">
                     <div class="col-md-5">
-                      <h5 class="mt-3 font-weight-bold">FANCY VENDOR-HSR LAYOUT</h5>
-                      <p>1 Veg Biryani, 1 Paneer Tikka</p>
-                      <p>Total Amount - ₹ 196.90</p>
+                      <h5 class="mt-3 font-weight-bold">{{getVendorCombinations(booking.menu)}}</h5>
+                      <p ng-bind="getMenuForOrdersPage(booking.menu)"></p>
+                      <p ng-bind="'Total Amount - ₹ '+booking.totalAmount"></p>
 
                     </div>
                     <div class="col-md-3"></div>
                     <div class="col-md-4">
-                      <p class="mt-3 font-weight-bold text-muted h6 text-center">order on Mon,Feb 10</p>
-
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">order on {{booking.formattedCreatedAt}}</p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center"
+                       ng-bind="'Order Status : '+ getBookingStatusForUser(booking)"></p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode : {{booking.paymentType}}</p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status : {{booking.paymentStatus}}</p>
                     </div>
                   </div>
 
@@ -76,14 +80,17 @@
                 </div>
                 <div class="col-md-2"></div>
                 <div class="col-md-2">
-                  <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel">Cancel</button>
+                  <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel" 
+                    ng-if="booking.status == 'USERREQUESTED'">Cancel</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <div class="row ml-1 mr-1">
+          <div class="row ml-1 mr-1" ng-repeat="booking in allBookingList">
             <div class="col-md-12  ">
               <div class="media border">
                 <img class="d-flex img-responsive h-100 img-thumbnail" src="img/food.jpg" alt="Generic placeholder image"
@@ -91,14 +98,19 @@
                 <div class="media-body ml-3">
                   <div class="row">
                     <div class="col-md-5">
-                      <h5 class="mt-3 font-weight-bold">FANCY VENDOR-HSR LAYOUT</h5>
-                      <p>1 Veg Biryani, 1 Paneer Tikka</p>
-                      <p>Total Amount Paid - ₹ 196.90</p>
+                      <h5 class="mt-3 font-weight-bold">{{getVendorCombinations(booking.menu)}}</h5>
+                      <p ng-bind="getMenuForOrdersPage(booking.menu)"></p>
+                      <p ng-bind="'Total Amount - ₹ '+booking.totalAmount"></p>
                     </div>
                     <div class="col-md-2"></div>
                     <div class=" col-md-5">
-                      <h4 class="mt-3 font-weight-bold text-muted h6 mr-3 ">Delivered on Mon,Feb 10
+                      
+                      <h4 class="mt-3 font-weight-bold text-muted h6 mr-3 ">order on {{booking.formattedCreatedAt}}
                         <i class="far fa-check-circle fa-lg ml-1 badge-success rounded-circle border-0"></i></h4>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center"
+                       ng-bind="'Order Status : '+ getBookingStatusForUser(booking)"></p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode : {{booking.paymentType}}</p>
+                      <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status : {{booking.paymentStatus}}</p>
                       <div class="row">
                         <div class=" col-md-6">
                           <button type="button" data-toggle="modal" data-target="#feedback" class="btn btn-outline-warning waves-effect rounded-pill btn-sm  ">Feedback</button>
