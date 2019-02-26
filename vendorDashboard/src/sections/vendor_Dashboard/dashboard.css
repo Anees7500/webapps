@@ -2,12 +2,24 @@
     display: flex;
     width: 100%;
 }
-
+/* ------------------CONTENT STYLE------------------------ */
+#content {
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 100px;}  
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: #fff;
+        background-color: #1de9b6;
+        font-weight: 800;}
 /* ------------------side bar----------------------- */
 #btn-block {
     margin-left: 340px;
 }
-
+.nav-item a{    color: brown;font-weight: 800;}
 #sidebar {
     width: 250px;
     position: fixed;
@@ -33,3 +45,15 @@
     background-color: #e3f2fd;
     color: #fff;
 }
+/* ---------------MEDIAQUERIES---------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;}
+    #sidebar.active {
+        margin-left: 0;}
+    #content {
+        width: 100%;}
+    #content.active {
+        width: calc(100% - 250px);}
+    #sidebarCollapse span {
+        display: none;}}
