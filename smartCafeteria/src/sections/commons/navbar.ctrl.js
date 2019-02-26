@@ -1,5 +1,5 @@
-empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$location', '$route',
-  function ($scope, $cookies, Notification, $location, $route) {
+empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$location', '$route', 'NavbarService',
+  function ($scope, $cookies, Notification, $location, $route, NavbarService) {
 
     //========================= Logout funtion ======================
     console.log("inside navbar controller");
@@ -15,24 +15,29 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
       $route.reload();
     }
 
-
-    var companyId = 1;
-    // =================== Add In Favourit =============================
-    $scope.addToCartReverse = function () {
-      $scope.add = $scope.add ? false : true;
-    }
-    $scope.makeFavouritNReverse = function () {
-      $scope.favourite = $scope.add ? false : true;
-    }
-    // ================== boolfunction ======================
     $scope.boolFunction = function (value) {
+      debugger;
       console.log("boolFunction", value); 
       $scope.walletBool = false;
       $scope.settingsBool = false;
       $scope.termsAndPolicyBool = false;
       $scope[value] = true;
+      $scope.navBool = true;
     }
-    // $scope.boolFunction("homeBool");
+
+    // $scope.booleans = NavbarService.boolFunction(value);
+    var companyId = 1;
+    // =================== Add In Favourit =============================
+    $scope.addToCartReverse = function () {
+      $scope.add = $scope.add ? false : true;
+    }
+   
+    // $scope.boolFunction = function(value)
+    // {
+    //   $scope.booleans = NavbarService.boolFunction(value);
+    // };
+
+  
 
   
 

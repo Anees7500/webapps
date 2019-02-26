@@ -1,8 +1,7 @@
 empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders','getVendorList',
-  function($scope,$http, getSmartCafeteriaOrders,getVendorList) {
+'NavbarService',
+  function($scope,$http, getSmartCafeteriaOrders,getVendorList,NavbarService) {
   
-
-
         $scope.activeBookingBool = true;
         var companyId = 1;
         //get active Bookings
@@ -19,17 +18,12 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
         var vendorListUrl = getVendorList + companyId;
         $http.get(vendorListUrl).then(function (response) {
           $scope.vendorList = response.data.data.details;
-          // $scope.selectedVendor = $scope.vendorList[0];
-          // getMenus();
-          // console.log("selected vendor : ", JSON.stringify($scope.selectedVendor));
         });
 
         var getVendorName = function(id)
         {
           // debugger;
-          var vName = "";
-          // console.log("vendor list obj : ", $scope.vendorList);
-          // console.log("vendor list : ", JSON.stringify($scope.vendorList )); 
+          var vName = ""; 
           angular.forEach($scope.vendorList, function(vl){
             // console.log("vendor list  ele : ", JSON.stringify(vl )); 
             if(vl.vendorId == id)

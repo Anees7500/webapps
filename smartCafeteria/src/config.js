@@ -1,4 +1,5 @@
 angular.module("empApp.config", [])
+.constant("companyId", 1)
 .constant("postEmployeeLogin", "http://fancymonk.com:9125/api/client/employee-login")
 .constant("postEmployeeUpdatePassword", "http://fancymonk.com:9125/api/client/update-password")
 .constant("getVendorList", "http://fancymonk.com:9125/api/client/get-cnc-vendors?companyId=")
