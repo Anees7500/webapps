@@ -780,7 +780,8 @@
 
       <button class="ml-5 btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>
       <!-- <button class="ml-5" ng-click="exportToPdf('#invoice')">PDF</button> -->
-      <button class="ml-5 btn btn-light" ng-click="onclickPdf()">PDF</button>
+      <button class="ml-5 btn btn-light" ng-click="getInvoiceExcelHeader()">PDF</button>
+      <!-- onclickPdf() -->
 
 
 
@@ -873,12 +874,13 @@
                 </tr>
               </thead>
               <tbody class="pb-0 pt-0 mt-0">
-                <tr class="pb-0 pt-0" ng-repeat="obj in invoiceDetailsObj.invoiceDetailsArr">
+                <tr class="pb-0 pt-0" ng-repeat="obj in invoiceDetailsArr">
+                 
                   <td class="pb-0 pt-0">
                     <form>
                       <div class="form-group text-muted">
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          ng-model="obj.description | capitalize">
+                          ng-model="obj.description">
                       </div>
                     </form>
                   </td>
@@ -896,16 +898,17 @@
                     <form>
                       <div class="form-group text-muted">
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          ng-model="'INR '+ obj.price">
+                          ng-model="obj.price">
                       </div>
                     </form>
                   </td>
 
+                 
                   <td class="pb-0 pt-0">
                     <form>
                       <div class="form-group text-muted">
-                        <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
-                          ng-model="'INR ' + obj.amount">
+                        <input type="number" class="form-control border-0 p-0 text-muted font-weight-bold"
+                          ng-model="obj.amount">
                       </div>
                     </form>
                   </td>

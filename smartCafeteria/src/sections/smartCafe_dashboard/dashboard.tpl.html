@@ -196,13 +196,13 @@
                                             </div>
                                             <div class="p-2">
                                                 <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill"
-                                                ng-if="!cartItems[node.id].addedInCart" ng-click="addToCart(node)">ADD</button>  
+                                                ng-if="!cartObj.cartItems[node.id].addedInCart" ng-click="addToCart(node)">ADD</button>  
                                             </div>
-                                              <div class="p-2 justify-content-between" ng-if="cartItems[node.id].addedInCart">
+                                              <div class="p-2 justify-content-between" ng-if="cartObj.cartItems[node.id].addedInCart">
                                                   <div class="def-number-input number-input">
-                                                          <button class="minus" ng-click="reduceCount(cartItems[node.id])"></button>
-                                                          <input class="quantity" min="0" name="quantity" value="1" type="number" ng-model="cartItems[node.id].count">
-                                                          <button class="plus" ng-click="addCount(cartItems[node.id])"></button>
+                                                          <button class="minus" ng-click="reduceCount(cartObj.cartItems[node.id])"></button>
+                                                          <input class="quantity" min="0" name="quantity" value="1" type="number" ng-model="cartObj.cartItems[node.id].count">
+                                                          <button class="plus" ng-click="addCount(cartObj.cartItems[node.id])"></button>
                                                         </div>
                                                       </div>
                                           </div>
@@ -241,22 +241,22 @@
             <span class="badge badge-secondary badge-pill">{{getCartItemSize()}}</span>
           </h4>
           <ul class="list-group" id="scroll-height">
-            <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartItems" ng-if="keyCart != 'totalAmount'">
+            <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartObj.cartItems" ng-if="keyCart != 'totalAmount'">
               <div class="d-flex flex-row justify-content-between" id="checkout-height">
                 <div class="p-2 w-50">
                   <h6 class="my-0 text-dark font-weight-normal">{{valueCart.obj.menuName}}
                   </h6>
                   <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
                 </div>
-                        <div class="p-2 w-25 mr-3" ng-if="cartItems[keyCart].addedInCart">
+                        <div class="p-2 w-25 mr-3" ng-if="cartObj.cartItems[keyCart].addedInCart">
                             <div class="def-number-input number-input">
-                                    <button class="minus text-white"ng-click="reduceCount(cartItems[keyCart])"></button>
-                                    <input class="quantity" min="0" name="quantity" value="1" type="number"ng-model="cartItems[keyCart].count">
-                                    <button class="plus text-white" ng-click="addCount(cartItems[keyCart])"></button>
+                                    <button class="minus text-white"ng-click="reduceCount(cartObj.cartItems[keyCart])"></button>
+                                    <input class="quantity" min="0" name="quantity" value="1" type="number"ng-model="cartObj.cartItems[keyCart].count">
+                                    <button class="plus text-white" ng-click="addCount(cartObj.cartItems[keyCart])"></button>
                                   </div></div>
 
                 <div class="p-2">
-                <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{cartItems[keyCart].amount}}</span></p>
+                <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{cartObj.cartItems[keyCart].amount}}</span></p>
                 </div>
                 </div>
                 
@@ -267,13 +267,13 @@
                 <span class="font-weight-bold text-danger">Total (Rupee)</span>
             </div>
             <div class="p-2 mr-5">
-                <strong><i class="fas fa-rupee-sign"></i>{{cartItems.totalAmount}}</strong>
+                <strong><i class="fas fa-rupee-sign"></i>{{cartObj.cartItems.totalAmount}}</strong>
             </div>
             </div>
           
               
           
-            <a class="btn btn-primary btn-lg btn-block" type="submit"ng-click="checkout()" href="#!/dashboard/checkout">Continue to checkout</a>
+            <a class="btn btn-primary btn-lg btn-block" type="submit" ng-click="gotoCheckout()">Continue to checkout</a>
             
           </div>
      

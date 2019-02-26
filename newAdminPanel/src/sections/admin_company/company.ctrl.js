@@ -243,7 +243,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
           $scope.additionalReqDetails[item.type].arrVal.push.apply($scope.additionalReqDetails[item.type].arrVal, dbSavedAdditionalReqArr);
           $scope.additionalReqDetails[item.type].additionaRequirementDbRowId = item.id;
         });
-        // console.log("additional req = ", JSON.stringify($scope.additionalReqDetails));
+        console.log("additional req = ", JSON.stringify($scope.additionalReqDetails));
       }
     });
 
@@ -381,9 +381,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.selectedMonthForInvoice.startDate +
           "&endDate=" + $scope.selectedMonthForInvoice.endDate;
       }
+
+      console.log("url made : ", detailsForInvoicesUrl);
       $http.get(detailsForInvoicesUrl).then(function (response) {
         $scope.invoiceDetailsObj = response.data.data;
         var temporaryArr = [];
+        // $scope.invoiceDetailsArr = [];
         angular.forEach($scope.invoiceDetailsObj.invoiceDetails, function (value, key) {
           angular.forEach(value, function (subValue, subKey) {
             angular.forEach(subValue, function (subSubVal, subSubKey) {
@@ -400,12 +403,14 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
               obj.price = subSubKey;
               obj.amount = subSubVal.amount;
 
+              // $scope.invoiceDetailsArr.push(obj);
               temporaryArr.push(obj);
             });
           });
 
         });
-        $scope.invoiceDetailsObj.invoiceDetailsArr = temporaryArr;
+        // console.log("invoice details array :  ", JSON.stringify($scope.invoiceDetailsArr));
+        $scope.invoiceDetailsArr = temporaryArr;
 
 
         // $scope.$watchCollection("invoiceDetailsObj.invoiceDetailsArr", function(newVal, oldVal){
@@ -668,6 +673,9 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.tempCategoryForClientMonthlyDtls.displayName = obj.displayName;
     }
 
+   
+
+    // getInvoiceExcelHeader();
     //==============================================================
     //================ FUNCTIONS END==============================
     //==============================================================
