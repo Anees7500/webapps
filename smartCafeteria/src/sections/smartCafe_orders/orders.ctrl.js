@@ -55,7 +55,7 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
               vendorList.push(ele.vendorId);
             }
           }
-          console.log("hahahaha : ", vendorNameCombination);
+          // console.log("hahahaha : ", vendorNameCombination);
           return vendorNameCombination.substring(0, vendorNameCombination.length - 1);
         }
 
@@ -66,7 +66,7 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
             // debugger;
             menuCombo = (ele.quantity+" x "+ele.menuObj.menuName)+", "+menuCombo;
           });
-          console.log("menu Combo : ", menuCombo);
+          // console.log("menu Combo : ", menuCombo);
           return menuCombo.substring(0, menuCombo.length - 2);
         }
 

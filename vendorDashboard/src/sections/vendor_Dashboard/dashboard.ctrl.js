@@ -31,7 +31,7 @@ vendorApp.controller('DashboardController', ['$scope', 'VendorDashboardService',
             $scope.setWeeklyMenuBool = false;          
             $scope[value] = true;
         }
-    $scope.boolFunction("pendindBool");
+    $scope.boolFunction("pendingOdersBool");
 // =============================== set menu =========================================
     $scope.workingDays = [
         { day: "Monday", selected: false, dbName: "monday" },

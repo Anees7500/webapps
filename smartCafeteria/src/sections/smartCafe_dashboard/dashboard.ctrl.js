@@ -5,17 +5,17 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
 
     // ============= Logout ==================================
 
-    $scope.logout = function(){
-      $cookies.remove('eId');
-      $cookies.remove('rId');
-      $cookies.remove('cId');
-      $location.path('/');
-  }
-  if ($cookies.get('eId') == null) {
-    Notification.warning("Login required!!!");
-    $location.path('/');
-    $route.reload();
-  } 
+  //   $scope.logout = function(){
+  //     $cookies.remove('eId');
+  //     $cookies.remove('rId');
+  //     $cookies.remove('cId');
+  //     $location.path('/');
+  // }
+  // if ($cookies.get('eId') == null) {
+  //   Notification.warning("Login required!!!");
+  //   $location.path('/');
+  //   $route.reload();
+  // } 
   
 
     var companyId = 1;
@@ -295,17 +295,17 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService','getVendo
       });
     }
     // ================== boolfunction ======================
-    $scope.boolFunction = function (value) {
-      console.log("boolFunction", value);
-      $scope.homeBool = false;
-      $scope.favouritesBool = false;
-      $scope.walletBool = false;
-      $scope.feedbackBool = false;
-      $scope.settingsBool = false;
-      $scope.termsAndPolicyBool = false;
-      $scope[value] = true;
-    }
-    $scope.boolFunction("homeBool");
+    // $scope.boolFunction = function (value) {
+    //   console.log("boolFunction", value);
+    //   $scope.homeBool = false;
+    //   $scope.favouritesBool = false;
+    //   $scope.walletBool = false;
+    //   $scope.feedbackBool = false;
+    //   $scope.settingsBool = false;
+    //   $scope.termsAndPolicyBool = false;
+    //   $scope[value] = true;
+    // }
+    // $scope.boolFunction("homeBool");
 
     // ============= Update Employee Details ==================================
     
