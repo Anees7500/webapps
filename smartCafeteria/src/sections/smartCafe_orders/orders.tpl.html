@@ -2,13 +2,7 @@
   <ng-include src="'sections/commons/navbar.tpl.html'"></ng-include>
  
   <div ng-controller="NavbarController as nav">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    {{nav}}
+    
     <div id="content" class="mt-5">
       <nav aria-label="breadcrumb mt-5">
         <ol class="breadcrumb">
@@ -96,7 +90,7 @@
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                      <button class="btn btn-info waves-effect btn-md  mt-4 rounded-pill  z-depth-0" type="cancel"
+                      <button class="btn btn-danger waves-effect btn-sm  mt-4 rounded-pill  z-depth-0" type="cancel"
                         ng-if="booking.status == 'USERREQUESTED'">Cancel</button>
                     </div>
                   </div>
@@ -135,7 +129,7 @@
                           <div class="row">
                             <div class=" col-md-6">
                               <button type="button" data-toggle="modal" data-target="#feedback"
-                                class="btn btn-outline-warning waves-effect rounded-pill btn-sm  ">Feedback</button>
+                                class="btn btn-success waves-effect rounded-pill btn-sm  ">Feedback</button>
 
                               <div class="modal fade" id="feedback" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -237,7 +231,7 @@
                               </div>
                             </div>
                             <div class="col-md-6"> <button
-                                class="btn btn-outline-info waves-effect btn-sm    rounded-pill  "
+                                class="btn btn-info waves-effect btn-sm    rounded-pill  "
                                 type="cancel">Re-order</button>
                             </div>
                           </div>

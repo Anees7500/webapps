@@ -1,2 +1,10 @@
 angular.module("vendorApp.config", [])
-.constant("loginUrl", "http://fancymonk.com:9124/api/vendor/login");
+.constant("loginUrl", "http://fancymonk.com:9124/api/vendor/login")
+.constant("deleteMenuUrl", "http://fancymonk.com:9124/api/vendor/cash-n-carry/delete-menus")
+.constant("getmenuFromDbMonUrl", "http://fancymonk.com:9124/api/vendor/cash-n-carry/get-all-menu?")
+.constant("postSaveMenuUrl", "http://fancymonk.com:9124/api/vendor/corporate-menu")
+.constant("postUpdateSaveMenuUrl", "http://fancymonk.com:9124/api/vendor/corporate-menu/update")   
+.constant("getSmartCafeteriaOrders", "http://fancymonk.com:9125/api/client/smart-cafeteria/get-booking")
+.constant("postSmartCafeteriaBookingUrl", "http://fancymonk.com:9125/api/client/smart-cafeteria/add-booking")
+.constant("postSmartCafeBookingUpdateUrl", "http://fancymonk.com:9125/api/client/smart-cafeteria/update-booking")
+.constant("getVendorMenuList", "http://fancymonk.com:9125/api/vendor/cash-n-carry/get-formatted-menu");

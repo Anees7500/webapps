@@ -2,7 +2,7 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
 'NavbarService',
   function($scope,$http, getSmartCafeteriaOrders,getVendorList,NavbarService) {
   
-        $scope.activeBookingBool = true;
+        $scope.activeBookingBool = true; 
         var companyId = 1;
         //get active Bookings
         var activeBookingListUrl = getSmartCafeteriaOrders + "?companyId="+1+"&bookerId="+77+"&type=pending";
