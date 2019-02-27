@@ -16,6 +16,7 @@
     "dependencies": {
         "angular": "^1.7.5",
         "angular-route": "^1.7.5",
+        "angular-xeditable": "^0.9.0",
         "bootstrap": "^4.2.1",
         "bootstrap-select": "^1.13.5",
         "bootstrap-treeview": "^1.2.0",

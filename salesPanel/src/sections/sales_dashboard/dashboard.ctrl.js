@@ -1,6 +1,29 @@
 salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
-  'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl',
-  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl) {
+  'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl', 'editableOptions',
+  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions,) {
+
+    // ==============Profile work============================================
+    editableOptions.theme = 'bs4';
+    $scope.user = {
+      name: 'awesome user',
+      phone: '+91 90000 00000',
+      email: 'somerandom@email.com',
+      location: 'Bengaluru',
+      companies: 'fancymonk.com',
+      profilename: 'Aman Telkar',
+      Cofounder: 'Co-founder at Fancymonk',
+
+    };
+    // ==============Profile work end ============================================
+    
+    //=============== Unassigned leads===========================================
+   
+      $scope.unassignedleads =[
+        {fileName:"team-1.jpg",companyname:"Fancymonk",address:"#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102"},
+        {fileName:"team-2.jpg",companyname:"Fancymonk",address:"#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102"},
+        {fileName:"team-3.jpg",companyname:"Fancymonk",address:"#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102"},
+      ]
+    //=============== Unassigned leads===========================================
     //====================== sidebar hide and show==========================
     $scope.toggle = true;
     $scope.toggleFilter = function () {
@@ -72,7 +95,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       }
     });
     //======================= card toggle================================================
-     // ===========Team Work1===============================================================
+    // ===========Team Work1===============================================================
     $scope.toggle = function () {
       $scope.state = !$scope.state;
     };
@@ -88,15 +111,20 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.assignedCompanyBool = false;
       $scope.callingCompanyBool = false;
       $scope.profileCompanyBool = false;
+      $scope.unassignedleads = false;
+      $scope.myleads = false;
+      $scope.subordinateassigned = false;
+      $scope.allconvertedCompany = false;
+      $scope.reports = false;
       $scope[value] = true;
     }
     $scope.boolFunction("companyBool");
 
 
 
-    $scope.searchListFun  = function(){
+    $scope.searchListFun = function () {
       $scope.newList = $scope.searchList;
-      console.log("value  of list",$scope.newList);
+      console.log("value  of list", $scope.newList);
     }
 
     $scope.value = 30;
@@ -104,8 +132,8 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.max = 100;
 
     // ===============================Save Lead==========================================
-    $scope.saveLead = function(){
-      
+    $scope.saveLead = function () {
+
     }
     // ==================================================================================
 

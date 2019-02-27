@@ -1,4 +1,4 @@
-var salesApp = angular.module('salesApp', ['ngRoute','salesApp.config']);
+var salesApp = angular.module('salesApp', ['ngRoute','salesApp.config','xeditable']);
 salesApp.config(['$routeProvider', '$locationProvider',
    function($routeProvider,$locationProvider) {
     $routeProvider
@@ -15,4 +15,5 @@ salesApp.config(['$routeProvider', '$locationProvider',
             controller:'TeamController'
         })
 }
+
 ]);
