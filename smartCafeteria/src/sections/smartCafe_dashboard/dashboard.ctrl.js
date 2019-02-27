@@ -5,17 +5,17 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
     // ============= Logout ==================================
 
-    $scope.logout = function () {
-      $cookies.remove('eId');
-      $cookies.remove('rId');
-      $cookies.remove('cId');
-      $location.path('/');
-    }
-    if ($cookies.get('eId') == null) {
-      Notification.warning("Login required!!!");
-      $location.path('/');
-      $route.reload();
-    }
+    // $scope.logout = function () {
+    //   $cookies.remove('eId');
+    //   $cookies.remove('rId');
+    //   $cookies.remove('cId');
+    //   $location.path('/');
+    // }
+    // if ($cookies.get('eId') == null) {
+    //   Notification.warning("Login required!!!");
+    //   $location.path('/');
+    //   $route.reload();
+    // }
 
 
     var companyId = 1;

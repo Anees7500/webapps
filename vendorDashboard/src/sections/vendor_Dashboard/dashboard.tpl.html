@@ -1,33 +1,10 @@
 <!---------------------------------Main Navigation------------------------------->
-<div class="wrapper">
+<div class="wrapper" ng-controller="NavbarController">
 
     <!-- ===============================header navbar start=============================== -->
-    <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
-        <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href=""
-            id="sidebarCollapse">
-            <div class="media">
-                <i class="fa fa-th-list mt-1"></i>
-                <div class="media-body">
-                    <span class="text-white h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
-                </div>
-            </div>
-        </a>
-        <!--=============================sidebar collapse============================-->
 
+    <ng-include src="'sections/nav_Bar/navBar.tpl.html'"></ng-include>
 
-        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <ul class="navbar-nav ml-auto mr-3">
-            <li class="nav-item dropdown mr-5">
-                <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
-                <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
-                    <a class="dropdown-item" ng-click="logout()"><i class="far fa-question-circle mr-3"></i>Log out</a>
-            </li>
-        </ul>
-
-    </nav>
     <!---------------------------- Navbar End----------------------->
 
     <!--------------------Main Navigation------------------------------------->
@@ -61,6 +38,11 @@
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
             <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
+                    <i class="fas fa-comment-alt text-default"></i> <span class="font-weight-normal"> Feedback
+                    </span></a>
+            </li>
+            <li class="p-2">
                 <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
@@ -76,13 +58,14 @@
 
         <div ng-if="pendingOdersBool">
             <nav class="navbar navbar-expand-lg mt-2">
-                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Pending Oders</a></h6>
-                <form class="form-inline active-cyan-3 active-cyan-4  m-auto d-block">
-                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                        aria-label="Search">
-                </form>
+                <a href="#!/companies">
+                    <i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i> Home</a>/
+                <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                <a class="navbar-brand w-clr  font-small font-weight-normal" href="">
+                    Pending Oders
+                </a>
             </nav>
+
             <div class="container">
                 <div class="row ml-1 mr-1 mt-3">
                     <div class="col-md-12  ">
@@ -135,11 +118,8 @@
         <div ng-if="confirmedOdersBool">
             <nav class="navbar navbar-expand-lg mt-2">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Confirmed Oders</a></h6>
-                <form class="form-inline active-cyan-3 active-cyan-4  m-auto d-block">
-                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                        aria-label="Search">
-                </form>
+                        Confirmed Oders</a>
+                </h6>
             </nav>
             <div class="container">
                 <div class="row ml-1 mr-1 mt-3">
@@ -156,14 +136,15 @@
 
                                         <div class="row">
                                             <div class=" col-md-6">
-                                                <button type="button" data-toggle="modal" data-target="#feedback"
-                                                    class="btn btn-primary waves-effect rounded-pill btn-sm  ">confirmed</button>
-
+                                                <button type="button" ng-disabled="!confirmed"
+                                                    class="btn btn-primary waves-effect rounded-pill btn-sm">
+                                                    confirmed
+                                                </button>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="custom-control custom-checkbox custom-control-inline mt-2">
                                                     <input type="checkbox" class="custom-control-input"
-                                                        id="defaultInline1">
+                                                        id="defaultInline1" ng-model="confirmed">
                                                     <label class="custom-control-label font-weight-normal"
                                                         for="defaultInline1">cash received</label>
                                                 </div>
@@ -199,11 +180,8 @@
         <div ng-if="cancelOdersBool">
             <nav class="navbar navbar-expand-lg mt-2">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Cancel Oders</a></h6>
-                <form class="form-inline active-cyan-3 active-cyan-4  m-auto d-block">
-                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                        aria-label="Search">
-                </form>
+                        Cancel Oders</a>
+                </h6>
             </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
@@ -273,22 +251,22 @@
                                                 <i class="fas fa-sort ml-1"></i>
                                             </a>
                                         </th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <!--Table head-->
 
                                 <!--Table body-->
                                 <tbody>
-                                    <tr ng-repeat ="cancelOdr in cancelOderHistroy " >
+                                    <tr ng-repeat="cancelOdr in cancelOderHistroy ">
 
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.totalAmount}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.orderOn}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.paymentMode}}</td>
-                                       
-                                    </tr>                                  
+
+                                    </tr>
                                 </tbody>
                                 <!--Table body-->
                             </table>
@@ -307,113 +285,111 @@
 
         <!-- ============================ Strat completed Oders ===========================================-->
         <div ng-if="completedOdersBool">
-                <nav class="navbar navbar-expand-lg mt-2">
-                        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                                Cancel Oders</a></h6>
-                        <form class="form-inline active-cyan-3 active-cyan-4  m-auto d-block">
-                            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                                aria-label="Search">
-                        </form>
-                    </nav>
-                    <div class="container">
-                        <div class="card card-cascade narrower mt-3 ">
-        
-                            <!--Card image-->
-                            <div
-                                class="view view-cascade z-depth-1-half gradient-card-header secondary-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
-        
-                                <div>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-th-large mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-columns mt-0"></i>
-                                    </button>
-                                </div>
-        
-                                <a href="" class="white-text mx-3">Cancel Oders History</a>
-        
-                                <div>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-pencil-alt mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="far fa-trash-alt mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-info-circle mt-0"></i>
-                                    </button>
-                                </div>
-        
-                            </div>
-                            <!--/Card image-->
-        
-                            <div class="px-4">
-        
-                                <div class="table-wrapper table-responsive">
-                                    <!--Table-->
-                                    <table class="table table-hover mb-0 mt-1">
-        
-                                        <!--Table head-->
-                                        <thead>
-                                            <tr>
-        
-                                                <th class="th-lg font-weight-bold ">
-                                                    <a>Menu Item Name
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a>Menu Item Count
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Total Amount
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Order on
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Payment Mode
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Orders Status
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <!--Table head-->
-        
-                                        <!--Table body-->
-                                        <tbody>
-                                            <tr ng-repeat ="cancelOdr in cancelOderHistroy " >
-        
-                                                <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.totalAmount}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.orderOn}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.paymentMode}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.ordersStatus}}</td>
-                                            </tr>                                  
-                                        </tbody>
-                                        <!--Table body-->
-                                    </table>
-                                    <!--Table-->
-                                </div>
-        
-                            </div>
-        
+            <nav class="navbar navbar-expand-lg mt-2">
+                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
+                        Cancel Oders</a>
+                </h6>
+
+            </nav>
+            <div class="container">
+                <div class="card card-cascade narrower mt-3 ">
+
+                    <!--Card image-->
+                    <div
+                        class="view view-cascade z-depth-1-half gradient-card-header secondary-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                        <div>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-th-large mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-columns mt-0"></i>
+                            </button>
                         </div>
-        
+
+                        <a href="" class="white-text mx-3">Cancel Oders History</a>
+
+                        <div>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-pencil-alt mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="far fa-trash-alt mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-info-circle mt-0"></i>
+                            </button>
+                        </div>
+
                     </div>
+                    <!--/Card image-->
+
+                    <div class="px-4">
+
+                        <div class="table-wrapper table-responsive">
+                            <!--Table-->
+                            <table class="table table-hover mb-0 mt-1">
+
+                                <!--Table head-->
+                                <thead>
+                                    <tr>
+
+                                        <th class="th-lg font-weight-bold ">
+                                            <a>Menu Item Name
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a>Menu Item Count
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Total Amount
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Order on
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Payment Mode
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Orders Status
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <!--Table head-->
+
+                                <!--Table body-->
+                                <tbody>
+                                    <tr ng-repeat="cancelOdr in cancelOderHistroy ">
+
+                                        <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.totalAmount}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.orderOn}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.paymentMode}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.ordersStatus}}</td>
+                                    </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                            <!--Table-->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -422,125 +398,213 @@
 
         <!-- ============================ Strat payment  Status===========================================-->
         <div ng-if="paymentStatusBool">
-                <nav class="navbar navbar-expand-lg mt-2">
-                        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                                Cancel Oders</a></h6>
-                        <form class="form-inline active-cyan-3 active-cyan-4  m-auto d-block">
-                            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                                aria-label="Search">
-                        </form>
-                    </nav>
-                    <div class="container">
-                        <div class="card card-cascade narrower mt-3 ">
-        
-                            <!--Card image-->
+            <nav class="navbar navbar-expand-lg mt-2">
+                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
+                        Cancel Oders</a></h6>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 card-cascade">
+                        <div class="card   mt-3">
                             <div
-                                class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
-        
+                                class="view view-cascade z-depth-1 gradient-card-header success-color-dark py-2 mx-4 mb-3 d-flex justify-content-between  align-items-center">
+
+                                <a href="" class="white-text mx-3">Payment Summary</a>
                                 <div>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-th-large mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-columns mt-0"></i>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                                        data-toggle="collapse" data-target="#collapseExample">
+                                        <i class="fas fa-angle-double-down"></i>
                                     </button>
                                 </div>
-        
-                                <a href="" class="white-text mx-3">Cancel Oders History</a>
-        
-                                <div>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-pencil-alt mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="far fa-trash-alt mt-0"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                        <i class="fas fa-info-circle mt-0"></i>
-                                    </button>
-                                </div>
-        
                             </div>
-                            <!--/Card image-->
-        
-                            <div class="px-4">
-        
-                                <div class="table-wrapper table-responsive">
-                                    <!--Table-->
-                                    <table class="table table-hover mb-0 mt-1">
-        
-                                        <!--Table head-->
+                            <div class="collapse " id="collapseExample">
+                                <div class="table-responsive-sm ml-3">
+                                    <table class="table font-weight-bold">
                                         <thead>
                                             <tr>
-        
-                                                <th class="th-lg font-weight-bold ">
-                                                    <a>Menu Item Name
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a>Menu Item Count
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Total Amount
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Order on
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Payment Mode
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
-                                                <th class="th-lg font-weight-bold">
-                                                    <a href="">Payment Status
-                                                        <i class="fas fa-sort ml-1"></i>
-                                                    </a>
-                                                </th>
+                                                <th scope="col"></th>
+                                                <th class="font-weight-bold text-body" scope="col">Sales</th>
                                             </tr>
                                         </thead>
-                                        <!--Table head-->
-        
-                                        <!--Table body-->
                                         <tbody>
-                                            <tr ng-repeat ="cancelOdr in cancelOderHistroy " >
-        
-                                                <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.totalAmount}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.orderOn}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.paymentMode}}</td>
-                                                <td class="font-weight-normal text-left">{{cancelOdr.paymentStatus}}</td>
-                                            </tr>                                  
+                                            <tr ng-repeat="paySummary in paymentSummary">
+                                                <th class="font-weight-bold" scope="row">{{paySummary.data}}</th>
+                                                <td class="font-weight-normal">{{paySummary.totalAmount}}</td>
+                                            </tr>
                                         </tbody>
-                                        <!--Table body-->
                                     </table>
-                                    <!--Table-->
                                 </div>
-        
                             </div>
-        
                         </div>
-        
-                    </div>
 
+                    </div>
+                    <div class="col-md-5">
+
+                    </div>
+                </div>
+
+                <div class="card card-cascade narrower mt-3 ">
+
+                    <!--Card image-->
+                    <div
+                        class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                        <div>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-th-large mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-columns mt-0"></i>
+                            </button>
+                        </div>
+
+                        <a href="" class="white-text mx-3">Payment History</a>
+
+                        <div>
+                            <button type="button" class="btn btn-outline-white  btn-sm px-2">
+                                <i class="fas fa-pencil-alt mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-sm px-2">
+                                <i class="far fa-trash-alt mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-sm px-2">
+                                <i class="fas fa-info-circle mt-0"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="table-wrapper table-responsive">
+                            <table class="table table-hover mb-0 mt-1">
+                                <thead>
+                                    <tr>
+                                        <th class="th-lg font-weight-bold ">
+                                            <a>Menu Item Name
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a>Menu Item Count
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Total Amount
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Order on
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Payment Mode
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Payment Status
+                                                <i class="fas fa-sort ml-1"></i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="cancelOdr in cancelOderHistroy ">
+                                        <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.totalAmount}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.orderOn}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.paymentMode}}</td>
+                                        <td class="font-weight-normal text-left">{{cancelOdr.paymentStatus}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ============================ End payment Status ===========================================-->
+
+        <!-- ============================ start feedback ===========================================-->
+        <div ng-if="feedbackBool">
+            <nav class="navbar navbar-expand-lg mt-2">
+                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
+                        Feedback</a></h6>
+
+            </nav>
+            <div class="container">
+                <div class="card card-cascade narrower mt-3 ">
+                    <div
+                        class="view view-cascade z-depth-1-half gradient-card-header default-color  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+
+                        <a href="" class="white-text mx-3">Feedback</a>
+                        <div class="btn-sm px-2 ">
+                            <input class="form-control  " type="text" placeholder="Search" aria-label="Search"
+                                ng-model="search">
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        <div class="table-wrapper table-responsive">
+                            <!--Table-->
+                            <table class="table table-hover mb-0 mt-1">
+                                <thead>
+                                    <tr>
+                                        <th class="th-lg font-weight-bold ">
+                                            <a>Menu Item Name
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold ">
+                                            <a> Food Test
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold ">
+                                            <a>Food Quality
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold ">
+                                            <a>Comment
+                                            </a>
+                                        </th>
+                                        <th class="th-lg font-weight-bold">
+                                            <a href="">Date & Time
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        ng-repeat="feedBck in feedback.slice().reverse() | filter:search | orderBy:sortType:sortReverse ">
+                                        <td class="font-weight-normal text-left">{{feedBck.menuItemName}}</td>
+                                        <td class="font-weight-normal text-left">{{feedBck.tasteRating}}</td>
+                                        <td class="font-weight-normal text-left">{{feedBck.qualityRating}}</td>
+                                        <td class="font-weight-normal text-left">
+                                            <div ng-if="feed.comment.length > 1">
+                                                {{feedBck.comment}}
+                                            </div>
+                                        </td>
+                                        <td class="font-weight-normal text-left">{{feedBck.createdAt}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================ End feedback ===========================================-->
 
 
         <!-- ============================ Start Set Weekly Menu=============================================-->
         <div ng-if="setWeeklyMenuBool">
             <nav class="navbar navbar-expand-md">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Set Weekly Menu</a></h6>
-
+                        Set Weekly Menu</a>
+                </h6>
             </nav>
             <div class="container">
                 <div class="border-bottom  border-info mr-1 ml-3 mt-3">
@@ -584,36 +648,61 @@
                     </ul>
                 </div>
 
-                <div class="tab-content pt-2 pl-1 ml-3" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                        aria-labelledby="pills-home-tab">
-                        Consequat
-                        occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim sunt officia.
-                        Fugiat
-                        incididunt nostrud.</div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
-                        Lorem id et dolore velit Lorem amet exercitation duis deserunting ut in id occaecat pariatur ut
-                        ullamco ea tempor duis.</div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        Est
-                        Mollit nulla nostrud adipisicing aliqua cupidatat aliqua voluptate voluptate consequat non.
+                <script type="text/ng-template" id="nodes_renderer.html">
+                    <br>
+                    <div class="design-box">
+                      <a class="btn btn-clear btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
+                            <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
+                      </a>
+                       <div style="padding: 10px; background-color:white">
+                        <div class='form-group'>
+                          <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+                        </div>
+
+                        <div ng-if="$parentNodeScope">
+                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</lebel>
+                              <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+                              <div ng-if="node.isFoodItem">
+                                  <label class="menu-label">is Veg:</label>
+                          <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg" />
+                          <br>
+                          <label class="menu-label">is Non-Veg:</label>
+                          <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg" />
+                          <br>
+                          <label class="menu-label">is Egg Item:</label>
+                          <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="egg" />
+                          <br>
+                          <label class="menu-label">Menu Item:
+                                      <textarea class="form-control border-show" rows="4" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
+                                  </label>
+                          <br>
+                          <label class="menu-label">Price:
+                                  <input type="number" class='form-control border-show' ng-disabled="node.isInserted" ng-model='node.price' focus>
+                                  </label>
+                        </div>
+                      </div>
+                      <!-- <button class='btn btn-primary' ng-click='addsection($nodes,$index)'>{{}}</button> -->
+                      <input type="submit" class="btn btn-info" value="Add Menu" ng-click="addsection($nodes,$index)">
+                      <input type="submit" ng-if="!node.isFoodItem" class="btn btn-info" value="Add Sub-menu" ng-click="addchild(node)">
+                      <input type="submit" ng-if="!node.id" class="btn btn-info" value="Save" ng-click="saveInDb(node,'Monday')">
+                      <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Edit" ng-click="node.isInserted=false">
+                      <input type="submit" ng-if="(node.id) && (!node.isInserted)" class="btn btn-danger" value="Update" ng-click="updateMenu(node)">
+                      <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Remove" ng-click="deleteNode(node,'Monday')">
+
                     </div>
-
-                    <div class="tab-pane fade" id="pills-thursday" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        Est
-                        thursday</div>
-
-                    <div class="tab-pane fade" id="pills-friday" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                        friday.</div>
-
-                    <div class="tab-pane fade" id="pills-saturday" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        Est
-                        saturday.</div>
-
-                    <div class="tab-pane fade" id="pills-sunday" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                        sunday.</div>
+                    <ul ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                      <li ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
+                      </li>
+                    </ul>
+                </div>
+                </script>
+                <div ui-tree>
+                    <ul ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
+                        <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    </ul>
                 </div>
             </div>
+
         </div>
         <!-- ============================ End Set Weekly Menu=============================================-->
     </div>

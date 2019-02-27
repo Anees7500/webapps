@@ -1,0 +1,29 @@
+.card1{
+    width: 260px;
+       height: 320px;
+       margin-right: 60px;
+     }
+   
+.card-img-top{
+       width: 250px;
+       margin: auto;
+    }
+   .wrapper {
+       display: flex;
+       width: 100%;
+    }
+       @media (max-width: 768px) {
+        #sidebar {
+            margin-left: -250px;}
+        #sidebar.active {
+            margin-left: 0;}
+        #content {
+            width: 100%;}
+        #content.active {
+            width: calc(100% - 250px);}
+        #sidebarCollapse span {
+            display: none;}
+    .card11{
+     width: 240px;
+        height: 320px;}
+        }
