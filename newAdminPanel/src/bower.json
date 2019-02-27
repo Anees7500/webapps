@@ -24,6 +24,7 @@
     "angularjs-datepicker": "^2.1.23",
     "jszip": "^3.2.0",
     "kendo-ui": "kendo-ui-core#^2019.1.220+SP1",
-    "angular-cookies": "1.7.5"
+    "angular-cookies": "1.7.5",
+    "angularfire": "^2.3.0"
   }
 }

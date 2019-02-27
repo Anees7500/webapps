@@ -366,7 +366,57 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
     /** Monthly Requirement End */
     //==============================================================
+    // $scope.selectMonthForInvoice = function (obj) {
+    //   debugger;
+    //   $scope.selectedMonthForInvoice = obj;
+    //   $scope.getInvoiceDetails();
+    //   $scope.getInvoiceExcelHeader();
+    // }
 
+    // =========================Start Date And End Date=====================
+      $scope.selectStartDateInvoice = function(startdateval){
+        var date= startdateval;
+        console.log("Start Date",date);       
+        
+          var monthNames = [
+            "Jan", "Feb", "March",
+            "April", "May", "June", "July",
+            "Aug", "Sept", "Oc",
+            "Nov", "Dec"
+          ];
+        
+          var day = date.getDate();
+          var monthIndex = date.getMonth();
+          var year = date.getFullYear();
+        
+          $scope.startDateValue = day + '-' + monthNames[monthIndex] + '-' + year;
+
+        console.log("filter date",$scope.startDateValue);
+      }
+
+      $scope.selectEndDateForInvoice = function(enddateval){
+
+        var date= enddateval;
+        console.log("Start Date",date);       
+        
+          var monthNames = [
+            "Jan", "Feb", "Mar",
+            "April", "May", "June", "July",
+            "Aug", "Sept", "Oc",
+            "Nov", "Dec"
+          ];
+        
+          var day = date.getDate();
+          var monthIndex = date.getMonth();
+          $scope.year = date.getFullYear();
+        
+          $scope.EndDateValue = day + '-' + monthNames[monthIndex] + '-' + $scope.year;
+
+        console.log("filter date",$scope.EndDateValue);
+        $scope.getInvoiceDetails();
+        $scope.getInvoiceExcelHeader();
+      }
+    // =====================================================================
 
     //==============================================================
     /** Invoices Start */
@@ -374,19 +424,30 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     $scope.getInvoiceDetails = function () {
-      var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
-        "&month=" + $scope.selectedMonthForInvoice.name + "&year=" + $scope.selectedMonthForInvoice.year;
+      // var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
+      //   "&month=" + $scope.selectedMonthForInvoice.name + "&year=" + $scope.selectedMonthForInvoice.year;
 
-      if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
-        detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.selectedMonthForInvoice.startDate +
-          "&endDate=" + $scope.selectedMonthForInvoice.endDate;
-      }
+      // if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
+      //   detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.startDateValue +
+      //     "&endDate=" +  $scope.EndDateValue ;
+      // }
+
+      var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
+      "&startDate="+ $scope.startDateValue + "&year=" + $scope.year +  "&endDate=" +  $scope.EndDateValue +"&month";
+
+      // if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
+      //   detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.startDateValue +
+      //     "&endDate=" +  $scope.EndDateValue ;
+
+      debugger;
       $http.get(detailsForInvoicesUrl).then(function (response) {
         $scope.invoiceDetailsObj = response.data.data;
+        $scope.invoiceDetailsNewObj = $scope.invoiceDetailsObj.invoiceDetails;
+        console.log("invoice details for pdf",$scope.invoiceDetailsObj);       
         var temporaryArr = [];
-        angular.forEach($scope.invoiceDetailsObj.invoiceDetails, function (value, key) {
+        angular.forEach($scope.invoiceDetailsNewObj, function (value, key) {
           angular.forEach(value, function (subValue, subKey) {
-            angular.forEach(subValue, function (subSubVal, subSubKey) {
+            angular.forEach(subValue, function (subSubVal, subSubKey) {             
               var obj = {};
               var desName;
               if (subKey === key) {
@@ -405,16 +466,18 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
           });
 
         });
-        $scope.invoiceDetailsObj.invoiceDetailsArr = temporaryArr;
+        $scope.invoiceDetailsNewObj = temporaryArr;
+        console.log("repeated array",$scope.invoiceDetailsNewObj);
 
 
         // $scope.$watchCollection("invoiceDetailsObj.invoiceDetailsArr", function(newVal, oldVal){
 
 
         var totalSum = 0;
-        angular.forEach($scope.invoiceDetailsObj.invoiceDetailsArr, function (ob) {
-          ob.amount = ob.quantity * ob.price;
+        angular.forEach($scope.invoiceDetailsNewObj, function (ob) {
 
+          var obP = parseInt(ob.price);
+          ob.amount = ob.quantiy * obP;
           totalSum = totalSum + ob.amount;
 
           $scope.invoiceDetailsObj.totalSum = totalSum;
@@ -428,6 +491,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
             $scope.invoiceDetailsObj.totalAmount = $scope.invoiceDetailsObj.totalSum + $scope.invoiceDetailsObj.cgst + $scope.invoiceDetailsObj.sgst;
           }
         });
+        console.log("value of subtotal", $scope.invoiceDetailsObj);
         // }. true);
 
       });
@@ -655,9 +719,9 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       getMonthlyDetails();
     }
 
-    $scope.selectMonthForInvoice = function (obj) {
-      $scope.selectedMonthForInvoice = obj;
-    }
+    // $scope.selectMonthForInvoice = function (obj) {
+    //   $scope.selectedMonthForInvoice = obj;
+    // }
 
     $scope.selectWeekForMonthlyDetails = function (weekName) {
       $scope.selectedWeekForMonthlyDetails = weekName;
@@ -681,18 +745,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       var exportHref = Excel.tableToExcel(tableId, 'WireWorkbenchDataExport');
       $timeout(function () { location.href = exportHref; }, 500); // trigger download
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -823,8 +875,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         .then(function (root) {
           return draw.exportPDF(root);
         })
-        .done(function (data) {
-          console.log("value", data);
+        .done(function (data) {          
           kendo.saveAs({
             dataURI: data,
             fileName: "invoice.pdf"
@@ -849,64 +900,162 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.itemInvoice = ["brkfstCheck", "2", "100", "200"];
 
 
-    // =====================================Export json data to excelsheet=========================
+    // ================================================================================
 
     $http.get(getCompanyFebMonthInvoicedetails).then(function (response) {
-
-      $scope.myWelcome = response.data.data;
-      console.log("my excel data of Fancymonk", $scope.myWelcome);
-
-      $scope.InvoicesData = response.data.data.invoiceXlsx;
-      $scope.newArray = $scope.InvoicesData.slice(0, 5);
-      console.log("my excel data of Invoices", $scope.newArray);
+      $scope.InvoicesData = response.data.data.invoiceXlsx;   
 
     }, function (reason) {
       console.log("Error : ", reason);
 
     });
-    // =================== Exprot Excal Data =======================
-    $scope.exportJsonDataToExcel = function () {
 
-      var workbook = new kendo.ooxml.Workbook({
-        sheets: [
+    // ==========================Creat excel sheet header row===========================
+    var rows = [];
+    $scope.getInvoiceExcelHeader = function()
+    {
+     
+      var headerArr = [];
+      var headerObj = {};
+      headerObj.date = "Date";
+      headerObj.day = "Day";
+      angular.forEach($scope.categories, function(category){        
+        if(category.dbName != 'cashNCarry')
+        {          
+          if($scope.data[category.dbName])
           {
-            // Column settings (width)
-            columns: [
-              { autoWidth: true },
-              { autoWidth: true }
-            ],
-            // Title of the sheet
-            title: "Customers",
-            // Rows of the sheet
-            rows: [
-              // First row (header)
+            angular.forEach($scope.additionalReqDetails[category.dbName].arrVal, function(arValEle){
+              
+              var name;
+              if(arValEle.columnName != category.dbName)
               {
-                cells: [
-                  // First cell
-                  { value: "Date" },
-                  // Second cell
-                  { value: "Day" }
-                ]
-              },
-              {
-                cells: [
-                  // First cell
-                  { value: $scope.newArray[0].date },
-                  // Second cell
-                  { value: $scope.newArray[0].day }
-                ]
+                name = arValEle.columnName +"-"+ category.dbName;
+              }else{
+                name = arValEle.columnName;;
               }
-            ]
-          }
-        ]
-      });
-      kendo.saveAs({
-        dataURI: workbook.toDataURL(),
-        fileName: "Test.xlsx"
-      });
-    }
-    // ==============================================================================================
 
+              headerObj[name] = name;
+              var forPrice = name+" Price";
+              headerObj[forPrice] = forPrice;
+            });
+          }
+        }
+      });
+      headerObj.totalAmount = "Total Amount";
+      headerArr.push(headerObj);
+
+      //================================Create excel sheet data ==================================
+      var totalSumObj = {};
+        totalSumObj.date = "";
+        totalSumObj.day = "Total";
+
+      angular.forEach($scope.InvoicesData, function(arrEle){
+        var totalAmount = 0;
+        var dataObj = {};
+        dataObj.date = arrEle.date;
+        dataObj.day = arrEle.day;
+        
+        angular.forEach($scope.categories, function(category){        
+        if(category.dbName != 'cashNCarry')
+        {          
+          if($scope.data[category.dbName])
+          {
+            if(arrEle[category.dbName].dtls != null){
+             
+            angular.forEach(arrEle[category.dbName].dtls, function(catVal, catKey){
+             
+              var name;
+              if(catKey != category.dbName)
+              {
+                name = catKey +"-"+ category.dbName;
+              }else{
+                name = catKey;
+              }
+              dataObj[name] = catVal.pax;
+
+              if(totalSumObj[name] != null)
+              {
+                totalSumObj[name] = catVal.pax + totalSumObj[name];
+              }else{
+                totalSumObj[name] = catVal.pax;
+              }
+
+              var forPrice = name+" Price";
+              dataObj[forPrice] = catVal.price;
+
+              if(totalSumObj[forPrice] != null)
+              {
+                totalSumObj[forPrice] = catVal.price + totalSumObj[forPrice];
+              }else{
+                totalSumObj[forPrice] = catVal.price;
+              }
+            });
+          }
+
+            totalAmount = arrEle[category.dbName].amount + totalAmount;
+          }
+        }
+      });
+
+      dataObj.totalAmount = totalAmount;
+      if(totalSumObj.totalAmount != null)
+        {
+          totalSumObj.totalAmount = totalAmount + totalSumObj.totalAmount;
+        }else{
+          totalSumObj.totalAmount = totalAmount;
+        }
+
+      headerArr.push(dataObj);
+    });
+
+      headerArr.push(totalSumObj);
+      // console.log("header arr : ", JSON.stringify(headerArr));
+      // $scope.excelDataArray =  headerArr;
+      // console.log("excel array",$scope.excelDataArray);
+
+    // ==========================Create Excel sheet Rows==================================
+      angular.forEach(headerArr, function(dtXl){
+        var rowObj = {};
+        rowObj.cells = [];
+        angular.forEach(dtXl, function(xlVal, xlKey){
+          var exlValObj = {};
+          exlValObj.value = xlVal;
+          rowObj.cells.push(exlValObj);  
+        });
+        rows.push(rowObj);
+      });
+     
+      console.log("rows for excel ", JSON.stringify(rows));
+    }
+
+    // =================== Exprot Excel Data =======================
+    $scope.exportJsonDataToExcel = function () {
+      if($scope.startDateValue != null && $scope.EndDateValue !=null){
+        var workbook = new kendo.ooxml.Workbook({
+          sheets: [
+            {
+              // Column settings (width)
+              columns: [
+                { autoWidth: true },
+                { autoWidth: true }
+              ],
+              // Title of the sheet
+              title: "Customers",
+              // Rows of the sheet
+              rows: rows
+            }
+          ]
+        });
+        kendo.saveAs({
+          dataURI: workbook.toDataURL(),
+          fileName: "Test.xlsx"
+        });
+      }else{
+        alert("please select start date and end date");
+      }
+
+
+    }
   }
   // =============================Company controller ends=============================================
 ]);
