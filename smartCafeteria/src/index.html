@@ -5,7 +5,7 @@
 	 <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
      <meta http-equiv="x-ua-compatible" content="ie=edge">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+     <link rel="stylesheet" href="bower_components/font-awesome/css/all.css">
      <link href="bower_components/MDBootstrap/css/bootstrap.min.css" rel="stylesheet"/>
      <link href="bower_components/MDBootstrap/css/mdb.min.css" rel="stylesheet"/>
      <link href="bower_components/angular-ui-notification/dist/angular-ui-notification.css" rel="stylesheet"/>
@@ -15,8 +15,6 @@
      <link rel="stylesheet" href="sections/emp_login/login.css">
       <link rel="stylesheet" href="sections/smartCafe_dashboard/dashboard.css">
       <link rel="stylesheet" href="sections/smartCafe_dashboard/shoppingAddButton.css">
-      <link rel="stylesheet" href="sections/scrollspy_try/scrollspy.css"></script>
-      <link rel="stylesheet" href="sections/smartCafe_orders/orders.css"></script>
 </head>
 <body ng-app="empApp">
 <section id="main">
@@ -27,18 +25,15 @@
   <script type="text/javascript" src="bower_components/MDBootstrap/js/popper.min.js"></script>
   <script type="text/javascript" src="bower_components/MDBootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="bower_components/MDBootstrap/js/mdb.js"></script>
-  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components\angular-cookies\angular-cookies.js"></script>
-  <script type="text/javascript" src="bower_components\angular\angular.min.js"></script>"
-  <script type="text/javascript" src="bower_components\angular-messages\angular-messages.min.js"></script>
-  <script type="text/javascript" src="bower_components\angular-ui-notification\dist\angular-ui-notification.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
 
 
 
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/font-awesome/js/solid.js"></script>
-  <script src="bower_components/font-awesome/js/fontawesome.js"></script>
-  <script src="bower_components/font-awesome/js/regular.js"></script>
+  <script src="bower_components/font-awesome/js/all.js"></script>
+  
 
    <script src="app.js"></script>
    <script src="config.js"></script>
@@ -48,10 +43,14 @@
   <script src="sections/smartCafe_dashboard/dashboard.srv.js"></script>
   <script src="sections/emp_registration/empRegistration.ctrl.js"></script>
   <script src="sections/emp_registration/empRegistration.srv.js"></script>
-  <script src="sections/scrollspy_try/scrollspy.srv.js"></script>
-  <script src="sections/scrollspy_try/scrollspy.ctrl.js"></script>
+  <script src="sections/commons/navbar.ctrl.js"></script>
+  <script src="sections/commons/navbar.srv.js"></script>
   <script src="sections/smartCafe_orders/orders.ctrl.js"></script>
   <script src="sections/smartCafe_orders/orders.srv.js"></script>
+  <script src="sections/smartCafe_checkout/checkout.ctrl.js"></script>
+  <script src="sections/smartCafe_checkout/checkout.srv.js"></script>
+  <script src="sections/commons/cartItem.srv.js"></script>
+
   
   
 </body>

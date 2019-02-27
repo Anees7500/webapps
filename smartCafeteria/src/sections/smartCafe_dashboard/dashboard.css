@@ -1,9 +1,10 @@
 /**********dropdown hover***********************************/
 #avtar{width: 25px;border-radius: 1000px;background-color: aliceblue;}
-.dropdown-menu {margin-left: -15px;}
+/* .dropdown-menu {margin-left: -15px;} */
 #mr-top{margin-top: 8px;}
 #checkout-height{height: 60px;}
 #form-mrgin{margin-top: -15px}
+#menu{margin-left: -70px;}
 .rating li {
     list-style-type: none;
     display: inline-block;
@@ -25,7 +26,7 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
   position: absolute;
   z-index: 1;}
 #scroll-height{
-    max-height: 280px;
+    max-height: 160px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;

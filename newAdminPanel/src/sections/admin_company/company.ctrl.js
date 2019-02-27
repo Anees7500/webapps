@@ -243,7 +243,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
           $scope.additionalReqDetails[item.type].arrVal.push.apply($scope.additionalReqDetails[item.type].arrVal, dbSavedAdditionalReqArr);
           $scope.additionalReqDetails[item.type].additionaRequirementDbRowId = item.id;
         });
-        // console.log("additional req = ", JSON.stringify($scope.additionalReqDetails));
+        console.log("additional req = ", JSON.stringify($scope.additionalReqDetails));
       }
     });
 
@@ -435,17 +435,31 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
       "&startDate="+ $scope.startDateValue + "&year=" + $scope.year +  "&endDate=" +  $scope.EndDateValue +"&month";
 
+<<<<<<< HEAD
       // if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
       //   detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.startDateValue +
       //     "&endDate=" +  $scope.EndDateValue ;
 
       debugger;
+=======
+      if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
+        detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.selectedMonthForInvoice.startDate +
+          "&endDate=" + $scope.selectedMonthForInvoice.endDate;
+      }
+
+      console.log("url made : ", detailsForInvoicesUrl);
+>>>>>>> 9b99cec5cdec5d56cdead371d7278ef3a314c05a
       $http.get(detailsForInvoicesUrl).then(function (response) {
         $scope.invoiceDetailsObj = response.data.data;
         $scope.invoiceDetailsNewObj = $scope.invoiceDetailsObj.invoiceDetails;
         console.log("invoice details for pdf",$scope.invoiceDetailsObj);       
         var temporaryArr = [];
+<<<<<<< HEAD
         angular.forEach($scope.invoiceDetailsNewObj, function (value, key) {
+=======
+        // $scope.invoiceDetailsArr = [];
+        angular.forEach($scope.invoiceDetailsObj.invoiceDetails, function (value, key) {
+>>>>>>> 9b99cec5cdec5d56cdead371d7278ef3a314c05a
           angular.forEach(value, function (subValue, subKey) {
             angular.forEach(subValue, function (subSubVal, subSubKey) {             
               var obj = {};
@@ -461,13 +475,19 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
               obj.price = subSubKey;
               obj.amount = subSubVal.amount;
 
+              // $scope.invoiceDetailsArr.push(obj);
               temporaryArr.push(obj);
             });
           });
 
         });
+<<<<<<< HEAD
         $scope.invoiceDetailsNewObj = temporaryArr;
         console.log("repeated array",$scope.invoiceDetailsNewObj);
+=======
+        // console.log("invoice details array :  ", JSON.stringify($scope.invoiceDetailsArr));
+        $scope.invoiceDetailsArr = temporaryArr;
+>>>>>>> 9b99cec5cdec5d56cdead371d7278ef3a314c05a
 
 
         // $scope.$watchCollection("invoiceDetailsObj.invoiceDetailsArr", function(newVal, oldVal){
@@ -732,6 +752,9 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.tempCategoryForClientMonthlyDtls.displayName = obj.displayName;
     }
 
+   
+
+    // getInvoiceExcelHeader();
     //==============================================================
     //================ FUNCTIONS END==============================
     //==============================================================
