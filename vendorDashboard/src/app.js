@@ -1,5 +1,5 @@
 var vendorApp = angular.module("vendorApp", ['ngRoute', 'vendorApp.config',
-    'ngCookies', 'ui-notification', 'ui.tree']);
+    'ngCookies', 'ui-notification', 'ui.tree', 'ui.bootstrap']);
 vendorApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {

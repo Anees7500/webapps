@@ -1,35 +1,22 @@
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
-    '$location', '$route', 'getSmartCafeteriaOrders', 'getAllCompanyToVendorUrl', 'getCorporateReviewsUrl', 
-    '$routeParams',
+    '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
+    '$routeParams', '$rootScope', '$filter',
     function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
-        $route, getSmartCafeteriaOrders, getAllCompanyToVendorUrl, getCorporateReviewsUrl, $routeParams) {
+        $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
+        $routeParams, $rootScope, $filter) {
 
-        // ====================== Log out function =========================
-        // $scope.logout = function () {
-        //     $cookies.remove('vendorname'); 
-        //     $cookies.remove('token');
-        //     $cookies.remove('vendorId');
-        //     $cookies.remove('email');
-        //     $cookies.remove('name');
-        //     $cookies.remove('mobile');
-        //     $cookies.remove('authUserId');
-        //     $location.path('/');
-        // }
-        // if ($cookies.get('vendorId') == null) {
-        //     Notification.warning("Login required!!!");
-        //     $location.path('/');
-        //     $route.reload();
-        // }
+            // $scope.sortingOrder = sortingOrder;
+           
         var vendorId = 1;
-        var companyId = 1;
+        // var companyId = 1;
 
         $scope.menuNodes = [];
 
-        var getCompanies = getAllCompanyToVendorUrl + vendorId;
-        $http.get(getCompanies).then(function (response) {
-            $scope.companies = response.data.data.companies;
-            $scope.cmpyName = response.data.data.companies.companyName;
-            console.log("my company name", $scope.cmpyName);
+        var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
+        $http.get(getCompProfileUrl).then(function (response) {
+            $scope.cmpyName = response.data.data.company.companyName;
+            $scope.cmpyAddress = response.data.data.company.address;
+            $scope.data = response.data.data.company;
         });
         // ====================== bool function =============================
         $scope.boolFunction = function (value) {
@@ -42,6 +29,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             $scope.paymentStatusBool = false;
             $scope.feedbackBool = false;
             $scope.setWeeklyMenuBool = false;
+            $scope.extraCode = false;
             $scope[value] = true;
         }
         $scope.boolFunction("pendingOdersBool");
@@ -80,17 +68,77 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             { data: "This Year", totalAmount: "22,50,000" }
         ]
 
-         // ================================= confirmed Oders =================================
+        // ================================= confirmed Oders =================================
 
         $scope.makeConfirmedOders = function (obj) {
             obj.confirmed = obj.confirmed ? false : true;
-          }
+        }
         // ================================= Employee Feedback =================================
-        
+
         var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
         $http.get(getFeedbackUrl).then(function (response) {
             $scope.feedback = response.data.data.reviews;
-        });
+
+             $scope.reverse = false;
+            $scope.filteredItems = [];
+            $scope.groupedItems = [];
+            $scope.itemsPerPage = 7;
+            $scope.pagedItems = [];
+            $scope.currentPage = 0;
+            
+            $scope.search = function () {           
+                
+                $scope.currentPage = 0;
+                // now group by pages
+                $scope.groupToPages();
+            };
+            
+            // calculate page in place
+            $scope.groupToPages = function () {
+                $scope.pagedItems = [];
+                
+                for (var i = 0; i < $scope.feedback.length; i++) {
+                    if (i % $scope.itemsPerPage === 0) {
+                        $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.feedback[i] ];
+                    } else {
+                        $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.feedback[i]);
+                    }
+                }
+            };            
+            $scope.range = function (start, end) {
+                var ret = [];
+                if (!end) {
+                    end = start;
+                    start = 0;
+                }
+                for (var i = start; i < end; i++) {
+                    ret.push(i);
+                }
+                return ret;
+            };
+
+            
+            $scope.prevPage = function () {
+                if ($scope.currentPage > 0) {
+                    $scope.currentPage--;
+                }
+            };
+            
+            $scope.nextPage = function () {
+                if ($scope.currentPage < $scope.pagedItems.length - 1) {
+                    $scope.currentPage++;
+                }
+            };
+            
+            $scope.setPage = function () {
+                $scope.currentPage = this.n;
+            };
+            
+            $scope.search();
+        
+           
+    });
+
         //================================ Pending Oders ====================================
         var activeBookingListUrl = getSmartCafeteriaOrders + "?companyId=" + 1 + "&bookerId=" + 77 + "&type=pending";
         $http.get(activeBookingListUrl).then(function (response) {

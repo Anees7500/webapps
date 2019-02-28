@@ -47,6 +47,11 @@
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
             </li>
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('extraCodeBool')">
+                    <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
+                        Extra Code</span></a>
+            </li>
 
         </ul>
     </nav>
@@ -62,7 +67,7 @@
                     <i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i> Home</a>/
                 <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
                 <a class="navbar-brand w-clr  font-small font-weight-normal" href="">
-                    Pending Oders
+                    / Pending Oders
                 </a>
             </nav>
 
@@ -293,47 +298,18 @@
             </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
-
-                    <!--Card image-->
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header secondary-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
-                        <div>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-th-large mt-0"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-columns mt-0"></i>
-                            </button>
-                        </div>
-
-                        <a href="" class="white-text mx-3">Cancel Oders History</a>
-
-                        <div>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-pencil-alt mt-0"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="far fa-trash-alt mt-0"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-info-circle mt-0"></i>
-                            </button>
-                        </div>
+                        <a href="" class="white-text mx-3">completed Oders History</a>
 
                     </div>
-                    <!--/Card image-->
-
                     <div class="px-4">
-
                         <div class="table-wrapper table-responsive">
-                            <!--Table-->
                             <table class="table table-hover mb-0 mt-1">
 
-                                <!--Table head-->
                                 <thead>
                                     <tr>
-
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
                                                 <i class="fas fa-sort ml-1"></i>
@@ -366,9 +342,6 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <!--Table head-->
-
-                                <!--Table body-->
                                 <tbody>
                                     <tr ng-repeat="cancelOdr in cancelOderHistroy ">
 
@@ -380,17 +353,11 @@
                                         <td class="font-weight-normal text-left">{{cancelOdr.ordersStatus}}</td>
                                     </tr>
                                 </tbody>
-                                <!--Table body-->
                             </table>
-                            <!--Table-->
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <!-- ============================ End completed Oders ===========================================-->
@@ -436,16 +403,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-md-5">
-
                     </div>
                 </div>
-
                 <div class="card card-cascade narrower mt-3 ">
-
-                    <!--Card image-->
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
@@ -457,9 +419,7 @@
                                 <i class="fas fa-columns mt-0"></i>
                             </button>
                         </div>
-
                         <a href="" class="white-text mx-3">Payment History</a>
-
                         <div>
                             <button type="button" class="btn btn-outline-white  btn-sm px-2">
                                 <i class="fas fa-pencil-alt mt-0"></i>
@@ -532,8 +492,8 @@
         <div ng-if="feedbackBool">
             <nav class="navbar navbar-expand-lg mt-2">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Feedback</a></h6>
-
+                        Feedback</a>
+                </h6>
             </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
@@ -541,10 +501,10 @@
                         class="view view-cascade z-depth-1-half gradient-card-header default-color  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
                         <a href="" class="white-text mx-3">Feedback</a>
-                        <div class="btn-sm px-2 ">
+                        <!-- <div class="btn-sm px-2 ">
                             <input class="form-control  " type="text" placeholder="Search" aria-label="Search"
                                 ng-model="search">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="px-4">
                         <div class="table-wrapper table-responsive">
@@ -575,21 +535,36 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr
-                                        ng-repeat="feedBck in feedback.slice().reverse() | filter:search | orderBy:sortType:sortReverse ">
+                                    <tr ng-repeat="feedBck in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                                         <td class="font-weight-normal text-left">{{feedBck.menuItemName}}</td>
                                         <td class="font-weight-normal text-left">{{feedBck.tasteRating}}</td>
                                         <td class="font-weight-normal text-left">{{feedBck.qualityRating}}</td>
                                         <td class="font-weight-normal text-left">
-                                            <div ng-if="feed.comment.length > 1">
-                                                {{feedBck.comment}}
-                                            </div>
+                                            <!-- <div ng-if="feed.comment.length > 1"> -->
+                                            {{feedBck.comment}}
+                                            <!-- </div> -->
                                         </td>
                                         <td class="font-weight-normal text-left">{{feedBck.createdAt}}</td>
 
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                </tfoot>
                             </table>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination pagination-circle pg-blue">
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <a class="page-link" href ng-click="prevPage()">« Prev</a>
+                                    </li>
+                                    <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}"
+                                        ng-click="setPage()">
+                                        <a class="page-link" href ng-bind="n + 1">1</a></li>
+
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                                        <a class="page-link" ng-click="nextPage()">Next »</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -705,6 +680,22 @@
 
         </div>
         <!-- ============================ End Set Weekly Menu=============================================-->
+
+        <!-- ============================ extra Code=============================================-->
+        <div ng-if="extraCodeBool">
+            
+        </div>
+
+
+
+
+
+        <!-- ============================End extra Code=============================================-->
+
+
+
+
+
     </div>
 </div>
 
