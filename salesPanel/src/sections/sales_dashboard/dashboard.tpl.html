@@ -40,34 +40,34 @@
 <!--=====================Main Navigation====================================-->
 <div class="wrapper">
     <nav id="sidebar" class="z-depth-1-half  blue-grey lighten-5 position-fixed h-100 mt-4">
-        <ul class="list-unstyled components mt-5">
+        <ul class="list-unstyled components mt-5 ">
             <li class="p-2 ">
                 <a ng-click="boolFunction('companyBool')" class="text-dark d-block text-decoration-none" href=""><i
                         class="fas fa-building fa-fw"></i>
-                    <span class="font-weight-normal">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
+                    <span class="font-weight-normal button">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('unassignedleads')" class="text-dark d-block text-decoration-none" href=""><i
                         class="fas fa-building fa-fw"></i>
-                    <span class="font-weight-normal">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
+                    <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
             </li>
 
             <li class="p-2">
                 <a class="text-dark d-block text-decoration-none " href="" data-target="#pageSubmenu" data-toggle="collapse"><i
                         class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
+                    <span class="font-weight-normal button">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
                         class="badge badge-pill badge-danger ml-2"></span></a>
                 <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
 
                     <li ng-click="boolFunction('myleads')" class="p-1">
                         <a class="text-dark d-block text-decoration-none" href="">
                             <i class="fas fa-fire  mr-2"></i>
-                            <span class="font-weight-normal">My Leads</span></a>
+                            <span class="font-weight-normal button">My Leads</span></a>
                     </li>
 
                     <li ng-click="boolFunction('subordinateassigned')" class="p-1">
                         <a class="text-dark d-block text-decoration-none" href="">
-                            <i class="fas fa-ethernet  mr-2"></i><span class="font-weight-normal">Subordinate Leads</span></a>
+                            <i class="fas fa-ethernet  mr-2"></i><span class="font-weight-normal button">Subordinate Leads</span></a>
                     </li>
 
                 </ul>
@@ -75,42 +75,42 @@
             <li class="p-2">
                 <a ng-click="boolFunction('vendorListBool')" class="text-dark d-block text-decoration-none" href=""
                     data-toggle="collapse"><i class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
+                    <span class="font-weight-normal button">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
 
             </li>
 
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('addleadsCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="far fa-calendar-times fa-fw"></i><span class=" font-weight-normal">Add Leads</span><span
+                        class="far fa-calendar-times fa-fw"></i><span class=" font-weight-normal button">Add Leads</span><span
                         class="badge badge-pill badge-danger ml-2"></span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('teamCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-users fa-fw "></i><span class="font-weight-normal">Team</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+                        class="fas fa-users fa-fw "></i><span class="font-weight-normal button">Team</span><span class="badge badge-pill badge-danger ml-2"></span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('assignedCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal"> Assigned Companies</span><span
+                        class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal button"> Assigned Companies</span><span
                         class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('callingCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-phone "></i><span class=" font-weight-normal"> Calling data</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+                        class="fas fa-phone "></i><span class=" font-weight-normal button"> Calling data</span><span class="badge badge-pill badge-danger ml-2"></span></a>
             </li>
         </ul>
     </nav>
-
+   
     <!-- ================Page Content ==================== -->
     <div id="content" class="mt-5">
         <div class="mt-4 mx-md-4 ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="">Home</a></li>
-                  <li class="breadcrumb-item"><a href="">Library</a></li>
-                  <li class="breadcrumb-item active">Data</li>
+                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                    <li class="breadcrumb-item"><a href="">Library</a></li>
+                    <li class="breadcrumb-item active">Data</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
 
         <!--=====All Companies==============================--->
@@ -303,7 +303,11 @@
                             <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
                             <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
                                     19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 success-color-dark pull-right"> In progress</span></a></p>
+
+
                         </div>
+
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
                             </li>
@@ -317,7 +321,96 @@
                     </div>
                 </div>
                 <!---------------------------Card-------------------- -->
+  <!-- ---------------Card ------------------------- -->
+  <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+        <div class="pic  position-relative">
 
+            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+            <div class="mask rgba-white-slight"></div>
+        </div>
+        <div class="team-content ">
+            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 danger-color-dark pull-right"> In progress</span></a></p>
+
+
+        </div>
+
+        <ul class="social list-inline list-unstyled">
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+        </ul>
+    </div>
+</div>
+<!---------------------------Card-------------------- -->
+  <!-- ---------------Card ------------------------- -->
+  <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+        <div class="pic  position-relative">
+
+            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+            <div class="mask rgba-white-slight"></div>
+        </div>
+        <div class="team-content ">
+            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 warning-color-dark pull-right"> In progress</span></a></p>
+
+
+        </div>
+
+        <ul class="social list-inline list-unstyled">
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+        </ul>
+    </div>
+</div>
+<!---------------------------Card-------------------- -->
+  <!-- ---------------Card ------------------------- -->
+  <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+        <div class="pic  position-relative">
+
+            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+            <div class="mask rgba-white-slight"></div>
+        </div>
+        <div class="team-content ">
+            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 warning-color pull-right"> In progress</span></a></p>
+
+
+        </div>
+
+        <ul class="social list-inline list-unstyled">
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+        </ul>
+    </div>
+</div>
+<!---------------------------Card-------------------- -->
             </div>
         </div>
         <!-- My leads end -->
@@ -325,7 +418,7 @@
         <!-- Subordinate  -->
         <div ng-if="subordinateassigned">
             <div class="row ml-3">
-                <input type="search" id="myInput" class="form-control mdb-autocomplete mx-5"style="width:85%">
+                <input type="search" id="myInput" class="form-control mdb-autocomplete mx-5" style="width:85%">
                 <div class="row ml-5 mt-3">
                     <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2">
                         <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">

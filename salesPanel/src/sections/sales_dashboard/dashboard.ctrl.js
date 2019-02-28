@@ -95,7 +95,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.state = !$scope.state;
     };
     //  ================== All AssingendCOmpany URL End===================================
-
+   
     // =================== Calling data===================================================
     $scope.data = [{
         firstName: "Jayaram",
