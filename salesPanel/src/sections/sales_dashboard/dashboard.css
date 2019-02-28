@@ -43,7 +43,7 @@
 #sidebar ul .open>a,
 #sidebar ul li.dropdown .dropdown-menu li:hover,
 #sidebar ul li:hover {
-    background-color: #e3f2fd;
+    background-color:#cfd8dc ;
     color: #fff;
 }
 
@@ -795,4 +795,7 @@ body {
             transform: rotate(-360deg);
   }
   /* social icon profile end */
-  
+  #mytable input{
+    width:100%;
+  }
+ 

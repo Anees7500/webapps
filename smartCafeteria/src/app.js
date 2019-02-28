@@ -1,4 +1,4 @@
-var empApp = angular.module("empApp", ['ngRoute', 'ngMessages', 'empApp.config',
+var empApp = angular.module("empApp", ['ngRoute',  'empApp.config',
     'ngCookies', 'ui-notification']);
 empApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -13,12 +13,23 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'EmpRegistrationController'
         })
 
-        .when('/scrollspy', {
-            templateUrl: 'sections/scrollspy_try/scrollspy.tpl.html',
+        .when('/dashboard/checkout', {
+            templateUrl: 'sections/smartCafe_checkout/checkout.tpl.html',
             title: 'Header-part',
-            controller: 'EmpScrollspyController'
+            controller: 'CheckoutController'
         })
 
+        .when('/dashboard/orders', {
+            templateUrl: 'sections/smartCafe_orders/orders.tpl.html',
+            title: 'Header-part',
+            controller: 'OrdersController'
+        })
+
+        .when('/dashboard/favourite', {
+            templateUrl: 'sections/smartCafe_favourite/favourite.tpl.html',
+            title: 'Header-part',
+            controller: ''
+        })
 
         .when('/dashboard', {
             templateUrl: 'sections/smartCafe_dashboard/dashboard.tpl.html',
@@ -26,9 +37,9 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'DashboardController'
         })
         
-        .otherwise({
-            redirectTo: '/'
-        });
+        // .otherwise({
+        //     redirectTo: '/'
+        // });
 
         
        

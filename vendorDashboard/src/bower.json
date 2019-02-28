@@ -1,0 +1,25 @@
+{
+  "name": "src",
+  "authors": [
+    "pallavi.pg <pallavi.pg033@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "MDBootstrap": "^4.7.3",
+    "Font-Awesome": "^5.7.2",
+    "angular": "1.7.5",
+    "angular-ui-notification": "^0.3.6",
+    "angular-cookies": "1.7.5",
+    "angular-route": "1.7.5"
+  }
+}

@@ -1,6 +1,6 @@
 salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
   'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl', 'editableOptions',
-  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions,) {
+  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions, ) {
 
     // ==============Profile work============================================
     editableOptions.theme = 'bs4';
@@ -15,14 +15,9 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     };
     // ==============Profile work end ============================================
-    
+
     //=============== Unassigned leads===========================================
-   
-      $scope.unassignedleads =[
-        {fileName:"team-1.jpg",companyname:"Fancymonk",address:"#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102"},
-        {fileName:"team-2.jpg",companyname:"Fancymonk",address:"#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102"},
-        {fileName:"team-3.jpg",companyname:"Fancymonk",address:"#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102"},
-      ]
+
     //=============== Unassigned leads===========================================
     //====================== sidebar hide and show==========================
     $scope.toggle = true;
@@ -95,13 +90,47 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       }
     });
     //======================= card toggle================================================
-    // ===========Team Work1===============================================================
+    // ===========Team Work1=============================================================
     $scope.toggle = function () {
       $scope.state = !$scope.state;
     };
     //  ================== All AssingendCOmpany URL End===================================
 
-    //=========================== bool Logic start=========================================
+    // =================== Calling data===================================================
+    $scope.data = [{
+        firstName: "Jayaram",
+        lastName: "P",
+        email: "jayaram@gmail.com",
+        project: "javasavvy",
+        designation: "Software Engineer",
+        empId: "10001"
+      },
+      {
+        firstName: "Arjun",
+        lastName: "D",
+        email: "Arjun@gmail.com",
+        project: "Sample Project",
+        designation: "Test",
+        empId: "10002"
+      }
+    ];
+    $scope.empoyees = angular.copy($scope.data);
+    $scope.enabledEdit = [];
+    $scope.editEmployee = function (index) {
+      console.log("edit index" + index);
+      $scope.enabledEdit[index] = true;
+    }
+    $scope.deleteEmployee = function (index) {
+      $scope.empoyees.splice(index, 1);
+    }
+
+    $scope.submitEmployee = function () {
+
+      console.log("form submitted:" + angular.toJson($scope.empoyees));
+    }
+    // =================== Calling data end===============================================
+
+    //=========================== bool Logic start========================================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.companyBool = false;
@@ -114,7 +143,6 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.unassignedleads = false;
       $scope.myleads = false;
       $scope.subordinateassigned = false;
-      $scope.allconvertedCompany = false;
       $scope.reports = false;
       $scope[value] = true;
     }
