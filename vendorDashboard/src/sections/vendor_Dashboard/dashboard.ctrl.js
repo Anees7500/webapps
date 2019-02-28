@@ -48,7 +48,15 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         var vendorId = 1;
         var companyId = 1;
 
-        $scope.menuNodes = [];
+        // $scope.menuNodes = [];
+        $scope.menuNodes = [{
+
+            // uid: uuid.new(),
+            uid: 'ggd',
+            menuName: "First",
+            menuNodes: [],
+            isFoodItem: false
+        }];
 
         var getCompanies = getAllCompanyToVendorUrl + vendorId;
         $http.get(getCompanies).then(function (response) {

@@ -376,8 +376,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     // =========================Start Date And End Date=====================
       $scope.selectStartDateInvoice = function(startdateval){
         var date= startdateval;
-        console.log("Start Date",date);       
-        
           var monthNames = [
             "Jan", "Feb", "March",
             "April", "May", "June", "July",
@@ -390,14 +388,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
           var year = date.getFullYear();
         
           $scope.startDateValue = day + '-' + monthNames[monthIndex] + '-' + year;
-
-        console.log("filter date",$scope.startDateValue);
       }
 
       $scope.selectEndDateForInvoice = function(enddateval){
 
         var date= enddateval;
-        console.log("Start Date",date);       
         
           var monthNames = [
             "Jan", "Feb", "Mar",
