@@ -11,16 +11,14 @@
     <div id="content" class="mt-3">
           <!---------===========================Favourites============================================-->
 
-
-        <nav aria-label="breadcrumb">
-          <ol class=" breadcrumb font-small
-              font-weight-normal">
-            <li class="breadcrumb-item active">Favourites
-            </li>
-          </ol>
-        </nav>
-        <div class="row  ">
-          <div class="col-md-7 ml-2  mt-2 text-center ">
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mt-5">
+                <li class="breadcrumb-item"><a href="#!/dashboard">Home</a></li>
+                <li class="breadcrumb-item active">Favourites</li>
+              </ol>
+            </nav>
+        <div class="row ml-2">
+          <!-- <div class="col-md-7 ml-2  mt-2 text-center ">
             <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
             <div class="row mt-3 justify-content-center ">
               <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat="fItem in favouritItemList">
@@ -80,12 +78,78 @@
                 </div>
               </div>
             </div>
-           
+          </div> -->
           <!---------===========================End Favourites =========================-->
     
     
-    
+    <div class="col-md-7">
+      <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
+      <div class="card col-md-3 mb-3 mr-2 mt-4 z-depth-2">
+          <div class="view">
+            <img class="card-img-top " src="img/food1.jpg" alt="Card image cap">
+            <a >
+              <div class="mask  flex-top text-right">
+                <i class="fas fa-heart fa-2x text-danger " aria-hidden="true"></i>
+              </div>
+            </a>
+          </div>
+          <div class="card-block">
+            <h4 class="card-title text-left"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1"></i></span><span
+                class="small">khjsxkjs</span></h4>
+
+            <div class="card-text d-flex flex-row justify-content-between">
+              <div class="p-1">
+                <p><i class="fas fa-star text-warning"></i>
+                  <span class="text-muted">4.3</span>
+                </p>
+
+
+              </div>
+            </div>
+          </div>
         </div>
+    </div>
+    <div class="col-md-4">
+        <h4 class="d-flex justify-content-between align-items-center card-header info-color">
+            <span class="text-white">Your cart</span>
+            <span class="badge badge-secondary badge-pill">{{getCartItemSize()}}</span>
+          </h4>
+          <ul class="list-group" id="scroll-height">
+            <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartObj.cartItems" ng-if="keyCart != 'totalAmount'">
+              <div class="d-flex flex-row justify-content-between" id="checkout-height">
+                <div class="p-2 w-50">
+                  <h6 class="my-0 text-dark font-weight-normal">{{valueCart.obj.menuName}}
+                  </h6>
+                  <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
+                </div>
+                        <div class="p-2 w-25 mr-3" ng-if="cartObj.cartItems[keyCart].addedInCart">
+                            <div class="def-number-input number-input">
+                                    <button class="minus text-white"ng-click="reduceCount(cartObj.cartItems[keyCart])"></button>
+                                    <input class="quantity" min="0" name="quantity" value="1" type="number"ng-model="cartObj.cartItems[keyCart].count">
+                                    <button class="plus text-white" ng-click="addCount(cartObj.cartItems[keyCart])"></button>
+                                  </div></div>
+
+                <div class="p-2">
+                <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{cartObj.cartItems[keyCart].amount}}</span></p>
+                </div>
+                </div>
+                
+              </li>
+            </ul>
+          <div class="d-flex flex-row justify-content-between" id="checkout-height">
+            <div class="p-2">
+                <span class="font-weight-bold text-danger">Total (Rupee)</span>
+            </div>
+            <div class="p-2 mr-5">
+                <strong><i class="fas fa-rupee-sign"></i>{{cartObj.cartItems.totalAmount}}</strong>
+            </div>
+            </div>
+          
+              
+          
+            <button class="btn btn-success btn-sm btn-block" type="submit" ng-click="gotoCheckout()">Continue to checkout</button>
+    </div>
+        
       </div>
     </div>
 </div>
