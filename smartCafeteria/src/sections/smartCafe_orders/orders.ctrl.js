@@ -95,21 +95,14 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
         var maxRating = 5;
         $scope.stars = [].constructor(maxRating);
         $scope.ratingParameters = [
-          {
-            name: "Presentation",
-            rating: 3
-          },
-          {
-            name: "Quality",
-            rating: 3
-          },
+        
           {
             name: "Taste",
             rating: 4
     
           },
           {
-            name: "Quantity",
+            name: "Quality",
             rating: 4
           }
         ];
@@ -120,6 +113,8 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
           j.rating = star;
     
         }
+
+        
   }
 
   ]);

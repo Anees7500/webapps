@@ -122,7 +122,7 @@
 
                           <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
-                            <div class="modal-dialog " role="document">
+                            <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <!--Header-->
                                 <div class="modal-header info-color" id="myModalLabel">
@@ -139,18 +139,29 @@
                                 <div class="modal-body">
                                   <div class="form-row float-left ml-3">
                                     <div class="form-group col-md-4">
-                                      <label class="font-small font-weight-bold">Select vendor </label>
+                                      <label class="font-small font-weight-bold">Vendor Name</label>
                                     </div>
-                                    <div class="text-center form-group col-md-8">
-                                      <select class="browser-default custom-select" ng-model="employee.venderName"
+                                    <div class="text-center form-group col-md-8" >
+                                      <!-- <select class="browser-default custom-select" ng-model="employee.venderName"
                                         aria-placeholder="Choose Vendor" required>
                                         <option selected>Choose Vendor</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
-                                      </select>
+                                      </select> -->
+                                      <input type="text" class="form-control" ng-model="vendorDetails.name">
                                     </div>
-                                    <div class="col-md-8">
+
+                                    <div class="form-group col-md-4">
+                                        <label class="font-small font-weight-bold">Food Items</label>
+                                      </div>
+                                      <div class="text-center form-group col-md-8" >
+                                       
+                                          <p class="small font-weight-bold text-muted"ng-bind="getMenuForOrdersPage(booking.menu)"></p>
+                                      </div>
+                                   
+                                      
+                                    <!-- <div class="col-md-8">
                                       <div class="form-row " ng-repeat="employeeInfo in employeeDetails">
                                         <div class="md-form col-md-10">
                                           <input type="text" id="inputDisabledEx" class="form-control" disabled>
@@ -167,7 +178,7 @@
 
                                       </div>
 
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-12 form-group">
                                       <div class=" form-row " ng-repeat="parames in ratingParameters">

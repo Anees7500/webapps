@@ -1,6 +1,6 @@
 vendorApp.controller('DashboardController', ['$scope', 'VendorDashboardService', '$cookies', 'Notification',
 '$location','$route',
-    function ($scope, VendorDashboardService, $cookies, Notification,  $location,  $route ) {
+    function ($scope, VendorDashboardService, $cookies, Notification,  $location,  $route,$timeout ) {
 
     // ====================== Log out function =========================
     $scope.logout = function(){
@@ -31,7 +31,7 @@ vendorApp.controller('DashboardController', ['$scope', 'VendorDashboardService',
             $scope.setWeeklyMenuBool = false;          
             $scope[value] = true;
         }
-    $scope.boolFunction("pendindBool");
+    $scope.boolFunction("pendingOdersBool");
 // =============================== set menu =========================================
     $scope.workingDays = [
         { day: "Monday", selected: false, dbName: "monday" },
@@ -42,5 +42,42 @@ vendorApp.controller('DashboardController', ['$scope', 'VendorDashboardService',
         { day: "Saturday", selected: false, dbName: "saturday" },
         { day: "Sunday", selected: false, dbName: "sunday" }
       ];
-    }
+
+      
+
+
+
+//weeklyMenu insert
+$scope.newField = [];
+$scope.editing = false;
+
+$scope.appkeys = [{"name":"januka"}];
+
+$scope.editAppKey = function(field) {
+$scope.editing = $scope.appkeys.indexOf(field);
+$scope.newField[$scope.editing] = angular.copy(field);
+}
+
+$scope.saveField = function(index) {
+  $scope.appkeys[$scope.editing] = $scope.newField;
+       
+};
+
+$scope.cancel = function(index){
+    $scope.appkeys.splice( index, 1);
+    if ($scope.appkeys.length() === 0){
+        $scope.appkeys = [];
+      }
+    };
+$scope.add = function () {
+  var entry = {};
+  $scope.appkeys.push(entry);
+  console.log("hiii", $scope.appkeys);
+ 
+};
+}
+
+
+
+    
 ]); 

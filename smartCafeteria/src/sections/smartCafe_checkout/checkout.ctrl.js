@@ -92,6 +92,22 @@ empApp.controller('CheckoutController', ['$scope','$cookies','Notification','$lo
         }
       });
     }
+
+    // $scope.searchButtonText = "Search";
+    // $scope.test = "true";
+
+    // $scope.search = function () {
+    //     $scope.enable = "false";
+    //     $scope.test = "true";
+    //     $scope.searchButtonText = "Searching";
+    //     // Do your searching here
+        
+    //     $timeout(function(){
+    //         $scope.enable = "true";
+    //         $scope.searchButtonText = "Search";
+    //     }, 2000);
+    // }
+  
     
   }
 
