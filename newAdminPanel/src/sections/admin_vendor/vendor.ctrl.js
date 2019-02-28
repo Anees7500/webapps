@@ -4,21 +4,11 @@ adminApp.controller('VendorController', ['$scope', '$routeParams', '$rootScope',
      getImageUrl, $cookies, $location, $route, Notification) {
 
 
-    // tongal baar script end
-    // =============== log out ================//
-  //   $scope.logout = function(){
-  //     $cookies.remove('id');    
-  //      $location.path('/');
-  // }
-  // if ($cookies.get('id') == null) {
-  //   Notification.warning("Login required!!!");
-  //   $location.path('/');
-  //   $route.reload();
-  // } 
+
 
     var vendorId = $routeParams.venId;
     $scope.vId = vendorId;
-    console.log("$scope.vId 600", $scope.vId);
+    console.log("$scope.vId 600", $scope.vId); 
 
     var getVendorDetails = getVendorProfileUrl + vendorId;
     $http.get(getVendorDetails).then(function (response) {

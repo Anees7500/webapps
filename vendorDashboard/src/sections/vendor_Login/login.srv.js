@@ -25,7 +25,7 @@ vendorApp.factory('VendorLoginService', ['$cookies','$rootScope','$httpParamSeri
                         $cookies.put('name',response.data.data.vendor.name);
                         $cookies.put('mobile',response.data.data.vendor.mobile);
                         $cookies.put('authUserId',response.data.data.vendor.authUserId);
-                        $location.path('/dashboard');
+                        $location.path('/companies');
                     } else {
                         Notification.error('Username/Mobile/Email or password is incorrect');
                     }

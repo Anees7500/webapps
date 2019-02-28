@@ -1,0 +1,76 @@
+<div class="wrapper" ng-controller="NavbarController">
+
+    <!-- ===============================header navbar start=============================== -->
+
+    <ng-include src="'sections/nav_Bar/navBar.tpl.html'"></ng-include>
+    <!-- <ng-include src="'sections/nav_Bar/navBar.ctrl.js'"></ng-include> -->
+
+    <!---------------------------- Navbar End----------------------->
+    <nav id="sidebar" class="z-depth-1-half position-fixed h-100 mt-5">
+        <ul class="list-unstyled components mt-5">
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('assignedCompaniesBool')">
+                    <i class="fas fa-hourglass-half text-warning"></i></i> <span class="font-weight-normal">
+                        Assigned Companies </span><span
+                        class="badge badge-pill badge-danger ml-2">{{allassignedCompanies.length}}</span></a>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- ===================== Main Navigation Content =======================  -->
+    <div id="content" class="mt-5 ">
+
+        <!-- ====================== Assigned Companies  ================================-->
+        <div ng-if="assignedCompaniesBool">
+            <nav class="navbar navbar-expand-lg mt-2">
+                <h6><i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i>
+                    <a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
+                        Assigned Companies</a></h6>
+            </nav>
+
+            <div class="container">
+                <div class="row ml-3">
+                    <div ng-repeat="assignedcpny in assignedCompany | filter:search">
+                        <div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="card1    example z-depth-1 mt-5">
+                                    <div class="view overlay  hm-black-light zoom" ripple-radius>
+                                        <img id="image" ng-src="{{assignedcpny.fileName}}"
+                                            class="card-img-top img img-responsive mb-3">
+                                        <a>
+                                            <div class="mask flex-center"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-block">
+                                        <a ng-href="#!/companies/dashboard/{{assignedcpny.id}}">
+                                            <h5
+                                                class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal ">
+                                                <i class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>
+                                                {{assignedcpny.companyName | uppercase}} </h5>
+                                            <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{assignedcpny.address}} </p>
+                                            <h5
+                                                class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">
+                                                Read more<i class="fas fa-angle-double-right ml-2 "></i></h5>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ====================== End Assigned Companies  ================================-->
+
+
+    </div>
+    <!-- =====================End Main Navigation Content =======================  -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+</script>
