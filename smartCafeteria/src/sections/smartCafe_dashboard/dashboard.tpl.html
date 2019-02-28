@@ -13,7 +13,7 @@
 
 
     <!---------==========================Home===========================-->
-    <div ng-if="homeBool" class="font-weight-normal">
+    <div  class="font-weight-normal">
       <nav aria-label="breadcrumb">
         <ol class=" breadcrumb font-small font-weight-normal mt-1">
           <li class="breadcrumb-item active text-center text-info">Home
@@ -137,12 +137,13 @@
 
     <!--====================food item list section start==========-->
     <div class="container-fluid mt-3">
-      <div class="row">
+    <div class="card-header rgba-cyan-slight z-depth-1"></div>
+      <div class="row mt-2">
         <div class="col-md-2">
 
           <div class="panel panel-primary" id="result_panel">
             <div class="panel-heading">
-              <h4 class="panel-title font-weight-normal font-small">FOOD ITEMS</h4>
+              <h5 class="panel-title font-weight-normal">FOOD ITEMS</h5>
             </div>
             <div class="panel-body">
               <!-- start side list group to show food items -->
@@ -177,13 +178,7 @@
             <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
 
               <script type="text/ng-template" id="nodes_renderer.html">
-                
-                      
-                      <!-- <a class="btn btn-clear btn-xs"  ng-if="node.menuNode.length>0" ng-click="expandNode(this,$event)"> 
-                        <i class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></i>
-                      </a> -->
-                       
-                         <div ng-if="!node.isFoodItem">
+                  <div ng-if="!node.isFoodItem">
                          <h5 class="card-header info-color">
                             <span class="text-white" ng-disabled="node.isInserted" ng-model='node.menuName' focus>{{node.menuName}}</span>
                           </h5>
@@ -193,16 +188,34 @@
                                     
                                      <ul class="list-group list-group-flush">
                                         <li class="list-group-item border-bottom">
+                                           <div class="d-flex justify-content-end">
+                                              <span class="align-top text-right">
+                                                 <a ng-click="fav(node)" ng-if="!node.favItem" class="mb-2">
+                                                   <div class="mask flex-top ml-4">
+                                                      <i class="fas fa-heart fa-lg text-muted" aria-hidden="true"></i>
+                                                    </div>
+                                                  </a>
+                                                  <a ng-click="fav(node)" ng-if="node.favItem" class="mb-2">
+                                                    <div class="mask flex-top ml-4">
+                                                        <i class="fas fa-heart fa-lg text-danger animated heartBeat" aria-hidden="true"></i>
+                                                      </div>
+                                                    </a>
+                                              </span>
+                                           </div>
                                          <div class="d-flex flex-row  justify-content-between">
+                                           
                                             <div class="p-2">
-                                                <p><i class="far fa-stop-circle text-success fa-sm mr-2"></i>{{node.menuName}}</p>
-                                                <p class="ml-5 mt-0 pt-0"><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{node.price}}</span></p>
-                                                <p class="ml-5 mt-0 pt-0"><i class="text-danger"></i><span class="text-danger">{{node.description}}</span></p> 
+                                                <ul class="list-unstyled">
+                                                    <li class="text-dark"><i class="far fa-stop-circle text-success fa-sm mr-2"></i>{{node.menuName}}</li>
+                                                    <li class="ml-3"><i class="fas fa-rupee-sign text-danger mr-1"></i><span class="text-danger">{{node.price}}</span></li>
+                                                    <li class="text-muted ml-3">{{node.description}}</li>
+                                                  </ul>
                                             </div>
                                             <div class="p-2">
+                                              
                                                 <button type="button" class="btn btn-outline-default btn-sm m-auto d-block rounded-pill"
                                                 ng-if="!cartObj.cartItems[node.id].addedInCart" ng-click="addToCart(node)">ADD</button>  
-                                            </div>
+                                               </div>
                                               <div class="p-2 justify-content-between" ng-if="cartObj.cartItems[node.id].addedInCart">
                                                   <div class="def-number-input number-input">
                                                           <button class="minus" ng-click="reduceCount(cartObj.cartItems[node.id])"></button>
@@ -253,12 +266,13 @@
                   </h6>
                   <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
                 </div>
-                        <div class="p-2 w-25 mr-3" ng-if="cartObj.cartItems[keyCart].addedInCart">
+                  <div class="p-2 w-25 mr-3" ng-if="cartObj.cartItems[keyCart].addedInCart">
                             <div class="def-number-input number-input">
                                     <button class="minus text-white"ng-click="reduceCount(cartObj.cartItems[keyCart])"></button>
                                     <input class="quantity" min="0" name="quantity" value="1" type="number"ng-model="cartObj.cartItems[keyCart].count">
                                     <button class="plus text-white" ng-click="addCount(cartObj.cartItems[keyCart])"></button>
-                                  </div></div>
+                                  </div>
+              </div>
 
                 <div class="p-2">
                 <p><i class="fas fa-rupee-sign text-danger"></i><span class="text-danger">{{cartObj.cartItems[keyCart].amount}}</span></p>
@@ -278,7 +292,7 @@
           
               
           
-            <a class="btn btn-primary btn-lg btn-block" type="submit" ng-click="gotoCheckout()">Continue to checkout</a>
+            <button class="btn btn-success btn-sm btn-block" type="submit" ng-click="gotoCheckout()">Continue to checkout</button>
             
           </div>
      
@@ -293,214 +307,16 @@
   <!---------=============================End Home=============================-->
   
 
-  <!---------===========================Favourites============================================-->
-
-  <div ng-if="favouritesBool">
-    <nav aria-label="breadcrumb">
-      <ol class=" breadcrumb font-small
-          font-weight-normal">
-        <li class="breadcrumb-item active">Favourites
-        </li>
-      </ol>
-    </nav>
-    <div class="row  ">
-      <div class="col-md-7 ml-2  mt-2 text-center ">
-        <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
-        <div class="row mt-3 justify-content-center ">
-          <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat="fItem in favouritItemList">
-            <div class="view">
-              <img class="card-img-top  " src="img/food1.jpg" alt="Card image cap">
-              <a ng-click="removeFavouritItem(f , $index)">
-                <div class="mask  flex-top text-right">
-                  <i class="fas fa-heart fa-2x text-danger " aria-hidden="true"></i>
-                </div>
-              </a>
-            </div>
-            <div class="card-block">
-              <h4 class="card-title text-left"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1"></i></span><span
-                  class="small">{{fItem.itemName}}</span></h4>
-
-              <div class="card-text d-flex flex-row justify-content-between">
-                <div class="p-1">
-                  <p><i class="fas fa-star text-warning"></i>
-                    <span class="text-muted">{{fItem.rating}}</span>
-                  </p>
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="z-depth-1">
-              <h4 class="d-flex justify-content-between align-items-center  card-header info-color mt-4">
-                <span class="text-white">Your cart hahah mana </span>
-                <span class="badge badge-secondary badge-pill">3</span>
-              </h4>
-
-              <ul class="list-group">
-                <li class="list-group-item" ng-repeat="(keyCart, valueCart) in cartItems" ng-if="keyCart != 'totalAmount'">
-                  <div class="d-flex flex-row justify-content-between text-left" id="checkout-height">
-                    <div class="p-2">
-                      <h6 class="my-0 text-dark font-weight-normal" ng-model="checkList.checkItem">{{valueCart.obj.menuName}}
-                      </h6>
-                      <small class="text-muted">{{getVendorName(valueCart.obj.vendorId)}}</small>
-                    </div>
-                    <div class="p-3">
-                      <div class="def-number-input number-input">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                        <input class="quantity" min="0" name="quantity" value="1" type="number">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                      </div>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <span class="font-weight-bold text-danger">Total (Rupee)</span>
-                  <strong><i class="fas fa-rupee-sign"></i>100</strong>
-                </li>
-              </ul>
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-            </div>
-          </div>
-        </div>
-        <!-- </div> -->
-      </div>
-      <!---------===========================End Favourites =========================-->
-
-
-
-    </div>
-  </div>
+ 
 
 
 
 
 <!---------====================================== End Card=====================================-->
 
-<!---------======================================Notification=====================================-->
-<div ng-if="notificationBool">
-  <nav aria-label="breadcrumb">
-    <ol class=" breadcrumb font-small
-        font-weight-normal">
-      <li class="breadcrumb-item active"> <i class="fas fa-bell"></i> Notification
-      </li>
-    </ol>
-  </nav>
-
-
-</div>
-<!---------======================================End Notification=====================================-->
-<!---------======================================Wallet====================================-->
- <div ng-if="walletBool">
-  <nav aria-label="breadcrumb">
-    <ol class=" breadcrumb font-small font-weight-normal text-center">
-      <li class="breadcrumb-item active"><i class="fas fa-wallet"></i> Wallet
-      </li>
-    </ol>
-  </nav>
-  <div class="container col-md-8 ">
-    <div class=" text-center   z-depth-1-half">
-      <div class="text-white font-weight-bold cyan lighten-1 border border-secondary ">
-        <h4 class=" fa-2x mt-3 "><i class="fas fa-rupee-sign "></i> 100</h4>
-        <span class="">Fancymonk Wallet Balance</span>
-      </div>
-      <div class="mt-4 row text">
-        <div class="col-md-1 mt-4 ml-3">
-          <a class="btn-floating btn-lg cyan lighten-1 z-depth-1-half">
-            <i class="fas fa-wallet white-text " aria-hidden="true "></i>
-          </a>
-        </div>
-        <div class="md-form font-weight-bold col-md-6 ">
-          <input type="text" id="inputIconEx2" class="form-control">
-          <label for="inputIconEx2" class="ml-3">Enter Amount to be Added in Wallet</label>
-        </div>
-        <div class="col-md-4 mt-3 ">
-          <button type="button" class="btn btn-primary">Add Money to Wallet</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  </div>
-  <!---------====================================== End Card=====================================-->
-
-
-<!---------======================================Settings=====================================-->
-<div ng-if="settingsBool"> 
-  <nav aria-label="breadcrumb">
-    <ol class=" breadcrumb font-small font-weight-normal">
-      <li class="breadcrumb-item active"><i class="fas fa-cogs"></i> Settings
-      </li>
-    </ol>
-  </nav>
-  <div class="container z-depth-1 py-3 px-3   col-md-6 ">
-   
-
-    <div class="font-weight-bold">
-
-      <button type="button" class="btn btn-outline-info waves-effect btn-sm" ng-click="makeEmployeeDetailsEditable()">
-        <i class="fas fa-edit"></i> Edit</button>
-      <br><br>
-      <div class="row">
-        <div class="col-md-6   ">
-          <label for="exampleForm2">Name</label>
-          <input type="text" class="form-control" ng-disabled="!editEmployeeDetails" ng-model="user.employeeId">
-        </div>
-        <div class="col-md-6   ">
-          <label for="exampleForm2">Employee Id</label>
-          <input type="text" class="form-control " ng-disabled="!editEmployeeDetails">
-        </div>
-        <div class="col-md-6 ">
-          <label for="exampleForm2">Mobile Number</label>
-          <input class="form-control" ng-disabled="!editEmployeeDetails">
-        </div>
-        <div class="col-md-6 ">
-          <label for="inputIconEx2">Email Id</label>
-          <input type="text" class="form-control " " ng-disabled=" !editEmployeeDetails">
-        </div>
-
-        <label for="inputPassword6" class="ml-3">Change Password</label>
-        <div class="col-md-12 row ">
-          <div class="col-md-6 ">
-            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
-              placeholder="New Password" ng-disabled="!editEmployeeDetails">
-          </div>
 
 
 
-          <div class="col-md-6 ">
-            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
-              placeholder="New Password" ng-disabled="!editEmployeeDetails">
-          </div>
-
-          <div class="text-center ">
-            <button type="button" class="btn btn-info " ng-click="">Submit</button>
-          </div>
-        </div>
-      
-      </div>
-      
-    </div>
-  </div>
-</div>  
-
-
-
-
-<!---------======================================End Settings=====================================-->
-<!---------======================================Terms and Policy=====================================-->
- <div ng-if="termsAndPolicyBool " class="mt-4">
-  <nav class=" card   font-weight-bold  text-center  ">
-    <h6 class="text-info">Terms and Policy </h6>
-  </nav>
-
-
-
-
-</div>
-<!---------======================================End Terms and Policy=====================================-->
 
 
 </div>

@@ -1,9 +1,8 @@
 empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders','getVendorList',
-  function($scope,$http, getSmartCafeteriaOrders,getVendorList) {
+'NavbarService',
+  function($scope,$http, getSmartCafeteriaOrders,getVendorList,NavbarService) {
   
-
-
-        $scope.activeBookingBool = true;
+        $scope.activeBookingBool = true; 
         var companyId = 1;
         //get active Bookings
         var activeBookingListUrl = getSmartCafeteriaOrders + "?companyId="+1+"&bookerId="+77+"&type=pending";
@@ -19,17 +18,12 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
         var vendorListUrl = getVendorList + companyId;
         $http.get(vendorListUrl).then(function (response) {
           $scope.vendorList = response.data.data.details;
-          // $scope.selectedVendor = $scope.vendorList[0];
-          // getMenus();
-          // console.log("selected vendor : ", JSON.stringify($scope.selectedVendor));
         });
 
         var getVendorName = function(id)
         {
           // debugger;
-          var vName = "";
-          // console.log("vendor list obj : ", $scope.vendorList);
-          // console.log("vendor list : ", JSON.stringify($scope.vendorList )); 
+          var vName = ""; 
           angular.forEach($scope.vendorList, function(vl){
             // console.log("vendor list  ele : ", JSON.stringify(vl )); 
             if(vl.vendorId == id)
@@ -55,7 +49,7 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
               vendorList.push(ele.vendorId);
             }
           }
-          console.log("hahahaha : ", vendorNameCombination);
+          // console.log("hahahaha : ", vendorNameCombination);
           return vendorNameCombination.substring(0, vendorNameCombination.length - 1);
         }
 
@@ -66,7 +60,7 @@ empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders
             // debugger;
             menuCombo = (ele.quantity+" x "+ele.menuObj.menuName)+", "+menuCombo;
           });
-          console.log("menu Combo : ", menuCombo);
+          // console.log("menu Combo : ", menuCombo);
           return menuCombo.substring(0, menuCombo.length - 2);
         }
 

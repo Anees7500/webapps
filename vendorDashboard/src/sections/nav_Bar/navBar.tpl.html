@@ -1,0 +1,30 @@
+ <!-- ===============================header navbar start=============================== -->
+ <div class="wrapper" ng-controller="NavbarController">
+ <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
+    <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href=""
+        id="sidebarCollapse">
+        <div class="media">
+            <i class="fa fa-th-list mt-1"></i>
+            <div class="media-body">
+                <span class="text-white h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
+            </div>
+        </div>
+    </a>
+    <!--=============================sidebar collapse============================-->
+
+
+    <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <ul class="navbar-nav ml-auto mr-3">
+        <li class="nav-item dropdown mr-5">
+            <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
+            <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+                <a class="dropdown-item" ng-click="logout()"><i class="far fa-question-circle mr-3"></i>Log out</a>
+        </li>
+    </ul>
+
+</nav>
+</div>
+<!---------------------------- Navbar End----------------------->

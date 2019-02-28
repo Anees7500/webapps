@@ -30,6 +30,19 @@
     background: #fff;
     color: #7386D5;
     transition: all 0.3s;
+    
+}
+
+/* ------------------CONTENT STYLE------------------------ */
+#content {
+    width: calc(100% - 250px);
+   /* padding: 40px;*/
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-left: 150px;
 }
 
 #sidebar ul li span:nth-child(2) {

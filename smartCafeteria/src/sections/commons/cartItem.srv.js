@@ -1,6 +1,6 @@
 empApp.service('CartService', function () {
 
-    // var cartServiceObj = {};
+    
 
     this.addToCart = function (itemObj) {
 

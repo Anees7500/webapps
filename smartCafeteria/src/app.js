@@ -25,6 +25,11 @@ empApp.config(['$routeProvider', function ($routeProvider) {
             controller: 'OrdersController'
         })
 
+        .when('/dashboard/favourite', {
+            templateUrl: 'sections/smartCafe_favourite/favourite.tpl.html',
+            title: 'Header-part',
+            controller: ''
+        })
 
         .when('/dashboard', {
             templateUrl: 'sections/smartCafe_dashboard/dashboard.tpl.html',
