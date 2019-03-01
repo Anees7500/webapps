@@ -2,32 +2,6 @@
 <div class="wrapper" ng-controller="NavbarController">
 
     <!-- ===============================header navbar start=============================== -->
-<<<<<<< HEAD
-    <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
-        <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
-            <div class="media">
-                <i class="fa fa-th-list mt-1"></i>
-                <div class="media-body">
-                    <span class="text-white h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
-                </div>
-            </div>
-        </a>
-        <!--=============================sidebar collapse============================-->
-
-
-        <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
-        </button>
-        <ul class="navbar-nav ml-auto mr-3">
-            <li class="nav-item dropdown mr-5">
-                <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
-                <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
-                    <a class="dropdown-item" ng-click="logout()"><i class="far fa-question-circle mr-3"></i>Log out</a>
-            </li>
-        </ul>
-=======
->>>>>>> 707bfe41c8480d3dc746d37013971a0465e166ec
 
     <ng-include src="'sections/nav_Bar/navBar.tpl.html'"></ng-include>
 
@@ -63,13 +37,6 @@
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
             <li class="p-2">
-<<<<<<< HEAD
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')" href=""
-                    data-toggle="collapse" aria-expanded="false" data-target="#pageSubmenu">
-                    <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
-                        Weekly Menu</span></a>
-               
-=======
                 <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
                     <i class="fas fa-comment-alt text-default"></i> <span class="font-weight-normal"> Feedback
                     </span></a>
@@ -78,183 +45,10 @@
                 <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
->>>>>>> 707bfe41c8480d3dc746d37013971a0465e166ec
             </li>
 
         </ul>
     </nav>
-<<<<<<< HEAD
-<!-- ===================== Main Navigation Content =======================  -->
-    <div id="content">
- <!--=============="pendingBool start=====================-->
-    <div ng-if="pendingOdersBool">
-     <nav aria-label="breadcrumb">
-      <ol class=" breadcrumb font-small font-weight-normal mt-1">
-         <li class="breadcrumb-item active text-center text-info">pendingOders
-        </li>
-        </ol>
-     </nav>
-    </div>
- <!--==============confirmedOdersBool start=====================-->
-     <div ng-if="confirmedOdersBool">
-        <nav aria-label="breadcrumb">
-         <ol class=" breadcrumb font-small font-weight-normal mt-1">
-           <li class="breadcrumb-item active text-center text-info">confirmedOders
-            </li>
-         </ol>
-        </nav>
-   </div>
- <!--=============="cancelOdersBool start=====================-->
-     <div ng-if="cancelOdersBool">
-      <nav aria-label="breadcrumb">
-        <ol class=" breadcrumb font-small font-weight-normal mt-1">
-         <li class="breadcrumb-item active text-center text-info">cancelOders
-          </li>
-         </ol>
-         </nav>
-     </div>
- <!--==============completedOdersBool start=====================-->
- <div ng-if="completedOdersBool">
-  <nav aria-label="breadcrumb">
-    <ol class=" breadcrumb font-small font-weight-normal mt-1">
-    <li class="breadcrumb-item active text-center text-info">completedOders
-     </ol>
-    </nav>
-    
-</div>
- <!--==============payment start=====================-->
-<div ng-if="paymentStatusBool">
- <nav aria-label="breadcrumb">
-  <ol class=" breadcrumb font-small font-weight-normal mt-1">
-    <li class="breadcrumb-item active text-center text-info">payment
-     </li>
-    </ol>
-    </nav> 
-    <div class="container">
-            <div class="card card-cascade narrower mr-1 pb-0">
-
-                    <div class="view view-cascade gradient-card-header  info-color narrower py-2 mx-4 mb-1 d-flex justify-content-between align-items-center">
-                  
-                     
-                  
-                      <a href="" class="white-text  m-auto d-block">ADD HEADER</a>
-                  
-                      <div>
-                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"ng-click="add()">
-                          <i class="far fa-edit mt-0"></i>
-                        </button>
-                       
-                      </div>
-                  
-                    </div>
-                </div>
-   
-                <div class="px-4">
-      
-         <div class="table-wrapper z-depth-1-half">
-                         
-          <table class="table table-borderless   mb-0 ml-5 mr-3">
-       
-             <tbody>
-       <tr role="row" class="odd tr-color-selected" data-ng-repeat="entry in appkeys" data-ng-class="{danger:!entry.active}">
-     <td>
-<span><input type="text" class="val0 form-control w-50" ng-model="entry.name"data-ng-hide="editMode" disabled></span>
- <input type="text" class="val0 form-control w-50" data-ng-show="editMode" data-ng-model="entry.name" data-ng-required>
-</td>
-         
-  
-   <td class="text-center td-editor" style="border-top: 1px solid #dee2e6; border-bottom:1px solid #dee2e6">
-    <div class="d-flex justify-content-center div-to-remove">
-   
-     <td class="text-center td-editor td-yes  border-none">
-     <button type="submit"class="btn btn-sm btn-primary saveRow"  data-ng-hide="editMode" data-ng-click="editMode = true; editAppKey(entry)" style="cursor:pointer;"><i class="fas fa-pencil-alt"></i></button></td>
-     <td class="text-center td-editor td-yes  border-none">
-      <button type="submit"class="btn btn-sm btn-primary saveRow" data-ng-show="editMode" data-ng-click="editMode = false" class="btn btn-default" style="cursor:pointer;"><i class="fas fa-check"></i></button></td>
-     <td class="text-center td-editor td-yes border-none">
-   <button type="submit" class="btn btn-sm btn-danger deleteRow" data-ng-show="editMode" data-ng-click="editMode = false; cancel($index)" style="cursor:pointer;"><i class="fas fa-trash-alt"></i></button></td>
-    </div>
-   </td>
-                   
-            </tr>
-            </tbody>
-    </table>
-      </div>
-   </div>
-  
-</div> 
-
-</div>
-
- <!--==============weeklyMenu start=====================-->
-  <div ng-if="setWeeklyMenuBool">
-    <nav aria-label="breadcrumb">
-      <ol class=" breadcrumb font-small font-weight-normal mt-1">
-        <li class="breadcrumb-item active text-center text-info">weeklymenu
-          </li>
-        </ol>
-     </nav>
-     <div class="container">      
-     <div class="border-bottom  border-info mr-1">
-                <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home"
-                            role="tab" aria-controls="pills-home" aria-selected="true">Monday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile"
-                            role="tab" aria-controls="pills-profile" aria-selected="false">Tuseday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-contact"
-                            role="tab" aria-controls="pills-contact" aria-selected="false">Wednesday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-thursday"
-                            role="tab" aria-controls="pills-contact" aria-selected="false">Thursday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-friday"
-                            role="tab" aria-controls="pills-contact" aria-selected="false">Friday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-saturday"
-                            role="tab" aria-controls="pills-contact" aria-selected="false">Saturday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-sunday"
-                            role="tab" aria-controls="pills-contact" aria-selected="false">Sunday</a>
-                    </li>
-
-                </ul>
-            </div>
-            <div class="tab-content pt-2 pl-1" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row">
-                <div class="col-md-12">
-            
-          <div class="card card-cascade narrower mr-1 pb-0">
-
-        <div class="view view-cascade gradient-card-header  info-color narrower py-2 mx-4 mb-1 d-flex justify-content-between align-items-center">
-      
-         
-      
-          <a href="" class="white-text  m-auto d-block">Add Column</a>
-      
-          <div>
-            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" data-toggle="collapse" data-target="#table-collapse">
-              <i class="far fa-edit mt-0"></i>
-            </button>
-           
-          </div>
-      
-        </div>
-    </div>
-      
-        
-      
-    </div>
-               
-=======
     <!-- ===================== Main Navigation Content =======================  -->
     <div id="content" class="mt-5 ">
 
@@ -914,51 +708,11 @@
 </div>
 
 
->>>>>>> 707bfe41c8480d3dc746d37013971a0465e166ec
 
   </div>
                           
 </div>
 
-<<<<<<< HEAD
-
-
-
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Ad
-                    Lorem id et dolore velit Lorem amet exercitation duis deserunting ut in id occaecat pariatur ut
-                    ullamco ea tempor duis.</div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                    Mollit nulla nostrud adipisicing aliqua cupidatat aliqua voluptate voluptate consequat non.</div>
-
-                <div class="tab-pane fade" id="pills-thursday" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                    thursday</div>
-
-                <div class="tab-pane fade" id="pills-friday" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                    friday.</div>
-
-                <div class="tab-pane fade" id="pills-saturday" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                    saturday.</div>
-
-                <div class="tab-pane fade" id="pills-sunday" role="tabpanel" aria-labelledby="pills-contact-tab">Est
-                    sunday.</div>
-            </div>
-    </div>
-
-
-
-
-
- </div>
-
-      
-    </div>
-
-
-
-
-
-=======
->>>>>>> 707bfe41c8480d3dc746d37013971a0465e166ec
 <script type="text/javascript">
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
