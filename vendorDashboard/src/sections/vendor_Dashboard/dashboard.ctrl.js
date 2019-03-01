@@ -668,6 +668,10 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         }
 
 
+// to active side menu
+$scope.activeMenu = 'PendingOders'; 
 
-    }
+
+
+}
 ]); 
