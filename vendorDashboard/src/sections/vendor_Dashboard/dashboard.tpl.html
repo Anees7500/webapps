@@ -554,14 +554,16 @@
                             </table>
                             <span aria-label="Page navigation example">
                                 <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0} page-item">
-                                        <a class="page-link"  ng-click="prevPage()">« Prev</a>
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <span class=" page-item">
+                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                        </span>
                                     </li>
                                     <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}"
                                         ng-click="setPage()" class="page-item">
-                                        <a class="page-link"  ng-bind="n + 1">1</a></li>
+                                        <a class="page-link" ng-bind="n + 1">1</a></li>
 
-                                    <li  ng-class="{disabled: currentPage == pagedItems.length - 1} page-item active">
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
@@ -627,9 +629,9 @@
                 <script type="text/ng-template" id="nodes_renderer.html">
                     <br>
                     <div class="design-box">
-                      <a class="btn btn-clear btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
+                      <button class="btn btn-info btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
                             <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
-                      </a>
+                      </button>
                        <div style="padding: 10px; background-color:white">
                         <div class='form-group'>
                           <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
