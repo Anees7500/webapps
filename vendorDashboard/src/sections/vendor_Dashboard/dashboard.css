@@ -28,7 +28,7 @@
     height: 100vh;
     z-index: 999;
     background: #fff;
-    color: #7386D5;
+    color: black;
     transition: all 0.3s;
     
 }
@@ -51,13 +51,15 @@
     font-weight: 600;
     opacity: 0.7 linear;
 }
-
+#sidebar ul li.active {
+    background : #3F729B;
+    color: white;
+  }
 #sidebar ul .open>a,
 #sidebar ul li.dropdown .dropdown-menu li:hover,
 #sidebar ul li:hover {
-    background-color: #e3f2fd;
-    color: #fff;
-}
+   color:indianred;}
+
 /* ---------------MEDIAQUERIES---------------- */
 @media (max-width: 768px) {
     #sidebar {
@@ -73,3 +75,5 @@
 
 
 
+ 
+        

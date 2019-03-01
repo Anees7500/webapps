@@ -1,52 +1,14 @@
-<<<<<<< HEAD
-vendorApp.controller('DashboardController', ['$scope', 'VendorDashboardService', '$cookies', 'Notification',
-'$location','$route',
-    function ($scope, VendorDashboardService, $cookies, Notification,  $location,  $route,$timeout ) {
-
-    // ====================== Log out function =========================
-    $scope.logout = function(){
-        $cookies.remove('vendorname');
-        $cookies.remove('token');
-        $cookies.remove('vendorId');
-        $cookies.remove('email');
-        $cookies.remove('name');
-        $cookies.remove('mobile');
-        $cookies.remove('authUserId');
-        $location.path('/');
-    }
-    if ($cookies.get('vendorId') == null) {
-        Notification.warning("Login required!!!");
-        $location.path('/');
-        $route.reload();
-      } 
-
-    // ====================== bool function =============================
-        $scope.boolFunction = function(value){
-=======
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
-    '$location', '$route', 'getSmartCafeteriaOrders', 'getAllCompanyToVendorUrl', 'getCorporateReviewsUrl', 
-    '$routeParams',
+    '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
+    '$routeParams', '$rootScope', '$filter', 
     function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
-        $route, getSmartCafeteriaOrders, getAllCompanyToVendorUrl, getCorporateReviewsUrl, $routeParams) {
+        $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
+        $routeParams, $rootScope, $filter) {
 
-        // ====================== Log out function =========================
-        // $scope.logout = function () {
-        //     $cookies.remove('vendorname'); 
-        //     $cookies.remove('token');
-        //     $cookies.remove('vendorId');
-        //     $cookies.remove('email');
-        //     $cookies.remove('name');
-        //     $cookies.remove('mobile');
-        //     $cookies.remove('authUserId');
-        //     $location.path('/');
-        // }
-        // if ($cookies.get('vendorId') == null) {
-        //     Notification.warning("Login required!!!");
-        //     $location.path('/');
-        //     $route.reload();
-        // }
+            // $scope.sortingOrder = sortingOrder;
+           
         var vendorId = 1;
-        var companyId = 1;
+        // var companyId = 1;
 
         // $scope.menuNodes = [];
         $scope.menuNodes = [{
@@ -58,15 +20,14 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             isFoodItem: false
         }];
 
-        var getCompanies = getAllCompanyToVendorUrl + vendorId;
-        $http.get(getCompanies).then(function (response) {
-            $scope.companies = response.data.data.companies;
-            $scope.cmpyName = response.data.data.companies.companyName;
-            console.log("my company name", $scope.cmpyName);
+        var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
+        $http.get(getCompProfileUrl).then(function (response) {
+            $scope.cmpyName = response.data.data.company.companyName;
+            $scope.cmpyAddress = response.data.data.company.address;
+            $scope.data = response.data.data.company;
         });
         // ====================== bool function =============================
         $scope.boolFunction = function (value) {
->>>>>>> 707bfe41c8480d3dc746d37013971a0465e166ec
             console.log("boolFunction", value);
 
             $scope.pendingOdersBool = false;
@@ -76,59 +37,9 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             $scope.paymentStatusBool = false;
             $scope.feedbackBool = false;
             $scope.setWeeklyMenuBool = false;
+            $scope.extraCode = false;
             $scope[value] = true;
         }
-<<<<<<< HEAD
-    $scope.boolFunction("pendingOdersBool");
-// =============================== set menu =========================================
-    $scope.workingDays = [
-        { day: "Monday", selected: false, dbName: "monday" },
-        { day: "Tuesday", selected: false, dbName: "tuesday" },
-        { day: "Wednesday", selected: false, dbName: "wednesday" },
-        { day: "Thursday", selected: false, dbName: "thursday" },
-        { day: "Friday", selected: false, dbName: "friday" },
-        { day: "Saturday", selected: false, dbName: "saturday" },
-        { day: "Sunday", selected: false, dbName: "sunday" }
-      ];
-
-      
-
-
-
-//weeklyMenu insert
-$scope.newField = [];
-$scope.editing = false;
-
-$scope.appkeys = [{"name":"januka"}];
-
-$scope.editAppKey = function(field) {
-$scope.editing = $scope.appkeys.indexOf(field);
-$scope.newField[$scope.editing] = angular.copy(field);
-}
-
-$scope.saveField = function(index) {
-  $scope.appkeys[$scope.editing] = $scope.newField;
-       
-};
-
-$scope.cancel = function(index){
-    $scope.appkeys.splice( index, 1);
-    if ($scope.appkeys.length() === 0){
-        $scope.appkeys = [];
-      }
-    };
-$scope.add = function () {
-  var entry = {};
-  $scope.appkeys.push(entry);
-  console.log("hiii", $scope.appkeys);
- 
-};
-}
-
-
-
-    
-=======
         $scope.boolFunction("pendingOdersBool");
 
         // =============================== set menu =========================================
@@ -165,17 +76,176 @@ $scope.add = function () {
             { data: "This Year", totalAmount: "22,50,000" }
         ]
 
-         // ================================= confirmed Oders =================================
+        // ================================ Weekly Menu ========================================
+    //     var unflatten = function(array, parent, tree) {
+    //         // //console.log("value passed here : ",array);
+    //           tree = typeof tree !== 'undefined' ? tree : [];
+    //           parent = typeof parent !== 'undefined' ? parent : {
+    //               id: null
+    //           };
+    //           //
+    //     var children = _.filter(array, function(child) {
+    //         child.isInserted = true;
+    //         if(child.menuNodes ==null)
+    //         {
+    //           child.menuNodes = [];
+    //         }
+    //         if(child.menuType != null)
+    //         {
+    //           if(child.menuType === "veg")
+    //           {
+    //             child.isVeg = true;
+    //           }
+    //           else if(child.menuType === "egg")
+    //           {
+    //             child.isEgg = true;
+    //           }
+    //         }
+    //         return child.parentId == parent.id;
+    //     });
+    //     if (!_.isEmpty(children)) {
+    //         if (parent.id == 0 || parent.id == null) {
+    //             // //console.log("Children value after first check : ",JSON.stringify(children));
+    //             // children.isInserted = true;
+    //             // //console.log("Children value after Enhancement : ",JSON.stringify(children));
+    //             tree = children;
+    //         } else {
+    //             parent['menuNodes'] = children
+    //         }
+    //         _.each(children, function(child) {
+    //             unflatten(array, child)
+    //         });
+    //     }
+    //     // //console.log(tree)
+    //     return tree;
+    // };
+    // var getMenuUrl = getmenuFromDbUrl + $routeParams.compId;
+    // $http.get(getMenuUrl).then(function(response) {
+    //     //console.log("menu response from db : ", JSON.stringify(response));
+    //     if(!_.isEmpty(response.data.data))
+    //     {
+    //       $scope.menuNodes = unflatten(response.data.data);
+    //     }
+    //     // //console.log('nested json : ',JSON.stringify());
+    // });
+    // $scope.addsection = function(nodes, index) {
+    //     // //console.log("index :-", index)
+    //     // //console.log("nodes val", JSON.stringify(nodes));
+    //     // //console.log("nodes checked val", nodes[index].checked);
+
+    //     var uid = uuid.new();
+    //     // if(nodes[index].parentNodeId==null)
+    //     // {
+    //     //   //console.log("hahaha this is working ");
+    //     //   id = $scope.restaurantId+"-"+(nodes.length+1);
+    //     // }
+    //     // else {
+    //     //   id = nodes[index].parentNodeId +"-"+(nodes.length +1);
+    //     // }
+
+    //     if (nodes[index].isFoodItem) {
+    //         // //console.log("previous one had checked that box");
+    //         nodes.splice(index + 1, 0, {
+    //             uid: uid,
+    //             menuName: "New",
+    //             menuNodes: [],
+    //             isFoodItem: true,
+    //             parentNodeId: nodes[index].parentNodeId
+    //         });
+    //     } else {
+    //         nodes.splice(index + 1, 0, {
+    //             uid: uid,
+    //             menuName: "New",
+    //             menuNodes: [],
+    //             isFoodItem: false,
+    //             parentNodeId: nodes[index].parentNodeId
+    //         });
+    //     }
+
+    // }
+
+    // $scope.addchild = function(node) {
+    //     // //console.log("checked value : ", $scope.checked);
+    //     var uid = uuid.new();
+    //     node.menuNodes.push({
+    //         uid: uid,
+    //         menuName: "New",
+    //         menuNodes: [],
+    //         isFoodItem: false,
+    //         parentNodeId: node.uid
+    //     });
+    // }
+    //     // ================================= confirmed Oders =================================
 
         $scope.makeConfirmedOders = function (obj) {
             obj.confirmed = obj.confirmed ? false : true;
-          }
+        }
         // ================================= Employee Feedback =================================
-        
+
         var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
         $http.get(getFeedbackUrl).then(function (response) {
             $scope.feedback = response.data.data.reviews;
-        });
+
+             $scope.reverse = false;
+            $scope.filteredItems = [];
+            $scope.groupedItems = [];
+            $scope.itemsPerPage = 7;
+            $scope.pagedItems = [];
+            $scope.currentPage = 0;
+            
+            $scope.search = function () {
+                
+                $scope.currentPage = 0;
+                // now group by pages
+                $scope.groupToPages();
+            };
+            
+            // calculate page in place
+            $scope.groupToPages = function () {
+                $scope.pagedItems = [];
+                
+                for (var i = 0; i < $scope.feedback.length; i++) {
+                    if (i % $scope.itemsPerPage === 0) {
+                        $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [ $scope.feedback[i] ];
+                    } else {
+                        $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)].push($scope.feedback[i]);
+                    }
+                }
+            };            
+            $scope.range = function (start, end) {
+                var ret = [];
+                if (!end) {
+                    end = start;
+                    start = 0;
+                }
+                for (var i = start; i < end; i++) {
+                    ret.push(i);
+                }
+                return ret;
+            };
+
+            
+            $scope.prevPage = function () {
+                if ($scope.currentPage > 0) {
+                    $scope.currentPage--;
+                }
+            };
+            
+            $scope.nextPage = function () {
+                if ($scope.currentPage < $scope.pagedItems.length - 1) {
+                    $scope.currentPage++;
+                }
+            };
+            
+            $scope.setPage = function () {
+                $scope.currentPage = this.n;
+            };
+            
+            $scope.search();
+        
+           
+    });
+
         //================================ Pending Oders ====================================
         var activeBookingListUrl = getSmartCafeteriaOrders + "?companyId=" + 1 + "&bookerId=" + 77 + "&type=pending";
         $http.get(activeBookingListUrl).then(function (response) {
@@ -208,7 +278,10 @@ $scope.add = function () {
         }
 
 
+// to active side menu
+$scope.activeMenu = 'PendingOders'; 
 
-    }
->>>>>>> 707bfe41c8480d3dc746d37013971a0465e166ec
+
+
+}
 ]); 

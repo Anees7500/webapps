@@ -5,7 +5,7 @@
     <ng-include src="'sections/nav_Bar/navBar.tpl.html'"></ng-include>
     <!-- <ng-include src="'sections/nav_Bar/navBar.ctrl.js'"></ng-include> -->
 
-    <!---------------------------- Navbar End----------------------->
+    <!-- -------------------------- Navbar End--------------------- -->
     <nav id="sidebar" class="z-depth-1-half position-fixed h-100 mt-5">
         <ul class="list-unstyled components mt-5">
             <li class="p-2">
@@ -17,7 +17,7 @@
 
         </ul>
     </nav>
-    <!-- ===================== Main Navigation Content =======================  -->
+    <!-- ===================== Main Navigation Content =======================  --> 
     <div id="content" class="mt-5 ">
 
         <!-- ====================== Assigned Companies  ================================-->
@@ -42,7 +42,7 @@
                                         </a>
                                     </div>
                                     <div class="card-block">
-                                        <a ng-href="#!/companies/dashboard/{{assignedcpny.id}}">
+                                        <a ng-href="#!/companies/{{assignedcpny.id}}">
                                             <h5
                                                 class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal ">
                                                 <i class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>
