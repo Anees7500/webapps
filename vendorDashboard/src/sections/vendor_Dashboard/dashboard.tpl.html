@@ -10,38 +10,38 @@
     <!--------------------Main Navigation------------------------------------->
     <nav id="sidebar" class="z-depth-1-half position-fixed h-100 mt-5">
         <ul class="list-unstyled components mt-5">
-            <li class="p-2" ng-class="{active : activeMenu === 'PendingOders'}"ng-click="activeMenu = 'PendingOders'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PendingOders'}"ng-click="activeMenu = 'PendingOders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOdersBool')">
-                    <i class="fas fa-hourglass-half text-warning"></i></i> <span class="font-weight-normal"> Pending
+                    <i class="fas fa-hourglass-half"></i></i> <span class="font-weight-normal"> Pending
                         Oders </span><span class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'confirmedOders'}"ng-click="activeMenu = 'confirmedOders'">
+            <li class="p-2  mb-1" ng-class="{active : activeMenu === 'confirmedOders'}"ng-click="activeMenu = 'confirmedOders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOdersBool')"><i
-                        class="fas fa-check-circle text-success"></i></i> <span class="font-weight-normal"> confirmed
+                        class="fas fa-check-circle"></i></i> <span class="font-weight-normal"> confirmed
                         Oders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'cancelOders'}"ng-click="activeMenu = 'cancelOders'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'cancelOders'}"ng-click="activeMenu = 'cancelOders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOdersBool')">
-                    <i class="fas fa-ban text-danger"></i> <span class="font-weight-normal"> Cancel Oders
+                    <i class="fas fa-ban"></i> <span class="font-weight-normal"> Cancel Oders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'CompletedOders'}"ng-click="activeMenu = 'CompletedOders'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'CompletedOders'}"ng-click="activeMenu = 'CompletedOders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('completedOdersBool')"><i
-                        class="fas fa-tasks text-secondary"></i></i> <span class="font-weight-normal"> Completed Oders
+                        class="fas fa-tasks"></i></i> <span class="font-weight-normal"> Completed Oders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'PaymentStatus'}"ng-click="activeMenu = 'PaymentStatus'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i class="far fa-credit-card text-primary"></i>
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PaymentStatus'}"ng-click="activeMenu = 'PaymentStatus'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i class="far fa-credit-card"></i>
                     <span class="font-weight-normal"> Payment Status
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'Feedback'}"ng-click="activeMenu = 'Feedback'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'Feedback'}"ng-click="activeMenu = 'Feedback'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
-                    <i class="fas fa-comment-alt text-default"></i> <span class="font-weight-normal"> Feedback
+                    <i class="fas fa-comment-alt"></i> <span class="font-weight-normal"> Feedback
                     </span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === ' WeeklyMenu'}"ng-click="activeMenu = ' WeeklyMenu'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === ' WeeklyMenu'}"ng-click="activeMenu = ' WeeklyMenu'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
