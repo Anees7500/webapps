@@ -26,105 +26,99 @@
                             aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i> Profile </a>
                         <div class="dropdown-menu  dropdown-menu-right dropdown-unique" aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
+                            <a ng-click="boolFunction('profileCompanyBool')" class="dropdown-item waves-effect waves-light"
+                                href="">My Profile</a>
+                            <a class="dropdown-item waves-effect waves-light" href="">Log out</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!---------------------------- Navbar End----------------------->
+    <!--================================ Navbar End=====================-->
 </header>
-<!--------------------Main Navigation------------------------------------->
+<!--=====================Main Navigation====================================-->
 <div class="wrapper">
     <nav id="sidebar" class="z-depth-1-half  blue-grey lighten-5 position-fixed h-100 mt-4">
-        <ul class="list-unstyled components mt-5">
-            <li class="p-2">
+        <ul class="list-unstyled components mt-5 ">
+            <li class="p-2 ">
                 <a ng-click="boolFunction('companyBool')" class="text-dark d-block text-decoration-none" href=""><i
                         class="fas fa-building fa-fw"></i>
-                    <span class="font-weight-normal">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
+                    <span class="font-weight-normal button">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
+            </li>
+            <li class="p-2">
+                <a ng-click="boolFunction('unassignedleads')" class="text-dark d-block text-decoration-none" href=""><i
+                        class="fas fa-building fa-fw"></i>
+                    <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
+            </li>
+
+            <li class="p-2">
+                <a class="text-dark d-block text-decoration-none " href="" data-target="#pageSubmenu" data-toggle="collapse"><i
+                        class="fas fa-store fa-fw" aria-expanded="false"></i>
+                    <span class="font-weight-normal button">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
+                        class="badge badge-pill badge-danger ml-2"></span></a>
+                <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
+
+                    <li ng-click="boolFunction('myleads')" class="p-1">
+                        <a class="text-dark d-block text-decoration-none" href="">
+                            <i class="fas fa-fire  mr-2"></i>
+                            <span class="font-weight-normal button">My Leads</span></a>
+                    </li>
+
+                    <li ng-click="boolFunction('subordinateassigned')" class="p-1">
+                        <a class="text-dark d-block text-decoration-none" href="">
+                            <i class="fas fa-ethernet  mr-2"></i><span class="font-weight-normal button">Subordinate Leads</span></a>
+                    </li>
+
+                </ul>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('vendorListBool')" class="text-dark d-block text-decoration-none" href=""
-                    data-target="#pageSubmenu" data-toggle="collapse"><i class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
-                <!-- <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li class="p-1">
-                                <a class="text-dark d-block text-decoration-none" href="">
-                                    <i class="fas fa-fire mr-2"></i>
-                                    <span class="font-weight-normal">Client Requirement</span></a>
-                            </li>
-        
-                            <li class="p-1">
-                                <a class="text-dark d-block text-decoration-none" href="">
-                                    <i class="fas fa-ethernet mr-2"></i><span
-                                        class="font-weight-normal">Vendor Requirement</span></a>
-                            </li>
-        
-                        </ul> -->
+                    data-toggle="collapse"><i class="fas fa-store fa-fw" aria-expanded="false"></i>
+                    <span class="font-weight-normal button">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
+
             </li>
-            <!-- <li class="p-2">
-                    <a class="text-dark d-block text-decoration-none" href=""  data-toggle="collapse"  aria-expanded="false" data-target="#pageSubmenu">
-                        <i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal "> Requirement</span><i class="fas fa-angle-right ml-5"></i></a>
-                    <ul  class="collapse list-unstyled" id="pageSubmenu">
-                      <li class="p-1">
-                        <a class="text-dark d-block text-decoration-none" href="">
-                            <i class="fas fa-fire mr-2"></i>
-                          <span class="font-weight-normal">Client Requirement</span></a>
-                        </li>
-              
-                        <li class="p-1">
-                          <a class="text-dark d-block text-decoration-none" >
-                              <i class="fas fa-ethernet mr-2"></i><span class="font-weight-normal">Vendor Requirement</span></a>
-                        </li>
-                      </ul> -->
+
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('addleadsCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Add Leads</span><span
+                        class="far fa-calendar-times fa-fw"></i><span class=" font-weight-normal button">Add Leads</span><span
                         class="badge badge-pill badge-danger ml-2"></span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('teamCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-users fa-fw "></i><span class="font-weight-normal">Team</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+                        class="fas fa-users fa-fw "></i><span class="font-weight-normal button">Team</span><span class="badge badge-pill badge-danger ml-2"></span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('assignedCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal"> Assigned Companies</span><span
+                        class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal button"> Assigned Companies</span><span
                         class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
             </li>
             <li class="p-2">
                 <a ng-click="boolFunction('callingCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal"> Calling data</span><span
-                        class="badge badge-pill badge-danger ml-2"></span></a>
+                        class="fas fa-phone "></i><span class=" font-weight-normal button"> Calling data</span><span class="badge badge-pill badge-danger ml-2"></span></a>
             </li>
-            <li class="p-2">
-                <a ng-click="boolFunction('profileCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Profile</span></a>
-            </li>
-
         </ul>
     </nav>
-
-    <!-- Page Content  -->
+   
+    <!-- ================Page Content ==================== -->
     <div id="content" class="mt-5">
         <div class="mt-4 mx-md-4 ">
-            <ul class="breadcrumb  navbar-light blue-grey lighten-4 ">
-                <!-- <li><a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href="" id="sidebarCollapse">
-                        <i class="fa fa-th-list ml-auto"></i>
-                    </a></li> -->
-                <li><a href="" class="fa fa-home fa-2m text-decoration-none">Home</a></li>
-            </ul>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                    <li class="breadcrumb-item"><a href="">Library</a></li>
+                    <li class="breadcrumb-item active">Data</li>
+                </ol>
+            </nav>
         </div>
 
-        <!---All Companies--->
+        <!--=====All Companies==============================--->
         <div ng-if="companyBool">
             <div class="row ml-5">
-                <!-- <div class=" col-sm-12 mb-5"> -->
-                <!-- ---------------Card ------------------------- -->
+                <!-- ====================Card=============== -->
                 <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="companiesUrl in allCompanies">
-                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
                         <div class="pic  position-relative">
 
                             <img class="card-img-top img-responsive" ng-src="{{companiesUrl.fileName}}">
@@ -132,8 +126,7 @@
                         </div>
                         <div class="team-content ">
                             <h5 class="title text-danger font-weight-normal text-sm-center">{{companiesUrl.companyName}}</h5>
-                            <p class="card-text text-dark"><span class="small address text-primary">{{companiesUrl.address}}</span></p>
-                            <button type="button" class="btn btn-mdb-color">Read more</button>
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark">{{companiesUrl.address}}</span></p>
                         </div>
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
@@ -148,10 +141,396 @@
                     </div>
                 </div>
                 <!---------------------------Card-------------------- -->
-                <!-- </div> -->
             </div>
         </div>
         <!---All Companies end--->
+
+        <!-- UAssigned Leads -->
+        <div ng-if="unassignedleads">
+            <div class="row ml-5">
+                <!-- ---------------Card ------------------------- -->
+                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                        <div class="pic  position-relative">
+
+                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                            <div class="mask rgba-white-slight"></div>
+                        </div>
+                        <div class="team-content ">
+                            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark">#1722,First
+                                    Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+
+                        </div>
+                        <ul class="social list-inline list-unstyled">
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!---------------------------Card-------------------- -->
+                <!-- ---------------Card ------------------------- -->
+                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                        <div class="pic  position-relative">
+
+                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                            <div class="mask rgba-white-slight"></div>
+                        </div>
+                        <div class="team-content ">
+                            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark">#1722,First
+                                    Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+
+                        </div>
+                        <ul class="social list-inline list-unstyled">
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!---------------------------Card-------------------- -->
+                <!-- ---------------Card ------------------------- -->
+                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                        <div class="pic  position-relative">
+
+                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                            <div class="mask rgba-white-slight"></div>
+                        </div>
+                        <div class="team-content ">
+                            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark">#1722,First
+                                    Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+
+                        </div>
+                        <ul class="social list-inline list-unstyled">
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!---------------------------Card-------------------- -->
+                <!-- ---------------Card ------------------------- -->
+                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                        <div class="pic  position-relative">
+
+                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                            <div class="mask rgba-white-slight"></div>
+                        </div>
+                        <div class="team-content ">
+                            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark">#1722,First
+                                    Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+
+                        </div>
+                        <ul class="social list-inline list-unstyled">
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!---------------------------Card-------------------- -->
+                <!-- ---------------Card ------------------------- -->
+                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                        <div class="pic  position-relative">
+
+                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                            <div class="mask rgba-white-slight"></div>
+                        </div>
+                        <div class="team-content ">
+                            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark">#1722,First
+                                    Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+
+                        </div>
+                        <ul class="social list-inline list-unstyled">
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!---------------------------Card-------------------- -->
+            </div>
+        </div>
+        <!-- UAssigned Leads -->
+
+        <!-- My leads -->
+        <div ng-if="myleads">
+            <div class="row ml-5">
+
+                <!-- ---------------Card ------------------------- -->
+                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                        <div class="pic  position-relative">
+
+                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                            <div class="mask rgba-white-slight"></div>
+                        </div>
+                        <div class="team-content ">
+                            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 success-color-dark pull-right"> In progress</span></a></p>
+
+
+                        </div>
+
+                        <ul class="social list-inline list-unstyled">
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                            <li class="list-inline-item">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!---------------------------Card-------------------- -->
+  <!-- ---------------Card ------------------------- -->
+  <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+        <div class="pic  position-relative">
+
+            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+            <div class="mask rgba-white-slight"></div>
+        </div>
+        <div class="team-content ">
+            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 danger-color-dark pull-right"> In progress</span></a></p>
+
+
+        </div>
+
+        <ul class="social list-inline list-unstyled">
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+        </ul>
+    </div>
+</div>
+<!---------------------------Card-------------------- -->
+  <!-- ---------------Card ------------------------- -->
+  <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+        <div class="pic  position-relative">
+
+            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+            <div class="mask rgba-white-slight"></div>
+        </div>
+        <div class="team-content ">
+            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 warning-color-dark pull-right"> In progress</span></a></p>
+
+
+        </div>
+
+        <ul class="social list-inline list-unstyled">
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+        </ul>
+    </div>
+</div>
+<!---------------------------Card-------------------- -->
+  <!-- ---------------Card ------------------------- -->
+  <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+        <div class="pic  position-relative">
+
+            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+            <div class="mask rgba-white-slight"></div>
+        </div>
+        <div class="team-content ">
+            <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+            <p class="card-text text-dark"><span class="small address text-dark">#1722,First Floor,
+                    19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                 <p class="ml-5"><a class="ml-5"> <span class="badge ml-5 warning-color pull-right"> In progress</span></a></p>
+
+
+        </div>
+
+        <ul class="social list-inline list-unstyled">
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+            <li class="list-inline-item">
+            </li>
+        </ul>
+    </div>
+</div>
+<!---------------------------Card-------------------- -->
+            </div>
+        </div>
+        <!-- My leads end -->
+
+        <!-- Subordinate  -->
+        <div ng-if="subordinateassigned">
+            <div class="row ml-3">
+                <input type="search" id="myInput" class="form-control mdb-autocomplete mx-5" style="width:85%">
+                <div class="row ml-5 mt-3">
+                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2">
+                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                            <div class="pic  position-relative">
+
+                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
+                                <div class="mask rgba-white-slight"></div>
+                            </div>
+                            <div class="team-content ">
+                                <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                                <p class="card-text text-dark"><span class="small address text-dark" style="width:190px;">#1722,First
+                                        Floor,
+                                        19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                            </div>
+                            <ul class="social list-inline list-unstyled">
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2">
+                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                            <div class="pic  position-relative">
+
+                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
+                                <div class="mask rgba-white-slight"></div>
+                            </div>
+                            <div class="team-content ">
+                                <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                                <p class="card-text text-dark"><span class="small address text-dark" style="width:190px;">#1722,First
+                                        Floor,
+                                        19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                            </div>
+                            <ul class="social list-inline list-unstyled">
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2">
+                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                            <div class="pic  position-relative">
+
+                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
+                                <div class="mask rgba-white-slight"></div>
+                            </div>
+                            <div class="team-content ">
+                                <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                                <p class="card-text text-dark"><span class="small address text-dark" style="width:190px;">#1722,First
+                                        Floor,
+                                        19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                            </div>
+                            <ul class="social list-inline list-unstyled">
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2">
+                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                            <div class="pic  position-relative">
+
+                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
+                                <div class="mask rgba-white-slight"></div>
+                            </div>
+                            <div class="team-content ">
+                                <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
+                                <p class="card-text text-dark"><span class="small address text-dark" style="width:190px;">#1722,First
+                                        Floor,
+                                        19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
+                            </div>
+                            <ul class="social list-inline list-unstyled">
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                                <li class="list-inline-item">
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Subordinate end -->
+
+
         <!---Vendor-->
         <div ng-if="vendorListBool">
             <!-- ------------Area and documents  -->
@@ -205,7 +584,7 @@
                             </div>
                             <div class="team-content ">
                                 <h5 class="title text-danger font-weight-normal text-sm-center">{{vendorUrl.name}}</h5>
-                                <hr class="hr-dark">
+                                <!-- <hr class="hr-dark"> -->
                                 <ul class="text-lg-left list-unstyled ml-4 list-group ">
                                     <li>
                                         <p><i class="fas fa-map-marker-alt pr-2 "></i> <strong class="text-info small font-weight-bold">
@@ -213,7 +592,7 @@
                                                 Layout, Bengaluru</strong> </p>
                                     </li>
                                     <li>
-                                        <p><i class="fas fa-phone pr-2 "></i> <strong class="text-danger small font-weight-bold">{{vendorUrl.mobile}}</strong>
+                                        <p><i class="fas fa-phone pr-2 "></i> <strong class="text-info small font-weight-bold">{{vendorUrl.mobile}}</strong>
                                         </p>
                                     </li>
                                     <li>
@@ -237,13 +616,6 @@
 
                                 </li>
                                 <li class="list-inline-item">
-<<<<<<< HEAD
-                                    <a class="p-2 fa-lg tw-ic">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-=======
-
->>>>>>> 97e9d73766f069a4976bb89eca420340209c904b
                                 </li>
 
                             </ul>
@@ -258,14 +630,15 @@
         <!---Add leads-->
         <div ng-if="addleadsCompanyBool" class="ml-4">
             <!-- Search form -->
-            <div class="container" style="background-color: #e9ecee;padding-top: 10px"  ng-controller="newPlaceCtrl">
+            <div class="container" style="background-color: #e9ecee;padding-top: 10px" ng-controller="newPlaceCtrl">
                 <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
                     <b>API Error : </b>
                     <span>{{ apiStatus }}</span>
                 </div>
                 <form name="searchForm" novalidate ng-submit="search()">
                     <div class="input-group">
-                        <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace" required autofocus />
+                        <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace"
+                            required autofocus />
                         <span class="input-group-btn">
                             <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
                         </span>
@@ -273,59 +646,66 @@
                 </form>
                 <div id="map"></div>
                 <form name="resForm" class="form-inline" novalidate ng-submit="send()">
-                    
+
                     <div class="form-group">
-                        <label for="resName" class="col-xs-2 control-label text-center text-info font-weight-bold small">Company Name:</label>
+                        <!-- <label for="resName" class="col-xs-2 control-label text-center text-info font-weight-bold small">Company Name:</label> -->
+                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Company
+                            Name:</legend>
+
                         <div class="col-xs-10 ml-2">
-                            <input name="resName" type="text" style="width: 116%" class="form-control" ng-model="place.name" required />
-                        </div>
-                    </div>
-                    <div class="form-group" style="margin-left: 118px;">
-                        <label for="resLat" class="col-xs-2 control-label text-info font-weight-bold small">Latitude:</label>
-                        <div class="col-xs-10 ml-2">
-                            <input name="resLat" type="number" class="form-control"  style="width: 111%" ng-model="place.lat" required />
+                            <input name="resName" type="text" class="form-control text-capitalize w-100" ng-model="place.name"
+                                required />
                         </div>
                     </div>
                     <div class="form-group ml-5">
-                        <label for="resLng" class="col-xs-2 control-label text-info font-weight-bold small">Longitude:</label>
+                        <!-- <label for="resLat" class="col-xs-2 control-label text-info font-weight-bold small">Latitude:</label> -->
+                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Latitude:</legend>
                         <div class="col-xs-10 ml-2">
-                            <input name="resLng" type="number" class="form-control" style="width: 111%" ng-model="place.lng" required />
+                            <input name="resLat" type="number" class="form-control" style="width: 90%" ng-model="place.lat"
+                                required />
                         </div>
-                    </div>                   
-                    
-                    
+                    </div>
+                    <div class="form-group ml-5">
+                        <!-- <label for="resLng" class="col-xs-2 control-label text-info font-weight-bold small">Longitude:</label> -->
+                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Longitude:</legend>
+                        <div class="col-xs-10 ml-2">
+                            <input name="resLng" type="number" class="form-control" style="width: 90%" ng-model="place.lng"
+                                required />
+                        </div>
+                    </div>
+
+
                     <div class="row mt-4">
                         <div class="col-md-6 p-0">
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">                                
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                                 <legend class="text-info font-weight-bold mask small ">Company Address:</legend>
-                                <input class="form-control text-capitalize"  style="width: 100%;" type="text" placeholder="enter company address" aria-label="Search" ng-model="place.address" required>
+                                <input class="form-control text-capitalize" style="width: 100%;" type="text"
+                                    placeholder="enter company address" aria-label="Search" ng-model="place.address"
+                                    required>
                             </div>
                             <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                                 <legend class="text-info font-weight-bold mask small">Contact person Name:</legend>
-                                <input class="form-control "  style="width: 100%;" type="text" placeholder="enter contact person" aria-label="Search">
-                             </div>
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">                                
-                                <legend class="text-info font-weight-bold mask small">Email Id:</legend>
-                                <input class="form-control "  style="width: 100%;" type="email" placeholder="enter email id" aria-label="Search">
+                                <input class="form-control " style="width: 100%;" type="number" placeholder="enter contact person"
+                                    aria-label="Search">
                             </div>
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">                                
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
+                                <legend class="text-info font-weight-bold mask small">Email Id:</legend>
+                                <input class="form-control " style="width: 100%;" type="email" placeholder="enter email id"
+                                    aria-label="Search">
+                            </div>
+                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                                 <h5 class="text-info md">Estimated Lead Value:</h5>
-                                <!-- <div class="slidecontainer">
-                                    <input type="range" min="1" max="100" value="0" class="slider" id="myRange" name="myRange"
-                                        data-show-value="true">
-                                    <p for="myRange">Value: <span id="demo"></span></p>
-                                </div> -->
+
                                 <form name="myForm">
                                     Select range: <input type="range" name="range" ng-model="value">
                                     <br>
-                                    Price: <input type="number" ng-model="value" style="width: 20%"><br>                                     
-                                  </form>
+                                    Price: <input type="number" ng-model="value" style="width: 20%"><br>
+                                </form>
                             </div>
                             <div class="phone-list active-pink-3 active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12">
                                 <div class="input-group">
                                     <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
-                                    <input type="text" name="phone[1][number]" class="form-control mt-2"
-                                        placeholder="enter your mobile no" />
+                                    <input type="text" name="phone[1][number]" class="form-control mt-2" placeholder="enter your mobile no" />
                                 </div>
                             </div>
                         </div>
@@ -333,7 +713,8 @@
                             <div class="row mr-5 ml-2 mt-2">
                                 <!-- Image upload  -->
                                 <div class="file-upload w-100 m-auto p-4 bg-light mr-auto mt-3">
-                                    <button class="file-upload-btn w-100 m-auto border-0 p-2 rounded mb-0  btn-info white-color" type="button">Add Image</button>
+                                    <button class="file-upload-btn w-100 m-auto border-0 p-2 rounded mb-0  btn-info white-color"
+                                        type="button">Add Image</button>
                                     <div class="image-upload-wrap">
                                         <input class="file-upload-input" type='file' accept="image/*" />
                                         <div class="drag-text">
@@ -352,7 +733,7 @@
                     </div>
                 </div>
             </div> <br><br>
-            
+
         </div>
         <!---Add leads end-->
         <!---All Team--->
@@ -447,15 +828,15 @@
                 <div class="card-deck col-sm-12 mb-5">
                     <!-- --------------Card ------------------------- -->
                     <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="assignedcompanies in assignedCompany">
-                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem; ">
+                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem; ">
                             <div class="pic  position-relative">
                                 <img class="card-img-top img-responsive" ng-src="{{assignedcompanies.fileName}}">
                                 <div class="mask rgba-white-slight"></div>
                             </div>
                             <div class="team-content ">
                                 <h5 class="title text-danger font-weight-normal text-sm-center">{{assignedcompanies.companyName}}</h5>
-                                <p class="card-text text-dark"><span class="small address text-primary">{{assignedcompanies.address}}</span></p>
-                                <button type="button" class="btn btn-mdb-color">Read more</button>
+                                <p class="card-text text-dark"><span class="small address text-dark">{{assignedcompanies.address}}</span></p>
+
                             </div>
                             <ul class="social list-inline list-unstyled">
                                 <li class="list-inline-item">
@@ -487,269 +868,72 @@
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-center modalWrapper">
-                    <div class="modal fade addNewInputs" id="modalAdd1" tabindex="-1" role="dialog" aria-labelledby="modalAdd"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header text-center">
-                                    <h4 class="modal-title w-100 font-weight-bold text-primary ml-5">Add New Data</h4>
-                                    <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body mx-3">
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="inputName1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputName1">Name</label>
-                                    </div>
+                <div class="form-group pull-right offset-md-9">
+                    <input type="text" class="search form-control" placeholder="What you looking for?">
+                </div>
+                <div class="col-md-12">
 
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="inputPosition1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputPosition1">Position</label>
-                                    </div>
+                    <div class="table-responsive">
+                        <form id="empform" ng-submit="submitEmployee()">
+                            <table id="mytable" class="table table-bordered">
 
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="inputOfficeInput1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputOfficeInput1">Office</label>
-                                    </div>
+                                <thead>
+                                    <th style="width:5%;">SNO</th>
+                                    <th style="width:10%;">Emp#</th>
+                                    <th style="width:15%;">Email</th>
+                                    <th style="width:10%;">First Name</th>
+                                    <th style="width:10%;">Last Name</th>
+                                    <th style="width:15%;">Desginatin</th>
+                                    <th style="width:15%;">Project Name</th>
+                                    <th style="width:25%;">Actions</th>
+                                </thead>
 
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="inputAge1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputAge1">Age</label>
-                                    </div>
+                                <tbody>
 
-                                    <div class="md-form mb-5">
-                                        <input type="date" id="inputDate1" class="form-control" placeholder="Select Date">
-                                        <label data-error="wrong" data-success="right" for="inputDate1"></label>
-                                    </div>
+                                    <tr ng-repeat="emp in empoyees">
+                                        <td>{{$index+1}}</td>
+                                        <td>
+                                            <input name="empId{{$index}}" ng-model="emp.empId" ng-disabled="!enabledEdit[{{$index}}]" />
 
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="inputSalary1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputSalary1">Salary</label>
-                                    </div>
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="inputSalary1example" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="inputSalary1example">Example</label>
-                                    </div>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center buttonAddFormWrapper">
-                                    <button class="btn btn-outline-primary btn-block buttonAdd" data-dismiss="modal">Add
-                                        form
-                                        <i class="fas fa-paper-plane-o ml-1"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                                        </td>
+                                        <td>
+                                            <input name="email{{$index}}" ng-model="emp.email" ng-disabled="!enabledEdit[{{$index}}]" />
+                                        </td>
+                                        <td>
+                                            <input name="firstName{{$index}}" ng-model="emp.firstName" ng-disabled="!enabledEdit[{{$index}}]" />
+                                        </td>
+                                        <td>
+                                            <input name="lastName{{$index}}" ng-model="emp.lastName" ng-disabled="!enabledEdit[{{$index}}]"
+                                                </td> <td>
+                                            <input name="designation{{$index}}" ng-model="emp.designation" ng-disabled="!enabledEdit[{{$index}}]" />
+                                        </td>
+                                        <td>
+                                            <input name="project{{$index}}" ng-model="emp.project" ng-disabled="!enabledEdit[{{$index}}]" />
+                                        </td>
+                                        <td>
+                                            <div class="buttons">
+                                                <button class="btn btn-primary small" ng-click="editEmployee($index)">Edit</button>
+                                                <button class="btn btn-danger small" ng-click="deleteEmployee($index)">Delete</button>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <input type="submit" class="btn btn-primary" value="Submit" />
+                        </form>
+                        <div class="clearfix"></div>
                     </div>
 
-                    <div class="text-center">
-                        <a href="" class="btn btn-info btn-rounded btn-sm" data-toggle="modal" data-target="#modalAdd1">Add<i
-                                class="fas fa-plus-square ml-1"></i></a>
-                    </div>
-
-                    <div class="modal fade modalEditClass" id="modalEdit1" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header text-center">
-                                    <h4 class="modal-title w-100 font-weight-bold text-secondary ml-5">Edit form</h4>
-                                    <button type="button" class="close text-secondary" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body mx-3">
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formNameEdit1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="formNameEdit1">Name</label>
-                                    </div>
-
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formPositionEdit1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="formPositionEdit1">Position</label>
-                                    </div>
-
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formOfficeEdit1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="formOfficeEdit1">Office</label>
-                                    </div>
-
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formAgeEdit1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="formAgeEdit1">Age</label>
-                                    </div>
-
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formDateEdit1" class="form-control datepicker">
-                                        <label data-error="wrong" data-success="right" for="formDateEdit1">Date</label>
-                                    </div>
-
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formSalaryEdit1" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="formSalaryEdit1">Salary</label>
-                                    </div>
-                                    <div class="md-form mb-5">
-                                        <input type="text" id="formSalaryEdit1ex" class="form-control validate">
-                                        <label data-error="wrong" data-success="right" for="formSalaryEdit1ex">Example</label>
-                                    </div>
-
-
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center editInsideWrapper">
-                                    <button class="btn btn-outline-secondary btn-block editInside" data-dismiss="modal">Edit
-                                        form
-                                        <i class="fas fa-paper-plane-o ml-1"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center buttonEditWrapper">
-                        <button class="btn btn-info btn-rounded btn-sm buttonEdit" data-toggle="modal" data-target="#modalEdit1"
-                            disabled>Edit<i class="fas fa-pencil-square-o ml-1"></i></a>
-                    </div>
-
-                    <div class="modal fade" id="modalDelete1" tabindex="-1" role="dialog" aria-labelledby="modalDelete1"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header text-center">
-                                    <h4 class="modal-title w-100 font-weight-bold ml-5 text-danger">Delete</h4>
-                                    <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body mx-3">
-                                    <p class="text-center h4">Are you sure to delete selected row?</p>
-
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center deleteButtonsWrapper">
-                                    <button type="button" class="btn btn-danger btnYesClass" id="btnYes1" data-dismiss="modal">Yes</button>
-                                    <button type="button" class="btn btn-primary btnNoClass" id="btnNo1" data-dismiss="modal">No</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center">
-                        <button class="btn btn-danger btn-sm btn-rounded buttonDelete" data-toggle="modal" disabled
-                            data-target="#modalDelete" disabled>Delete<i class="fas fa-times ml-1"></i></a>
-                    </div>
                 </div>
 
-                <table id="dt-more-columns" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th class="th-sm">Name
-
-                            </th>
-                            <th class="th-sm">Position
-
-                            </th>
-                            <th class="th-sm">Office
-
-                            </th>
-                            <th class="th-sm">Age
-
-                            </th>
-                            <th class="th-sm">Start date
-
-                            </th>
-                            <th class="th-sm">Salary
-
-                            </th>
-                            <th class="th-sm">Example
-
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>Example</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                            <td>Example</td>
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2012/03/29</td>
-                            <td>$433,060</td>
-                            <td>Example</td>
-                        </tr>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>33</td>
-                            <td>2008/11/28</td>
-                            <td>$162,700</td>
-                            <td>Example</td>
-                        </tr>
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                            <td>61</td>
-                            <td>2012/12/02</td>
-                            <td>$372,000</td>
-                            <td>Example</td>
-                        </tr>
-                        <tr>
-                            <td>Herrod Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                            <td>59</td>
-                            <td>2012/08/06</td>
-                            <td>$137,500</td>
-                            <td>Example</td>
-                        </tr>
-                        <tr>
-                            <td>Rhona Davidson</td>
-                            <td>Integration Specialist</td>
-                            <td>Tokyo</td>
-                            <td>55</td>
-                            <td>2010/10/14</td>
-                            <td>$327,900</td>
-                            <td>Example</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Name
-                            </th>
-                            <th>Position
-                            </th>
-                            <th>Office
-                            </th>
-                            <th>Age
-                            </th>
-                            <th>Start date
-                            </th>
-                            <th>Salary
-                            </th>
-                            <th>Example
-                            </th>
-                        </tr>
-                    </tfoot>
-                </table>
             </div>
+
         </div>
         <!---calling data end-->
+
         <!---Profile -->
         <div ng-if="profileCompanyBool" class="ml-4">
             <div class="container portfolio p-3">
@@ -763,8 +947,10 @@
                                             alt="Responsive image" />
                                     </div>
                                     <div class="description">
-                                        <h4 class="text-info"> Aman Telkar</h4>
-                                        <h5> <strong> Co-founder at Fancymonk </strong></h5>
+                                        <h4 class="text-info editable-text" editable-text="user.profilename"> {{
+                                            user.profilename ||"empty" }}</h4>
+                                        <h5 class="editable-text" editable-text="user.Cofounder"> <strong>
+                                                {{user.Cofounder || "empty"}} </strong></h5>
                                         <p class="small">
                                             Pellentesque elementum dapibus convallis.
                                         </p>
@@ -775,43 +961,27 @@
                         </div>
                         <div class="col-md-8">
                             <div class="bio-content mt-5">
-                                <!-- <h1>'Hello Friends,</h1>
-                                <div class="row">
-                                    <span class="dot mr-3 badge-danger"></span>
-                                    <span class="dot mr-3 bg-info"></span>
-                                    <span class="dot mr-3 badge-warning"></span>
-                                </div><br>
-                                <h6>I am a fresh web designer and I create custom web designs. I'm skilled at writing
-                                    well-designed, testable and efficient code using current best practices in Web
-                                    development. I'm a fast learner, hard worker and team player who is proficient in
-                                    making creative and innovative web pages.</h6>
-                                <p>P.S I have no special talent, I'm just passionately curious ;)</p><br>
-                                <div class="row">
-                                    <a class="btn-floating btn-lg btn-fb mr-3 unique-color" type="button" role="button"><i class="fab fa-facebook-f"></i></a>
-                                   
-                                    <a class="btn-floating btn-lg btn-tw mr-3 info-color" type="button" role="button"><i class="fab fa-twitter"></i></a>
-                                  
-                                    <a class="btn-floating btn-lg btn-gplus mr-3 red darken-2" type="button" role="button"><i class="fab fa-google-plus-g"></i></a>
-                                   
-                                    <a class="btn-floating btn-lg btn-li mr-3 blue darken-1" type="button" role="button"><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn-floating btn-lg btn-email mr-3 special-color" type="button" role="button"><i class="fas fa-envelope"></i></a>
-                                </div> -->
                                 <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8 ml-3 ">
                                     <div class="container" style="border-bottom:1px solid black">
-                                        <h6>'About Me, </h6>
+                                        <h6 class="p-2">'About Me, </h6>
                                     </div>
-                                    <ul class="container details list-unstyled">
+                                    <ul class="container details list-unstyled mt-2">
                                         <li>
-                                            <p><span class="glyphicon glyphicon-earphone"></span>+91 90000 00000</p>
+                                            <p class="editable-text" editable-text="user.phone"><span class="fas fa-phone p-1"></span>{{
+                                                user.phone ||"empty" }}</p>
                                         </li>
                                         <li>
-                                            <p><span class="glyphicon glyphicon-envelope one"></span>somerandom@email.com</p>
+                                            <p class="editable-text" editable-text="user.email"><span class="far fa-envelope p-1"></span>{{
+                                                user.email ||"empty" }}</p>
                                         </li>
                                         <li>
-                                            <p><span class="glyphicon glyphicon-map-marker one"></span>Bengaluru</p>
+                                            <p class="editable-text" editable-text="user.location"><span class="fas fa-map-marker-alt p-1"></span>{{
+                                                user.location ||"empty" }}</p>
                                         </li>
                                         <li>
-                                            <p><span class="glyphicon glyphicon-new-window one"></span><a href="#">fancymonk.com</p></a>
+                                            <p class="editable-text" editable-text="user.companies"><span class="fas fa-building p-1"></span><a
+                                                    href="#">{{ user.companies ||"empty" }}</p></a>
+                                        </li>
                                     </ul>
                                     <div class="row ml-3 mt-5">
                                         <div class="effect aeneas">
@@ -827,14 +997,19 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
+                            <i class="fas fa-user-edit pull-right float-right"></i>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
         <!---profile end-->
+
     </div>
 </div>
 <script type="text/javascript">

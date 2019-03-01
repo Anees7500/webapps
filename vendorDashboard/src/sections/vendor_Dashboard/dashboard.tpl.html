@@ -34,7 +34,8 @@
             </li>
             <li class="p-2">
                 <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i
-                        class="far fa-credit-card text-primary"></i> <span class="font-weight-normal"> Payment Status
+                        class="far fa-credit-card text-primary"></i>
+                    <span class="font-weight-normal"> Payment Status
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
             <li class="p-2">
@@ -551,20 +552,20 @@
                                 <tfoot>
                                 </tfoot>
                             </table>
-                            <nav aria-label="Page navigation example">
+                            <span aria-label="Page navigation example">
                                 <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0}">
-                                        <a class="page-link" href ng-click="prevPage()">« Prev</a>
+                                    <li ng-class="{disabled: currentPage == 0} page-item">
+                                        <a class="page-link"  ng-click="prevPage()">« Prev</a>
                                     </li>
                                     <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}"
-                                        ng-click="setPage()">
-                                        <a class="page-link" href ng-bind="n + 1">1</a></li>
+                                        ng-click="setPage()" class="page-item">
+                                        <a class="page-link"  ng-bind="n + 1">1</a></li>
 
-                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                                    <li  ng-class="{disabled: currentPage == pagedItems.length - 1} page-item active">
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
-                            </nav>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -683,7 +684,7 @@
 
         <!-- ============================ extra Code=============================================-->
         <div ng-if="extraCodeBool">
-            
+
         </div>
 
 
@@ -701,6 +702,9 @@
 
 
 
+</div>
+
+</div>
 
 <script type="text/javascript">
     $(document).ready(function () {

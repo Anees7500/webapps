@@ -1,16 +1,24 @@
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
     '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
-    '$routeParams', '$rootScope', '$filter',
+    '$routeParams', '$rootScope', '$filter', 'getmenuFromDbUrl',
     function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
         $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
-        $routeParams, $rootScope, $filter) {
+        $routeParams, $rootScope, $filter, getmenuFromDbUrl) {
 
             // $scope.sortingOrder = sortingOrder;
            
         var vendorId = 1;
         // var companyId = 1;
 
-        $scope.menuNodes = [];
+        // $scope.menuNodes = [];
+        $scope.menuNodes = [{
+
+            // uid: uuid.new(),
+            uid: 'ggd',
+            menuName: "First",
+            menuNodes: [],
+            isFoodItem: false
+        }];
 
         var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
         $http.get(getCompProfileUrl).then(function (response) {
@@ -68,7 +76,106 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             { data: "This Year", totalAmount: "22,50,000" }
         ]
 
-        // ================================= confirmed Oders =================================
+        // ================================ Weekly Menu ========================================
+    //     var unflatten = function(array, parent, tree) {
+    //         // //console.log("value passed here : ",array);
+    //           tree = typeof tree !== 'undefined' ? tree : [];
+    //           parent = typeof parent !== 'undefined' ? parent : {
+    //               id: null
+    //           };
+    //           //
+    //     var children = _.filter(array, function(child) {
+    //         child.isInserted = true;
+    //         if(child.menuNodes ==null)
+    //         {
+    //           child.menuNodes = [];
+    //         }
+    //         if(child.menuType != null)
+    //         {
+    //           if(child.menuType === "veg")
+    //           {
+    //             child.isVeg = true;
+    //           }
+    //           else if(child.menuType === "egg")
+    //           {
+    //             child.isEgg = true;
+    //           }
+    //         }
+    //         return child.parentId == parent.id;
+    //     });
+    //     if (!_.isEmpty(children)) {
+    //         if (parent.id == 0 || parent.id == null) {
+    //             // //console.log("Children value after first check : ",JSON.stringify(children));
+    //             // children.isInserted = true;
+    //             // //console.log("Children value after Enhancement : ",JSON.stringify(children));
+    //             tree = children;
+    //         } else {
+    //             parent['menuNodes'] = children
+    //         }
+    //         _.each(children, function(child) {
+    //             unflatten(array, child)
+    //         });
+    //     }
+    //     // //console.log(tree)
+    //     return tree;
+    // };
+    // var getMenuUrl = getmenuFromDbUrl + $routeParams.compId;
+    // $http.get(getMenuUrl).then(function(response) {
+    //     //console.log("menu response from db : ", JSON.stringify(response));
+    //     if(!_.isEmpty(response.data.data))
+    //     {
+    //       $scope.menuNodes = unflatten(response.data.data);
+    //     }
+    //     // //console.log('nested json : ',JSON.stringify());
+    // });
+    // $scope.addsection = function(nodes, index) {
+    //     // //console.log("index :-", index)
+    //     // //console.log("nodes val", JSON.stringify(nodes));
+    //     // //console.log("nodes checked val", nodes[index].checked);
+
+    //     var uid = uuid.new();
+    //     // if(nodes[index].parentNodeId==null)
+    //     // {
+    //     //   //console.log("hahaha this is working ");
+    //     //   id = $scope.restaurantId+"-"+(nodes.length+1);
+    //     // }
+    //     // else {
+    //     //   id = nodes[index].parentNodeId +"-"+(nodes.length +1);
+    //     // }
+
+    //     if (nodes[index].isFoodItem) {
+    //         // //console.log("previous one had checked that box");
+    //         nodes.splice(index + 1, 0, {
+    //             uid: uid,
+    //             menuName: "New",
+    //             menuNodes: [],
+    //             isFoodItem: true,
+    //             parentNodeId: nodes[index].parentNodeId
+    //         });
+    //     } else {
+    //         nodes.splice(index + 1, 0, {
+    //             uid: uid,
+    //             menuName: "New",
+    //             menuNodes: [],
+    //             isFoodItem: false,
+    //             parentNodeId: nodes[index].parentNodeId
+    //         });
+    //     }
+
+    // }
+
+    // $scope.addchild = function(node) {
+    //     // //console.log("checked value : ", $scope.checked);
+    //     var uid = uuid.new();
+    //     node.menuNodes.push({
+    //         uid: uid,
+    //         menuName: "New",
+    //         menuNodes: [],
+    //         isFoodItem: false,
+    //         parentNodeId: node.uid
+    //     });
+    // }
+    //     // ================================= confirmed Oders =================================
 
         $scope.makeConfirmedOders = function (obj) {
             obj.confirmed = obj.confirmed ? false : true;
@@ -86,7 +193,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             $scope.pagedItems = [];
             $scope.currentPage = 0;
             
-            $scope.search = function () {           
+            $scope.search = function () {
                 
                 $scope.currentPage = 0;
                 // now group by pages

@@ -72,6 +72,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     $scope.selectVendor = function (obj) {
       $scope.selectedVendor = obj;
       getMenus();
+      
     }
 
     $scope.makeFavouritNReverse = function (obj) {
@@ -187,10 +188,12 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     //======================= Favourit Button =======================
 
     $scope.makeFavouritNReverse = function () {
-      $scope.favourite = $scope.add ? false : true;
+      $scope.favourite = $scope.favourite ? false : true;
     }
-
-
+$scope.fav=function(node){
+  node.favItem=node.favItem ? false : true;
+}
+  
   }
   // }
 ]);																

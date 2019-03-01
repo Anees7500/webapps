@@ -1,6 +1,24 @@
 salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
-  'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl',
-  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl) {
+  'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl', 'editableOptions',
+  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions, ) {
+
+    // ==============Profile work============================================
+    editableOptions.theme = 'bs4';
+    $scope.user = {
+      name: 'awesome user',
+      phone: '+91 90000 00000',
+      email: 'somerandom@email.com',
+      location: 'Bengaluru',
+      companies: 'fancymonk.com',
+      profilename: 'Aman Telkar',
+      Cofounder: 'Co-founder at Fancymonk',
+
+    };
+    // ==============Profile work end ============================================
+
+    //=============== Unassigned leads===========================================
+
+    //=============== Unassigned leads===========================================
     //====================== sidebar hide and show==========================
     $scope.toggle = true;
     $scope.toggleFilter = function () {
@@ -72,13 +90,47 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       }
     });
     //======================= card toggle================================================
-     // ===========Team Work1===============================================================
+    // ===========Team Work1=============================================================
     $scope.toggle = function () {
       $scope.state = !$scope.state;
     };
     //  ================== All AssingendCOmpany URL End===================================
+   
+    // =================== Calling data===================================================
+    $scope.data = [{
+        firstName: "Jayaram",
+        lastName: "P",
+        email: "jayaram@gmail.com",
+        project: "javasavvy",
+        designation: "Software Engineer",
+        empId: "10001"
+      },
+      {
+        firstName: "Arjun",
+        lastName: "D",
+        email: "Arjun@gmail.com",
+        project: "Sample Project",
+        designation: "Test",
+        empId: "10002"
+      }
+    ];
+    $scope.empoyees = angular.copy($scope.data);
+    $scope.enabledEdit = [];
+    $scope.editEmployee = function (index) {
+      console.log("edit index" + index);
+      $scope.enabledEdit[index] = true;
+    }
+    $scope.deleteEmployee = function (index) {
+      $scope.empoyees.splice(index, 1);
+    }
 
-    //=========================== bool Logic start=========================================
+    $scope.submitEmployee = function () {
+
+      console.log("form submitted:" + angular.toJson($scope.empoyees));
+    }
+    // =================== Calling data end===============================================
+
+    //=========================== bool Logic start========================================
     $scope.boolFunction = function (value) {
       console.log("boolFunction", value);
       $scope.companyBool = false;
@@ -88,15 +140,19 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.assignedCompanyBool = false;
       $scope.callingCompanyBool = false;
       $scope.profileCompanyBool = false;
+      $scope.unassignedleads = false;
+      $scope.myleads = false;
+      $scope.subordinateassigned = false;
+      $scope.reports = false;
       $scope[value] = true;
     }
     $scope.boolFunction("companyBool");
 
 
 
-    $scope.searchListFun  = function(){
+    $scope.searchListFun = function () {
       $scope.newList = $scope.searchList;
-      console.log("value  of list",$scope.newList);
+      console.log("value  of list", $scope.newList);
     }
 
     $scope.value = 30;
@@ -104,8 +160,8 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.max = 100;
 
     // ===============================Save Lead==========================================
-    $scope.saveLead = function(){
-      
+    $scope.saveLead = function () {
+
     }
     // ==================================================================================
 
