@@ -2,12 +2,12 @@ adminApp.factory('AdminCompanyServices', ['$http', '$httpParamSerializerJQLike',
     '$routeParams', 'postCompanyWorkingDaysUrl', 'postCompanyWorkingDaysUpdateUrl',
     'postCompanyInvoicingDateUrl', 'postCompanyInvoicingDateUpdateUrl', 'postCompanyAdditionalRequirementsUrl',
     'postCompanyRequirementsUrl', 'postVendorRequirementsUrl', 'postMonthlyDetailsUrl', 
-    '$route', 'Notification', '$location',
+    '$route', 'Notification', '$location','postMonthlyDetailsApproveUrl',
     function ($http, $httpParamSerializerJQLike, $routeParams,
         postCompanyWorkingDaysUrl, postCompanyWorkingDaysUpdateUrl,
         postCompanyInvoicingDateUrl, postCompanyInvoicingDateUpdateUrl,
         postCompanyAdditionalRequirementsUrl, postCompanyRequirementsUrl, postVendorRequirementsUrl,
-        postMonthlyDetailsUrl, $route, Notification,$location) {
+        postMonthlyDetailsUrl, $route, Notification,$location,postMonthlyDetailsApproveUrl) {
         return {
             passVendorId: function (vendorId, companyId, type, postVendorAssignUrl) {
                 console.log("I am in srv.js file : ", vendorId, type, companyId);
@@ -167,6 +167,16 @@ adminApp.factory('AdminCompanyServices', ['$http', '$httpParamSerializerJQLike',
                     },
                     data: $httpParamSerializerJQLike(data)
                 })
+            },
+            approveCompanyMonthlyDetails: function (data) {
+                return $http({
+                    method: 'POST',
+                    url: postMonthlyDetailsApproveUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(data)
+                });
             }
         }
     }
