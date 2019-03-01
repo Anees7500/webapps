@@ -624,7 +624,8 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="dnd in clientMonthlyDetails[selectedWeekForMonthlyDetails].details">
-                      <th class="text-center font-weight-normal">{{dnd.date}}</th>
+                      <th class="text-center font-weight-normal">
+                        {{dnd.date}}</th>
                       <th class="text-center font-weight-normal">{{dnd.day}}</th>
                       <td class="text-center font-weight-normal"
                         ng-repeat-start="(addReqName,addReqVal) in dnd[tempCategoryForClientMonthlyDtls.dbName].dtls">
@@ -634,7 +635,10 @@
                         <input id="" ng-model="addReqVal.price">
                       </td>
                       <td class="text-center font-weight-normal">
-                        <input id="" ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount">
+                        <input id="" 
+                          ng-value="calculateAmount(dnd[tempCategoryForClientMonthlyDtls.dbName])"
+                          ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount" 
+                        >
                       </td>
                     </tr>
                   </tbody>
@@ -661,9 +665,12 @@
                   dbRowId[tempCategoryForClientMonthlyDtls.dbName] != null">Update</button>
                 <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
                   ng-click="clientMonthlyDetailsSave()">Delete</button>
+
+                  <!-- haha {{clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]}} -->
                 <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-                  ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approve"
-                  ng-click="clientMonthlyDetailsSave()">Approve</button>
+                  ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]"
+                  ng-click="approveCompanyMonthlyDetails(clientMonthlyDetails[selectedWeekForMonthlyDetails], 
+                  tempCategoryForClientMonthlyDtls.dbName)">Approve</button>
 
               </div>
 
@@ -770,7 +777,7 @@
       </nav>
 
 
-      <!-- <div class=" grey lighten-4  ml-5">
+      <div class=" grey lighten-4  ml-5">
         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
           <li class="nav-item" ng-repeat="(type, monthObj) in monthsForMonthlyDetails">
             <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
@@ -778,7 +785,7 @@
               ng-click="selectMonthForInvoice(monthObj)">{{monthObj.name}} {{monthObj.year}}</a>
           </li>
         </ul>
-      </div> -->
+      </div>
       
         <div class="row pl-4">
           <div class="col-md-3">
@@ -790,7 +797,7 @@
               <input type="date" class="border-0 p-0 mb-0" id="date" ng-model="EndtDate" ng-change="selectEndDateForInvoice(EndtDate)">
             </div>            
          <div class="col-md-6 pl-5">
-           <!-- <button class="ml-5 btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button> -->
+           <button class="ml-5 btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>
           <button class="btn btn-light ml-5" ng-click="exportToPdf('#invoice')">Export To PDF</button> 
           <!-- <button class="ml-5 btn btn-light" ng-click="onclickPdf()">PDF</button> -->
           <!-- <button class="ml-2 btn btn-light" ng-click="getInvoiceExcelHeader()">Excel Data</button> -->
@@ -827,7 +834,8 @@
             <form class="form-inline border-0 ml-3" role="form">
               <div class="form-group">
                 <label for="date" style="margin-right:5px">Date:</label>
-                <input type="date" class="form-control border-0 p-0 mb-0" id="date">
+                <input type="date" class="form-control border-0 p-0 mb-0" id="date" ng-model="selectedInvoiceDate" ng-value="selectedInvoiceDate | date:'dd MMMM yyyy'">
+                <input type="date" class="form-control border-0 p-0 mb-0" id="date" ng-model="selectedInvoiceDate" ng-value="selectedInvoiceDate | date:'dd MMMM yyyy'">
 
               </div>
             </form>
