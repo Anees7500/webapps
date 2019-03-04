@@ -185,7 +185,7 @@
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
 
-                    <!--Card image-->
+                   
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header danger-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
@@ -445,8 +445,7 @@
                 <div class="card card-cascade narrower mt-3 ">
 
                     <!--Card image-->
-                    <div
-                        class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                    <div class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -473,7 +472,7 @@
                     </div>
                     <div class="px-4">
                         <div class="table-wrapper table-responsive">
-                            <table class="table table-hover mb-0 mt-1">
+                            <table class="table table-hover mb-1 mt-1">
                                 <thead>
                                     <tr>
                                         <th class="th-lg font-weight-bold ">
@@ -540,10 +539,10 @@
                         class="view view-cascade z-depth-1-half gradient-card-header default-color  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
                         <a href="" class="white-text mx-3">Feedback</a>
-                        <div class="btn-sm px-2 ">
+                        <!-- <div class="btn-sm px-2 ">
                             <input class="form-control  " type="text" placeholder="Search" aria-label="Search"
                                 ng-model="search">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="px-4">
                         <div class="table-wrapper table-responsive">
@@ -575,24 +574,40 @@
                                 </thead>
                                 <tbody>
                                     <tr
-                                        ng-repeat="feedBck in feedback.slice().reverse() | filter:search | orderBy:sortType:sortReverse ">
-                                        <td class="font-weight-normal text-left">{{feedBck.menuItemName}}</td>
-                                        <td class="font-weight-normal text-left">{{feedBck.tasteRating}}</td>
-                                        <td class="font-weight-normal text-left">{{feedBck.qualityRating}}</td>
+                                        ng-repeat="item in  pagedItems[currentPage] ">
+                                        <td class="font-weight-normal text-left">{{item.menuItemName}}</td>
+                                        <td class="font-weight-normal text-left">{{item.tasteRating}}</td>
+                                        <td class="font-weight-normal text-left">{{item.qualityRating}}</td>
                                         <td class="font-weight-normal text-left">
-                                            <div ng-if="feed.comment.length > 1">
-                                                {{feedBck.comment}}
-                                            </div>
+                                           
+                                                {{item.comment}}
+                                          
                                         </td>
-                                        <td class="font-weight-normal text-left">{{feedBck.createdAt}}</td>
+                                        <td class="font-weight-normal text-left">{{item.createdAt}}</td>
 
                                     </tr>
                                 </tbody>
                             </table>
+                            <span aria-label="Page navigation example">
+                                <ul class="pagination pagination-circle pg-blue">
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <span class=" page-item">
+                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                        </span>
+                                    </li>
+                                    <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}"
+                                        ng-click="setPage()" class="page-item">
+                                        <a class="page-link" ng-bind="n + 1">1</a></li>
+
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
+                                        <a class="page-link" ng-click="nextPage()">Next »</a>
+                                    </li>
+                                </ul>
+                            </span>
                         </div>
                     </div>
                 </div> 
-                -->
+               
             
                
             </div>
@@ -649,20 +664,20 @@
 
                     </ul>
                 </div>
-
+                  
                 <script type="text/ng-template" id="nodes_renderer.html">
                     <br>
                     <div class="design-box">
-                      <a class="btn btn-clear btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
-                            <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
-                      </a>
+                      <button class="btn btn-info btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
+                     <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
+                      </button>
                        <div style="padding: 10px; background-color:white">
                         <div class='form-group'>
                           <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
                         </div>
 
                         <div ng-if="$parentNodeScope">
-                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</lebel>
+                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</label>
                               <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
                               <div ng-if="node.isFoodItem">
                                   <label class="menu-label">is Veg:</label>
@@ -683,7 +698,7 @@
                                   </label>
                         </div>
                       </div>
-                      <!-- <button class='btn btn-primary' ng-click='addsection($nodes,$index)'>{{}}</button> -->
+                      
                       <input type="submit" class="btn btn-info" value="Add Menu" ng-click="addsection($nodes,$index)">
                       <input type="submit" ng-if="!node.isFoodItem" class="btn btn-info" value="Add Sub-menu" ng-click="addchild(node)">
                       <input type="submit" ng-if="!node.id" class="btn btn-info" value="Save" ng-click="saveInDb(node,'Monday')">
@@ -692,19 +707,23 @@
                       <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Remove" ng-click="deleteNode(node,'Monday')">
 
                     </div>
-                    <ul ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                    <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
                       <li ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
                       </li>
                     </ul>
                 </div>
                 </script>
                 <div ui-tree>
-                    <ul ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
+                    <ul  class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
                         <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
                     </ul>
                 </div>
             </div>
 
+            
+           
+                   
+        
         </div>
         <!-- ============================ End Set Weekly Menu=============================================-->
     </div>
