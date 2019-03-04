@@ -52,12 +52,12 @@ salesApp.controller('newPlaceCtrl', function ($scope, Map) {
         });
     }
     $scope.search = function () {
+        debugger;
         $scope.apiError = false;
         Map.search($scope.searchPlace)
             .then(
                 function (res) { // success
-                    Map.addMarker(res);
-                    console.log("response : ", JSON.stringify(res));
+                    Map.addMarker(res);                   
                     $scope.place.name = res.name;
                     $scope.place.address = res.formatted_address;
                     $scope.place.lat = res.geometry.location.lat();
