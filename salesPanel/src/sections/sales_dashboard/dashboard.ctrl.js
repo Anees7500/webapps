@@ -137,7 +137,6 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.vendorListBool = false;
       $scope.addleadsCompanyBool = false;
       $scope.teamCompanyBool = false;
-      $scope.assignedCompanyBool = false;
       $scope.callingCompanyBool = false;
       $scope.profileCompanyBool = false;
       $scope.unassignedleads = false;
