@@ -311,6 +311,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     var getMonthlyDetails = function () {
       var monthlyDetailsUrl = getMonthlyDetailsUrl + $routeParams.compId +
         "&month=" + $scope.selectedMonthForMonthlyDetails.name + "&year=" + $scope.selectedMonthForMonthlyDetails.year;
+
+        console.log("monthly details url : ", monthlyDetailsUrl);
       $http.get(monthlyDetailsUrl).then(function (response) {
 
         if (response.data.status == 1) {
@@ -419,16 +421,16 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     $scope.getInvoiceDetails = function () {
-      // var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
-      //   "&month=" + $scope.selectedMonthForInvoice.name + "&year=" + $scope.selectedMonthForInvoice.year;
-
-      // if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
-      //   detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.startDateValue +
-      //     "&endDate=" +  $scope.EndDateValue ;
-      // }
-
       var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
-      "&startDate="+ $scope.startDateValue + "&year=" + $scope.year +  "&endDate=" +  $scope.EndDateValue +"&month";
+        "&month=" + $scope.selectedMonthForInvoice.name + "&year=" + $scope.selectedMonthForInvoice.year;
+
+      if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
+        detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.startDateValue +
+          "&endDate=" +  $scope.EndDateValue ;
+      }
+
+      // var detailsForInvoicesUrl = getDetailsForInvoicesUrl + "?companyId=" + $routeParams.compId +
+      // "&startDate="+ $scope.startDateValue + "&year=" + $scope.year +  "&endDate=" +  $scope.EndDateValue +"&month";
 
       // if ($scope.selectedMonthForInvoice.startDate != null && $scope.selectedMonthForInvoice.endDate != null) {
       //   detailsForInvoicesUrl = detailsForInvoicesUrl + "&startDate=" + $scope.startDateValue +
@@ -486,9 +488,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
           }
         });
         console.log("value of subtotal", $scope.invoiceDetailsObj);
-        // }. true);
 
+        getInvoiceExcelHeader();
       });
+
+      // getInvoiceExcelHeader();
     }
 
     //==============================================================
@@ -675,6 +679,26 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         }
       });
     }
+
+    $scope.approveCompanyMonthlyDetails = function(weekObj, type)
+    {
+      var objForDb = {};
+      objForDb.id = weekObj.dbRowId[type];
+      objForDb.type = type;
+      objForDb.week = $scope.selectedWeekForMonthlyDetails;
+
+      AdminCompanyServices.approveCompanyMonthlyDetails(objForDb).then(function (response)
+      {
+        console.log(
+          "respnse : ", JSON.stringify(response)
+        );
+        if(response.data.status == 1)
+        {
+          weekObj.approved[type] = true;
+        }
+      });
+
+    }
     //==============================================================
     /** Monthly Details End*/
     //==============================================================
@@ -713,9 +737,9 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       getMonthlyDetails();
     }
 
-    // $scope.selectMonthForInvoice = function (obj) {
-    //   $scope.selectedMonthForInvoice = obj;
-    // }
+    $scope.selectMonthForInvoice = function (obj) {
+      $scope.selectedMonthForInvoice = obj;
+    }
 
     $scope.selectWeekForMonthlyDetails = function (weekName) {
       $scope.selectedWeekForMonthlyDetails = weekName;
@@ -724,6 +748,19 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.tempCategoryForClientMonthlyDtls = {};
       $scope.tempCategoryForClientMonthlyDtls.dbName = obj.dbName;
       $scope.tempCategoryForClientMonthlyDtls.displayName = obj.displayName;
+    }
+
+    $scope.calculateAmount = function(obj)
+    {
+      // console.log("passed value in calculateAmount function ", JSON.stringify(p));
+      var amount = 0;
+      angular.forEach(obj.dtls, function(dtlsVal, dtlsKey){
+        amount = (dtlsVal.pax * dtlsVal.price) + amount;
+      });
+
+      obj.amount = amount;
+
+      return amount;
     }
 
    
@@ -899,17 +936,17 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
     // ================================================================================
 
-    $http.get(getCompanyFebMonthInvoicedetails).then(function (response) {
-      $scope.InvoicesData = response.data.data.invoiceXlsx;   
+    // $http.get(getCompanyFebMonthInvoicedetails).then(function (response) {
+    //   $scope.InvoicesData = response.data.data.invoiceXlsx;   
 
-    }, function (reason) {
-      console.log("Error : ", reason);
+    // }, function (reason) {
+    //   console.log("Error : ", reason);
 
-    });
+    // });
 
     // ==========================Creat excel sheet header row===========================
     var rows = [];
-    $scope.getInvoiceExcelHeader = function()
+    var getInvoiceExcelHeader = function()
     {
      
       var headerArr = [];
@@ -946,7 +983,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         totalSumObj.date = "";
         totalSumObj.day = "Total";
 
-      angular.forEach($scope.InvoicesData, function(arrEle){
+      angular.forEach($scope.invoiceDetailsObj.invoiceXlsx, function(arrEle){
         var totalAmount = 0;
         var dataObj = {};
         dataObj.date = arrEle.date;
@@ -957,6 +994,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         {          
           if($scope.data[category.dbName])
           {
+            if(arrEle[category.dbName] != null){
             if(arrEle[category.dbName].dtls != null){
              
             angular.forEach(arrEle[category.dbName].dtls, function(catVal, catKey){
@@ -988,8 +1026,16 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
               }
             });
           }
+        }
 
-            totalAmount = arrEle[category.dbName].amount + totalAmount;
+            if(arrEle[category.dbName] != null)
+            {
+              if(arrEle[category.dbName].amount)
+              {
+                totalAmount = arrEle[category.dbName].amount + totalAmount;
+              }
+            }
+            
           }
         }
       });
@@ -1022,12 +1068,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         rows.push(rowObj);
       });
      
-     // console.log("rows for excel ", JSON.stringify(rows));
+     console.log("rows for excel ", JSON.stringify(rows));
     }
 
     // =================== Exprot Excel Data =======================
     $scope.exportJsonDataToExcel = function () {
-      if($scope.startDateValue != null && $scope.EndDateValue !=null){
+      // if($scope.startDateValue != null && $scope.EndDateValue !=null){
         var workbook = new kendo.ooxml.Workbook({
           sheets: [
             {
@@ -1037,7 +1083,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
                 { autoWidth: true }
               ],
               // Title of the sheet
-              title: "Customers",
+              title: "Details",
               // Rows of the sheet
               rows: rows
             }
@@ -1045,11 +1091,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
         });
         kendo.saveAs({
           dataURI: workbook.toDataURL(),
-          fileName: "Test.xlsx"
+          fileName: $scope.data.companyName + ".xlsx"
         });
-      }else{
-        alert("please select start date and end date");
-      }
+      // }else{
+      //   alert("please select start date and end date");
+      // }
 
 
     }

@@ -34,5 +34,15 @@ empApp.controller('FavouritController', ['$scope',
       $scope.makeFavouritNReverse = function () {
         $scope.favourite = $scope.add ? false : true;
       }
+
+
+
+
+
+
+
+
+
+
     }
 ]);

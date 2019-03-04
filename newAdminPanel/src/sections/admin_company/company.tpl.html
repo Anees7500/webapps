@@ -5,6 +5,10 @@
   .k-pdf-export .isGstCheckBox {
     display: none;
   }
+  .k-pdf-export .dateInv {
+    display: none;
+  }
+  
 </style>
 
 <!-- wrapper  class start for whole page -->
@@ -624,7 +628,8 @@
                   </thead>
                   <tbody>
                     <tr ng-repeat="dnd in clientMonthlyDetails[selectedWeekForMonthlyDetails].details">
-                      <th class="text-center font-weight-normal">{{dnd.date}}</th>
+                      <th class="text-center font-weight-normal">
+                        {{dnd.date}}</th>
                       <th class="text-center font-weight-normal">{{dnd.day}}</th>
                       <td class="text-center font-weight-normal"
                         ng-repeat-start="(addReqName,addReqVal) in dnd[tempCategoryForClientMonthlyDtls.dbName].dtls">
@@ -634,7 +639,10 @@
                         <input id="" ng-model="addReqVal.price">
                       </td>
                       <td class="text-center font-weight-normal">
-                        <input id="" ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount">
+                        <input id="" 
+                          ng-value="calculateAmount(dnd[tempCategoryForClientMonthlyDtls.dbName])"
+                          ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount" 
+                        >
                       </td>
                     </tr>
                   </tbody>
@@ -661,9 +669,12 @@
                   dbRowId[tempCategoryForClientMonthlyDtls.dbName] != null">Update</button>
                 <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
                   ng-click="clientMonthlyDetailsSave()">Delete</button>
+
+                  <!-- haha {{clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]}} -->
                 <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
-                  ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approve"
-                  ng-click="clientMonthlyDetailsSave()">Approve</button>
+                  ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]"
+                  ng-click="approveCompanyMonthlyDetails(clientMonthlyDetails[selectedWeekForMonthlyDetails], 
+                  tempCategoryForClientMonthlyDtls.dbName)">Approve</button>
 
               </div>
 
@@ -770,7 +781,7 @@
       </nav>
 
 
-      <!-- <div class=" grey lighten-4  ml-5">
+      <div class=" grey lighten-4  ml-5">
         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
           <li class="nav-item" ng-repeat="(type, monthObj) in monthsForMonthlyDetails">
             <a class="nav-link gradient-shadow" id="pills-home-tab" data-toggle="pill" href=""
@@ -778,20 +789,20 @@
               ng-click="selectMonthForInvoice(monthObj)">{{monthObj.name}} {{monthObj.year}}</a>
           </li>
         </ul>
-      </div> -->
+      </div>
       
         <div class="row pl-4">
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <label for="date">Start Date:</label>
             <input type="date" class="border-0 p-0 mb-0" id="date" ng-model="StartDate" ng-change="selectStartDateInvoice(StartDate)">
           </div>    
             <div class="col-md-3">
               <label for="date">End Date:</label>
               <input type="date" class="border-0 p-0 mb-0" id="date" ng-model="EndtDate" ng-change="selectEndDateForInvoice(EndtDate)">
-            </div>            
-         <div class="col-md-6 pl-5">
-           <!-- <button class="ml-5 btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button> -->
-          <button class="btn btn-light ml-5" ng-click="exportToPdf('#invoice')">Export To PDF</button> 
+            </div>             -->
+         <div class="col-md-12 pl-5">
+           <button class="btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>
+          <button class="btn btn-light" style="margin-left: 385px" ng-click="exportToPdf('#invoice')">Export To PDF</button> 
           <!-- <button class="ml-5 btn btn-light" ng-click="onclickPdf()">PDF</button> -->
           <!-- <button class="ml-2 btn btn-light" ng-click="getInvoiceExcelHeader()">Excel Data</button> -->
           <button class="btn btn-light" ng-click="exportJsonDataToExcel()">Export To Excel</button>
@@ -824,13 +835,16 @@
           </div>
           <div class="col-md-2"></div>
           <div class="col-md-4 ml-3">
-            <form class="form-inline border-0 ml-3" role="form">
+            <form class="form-inline border-0" style="margin-left:170px" role="form">
               <div class="form-group">
-                <label for="date" style="margin-right:5px">Date:</label>
-                <input type="date" class="form-control border-0 p-0 mb-0" id="date">
-
-              </div>
+                <input type="date" class="dateInv form-control border-0 p-0 mb-0" id="date" ng-model="selectedInvoiceDate">
+              </div>              
             </form>
+            <div class="col-md-12" style="margin-left: 158px">
+                <label for="date">Date:<input type="text" class="border-0 p-0 mb-0" id="date" ng-model="selectedInvoiceDate" ng-value="selectedInvoiceDate | date:'dd MMMM yyyy'"></label>
+                
+            
+            </div>
           </div>
         </div>
 
@@ -860,11 +874,11 @@
 
 
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3" style="text-align:right">
             <h5 class="font-weight-bold">Invoice #</h5>
             <form>
               <div class="form-group">
-                <input type="text" style="margin-top: -8px;" class="form-control text-muted font-weight-bold border-0"
+                <input type="text" style="margin-top: -8px;margin-left: 162px" class="form-control text-muted font-weight-bold border-0"
                   value="515">
               </div>
             </form>
@@ -875,10 +889,10 @@
             </div>
           </div>
         </div>
-        <hr class="ml-3 bg-dark mt-1 font-weight-bold">
-        <div class="row ml-3 pb-0">
-          <div class="table-responsive pb-0 ml-3">
-            <table class="table table-borderless pb-0 ml-3" style="width:95%;">
+        <hr class="ml-4 bg-dark mt-1 font-weight-bold">
+        <div class="row ml-5 pb-0">
+          <div class="table-responsive pb-0 ml-5">
+            <table class="table table-borderless pb-0 ml-2" style="width:99%;">
               <thead>
                 <tr>
                   <th id="font-color" class="h5 font-weight-bold ">Description</th>
@@ -889,7 +903,7 @@
               </thead>
               <tbody class="pb-0 pt-0 mt-0">
                 <tr class="pb-0 pt-0" ng-repeat="obj in invoiceDetailsNewObj">
-                  <td class="pb-0 pt-0">
+                  <td class="pb-0 pt-0" style="width:30%">
                     <form>
                       <div class="form-group text-muted">
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
@@ -898,7 +912,7 @@
                     </form>
                   </td>
 
-                  <td class="pb-0 pt-0">
+                  <td class="pb-0 pt-0" style="width:20%">
                     <form>
                       <div class="form-group text-muted">
                         <input type="text" class="form-control text-muted border-0 p-0 font-weight-bold"
@@ -907,9 +921,9 @@
                     </form>
                   </td>
 
-                  <td class="pb-0 pt-0">
+                  <td class="pb-0 pt-0" style="width:25%">
                     <form>
-                      <div class="input-group form-group text-muted"><span class="input-group-addon mt-1 mr-2">INR</span>
+                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 mr-2">INR</span>
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
                           ng-model="obj.price">
                           
@@ -918,9 +932,9 @@
                   </td>
 
                  
-                  <td class="pb-0 pt-0">
+                  <td class="pb-0 pt-0" style="width:30%">
                     <form>
-                      <div class="input-group form-group text-muted"><span class="input-group-addon mt-1 mr-2">INR</span>
+                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 mr-2">INR</span>
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
                           ng-model="obj.amount">
                           
@@ -984,17 +998,17 @@
                   Is IGST Applicable <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable">
               </span>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 pl-5">
               <!-- <span class="isGstCheckBox">
                   <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable"> Is GST Applicable<br>
               </span> -->
-            <table class="table table-borderless ml-3">
+            <table class="table table-borderless ml-2">
               <tbody>
                 <tr>
-                  <td class="center pb-0  h5 right" style="font-size: unset;" id="font-color">Subtotal</td>
+                  <td class="center h5 pb-0  right" style="font-size: unset;" id="font-color">Subtotal</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class="center pb-0 h5 right" style="font-size: unset;" id="font-color">CGST (9%)</td>
+                  <td class="center h5 pb-0  right" style="font-size: unset;" id="font-color">CGST (9%)</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
                   <td class="center h5 pb-0 right" style="font-size: unset;" id="font-color">SGST (9%)</td>
@@ -1009,8 +1023,8 @@
               </tbody>
             </table>
           </div>
-          <div class="col-md-3">
-            <table class="table table-borderless ml-3">
+          <div class="col-md-3 pl-4">
+            <table class="table table-borderless">
               <tbody>
                 <tr>
                   <td class="right h5 pb-0 font-weight-bold" style="font-size: unset;">INR {{invoiceDetailsObj.totalSum  | number:2}}</td>
