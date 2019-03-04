@@ -10,53 +10,46 @@
     <!--------------------Main Navigation------------------------------------->
     <nav id="sidebar" class="z-depth-1-half position-fixed h-100 mt-5">
         <ul class="list-unstyled components mt-5">
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('pendingOdersBool')">
+            <li class="p-2" ng-class="{active : activeMenu === 'PendingOders'}"ng-click="activeMenu = 'PendingOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOdersBool')">
                     <i class="fas fa-hourglass-half text-warning"></i></i> <span class="font-weight-normal"> Pending
-                        Oders </span><span
-                        class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
+                        Oders </span><span class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
             </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('confirmedOdersBool')"><i
+            <li class="p-2" ng-class="{active : activeMenu === 'confirmedOders'}"ng-click="activeMenu = 'confirmedOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOdersBool')"><i
                         class="fas fa-check-circle text-success"></i></i> <span class="font-weight-normal"> confirmed
                         Oders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
             </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('cancelOdersBool')">
+            <li class="p-2" ng-class="{active : activeMenu === 'cancelOders'}"ng-click="activeMenu = 'cancelOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOdersBool')">
                     <i class="fas fa-ban text-danger"></i> <span class="font-weight-normal"> Cancel Oders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
             </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('completedOdersBool')"><i
+            <li class="p-2" ng-class="{active : activeMenu === 'CompletedOders'}"ng-click="activeMenu = 'CompletedOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('completedOdersBool')"><i
                         class="fas fa-tasks text-secondary"></i></i> <span class="font-weight-normal"> Completed Oders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
             </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i
-                        class="far fa-credit-card text-primary"></i>
+            <li class="p-2" ng-class="{active : activeMenu === 'PaymentStatus'}"ng-click="activeMenu = 'PaymentStatus'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i class="far fa-credit-card text-primary"></i>
                     <span class="font-weight-normal"> Payment Status
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
+            <li class="p-2" ng-class="{active : activeMenu === 'Feedback'}"ng-click="activeMenu = 'Feedback'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
                     <i class="fas fa-comment-alt text-default"></i> <span class="font-weight-normal"> Feedback
                     </span></a>
             </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
+            <li class="p-2" ng-class="{active : activeMenu === ' WeeklyMenu'}"ng-click="activeMenu = ' WeeklyMenu'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
-            </li>
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('extraCodeBool')">
-                    <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
-                        Extra Code</span></a>
             </li>
 
         </ul>
     </nav>
-    <!-- ===================== Main Navigation Content =======================  -->
+    <!-- ===================== Main Navigation Content =======================-->
     <div id="content" class="mt-5 ">
 
 
@@ -68,7 +61,7 @@
                     <i class="fa fa-home  w-clr ml-3 mr-1" aria-hidden="true"></i> Home</a>/
                 <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
                 <a class="navbar-brand w-clr  font-small font-weight-normal" href="">
-                    / Pending Oders
+                    Pending Oders
                 </a>
             </nav>
 
@@ -299,18 +292,47 @@
             </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
+
+                    <!--Card image-->
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header secondary-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
-                        <a href="" class="white-text mx-3">completed Oders History</a>
+                        <div>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-th-large mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-columns mt-0"></i>
+                            </button>
+                        </div>
+
+                        <a href="" class="white-text mx-3">Cancel Oders History</a>
+
+                        <div>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-pencil-alt mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="far fa-trash-alt mt-0"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
+                                <i class="fas fa-info-circle mt-0"></i>
+                            </button>
+                        </div>
 
                     </div>
+                    <!--/Card image-->
+
                     <div class="px-4">
+
                         <div class="table-wrapper table-responsive">
+                            <!--Table-->
                             <table class="table table-hover mb-0 mt-1">
 
+                                <!--Table head-->
                                 <thead>
                                     <tr>
+
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
                                                 <i class="fas fa-sort ml-1"></i>
@@ -343,6 +365,9 @@
                                         </th>
                                     </tr>
                                 </thead>
+                                <!--Table head-->
+
+                                <!--Table body-->
                                 <tbody>
                                     <tr ng-repeat="cancelOdr in cancelOderHistroy ">
 
@@ -354,11 +379,17 @@
                                         <td class="font-weight-normal text-left">{{cancelOdr.ordersStatus}}</td>
                                     </tr>
                                 </tbody>
+                                <!--Table body-->
                             </table>
+                            <!--Table-->
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <!-- ============================ End completed Oders ===========================================-->
@@ -404,11 +435,16 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="col-md-5">
+
                     </div>
                 </div>
+
                 <div class="card card-cascade narrower mt-3 ">
+
+                    <!--Card image-->
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
@@ -420,7 +456,9 @@
                                 <i class="fas fa-columns mt-0"></i>
                             </button>
                         </div>
+
                         <a href="" class="white-text mx-3">Payment History</a>
+
                         <div>
                             <button type="button" class="btn btn-outline-white  btn-sm px-2">
                                 <i class="fas fa-pencil-alt mt-0"></i>
@@ -493,11 +531,11 @@
         <div ng-if="feedbackBool">
             <nav class="navbar navbar-expand-lg mt-2">
                 <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Feedback</a>
-                </h6>
+                        Feedback</a></h6>
+
             </nav>
             <div class="container">
-                <div class="card card-cascade narrower mt-3 ">
+                <div class="card card-cascade narrower mt-3 "> 
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header default-color  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
@@ -509,7 +547,7 @@
                     </div>
                     <div class="px-4">
                         <div class="table-wrapper table-responsive">
-                            <!--Table-->
+                            
                             <table class="table table-hover mb-0 mt-1">
                                 <thead>
                                     <tr>
@@ -536,39 +574,43 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="feedBck in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                                        <td class="font-weight-normal text-left">{{feedBck.menuItemName}}</td>
-                                        <td class="font-weight-normal text-left">{{feedBck.tasteRating}}</td>
-                                        <td class="font-weight-normal text-left">{{feedBck.qualityRating}}</td>
+                                    <tr
+                                        ng-repeat="item in  pagedItems[currentPage] ">
+                                        <td class="font-weight-normal text-left">{{item.menuItemName}}</td>
+                                        <td class="font-weight-normal text-left">{{item.tasteRating}}</td>
+                                        <td class="font-weight-normal text-left">{{item.qualityRating}}</td>
                                         <td class="font-weight-normal text-left">
-                                            <!-- <div ng-if="feed.comment.length > 1"> -->
-                                            {{feedBck.comment}}
-                                            <!-- </div> -->
+                                           
+                                                {{item.comment}}
+                                          
                                         </td>
-                                        <td class="font-weight-normal text-left">{{feedBck.createdAt}}</td>
+                                        <td class="font-weight-normal text-left">{{item.createdAt}}</td>
 
                                     </tr>
                                 </tbody>
-                                <tfoot>
-                                </tfoot>
                             </table>
                             <span aria-label="Page navigation example">
                                 <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0} page-item">
-                                        <a class="page-link"  ng-click="prevPage()">« Prev</a>
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <span class=" page-item">
+                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                        </span>
                                     </li>
                                     <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}"
                                         ng-click="setPage()" class="page-item">
-                                        <a class="page-link"  ng-bind="n + 1">1</a></li>
+                                        <a class="page-link" ng-bind="n + 1">1</a></li>
 
-                                    <li  ng-class="{disabled: currentPage == pagedItems.length - 1} page-item active">
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
                             </span>
                         </div>
                     </div>
-                </div>
+                </div> 
+                -->
+            
+               
             </div>
         </div>
 
@@ -627,9 +669,9 @@
                 <script type="text/ng-template" id="nodes_renderer.html">
                     <br>
                     <div class="design-box">
-                      <a class="btn btn-clear btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
+                      <button class="btn btn-info btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
                             <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
-                      </a>
+                      </button>
                        <div style="padding: 10px; background-color:white">
                         <div class='form-group'>
                           <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
@@ -681,29 +723,13 @@
 
         </div>
         <!-- ============================ End Set Weekly Menu=============================================-->
-
-        <!-- ============================ extra Code=============================================-->
-        <div ng-if="extraCodeBool">
-
-        </div>
-
-
-
-
-
-        <!-- ============================End extra Code=============================================-->
-
-
-
-
-
     </div>
 </div>
 
 
 
-</div>
-
+  </div>
+                          
 </div>
 
 <script type="text/javascript">
