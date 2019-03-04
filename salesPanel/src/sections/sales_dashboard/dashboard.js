@@ -6,8 +6,7 @@ salesApp.service('Map', function ($q) {
             zoom: 12,
             disableDefaultUI: true
         }
-        var input = document.getElementById('searchTextField');
-        console.log("get input value",input);
+        var input = document.getElementById('searchTextField');        
         new google.maps.places.Autocomplete(input);
 
         this.map = new google.maps.Map(
@@ -53,12 +52,12 @@ salesApp.controller('newPlaceCtrl', function ($scope, Map) {
         });
     }
     $scope.search = function () {
+        debugger;
         $scope.apiError = false;
         Map.search($scope.searchPlace)
             .then(
                 function (res) { // success
-                    Map.addMarker(res);
-                    console.log("response : ", JSON.stringify(res));
+                    Map.addMarker(res);                   
                     $scope.place.name = res.name;
                     $scope.place.address = res.formatted_address;
                     $scope.place.lat = res.geometry.location.lat();

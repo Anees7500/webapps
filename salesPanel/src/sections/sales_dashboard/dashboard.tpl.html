@@ -1095,13 +1095,7 @@
         <!--=========================-Vendor end=========================================-->
 
         <!--==========================Add leads==========================================-->
-        <div ng-if="addleadsCompanyBool" class="ml-4">
-            <!-- Search form -->
-            <div class="container" style="background-color: #e9ecee;padding-top: 10px" ng-controller="newPlaceCtrl">
-                <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
-                    <b>API Error : </b>
-                    <span>{{ apiStatus }}</span>
-                </div>
+        <div ng-if="addleadsCompanyBool" class="ml-4" ng-controller="newPlaceCtrl">
                 <form name="searchForm" novalidate ng-submit="search()">
                     <div class="input-group">
                         <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace"
