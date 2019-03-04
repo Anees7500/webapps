@@ -1,6 +1,6 @@
 salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
   'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl', 'editableOptions',
-  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions, ) {
+  function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions) {
 
     // ==============Profile work============================================
     editableOptions.theme = 'bs4';
@@ -163,7 +163,6 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.saveLead = function () {
 
     }
-    // ==================================================================================
 
   }
 

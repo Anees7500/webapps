@@ -6,8 +6,7 @@ salesApp.service('Map', function ($q) {
             zoom: 12,
             disableDefaultUI: true
         }
-        var input = document.getElementById('searchTextField');
-        console.log("get input value",input);
+        var input = document.getElementById('searchTextField');        
         new google.maps.places.Autocomplete(input);
 
         this.map = new google.maps.Map(
