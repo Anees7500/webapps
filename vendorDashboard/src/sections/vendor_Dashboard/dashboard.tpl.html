@@ -10,43 +10,38 @@
     <!--------------------Main Navigation------------------------------------->
     <nav id="sidebar" class="z-depth-1-half position-fixed h-100 mt-5">
         <ul class="list-unstyled components mt-5">
-            <li class="p-2" ng-class="{active : activeMenu === 'PendingOrders'}" ng-click="activeMenu = 'PendingOrders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOrdersBool')">
-                    <i class="fas fa-hourglass-half text-warning"></i></i> <span class="font-weight-normal"> Pending
-                        Orders </span><span
-                        class="badge badge-pill badge-danger ml-2">{{allPendingOrders.length}}</span></a>
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PendingOders'}"ng-click="activeMenu = 'PendingOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOdersBool')">
+                    <i class="fas fa-hourglass-half"></i></i> <span class="font-weight-normal"> Pending
+                        Oders </span><span class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'confirmedOrders'}"
-                ng-click="activeMenu = 'confirmedOrders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOrdersBool')"><i
-                        class="fas fa-check-circle text-success"></i></i> <span class="font-weight-normal"> confirmed
-                        Orders
-                    </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOrders.length}}</span></a>
+            <li class="p-2  mb-1" ng-class="{active : activeMenu === 'confirmedOders'}"ng-click="activeMenu = 'confirmedOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOdersBool')"><i
+                        class="fas fa-check-circle"></i></i> <span class="font-weight-normal"> confirmed
+                        Oders
+                    </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'cancelOrders'}" ng-click="activeMenu = 'cancelOrders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOrdersBool')">
-                    <i class="fas fa-ban text-danger"></i> <span class="font-weight-normal"> Cancel Orders
-                    </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOrders.length}}</span></a>
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'cancelOders'}"ng-click="activeMenu = 'cancelOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOdersBool')">
+                    <i class="fas fa-ban"></i> <span class="font-weight-normal"> Cancel Oders
+                    </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'CompletedOrders'}"
-                ng-click="activeMenu = 'CompletedOrders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('completedOrdersBool')"><i
-                        class="fas fa-tasks text-secondary"></i></i> <span class="font-weight-normal"> Completed Orders
-                    </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOrders.length}}</span></a>
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'CompletedOders'}"ng-click="activeMenu = 'CompletedOders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('completedOdersBool')"><i
+                        class="fas fa-tasks"></i></i> <span class="font-weight-normal"> Completed Oders
+                    </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'PaymentStatus'}"
-                ng-click="activeMenu = 'PaymentStatus'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i
-                        class="far fa-credit-card text-primary"></i>
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PaymentStatus'}"ng-click="activeMenu = 'PaymentStatus'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i class="far fa-credit-card"></i>
                     <span class="font-weight-normal"> Payment Status
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === 'Feedback'}" ng-click="activeMenu = 'Feedback'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'Feedback'}"ng-click="activeMenu = 'Feedback'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
-                    <i class="fas fa-comment-alt text-default"></i> <span class="font-weight-normal"> Feedback
+                    <i class="fas fa-comment-alt"></i> <span class="font-weight-normal"> Feedback
                     </span></a>
             </li>
-            <li class="p-2" ng-class="{active : activeMenu === ' WeeklyMenu'}" ng-click="activeMenu = ' WeeklyMenu'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === ' WeeklyMenu'}"ng-click="activeMenu = ' WeeklyMenu'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
@@ -194,7 +189,7 @@
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
 
-                    <!--Card image-->
+                   
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header danger-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
@@ -454,8 +449,7 @@
                 <div class="card card-cascade narrower mt-3 ">
 
                     <!--Card image-->
-                    <div
-                        class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                    <div class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -482,7 +476,7 @@
                     </div>
                     <div class="px-4">
                         <div class="table-wrapper table-responsive">
-                            <table class="table table-hover mb-0 mt-1">
+                            <table class="table table-hover mb-1 mt-1">
                                 <thead>
                                     <tr>
                                         <th class="th-lg font-weight-bold ">
@@ -615,7 +609,10 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </div> 
+               
+            
+               
             </div>
         </div>
 
@@ -670,20 +667,19 @@
 
                     </ul>
                 </div>
-
+                  
                 <script type="text/ng-template" id="nodes_renderer.html">
-                    <br>
                     <div class="design-box">
                       <button class="btn btn-info btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
-                            <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
+                     <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
                       </button>
                        <div style="padding: 10px; background-color:white">
-                        <div class='form-group'>
-                          <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
-                        </div>
+                        <div class='form-group'> 
+                           <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+                        </div> 
 
-                        <div ng-if="$parentNodeScope">
-                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</lebel>
+                       <div ng-if="$parentNodeScope">
+                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</label>
                               <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
                               <div ng-if="node.isFoodItem">
                                   <label class="menu-label">is Veg:</label>
@@ -703,29 +699,33 @@
                                   <input type="number" class='form-control border-show' ng-disabled="node.isInserted" ng-model='node.price' focus>
                                   </label>
                         </div>
-                      </div>
-                      <!-- <button class='btn btn-primary' ng-click='addsection($nodes,$index)'>{{}}</button> -->
-                      <input type="submit" class="btn btn-info" value="Add Menu" ng-click="addsection($nodes,$index)">
+                      </div> 
+                     
+                       <input type="submit" class="btn btn-info" value="Add Menu" ng-click="addsection($nodes,$index)">
                       <input type="submit" ng-if="!node.isFoodItem" class="btn btn-info" value="Add Sub-menu" ng-click="addchild(node)">
                       <input type="submit" ng-if="!node.id" class="btn btn-info" value="Save" ng-click="saveInDb(node,'Monday')">
                       <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Edit" ng-click="node.isInserted=false">
                       <input type="submit" ng-if="(node.id) && (!node.isInserted)" class="btn btn-danger" value="Update" ng-click="updateMenu(node)">
                       <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Remove" ng-click="deleteNode(node,'Monday')">
 
-                    </div>
-                    <ul ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                  
+                    <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
                       <li ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
                       </li>
                     </ul>
-                </div>
+                
                 </script>
                 <div ui-tree>
-                    <ul ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
+                    <ul  class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
                         <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
                     </ul>
                 </div>
             </div>
 
+            
+           
+                   
+        
         </div>
         <!-- ============================ End Set Weekly Menu=============================================-->
     </div>

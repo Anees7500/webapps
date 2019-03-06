@@ -30,7 +30,7 @@
     color: #7386D5;
     transition: all 0.3s;
     overflow: scroll;
-   
+
 }
 
 #sidebar ul li span:nth-child(2) {
@@ -43,8 +43,13 @@
 #sidebar ul .open>a,
 #sidebar ul li.dropdown .dropdown-menu li:hover,
 #sidebar ul li:hover {
-    background-color:#cfd8dc ;
+    background-color: #cfd8dc;
     color: #fff;
+}
+
+li>a:hover {
+    background-color: #c5ccce;
+
 }
 
 /* ------------------CONTENT STYLE------------------------ */
@@ -87,33 +92,6 @@
     }
 }
 
-ul.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: #eee;
-}
-
-ul.breadcrumb li {
-    display: inline;
-    font-size: 18px;
-}
-
-ul.breadcrumb li+li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0";
-}
-
-ul.breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none;
-}
-
-ul.breadcrumb li a:hover {
-    color: #01447e;
-    text-decoration: underline;
-}
-
 /* image css */
 .centered {
     top: 50%;
@@ -125,8 +103,6 @@ ul.breadcrumb li a:hover {
 /*  login page css*/
 .image1 {
     height: 426px;
-    /* opacity: 0.5;
-    filter: alpha(opacity=50); */
 }
 
 @media (max-width: 400px) {
@@ -662,12 +638,12 @@ body {
     overflow: hidden;
 }
 
- #map {
+#map {
     height: 300px;
     margin: 20px 0;
     border-radius: 5px;
     border: 1px solid silver;
-} 
+}
 
 .slider {
     -webkit-appearance: none;
@@ -701,37 +677,45 @@ body {
     background: rgb(9, 6, 15);
     cursor: pointer;
 }
+
 /* social icon profile */
 .effect {
     width: 100%;
     padding: 50px 0px 70px 0px;
     background-color: #212121;
-  }
-  .effect h2 {
+}
+
+.effect h2 {
     color: #fff;
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     font-size: 25px;
     letter-spacing: 3px;
-  }
-  .effect:nth-child(2) {
+}
+
+.effect:nth-child(2) {
     margin-top: 50px;
-  }
-  .effect:nth-child(2n+1) {
+}
+
+.effect:nth-child(2n+1) {
     background-color: #fff;
-  }
-  .effect:nth-child(2n+1) h2 {
+}
+
+.effect:nth-child(2n+1) h2 {
     color: #212121;
-  }
-  .effect .buttons {
+}
+
+.effect .buttons {
     margin-top: -40px;
     display: flex;
     /* justify-content: center; */
-  }
-  .effect a:last-child {
+}
+
+.effect a:last-child {
     margin-right: 0px;
-  }
-  .effect a {
+}
+
+.effect a {
     text-decoration: none !important;
     color: #fff;
     width: 44px;
@@ -744,58 +728,182 @@ body {
     font-size: 22Fpx;
     overflow: hidden;
     position: relative;
-  }
-  .effect a i {
+}
+
+.effect a i {
     position: relative;
     z-index: 3;
-  }
-  .effect a.fb {
+}
+
+.effect a.fb {
     background-color: #3b5998;
-  }
-  .effect a.tw {
+}
+
+.effect a.tw {
     background-color: #00aced;
-  }
-  .effect a.g-plus {
+}
+
+.effect a.g-plus {
     background-color: #dd4b39;
-  }
-  .effect a.dribbble {
+}
+
+.effect a.dribbble {
     background-color: #ea4c89;
-  }
-  .effect a.pinterest {
+}
+
+.effect a.pinterest {
     background-color: #cb2027;
-  }
-  .effect a.insta {
+}
+
+.effect a.insta {
     background-color: #bc2a8d;
-  }
-  .effect a.in {
+}
+
+.effect a.in {
     background-color: #007bb6;
-  }
-  .effect a.vimeo {
+}
+
+.effect a.vimeo {
     background-color: #1ab7ea;
-  }
-  
-  /* aeneas effect */
-  .effect.aeneas a {
+}
+
+/* aeneas effect */
+.effect.aeneas a {
     transition: border-top-left-radius 0.1s linear 0s, border-top-right-radius 0.1s linear 0.1s, border-bottom-right-radius 0.1s linear 0.2s, border-bottom-left-radius 0.1s linear 0.3s, -webkit-transform 0.4s linear 0s;
     transition: transform 0.4s linear 0s, border-top-left-radius 0.1s linear 0s, border-top-right-radius 0.1s linear 0.1s, border-bottom-right-radius 0.1s linear 0.2s, border-bottom-left-radius 0.1s linear 0.3s;
     transition: transform 0.4s linear 0s, border-top-left-radius 0.1s linear 0s, border-top-right-radius 0.1s linear 0.1s, border-bottom-right-radius 0.1s linear 0.2s, border-bottom-left-radius 0.1s linear 0.3s, -webkit-transform 0.4s linear 0s;
-  }
-  .effect.aeneas a i {
+}
+
+.effect.aeneas a i {
     transition: -webkit-transform 0.4s linear 0s;
     transition: transform 0.4s linear 0s;
     transition: transform 0.4s linear 0s, -webkit-transform 0.4s linear 0s;
-  }
-  .effect.aeneas a:hover {
+}
+
+.effect.aeneas a:hover {
     -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
     border-radius: 50%;
-  }
-  .effect.aeneas a:hover i {
+}
+
+.effect.aeneas a:hover i {
     -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
-  }
-  /* social icon profile end */
-  #mytable input{
-    width:100%;
-  }
- 
+    transform: rotate(-360deg);
+}
+
+/* social icon profile end */
+
+/* calling data */
+#mytable input {
+    width: 100%;
+}
+
+/* calling data end*/
+
+/*======================My leads====================== */
+
+div.card {
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, .87);
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+div.card.card-plain {
+    background: transparent;
+    box-shadow: none;
+}
+
+div.card .card-header {
+    border-radius: 3px;
+    padding: 1rem 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border: 0;
+    background: linear-gradient(60deg, #eee, #bdbdbd);
+}
+
+.card-plain .card-header:not(.card-avatar) {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.div.card .card-body {
+    padding: 15px 30px;
+}
+
+div.card .card-header-primary {
+    background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
+    color: white;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(62, 31, 236, 0.6);
+}
+
+.card-nav-tabs .card-header {
+    margin-top: -30px !important;
+}
+
+.card .card-header .nav-tabs {
+    padding: 0;
+}
+
+.nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    background-color: hsla(0, 0%, 100%, .2);
+    transition: background-color .3s .2s;
+}
+
+.nav-tabs .nav-item .nav-link {
+    border: 0 !important;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-item .nav-link {
+    color: #fff;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 10px 15px;
+    background-color: transparent;
+    transition: background-color .3s 0s;
+}
+
+.nav-link {
+    display: block;
+}
+
+.nav-tabs .nav-item .material-icons {
+    margin: -1px 5px 0 0;
+    vertical-align: middle;
+}
+
+.nav .nav-item {
+    position: relative;
+}
+
+/*======================My leads end====================== */
