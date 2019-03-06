@@ -1,8 +1,8 @@
-adminApp.controller('DashboardController', ['$scope', '$http', 'CompanydashboardService', 'getAllCompanyUrl',
-  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl','$cookies', '$location', '$route', 'Notification',
-  function ($scope, $http, CompanydashboardService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
+adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsService', 'getAllCompanyUrl',
+  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl','$cookies', '$location', '$route', 'Notification','companySignupUrl',
+  function ($scope, $http, companydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
     getAllVendorListUrl, getImageUrl,  $cookies,$location,$route,
-    Notification) {
+    Notification,companySignupUrl) {
 
       $scope.logout = function(){
         $cookies.remove('id');    
@@ -68,6 +68,25 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'Companydashboard
       }
 
     });
+
+    var req = {      
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+     
+    // $scope.saveCompany = function(comp){
+    //   console.log("company details",comp);
+    //   debugger;
+    //   $http.post(companySignupUrl,comp,req).then(function(response){
+    //     console.log("response of company service",response);
+
+    //   },function(reason){
+
+    //   })
+
+   
+    // }
 
 
 
