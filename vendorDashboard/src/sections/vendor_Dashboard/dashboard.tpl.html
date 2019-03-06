@@ -10,38 +10,46 @@
     <!--------------------Main Navigation------------------------------------->
     <nav id="sidebar" class="z-depth-1-half position-fixed h-100 mt-5">
         <ul class="list-unstyled components mt-5">
-            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PendingOders'}"ng-click="activeMenu = 'PendingOders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOdersBool')">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PendingOrders'}"
+                ng-click="activeMenu = 'PendingOrders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOrdersBool')">
                     <i class="fas fa-hourglass-half"></i></i> <span class="font-weight-normal"> Pending
-                        Oders </span><span class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
+                        Orders </span><span
+                        class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
             </li>
-            <li class="p-2  mb-1" ng-class="{active : activeMenu === 'confirmedOders'}"ng-click="activeMenu = 'confirmedOders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOdersBool')"><i
+            <li class="p-2  mb-1" ng-class="{active : activeMenu === 'confirmedOrders'}"
+                ng-click="activeMenu = 'confirmedOrders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOrdersBool')"><i
                         class="fas fa-check-circle"></i></i> <span class="font-weight-normal"> confirmed
-                        Oders
+                        Orders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
             </li>
-            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'cancelOders'}"ng-click="activeMenu = 'cancelOders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOdersBool')">
-                    <i class="fas fa-ban"></i> <span class="font-weight-normal"> Cancel Oders
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'cancelOrders'}"
+                ng-click="activeMenu = 'cancelOrders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOrdersBool')">
+                    <i class="fas fa-ban"></i> <span class="font-weight-normal"> Cancel Orders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
             </li>
-            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'CompletedOders'}"ng-click="activeMenu = 'CompletedOders'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('completedOdersBool')"><i
-                        class="fas fa-tasks"></i></i> <span class="font-weight-normal"> Completed Oders
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'CompletedOrders'}"
+                ng-click="activeMenu = 'CompletedOrders'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('completedOrdersBool')"><i
+                        class="fas fa-tasks"></i></i> <span class="font-weight-normal"> Completed Orders
                     </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
             </li>
-            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PaymentStatus'}"ng-click="activeMenu = 'PaymentStatus'">
-                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i class="far fa-credit-card"></i>
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PaymentStatus'}"
+                ng-click="activeMenu = 'PaymentStatus'">
+                <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i
+                        class="far fa-credit-card"></i>
                     <span class="font-weight-normal"> Payment Status
                     </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
-            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'Feedback'}"ng-click="activeMenu = 'Feedback'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === 'Feedback'}" ng-click="activeMenu = 'Feedback'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
                     <i class="fas fa-comment-alt"></i> <span class="font-weight-normal"> Feedback
                     </span></a>
             </li>
-            <li class="p-2 mb-1" ng-class="{active : activeMenu === ' WeeklyMenu'}"ng-click="activeMenu = ' WeeklyMenu'">
+            <li class="p-2 mb-1" ng-class="{active : activeMenu === ' WeeklyMenu'}"
+                ng-click="activeMenu = ' WeeklyMenu'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
                         Weekly Menu</span></a>
@@ -61,7 +69,7 @@
                     <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
                     <a href="#!/companies">Home/</a>
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
-                    <a href="">/Pending</a></h6>
+                    <a href="">/Pending Orders</a></h6>
             </nav>
 
             <div class="container">
@@ -179,17 +187,17 @@
 
         <!-- ============================ Strat Cancel Orders ===========================================-->
         <div ng-if="cancelOrdersBool">
-                <nav class="navbar navbar-expand-lg mt-2">
-                        <h6 class="navbar-brand w-clr font-small font-weight-normal">
-                            <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
-                            <a href="#!/companies">Home/</a>
-                            <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
-                            <a href="">/Cancel Orders</a></h6>
-                    </nav>
+            <nav class="navbar navbar-expand-lg mt-2">
+                <h6 class="navbar-brand w-clr font-small font-weight-normal">
+                    <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
+                    <a href="#!/companies">Home/</a>
+                    <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a href="">/Cancel Orders</a></h6>
+            </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
 
-                   
+
                     <div
                         class="view view-cascade z-depth-1-half gradient-card-header danger-color-dark  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
@@ -289,10 +297,11 @@
         <!-- ============================ Strat completed Orders ===========================================-->
         <div ng-if="completedOrdersBool">
             <nav class="navbar navbar-expand-lg mt-2">
-                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Cancel Orders</a>
-                </h6>
-
+                <h6 class="navbar-brand w-clr font-small font-weight-normal">
+                    <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
+                    <a href="#!/companies">Home/</a>
+                    <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a href="">/completed Orders</a></h6>
             </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
@@ -402,8 +411,11 @@
         <!-- ============================ Strat payment  Status===========================================-->
         <div ng-if="paymentStatusBool">
             <nav class="navbar navbar-expand-lg mt-2">
-                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Cancel Orders</a></h6>
+                <h6 class="navbar-brand w-clr font-small font-weight-normal">
+                    <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
+                    <a href="#!/companies">Home/</a>
+                    <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a href="">/Payment Status</a></h6>
             </nav>
             <div class="container">
                 <div class="row">
@@ -449,7 +461,8 @@
                 <div class="card card-cascade narrower mt-3 ">
 
                     <!--Card image-->
-                    <div class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
+                    <div
+                        class="view view-cascade z-depth-1-half gradient-card-header info-color-dark py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -533,9 +546,11 @@
         <!-- ============================ start feedback ===========================================-->
         <div ng-if="feedbackBool">
             <nav class="navbar navbar-expand-lg mt-2">
-                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Feedback</a></h6>
-
+                <h6 class="navbar-brand w-clr font-small font-weight-normal">
+                    <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
+                    <a href="#!/companies">Home/</a>
+                    <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a href="">/Feedback</a></h6>
             </nav>
             <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
@@ -609,10 +624,10 @@
                             </span>
                         </div>
                     </div>
-                </div> 
-               
-            
-               
+                </div>
+
+
+
             </div>
         </div>
 
@@ -621,10 +636,12 @@
 
         <!-- ============================ Start Set Weekly Menu=============================================-->
         <div ng-if="setWeeklyMenuBool">
-            <nav class="navbar navbar-expand-md">
-                <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-                        Set Weekly Menu</a>
-                </h6>
+            <nav class="navbar navbar-expand-lg mt-2">
+                <h6 class="navbar-brand w-clr font-small font-weight-normal">
+                    <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
+                    <a href="#!/companies">Home/</a>
+                    <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                    <a href="">/Set Weekly Menu</a></h6>
             </nav>
             <div class="container">
                 <div class="border-bottom  border-info mr-1 ml-3 mt-3">
@@ -667,7 +684,7 @@
 
                     </ul>
                 </div>
-                  
+
                 <script type="text/ng-template" id="nodes_renderer.html">
                     <div class="design-box">
                       <button class="btn btn-info btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
@@ -716,16 +733,15 @@
                 
                 </script>
                 <div ui-tree>
-                    <ul  class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes'>
+                    <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root"
+                        ng-init='$nodes = menuNodes'>
                         <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
                     </ul>
                 </div>
             </div>
 
-            
-           
-                   
-        
+
+
         </div>
         <!-- ============================ End Set Weekly Menu=============================================-->
     </div>
