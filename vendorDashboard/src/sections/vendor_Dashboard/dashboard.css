@@ -52,14 +52,16 @@
     opacity: 0.7 linear;
 }
 #sidebar ul li.active {
-    background : #3F729B;
-    color: white;
+    background :#eeeeee ;
+    color: #0099CC;
   }
 #sidebar ul .open>a,
 #sidebar ul li.dropdown .dropdown-menu li:hover,
 #sidebar ul li:hover {
-   color:indianred;}
-
+    background-color:#eeeeee;
+    color: #0099CC;}
+#sidebar ul li i .fas:hover{
+    color: #0099CC;}
 /* ---------------MEDIAQUERIES---------------- */
 @media (max-width: 768px) {
     #sidebar {

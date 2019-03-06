@@ -10,6 +10,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         // $scope.sortingOrder = sortingOrder;
 
         var vendorId = 1;
+        var companyId = 1;
         // var companyId = 1;
 
         $scope.menuNodes = [];
@@ -32,17 +33,17 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         $scope.boolFunction = function (value) {
             console.log("boolFunction", value);
 
-            $scope.pendingOdersBool = false;
-            $scope.confirmedOdersBool = false;
-            $scope.cancelOdersBool = false;
-            $scope.completedOdersBool = false;
+            $scope.pendingOrdersBool = false;
+            $scope.confirmedOrdersBool = false;
+            $scope.cancelOrdersBool = false;
+            $scope.completedOrdersBool = false;
             $scope.paymentStatusBool = false;
             $scope.feedbackBool = false;
             $scope.setWeeklyMenuBool = false;
             $scope.extraCode = false;
             $scope[value] = true;
         }
-        $scope.boolFunction("pendingOdersBool");
+        $scope.boolFunction("pendingOrdersBool");
 
         // =============================== set menu =========================================
         $scope.workingDays = [
@@ -54,8 +55,8 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             { day: "Saturday", selected: false, dbName: "saturday" },
             { day: "Sunday", selected: false, dbName: "sunday" }
         ];
-        //================================ Cancel Oders ====================================
-        $scope.cancelOderHistroy = [
+        //================================ Cancel Orders ====================================
+        $scope.cancelOrderHistroy = [
             { menuItemName: "Egg Burji Omellete", menuItemCount: "3", totalAmount: "180", orderOn: "10/02/2018", paymentMode: "Online", paymentStatus: "Done", ordersStatus: "Delivered" },
             { menuItemName: "Egg Burji", menuItemCount: "1", totalAmount: "110", orderOn: "21/02/2018", paymentMode: "Online", paymentStatus: "Done", ordersStatus: "Delivered" },
             { menuItemName: "Omellete", menuItemCount: "3", totalAmount: "180", orderOn: "2/03/2018", paymentMode: "Cash on", paymentStatus: "Received", ordersStatus: "Delivered" },
@@ -89,7 +90,6 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             };
             var children = _.filter(array, function (child) {
                 child.isInserted = true;
-                // console.log("child.menuNodes,child.menuType",child.menuNodes,child.menuType);
                 if (child.menuNodes == null) {
                     child.menuNodes = [];
                 }
@@ -100,13 +100,12 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                     }
                     else if (child.menuType === "egg") {
                         child.isEgg = true;
-                        // console.log("isegg");
+                       
                     }
                 }
                 return child.parentId == parent.id;
             });
             if (!_.isEmpty(children)) {
-                // console.log("parent.id",parent.id);
                 if (parent.id == 0 || parent.id == null) {
                     tree = children;
                 } else {
@@ -121,44 +120,31 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
 
 
-        // var getMenuMonUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
-        // console.log("getMenuMonUrl 2000000", getMenuMonUrl);
+        var getMenuMonUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
+        console.log("getMenuMonUrl 2000000", getMenuMonUrl);
 
-        // var promis = $http.get(getMenuMonUrl);
+        var promis = $http.get(getMenuMonUrl);
 
-        // promis.then(function (response) {
-        //     $scope.myNode = response.data.data.menus;
-        //     // console.log("$scope.myNode.MONDAY 000000000",_.isEmpty($scope.myNode.MONDAY));
-        //     // for monday by default load
+        promis.then(function (response) {
+            $scope.myNode = response.data.data.menus;
+            if (!_.isEmpty($scope.myNode.MONDAY)) {
+                console.log("yehhhh true 4545")
+                $scope.menuNodes = unflatten($scope.myNode.MONDAY);
+                console.log("menu node after update ", $scope.menuNodes);
+            }
+            else {
+                $scope.menuNodes = [{
 
-        //     if (!_.isEmpty($scope.myNode.MONDAY)) {
-        //         console.log("yehhhh true 4545")
-        //         $scope.menuNodes = unflatten($scope.myNode.MONDAY);
-        //         console.log("menu node after update ", $scope.menuNodes);
-        //     }
-        //     else {
-        //         $scope.menuNodes = [{
-
-        //             uid: uuid.new(),
-        //             menuName: "",
-        //             menuNodes: [],
-        //             isFoodItem: false
-        //         }];
-        //     }
-        //     // by default end monday
-        // });
-
-        //add menu
-        // var bigrandom = require('bigrandom');
+                    uid: uuid.new(),
+                    menuName: "",
+                    menuNodes: [],
+                    isFoodItem: false
+                }];
+            }
+        });
 
         $scope.addsection = function (nodes, index) {
-
-            // console.log("function(nodes, index) 0003",nodes, index);
             var uid = uuid.new();
-            // console.log("isfood item 5555",nodes[index]);
-            // console.log("var uid",uid);
-            // console.log("nodes[index]",JSON.stringify(nodes[index]));
-            // console.log("isFoodItem",isFoodItem);
 
             if (nodes[index].isFoodItem) {
                 console.log("inside if");
@@ -197,22 +183,15 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 parentNodeId: node.uid
             });
         }
-        // add menu ends here
 
         $scope.submitMenu = function () {
             sectionService.submitMenu($scope.menuNodes, $scope.restaurantId);
         }
 
-        // $scope.myfun = function(n) {
-        //   console.log("check m 1",n)
-        // }
-
         $scope.saveInDb = function (node, dayName) {
-            // console.log("check cheeeckkkkk 1 in ctrl file",node)
 
             saveMenuService.submitMenu(node, $scope.restaurantId, companyId, dayName)
                 .then(function (returnedSaveMenu) {
-                    // console.log("returnedSaveMenu 001",returnedSaveMenu);
                     checkMe();
                     if (returnedSaveMenu !== null) {
                         updateMenuNode($scope.menuNodes, returnedSaveMenu);
@@ -223,11 +202,8 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         $scope.updateMenu = function (node) {
             VendorDashboardService.updateMenu(node, $scope.restaurantId)
                 .then(function (returnedUpdatedMenu) {
-                    // console.log("returnedUpdatedMenu",returnedUpdatedMenu);
-                    // console.log("returnedUpdatedMenu.length",returnedUpdatedMenu.length);
                     checkMe();
                     if (returnedUpdatedMenu !== null) {
-                        // console.log("value that are being passed here 000: ",returnedUpdatedMenu);
                         updateMenuNode($scope.menuNodes, returnedUpdatedMenu);
                     }
                 });
@@ -338,135 +314,6 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             }
         };
 
-
-        // $scope.menuNodes = [{
-        //
-        //     uid: uuid.new(),
-        //     menuName: "",
-        //     menuNodes: [],
-        //     isFoodItem: false
-        // }];
-
-        // cash and carry section  --> end
-
-
-        $scope.dayShow = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        // $scope.daysss = ['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY'];
-        $scope.daysss = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        $scope.type = ['BREAKFAST', 'LUNCH', 'SNACKS', 'DINNER'];
-
-        $scope.companyRequirements = [];
-        var mondayObj = {};
-        mondayObj.dayName = "MONDAY";
-
-        var tuesdayObj = {};
-        tuesdayObj.dayName = "TUESDAY";
-
-        var wednesdayObj = {};
-        wednesdayObj.dayName = "WEDNESDAY";
-
-        var thursdayObj = {};
-        thursdayObj.dayName = "THURSDAY";
-
-        var fridayObj = {};
-        fridayObj.dayName = "FRIDAY";
-
-        var saturdayObj = {};
-        saturdayObj.dayName = "SATURDAY";
-
-        var sundayObj = {};
-        sundayObj.dayName = "SUNDAY";
-
-        $scope.companyRequirements.push(mondayObj);
-        $scope.companyRequirements.push(tuesdayObj);
-        $scope.companyRequirements.push(wednesdayObj);
-        $scope.companyRequirements.push(thursdayObj);
-        $scope.companyRequirements.push(fridayObj);
-        $scope.companyRequirements.push(saturdayObj);
-        $scope.companyRequirements.push(sundayObj);
-
-        // var getCompUrl = getCompanyReqUrl+$routeParams.compId;
-        // $http.get(getCompUrl).then(function(response)
-        // {
-        //   for(var i = 0; i <$scope.companyRequirements.length; i++){
-        //     for(var j = 0; j <response.data.data.requirements.length; j++){
-        //       if($scope.companyRequirements[i].dayName === response.data.data.requirements[j].dayName){
-        //         $scope.companyRequirements[i] = response.data.data.requirements[j];
-        //       }
-        //     }
-        //   }
-        // });
-
-        var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
-        $http.get(getCompProfileUrl).then(function (response) {
-            $scope.cmpyName = response.data.data.company.companyName;
-            if (response.data.data.company.breakfast == true) { $scope.breakfast_active = true }
-            if (response.data.data.company.lunch == true) { $scope.lunch_active = true }
-            if (response.data.data.company.snacks == true) { $scope.snacks_active = true }
-            if (response.data.data.company.dinner == true) { $scope.dinner_active = true }
-            if (response.data.data.company.cashNCarry == true) { $scope.cashNCarry_active = true }
-        });
-
-        $rootScope.date = new Date();
-        var d = new Date();
-        d.getHours();
-        d.getMinutes();
-        d.getSeconds();
-
-        var tttime = d.getHours();
-        $cookies.put('tttime', tttime);
-        var time = $cookies.get('tttime');
-
-        //___________________________________
-        var dayInt = $scope.date.getDay();
-        for (var i = 0; i < 7; i++) {
-            if (dayInt === i) {
-                $rootScope.finalDay = $scope.dayShow[i];
-                // console.log("final day",$scope.finalDay);
-                var companyId = $routeParams.compId;
-                var getDashboardMenu = getCompanySectionReqUrl + $routeParams.compId;
-                // console.log("Final Get API",getDashboardMenu);
-                $http.get(getDashboardMenu).then(function (response) {
-                    // console.log("DAY CHECKING",JSON.stringify($scope.finalDay));
-
-                    // console.log("check length",response.data.data.menus.length);
-                    for (var i = 0; i < response.data.data.menus.length; i++) {
-                        // console.log("Inside final looooppppp1 length ->",response.data.data.menus.length);
-                        // console.log("1 , 2, 3",$scope.finalDay,response.data.data.menus[i].dayName, response.data.data.menus[i].menuType);
-                        //....................................................................
-                        if ($scope.finalDay == response.data.data.menus[i].dayName && $scope.type[0] == response.data.data.menus[i].menuType) {
-
-                            // console.log("",response.data.data.menus[i].menu);
-
-                            var menu = JSON.parse(response.data.data.menus[i].menu);
-                            $scope.breakfast_item = menu;
-                            // console.log("Today BREAKFAST-> Successfully match......",$scope.breakfast_item);
-                        } else if ($scope.finalDay == response.data.data.menus[i].dayName && $scope.type[1] == response.data.data.menus[i].menuType) {
-                            var menu = JSON.parse(response.data.data.menus[i].menu);
-                            $scope.lunch_item = menu;
-                            // console.log("Today LUNCH-> Successfully match......",$scope.lunch_item);
-                        } else if ($scope.finalDay == response.data.data.menus[i].dayName && $scope.type[2] == response.data.data.menus[i].menuType) {
-                            var menu = JSON.parse(response.data.data.menus[i].menu);
-                            $scope.snacks_item = menu;
-                            // console.log("Today SNACKS-> Successfully match......",$scope.snacks_item);
-                        } else if ($scope.finalDay == response.data.data.menus[i].dayName && $scope.type[3] == response.data.data.menus[i].menuType) {
-                            var menu = JSON.parse(response.data.data.menus[i].menu);
-                            $scope.dinner_item = menu;
-                            // console.log("Today DINNER-> Successfully match......",$scope.dinner_item);
-                        }
-                        //.....................................................................
-                    }
-                })
-            }
-            // else {
-            // }
-        }
-
-
-        $scope.processComplete = function () {
-            $scope.enableStep4();
-        }
-
         $scope.cId = $routeParams.compId;
         $scope.saveMenu = function (menu, menuType, dayName) {
             // console.log("menu  ctrl: ", JSON.stringify(menu));
@@ -567,7 +414,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         // ================================= confirmed Oders =================================
 
-        $scope.makeConfirmedOders = function (obj) {
+        $scope.makeConfirmedOrders = function (obj) {
             obj.confirmed = obj.confirmed ? false : true;
         }
         // ================================= Employee Feedback =================================
@@ -576,12 +423,9 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         $http.get(getFeedbackUrl).then(function (response) {
             $scope.feedback = response.data.data.reviews;
 
-            $scope.reverse = false;
-            $scope.filteredItems = [];
-            $scope.groupedItems = [];
-            $scope.itemsPerPage = 7;
+             $scope.itemsPerPage = 7;
             $scope.pagedItems = [];
-            $scope.currentPage = 0;
+            // $scope.currentPage = 0;
 
             $scope.search = function () {
 
@@ -636,7 +480,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         });
 
-        //================================ Pending Oders ====================================
+        //================================ Pending Orders ====================================
         var activeBookingListUrl = getSmartCafeteriaOrders + "?companyId=" + 1 + "&bookerId=" + 77 + "&type=pending";
         $http.get(activeBookingListUrl).then(function (response) {
             $scope.activeBookingList = response.data.data.bookings;
@@ -669,7 +513,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
 
 // to active side menu
-$scope.activeMenu = 'PendingOders'; 
+$scope.activeMenu = 'PendingOrders'; 
 
 
 
