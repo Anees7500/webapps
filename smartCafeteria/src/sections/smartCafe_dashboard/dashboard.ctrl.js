@@ -1,7 +1,7 @@
 empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVendorMenuList', '$http', '$location', '$cookies',
-  'Notification', '$route', '$rootScope', 'getVendorList','CartService',
+  'Notification', '$route', '$rootScope', 'getVendorList','CartService','NavBoolService',
   function ($scope, DashboardService, getVendorMenuList, $http, $location, $cookies, Notification,
-    $route, $rootScope, getVendorList, CartService) {
+    $route, $rootScope, getVendorList, CartService,NavBoolService) {
 
     // ============= Logout ==================================
 
@@ -17,6 +17,9 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     //   $route.reload();
     // }
 
+    $scope.getNavBool = function(){
+      return NavBoolService.getNavBool();
+    }
 
     var companyId = 1;
 

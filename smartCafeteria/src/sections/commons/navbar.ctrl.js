@@ -1,8 +1,10 @@
 empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$location', '$route', 'NavbarService',
-  function ($scope, $cookies, Notification, $location, $route, NavbarService) {
+'NavBoolService','SMCNotifications',
+  function ($scope, $cookies, Notification, $location, $route, NavbarService,NavBoolService, SMCNotifications) {
 
     //========================= Logout funtion ======================
     console.log("inside navbar controller");
+    $scope.name = "aman";
     $scope.logout = function () {
       $cookies.remove('eId');
       $cookies.remove('rId');
@@ -16,13 +18,14 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
     }
 
     $scope.boolFunction = function (value) {
-      debugger;
       console.log("boolFunction", value); 
       $scope.walletBool = false;
       $scope.settingsBool = false;
       $scope.termsAndPolicyBool = false;
       $scope[value] = true;
-      $scope.navBool = true;
+
+      NavBoolService.setNavBool(true);
+
     }
 
     // $scope.booleans = NavbarService.boolFunction(value);
@@ -32,6 +35,7 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
       $scope.add = $scope.add ? false : true;
     }
    
+    $scope.notifObj = SMCNotifications.updateVal();
     // $scope.boolFunction = function(value)
     // {
     //   $scope.booleans = NavbarService.boolFunction(value);
