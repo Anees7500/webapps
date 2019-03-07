@@ -1,3 +1,12 @@
+<style>
+  #map {
+    height: 300px;
+    margin: 5px 5px 5px 0px;
+    border-radius: 5px;
+    border: 1px solid silver;
+  }
+</style>
+
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
@@ -249,129 +258,130 @@
 
 
     <!-- ====================== Add-New-Company ================================== -->
-    <div ng-if="addNewCompanyBool">
-      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
-        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i
-              class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Add new-company</a></h6>
-        <form class="form-inline  ml-auto">
-          <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
-            id="search-height">
-        </form>
-      </nav>
-      <div class="container ">
-        <div class="ml-5">
-          <form name="resForm" class="border mr-5 form-horizontal" novalidate ng-submit="send()">
-            <div class="row ml-0 mr-0">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                <div class="h5 ">Maps container</div>
+    <div ng-if="addNewCompanyBool" class="ml-4 mt-3 mr-2" ng-controller="newPlaceCtrl">
+      <form name="searchForm" novalidate ng-submit="search()">
+        <div class="input-group">
+          <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace" required
+            autofocus />
+          <span class="input-group-btn">
+            <a class="btn btn-info btn-md mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+          </span>
+        </div>
+      </form>
+      <div id="map"></div>
+      <form name="resForm" class="form-inline mt-2">
+
+        <div class="col-md-6 pl-0">
+
+          <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Company
+            Name:</legend>
+          <div class="col-xs-10">
+            <input name="resName" type="text" class="form-control text-capitalize " style="width: 95%"
+              ng-model="place.companyName" required />
+          </div>
+        </div>
+        <div class="col-md-3 ">
+          <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Latitude:</legend>
+          <div class="col-xs-10">
+            <input name="resLat" type="number" class="form-control" style="width: 90%" ng-model="place.latitude"
+              required />
+          </div>
+        </div>
+        <div class="col-md-3 ">
+          <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Longitude:</legend>
+          <div class="col-xs-10">
+            <input name="resLng" type="number" class="form-control" style="width: 88%" ng-model="place.longitute"
+              required />
+          </div>
+        </div>
+
+
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="">
+              <legend class="text-info font-weight-bold mask small ">Company Address:</legend>
+              <input class="form-control text-capitalize" style="width: 100%;" type="text"
+                placeholder="enter company address" aria-label="Search" ng-model="place.address" required>
+            </div>
+            <div class="mt-3">
+              <legend class="text-info font-weight-bold mask small">Email Id:</legend>
+              <input class="form-control " style="width: 100%;" type="email" placeholder="enter email id"
+                ng-model="place.contactEmailId" aria-label="Search">
+            </div>
+            <div class="mt-3">
+              <div class="input-group">
+                <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
+                <input type="number" name="" class="form-control" placeholder="enter your mobile no"
+                  ng-model="place.contactNumber" />
               </div>
             </div>
-          </form>
-          <!--Google Maps-->
-          <form class="border mr-5">
-            <div class="row mt-5 ml-0 mr-0">
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <label for="usr"> Latitude</label>
-                <input type="number" class="form-control" class="form-control" ng-disabled="true"
-                  ng-model="place.latitude" id="latitude" required>
-              </div>
-
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <label for="usr">Longitude</label>
-                <input type="number" class="form-control" id="lan" class="form-control" ng-disabled="true"
-                  ng-model="place.longitute" required>
-              </div>
-
+          </div>
+          <div class="col-md-6" style="padding-left:45px">
+            <div class="">
+              <legend class="text-info font-weight-bold mask small">Contact person Name:</legend>
+              <input class="form-control " style="width: 100%;" type="text" placeholder="enter contact person"
+                aria-label="Search" ng-model="place.companyPerson">
             </div>
-            <div class="row mt-3 ml-0 mr-0">
-
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <label for="usr">Company Name</label>
-                <input type="text" class="form-control" ng-disabled="" placeholder="Company Name"
-                  ng-model="place.companyName">
-              </div>
-
-              <div class="col-md-5 col-sm-5">
-                <label for="usr">GST Number</label>
-                <input type="text" class="form-control mb-3" placeholder="Enter GST Number" required
-                  ng-model="place.gstNumber">
+            <div class="mt-3">
+              <div class="input-group">
+                <legend class="text-info font-weight-bold mask small">GST Number:</legend>
+                <input type="text" name="gst" class="form-control" placeholder="enter gst number"
+                  ng-model="place.companyGST" />
               </div>
             </div>
-            <div class="row mt-3 ml-0 mr-0">
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <label for="usr">Contact Person Name</label>
-                <input type="text" class="form-control mb-3" placeholder="Enter Contact Person Name" required
-                  ng-model="place.companyName">
+            <div class="row mr-5 mt-3">
+              <!-- Image upload  -->
+              <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png"
+                class="card-img-top img img-responsive btn-outline-info waves-effect zoom ml-3">
+              <div class="d-flex ">
+                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="place.companyLogo">
               </div>
-
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <label for="usr">Contact Number</label>
-                <input type="text" class="form-control mb-3" placeholder="Enter Contact Number" required
-                  ng-model="place.companyPerson">
-              </div>
+              <!-- Image upload  -->
             </div>
-            <div class="row mt-3 ml-0 mr-0">
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <label for="comment">Address</label>
-                <textarea class="form-control" placeholder="Enter Your Address" id="comment" name="address" required
-                  ng-model="place.address"></textarea>
-              </div>
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-
-                <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png"
-                  class="card-img-top img img-responsive btn-outline-info waves-effect zoom ml-3">
-                <div class="d-flex ">
-                  <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-                </div>
-              </div>
-            </div>
-
-
-
-            <button type="button" class="btn btn-outline-default waves-effect mb-5 mt-5" id="btn-block">Submit</button>
-
-          </form>
-
-
+          </div>
+        </div>
+      </form>
+      <div class="row mt-2">
+        <div class="col-md-12">
+          <center><button class="col-md-3 btn btn-info" ng-click="companySignup(place)">Submit</button></center>
         </div>
       </div>
     </div>
 
     <!--===============================/Add-New-Company end===============================-->
 
-
     <!--=============================== Add-New-Vendor end===============================-->
-    <div ng-if="addNewVendorBool">
+    <div ng-if="addNewVendorBool" class="ml-4 mt-3 mr-2" ng-controller="newPlaceCtrl">
       <div class="container mt-3">
         <form name="searchForm" novalidate ng-submit="search()">
           <div class="input-group">
             <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace" required
               autofocus />
             <span class="input-group-btn">
-              <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+              <a class="btn btn-info mt-0 btn-md" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
             </span>
           </div>
         </form>
         <div id="map"></div>
-        <form ng-submit="send()">
+        <form name="resForm">
           <!-- Grid row -->
           <div class="row">
             <div class="col-md-4">
               <div class="form-group ">
                 <label for="form1">vendor kitchen Name:</label>
-                <input type="text" class="form-control " id="form1" ng-model="place.vendorName">
+                <input type="text" class="form-control " id="form1" name="resName" ng-model="place.vendorName">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="form1">Latitude</label>
-                <input type="text" class="form-control " id="form1" ng-model="place.latitude">
+                <input type="text" class="form-control" name="resLat" id="form1" ng-model="place.latitude">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group ">
                 <label for="form1">Longitude</label>
-                <input type="text" class="form-control " id="form1"" ng-model=" place.longitude">
+                <input type="text" class="form-control" name="resLng" id="form1" ng-model="place.longitute">
               </div>
             </div>
           </div>
@@ -411,30 +421,30 @@
             <!-- Grid column -->
           </div>
           <div class="form-row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <nav class="navbar justify-content-center navbar-dark secondary-color-dark">
                 <a class=" text-white">Number of Employee</a>
               </nav>
               <div class="form-group mt-2 row ml-1 ">
-                <label for="inputEmail3" class="col-sm-4 col-form-label">Head Cook</label>
+                <label for="inputEmail3" class="col-sm-6 col-form-label">Head Cook</label>
                 <div class="col-sm-4">
                   <input type="number" class="form-control" id="inputEmail3">
                 </div>
               </div>
               <div class="form-group row ml-1">
-                <label for="inputEmail3" class="col-sm-4 col-form-label">Assiatant Cook</label>
+                <label for="inputEmail3" class="col-sm-6 col-form-label">Assiatant Cook</label>
                 <div class="col-sm-4">
                   <input type="number" class="form-control" id="inputEmail3">
                 </div>
               </div>
               <div class="form-group row ml-1">
-                <label for="inputEmail3" class="col-sm-4 col-form-label">Rest</label>
+                <label for="inputEmail3" class="col-sm-6 col-form-label">Rest</label>
                 <div class="col-sm-4">
                   <input type="number" class="form-control" id="inputEmail3">
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <nav class="navbar justify-content-center navbar-dark secondary-color-dark">
                 <a class=" text-white">Capacity</a>
               </nav>
@@ -444,6 +454,15 @@
                 <input type="checkbox"> <label>Below 500</label></br>
                 <input type="checkbox"> <label>Below 100</label></br>
               </div>
+            </div>
+
+            <div class="col-md-4">
+              <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png"
+                class="card-img-top img img-responsive btn-outline-info waves-effect zoom ml-3">
+              <div class="d-flex mt-4">
+                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="place.companyLogo">
+              </div>
+
             </div>
           </div>
 
@@ -461,7 +480,12 @@
                 <input type="checkbox"> <label>Midnight Snacks</label></br>
                 <input type="checkbox"> <label>Events</label></br>
                 <input type="checkbox"> <label>Tuck shop setup</label></br>
-                <input type="checkbox"> <label>Others</label>
+                <input type="checkbox"  ng-click="ShowHideService()"> 
+                <label for="inputEmail3"  value="Show Hide DIV">Others</label></br>
+                <div ng-show = "IsVisibleService">
+                <input type="text" class="form-control" id="inputEmail3">
+              </div>
+
               </div>
 
             </div>
@@ -473,7 +497,12 @@
                 <input type="checkbox"> <label>North Indian</label></br>
                 <input type="checkbox"> <label>South Indian</label></br>
                 <input type="checkbox"> <label>Chinese</label></br>
-                <input type="checkbox"> <label>Other</label></br>
+                <input type="checkbox" ng-click="ShowHideFoodSpecialty()"> 
+                <label for="input13"  value="Show Hide DIV">Others</label></br>
+                <div ng-show = "IsVisibleFoodSpecialty">
+                <input type="text" class="form-control" id="input13">
+              </div>
+
               </div>
             </div>
 
@@ -488,7 +517,12 @@
                 <input type="checkbox"> <label>GST</label></br>
                 <input type="checkbox"> <label>PF & ESI</label></br>
                 <input type="checkbox"> <label>Employee BGV & PVC</label></br>
-                <input type="checkbox"> <label>Other</label></br>
+                <input type="checkbox" ng-click="ShowHideCertificates()"> 
+                <label for="input4"  value="Show Hide DIV">Others</label></br>
+                <div ng-show = "IsVisibleCertificates">
+                <input type="text" class="form-control" id="input4">
+              </div>
+
               </div>
             </div>
 
@@ -501,21 +535,9 @@
             </div>
           </div>
         </form>
-
-        <!-- <div class="row">
-            <div class="col-md-12">
-                <center><button class="col-md-3 btn btn-info" ng-click="saveLead()">Submit</button></center>
-            </div>
-        </div> -->
       </div>
     </div>
-
-
-
-
-
     <!--===============================End Add-New-Vendor end===============================-->
-
 
 
 

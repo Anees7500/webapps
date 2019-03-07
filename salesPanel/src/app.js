@@ -14,6 +14,10 @@ salesApp.config(['$routeProvider', '$locationProvider',
             templateUrl: 'sections/team_sales/sales.tpl.html',
             controller:'TeamController'
         })
+        .when('/catmap',{
+            templateUrl: 'sections/catering_map/catmap.html',
+            controller:'catMapCtrl'
+        })
 }
 
 ]);
