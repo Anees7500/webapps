@@ -822,7 +822,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-5 ml-3">
+        <div class="row mt-4 ml-3">
           <div class="col-md-5 ml-3 ">
             <p class="text-muted" id="font-add">#1722,First Floor, 19th Main Rd,<br>
               Sector 2, HSR Layout,<br>
@@ -848,7 +848,7 @@
           </div>
         </div>
 
-        <div class="row ml-3 mt-5">
+        <div class="row ml-3 mt-4">
 
           <div class="col-md-4 ml-3">
             <h5 class="font-weight-bold">Invoice for</h5>
@@ -890,9 +890,9 @@
           </div>
         </div>
         <hr class="ml-4 bg-dark mt-1 font-weight-bold">
-        <div class="row ml-5 pb-0">
-          <div class="table-responsive pb-0 ml-5">
-            <table class="table table-borderless pb-0 ml-2" style="width:99%;">
+        <div class="row pb-0">
+          <div class="table-responsive pb-0 ">
+            <table class="table table-borderless pb-0 ml-5" style="width:99%;">
               <thead>
                 <tr>
                   <th id="font-color" class="h5 font-weight-bold ">Description</th>
@@ -923,7 +923,7 @@
 
                   <td class="pb-0 pt-0" style="width:25%">
                     <form>
-                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 mr-2">INR</span>
+                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 ml-1">INR</span>
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
                           ng-model="obj.price">
                           
@@ -934,7 +934,7 @@
                  
                   <td class="pb-0 pt-0" style="width:30%">
                     <form>
-                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 mr-2">INR</span>
+                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 ml-1">INR</span>
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
                           ng-model="obj.amount">
                           
@@ -998,23 +998,23 @@
                   Is IGST Applicable <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable">
               </span>
           </div>
-          <div class="col-md-3 pl-5">
+          <div class="col-md-3 ">
               <!-- <span class="isGstCheckBox">
                   <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable"> Is GST Applicable<br>
               </span> -->
-            <table class="table table-borderless ml-2">
+            <table class="table table-borderless ml-3">
               <tbody>
                 <tr>
-                  <td class="center h5 pb-0  right" style="font-size: unset;" id="font-color">Subtotal</td>
+                  <td class="center h5 pb-0  " style="font-size: unset;" id="font-color">Subtotal</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class="center h5 pb-0  right" style="font-size: unset;" id="font-color">CGST (9%)</td>
+                  <td class="center h5 pb-0  " style="font-size: unset;" id="font-color">CGST (9%)</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class="center h5 pb-0 right" style="font-size: unset;" id="font-color">SGST (9%)</td>
+                  <td class="center h5 pb-0 " style="font-size: unset;" id="font-color">SGST (9%)</td>
                 </tr>
                 <tr ng-show="GstApplicable">
-                    <td class="center h5 pb-0 right" style="font-size: unset;" id="font-color">IGST (18%)</td>
+                    <td class="center h5 pb-0 " style="font-size: unset;" id="font-color">IGST (18%)</td>
                   </tr>
                 <tr>
                   <td class="center right h2 font-weight-bold " style="font-size: x-large;" id="font-color">Grand Total
@@ -1023,23 +1023,25 @@
               </tbody>
             </table>
           </div>
-          <div class="col-md-3 pl-4">
-            <table class="table table-borderless">
+          
+
+          <div class="col-md-3 ">
+            <table class="table table-borderless ml-3">
               <tbody>
                 <tr>
-                  <td class="right h5 pb-0 font-weight-bold" style="font-size: unset;">INR {{invoiceDetailsObj.totalSum  | number:2}}</td>
+                  <td class=" h5 pb-0 font-weight-bold" style="font-size: unset;">INR {{invoiceDetailsObj.totalSum  | number:2}}</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class="right  h5 font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.cgst  | number:2}}</td>
+                  <td class="  h5 font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.cgst  | number:2}}</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class="right h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.sgst  | number:2}}</td>
+                  <td class=" h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.sgst  | number:2}}</td>
                 </tr>   
                 <tr ng-show="GstApplicable">
-                    <td class="right h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.igst  | number:2}}</td>
+                    <td class=" h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.igst  | number:2}}</td>
                   </tr>            
                 <tr>
-                  <td class="right h2 font-weight-bold" id="font-color" style="font-size: x-large;">INR {{invoiceDetailsObj.totalAmount | number:2}}</td>
+                  <td class=" h2 font-weight-bold" id="font-color" style="font-size: x-large;">INR {{invoiceDetailsObj.totalAmount | number:2}}</td>
                 </tr>
               </tbody>
             </table>
@@ -1047,8 +1049,8 @@
         </div>
 
 
-        <div class="row ml-3 mt-1">
-          <div class="col-md-7 ml-3">
+        <div class="row  mt-1">
+          <div class="col-md-5 ml-3">
             <p><span class="font-weight-bold">
                 <font face="arial">Account Details
               </span><br>
@@ -1058,6 +1060,9 @@
               Branch code : 8040<br>
               Bank Name : Kotak Mahindra Bank</font>
             </p>
+          </div>
+          <div class="col-md-6 ">
+            <img  class="rounded mx-auto d-block" src="img/medium_jpg.jpg" />
           </div>
         </div>
       </div>

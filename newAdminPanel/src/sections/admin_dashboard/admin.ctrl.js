@@ -1,8 +1,8 @@
-adminApp.controller('DashboardController', ['$scope', '$http', 'CompanydashboardService', 'getAllCompanyUrl',
-  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl','$cookies', '$location', '$route', 'Notification',
-  function ($scope, $http, CompanydashboardService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
+adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsService', 'getAllCompanyUrl',
+  'getAssignedCompanyUrl', 'getUnassignedCompanyUrl', 'getAllVendorListUrl', 'getImageUrl','$cookies', '$location', '$route', 'Notification','companySignupUrl',
+  function ($scope, $http, companydetailsService, getAllCompanyUrl, getAssignedCompanyUrl, getUnassignedCompanyUrl,
     getAllVendorListUrl, getImageUrl,  $cookies,$location,$route,
-    Notification) {
+    Notification,companySignupUrl) {
 
       $scope.logout = function(){
         $cookies.remove('id');    
@@ -23,6 +23,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'Companydashboard
       $scope.vendorListBool = false;
       $scope.unAssignedVendorListBool = false;
       $scope.assignedVendorListBool = false;
+      $scope.addNewVendorBool = false;
       $scope[value] = true;
     }
     $scope.boolFunction("companyBool");
@@ -69,6 +70,24 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'Companydashboard
 
     });
 
+    var req = {      
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+     
+    $scope.IsVisibleService = false;
+    $scope.ShowHideService = function () {
+        $scope.IsVisibleService = $scope.IsVisibleService ? false : true;
+    }
+    $scope.IsVisibleFoodSpecialty = false;
+    $scope.ShowHideFoodSpecialty = function () {
+        $scope.IsVisibleFoodSpecialty = $scope.IsVisibleFoodSpecialty ? false : true;
+    }
+    $scope.IsVisibleCertificates = false;
+    $scope.ShowHideCertificates = function () {
+        $scope.IsVisibleCertificates = $scope.IsVisibleCertificates ? false : true;
+    }
 
 
 
