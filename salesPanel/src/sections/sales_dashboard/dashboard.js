@@ -52,7 +52,7 @@ salesApp.controller('newPlaceCtrl', function ($scope, Map) {
         });
     }
     $scope.search = function () {
-        debugger;
+       
         $scope.apiError = false;
         Map.search($scope.searchPlace)
             .then(
