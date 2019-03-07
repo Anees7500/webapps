@@ -119,34 +119,37 @@
                 <!-- ====================Card=============== -->
                 <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="companiesUrl in allCompanies">
                     <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
-                        <div class="pic  position-relative">
-
+                        <div class="pic position-relative">
                             <img class="card-img-top img-responsive" ng-src="{{companiesUrl.fileName}}">
                             <div class="mask rgba-white-slight"></div>
                         </div>
-                        <div class="team-content ">
-                            <h5 class="title text-danger font-weight-normal text-sm-center">{{companiesUrl.companyName}}</h5>
-                            <p class="card-text text-dark mt-3"><span class="small address text-info">{{companiesUrl.address}}</span></p>
+                        <div class="team-content m-0">
+                            <h5 class="title text-danger font-weight-normal text-sm-center compadd w-100 overflow-hidden position-relative">{{companiesUrl.companyName}}</h5>
+                            <h5 class="title text-danger font-weight-normal text-sm-center tooltip w-100 grey lighten-3">{{companiesUrl.companyName}}</h5>
+                            <p class="card-text text-dark"><span class="small address  m-0">{{companiesUrl.address}}</span></p>
                         </div>
-                        <div class="row justify-content-between m-0">
+                        <div class="row justify-content-between mt-2">
                             <div class="col-6">
-                                <i class="fas fa-user fa-xs amber-text mr-auto"></i><span class="text-primary h6 small">Anees</span>
+                                <div class="ml-2">
+                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0 "></i><span class="text-primary  small float-left mt-1 m-0 ml-1">
+                                        <p><small class="mt-1 text-info">Aman</small></p>
+                                    </span>
+                                </div>
                             </div>
                             <div class="col-6 ">
-                                <span class="badge success-color-dark small"> In
-                                    progress</span>
+                                <span class="badge success-color-dark small"><small class="white-text">In progress</small></span>
                             </div>
                         </div>
 
                         <ul class="social list-inline list-unstyled">
-                            <li class="list-inline-item">
+                            <!-- <li class="list-inline-item">
                             </li>
                             <li class="list-inline-item">
                             </li>
                             <li class="list-inline-item">
                             </li>
                             <li class="list-inline-item">
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -166,11 +169,23 @@
                             <img class="card-img-top img-responsive" src="Image/team-1.jpg">
                             <div class="mask rgba-white-slight"></div>
                         </div>
-                        <div class="team-content ">
+                        <div class="team-content m-0">
                             <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
-                            <p class="card-text text-dark mt-3"><span class="small address text-info">#1722,First
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark m-0">#1722,First
                                     Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
 
+                        </div>
+                        <div class="row justify-content-between mt-2">
+                            <div class="col-6">
+                                <div class="ml-2">
+                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0"></i><span class="text-primary h6 small float-left mt-2 m-0 ml-1">
+                                        <p><small class=" text-info">Aman</small></p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <span class="badge success-color-dark small ml-4"> <small class="white-text">progress</small></span>
+                            </div>
                         </div>
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
@@ -193,11 +208,23 @@
                             <img class="card-img-top img-responsive" src="Image/team-2.jpg">
                             <div class="mask rgba-white-slight"></div>
                         </div>
-                        <div class="team-content ">
+                        <div class="team-content m-0 ">
                             <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
-                            <p class="card-text text-dark mt-3"><span class="small address text-info">#1722,First
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark m-0">#1722,First
                                     Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
 
+                        </div>
+                        <div class="row justify-content-between mt-2">
+                            <div class="col-6">
+                                <div class="ml-2">
+                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0"></i><span class="text-primary h6 small float-left mt-2 m-0">
+                                        <p><small class="text-info">Anees</small></p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <span class="badge success-color-dark small ml-4"> <small class="white-text">progress</small></span>
+                            </div>
                         </div>
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
@@ -220,11 +247,23 @@
                             <img class="card-img-top img-responsive" src="Image/team-3.jpg">
                             <div class="mask rgba-white-slight"></div>
                         </div>
-                        <div class="team-content ">
+                        <div class="team-content m-0">
                             <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
-                            <p class="card-text text-dark mt-3"><span class="small address text-info">#1722,First
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark m-0">#1722,First
                                     Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
 
+                        </div>
+                        <div class="row justify-content-between mt-2">
+                            <div class="col-6">
+                                <div class="ml-2">
+                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0"></i><span class="text-primary h6 small float-left mt-2 m-0">
+                                        <p><small class="text-info">Aman</small></p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <span class="badge success-color-dark small ml-4"> <small class="white-text">progress</small></span>
+                            </div>
                         </div>
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
@@ -247,11 +286,23 @@
                             <img class="card-img-top img-responsive" src="Image/team-4.jpg">
                             <div class="mask rgba-white-slight"></div>
                         </div>
-                        <div class="team-content ">
+                        <div class="team-content m-0">
                             <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
-                            <p class="card-text text-dark mt-3"><span class="small address text-info">#1722,First
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark m-0">#1722,First
                                     Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
 
+                        </div>
+                        <div class="row justify-content-between mt-2">
+                            <div class="col-6">
+                                <div class="ml-2">
+                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0"></i><span class="text-primary h6 small float-left mt-2 m-0">
+                                        <p><small class="text-info">Aman</small></p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <span class="badge success-color-dark small ml-4"> <small class="white-text">progress</small></span>
+                            </div>
                         </div>
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
@@ -274,11 +325,23 @@
                             <img class="card-img-top img-responsive" src="Image/team-2.jpg">
                             <div class="mask rgba-white-slight"></div>
                         </div>
-                        <div class="team-content ">
+                        <div class="team-content m-0">
                             <h5 class="title text-danger font-weight-normal text-sm-center">Fancymonk</h5>
-                            <p class="card-text text-dark mt-3"><span class="small address text-info">#1722,First
+                            <p class="card-text text-dark mt-3"><span class="small address text-dark m-0">#1722,First
                                     Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102</span></p>
 
+                        </div>
+                        <div class="row justify-content-between mt-2">
+                            <div class="col-6">
+                                <div class="ml-2">
+                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0"></i><span class="text-primary h6 small float-left mt-2 m-0">
+                                        <p><small class="text-info">Anees</small></p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <span class="badge success-color-dark small ml-4"> <small class="white-text">progress</small></span>
+                            </div>
                         </div>
                         <ul class="social list-inline list-unstyled">
                             <li class="list-inline-item">
@@ -325,7 +388,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body ">
+                        <div class="card-body ml-5">
                             <div class="tab-content text-center">
                                 <div class="tab-pane active" id="profile">
                                     <div class="row ">
@@ -337,17 +400,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text small address m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user fa-xs amber-text mr-auto"></i><span
-                                                                class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge success-color-dark small"> In
-                                                                progress</span>
+                                                            <span class="badge success-color-dark small"> <small class="white-text">In
+                                                                    progress</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -364,16 +431,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge  success-color-dark small"> In
-                                                                progress</span>
+                                                            <span class="badge success-color-dark small"> <small class="white-text">In
+                                                                    progress</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -390,16 +462,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge  success-color-dark small"> In
-                                                                progress</span>
+                                                            <span class="badge success-color-dark small"> <small class="white-text">In
+                                                                    progress</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -416,16 +493,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge  success-color-dark small"> In
-                                                                progress</span>
+                                                            <span class="badge success-color-dark small"> <small class="white-text">In
+                                                                    progress</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -442,16 +524,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge  success-color-dark small"> In
-                                                                progress</span>
+                                                            <span class="badge success-color-dark small"> <small class="white-text">In
+                                                                    progress</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -474,16 +561,20 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-default small">
-                                                                pending</span>
+                                                            <span class="badge badge-default small ml-4"> <small class="white-text ">Pending</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -500,16 +591,20 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-default small">
-                                                                pending</span>
+                                                            <span class="badge badge-default small ml-4"> <small class="white-text ">Pending</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -526,16 +621,20 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-default small">
-                                                                pending</span>
+                                                            <span class="badge badge-default small ml-4"> <small class="white-text ">Pending</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -552,16 +651,20 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-default small">
-                                                                pending</span>
+                                                            <span class="badge badge-default small ml-4"> <small class="white-text ">Pending</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -578,16 +681,20 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-default small">
-                                                                pending</span>
+                                                            <span class="badge badge-default small ml-4"> <small class="white-text ">Pending</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -608,16 +715,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge pink lighten-4 small">
-                                                                Work waiting</span>
+                                                            <span class="badge pink lighten-4 small ml-2"> <small class="white-text">Work
+                                                                    waiting</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -634,16 +746,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge pink lighten-4 small">
-                                                                Work waiting</span>
+                                                            <span class="badge pink lighten-4 small ml-2"> <small class="white-text">Work
+                                                                    waiting</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -660,16 +777,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge pink lighten-4 small">
-                                                                Work waiting</span>
+                                                            <span class="badge pink lighten-4 small ml-2"> <small class="white-text">Work
+                                                                    waiting</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -686,16 +808,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge pink lighten-4 small">
-                                                                Work waiting</span>
+                                                            <span class="badge pink lighten-4 small ml-2"> <small class="white-text">Work
+                                                                    waiting</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -712,16 +839,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge pink lighten-4 small">
-                                                                Work waiting</span>
+                                                            <span class="badge pink lighten-4 small ml-2"> <small class="white-text">Work
+                                                                    waiting</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -742,16 +874,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge  badge-success small">
-                                                                Success full</span>
+                                                            <span class="badge badge-success small ml-2"> <small class="white-text">Success
+                                                                    full</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -768,16 +905,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-success small">
-                                                                Success full</span>
+                                                            <span class="badge badge-success small ml-2"> <small class="white-text">Success
+                                                                    full</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -794,16 +936,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-success small">
-                                                                Success full</span>
+                                                            <span class="badge badge-success small ml-2"> <small class="white-text">Success
+                                                                    full</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -820,16 +967,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-success small">
-                                                                Success full</span>
+                                                            <span class="badge badge-success small ml-2"> <small class="white-text">Success
+                                                                    full</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -846,16 +998,21 @@
                                                 </div>
                                                 <div class="team-content m-0">
                                                     <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="card-text  small address  m-0" style="width:189px;height: 42px;">19th
+                                                    <p class="small address  m-0" style="width:189px;height: 42px;">19th
                                                         Main Rd, Sector 2, HSR Layout, Bengaluru
                                                     </p>
                                                     <div class="row justify-content-between m-0">
-                                                        <div class="col-6">
-                                                            <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                                        <div class="col-6 p-0">
+
+                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1">Anees</span></div>
                                                         </div>
+
                                                         <div class="col-6 ">
-                                                            <span class="badge badge-success small">
-                                                                Success full</span>
+                                                            <span class="badge badge-success small ml-2"> <small class="white-text">Success
+                                                                    full</small>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -883,9 +1040,10 @@
         <div ng-if="subordinateassigned">
             <div class="row ml-5">
 
-                <input type="search" id="myInput" class="form-control mdb-autocomplete mx-5" style="width:80%">
+                <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-5"
+                    style="width:80%">
 
-                <div class="row ml-5 mt-3">
+                <div ng-repeat='person in people | filter:searchText' class="row ml-5 mt-3">
                     <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-3">
                         <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 12rem;height: 15rem;">
                             <div class="pic  position-relative">
@@ -898,13 +1056,17 @@
                                     Main Rd, Sector 2, HSR Layout, Bengaluru
                                 </p>
                                 <div class="row justify-content-between m-0">
-                                    <div class="col-6">
-                                        <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                    <div class="col-6 p-0">
+
+                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
                                     </div>
+
                                     <div class="col-6 ">
-                                        <span class="badge success-color-dark small">
-                                            In
-                                            progress</span>
+                                        <span class="badge success-color-dark small "> <small class="white-text">
+                                                {{person.name}}</small>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -925,12 +1087,17 @@
                                     Main Rd, Sector 2, HSR Layout, Bengaluru
                                 </p>
                                 <div class="row justify-content-between m-0">
-                                    <div class="col-6">
-                                        <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                    <div class="col-6 p-0">
+
+                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
                                     </div>
+
                                     <div class="col-6 ">
-                                        <span class="badge badge-default small">
-                                            pending</span>
+                                        <span class="badge badge-default small "> <small class="white-text">
+                                                {{person.name}}</small>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -951,12 +1118,17 @@
                                     Main Rd, Sector 2, HSR Layout, Bengaluru
                                 </p>
                                 <div class="row justify-content-between m-0">
-                                    <div class="col-6">
-                                        <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                    <div class="col-6 p-0">
+
+                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
                                     </div>
+
                                     <div class="col-6 ">
-                                        <span class="badge pink lighten-4 small">
-                                            work waiting</span>
+                                        <span class="badge pink lighten-4 small "> <small class="white-text">
+                                                {{person.name}}</small>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -977,12 +1149,17 @@
                                     Main Rd, Sector 2, HSR Layout, Bengaluru
                                 </p>
                                 <div class="row justify-content-between m-0">
-                                    <div class="col-6">
-                                        <i class="fas fa-user amber-text"></i><span class="text-primary h6 small">Anees</span>
+
+                                    <div class="col-6 p-0">
+
+                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
                                     </div>
+
                                     <div class="col-6 ">
-                                        <span class="badge badge-success small">
-                                            Success Full</span>
+                                        <span class="badge badge-success small "> <small class="white-text">
+                                                {{person.name}}</small>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -1001,46 +1178,28 @@
         <!--=========================Vendor=============================================-->
         <div ng-if="vendorListBool">
             <!-- ------------Area and documents  -->
-            <section class="search-sec mt-3 mx-5">
-                <div class="container">
-                    <form action="#" method="post" novalidate="novalidate">
-                        <div class="row">
-                            <div class="col-lg-12 ">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt " id="exampleFormControlSelect1"
-                                            ng-model="employee" ng-options="emp.values.name for emp in empArray"
-                                            ng-change="showDetails()" id="emps">
-                                            <option>Area</option>
-                                            <option value="">Area</option>
-                                        </select>
-                                        <p style="white-space:pre-wrap;">{{details}}</p>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <input type="text" class="form-control search-slt" placeholder="Distance">
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0 dropdown-primary">
-                                        <select class="form-control search-slt" id="chkveg" multiple="multiple">
-                                            <option value="" disabled selected>Documents</option>
-                                            <!-- <option value="examplee">Examplee</option>
-                                            <option value="examplef">Examplef</option>
-                                            <option value="exampleg">Exampleg</option>
-                                            <option value="exampleh">Exampleh</option>
-                                            <option value="examplei">Examplei</option>
-                                            <option value="examplej">Examplej</option> -->
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0 ">
-                                        <button type="button" class="btn btn-danger wrn-btn mt-0">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+            <div class="block_wrap clearfix row">
+                <!-- Filter form section -->
+                <div class="filter-search w-100 mx-5 position-relative mdb-color lighten-5">
+                    <div class="container">
+                        <form class="filter-form rounded mb-0 p-2">
+                            <select class="rounded mb-0 border-0 mr-3 pl-3 " ng-model="selectedArea" ng-options="x for x in area">
+                                <option value="">Area</option>
+                            </select>
+                            <select class="rounded mb-0 border-0 mr-3 pl-3" ng-model="selecteddistance" ng-options="x for x in distance">
+                                <option value="">distance</option>
+                            </select>
+                            <select  class="rounded mb-0 border-0 mr-3 pl-3" ng-model="selecteddocument" ng-options="x for x in document">
+                                <option value="">document</option>
+                            </select>
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </form>
+                    </div>
                 </div>
-            </section>
+                <!-- Filter form section end -->
+            </div>
             <!-- ------------Area and documents end -->
-            <div class="row ml-5">
+            <div class="row ml-5 mt-2">
                 <div class="card-deck h-100 col-sm-12 mb-5">
                     <!-- --------------Card ------------------------- -->
                     <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="vendorUrl in allVendorsList">
@@ -1053,7 +1212,7 @@
                                 <h5 class="title text-danger font-weight-normal text-sm-center">{{vendorUrl.name}}</h5>
                                 <!-- <hr class="hr-dark"> -->
                                 <ul class="text-lg-left list-unstyled ml-4 list-group ">
-                                    <li>
+                                    <li class="list-group">
                                         <p class="m-0"><i class="fas fa-map-marker-alt pr-2 "></i> <strong class="text-info small font-weight-bold">
                                                 HSR
                                                 Layout, Bengaluru</strong> </p>
@@ -1097,7 +1256,7 @@
         <!--==========================Add leads==========================================-->
         <div ng-if="addleadsCompanyBool" class="ml-4">
             <!-- Search form -->
-            <div class="container" style="background-color: #e9ecee;padding-top: 10px" ng-controller="newPlaceCtrl">
+            <div class="container pt-3 grey lighten-4" ng-controller="newPlaceCtrl">
                 <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
                     <b>API Error : </b>
                     <span>{{ apiStatus }}</span>
@@ -1113,54 +1272,55 @@
                 </form>
                 <div id="map"></div>
                 <form name="resForm" class="form-inline" novalidate ng-submit="send()">
-
-                    <div class="form-group">
-                        <!-- <label for="resName" class="col-xs-2 control-label text-center text-info font-weight-bold small">Company Name:</label> -->
-                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Company
-                            Name:</legend>
-
-                        <div class="col-xs-10 ml-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small">Company
+                                Name:</legend>
                             <input name="resName" type="text" class="form-control text-capitalize w-100" ng-model="place.name"
                                 required />
                         </div>
-                    </div>
-                    <div class="form-group ml-5">
-                        <!-- <label for="resLat" class="col-xs-2 control-label text-info font-weight-bold small">Latitude:</label> -->
-                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Latitude:</legend>
-                        <div class="col-xs-10 ml-2">
-                            <input name="resLat" type="number" class="form-control" style="width: 90%" ng-model="place.lat"
-                                required />
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+
+                                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Latitude:</legend>
+                                        <div class="col-xs-10 ml-2">
+                                            <input name="resLat" type="number" class="form-control w-100" ng-model="place.lat"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+
+                                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Longitude:</legend>
+                                        <div class="col-xs-10 ml-2">
+                                            <input name="resLng" type="number" class="form-control w-100" ng-model="place.lng"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group ml-5">
-                        <!-- <label for="resLng" class="col-xs-2 control-label text-info font-weight-bold small">Longitude:</label> -->
-                        <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Longitude:</legend>
-                        <div class="col-xs-10 ml-2">
-                            <input name="resLng" type="number" class="form-control" style="width: 90%" ng-model="place.lng"
-                                required />
-                        </div>
-                    </div>
-
-
                     <div class="row mt-4">
                         <div class="col-md-6 p-0">
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                                <legend class="text-info font-weight-bold mask small ">Company Address:</legend>
-                                <input class="form-control text-capitalize" style="width: 100%;" type="text"
-                                    placeholder="enter company address" aria-label="Search" ng-model="place.address"
-                                    required>
+                            <div class="col-md-12">
+                                <legend class="text-info font-weight-bold small ">Company Address:</legend>
+                                <input class="form-control text-capitalize w-100" type="text" placeholder="enter company address"
+                                    aria-label="Search" ng-model="place.address" required>
                             </div>
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                                <legend class="text-info font-weight-bold mask small">Contact person Name:</legend>
-                                <input class="form-control " style="width: 100%;" type="number" placeholder="enter contact person"
+                            <div class="col-md-12">
+                                <legend class="text-info font-weight-bold small">Contact person Name:</legend>
+                                <input class="form-control w-100" type="number" placeholder="enter contact person"
                                     aria-label="Search">
                             </div>
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
-                                <legend class="text-info font-weight-bold mask small">Email Id:</legend>
-                                <input class="form-control " style="width: 100%;" type="email" placeholder="enter email id"
-                                    aria-label="Search">
+                            <div class="col-md-12">
+                                <legend class="text-info font-weight-bold small">Email Id:</legend>
+                                <input class="form-control w-100" type="email" placeholder="enter email id" aria-label="Search">
                             </div>
-                            <div class=" active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
+                            <div class="mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                                 <h5 class="text-info md">Estimated Lead Value:</h5>
 
                                 <form name="myForm">
@@ -1169,10 +1329,11 @@
                                     Price: <input type="number" ng-model="value" style="width: 20%"><br>
                                 </form>
                             </div>
-                            <div class="phone-list active-pink-3 active-pink-4 mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12">
+                            <div class="phone-list col-md-12">
                                 <div class="input-group">
-                                    <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
-                                    <input type="text" name="phone[1][number]" class="form-control mt-2" placeholder="enter your mobile no" />
+                                    <legend class="text-info font-weight-bold small">Mobile No:</legend>
+                                    <input type="number" maxlength="10" name="phone[1][number]" class="form-control mt-2"
+                                        placeholder="enter your mobile no" />
                                 </div>
                             </div>
                         </div>
@@ -1191,14 +1352,15 @@
                                 </div>
                                 <!-- Image upload  -->
                             </div>
+                            <center><button class="col-md-3 btn btn-info mt-4" ng-click="saveLead()">Submit</button></center>
                         </div>
                     </div>
                 </form>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <center><button class="col-md-3 btn btn-info" ng-click="saveLead()">Submit</button></center>
                     </div>
-                </div>
+                </div> -->
             </div> <br><br>
 
         </div>
@@ -1454,5 +1616,9 @@
             includeSelectAllOption: true
 
         });
+        $('.selectpicker').selectpicker({
+            liveSearchPlaceholder: 'Placeholder text'
+        });
+       
     });
 </script>

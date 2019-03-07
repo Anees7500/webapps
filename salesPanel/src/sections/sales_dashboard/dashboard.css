@@ -399,9 +399,6 @@ small {
     color: #999;
 }
 
-.body {
-    background: #f2f2f2;
-}
 
 /* profile */
 .portfolio {
@@ -628,7 +625,7 @@ body {
 }
 
 .address {
-    width: 211px;
+    width: 224px;
     font-size: 12px;
     margin: 1em;
     height: 50px;
@@ -907,3 +904,60 @@ div.card .card-header-primary {
 }
 
 /*======================My leads end====================== */
+
+/*======================vendors ====================== */
+.filter-search {
+	z-index: 2;
+}
+.filter-form select {
+	background: #fff;
+	height: 38px;
+	width: calc(26% - 0px);
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	
+	.filter-form select {
+		width: calc(19% - 20px);
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .filter-form select {
+		width: calc(19% - 20px);
+	}
+}
+@media only screen and (max-width: 767px) {
+    
+	.filter-form select {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+/*======================vendors end====================== */
+
+/*======================All companies ellipsis ====================== */
+.compadd{
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    line-height: 40px;
+    pointer-events:none;
+}
+.compadd:after {
+    content:"";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    z-index: 1;
+    pointer-events:initial;
+  }
+  .compadd:hover:after{
+    cursor: pointer;
+  }
+  .compadd:hover + .tooltip {
+    visibility: visible;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+  }
+  /*======================All companies ellipsis end ====================== */
