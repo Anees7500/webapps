@@ -121,34 +121,34 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
 
 
-        // var getMenuMonUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
-        // console.log("getMenuMonUrl 2000000", getMenuMonUrl);
+        var getMenuMonUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
+        console.log("getMenuMonUrl 2000000", getMenuMonUrl);
 
-        // var promis = $http.get(getMenuMonUrl);
+        var promis = $http.get(getMenuMonUrl);
 
-        // promis.then(function (response) {
-        //     $scope.myNode = response.data.data.menus;
-        //     // console.log("$scope.myNode.MONDAY 000000000",_.isEmpty($scope.myNode.MONDAY));
-        //     // for monday by default load
+        promis.then(function (response) {
+            $scope.myNode = response.data.data.menus;
+            // console.log("$scope.myNode.MONDAY 000000000",_.isEmpty($scope.myNode.MONDAY));
+            // for monday by default load
 
-        //     if (!_.isEmpty($scope.myNode.MONDAY)) {
-        //         console.log("yehhhh true 4545")
-        //         $scope.menuNodes = unflatten($scope.myNode.MONDAY);
-        //         console.log("menu node after update ", $scope.menuNodes);
-        //     }
-        //     else {
-        //         $scope.menuNodes = [{
+            if (!_.isEmpty($scope.myNode.MONDAY)) {
+                console.log("yehhhh true 4545")
+                $scope.menuNodes = unflatten($scope.myNode.MONDAY);
+                console.log("menu node after update ", $scope.menuNodes);
+            }
+            else {
+                $scope.menuNodes = [{
 
-        //             uid: uuid.new(),
-        //             menuName: "",
-        //             menuNodes: [],
-        //             isFoodItem: false
-        //         }];
-        //     }
-        //     // by default end monday
-        // });
+                    uid: uuid.new(),
+                    menuName: "",
+                    menuNodes: [],
+                    isFoodItem: false
+                }];
+            }
+            // by default end monday
+        });
 
-        //add menu
+        // add menu
         // var bigrandom = require('bigrandom');
 
         $scope.addsection = function (nodes, index) {

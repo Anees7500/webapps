@@ -53,75 +53,73 @@
 
   <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
     <ul class="list-unstyled components mt-5">
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""><i
+      <li class="p-2 mb-1"ng-class="{active:activeMenu === 'configuration'}" ng-click="activeMenu = 'configuration'">
+        <a class=" d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""><i
             class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
       </li>
       <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+        <a class="text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
           data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal ">
-            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
+            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a> </li>
         <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href=""
+          <li class="p-1 mb-1" ng-class="{active:activeMenu === 'clientRequirement'}" ng-click="activeMenu = 'clientRequirement'">
+            <a class="d-block text-decoration-none" href=""
               ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
               <span class="font-weight-normal">Client Requirement</span></a>
           </li>
 
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href=""
+          <li class="p-1 mb-1" ng-class="{active:activeMenu === 'vendorRequirement'}" ng-click="activeMenu = 'vendorRequirement'">
+            <a class="d-block text-decoration-none" href=""
               ng-click="boolFunction('vendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span
                 class="font-weight-normal">Vendor Requirement</span></a>
           </li>
 
         </ul>
-      </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i
+     
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'itemCheck'}" ng-click="activeMenu = 'itemCheck'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i
             class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span>
         </a>
 
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'assigned'}" ng-click="activeMenu = 'assigned'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('assignedBool')"><i
             class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'empFeedback'}" ng-click="activeMenu = 'empFeedback'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i
             class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
       </li>
 
       <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+        <a class="d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
           data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly
-            Details</span><i class="fas fa-chevron-down ml-5"></i></a>
+            Details</span><i class="fas fa-chevron-down ml-5"></i></a> </li>
         <ul class="collapse list-unstyled" id="pageSubmenu1">
-          <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" href=""
-              ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span
+          <li class="p-2 mb-1" ng-class="{active:activeMenu === 'clientMonthlyDetails'}" ng-click="activeMenu = 'clientMonthlyDetails'">
+            <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span
                 class="font-weight-normal">Client Monthly Details</span></a>
           </li>
 
-          <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" href=""
-              ng-click="boolFunction('vendorMonthlyDetailsBool')"><i class="fas fa-holly-berry mr-2"></i>
+          <li class="p-2 mb-1" ng-class="{active:activeMenu === 'vendorMonthly'}" ng-click="activeMenu = 'vendorMonthly'">
+            <a class="d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')"><i class="fas fa-holly-berry mr-2"></i>
               <span class="font-weight-normal">Vendor Monthly Details</span></a>
           </li>
         </ul>
-      </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i
+     
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'invoice'}" ng-click="activeMenu = 'invoice'">
+        <a class= "d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i
             class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span>
         </a>
       </li>
 
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'dispatchDetails'}" ng-click="activeMenu = 'dispatchDetails'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i
             class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'companySettings'}" ng-click="activeMenu = 'companySettings'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i
             class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
       </li>
     </ul>

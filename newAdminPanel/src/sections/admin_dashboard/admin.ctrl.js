@@ -70,7 +70,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'Companydashboard
     });
 
 
-
+$scope.activeMenu='Companies';
 
 
   }

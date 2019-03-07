@@ -190,10 +190,20 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     $scope.makeFavouritNReverse = function () {
       $scope.favourite = $scope.favourite ? false : true;
     }
+
 $scope.fav=function(node){
   node.favItem=node.favItem ? false : true;
 }
   
+
+
+
+
+
+
+
+
+
   }
   // }
 ]);																
