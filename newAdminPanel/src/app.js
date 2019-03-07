@@ -13,10 +13,7 @@ adminApp.config(['$routeProvider', '$locationProvider',
                 templateUrl: 'sections/admin_company/company.tpl.html',
                 controller: 'CompanyController'
             })
-            .when('/dashboard/trial', {
-                templateUrl: 'sections/trial_folder/trial.tpl.html',
-                controller: 'trailController'
-            })
+          
             .when('/dashboard/vendor/:venId', {
                 templateUrl: 'sections/admin_vendor/vendor.tpl.html',
                 controller: 'VendorController'

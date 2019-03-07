@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
@@ -357,4 +358,370 @@
 
 <!--/wrapper class ens-->
 
+=======
+<style>
+#map {
+    height: 300px;
+    margin: 5px 5px 5px 0px;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+</style>
+
+<div class="wrapper">
+
+  <!-- ===============================header navbar start=============================== -->
+  <nav class="navbar navbar-expand-sm navbar-dark info-color mb-5  fixed-top">
+    <a class=" navbar-brand waves-effect waves-block waves-light chat-collapse text-center" href=""
+      id="sidebarCollapse">
+      <div class="media">
+        <i class="fa fa-th-list mt-1"></i>
+        <div class="media-body">
+          <span class="text-white h4 font-weight-bold text-center ml-3 mb-3"> Fancymonk</span>
+        </div>
+      </div>
+    </a>
+    <!--=============================sidebar collapse============================-->
+
+
+    <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    <ul class="navbar-nav ml-auto mr-3">
+      <li class="nav-item dropdown mr-5">
+        <a class="nav-link dropdown-toggle bg-info" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Profile</a>
+        <div class="dropdown-menu dropdown-primary " aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#"><i class="far fa-user-circle mr-3"></i>My account</a>
+          <a class="dropdown-item" ng-click="logout()"><i class="far fa-question-circle mr-3"></i>Log out</a>
+      </li>
+    </ul>
+
+  </nav>
+
+
+
+
+
+  <!-- ===========================-sidebar start===================================== -->
+  <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
+    <ul class="list-unstyled components mt-5">
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('companyBool')" href=""><i
+            class="fas fa-building fa-fw "></i> <span class="font-weight-normal"> Companies</span><span
+            class="badge badge-pill badge-danger ml-2">{{allCompanies.length}}</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i
+            class="fas fa-check-square fa-fw "></i> <span class="font-weight-normal"> Assigned Comp.</span><span
+            class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedCompanyBool')"><i
+            class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal"> Unassigned Comp.</span><span
+            class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorListBool')"><i
+            class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Vendors</span><span
+            class="badge badge-pill badge-danger ml-2">{{AllVendorslist.length}}</span></a>
+      </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedVendorListBool')"><i
+            class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal"> Assigned Vendors</span><span
+            class="badge badge-pill badge-danger ml-2">{{assignedVendorslist.length}}</span></a>
+      </li>
+
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedVendorListBool')"><i
+            class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal"> Unassigned Vendors</span><span
+            class="badge badge-pill badge-danger ml-2">{{unassignedVendorslist.length}}</span></a>
+      </li>
+
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i
+            class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
+      </li>
+
+    </ul>
+  </nav>
+
+
+  <!-- Page Content  --> 
+  <div id="content" class="mt-5">
+
+    <!--===============================company start===============================-->
+    <div ng-if="companyBool"> 
+      <nav class="navbar navbar-expand-lg">
+        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
+            <i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>home</a></h6>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
+        </form>
+      </nav>
+      <div class="container">
+        <div class="row ml-3 mr-0">
+
+          <div ng-repeat="cpny in allCompanies | filter:search">
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="card example z-depth-1 mt-5">
+                <div class="view overlay  hm-black-light zoom" ripple-radius>
+                  <img id="image" ng-src="{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
+                  <a>
+                    <div class="mask flex-center"></div>
+                  </a>
+
+                </div>
+                <div class="card-block">
+                  <a ng-href="#!/dashboard/company/{{cpny.id}}">
+                    <h5 class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal "><i
+                        class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>
+                      {{cpny.companyName | uppercase}} </h5>
+                    <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{cpny.address}} </p>
+                    <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                        class="fas fa-angle-double-right ml-2 "></i></h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===============================-Assigned company=============================== -->
+    <div ng-if="assignedCompanyBool">
+      <nav class="navbar navbar-expand-lg">
+        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i
+              class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Assigned company</a></h6>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
+        </form>
+      </nav>
+      <div class="container">
+        <div class="row ml-3 mr-0">
+          <div ng-repeat=" assignedcpny in assignedCompany | filter:search">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="card example z-depth-1 mt-5">
+                <div class="view overlay  hm-black-light zoom" ripple-radius>
+                  <img id="image" ng-src="{{assignedcpny.fileName}}" class="card-img-top img img-responsive mb-3">
+                  <a>
+                    <div class="mask flex-center"></div>
+                  </a>
+                </div>
+                <div class="card-block">
+                  <a ng-href="#!/dashboard/company/{{assignedcpny.id}}">
+
+                    <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i
+                        class="fas fa-address-card deep-purple-text cyan-text "></i>
+                      {{assignedcpny.companyName | uppercase}} </h6>
+                    <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{assignedcpny.address}} </p>
+                    <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                        class="fas fa-angle-double-right ml-2 "></i></h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--===============================-unassigned company===============================-->
+    <div ng-if="unAssignedCompanyBool">
+
+      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i
+              class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>Unassigned company</a></h6>
+        <form class="form-inline  ml-auto">
+          <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
+            id="search-height">
+        </form>
+      </nav>
+      <div class="container">
+        <div class="row  mr-0 ml-3 ">
+          <div ng-repeat="unassignedcpny in unassignedCompanies  | filter:search">
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="card example z-depth-1 mt-5">
+                <div class="view overlay  hm-black-light zoom" ripple-radius>
+                  <img id="image" ng-src="{{unassignedcpny.fileName}}" class="card-img-top img img-responsive mb-3">
+                  <a>
+                    <div class="mask flex-center"></div>
+                  </a>
+                </div>
+                <div class="card-block">
+                  <a ng-href="#!/dashboard/company/{{unassignedcpny.id}}">
+                    <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i
+                        class="fas fa-address-card deep-purple-text cyan-text "></i>
+                      {{unassignedcpny.companyName | uppercase}} </h6>
+                    <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{unassignedcpny.address}} </p>
+                    <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                        class="fas fa-angle-double-right ml-2 "></i></h5>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================== Vender ================================== -->
+
+    <div ng-if="vendorListBool">
+      <nav class="navbar navbar-expand-lg  mb-3 mt-1" id="head-height">
+        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href=""><i
+              class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>vendor</a></h6>
+        <form class="form-inline  ml-auto">
+          <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
+            id="search-height">
+        </form>
+      </nav>
+      <div class="container">
+        <div class="row  mr-0 ml-sm-3 ml-xs-3">
+          <div ng-repeat="vendor in AllVendorslist | filter:search">
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="card example z-depth-1 mt-5">
+                <div class="view overlay  hm-black-light zoom" ripple-radius>
+                  <img id="image" src="img/v2.jpg" class="card-img-top img img-responsive mb-3">
+                  <a>
+                    <div class="mask flex-center"></div>
+                  </a>
+                </div>
+                <div class="card-block">
+                  <a ng-href="#!/dashboard/vendor/{{vendor.id}}">
+                    <h5 class="card-title font-weight-normal text-danger b-clr ng-binding  mt-3 ml-3">
+                      {{vendor.name | uppercase}}</h5>
+                    <p class="card-text font-size  ml-2 b-clr font ng-binding" id="font-size"><i
+                        class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
+                    <p class="card-text  ml-2 b-clr font ng-binding" id="font-size"><i class="fas fa-phone ml-2"></i><a
+                        class="ml-2">{{vendor.mobile}}</a></p>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ====================== Add-New-Company ================================== -->
+    <div ng-if="addNewCompanyBool" class="ml-4 mt-3 mr-2" ng-controller="newPlaceCtrl">      
+      <form name="searchForm" novalidate ng-submit="search()">
+          <div class="input-group">
+              <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace"
+                  required autofocus />
+              <span class="input-group-btn">
+                  <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+              </span>
+          </div>
+      </form>
+      <div id="map"></div>
+      <form name="resForm" class="form-inline mt-2">
+
+          <div class="col-md-6 pl-0">
+             
+              <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Company
+                  Name:</legend>
+              <div class="col-xs-10">
+                  <input name="resName" type="text" class="form-control text-capitalize " style="width: 95%"ng-model="place.companyName"
+                      required />
+              </div>
+          </div>
+          <div class="col-md-3 ">              
+              <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Latitude:</legend>
+              <div class="col-xs-10">
+                  <input name="resLat" type="number" class="form-control" style="width: 90%" ng-model="place.latitude"
+                      required />
+              </div>
+          </div>
+          <div class="col-md-3 ">             
+              <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Longitude:</legend>
+              <div class="col-xs-10">
+                  <input name="resLng" type="number" class="form-control" style="width: 88%" ng-model="place.longitute"
+                      required />
+              </div>
+          </div>
+
+
+          <div class="row mt-4">
+              <div class="col-md-6">
+                  <div class="">
+                      <legend class="text-info font-weight-bold mask small ">Company Address:</legend>
+                      <input class="form-control text-capitalize" style="width: 100%;" type="text"
+                          placeholder="enter company address" aria-label="Search" ng-model="place.address"
+                          required>
+                  </div>                  
+                  <div class="mt-3">
+                      <legend class="text-info font-weight-bold mask small">Email Id:</legend>
+                      <input class="form-control " style="width: 100%;" type="email" placeholder="enter email id" ng-model="place.contactEmailId"
+                          aria-label="Search" >
+                  </div>                
+                  <div class="mt-3">
+                      <div class="input-group">
+                          <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
+                          <input type="number" name="" class="form-control" placeholder="enter your mobile no" ng-model="place.contactNumber"/>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6" style="padding-left:45px">     
+                  <div class="">
+                      <legend class="text-info font-weight-bold mask small">Contact person Name:</legend>
+                      <input class="form-control " style="width: 100%;" type="text" placeholder="enter contact person"
+                          aria-label="Search" ng-model="place.companyPerson">
+                  </div>
+                  <div class="mt-3">
+                      <div class="input-group">
+                          <legend class="text-info font-weight-bold mask small">GST Number:</legend>
+                          <input type="text" name="gst" class="form-control" placeholder="enter gst number" ng-model="place.companyGST"/>
+                      </div>
+                  </div>            
+                  <div class="row mr-5 mt-3">
+                      <!-- Image upload  -->
+                      <img id="drag-image" ng-src="{{imageSrc}}" src="img/img_upload.png"
+                      class="card-img-top img img-responsive btn-outline-info waves-effect zoom ml-3">
+                    <div class="d-flex ">
+                      <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="place.companyLogo">
+                    </div>
+                      <!-- Image upload  -->
+                  </div>
+              </div>
+          </div>
+      </form>
+      <div class="row mt-2">
+          <div class="col-md-12">
+              <center><button class="col-md-3 btn btn-info" ng-click="companySignup(place)">Submit</button></center>
+          </div>
+      </div>
+    </div>
+
+    <!--===============================/Add-New-Company end===============================-->
+
+
+
+
+
+    <!--===============================/content end===============================-->
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+<!--/wrapper class ens-->
+
+>>>>>>> 6401811451fa575f6e9c8bc62499fe05d3789b78
 <!-- </div> -->
