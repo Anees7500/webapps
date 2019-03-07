@@ -1,5 +1,5 @@
 empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVendorMenuList', '$http', '$location', '$cookies',
-  'Notification', '$route', '$rootScope', 'getVendorList','CartService',
+  'Notification', '$route', '$rootScope', 'getVendorList', 'CartService',
   function ($scope, DashboardService, getVendorMenuList, $http, $location, $cookies, Notification,
     $route, $rootScope, getVendorList, CartService) {
 
@@ -23,7 +23,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     // $scope.try = function () {
     //   console.log("hahahaah ");
     // }
-  
+
 
     //==============================================================
     //================ DEFINITION PART START========================
@@ -72,7 +72,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     $scope.selectVendor = function (obj) {
       $scope.selectedVendor = obj;
       getMenus();
-      
+
     }
 
     $scope.makeFavouritNReverse = function (obj) {
@@ -117,10 +117,10 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
     };
 
-    
+
 
     $scope.addCount = function (val) {
-  
+
       $scope.cartObj = CartService.addCount(val);
     }
 
@@ -150,7 +150,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     }
 
     $scope.getCartItemSize = function (obj) {
-   CartService.getCartItemSize();
+      CartService.getCartItemSize();
     }
 
     $scope.getVendorName = function (id) {
@@ -166,11 +166,9 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
       return vName;
     }
 
-    $scope.gotoCheckout = function()
-    {
+    $scope.gotoCheckout = function () {
       console.log("itens hahah: ", JSON.stringify($scope.cartItems));
-      if(angular.equals($scope.cartObj.cartItems, {}))
-      {
+      if (angular.equals($scope.cartObj.cartItems, {})) {
         Notification.warning("No menu is selected, Please select few Items to checkout");
         return;
       }
@@ -181,19 +179,19 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
 
 
-  
-   
 
-  
+
+
+
     //======================= Favourit Button =======================
 
     $scope.makeFavouritNReverse = function () {
       $scope.favourite = $scope.favourite ? false : true;
     }
-$scope.fav=function(node){
-  node.favItem=node.favItem ? false : true;
-}
-  
+    $scope.fav = function (node) {
+      node.favItem = node.favItem ? false : true;
+    }
+
   }
   // }
 ]);																
