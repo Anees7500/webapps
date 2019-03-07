@@ -23,6 +23,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'Companydashboard
       $scope.vendorListBool = false;
       $scope.unAssignedVendorListBool = false;
       $scope.assignedVendorListBool = false;
+      $scope.addNewVendorBool = false;
       $scope[value] = true;
     }
     $scope.boolFunction("companyBool");

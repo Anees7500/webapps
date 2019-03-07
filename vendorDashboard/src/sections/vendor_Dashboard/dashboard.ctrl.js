@@ -120,10 +120,23 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
 
 
-        var getMenuMonUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
-        console.log("getMenuMonUrl 2000000", getMenuMonUrl);
+        var getWeeklyMenuUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
+        // $scope.weekMenuSorted = {};
+        // $scope.weekMenuSorted.MONDAY = {};
+        // $scope.weekMenuSorted.TUESDAY = {};
+        // $scope.weekMenuSorted.WEDNESDAY = {};
+        // $scope.weekMenuSorted.THURSDAY = {};
+        // $scope.weekMenuSorted.FRIDAY = {};
+        // $scope.weekMenuSorted.SATURDAY = {};
+        // $scope.weekMenuSorted.SUNDAY = {};
 
-        var promis = $http.get(getMenuMonUrl);
+        $http.get(getWeeklyMenuUrl).then(function (response) {
+            $scope.menuDayName = response.data.data.menus.MONDAY;
+            console.log("getWeeklyMenuUrl 2000000",  $scope.menuDayName);         
+        });
+      
+
+        var promis = $http.get(getWeeklyMenuUrl);
 
         promis.then(function (response) {
             $scope.myNode = response.data.data.menus;
@@ -222,8 +235,8 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         var checkMe = function () {
             console.log("check Me inside");
-            var getMenuMonUrl = getmenuFromDbMonUrl + "companyId=" + companyId + "&vendorId=" + vendorId;
-            $http.get(getMenuMonUrl).then(function (response) {
+            var getWeeklyMenuUrl = getmenuFromDbMonUrl + "companyId=" + companyId + "&vendorId=" + vendorId;
+            $http.get(getWeeklyMenuUrl).then(function (response) {
                 console.log("yeehhh", response);
                 $scope.myNode = response.data.data.menus;
             });

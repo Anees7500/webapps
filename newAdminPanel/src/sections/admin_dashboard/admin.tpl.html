@@ -71,16 +71,21 @@
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i
             class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
       </li>
+      <li class="p-2">
+        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewVendorBool')">
+          <i class="fas fa-chalkboard-teacher"></i>
+          </i><span class="font-weight-normal"> Add New Vendor</span></a>
+      </li>
 
     </ul>
   </nav>
 
 
-  <!-- Page Content  --> 
+  <!-- Page Content  -->
   <div id="content" class="mt-5">
 
     <!--===============================company start===============================-->
-    <div ng-if="companyBool"> 
+    <div ng-if="companyBool">
       <nav class="navbar navbar-expand-lg">
         <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
             <i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>home</a></h6>
@@ -334,6 +339,182 @@
 
     <!--===============================/Add-New-Company end===============================-->
 
+
+    <!--=============================== Add-New-Vendor end===============================-->
+    <div ng-if="addNewVendorBool">
+      <div class="container mt-3">
+        <form name="searchForm" novalidate ng-submit="search()">
+          <div class="input-group">
+            <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace" required
+              autofocus />
+            <span class="input-group-btn">
+              <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+            </span>
+          </div>
+        </form>
+        <div id="map"></div>
+        <form ng-submit="send()">
+          <!-- Grid row -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label for="form1">vendor kitchen Name:</label>
+                <input type="text" class="form-control " id="form1" ng-model="place.vendorName">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="form1">Latitude</label>
+                <input type="text" class="form-control " id="form1" ng-model="place.latitude">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group ">
+                <label for="form1">Longitude</label>
+                <input type="text" class="form-control " id="form1"" ng-model=" place.longitude">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group ">
+                <label for="form1">vendor kitchen Address</label>
+                <input type="text" class="form-control " id="form1">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <!-- Grid column -->
+            <div class="col-md-4">
+              <!-- Material input -->
+              <div class="form-group ">
+                <label for="form1">Vendor Name</label>
+                <input type="text" class="form-control" id="form1">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <!-- Material input -->
+              <div class="form-group ">
+                <label for="form1">Mobile Number</label>
+                <input type="number" class="form-control" id="form1">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <!-- Material input -->
+              <div class="form-group">
+                <label for="form1">Alternate Contact Number</label>
+                <input type="number" class="form-control" id="form1">
+              </div>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <nav class="navbar justify-content-center navbar-dark secondary-color-dark">
+                <a class=" text-white">Number of Employee</a>
+              </nav>
+              <div class="form-group mt-2 row ml-1 ">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Head Cook</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div class="form-group row ml-1">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Assiatant Cook</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div class="form-group row ml-1">
+                <label for="inputEmail3" class="col-sm-4 col-form-label">Rest</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <nav class="navbar justify-content-center navbar-dark secondary-color-dark">
+                <a class=" text-white">Capacity</a>
+              </nav>
+              <div class="custom-control custom-checkbox mt-2">
+                <input type="checkbox"> <label> Above 1000</label></br>
+                <input type="checkbox"> <label>500 - 1000</label></br>
+                <input type="checkbox"> <label>Below 500</label></br>
+                <input type="checkbox"> <label>Below 100</label></br>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="col-md-4">
+              <nav class="navbar justify-content-center navbar-dark primary-color-dark ">
+                <a class=" text-white">Service</a>
+              </nav>
+              <div class="custom-control custom-checkbox mt-2">
+                <input type="checkbox"> <label>Breafast</label></br>
+                <input type="checkbox"> <label>Lunch</label></br>
+                <input type="checkbox"> <label>Snacks</label></br>
+                <input type="checkbox"> <label>Dinner</label></br>
+                <input type="checkbox"> <label>Midnight Snacks</label></br>
+                <input type="checkbox"> <label>Events</label></br>
+                <input type="checkbox"> <label>Tuck shop setup</label></br>
+                <input type="checkbox"> <label>Others</label>
+              </div>
+
+            </div>
+            <div class="col-md-4">
+              <nav class="navbar justify-content-center navbar-dark primary-color-dark ">
+                <a class=" text-white">Food Specialty</a>
+              </nav>
+              <div class="custom-control custom-checkbox mt-2">
+                <input type="checkbox"> <label>North Indian</label></br>
+                <input type="checkbox"> <label>South Indian</label></br>
+                <input type="checkbox"> <label>Chinese</label></br>
+                <input type="checkbox"> <label>Other</label></br>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <nav class="navbar justify-content-center navbar-dark primary-color-dark ">
+                <a class=" text-white">Certificates</a>
+              </nav>
+              <div class="custom-control custom-checkbox mt-2">
+                <input type="checkbox"> <label>FSSAI</label></br>
+                <input type="checkbox"> <label>Trade</label></br>
+                <input type="checkbox"> <label>Labour</label></br>
+                <input type="checkbox"> <label>GST</label></br>
+                <input type="checkbox"> <label>PF & ESI</label></br>
+                <input type="checkbox"> <label>Employee BGV & PVC</label></br>
+                <input type="checkbox"> <label>Other</label></br>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Grid row -->
+              <center> <button type="submit" class="btn btn-primary btn-md" ng-click="saveLead()">Submit</button>
+              </center>
+            </div>
+          </div>
+        </form>
+
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <center><button class="col-md-3 btn btn-info" ng-click="saveLead()">Submit</button></center>
+            </div>
+        </div> -->
+      </div>
+    </div>
+
+
+
+
+
+    <!--===============================End Add-New-Vendor end===============================-->
 
 
 
