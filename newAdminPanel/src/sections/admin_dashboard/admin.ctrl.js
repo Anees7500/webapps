@@ -23,6 +23,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
       $scope.vendorListBool = false;
       $scope.unAssignedVendorListBool = false;
       $scope.assignedVendorListBool = false;
+      $scope.addNewVendorBool = false;
       $scope[value] = true;
     }
     $scope.boolFunction("companyBool");
@@ -75,19 +76,18 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
       }
     }
      
-    // $scope.saveCompany = function(comp){
-    //   console.log("company details",comp);
-    //   debugger;
-    //   $http.post(companySignupUrl,comp,req).then(function(response){
-    //     console.log("response of company service",response);
-
-    //   },function(reason){
-
-    //   })
-
-   
-    // }
-
+    $scope.IsVisibleService = false;
+    $scope.ShowHideService = function () {
+        $scope.IsVisibleService = $scope.IsVisibleService ? false : true;
+    }
+    $scope.IsVisibleFoodSpecialty = false;
+    $scope.ShowHideFoodSpecialty = function () {
+        $scope.IsVisibleFoodSpecialty = $scope.IsVisibleFoodSpecialty ? false : true;
+    }
+    $scope.IsVisibleCertificates = false;
+    $scope.ShowHideCertificates = function () {
+        $scope.IsVisibleCertificates = $scope.IsVisibleCertificates ? false : true;
+    }
 
 $scope.activeMenu='Companies';
 

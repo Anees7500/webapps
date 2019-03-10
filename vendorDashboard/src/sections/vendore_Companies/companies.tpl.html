@@ -29,32 +29,31 @@
             </nav>
 
             <div class="container">
-                <div class="row ml-3">
-                    <div ng-repeat="assignedcpny in assignedCompany | filter:search">
-                        <div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <div class="card1    example z-depth-1 mt-5">
-                                    <div class="view overlay  hm-black-light zoom" ripple-radius>
-                                        <img id="image" ng-src="{{assignedcpny.fileName}}"
-                                            class="card-img-top img img-responsive mb-3">
-                                        <a>
-                                            <div class="mask flex-center"></div>
-                                        </a>
-                                    </div>
-                                    <div class="card-block">
-                                        <a ng-href="#!/companies/{{assignedcpny.id}}">
-                                            <h5
-                                                class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal ">
-                                                <i class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>
-                                                {{assignedcpny.companyName | uppercase}} </h5>
-                                            <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{assignedcpny.address}} </p>
-                                            <h5
-                                                class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">
-                                                Read more<i class="fas fa-angle-double-right ml-2 "></i></h5>
-                                        </a>
-                                    </div>
+                <div class="row ml-3 mt-5">
+                 
+               
+                    <div class="col-md-4 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="assignedcpny in assignedCompany | filter:search">
+                        <div class="card  z-depth-1-half" style="width:300px;" >
+                  
+                            <div class="view  position-relative  flex-center ml-3 mr-3 view overlay  hm-black-light zoom" style="height:180px;">
+                                <img  ng-src="{{assignedcpny.fileName}}" class="card-img-top img img-responsive mb-3 ml-3 zoom">
+                                <a><div class="mask flex-center"></div></a>
+                              </div>
+                          <div class="card-body">
+                                <a ng-href="#!/companies/{{assignedcpny.id}}">
+                                  <h1 class="card-title text-danger ng-binding small font-weight-bold"><i
+                                      class="fas fa-address-card deep-purple-text cyan-text "></i>
+                                    {{assignedcpny.companyName | uppercase}} </h1>
+                                  
+                                 
+                                  <p class="card-text ng-binding"> {{assignedcpny.address}} </p>
                                 </div>
-                            </div>
+                                <div class="card-footer">
+                                  <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                                      class="fas fa-angle-double-right ml-2 "></i></h5>
+                                    </div>
+                                </a>
+                              
                         </div>
                     </div>
                 </div>
