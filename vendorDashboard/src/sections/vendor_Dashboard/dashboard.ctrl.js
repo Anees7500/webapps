@@ -14,6 +14,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         // var companyId = 1;
 
         $scope.menuNodes = [];
+        // console.log(" batao aman kya batana hai", $scope.menuNodes); 
         $scope.menuNodes = [{
 
             // uid: uuid.new(),
@@ -132,6 +133,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         $http.get(getWeeklyMenuUrl).then(function (response) {
             $scope.menuDayName = response.data.data.menus.MONDAY;
+            $scope.menuDayName1 = response.data.data.menus.TUESDAY;
             console.log("getWeeklyMenuUrl 2000000",  $scope.menuDayName);         
         });
       
@@ -140,10 +142,11 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         promis.then(function (response) {
             $scope.myNode = response.data.data.menus;
-            if (!_.isEmpty($scope.myNode.MONDAY)) {
+            if (!_.isEmpty($scope.myNode.TUESDAY)) {
                 console.log("yehhhh true 4545")
-                $scope.menuNodes = unflatten($scope.myNode.MONDAY);
-                console.log("menu node after update ", $scope.menuNodes);
+                $scope.menuNodes = unflatten($scope.myNode.TUESDAY);
+                console.log("menu node after update ",JSON.stringify($scope.menuNodes) );
+                
             }
             else {
                 $scope.menuNodes = [{

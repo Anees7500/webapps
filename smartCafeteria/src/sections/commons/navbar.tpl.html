@@ -113,7 +113,7 @@
               <li class="breadcrumb-item active">setting</li>
             </ol>
           </nav>
-      <div class="container z-depth-1 py-3 px-3   col-md-6 ">
+      <div class="container z-depth-1 py-3 px-3  col-md-6 ">
 
 
         <div class="font-weight-bold">
@@ -152,11 +152,12 @@
                 <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline"
                   placeholder="New Password" ng-disabled="!editEmployeeDetails">
               </div>
-
-              <div class="text-center ">
-                <button type="button" class="btn btn-info " ng-click="">Submit</button>
+              <div class="col-md-12 ">
+              <div class="justify-content-center">
+                <button type="button" class="btn btn-info btn-md" ng-click="">Submit</button>
               </div>
             </div>
+          </div>
 
           </div>
 
@@ -170,15 +171,14 @@
  <div ng-if="walletBool">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mt-5">
-  <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top pb-0">
+  
         <li class="breadcrumb-item"><a href="" >Home</a></li>
         <li class="breadcrumb-item active">Wallet</li>
       </ol>
     </nav>
       <div class="container mt-5 mb-5">
-            <div class="media z-depth-1">
-              <div class="media-body">
-                <div class="row ml-3">
+           
+                <div class="row ml-3  z-depth-1">
                   <div class="col-md-4">
                     <div class="d-flex flex-row">
                       <div class="p-2">
@@ -200,30 +200,20 @@
                     <button type="button" class="btn btn-primary mt-3 w-75 ">Add Money to Wallet</button>
                   </div>
                 </div>
-              </div>
-  
-            </div>
-    
-            <div class="media z-depth-1 mt-5">
-              <div class="media-body">
-    
-                <div class="d-flex flex-row justify-content-between pb-0">
-                  <div class="p-2">
-                    <p>Paytm Walle<br><span class="font-weight-bold">Rs 0</span> </p>
-    
+            
+                <div class="row  z-depth-1  mt-5 ml-3">
+                  <div class="col-md-4">
+                      <p class="ml-3">Paytm Walle<br><span class="font-weight-bold">Rs 0</span> </p>
                   </div>
-                  <div class="p-2">
-                    <p>Available Balance<br><span class="font-weight-bold">Rs 0.00</span></p>
-    
+                  <div class="col-md-6"></div>
+                  <div class="col-md-2">
+                      <p>Available Balance<br><span class="font-weight-bold">Rs 0.00</span></p>
                   </div>
                 </div>
-                <hr class="my-1  grey lighten-5">
-    
-    
-                <div class="px-1">
-                  <div class="table-wrapper">
-    
-                    <table class="table table table-borderless mb-0">
+              
+                   <div class="row ml-3  z-depth-1">
+                     <div class="col-md-12">
+                    <table class="table  table-borderless mb-0 table-responsive ml-4 mt-1">
     
     
                       <thead class="rgba-blue-slight">
@@ -269,20 +259,19 @@
                     </table>
     
                   </div>
-    
+                </div>
                 </div>
     
     
               </div>
-            </div>
+           
     
 
-    </div>
- </div>
+    
     <!---------====================================== End Card=====================================-->
     <!---------======================================Terms and Policy=====================================-->
     <div ng-if="termsAndPolicyBool" class="mt-5">
-      <nav class=" card   font-weight-bold  text-center  ">
+      <nav class=" card   font-weight-bold  text-center">
         <h6 class="text-info">Terms and Policy </h6>
       </nav>
       

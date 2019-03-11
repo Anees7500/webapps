@@ -14,48 +14,42 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       Cofounder: 'Co-founder at Fancymonk',
 
     };
-    // ==============Profile work end ============================================
+    // ==============Profile work end =========================================
+
+    // ==============Subordinate Leads ========================================
+    $scope.people = [{
+        name: 'In progress',
+        salesperson: 'Aman'
+
+      },
+      {
+        name: 'pending',
+        salesperson: 'Anees'
+
+      },
+      {
+        name: 'work waiting',
+        salesperson: 'Aman1'
+
+      },
+      {
+        name: 'Success Full',
+        salesperson: 'Anees1'
+
+      }
+
+    ]
+    // ==============Subordinate Leads end =======================================
 
     //=============== Unassigned leads===========================================
-
     //=============== Unassigned leads===========================================
     //====================== sidebar hide and show==========================
-    $scope.toggle = true;
-    $scope.toggleFilter = function () {
-      $scope.toggle = $scope.toggle === false ? true : false;
-    }
-
-    $scope.employees = {
-      "05/17/2015": {
-        'name': 'Bangalore',
-        'age': 37
-      },
-      "03/25/2016": {
-        'name': 'Bravo',
-        'age': 27
-      },
-      "09/11/2015": {
-        'name': 'Charlie',
-        'age': 29
-      },
-      "01/07/2016": {
-        'name': 'Delta',
-        'age': 19
-      },
-      "03/09/2014": {
-        'name': 'Echo',
-        'age': 32
-      }
-    }
-
-    $scope.empArray = Object.keys($scope.employees)
-      .map(function (value, index) {
-        return {
-          joinDate: new Date(value),
-          values: $scope.employees[value]
-        }
-      });
-
+    $scope.area = ["Bangalore", "Hsr Layout", "Bommanahalli","Btm Layout","Koramangala"];
+    $scope.distance = ["0 to 5", "0 to 7", "0 to 9","0 to 12","0 to 15","0 to 20"];
+    $scope.document = ["Fssai", "Trade", "Labour","GST","PF $ ESI","Employee BGV $ PVC","others"];
+    
+    
+  
     //========================= SHOW EMPLOYEE DETAILS.=========================
     $scope.showDetails = function () {
       $scope.details =
@@ -95,7 +89,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.state = !$scope.state;
     };
     //  ================== All AssingendCOmpany URL End===================================
-   
+
     // =================== Calling data===================================================
     $scope.data = [{
         firstName: "Jayaram",
