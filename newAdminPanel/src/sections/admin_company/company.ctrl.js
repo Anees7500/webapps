@@ -1091,6 +1091,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     }
+    $scope.activeMenu='configuration';
   }
   // =============================Company controller ends=============================================
 ]);

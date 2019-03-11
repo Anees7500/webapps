@@ -1,3 +1,4 @@
+
 <style>
   #map {
     height: 300px;
@@ -6,7 +7,6 @@
     border: 1px solid silver;
   }
 </style>
-
 <div class="wrapper">
 
   <!-- ===============================header navbar start=============================== -->
@@ -44,43 +44,43 @@
   <!-- ===========================-sidebar start===================================== -->
   <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
     <ul class="list-unstyled components mt-5">
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('companyBool')" href=""><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'Companies'}" ng-click="activeMenu ='Companies'">
+        <a class=" d-block" ng-click="boolFunction('companyBool')" href="" ><i
             class="fas fa-building fa-fw "></i> <span class="font-weight-normal"> Companies</span><span
             class="badge badge-pill badge-danger ml-2">{{allCompanies.length}}</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'assignedCompany'}" ng-click="activeMenu ='assignedCompany'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i
             class="fas fa-check-square fa-fw "></i> <span class="font-weight-normal"> Assigned Comp.</span><span
             class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedCompanyBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'unassignedCompany'}" ng-click="activeMenu ='unassignedCompany'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedCompanyBool')"><i
             class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal"> Unassigned Comp.</span><span
             class="badge badge-pill badge-danger ml-2">{{unassignedCompanies.length}}</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('vendorListBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'vendor'}" ng-click="activeMenu ='vendor'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('vendorListBool')"><i
             class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Vendors</span><span
             class="badge badge-pill badge-danger ml-2">{{AllVendorslist.length}}</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedVendorListBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'assignedVendor'}" ng-click="activeMenu ='assignedVendor'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('assignedVendorListBool')"><i
             class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal"> Assigned Vendors</span><span
             class="badge badge-pill badge-danger ml-2">{{assignedVendorslist.length}}</span></a>
       </li>
 
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedVendorListBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'unAssignedVendor'}" ng-click="activeMenu ='unAssignedVendor'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('unAssignedVendorListBool')"><i
             class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal"> Unassigned Vendors</span><span
             class="badge badge-pill badge-danger ml-2">{{unassignedVendorslist.length}}</span></a>
       </li>
 
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'addNewCompany'}" ng-click="activeMenu ='addNewCompany'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('addNewCompanyBool')"><i
             class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal"> Add New Company</span></a>
       </li>
-      <li class="p-2">
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'addNewVendor'}" ng-click="activeMenu ='addNewVendor'">
         <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('addNewVendorBool')">
           <i class="fas fa-chalkboard-teacher"></i>
           </i><span class="font-weight-normal"> Add New Vendor</span></a>
@@ -90,51 +90,49 @@
   </nav>
 
 
-  <!-- Page Content  -->
+  <!-- Page Content  --> 
   <div id="content" class="mt-5">
 
     <!--===============================company start===============================-->
     <div ng-if="companyBool">
-      <nav class="navbar navbar-expand-lg">
-        <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
-            <i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>home</a></h6>
-        <form class="form-inline my-2 my-lg-0 ml-auto">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
-        </form>
-      </nav>
-      <div class="container">
-        <div class="row ml-3 mr-0">
-
-          <div ng-repeat="cpny in allCompanies | filter:search">
-
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="card example z-depth-1 mt-5">
-                <div class="view overlay  hm-black-light zoom" ripple-radius>
-                  <img id="image" ng-src="{{cpny.fileName}}" class="card-img-top img img-responsive mb-3">
-                  <a>
-                    <div class="mask flex-center"></div>
-                  </a>
-
+        <nav class="navbar navbar-expand-lg">
+            <h6><a class="navbar-brand w-clr disabled font-small font-weight-normal" href="">
+                <i class="fa fa-home w-clr mr-1 ml-3" aria-hidden="true"></i>home</a></h6>
+            <form class="form-inline my-2 my-lg-0 ml-auto">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
+            </form>
+          </nav>
+          <div class="container mt-5">
+        <div class="row">
+            <!-- ====================Card=============== -->
+            <div class="col-md-4 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="cpny in allCompanies| filter:search">
+                <div class="card  z-depth-1-half" style="width:300px;" >
+          
+                    <div class="view  position-relative  flex-center ml-3 mr-3 view overlay  hm-black-light zoom" style="height:180px;">
+                        <img  ng-src="{{cpny.fileName}}" class="card-img-top img img-responsive mb-3 ml-">
+                        <a><div class="mask flex-center"></div></a>
+                      </div>
+                  <div class="card-body">
+                        <a ng-href="#!/dashboard/company/{{cpny.id}}">
+                          <h1 class="card-title text-danger ng-binding small font-weight-bold"><i
+                              class="fas fa-address-card deep-purple-text cyan-text "></i>
+                            {{cpny.companyName | uppercase}} </h1>
+                          
+                         
+                          <p class="card-text ng-binding"> {{cpny.address}} </p>
+                        </div>
+                        <div class="card-footer">
+                          <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                              class="fas fa-angle-double-right ml-2 "></i></h5>
+                            </div>
+                        </a>
+                      
                 </div>
-                <div class="card-block">
-                  <a ng-href="#!/dashboard/company/{{cpny.id}}">
-                    <h5 class="card-title text-danger b-clr ng-binding  mt-3 font-weight-normal "><i
-                        class="fas fa-address-card deep-purple-text cyan-text ml-3"></i>
-                      {{cpny.companyName | uppercase}} </h5>
-                    <p class="card-text b-clr  ng-binding mt-3 ml-3"> {{cpny.address}} </p>
-                    <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
-                        class="fas fa-angle-double-right ml-2 "></i></h5>
-                  </a>
-                </div>
-              </div>
             </div>
-          </div>
-
-
+            <!---------------------------Card-------------------- -->
         </div>
       </div>
     </div>
-
     <!-- ===============================-Assigned company=============================== -->
     <div ng-if="assignedCompanyBool">
       <nav class="navbar navbar-expand-lg">
@@ -144,33 +142,35 @@
           <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="search">
         </form>
       </nav>
-      <div class="container">
-        <div class="row ml-3 mr-0">
-          <div ng-repeat=" assignedcpny in assignedCompany | filter:search">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="card example z-depth-1 mt-5">
-                <div class="view overlay  hm-black-light zoom" ripple-radius>
-                  <img id="image" ng-src="{{assignedcpny.fileName}}" class="card-img-top img img-responsive mb-3">
-                  <a>
-                    <div class="mask flex-center"></div>
-                  </a>
-                </div>
-                <div class="card-block">
-                  <a ng-href="#!/dashboard/company/{{assignedcpny.id}}">
-
-                    <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i
-                        class="fas fa-address-card deep-purple-text cyan-text "></i>
-                      {{assignedcpny.companyName | uppercase}} </h6>
-                    <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{assignedcpny.address}} </p>
-                    <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
-                        class="fas fa-angle-double-right ml-2 "></i></h5>
-                  </a>
-                </div>
+      <div class="container mt-5">
+          <div class="row">
+              <!-- ====================Card=============== -->
+              <div class="col-md-4 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat=" assignedcpny in assignedCompany | filter:search">
+                  <div class="card  z-depth-1-half" style="width:300px;" >
+            
+                      <div class="view  position-relative  flex-center ml-3 mr-3 view overlay  hm-black-light zoom" style="height:180px;">
+                          <img  ng-src="{{assignedcpny.fileName}}" class="card-img-top img img-responsive mb-3 ml-">
+                          <a><div class="mask flex-center"></div></a>
+                        </div>
+                    <div class="card-body">
+                          <a ng-href="#!/dashboard/company/{{assignedcpny.id}}">
+                            <h1 class="card-title text-danger ng-binding small font-weight-bold"><i
+                                class="fas fa-address-card deep-purple-text cyan-text "></i>
+                                {{assignedcpny.companyName | uppercase}}</h1>
+                            
+                           
+                            <p class="card-text ng-binding">{{assignedcpny.address}}</p>
+                          </div>
+                          <div class="card-footer">
+                            <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                                class="fas fa-angle-double-right ml-2 "></i></h5>
+                              </div>
+                          </a>
+                        
+                  </div>
               </div>
-            </div>
           </div>
         </div>
-      </div>
     </div>
 
 
@@ -185,33 +185,36 @@
             id="search-height">
         </form>
       </nav>
-      <div class="container">
-        <div class="row  mr-0 ml-3 ">
-          <div ng-repeat="unassignedcpny in unassignedCompanies  | filter:search">
-
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="card example z-depth-1 mt-5">
-                <div class="view overlay  hm-black-light zoom" ripple-radius>
-                  <img id="image" ng-src="{{unassignedcpny.fileName}}" class="card-img-top img img-responsive mb-3">
-                  <a>
-                    <div class="mask flex-center"></div>
-                  </a>
-                </div>
-                <div class="card-block">
-                  <a ng-href="#!/dashboard/company/{{unassignedcpny.id}}">
-                    <h6 class="card-title text-danger b-clr ng-binding  mt-3 ml-2"><i
-                        class="fas fa-address-card deep-purple-text cyan-text "></i>
-                      {{unassignedcpny.companyName | uppercase}} </h6>
-                    <p class="card-text b-clr  ng-binding mt-3 ml-2"> {{unassignedcpny.address}} </p>
-                    <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
-                        class="fas fa-angle-double-right ml-2 "></i></h5>
-                  </a>
-                </div>
+    
+      <div class="container mt-5">
+          <div class="row">
+              <!-- ====================Card=============== -->
+              <div class="col-md-4 card-deck col-sm-4 col-xs-12 mb-5 mr-1"ng-repeat="unassignedcpny in unassignedCompanies  | filter:search">
+                  <div class="card  z-depth-1-half" style="width:300px;" >
+            
+                      <div class="view  position-relative  flex-center ml-3 mr-3 view overlay  hm-black-light zoom" style="height:180px;">
+                          <img  ng-src="{{unassignedcpny.fileName}}" class="card-img-top img img-responsive mb-3 ml-">
+                          <a><div class="mask flex-center"></div></a>
+                        </div>
+                    <div class="card-body">
+                          <a ng-href="#!/dashboard/company/{{unassignedcpny .id}}">
+                            <h1 class="card-title text-danger ng-binding small font-weight-bold"><i
+                                class="fas fa-address-card deep-purple-text cyan-text "></i>
+                                {{unassignedcpny.companyName | uppercase}}</h1>
+                            
+                           
+                            <p class="card-text ng-binding"> {{unassignedcpny.address}}</p>
+                          </div>
+                          <div class="card-footer">
+                            <h5 class="d-flex flex-row-reverse p-2 waves-effect waves-light text-success">Read more<i
+                                class="fas fa-angle-double-right ml-2 "></i></h5>
+                              </div>
+                          </a>
+                        
+                  </div>
               </div>
-            </div>
           </div>
         </div>
-      </div>
     </div>
 
     <!-- ====================== Vender ================================== -->
@@ -224,35 +227,37 @@
           <input class="form-control" ng-model="search" type="text" placeholder="Search" aria-label="Search"
             id="search-height">
         </form>
-      </nav>
-      <div class="container">
-        <div class="row  mr-0 ml-sm-3 ml-xs-3">
-          <div ng-repeat="vendor in AllVendorslist | filter:search">
-
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="card example z-depth-1 mt-5">
-                <div class="view overlay  hm-black-light zoom" ripple-radius>
-                  <img id="image" src="img/v2.jpg" class="card-img-top img img-responsive mb-3">
-                  <a>
-                    <div class="mask flex-center"></div>
-                  </a>
-                </div>
-                <div class="card-block">
-                  <a ng-href="#!/dashboard/vendor/{{vendor.id}}">
-                    <h5 class="card-title font-weight-normal text-danger b-clr ng-binding  mt-3 ml-3">
-                      {{vendor.name | uppercase}}</h5>
-                    <p class="card-text font-size  ml-2 b-clr font ng-binding" id="font-size"><i
-                        class="far fa-envelope ml-2"></i><a class="ml-2">{{vendor.email}}</a></p>
-                    <p class="card-text  ml-2 b-clr font ng-binding" id="font-size"><i class="fas fa-phone ml-2"></i><a
-                        class="ml-2">{{vendor.mobile}}</a></p>
-                  </a>
-                </div>
-
+      </nav>   
+      <div class="container mt-5">
+          <div class="row">
+              <!-- ====================Card=============== -->
+              <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="vendor in AllVendorslist | filter:search">
+                  <div class="card  z-depth-1-half">
+            
+                      <div class="view  position-relative  flex-center ml-3 mr-3 view overlay  hm-black-light zoom" style="height:180px;">
+                          <img src="img/v2.jpg" class="card-img-top img img-responsive mb-3 ml-">
+                          <a><div class="mask flex-center"></div></a>
+                        </div>
+                    <div class="card-body">
+                        <a ng-href="#!/dashboard/vendor/{{vendor.id}}">
+                            <h1 class="card-title text-danger ng-binding small font-weight-bold"><i
+                                class="fas fa-address-card deep-purple-text cyan-text "></i>
+                                {{vendor.name  | uppercase}}</h1>
+                            
+                           
+                            <p class="card-text ng-binding"> {{vendor.mobile}}</p>
+                          </div>
+                          <div class="card-footer p-0">
+                            <h5 class="d-flex  waves-effect waves-light text-success small">
+                                <i class="far fa-envelope ml-1 mr-1 text-dark"></i><span class="text-dark">{{vendor.email}}</span>
+                            </h5>
+                              </div>
+                          </a>
+                        
+                  </div>
               </div>
-            </div>
           </div>
         </div>
-      </div>
     </div>
 
 
@@ -380,8 +385,7 @@
           </div>
         </form>
         <div id="map"></div>
-        <form name="resForm">
-          <!-- Grid row -->
+        <form name="resForm"> 
           <div class="row">
             <div class="col-md-4">
               <div class="form-group ">
@@ -406,7 +410,7 @@
             <div class="col-md-12">
               <div class="form-group ">
                 <label for="form1">vendor kitchen Address</label>
-                <input type="text" class="form-control " id="form1">
+                <input type="text" class="form-control " id="form1" ng-model="place.address">
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ empApp.config(['$routeProvider', function ($routeProvider) {
         .when('/dashboard/favourite', {
             templateUrl: 'sections/smartCafe_favourite/favourite.tpl.html',
             title: 'Header-part',
-            controller: ''
+            controller: 'FavouritController'
         })
 
         .when('/dashboard', {
