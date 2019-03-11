@@ -161,7 +161,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     $scope.weekMenuSorted = {};
     $scope.weekMenuSorted.BREAKFAST = {};
     $scope.weekMenuSorted.LUNCH = {};
-    $scope.weekMenuSorted.DINNER = {};
+    $scope.weekMenuSorted.DINNER = {}; 
     $scope.weekMenuSorted.SNACKS = {};
     //  weekMenuSorted.BREAKFAST = {};
     // weekMenuSorted.BREAKFAST = {};

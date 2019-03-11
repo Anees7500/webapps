@@ -23,6 +23,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
       $scope.vendorListBool = false;
       $scope.unAssignedVendorListBool = false;
       $scope.assignedVendorListBool = false;
+      $scope.addNewVendorBool = false;
       $scope[value] = true;
     }
     $scope.boolFunction("companyBool");
@@ -69,6 +70,20 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
       }
 
     });
+
+    $scope.IsVisibleService = false;
+    $scope.ShowHideService = function () {
+        $scope.IsVisibleService = $scope.IsVisibleService ? false : true;
+    }
+    $scope.IsVisibleFoodSpecialty = false;
+    $scope.ShowHideFoodSpecialty = function () {
+        $scope.IsVisibleFoodSpecialty = $scope.IsVisibleFoodSpecialty ? false : true;
+    }
+    $scope.IsVisibleCertificates = false;
+    $scope.ShowHideCertificates = function () {
+        $scope.IsVisibleCertificates = $scope.IsVisibleCertificates ? false : true;
+    }
+
 
 
 
