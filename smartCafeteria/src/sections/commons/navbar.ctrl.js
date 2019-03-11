@@ -35,7 +35,7 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
       $scope.add = $scope.add ? false : true;
     }
    
-    $scope.notifObj = SMCNotifications.updateVal();
+    // $scope.notifObj = SMCNotifications.updateVal();
     // $scope.boolFunction = function(value)
     // {
     //   $scope.booleans = NavbarService.boolFunction(value);

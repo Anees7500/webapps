@@ -52,7 +52,7 @@ empApp.service('NavbarService', function () {
 
           console.log("after updating",vm.msgCount);
           poll();
-        }, 3000);
+        }, 300000);
       })();
 
       return vm;

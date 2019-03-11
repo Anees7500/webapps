@@ -1,7 +1,7 @@
 empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVendorMenuList', '$http', '$location', '$cookies',
-  'Notification', '$route', '$rootScope', 'getVendorList','CartService','NavBoolService',
+  'Notification', '$route', '$rootScope', 'getVendorList', 'CartService', 'NavBoolService','$httpParamSerializerJQLike',
   function ($scope, DashboardService, getVendorMenuList, $http, $location, $cookies, Notification,
-    $route, $rootScope, getVendorList, CartService,NavBoolService) {
+    $route, $rootScope, getVendorList, CartService, NavBoolService, $httpParamSerializerJQLike) {
 
     // ============= Logout ==================================
 
@@ -17,7 +17,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     //   $route.reload();
     // }
 
-    $scope.getNavBool = function(){
+    $scope.getNavBool = function () {
       return NavBoolService.getNavBool();
     }
 
@@ -26,7 +26,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     // $scope.try = function () {
     //   console.log("hahahaah ");
     // }
-  
+
 
     //==============================================================
     //================ DEFINITION PART START========================
@@ -75,7 +75,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     $scope.selectVendor = function (obj) {
       $scope.selectedVendor = obj;
       getMenus();
-      
+
     }
 
     $scope.makeFavouritNReverse = function (obj) {
@@ -120,10 +120,10 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
     };
 
-    
+
 
     $scope.addCount = function (val) {
-  
+
       $scope.cartObj = CartService.addCount(val);
     }
 
@@ -153,7 +153,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     }
 
     $scope.getCartItemSize = function (obj) {
-   CartService.getCartItemSize();
+      CartService.getCartItemSize();
     }
 
     $scope.getVendorName = function (id) {
@@ -169,11 +169,9 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
       return vName;
     }
 
-    $scope.gotoCheckout = function()
-    {
+    $scope.gotoCheckout = function () {
       console.log("itens hahah: ", JSON.stringify($scope.cartItems));
-      if(angular.equals($scope.cartObj.cartItems, {}))
-      {
+      if (angular.equals($scope.cartObj.cartItems, {})) {
         Notification.warning("No menu is selected, Please select few Items to checkout");
         return;
       }
@@ -184,19 +182,43 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
 
 
-  
-   
 
-  
+
+
+
     //======================= Favourit Button =======================
 
     $scope.makeFavouritNReverse = function () {
       $scope.favourite = $scope.favourite ? false : true;
     }
-$scope.fav=function(node){
-  node.favItem=node.favItem ? false : true;
-}
-  
+
+    $scope.fav = function(node) {
+      debugger;
+      var dataForDb = {};
+      dataForDb.companyId = companyId;
+      dataForDb.employeeId = $cookies.get("eId");
+      dataForDb.menuId = node.id;
+
+      $http({
+        method: 'POST',
+        url: "http://fancymonk.com:9125/api/client/empfavoritemenu/add",
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        data: $httpParamSerializerJQLike(dataForDb)
+    }).then(function (response) {
+        console.log('response from favorite url', JSON.stringify(response));
+        // if (response.data.status == 1) {
+        //     // Notification.success('Booking request has been raised..');
+        //     $location.path('/dashboard/orders');
+        // } else {
+        //     console.log('error registering');
+        // }
+    });
+      // DashboardService.makeMenuFavoriteAndUnfavorite(dataForDb, false);
+
+    }
+
   }
   // }
 ]);																
