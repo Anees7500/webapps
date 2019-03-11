@@ -1,6 +1,6 @@
 <div class="wrapper" ng-controller="NavbarController">
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top pb-0">
-    <a class="navbar-brand text-white font-weight-bold" ng-click="boolFunction('homeBool')" href="">FANCYMONK</a>
+    <a class="navbar-brand text-white font-weight-bold" href="#!/dashboard">FANCYMONK</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
       aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,13 +19,13 @@
               aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-bell fa-2x text-white"></i>
             </button>
-            <span class="badge badge-notify">3</span>
+            <span class="badge badge-notify">{{notifObj.msgCount}}</span>
             <div class="dropdown-menu z-depth-1 border border-success" id="menu">
 
               <ul class="list-group dropdown-header">
                 <li class="list-group-item d-flex justify-content-between text-left success-color ml-3">
                   <span class="text-white"> NOTIFICATIONS</span>
-                  <span class="badge badge-danger badge-pill mt-1">3</span>
+                  <span class="badge badge-danger badge-pill mt-1">{{notifObj.msgCount}}</span>
                 </li>
               </ul>
               <form class="px-4 py-3">
@@ -34,16 +34,16 @@
                     <div class="force-overflow">
 
                       <div class="list-group">
-                        <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="" class="list-group-item list-group-item-action flex-column align-items-start" ng-repeat="n in notifObj.notifMsgs">
                           <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-2 h6">You Have New Order</h5>
+                            <h6 class="mb-2 h6">{{n.body.header}}</h5>
                               <small>2 mins ago</small>
                           </div>
-                          <p class="mb-2 text-muted font-weight-bold">Item: 1 Biryani, 1 chicken Fry</p>
+                          <p class="mb-2 text-muted font-weight-bold">{{n.body.message}}</p>
                           <small>Order has been confirmed from vendors</small>
                         </a>
 
-                        <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <!-- <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
                           <div class="d-flex w-100 justify-content-between">
                             <h6 class="mb-2 h6">Your order has been placed</h6>
                             <small class="text-muted">10 mins ago</small>
@@ -58,7 +58,7 @@
                           </div>
                           <p class="mb-2 text-muted font-weight-bold">Your Food is ont the way</p>
                           <small>Enjoy your food</small>
-                        </a>
+                        </a> -->
 
                       </div>
                     </div>
