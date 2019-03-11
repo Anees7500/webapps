@@ -269,7 +269,7 @@
 
                                 <!--Table body-->
                                 <tbody>
-                                    <tr ng-repeat="cancelOdr in cancelOrderHistroy ">
+                                    <tr ng-repeat="cancelOdr in cancelOrderHistroyPage[currentPage]">
 
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
@@ -281,7 +281,22 @@
                                 </tbody>
                                 <!--Table body-->
                             </table>
-                            <!--Table-->
+                            <span aria-label="Page navigation example">
+                                <ul class="pagination pagination-circle pg-blue">
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <span class=" page-item">
+                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                        </span>
+                                    </li>
+                                    <li ng-repeat="n in range(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}"
+                                        ng-click="setPages()" class="page-item">
+                                        <a class="page-link" ng-bind="n + 1">1</a></li>
+
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
+                                        <a class="page-link" ng-click="nextPage()">Next »</a>
+                                    </li>
+                                </ul>
+                            </span>
                         </div>
 
                     </div>
@@ -382,7 +397,7 @@
 
                                 <!--Table body-->
                                 <tbody>
-                                    <tr ng-repeat="cancelOdr in cancelOrderHistroy ">
+                                    <tr ng-repeat="cancelOdr in cancelOrderHistroyPage[currentPage] ">
 
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
@@ -394,7 +409,22 @@
                                 </tbody>
                                 <!--Table body-->
                             </table>
-                            <!--Table-->
+                            <span aria-label="Page navigation example">
+                                <ul class="pagination pagination-circle pg-blue">
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <span class=" page-item">
+                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                        </span>
+                                    </li>
+                                    <li ng-repeat="n in range(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}"
+                                        ng-click="setPages()" class="page-item">
+                                        <a class="page-link" ng-bind="n + 1">1</a></li>
+
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
+                                        <a class="page-link" ng-click="nextPage()">Next »</a>
+                                    </li>
+                                </ul>
+                            </span>
                         </div>
 
                     </div>
@@ -525,7 +555,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="cancelOdr in cancelOrderHistroy ">
+                                    <tr ng-repeat="cancelOdr in cancelOrderHistroyPage[currentPage]">
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemName}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.menuItemCount}}</td>
                                         <td class="font-weight-normal text-left">{{cancelOdr.totalAmount}}</td>
@@ -535,6 +565,22 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <span aria-label="Page navigation example">
+                                <ul class="pagination pagination-circle pg-blue">
+                                    <li ng-class="{disabled: currentPage == 0}">
+                                        <span class=" page-item">
+                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                        </span>
+                                    </li>
+                                    <li ng-repeat="n in range(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}"
+                                        ng-click="setPages()" class="page-item">
+                                        <a class="page-link" ng-bind="n + 1">1</a></li>
+
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
+                                        <a class="page-link" ng-click="nextPage()">Next »</a>
+                                    </li>
+                                </ul>
+                            </span>
                         </div>
                     </div>
                 </div>

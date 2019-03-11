@@ -270,10 +270,10 @@ h6{
 
 .catagory {
   font-size: 20px;
-  /font-family: arial;/
+  font-family: arial;
   color: #071514;
   margin: 20px;
-  /margin-top: 10px;/
+  margin-top: 10px;
 }
 
 .switch {
@@ -406,7 +406,7 @@ h6{
 
 .tooltip{
   font-size:86px;
-  aria-hidden:true;
+  /* aria-hidden:true; */
 
 }
 .paginatio1{
@@ -425,7 +425,7 @@ h6{
   left: 45px;
   float: left;
   height: 12px;
-  /width: 8px;/
+  /* /width: 8px;/ */
   text-align: center;
   font-size: 8px;
 }
@@ -451,7 +451,7 @@ h6{
   height: 2.5em;
   border-radius: 1em;
   background: smoke;
-  line-hieght: 1.2em;
+  /* line-hieght: 1.2em; */
 }
 
 .manageEmployee-list {

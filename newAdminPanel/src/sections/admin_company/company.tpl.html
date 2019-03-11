@@ -1141,19 +1141,19 @@
           <div class="col-md-4">
             <div class="form-group ">
               <label for="form1">Company Name:</label>
-              <input type="text" class="form-control" id="form1" name="resName"  -model="place.companyName">
+              <input type="text" class="form-control" id="form1" name="resName"  value="{{cmpyName}}">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="form1">Latitude</label>
-              <input type="text" class="form-control" name="resLat" id="form1" ng-model="place.latitude">
+              <input type="text" class="form-control" name="resLat" id="form1" value="{{latitude}}">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group ">
               <label for="form1">Longitude</label>
-              <input type="text" class="form-control" name="resLng" id="form1" ng-model="place.longitute">
+              <input type="text" class="form-control" name="resLng" id="form1" value="{{longitute}}">
             </div>
           </div>
         </div>
@@ -1163,46 +1163,49 @@
           <div class="col-md-12">
             <div class="form-group ">
               <label for="form1">Company Address:</label>
-              <input type="text" class="form-control" id="form1" placeholder="enter company address"
-                ng-model="place.address" required>
+              <input type="text"   name="resLng" class="form-control" id="form1" 
+                value="{{cmpyAddress}}" required>
             </div>
           </div>
         </div>
 
         <div class="form-row mt-2">
+          <div class="col-md-6">
           <!-- Grid column -->
-          <div class="col-md-4">
+          <div class="col-md-10">
             <div class="form-group ">
               <label for="form1">Email Id:</label>
-              <input type="email" placeholder="enter email id" ng-model="place.contactEmailId" class="form-control"
+              <input type="email" placeholder="enter email id" value="" class="form-control"
                 id="form1" required>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-10">
             <div class="form-group ">
               <label for="form1">Mobile No:</label>
-              <input type="number" name="" class="form-control" id="form1" placeholder="enter your mobile no"
-                ng-model="place.contactNumber" />
+              <input type="number" name="" class="form-control" id="form1"
+                value="{{contactNumber}}" />
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-10">
             <div class="form-group ">
               <label for="form1">Contact person Name:</label>
-              <input class="form-control" id="form1" type="text" placeholder="enter contact person"
-                ng-model="place.companyPerson" />
+              <input class="form-control" id="form1" type="text"
+                value="{{companyPerson}}" />
             </div>
           </div>
         </div>
+       
         <div class="col-md-6">
-          <div class="row mr-5 mt-3">
+          <div class="row mr-2 mt-3 ml-2"> 
             <!-- Image upload  -->
-            <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
-              width="300px">
+            <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info  "
+              width="300px" height="180px">
             <div class="d-flex">
-              <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+              <input type="file" class="ml-3 mt-2" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
             </div>
           </div>
         </div>
+      </div>
       </form>
       <div class="row mt-2">
         <div class="col-md-12">
