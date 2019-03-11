@@ -34,6 +34,10 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
     $scope.addToCartReverse = function () {
       $scope.add = $scope.add ? false : true;
     }
+
+    $scope.makeEmployeeDetailsEditable = function () {
+      $scope.editEmployeeDetails = $scope.editEmployeeDetails ? false : true;
+    }
    
     // $scope.notifObj = SMCNotifications.updateVal();
     // $scope.boolFunction = function(value)

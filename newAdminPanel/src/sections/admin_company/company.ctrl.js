@@ -50,7 +50,11 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
     /** Configuration Section Start*/
     //==============================================================
-
+    var req = {      
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
 
     /* Category */
     $scope.categories = [
