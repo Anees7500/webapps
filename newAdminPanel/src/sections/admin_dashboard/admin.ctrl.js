@@ -30,7 +30,8 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
 
     // ===================== Signup ==================================
     $scope.companySignup = function (company) {
-      companydetailsService.companySignup(company, companySignupUrl);
+      console.log("sign up data", company);
+      //companydetailsService.companySignup(company, companySignupUrl);
     }
     // ======================= All Vendor List =========================
     $http.get(getAllVendorListUrl).then(function (response) {
@@ -68,27 +69,6 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
       }
 
     });
-
-    var req = {      
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }
-     
-    // $scope.saveCompany = function(comp){
-    //   console.log("company details",comp);
-    //   debugger;
-    //   $http.post(companySignupUrl,comp,req).then(function(response){
-    //     console.log("response of company service",response);
-
-    //   },function(reason){
-
-    //   })
-
-   
-    // }
-
-
 
 
 

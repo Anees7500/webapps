@@ -271,7 +271,7 @@
               <legend for="resLat" class="col-xs-2 control-label text-info font-weight-bold small ">Company
                   Name:</legend>
               <div class="col-xs-10">
-                  <input name="resName" type="text" class="form-control text-capitalize " style="width: 95%"ng-model="place.companyName"
+                  <input name="resName" type="text" class="form-control text-capitalize " style="width: 95%" ng-model="place.companyName" maxlength="30"
                       required />
               </div>
           </div>
@@ -296,18 +296,18 @@
                   <div class="">
                       <legend class="text-info font-weight-bold mask small ">Company Address:</legend>
                       <input class="form-control text-capitalize" style="width: 100%;" type="text"
-                          placeholder="enter company address" aria-label="Search" ng-model="place.address"
+                          placeholder="enter company address" aria-label="Search" ng-model="place.address" maxlength="30"
                           required>
                   </div>                  
                   <div class="mt-3">
                       <legend class="text-info font-weight-bold mask small">Email Id:</legend>
                       <input class="form-control " style="width: 100%;" type="email" placeholder="enter email id" ng-model="place.contactEmailId"
-                          aria-label="Search" >
+                          aria-label="Search" maxlength="30">
                   </div>                
                   <div class="mt-3">
                       <div class="input-group">
                           <legend class="text-info font-weight-bold mask small">Mobile No:</legend>
-                          <input type="number" name="" class="form-control" placeholder="enter your mobile no" ng-model="place.contactNumber"/>
+                          <input type="number" name="" class="form-control" placeholder="enter your mobile no" ng-model="place.contactNumber" maxlength="10"/>
                       </div>
                   </div>
               </div>
@@ -315,12 +315,12 @@
                   <div class="">
                       <legend class="text-info font-weight-bold mask small">Contact person Name:</legend>
                       <input class="form-control " style="width: 100%;" type="text" placeholder="enter contact person"
-                          aria-label="Search" ng-model="place.companyPerson">
+                          aria-label="Search" ng-model="place.companyPerson" maxlength="30">
                   </div>
                   <div class="mt-3">
                       <div class="input-group">
                           <legend class="text-info font-weight-bold mask small">GST Number:</legend>
-                          <input type="text" name="gst" class="form-control" placeholder="enter gst number" ng-model="place.companyGST"/>
+                          <input type="text" name="gst" class="form-control" placeholder="enter gst number" ng-model="place.companyGST" maxlength="30"/>
                       </div>
                   </div>            
                   <div class="row mr-5 mt-3">
