@@ -1,0 +1,26 @@
+{
+  "name": "src",
+  "authors": [
+    "chhetrijanuka <janukachhetri15@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.7",
+    "MDBootstrap": "^4.7.4",
+    "Font-Awesome": "^5.7.2",
+    "angular-route": "^1.7.7",
+    "angular-ui-notification": "^0.3.6",
+    "components-font-awesome": "^5.4.2",
+    "angular-cookies": "^1.7.7"
+  }
+}

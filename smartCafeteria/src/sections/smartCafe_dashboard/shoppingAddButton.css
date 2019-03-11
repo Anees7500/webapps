@@ -64,9 +64,11 @@
   max-height: 420px;
   overflow-y: scroll;
    overflow-x: hidden;
+  
    }
    .force-overflow {
    min-height: 150px;
+  
    }
    
    .scrollbar-primary::-webkit-scrollbar {

@@ -1,7 +1,7 @@
 empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVendorMenuList', '$http', '$location', '$cookies',
-  'Notification', '$route', '$rootScope', 'getVendorList', 'CartService',
+  'Notification', '$route', '$rootScope', 'getVendorList', 'CartService', 'NavBoolService','$httpParamSerializerJQLike',
   function ($scope, DashboardService, getVendorMenuList, $http, $location, $cookies, Notification,
-    $route, $rootScope, getVendorList, CartService) {
+    $route, $rootScope, getVendorList, CartService, NavBoolService, $httpParamSerializerJQLike) {
 
     // ============= Logout ==================================
 
@@ -17,6 +17,9 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     //   $route.reload();
     // }
 
+    $scope.getNavBool = function () {
+      return NavBoolService.getNavBool();
+    }
 
     var companyId = 1;
 
@@ -189,18 +192,32 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
       $scope.favourite = $scope.favourite ? false : true;
     }
 
-$scope.fav=function(node){
-  node.favItem=node.favItem ? false : true;
-}
-  
+    $scope.fav = function(node) {
+      debugger;
+      var dataForDb = {};
+      dataForDb.companyId = companyId;
+      dataForDb.employeeId = $cookies.get("eId");
+      dataForDb.menuId = node.id;
 
+      $http({
+        method: 'POST',
+        url: "http://fancymonk.com:9125/api/client/empfavoritemenu/add",
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        data: $httpParamSerializerJQLike(dataForDb)
+    }).then(function (response) {
+        console.log('response from favorite url', JSON.stringify(response));
+        // if (response.data.status == 1) {
+        //     // Notification.success('Booking request has been raised..');
+        //     $location.path('/dashboard/orders');
+        // } else {
+        //     console.log('error registering');
+        // }
+    });
+      // DashboardService.makeMenuFavoriteAndUnfavorite(dataForDb, false);
 
-
-
-
-
-
-
+    }
 
   }
   // }
