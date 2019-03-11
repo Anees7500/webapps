@@ -70,6 +70,47 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             { menuItemName: "Egg Burji Omellete", menuItemCount: "3", totalAmount: "180", orderOn: "3/04/2018", paymentMode: "Online", paymentStatus: "Done", ordersStatus: "Delivered" },
             { menuItemName: "Egg Burji", menuItemCount: "1", totalAmount: "110", orderOn: "16/05/2018", paymentMode: "Online", paymentStatus: "Done", ordersStatus: "Delivered" }
         ];
+        $scope.itemsPerPage = 7;
+        $scope.cancelOrderHistroyPage = [];
+        $scope.search = function () {
+            $scope.currentPage = 0;
+            $scope.groupToPages();
+        };
+        $scope.groupToPages = function () {
+            $scope.cancelOrderHistroyPage = [];
+            for (var i = 0; i < $scope.cancelOrderHistroy.length; i++) {
+                if (i % $scope.itemsPerPage === 0) {
+                    $scope.cancelOrderHistroyPage[Math.floor(i / $scope.itemsPerPage)] = [$scope.cancelOrderHistroy[i]];
+                } else {
+                    $scope.cancelOrderHistroyPage[Math.floor(i / $scope.itemsPerPage)].push($scope.cancelOrderHistroy[i]);
+                }
+            }
+        };
+        $scope.ranges = function (start, end) {
+            var ret = [];
+            if (!end) {
+                end = start;
+                start = 0;
+            }
+            for (var i = start; i < end; i++) {
+                ret.push(i);
+            }
+            return ret;
+        };
+        $scope.prevPage = function () {
+            if ($scope.currentPage > 0) {
+                $scope.currentPage--;
+            }
+        };
+        $scope.nextPage = function () {
+            if ($scope.currentPage < $scope.cancelOrderHistroyPage.length - 1) {
+                $scope.currentPage++;
+            }
+        };
+        $scope.setPages = function () {
+            $scope.currentPage = this.n;
+        };
+        $scope.search();
 
         //================================ Payment Summary ====================================
         $scope.paymentSummary = [
@@ -101,7 +142,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                     }
                     else if (child.menuType === "egg") {
                         child.isEgg = true;
-                       
+
                     }
                 }
                 return child.parentId == parent.id;
@@ -134,9 +175,9 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         $http.get(getWeeklyMenuUrl).then(function (response) {
             $scope.menuDayName = response.data.data.menus.MONDAY;
             $scope.menuDayName1 = response.data.data.menus.TUESDAY;
-            console.log("getWeeklyMenuUrl 2000000",  $scope.menuDayName);         
+            console.log("getWeeklyMenuUrl 2000000", $scope.menuDayName);
         });
-      
+
 
         var promis = $http.get(getWeeklyMenuUrl);
 
@@ -145,8 +186,8 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             if (!_.isEmpty($scope.myNode.TUESDAY)) {
                 console.log("yehhhh true 4545")
                 $scope.menuNodes = unflatten($scope.myNode.TUESDAY);
-                console.log("menu node after update ",JSON.stringify($scope.menuNodes) );
-                
+                console.log("menu node after update ", JSON.stringify($scope.menuNodes));
+
             }
             else {
                 $scope.menuNodes = [{
@@ -439,21 +480,14 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         $http.get(getFeedbackUrl).then(function (response) {
             $scope.feedback = response.data.data.reviews;
 
-             $scope.itemsPerPage = 7;
+            $scope.itemsPerPage = 7;
             $scope.pagedItems = [];
-            // $scope.currentPage = 0;
-
             $scope.search = function () {
-
                 $scope.currentPage = 0;
-                // now group by pages
                 $scope.groupToPages();
             };
-
-            // calculate page in place
             $scope.groupToPages = function () {
                 $scope.pagedItems = [];
-
                 for (var i = 0; i < $scope.feedback.length; i++) {
                     if (i % $scope.itemsPerPage === 0) {
                         $scope.pagedItems[Math.floor(i / $scope.itemsPerPage)] = [$scope.feedback[i]];
@@ -473,24 +507,19 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 }
                 return ret;
             };
-
-
             $scope.prevPage = function () {
                 if ($scope.currentPage > 0) {
                     $scope.currentPage--;
                 }
             };
-
             $scope.nextPage = function () {
                 if ($scope.currentPage < $scope.pagedItems.length - 1) {
                     $scope.currentPage++;
                 }
             };
-
             $scope.setPage = function () {
                 $scope.currentPage = this.n;
             };
-
             $scope.search();
 
 
@@ -528,10 +557,10 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         }
 
 
-// to active side menu
-$scope.activeMenu = 'PendingOrders'; 
+        // to active side menu
+        $scope.activeMenu = 'PendingOrders';
 
 
 
-}
+    }
 ]); 
