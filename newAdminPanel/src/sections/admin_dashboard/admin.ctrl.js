@@ -30,7 +30,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
     // ========================== bool Logic end ==========================
 
     // ===================== Signup ==================================
-    $scope.companySignup = function (company) {
+    $scope.companySignup = function (company) {      
       companydetailsService.companySignup(company, companySignupUrl);
     }
     // ======================= All Vendor List =========================
@@ -70,12 +70,6 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
 
     });
 
-    var req = {      
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }
-     
     $scope.IsVisibleService = false;
     $scope.ShowHideService = function () {
         $scope.IsVisibleService = $scope.IsVisibleService ? false : true;
