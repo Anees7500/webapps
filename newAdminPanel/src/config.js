@@ -44,4 +44,5 @@ angular.module("adminApp.config", [])
 .constant("postMonthlyDetailsApproveUrl", "http://fancymonk.com:9125/api/admin/company-monthly-details/approve")
 .constant("getMonthsForMonthlyDetailsUrl", "http://fancymonk.com:9125/api/common/get-current-and-previous-month")
 .constant("getDetailsForInvoicesUrl", "http://fancymonk.com:9125/api/admin/company-invoice/generate")
+.constant("getCompanyReqUrl", "http://fancymonk.com:9124/api/common/company-requirement?companyId=")
 .constant("getCompanyFebMonthInvoicedetails", "http://fancymonk.com:9125/api/admin/company-invoice/generate?companyId=1&month=february&year=2019");

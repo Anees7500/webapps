@@ -4,7 +4,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
   'getItemCheckListedForVendor', 'Excel', '$timeout', 'getCompanyWorkingDaysUrl', 'getCompanyInvoicingDate',
   'getCompanyAdditionalRequirements', 'getCompanyRequirements', 'getVendorRequirements', 'getMonthlyDetailsUrl',
   'getMonthsForMonthlyDetailsUrl', 'getDetailsForInvoicesUrl', 'getCompanyFebMonthInvoicedetails', '$cookies',
-  '$location', '$route', 'Notification',
+  '$location', '$route', 'Notification', 
   function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, getCorporateReviewsUrl,
     getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor,
     getItemCheckListedForVendor, Excel, $timeout, getCompanyWorkingDaysUrl,
@@ -37,6 +37,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.clientMonthlyDetailsBool = false;
       $scope.vendorMonthlyDetailsBool = false;
       $scope.dispatchDetailsBool = false;
+      $scope.breakfastBool = false;
+      $scope.lunchBool = false;
+      $scope.snacksBool = false;
+      $scope.dinnerBool = false;
+      $scope.midNightSnacksBool = false;
+      $scope.earlyMorningSnacksBool = false;
       $scope[value] = true;
     }
 
