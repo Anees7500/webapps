@@ -452,7 +452,7 @@
     <!-- ==============================================Assigned start================ -->
 
     <div ng-if="assignedBool">
-      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+      <nav class="navbar navbar-expand-lg  mb-4 mt-1" id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
                 aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
@@ -462,27 +462,19 @@
       </nav>
       <div class="container">
         <div class="row ml-3  mr-0" id="menu-top">
-          <div ng-repeat="assign in categories">
-            <div class=" col-xl-3 col-md-6  w-50">
-              <div class="card bg-info mt-5 h-50 btn-outline-info waves-effect hoverable " id="col-width">
-                <div class="card-body ">
-                  <div class="media text-info ">
-                    <a class="d-flex mr-3"><i class="fas fa-glass-cheers fa-2x"></i></a>
-                    <div class="ml-2" data-toggle="modal" data-target="#fullHeightModalRight">
-                      <h6 class="mt-0 font-weight">{{assign.displayName}}</h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog"
+            <nav class="navbar w-100">               
+                <span class="d-none d-md-inline-block" ng-repeat="assign in categories">                 
+                    <a  class="btn btn-info btn-sm my-0 waves-effect waves-light"   role="button" data-toggle="modal" data-target="#fullHeightModalRight" ng-click="assignHeader(assign)">
+                      <span class="d-none d-lg-inline-block mr-1">{{assign.displayName}}</span>                        
+                    </a>
+                  </span>               
+              </nav>
+              <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog"
                   aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-
-
                   <div class="modal-dialog" role="document">
-
-
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For {{assign.displayName}}</h4>
+                        <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For {{menuType.displayName}}</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -490,18 +482,33 @@
                       <div class="modal-body">
                         <div class="list-group">
                           <div class="active-cyan-4 mb-4 mr-auto">
-                            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" ng-model="vendorSearch">
                           </div>
-                          <a href="#" class="list-group-item list-group-item-action"
-                            ng-repeat="vendor in allVendorsList | filter:vendorSearch">{{vendor.name}}</a>
+                          <a  class="list-group-item list-group-item-action"
+                            ng-repeat="vendor in allVendorsList | filter:vendorSearch" ng-click="passVendorId(vendor.id)">{{vendor.name}}</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+        </div>
+        <hr>
+        <div class="row mt-2 ml-5">
+            <!-- Card -->
+            <div class="assigncard"  ng-repeat="list in vendorList">            
+              
+              <span aria-hidden="true" class="close" style="margin-left: 250px;" ng-click="unassigneVendor(list.id)">&times;</span>             
+              <!-- Card content -->
+              <div class="card-body">
+            
+                <!-- Title -->
+                <h4 class="card-title text-default  text-muted"><a>{{list.vendorName | uppercase}}</a></h4>
+                <!-- Text -->
+                <p class="card-text text-muted">Type: {{list.type}}</p>
               </div>
+            
             </div>
-          </div>
+            <!-- Card -->
         </div>
       </div>
     </div>
@@ -1143,19 +1150,19 @@
           <div class="col-md-4">
             <div class="form-group ">
               <label for="form1">Company Name:</label>
-              <input type="text" class="form-control" id="form1" name="resName"  -model="place.companyName">
+              <input type="text" class="form-control" id="form1" name="resName"  value="{{cmpyName}}">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="form1">Latitude</label>
-              <input type="text" class="form-control" name="resLat" id="form1" ng-model="place.latitude">
+              <input type="text" class="form-control" name="resLat" id="form1" value="{{latitude}}">
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group ">
               <label for="form1">Longitude</label>
-              <input type="text" class="form-control" name="resLng" id="form1" ng-model="place.longitute">
+              <input type="text" class="form-control" name="resLng" id="form1" value="{{longitute}}">
             </div>
           </div>
         </div>
@@ -1165,46 +1172,49 @@
           <div class="col-md-12">
             <div class="form-group ">
               <label for="form1">Company Address:</label>
-              <input type="text" class="form-control" id="form1" placeholder="enter company address"
-                ng-model="place.address" required>
+              <input type="text"   name="resLng" class="form-control" id="form1" 
+                value="{{cmpyAddress}}" required>
             </div>
           </div>
         </div>
 
         <div class="form-row mt-2">
+          <div class="col-md-6">
           <!-- Grid column -->
-          <div class="col-md-4">
+          <div class="col-md-10">
             <div class="form-group ">
               <label for="form1">Email Id:</label>
-              <input type="email" placeholder="enter email id" ng-model="place.contactEmailId" class="form-control"
+              <input type="email" placeholder="enter email id" value="" class="form-control"
                 id="form1" required>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-10">
             <div class="form-group ">
               <label for="form1">Mobile No:</label>
-              <input type="number" name="" class="form-control" id="form1" placeholder="enter your mobile no"
-                ng-model="place.contactNumber" />
+              <input type="number" name="" class="form-control" id="form1"
+                value="{{contactNumber}}" />
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-10">
             <div class="form-group ">
               <label for="form1">Contact person Name:</label>
-              <input class="form-control" id="form1" type="text" placeholder="enter contact person"
-                ng-model="place.companyPerson" />
+              <input class="form-control" id="form1" type="text"
+                value="{{companyPerson}}" />
             </div>
           </div>
         </div>
+       
         <div class="col-md-6">
-          <div class="row mr-5 mt-3">
+          <div class="row mr-2 mt-3 ml-2"> 
             <!-- Image upload  -->
-            <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
-              width="300px">
+            <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info  "
+              width="300px" height="180px">
             <div class="d-flex">
-              <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+              <input type="file" class="ml-3 mt-2" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
             </div>
           </div>
         </div>
+      </div>
       </form>
       <div class="row mt-2">
         <div class="col-md-12">

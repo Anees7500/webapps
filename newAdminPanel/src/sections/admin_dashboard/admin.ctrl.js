@@ -30,9 +30,8 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
     // ========================== bool Logic end ==========================
 
     // ===================== Signup ==================================
-    $scope.companySignup = function (company) {
-      console.log("sign up data", company);
-      //companydetailsService.companySignup(company, companySignupUrl);
+    $scope.companySignup = function (company) {      
+      companydetailsService.companySignup(company, companySignupUrl);
     }
     // ======================= All Vendor List =========================
     $http.get(getAllVendorListUrl).then(function (response) {

@@ -378,7 +378,7 @@ a.button:hover {
 }
 
 #toggle-terms:before {
-    speak: none;
+    /* speak: none; */
     display: block;
     -webkit-font-smoothing: antialiased;
 }
@@ -767,9 +767,9 @@ input {
 @media only screen and (min-width: 40em) {
 
     /* GLOBAL TRANSITION */
-    * {
+    /* * {
         /transition: .25s ease-in-out;/
-    }
+    } */
 
     /* WRAP */
     .wrap {
@@ -1037,4 +1037,5 @@ input {
 .element.inactive {
     opacity: 0.0;
     transform: scale(1) translate3d(0, 0, 0);
+}
 }
