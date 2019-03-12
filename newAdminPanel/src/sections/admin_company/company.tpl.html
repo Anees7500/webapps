@@ -491,7 +491,7 @@
     <!-- ==============================================Assigned start================ -->
 
     <div ng-if="assignedBool">
-      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+      <nav class="navbar navbar-expand-lg  mb-4 mt-1" id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
                 aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
@@ -501,27 +501,19 @@
       </nav>
       <div class="container">
         <div class="row ml-3  mr-0" id="menu-top">
-          <div ng-repeat="assign in categories">
-            <div class=" col-xl-3 col-md-6  w-50">
-              <div class="card bg-info mt-5 h-50 btn-outline-info waves-effect hoverable " id="col-width">
-                <div class="card-body ">
-                  <div class="media text-info ">
-                    <a class="d-flex mr-3"><i class="fas fa-glass-cheers fa-2x"></i></a>
-                    <div class="ml-2" data-toggle="modal" data-target="#fullHeightModalRight">
-                      <h6 class="mt-0 font-weight">{{assign.displayName}}</h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog"
+            <nav class="navbar w-100">               
+                <span class="d-none d-md-inline-block" ng-repeat="assign in categories">                 
+                    <a  class="btn btn-info btn-sm my-0 waves-effect waves-light"   role="button" data-toggle="modal" data-target="#fullHeightModalRight" ng-click="assignHeader(assign)">
+                      <span class="d-none d-lg-inline-block mr-1">{{assign.displayName}}</span>                        
+                    </a>
+                  </span>               
+              </nav>
+              <div class="modal hide fade in" id="fullHeightModalRight" tabindex="-1" role="dialog"
                   aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-
-
                   <div class="modal-dialog" role="document">
-
-
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For {{assign.displayName}}</h4>
+                        <h4 class="modal-title w-300" id="myModalLabel">Vendor Assign For {{menuType.displayName}}</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -529,18 +521,33 @@
                       <div class="modal-body">
                         <div class="list-group">
                           <div class="active-cyan-4 mb-4 mr-auto">
-                            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                            <input class="form-control" type="text" placeholder="Search" aria-label="Search" ng-model="vendorSearch">
                           </div>
-                          <a href="#" class="list-group-item list-group-item-action"
-                            ng-repeat="vendor in allVendorsList | filter:vendorSearch">{{vendor.name}}</a>
+                          <a  class="list-group-item list-group-item-action"
+                            ng-repeat="vendor in allVendorsList | filter:vendorSearch" ng-click="passVendorId(vendor.id)">{{vendor.name}}</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+        </div>
+        <hr>
+        <div class="row mt-2 ml-5">
+            <!-- Card -->
+            <div class="assigncard"  ng-repeat="list in vendorList">            
+              
+              <span aria-hidden="true" class="close" style="margin-left: 250px;" ng-click="unassigneVendor(list.id)">&times;</span>             
+              <!-- Card content -->
+              <div class="card-body">
+            
+                <!-- Title -->
+                <h4 class="card-title text-default  text-muted"><a>{{list.vendorName | uppercase}}</a></h4>
+                <!-- Text -->
+                <p class="card-text text-muted">Type: {{list.type}}</p>
               </div>
+            
             </div>
-          </div>
+            <!-- Card -->
         </div>
       </div>
     </div>
@@ -629,6 +636,7 @@
 
         </form>
       </div>
+    </div>
 
 
       <!-- ==============================================End add menu ================ -->
@@ -810,7 +818,6 @@
           </div>
         </div>
       </div>
-
 
       <!-- ========================================Vendor Monthly Details start================ -->
 
