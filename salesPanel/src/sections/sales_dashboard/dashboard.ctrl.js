@@ -15,7 +15,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     };
     // ==============Profile work end =========================================
-
+  
     // ==============Subordinate Leads ========================================
     $scope.people = [{
         name: 'In progress',
