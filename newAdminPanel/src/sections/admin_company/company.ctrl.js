@@ -12,7 +12,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl, getDetailsForInvoicesUrl,
     getCompanyFebMonthInvoicedetails, $cookies, $location, $route, Notification,postVendorAssignUrl,getAllVendorToCompanyUrl,unassignedVendorUrl
 
-  ) {
+  ) 
+  {
     // =============== log out ================//
       $scope.logout = function(){
         $cookies.remove('id');    
@@ -1123,9 +1124,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     }
 
 
-    }
-    // =============================Company controller ends=============================================
-    $scope.activeMenu='configuration';
-  }
+    }    
+  
   // =============================Company controller ends=============================================
 ]);
