@@ -89,7 +89,7 @@ adminApp.controller('DashboardController', ['$scope', '$http', 'companydetailsSe
         $scope.IsVisibleCertificates = $scope.IsVisibleCertificates ? false : true;
     }
 
-
+$scope.activeMenu='Companies';
 
 
   }

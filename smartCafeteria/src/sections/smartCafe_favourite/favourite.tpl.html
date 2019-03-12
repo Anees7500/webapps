@@ -18,8 +18,8 @@
               </ol>
             </nav>
         <div class="row ml-2">
-          <!-- <div class="col-md-7 ml-2  mt-2 text-center ">
-            <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
+         
+            <!-- <h3 class="text-white  z-depth-2 info-color card-header">Favourites</h3>
             <div class="row mt-3 justify-content-center ">
               <div class="card col-md-3 mr-2 mt-4 z-depth-2" ng-repeat="fItem in favouritItemList">
                 <div class="view">
@@ -78,7 +78,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>  -->
           <!---------===========================End Favourites =========================-->
     
     
@@ -87,28 +87,46 @@
       <div class="card col-md-3 mb-3 mr-2 mt-4 z-depth-2">
           <div class="view">
             <img class="card-img-top " src="img/food1.jpg" alt="Card image cap">
-            <a >
+            <a ng-click="removeFavouritItem(f , $index)">
               <div class="mask  flex-top text-right">
                 <i class="fas fa-heart fa-2x text-danger " aria-hidden="true"></i>
               </div>
             </a>
           </div>
           <div class="card-block">
-            <h4 class="card-title text-left"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1"></i></span><span
-                class="small">khjsxkjs</span></h4>
-
-            <div class="card-text d-flex flex-row justify-content-between">
-              <div class="p-1">
-                <p><i class="fas fa-star text-warning"></i>
-                  <span class="text-muted">4.3</span>
-                </p>
-
-
+            <h5 class="card-title text-left"><span class="small"> <i class="far fa-stop-circle text-success fa-xs mr-1"></i></span><span
+                class="small">Dhaba Egg Curry with Choice of Rice</span></h5>
+                
+            <div class="card-text">
+              <div class="d-flex">
+                  <p class="text-muted small">bahut hi acha khana h khalo</p>
               </div>
-            </div>
+              <div class=" d-flex flex-row justify-content-between">
+              <div class="p-1">
+                <p><i class="fas fa-rupee-sign text-danger mr-1"></i>
+                  <span class="text-muted">280</span>
+                </p>
+              </div>
+             
+                <div class="p-1">                            
+                   <button type="button" class="btn btn-outline-default btn-sm ml-3 mr-1 rounded-pill" ng-click="addToCart()" ng-if="!addCart" >ADD</button>  
+                   </div>
+                   <div class="p-1">
+                   <div class="def-number-input number-input" ng-click="addToCart()" ng-if="addCart">
+                      <button class="minus"></button>
+                      <input class="quantity" min="0" name="quantity" value="1" type="number">
+                      <button class="plus"></button>
+                    </div>
+                  </div>
+                  </div>
+                 
+                      
+                          
+            
           </div>
         </div>
     </div>
+  </div>
     <div class="col-md-4">
         <h4 class="d-flex justify-content-between align-items-center card-header info-color">
             <span class="text-white">Your cart</span>

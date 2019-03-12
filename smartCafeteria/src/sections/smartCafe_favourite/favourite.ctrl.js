@@ -31,8 +31,8 @@ empApp.controller('FavouritController', ['$scope',
     
       //======================= Favourit Button =======================
   
-      $scope.makeFavouritNReverse = function () {
-        $scope.favourite = $scope.add ? false : true;
+      $scope.addToCart = function () {
+        $scope.addCart = $scope.addCart? false : true;
       }
 
 

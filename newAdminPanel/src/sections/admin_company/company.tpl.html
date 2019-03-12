@@ -2,14 +2,23 @@
   .k-pdf-export input[type=text] {
     border: none;
   }
+
   .k-pdf-export .isGstCheckBox {
     display: none;
   }
+
   .k-pdf-export .dateInv {
     display: none;
   }
-  
+
+  #map {
+    height: 300px;
+    margin: 5px 5px 5px 0px;
+    border-radius: 5px;
+    border: 1px solid silver;
+  }
 </style>
+
 
 <!-- wrapper  class start for whole page -->
 <div class="wrapper">
@@ -53,75 +62,73 @@
 
   <nav id="sidebar" class="z-depth-1-half mt-5 position-fixed h-100">
     <ul class="list-unstyled components mt-5">
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""><i
+      <li class="p-2 mb-1"ng-class="{active:activeMenu === 'configuration'}" ng-click="activeMenu = 'configuration'">
+        <a class=" d-block text-decoration-none" ng-click="boolFunction('configurationBool')" href=""><i
             class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
       </li>
       <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+        <a class="text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
           data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal ">
-            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a>
+            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a> </li>
         <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href=""
+          <li class="p-1 mb-1" ng-class="{active:activeMenu === 'clientRequirement'}" ng-click="activeMenu = 'clientRequirement'">
+            <a class="d-block text-decoration-none" href=""
               ng-click="boolFunction('clientRequirementBool')"><i class="fas fa-fire mr-2"></i>
               <span class="font-weight-normal">Client Requirement</span></a>
           </li>
 
-          <li class="p-1">
-            <a class="text-dark d-block text-decoration-none" href=""
+          <li class="p-1 mb-1" ng-class="{active:activeMenu === 'vendorRequirement'}" ng-click="activeMenu = 'vendorRequirement'">
+            <a class="d-block text-decoration-none" href=""
               ng-click="boolFunction('vendorRequirementBool')"><i class="fas fa-ethernet mr-2"></i><span
                 class="font-weight-normal">Vendor Requirement</span></a>
           </li>
 
         </ul>
-      </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i
+     
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'itemCheck'}" ng-click="activeMenu = 'itemCheck'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('itemCheckBool')"><i
             class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span>
         </a>
 
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('assignedBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'assigned'}" ng-click="activeMenu = 'assigned'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('assignedBool')"><i
             class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'empFeedback'}" ng-click="activeMenu = 'empFeedback'">
+        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')"><i
             class="fas fa-user-slash fa-fw "></i><span class=" font-weight-normal">Employee Feedback</span></a>
       </li>
 
       <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
+        <a class="d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
           data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly
-            Details</span><i class="fas fa-chevron-down ml-5"></i></a>
+            Details</span><i class="fas fa-chevron-down ml-5"></i></a> </li>
         <ul class="collapse list-unstyled" id="pageSubmenu1">
-          <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" href=""
-              ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span
+          <li class="p-2 mb-1" ng-class="{active:activeMenu === 'clientMonthlyDetails'}" ng-click="activeMenu = 'clientMonthlyDetails'">
+            <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('clientMonthlyDetailsBool')"><i class="fas fa-radiation-alt mr-2"></i><span
                 class="font-weight-normal">Client Monthly Details</span></a>
           </li>
 
-          <li class="p-2">
-            <a class="text-dark d-block text-decoration-none" href=""
-              ng-click="boolFunction('vendorMonthlyDetailsBool')"><i class="fas fa-holly-berry mr-2"></i>
+          <li class="p-2 mb-1" ng-class="{active:activeMenu === 'vendorMonthly'}" ng-click="activeMenu = 'vendorMonthly'">
+            <a class="d-block text-decoration-none" href="" ng-click="boolFunction('vendorMonthlyDetailsBool')"><i class="fas fa-holly-berry mr-2"></i>
               <span class="font-weight-normal">Vendor Monthly Details</span></a>
           </li>
         </ul>
-      </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i
+     
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'invoice'}" ng-click="activeMenu = 'invoice'">
+        <a class= "d-block text-decoration-none" href="" ng-click="boolFunction('invoiceBool')"><i
             class="fas fa-file-invoice-dollar fa-fw "></i><span class=" font-weight-normal"> Invoice</span>
         </a>
       </li>
 
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'dispatchDetails'}" ng-click="activeMenu = 'dispatchDetails'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('dispatchDetailsBool')"><i
             class="fas fa-check-double fa-fw "></i><span class=" font-weight-normal"> Dispatch Details</span></a>
       </li>
-      <li class="p-2">
-        <a class="text-dark d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i
+      <li class="p-2 mb-1" ng-class="{active:activeMenu === 'companySettings'}" ng-click="activeMenu = 'companySettings'">
+        <a class=" d-block text-decoration-none" href="" ng-click="boolFunction('companySettingsBool')"><i
             class="fas fa-user-check fa-fw "></i><span class=" font-weight-normal">Company Settings</span></a>
       </li>
     </ul>
@@ -565,13 +572,6 @@
         </table>
       </div>
     </div>
-
-
-
-
-
-
-
     <!-- ==========================================ClientMonthly Details start================ -->
     <div ng-if="clientMonthlyDetailsBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
@@ -639,10 +639,8 @@
                         <input id="" ng-model="addReqVal.price">
                       </td>
                       <td class="text-center font-weight-normal">
-                        <input id="" 
-                          ng-value="calculateAmount(dnd[tempCategoryForClientMonthlyDtls.dbName])"
-                          ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount" 
-                        >
+                        <input id="" ng-value="calculateAmount(dnd[tempCategoryForClientMonthlyDtls.dbName])"
+                          ng-model="dnd[tempCategoryForClientMonthlyDtls.dbName].amount">
                       </td>
                     </tr>
                   </tbody>
@@ -670,7 +668,7 @@
                 <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
                   ng-click="clientMonthlyDetailsSave()">Delete</button>
 
-                  <!-- haha {{clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]}} -->
+                <!-- haha {{clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]}} -->
                 <button type="button" class="btn btn-outline-default waves-effect btn-sm px-2"
                   ng-if="!clientMonthlyDetails[selectedWeekForMonthlyDetails].approved[tempCategoryForClientMonthlyDtls.dbName]"
                   ng-click="approveCompanyMonthlyDetails(clientMonthlyDetails[selectedWeekForMonthlyDetails], 
@@ -790,24 +788,15 @@
           </li>
         </ul>
       </div>
-      
-        <div class="row pl-4">
-          <!-- <div class="col-md-3">
-            <label for="date">Start Date:</label>
-            <input type="date" class="border-0 p-0 mb-0" id="date" ng-model="StartDate" ng-change="selectStartDateInvoice(StartDate)">
-          </div>    
-            <div class="col-md-3">
-              <label for="date">End Date:</label>
-              <input type="date" class="border-0 p-0 mb-0" id="date" ng-model="EndtDate" ng-change="selectEndDateForInvoice(EndtDate)">
-            </div>             -->
-         <div class="col-md-12 pl-5">
-           <button class="btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>
-          <button class="btn btn-light" style="margin-left: 385px" ng-click="exportToPdf('#invoice')">Export To PDF</button> 
-          <!-- <button class="ml-5 btn btn-light" ng-click="onclickPdf()">PDF</button> -->
-          <!-- <button class="ml-2 btn btn-light" ng-click="getInvoiceExcelHeader()">Excel Data</button> -->
+
+      <div class="row pl-4">
+        <div class="col-md-12 pl-5">
+          <button class="btn btn-light" ng-click="getInvoiceDetails()">Generate Invoice</button>
+          <button class="btn btn-light" style="margin-left: 385px" ng-click="exportToPdf('#invoice')">Export To
+            PDF</button>
           <button class="btn btn-light" ng-click="exportJsonDataToExcel()">Export To Excel</button>
-         </div>
         </div>
+      </div>
 
 
       <div class="container" id="invoice">
@@ -837,13 +826,15 @@
           <div class="col-md-4 ml-3">
             <form class="form-inline border-0" style="margin-left:170px" role="form">
               <div class="form-group">
-                <input type="date" class="dateInv form-control border-0 p-0 mb-0" id="date" ng-model="selectedInvoiceDate">
-              </div>              
+                <input type="date" class="dateInv form-control border-0 p-0 mb-0" id="date"
+                  ng-model="selectedInvoiceDate">
+              </div>
             </form>
             <div class="col-md-12" style="margin-left: 158px">
-                <label for="date">Date:<input type="text" class="border-0 p-0 mb-0" id="date" ng-model="selectedInvoiceDate" ng-value="selectedInvoiceDate | date:'dd MMMM yyyy'"></label>
-                
-            
+              <label for="date">Date:<input type="text" class="border-0 p-0 mb-0" id="date"
+                  ng-model="selectedInvoiceDate" ng-value="selectedInvoiceDate | date:'dd MMMM yyyy'"></label>
+
+
             </div>
           </div>
         </div>
@@ -859,7 +850,8 @@
                   {{cmpyAddress | lowercase}}</p>
                 <p class="text-muted font-weight-bold" style="font-size: small;font-weight: 600;">GSTIN:<span>
                     <input type="text" class="border-0  text-muted p-0" value="29AAACZ8319C1Z7"
-                      style="font-weight: 600;"></span></p>
+                      style="font-weight: 600;"></span>
+                </p>
 
               </div>
 
@@ -878,8 +870,8 @@
             <h5 class="font-weight-bold">Invoice #</h5>
             <form>
               <div class="form-group">
-                <input type="text" style="margin-top: -8px;margin-left: 162px" class="form-control text-muted font-weight-bold border-0"
-                  value="515">
+                <input type="text" style="margin-top: -8px;margin-left: 162px"
+                  class="form-control text-muted font-weight-bold border-0" value="515">
               </div>
             </form>
             <div class="mt-5" style="text-align:right">
@@ -923,21 +915,23 @@
 
                   <td class="pb-0 pt-0" style="width:25%">
                     <form>
-                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 ml-1">INR</span>
+                      <div class="input-group form-group text-muted font-weight-bold"><span
+                          class="input-group-addon mt-1 ml-1">INR</span>
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
                           ng-model="obj.price">
-                          
+
                       </div>
                     </form>
                   </td>
 
-                 
+
                   <td class="pb-0 pt-0" style="width:30%">
                     <form>
-                      <div class="input-group form-group text-muted font-weight-bold"><span class="input-group-addon mt-1 ml-1">INR</span>
+                      <div class="input-group form-group text-muted font-weight-bold"><span
+                          class="input-group-addon mt-1 ml-1">INR</span>
                         <input type="text" class="form-control border-0 p-0 text-muted font-weight-bold"
                           ng-model="obj.amount">
-                          
+
                       </div>
                     </form>
                   </td>
@@ -994,12 +988,12 @@
         <hr class="ml-3 bg-dark font-weight-bold mt-0">
         <div class="row ">
           <div class="col-md-6">
-              <span class="isGstCheckBox" style="float: right;">
-                  Is IGST Applicable <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable">
-              </span>
+            <span class="isGstCheckBox" style="float: right;">
+              Is IGST Applicable <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable">
+            </span>
           </div>
           <div class="col-md-3 ">
-              <!-- <span class="isGstCheckBox">
+            <!-- <span class="isGstCheckBox">
                   <input type="checkbox" name="gst" value="gst" ng-model="GstApplicable"> Is GST Applicable<br>
               </span> -->
             <table class="table table-borderless ml-3">
@@ -1014,8 +1008,8 @@
                   <td class="center h5 pb-0 " style="font-size: unset;" id="font-color">SGST (9%)</td>
                 </tr>
                 <tr ng-show="GstApplicable">
-                    <td class="center h5 pb-0 " style="font-size: unset;" id="font-color">IGST (18%)</td>
-                  </tr>
+                  <td class="center h5 pb-0 " style="font-size: unset;" id="font-color">IGST (18%)</td>
+                </tr>
                 <tr>
                   <td class="center right h2 font-weight-bold " style="font-size: x-large;" id="font-color">Grand Total
                   </td>
@@ -1023,25 +1017,30 @@
               </tbody>
             </table>
           </div>
-          
+
 
           <div class="col-md-3 ">
             <table class="table table-borderless ml-3">
               <tbody>
                 <tr>
-                  <td class=" h5 pb-0 font-weight-bold" style="font-size: unset;">INR {{invoiceDetailsObj.totalSum  | number:2}}</td>
+                  <td class=" h5 pb-0 font-weight-bold" style="font-size: unset;">INR
+                    {{invoiceDetailsObj.totalSum  | number:2}}</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class="  h5 font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.cgst  | number:2}}</td>
+                  <td class="  h5 font-weight-bold text-muted pb-0" style="font-size: unset;">INR
+                    {{invoiceDetailsObj.cgst  | number:2}}</td>
                 </tr>
                 <tr ng-show="!GstApplicable">
-                  <td class=" h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.sgst  | number:2}}</td>
-                </tr>   
+                  <td class=" h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR
+                    {{invoiceDetailsObj.sgst  | number:2}}</td>
+                </tr>
                 <tr ng-show="GstApplicable">
-                    <td class=" h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR {{invoiceDetailsObj.igst  | number:2}}</td>
-                  </tr>            
+                  <td class=" h5  font-weight-bold text-muted pb-0" style="font-size: unset;">INR
+                    {{invoiceDetailsObj.igst  | number:2}}</td>
+                </tr>
                 <tr>
-                  <td class=" h2 font-weight-bold" id="font-color" style="font-size: x-large;">INR {{invoiceDetailsObj.totalAmount | number:2}}</td>
+                  <td class=" h2 font-weight-bold" id="font-color" style="font-size: x-large;">INR
+                    {{invoiceDetailsObj.totalAmount | number:2}}</td>
                 </tr>
               </tbody>
             </table>
@@ -1062,7 +1061,7 @@
             </p>
           </div>
           <div class="col-md-6 ">
-            <img  class="rounded mx-auto d-block" src="img/medium_jpg.jpg" />
+            <img class="rounded mx-auto d-block" src="img/medium_jpg.jpg" />
           </div>
         </div>
       </div>
@@ -1117,66 +1116,108 @@
     </div>
 
     <!-- ==============================================Company Settings start================ -->
-    <div ng-if="companySettingsBool">
-      <nav class="navbar navbar-expand-lg  mb-5 mt-1" id="head-height">
+    <div ng-if="companySettingsBool" class="ml-4 mt-3 mr-2" ng-controller="newPlaceCtrl">
+      <nav class="navbar navbar-expand-lg  mb-5 " id="head-height">
         <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
                 aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
-              Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
+              Home</a> <a class="w-clr">/</a><a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a
               class="w-clr">/</a>
-            <a href="" class="w-clr">company setting </a></small></h6>
+            <a href="" class="w-clr">client requirement</a></small></h6>
       </nav>
-      <div class="container">
-        <form class="border mb-5 grey lighten-5">
-          <div class="row ml-3">
-            <div class="col-md-5 col-sm-7 mt-3">
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="firstname" id="person-name" required>
-                <label alt="Contact Person Name" for="person-name" placeholder="Enter Contact Person Name">Contact
-                  Person Name</label>
-              </div>
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="lastname" id="Contact Number" required>
-                <label alt="Contact Number" for="Contact Number" placeholder="Enter Contact Number">Contact
-                  Number</label>
-              </div>
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="address" id="address" required>
-                <label alt="Adresse" for="address" placeholder="Enter Your Company Address">Address</label>
-              </div>
-
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="GST Number" required>
-                <label alt="GST Number" for="GST Number" placeholder="Enter GST Number">GST Number</label>
-              </div>
-            </div>
-
-            <div class="col-md-5 col-sm-4 mt-3">
-              <div class="formfield w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="mobileUsername" required>
-                <label alt="GST Number" for="mobileUsername" placeholder="Enter GST Number">Set Mobile App
-                  Username</label>
-              </div>
-
-              <div class="formfield  w-100 position-relative border-0 m-auto p-0 float-left">
-                <input type="text" name="GST Number" id="mobilePassword" required>
-                <label alt="GST Number" for="mobilePassword" placeholder="Enter GST Number">Set Mobile App
-                  Password</label>
-              </div>
-
-              <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
-                width="300px">
-              <div class="d-flex">
-                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-              </div>
-
+      <form name="searchForm" novalidate ng-submit="search()">
+        <div class="input-group">
+          <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace" required
+            autofocus />
+          <span class="input-group-btn">
+            <a class="btn btn-info mt-0 btn-md" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+          </span>
+        </div>
+      </form>
+      <div id="map"></div>
+      <form name="resForm">
+        <!-- Grid row -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group ">
+              <label for="form1">Company Name:</label>
+              <input type="text" class="form-control" id="form1" name="resName"  value="{{cmpyName}}">
             </div>
           </div>
-          <button type="button" class="btn btn-outline-default waves-effect m-auto d-block"
-            id="btn-margin">Save</button>
-        </form>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="form1">Latitude</label>
+              <input type="text" class="form-control" name="resLat" id="form1" value="{{latitude}}">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group ">
+              <label for="form1">Longitude</label>
+              <input type="text" class="form-control" name="resLng" id="form1" value="{{longitute}}">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Grid column -->
+          <div class="col-md-12">
+            <div class="form-group ">
+              <label for="form1">Company Address:</label>
+              <input type="text"   name="resLng" class="form-control" id="form1" 
+                value="{{cmpyAddress}}" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row mt-2">
+          <div class="col-md-6">
+          <!-- Grid column -->
+          <div class="col-md-10">
+            <div class="form-group ">
+              <label for="form1">Email Id:</label>
+              <input type="email" placeholder="enter email id" value="" class="form-control"
+                id="form1" required>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="form-group ">
+              <label for="form1">Mobile No:</label>
+              <input type="number" name="" class="form-control" id="form1"
+                value="{{contactNumber}}" />
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="form-group ">
+              <label for="form1">Contact person Name:</label>
+              <input class="form-control" id="form1" type="text"
+                value="{{companyPerson}}" />
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-md-6">
+          <div class="row mr-2 mt-3 ml-2"> 
+            <!-- Image upload  -->
+            <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info  "
+              width="300px" height="180px">
+            <div class="d-flex">
+              <input type="file" class="ml-3 mt-2" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <div class="row mt-2">
+        <div class="col-md-12">
+          <center><button class="col-md-3 btn btn-info" ng-click="companySignup(place)">Save</button></center>
+        </div>
       </div>
     </div>
+    <!-- ==========================================End Company Settings start================ -->
+
+
+
+
   </div>
 </div>
 </div>

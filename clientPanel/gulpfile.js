@@ -7,14 +7,14 @@ gulpNgConfig = require('gulp-ng-config');
 gulp.task('connect-dev', function () {
 	connect.server({
 		root: 'src/',
-		port: 7000
+		port: 6000
 	});
 });
 
 gulp.task('connect-prod', function () {
 	connect.server({
 		root: 'build/',
-		port: 8001
+		port: 6001
 	});
 });
 gulp.task('default', ['make-config-module','connect-dev']);
