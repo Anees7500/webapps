@@ -1,8 +1,7 @@
 /**********dropdown hover***********************************/
-#avtar{width: 25px;border-radius: 1000px;background-color: aliceblue;}
 /* .dropdown-menu {margin-left: -15px;} */
 #mr-top{margin-top: 8px;}
-#checkout-height{height: 60px;}
+#checkout-height{height:75px;}
 #form-mrgin{margin-top: -15px}
 #menu{margin-left: -70px;}
 .rating li {
@@ -26,7 +25,7 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
   position: absolute;
   z-index: 1;}
 #scroll-height{
-    max-height: 230px;
+    max-height: 250px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
@@ -35,10 +34,10 @@ span.line { height: 5px;left: 7%;margin-top: -13px;}
 
 /*******************responsive************************/
 @media (max-width: 768px) {
-    .navbar-brand{margin:auto; display: block;}
+    /* .navbar-brand{margin:auto; display: block;} */
      /* #sidebar {margin-left: -250px;}
     #sidebar.active {margin-left: 0;} */
-    #content {width: 100%;}
+    /* #content {width: 100%;} */
 }
 
 /*********************************cart*****************************/

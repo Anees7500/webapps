@@ -29,40 +29,7 @@ p {
 
 /*--------------------------company setting----------------*/
 
-.formfield>input, .formfield>label{
-  padding: 0.8em;
-  margin: 0.5em;
-  width: 100%;
-}
-.formfield>input{
-  border: 1px solid #00bafa;
-  border-radius: 1.5em;
-  outline: none;
-}
-.formfield>label{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  color: #ccc;
-}
-input:focus + label, input:valid + label{
-  color: black;
-  width: auto;
-  height: 1.3em;
-  padding: 0px 0.5em 0px 0.5em;
-  margin: 0px;
-  background: white;
-  transition: 0.2s ease-in-out;
-  top: 0em;
-  left: 2em;
-}
- 
 
-/*input[type=checkbox] {
-    zoom: 1.5;
-}
-*/
 input[type=checkbox] {
   transform: scale(1.2);
 }

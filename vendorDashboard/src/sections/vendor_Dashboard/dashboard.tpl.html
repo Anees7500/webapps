@@ -194,7 +194,7 @@
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
                     <a href="">/Cancel Orders</a></h6>
             </nav>
-            <div class="container">
+            <div class="container mb-5">
                 <div class="card card-cascade narrower mt-3 ">
 
 
@@ -318,7 +318,7 @@
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
                     <a href="">/completed Orders</a></h6>
             </nav>
-            <div class="container">
+            <div class="container mb-5">
                 <div class="card card-cascade narrower mt-3 ">
 
                     <!--Card image-->
@@ -447,7 +447,7 @@
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
                     <a href="">/Payment Status</a></h6>
             </nav>
-            <div class="container">
+            <div class="container mb-5">
                 <div class="row">
                     <div class="col-md-6 card-cascade">
                         <div class="card   mt-3">
@@ -725,44 +725,63 @@
                 </div>
 
                 <script type="text/ng-template" id="nodes_renderer.html">
-                    <div class="design-box">
-                      <button class="btn btn-info btn-xs" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
-                     <i class="fas" ng-class="{'fa-chevron-down': node.decisionCollapse,'fa-chevron-right': !node.decisionCollapse}"></i>
-                      </button>
+                    <div class="z-depth-1 ml-3">
+                      <div class="info-color">
+                      <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
+                      ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
+                      <i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i>
+                  </button>
+                </div>
                        <div style="padding: 10px; background-color:white">
                         <div class='form-group'> 
-                           <input class='form-control' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+                           <input class='form-control border border-success' placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
                         </div> 
 
                        <div ng-if="$parentNodeScope">
-                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label">is Food Item:</label>
+                          <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
                               <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
                               <div ng-if="node.isFoodItem">
-                                  <label class="menu-label">is Veg:</label>
-                          <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg" />
-                          <br>
-                          <label class="menu-label">is Non-Veg:</label>
-                          <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg" />
-                          <br>
-                          <label class="menu-label">is Egg Item:</label>
-                          <input type="radio" ng-disabled="node.isInserted" ng-model="node.menuType" value="egg" />
-                          <br>
+  
+                              <div class="custom-control custom-radio custom-control-inline  ml-3">
+                                    <input type="radio" class="custom-control-input" id="veg" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">
+                                    <label class="custom-control-label" for="veg">is Veg:</label>
+                                  </div>
+                      
+                          
+                              <div class="custom-control custom-radio custom-control-inline ml-3">
+                                    <input type="radio" class="custom-control-input " id="nonveg" ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">
+                                    <label class="custom-control-label" for="nonveg">is Non-Veg:</label>
+                                  </div>
+                                  
+                        
+                        
+                              <div class="custom-control custom-radio custom-control-inline  ml-3">
+                                    <input type="radio" class="custom-control-input" id="egg"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">
+                                    <label class="custom-control-label" for="egg">is Egg Item:</label>
+                                  </div>
+                         <br>
+                         <div class="row ml-3 mt-1">
+                             <div class="col">
                           <label class="menu-label">Menu Item:
-                                      <textarea class="form-control border-show" rows="4" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
+                                      <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
                                   </label>
-                          <br>
+                                </div>
+                         
+                          <div class="col">
                           <label class="menu-label">Price:
-                                  <input type="number" class='form-control border-show' ng-disabled="node.isInserted" ng-model='node.price' focus>
+                                  <input type="number" class="form-control border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
                                   </label>
+                                </div>
+                        </div>
                         </div>
                       </div> 
                      
-                       <input type="submit" class="btn btn-info" value="Add Menu" ng-click="addsection($nodes,$index)">
-                      <input type="submit" ng-if="!node.isFoodItem" class="btn btn-info" value="Add Sub-menu" ng-click="addchild(node)">
-                      <input type="submit" ng-if="!node.id" class="btn btn-info" value="Save" ng-click="saveInDb(node,'Monday')">
-                      <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Edit" ng-click="node.isInserted=false">
-                      <input type="submit" ng-if="(node.id) && (!node.isInserted)" class="btn btn-danger" value="Update" ng-click="updateMenu(node)">
-                      <input type="submit" ng-if="node.isInserted" class="btn btn-info" value="Remove" ng-click="deleteNode(node,'Monday')">
+                       <input type="submit" class="btn btn-info rounded-pill btn-sm ml-4" value="Add Menu" ng-click="addsection($nodes,$index)">
+                      <input type="submit" ng-if="!node.isFoodItem" class="btn btn-info rounded-pill btn-sm ml-3" value="Add Sub-menu" ng-click="addchild(node)">
+                      <input type="submit" ng-if="!node.id" class="btn btn-info rounded-pill btn-sm ml-3" value="Save" ng-click="saveInDb(node,'Monday')">
+                      <input type="submit" ng-if="node.isInserted" class="btn btn-info rounded-pill btn-sm ml-3" value="Edit" ng-click="node.isInserted=false">
+                      <input type="submit" ng-if="(node.id) && (!node.isInserted)" class="btn btn-danger rounded-pill btn-sm ml-3" value="Update" ng-click="updateMenu(node)">
+                      <input type="submit" ng-if="node.isInserted" class="btn btn-info rounded-pill btn-sm ml-3" value="Remove" ng-click="deleteNode(node,'Monday')">
 
                   
                     <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
