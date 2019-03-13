@@ -16,11 +16,10 @@ adminApp.factory('AdminCompanyServices', ['$http', '$httpParamSerializerJQLike',
                 jsonObj.companyId = parseInt(companyId);
                 jsonObj.vendorId = vendorId;
                 jsonObj.type = type;
-                var deferred = $q.defer();
-                var respMenuJson = deferred.promise;
+                // var deferred = $q.defer();
+                // var respMenuJson = deferred.promise;
 
                 console.log("json made : ", jsonObj);
-
                 $http({
                     method: 'POST',
                     url: postVendorAssignUrl,
@@ -31,17 +30,50 @@ adminApp.factory('AdminCompanyServices', ['$http', '$httpParamSerializerJQLike',
                 }).then(function (response) {
                     console.log('response', JSON.stringify(response));
                     if (response.data.status == 1) {
-                        deferred.resolve(response.data.vendorId);
+                        //deferred.resolve(response.data.vendorId);
                         console.log("vendore id testing---->", response.data.vendorId);
                         Notification.success('Successfully Vendor Assigned');
-                        $route.reload();
+                        $('#fullHeightModalRight').modal('hide');
+                        // $route.reload();
                     } else {
-                        console.log('error registering');
+                        // console.log('error registering');
                         deferred.reject(null);
                         Notification.error('Could not assigne vendor');
                     }
                 });
-                return respMenuJson;
+                //return respMenuJson;
+            },
+             // ______________________UN-Assigned Vendor_______________
+             unassigneVendor: function (id, unassignedVendorUrl) {
+                console.log("In Services File 5555", id, unassignedVendorUrl);
+                //document.getElementById('id07').style.display = 'none'
+                var jsonObj = {};
+                jsonObj.id = id;
+                //var deferred = $q.defer();
+                //var respMenuJson = deferred.promise;
+                // jsonObj.companyId=companyId;
+                $http({
+                    method: 'POST',
+                    url: unassignedVendorUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(jsonObj)
+                }).then(function (response) {
+                    // console.log('response', JSON.stringify(response));
+                    if (response.data.status == 1) {
+                        //deferred.resolve(response.data);
+                        Notification.success('Successfully Unassign Vendor !!!');
+                        // $route.reload();
+                        // console.log('Successfully registered breakfast details ');
+                        // $location.path('/admin/company/:id');
+                    } else {
+                        //deferred.reject(null);
+                        console.log('error registering');
+                        Notification.error('Could not unassigned vendor');
+                    }
+                });
+                //return respMenuJson;
             },
             // ______________________Category_______________
             activeCategory: function (data, postCategoryUrl) {

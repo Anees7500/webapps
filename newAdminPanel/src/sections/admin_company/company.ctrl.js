@@ -4,20 +4,21 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
   'getItemCheckListedForVendor', 'Excel', '$timeout', 'getCompanyWorkingDaysUrl', 'getCompanyInvoicingDate',
   'getCompanyAdditionalRequirements', 'getCompanyRequirements', 'getVendorRequirements', 'getMonthlyDetailsUrl',
   'getMonthsForMonthlyDetailsUrl', 'getDetailsForInvoicesUrl', 'getCompanyFebMonthInvoicedetails', '$cookies',
-  '$location', '$route', 'Notification',
+  '$location', '$route', 'Notification','postVendorAssignUrl','getAllVendorToCompanyUrl','unassignedVendorUrl',
   function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, getCorporateReviewsUrl,
     getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor,
     getItemCheckListedForVendor, Excel, $timeout, getCompanyWorkingDaysUrl,
     getCompanyInvoicingDate, getCompanyAdditionalRequirements, getCompanyRequirements,
     getVendorRequirements, getMonthlyDetailsUrl, getMonthsForMonthlyDetailsUrl, getDetailsForInvoicesUrl,
-    getCompanyFebMonthInvoicedetails, $cookies, $location, $route, Notification
+    getCompanyFebMonthInvoicedetails, $cookies, $location, $route, Notification,postVendorAssignUrl,getAllVendorToCompanyUrl,unassignedVendorUrl
 
-  ) {
+  ) 
+  {
     // =============== log out ================//
-    //   $scope.logout = function(){
-    //     $cookies.remove('id');    
-    //      $location.path('/');
-    // }
+      $scope.logout = function(){
+        $cookies.remove('id');    
+         $location.path('/');
+    }
     // if ($cookies.get('id') == null) {
     //   Notification.warning("Login required!!!");
     //   $location.path('/');
@@ -62,9 +63,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       { displayName: "Lunch", dbName: "lunch" },
       { displayName: "Snacks", dbName: "snacks" },
       { displayName: "Dinner", dbName: "dinner" },
-      { displayName: "Mid-Night Snacks", dbName: "midNightSnacks" },
+      { displayName: "Mid-Night Snacks", dbName: "MID_NIGHT_SNACKS" },
       { displayName: "Early Morning Snacks", dbName: "earlyMorningSnacks" },
-      { displayName: "Cash & Carry", dbName: "cashNCarry" }
+      { displayName: "Cash & Carry", dbName: "E_CASHNCARRY" },
+      // { displayName: "Mid-Night Snacks", dbName: "midNightSnacks" },
+      // { displayName: "Early Morning Snacks", dbName: "earlyMorningSnacks" },
+      // { displayName: "Cash & Carry", dbName: "cashNCarry" }
     ];
 
     /* Working Days */
@@ -786,12 +790,17 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
 
-    // ==================== All Vender list==============
-    //  var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
-    // $http.get(getAllVendorToCompany).then(function (response) {
-    //   console.log("getAllVendorToCompanyUrl", response.data.data.details);
-    //   $scope.vendorList = response.data.data.details;
-    // });
+    //==================== All Vender list==============
+    $scope.getvenderList = function(){
+      debugger;
+        var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
+        $http.get(getAllVendorToCompany).then(function (response) {
+        console.log("getAllVendorToCompanyUrl", response.data.data.details);
+        $scope.vendorList = response.data.data.details;
+      });
+    }
+    $scope.getvenderList();
+
 
     $http.get(getAllVendorListUrl).then(function (response) {
       $scope.allVendorsList = response.data.data.vendors;
@@ -1091,7 +1100,31 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     }
-    $scope.activeMenu='configuration';
-  }
+
+  
+    // =================================Respective dynamic header for modal===============
+    $scope.assignHeader = function(val){
+      $scope.menuType = val;   
+      $scope.Type = $scope.menuType.dbName;
+      console.log("value of menu type", $scope.Type);
+    }
+
+    // ===================================assign vendor to company=======================
+    $scope.passVendorId = function (vendorId) {
+      var companyId = $routeParams.compId;
+      AdminCompanyServices.passVendorId(vendorId, companyId, $scope.Type, postVendorAssignUrl);
+      $scope.getvenderList();      
+    };  
+
+    // =======================UN-Assigned Vendor=========================================
+    $scope.unassigneVendor = function (id) {    
+      console.log("id 9000", id);
+      AdminCompanyServices.unassigneVendor(id, unassignedVendorUrl);
+      $scope.getvenderList();      
+    }
+
+
+    }    
+  
   // =============================Company controller ends=============================================
 ]);

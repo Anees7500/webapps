@@ -39,82 +39,79 @@
 </header>
 <!--=====================Main Navigation================================-->
 <div class="wrapper">
-    <nav id="sidebar" class="z-depth-1-half  blue-grey lighten-5 position-fixed h-100 mt-4">
-        <ul class="list-unstyled components mt-5">
-            <li class="p-2">
-                <a ng-click="boolFunction('companyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-building fa-fw "></i>
-                    <span class="font-weight-normal button">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
-            </li>
-            <li class="p-2">
-                <a ng-click="boolFunction('unassignedleads')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-building fa-fw"></i>
-                    <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
-            </li>
+        <nav id="sidebar" class="z-depth-1-half  blue-grey lighten-5 position-fixed h-100 mt-4">
+            <ul class="list-unstyled components mt-5">
+                <li class="p-2 ">
+                    <a ng-click="boolFunction('companyBool')" class="text-dark d-block text-decoration-none" href=""
+                      ><i class="fas fa-building fa-fw "></i>
+                        <span class="font-weight-normal button">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
+                </li>
+                <li class="p-2">
+                    <a ng-click="boolFunction('unassignedleads')" class="text-dark d-block text-decoration-none" href=""
+                       ><i class="fas fa-building fa-fw"></i>
+                        <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
+                </li>
 
-            <li class="p-2">
-                <a class="text-dark d-block text-decoration-none " href="" data-target="#pageSubmenu" data-toggle="collapse"><i
-                        class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal button ">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
-                        class="badge badge-pill badge-danger ml-2"></span></a>
-                <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
+                <li class="p-2">
+                    <a class="text-dark d-block text-decoration-none" href="" data-target="#pageSubmenu" data-toggle="collapse"><i
+                            class="fas fa-store fa-fw" aria-expanded="false"></i>
+                        <span class="font-weight-normal button ">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
+                            class="badge badge-pill badge-danger ml-2"></span></a>
+                    <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
 
-                    <li ng-click="boolFunction('myleads')" class="p-1">
-                        <a class="text-dark d-block text-decoration-none" href="">
-                            <i class="fas fa-fire  mr-2"></i>
-                            <span class="font-weight-normal button">My Leads</span></a>
-                    </li>
+                        <li ng-click="boolFunction('myleads')" class="p-1">
+                            <a class="text-dark d-block text-decoration-none" href="">
+                                <i class="fas fa-fire  mr-2"></i>
+                                <span class="font-weight-normal button">My Leads</span></a>
+                        </li>
 
-                    <li ng-click="boolFunction('subordinateassigned')" class="p-1">
-                        <a class="text-dark d-block text-decoration-none" href="">
-                            <i class="fas fa-ethernet  mr-2"></i><span class="font-weight-normal button">Subordinate
-                                Leads</span></a>
-                    </li>
+                        <li ng-click="boolFunction('subordinateassigned')" class="p-1">
+                            <a class="text-dark d-block text-decoration-none" href="">
+                                <i class="fas fa-ethernet  mr-2"></i><span class="font-weight-normal button">Subordinate
+                                    Leads</span></a>
+                        </li>
 
-                </ul>
-            </li>
-            <li class="p-2">
-                <a ng-click="boolFunction('vendorListBool')" class="text-dark d-block text-decoration-none" href=""
-                    data-toggle="collapse"><i class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal button">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
+                    </ul>
+                </li>
+                <li class="p-2">
+                    <a ng-click="boolFunction('vendorListBool')" class="text-dark d-block text-decoration-none" href=""
+                        data-toggle="collapse"><i class="fas fa-store fa-fw" aria-expanded="false"></i>
+                        <span class="font-weight-normal button">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
+                </li>
 
-            </li>
+                </li>
+                <li class="p-2">
+                    <a ng-click="boolFunction('addleadsCompanyBool')" class="text-dark d-block text-decoration-none"
+                        href=""><i class="far fa-calendar-times fa-fw"></i><span class=" font-weight-normal button">Add
+                            Leads</span><span class="badge badge-pill badge-danger ml-2"></span></a>
+                </li>
+                <li class="p-2">
+                    <a ng-click="boolFunction('teamCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
+                            class="fas fa-users fa-fw "></i><span class="font-weight-normal button">Team</span><span
+                            class="badge badge-pill badge-danger ml-2"></span></a>
+                </li>
 
-            </li>
-            <li class="p-2">
-                <a ng-click="boolFunction('addleadsCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="far fa-calendar-times fa-fw"></i><span class=" font-weight-normal button">Add Leads</span><span
-                        class="badge badge-pill badge-danger ml-2"></span></a>
-            </li>
-            <li class="p-2">
-                <a ng-click="boolFunction('teamCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-users fa-fw "></i><span class="font-weight-normal button">Team</span><span class="badge badge-pill badge-danger ml-2"></span></a>
-            </li>
-
-            <li class="p-2">
-                <a ng-click="boolFunction('callingCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
-                        class="fas fa-phone "></i><span class=" font-weight-normal button"> Calling data</span><span
-                        class="badge badge-pill badge-danger ml-2"></span></a>
-            </li>
-        </ul>
-    </nav>
-
-    <!--========================Page Content =================================-->
-    <div id="content" class="mt-5">
-        <!--=========================Breadcrumb=================================== -->
-        <div class="mt-4 mx-md-4 ">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="">Home</a></li>
-                    <li class="breadcrumb-item"><a href="">Library</a></li>
-                    <li class="breadcrumb-item active">Data</li>
-                </ol>
-            </nav>
-        </div>
-        <!--=========================Breadcrumb end=================================== -->
-
+                <li class="p-2">
+                    <a ng-click="boolFunction('callingCompanyBool')" class="text-dark d-block text-decoration-none"
+                        href=""><i class="fas fa-phone "></i><span class=" font-weight-normal button"> Calling data</span><span
+                            class="badge badge-pill badge-danger ml-2"></span></a>
+                </li>
+            </ul>
+        </nav>
+        <!--========================Page Content =================================-->
+    <div id="content" class="mt-5">  
         <!--=======================All Companies=====================================--->
         <div ng-if="companyBool">
+            <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">All Companies</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="row ml-5">
                 <!-- ====================Card=============== -->
                 <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="companiesUrl in allCompanies">
@@ -160,6 +157,16 @@
 
         <!--=======================UAssigned Leads=================================== -->
         <div ng-if="unassignedleads">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('unassignedleads')">Unassigned Leads</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="row ml-5">
                 <!-- ---------------Card ------------------------- -->
                 <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
@@ -362,12 +369,21 @@
 
         <!--======================= My leads========================================== -->
         <div ng-if="myleads">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('myleads')">My Leads</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="row ml-5 mr-5">
                 <div class="col-md-12">
                     <!-- Tabs with icons on Card -->
                     <div class="card card-nav-tabs h-100">
                         <div class="card-header card-header-primary">
-                            <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
                             <div class="nav-tabs-navigation">
                                 <div class="nav-tabs-wrapper">
                                     <ul class="nav nav-tabs" data-tabs="tabs">
@@ -1038,6 +1054,17 @@
 
         <!--========================= Subordinate ==================================== -->
         <div ng-if="subordinateassigned">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('subordinateassigned')">Subordinate
+                                    Leads</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="row ml-5">
 
                 <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-5"
@@ -1177,6 +1204,16 @@
 
         <!--=========================Vendor=============================================-->
         <div ng-if="vendorListBool">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('vendorListBool')">Vendors</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <!-- ------------Area and documents  -->
             <div class="block_wrap clearfix row">
                 <!-- Filter form section -->
@@ -1189,7 +1226,7 @@
                             <select class="rounded mb-0 border-0 mr-3 pl-3" ng-model="selecteddistance" ng-options="x for x in distance">
                                 <option value="">distance</option>
                             </select>
-                            <select  class="rounded mb-0 border-0 mr-3 pl-3" ng-model="selecteddocument" ng-options="x for x in document">
+                            <select class="rounded mb-0 border-0 mr-3 pl-3" ng-model="selecteddocument" ng-options="x for x in document">
                                 <option value="">document</option>
                             </select>
                             <input class="btn btn-primary" type="submit" value="Submit">
@@ -1203,7 +1240,7 @@
                 <div class="card-deck h-100 col-sm-12 mb-5">
                     <!-- --------------Card ------------------------- -->
                     <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="vendorUrl in allVendorsList">
-                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem; height: 17rem; ">
+                        <div class="our-team1 z-depth-1-half bg-light bg position-relative" style="width: 14rem; height: 17rem; ">
                             <div class="pic  position-relative">
                                 <img class="card-img-top" src="Image/food.jpeg" alt="Card image cap">
                                 <div class="mask rgba-white-slight"></div>
@@ -1222,7 +1259,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <p class="m-0"><i class="fas fa-envelope pr-2"></i><strong class="text-info small font-weight-bold font-weight-normal d-inline-block text-truncate"
+                                        <p class="m-0 "><i class="fas fa-envelope pr-2"></i><strong class="text-info small font-weight-bold font-weight-normal d-inline-block text-truncate "
                                                 style="max-width: 170px;">{{vendorUrl.email}}</strong></p>
                                     </li>
                                 </ul>
@@ -1255,6 +1292,17 @@
 
         <!--==========================Add leads==========================================-->
         <div ng-if="addleadsCompanyBool" class="ml-4">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('addleadsCompanyBool')">Add
+                                    Leads</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <!-- Search form -->
             <div class="container pt-3 grey lighten-4" ng-controller="newPlaceCtrl">
                 <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
@@ -1271,6 +1319,7 @@
                     </div>
                 </form>
                 <div id="map"></div>
+
                 <form name="resForm" class="form-inline" novalidate ng-submit="send()">
                     <div class="row">
                         <div class="col-md-6">
@@ -1280,7 +1329,7 @@
                                 required />
                         </div>
                         <div class="col-md-6">
-                            <div class="row">
+                            <div class="row ml-5">
                                 <div class="col-md-6">
                                     <div class="form-group ">
 
@@ -1309,16 +1358,17 @@
                             <div class="col-md-12">
                                 <legend class="text-info font-weight-bold small ">Company Address:</legend>
                                 <input class="form-control text-capitalize w-100" type="text" placeholder="enter company address"
-                                    aria-label="Search" ng-model="place.address" required>
+                                    aria-label="Search" ng-model="place.address" maxlength="10" required>
                             </div>
                             <div class="col-md-12">
                                 <legend class="text-info font-weight-bold small">Contact person Name:</legend>
-                                <input class="form-control w-100" type="number" placeholder="enter contact person"
-                                    aria-label="Search">
+                                <input class="form-control w-100" type="text" placeholder="enter contact person"
+                                    aria-label="Search" maxlength="10" onkeypress="return isNumber(event)">
                             </div>
                             <div class="col-md-12">
                                 <legend class="text-info font-weight-bold small">Email Id:</legend>
-                                <input class="form-control w-100" type="email" placeholder="enter email id" aria-label="Search">
+                                <input name="email" class="form-control w-100" type="email" placeholder="enter email id"
+                                    aria-label="Search">
                             </div>
                             <div class="mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                                 <h5 class="text-info md">Estimated Lead Value:</h5>
@@ -1329,11 +1379,11 @@
                                     Price: <input type="number" ng-model="value" style="width: 20%"><br>
                                 </form>
                             </div>
-                            <div class="phone-list col-md-12">
+                            <div class=" col-md-12">
                                 <div class="input-group">
                                     <legend class="text-info font-weight-bold small">Mobile No:</legend>
-                                    <input type="number" maxlength="10" name="phone[1][number]" class="form-control mt-2"
-                                        placeholder="enter your mobile no" />
+                                    <input type="text" class="form-control mt-2" placeholder="enter your mobile no"
+                                        maxlength="10" onkeypress="return isNumber(event)" />
                                 </div>
                             </div>
                         </div>
@@ -1343,8 +1393,10 @@
                                 <div class="file-upload w-100 m-auto p-4 bg-light mr-auto mt-3">
                                     <button class="file-upload-btn w-100 m-auto border-0 p-2 rounded mb-0  btn-info white-color"
                                         type="button">Add Image</button>
-                                    <div class="image-upload-wrap">
-                                        <input class="file-upload-input" type='file' accept="image/*" />
+                                    <div class="image-upload-wrap ">
+                                        <img ng-src="{{imageSrc}}" src="" class="btn-outline-info waves-effect zoom w-100">
+                                        <input class="file-upload-input" type='file' accept="image/*" type="file"
+                                            ng-file-select="onFileSelect($files)" ng-model="imageSrc" />
                                         <div class="drag-text">
                                             <h3>Drag and drop a file or select add Image</h3>
                                         </div>
@@ -1356,11 +1408,6 @@
                         </div>
                     </div>
                 </form>
-                <!-- <div class="row">
-                    <div class="col-md-12">
-                        <center><button class="col-md-3 btn btn-info" ng-click="saveLead()">Submit</button></center>
-                    </div>
-                </div> -->
             </div> <br><br>
 
         </div>
@@ -1368,6 +1415,16 @@
 
         <!---=========================All Team=============================================--->
         <div ng-if="teamCompanyBool" class="ml-5">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('teamCompanyBool')">Team</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="pg-orgchart">
@@ -1455,6 +1512,16 @@
 
         <!---=========================Calling data =========================================-->
         <div ng-if="callingCompanyBool" class="ml-4">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('callingCompanyBool')">Calling data</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="wrapper-modal-editor">
                 <div class="block my-4">
                     <div class="d-flex justify-content-center">
@@ -1530,6 +1597,16 @@
 
         <!---=========================Profile ===============================================-->
         <div ng-if="profileCompanyBool" class="ml-4">
+              <!--=========================Breadcrumb=================================== -->
+        <div class="mt-4 mx-md-4 ">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('unassignedleads')">Unassigned Leads</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            <!--=========================Breadcrumb end=================================== -->
             <div class="container portfolio p-3">
                 <div class="bio-info rounded mb-0">
                     <div class="row">
@@ -1600,9 +1677,14 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <!---=========================profile end=============================================-->
-
+        <!-- <img ng-src="{{imageSrc}}" src="Imgage/aa." class="btn-outline-info waves-effect zoom ml-3"
+                width="300px">
+              <div class="d-flex">
+                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+              </div> -->
     </div>
 </div>
 <script type="text/javascript">
@@ -1610,15 +1692,21 @@
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
-
         $('#chkveg').multiselect({
 
             includeSelectAllOption: true
-
         });
         $('.selectpicker').selectpicker({
             liveSearchPlaceholder: 'Placeholder text'
         });
-       
     });
+    function isNumber(evt, ) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+
+    }
 </script>
