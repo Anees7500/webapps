@@ -40,6 +40,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     ]
     // ==============Subordinate Leads end =======================================
+    $scope.activeMenu='company';
 
     //=============== Unassigned leads===========================================
     //=============== Unassigned leads===========================================

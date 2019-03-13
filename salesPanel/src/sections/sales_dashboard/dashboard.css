@@ -46,11 +46,7 @@
     background-color: #cfd8dc;
     color: #fff;
 }
-
-li>a:hover {
-    background-color: #c5ccce;
-
-}
+#sidebar ul li .active{color:red;background-color: black;}
 
 /* ------------------CONTENT STYLE------------------------ */
 #content {
@@ -786,7 +782,7 @@ div.card.card-plain {
 
 div.card .card-header {
     border-radius: 3px;
-    padding: 1rem 15px;
+    padding: 1rem -1px;
     margin-left: 15px;
     margin-right: 15px;
     margin-top: -30px;
