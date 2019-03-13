@@ -13,8 +13,7 @@ adminApp.factory('AdminLoginService', ['$http', '$httpParamSerializerJQLike',
           data: $httpParamSerializerJQLike(admin)
         }).then(function (response) {
           console.log('response admin', response);
-          if (response.data.status == 1) { 
-            debugger;
+          if (response.data.status == 1) {             
             Notification.success("Successfully Logged in");
             // $cookies.put('id',response.data.data[0].id);
 
