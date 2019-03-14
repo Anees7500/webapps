@@ -138,7 +138,7 @@ li>a:hover {
     }
 }
 
-.loginformb {
+/* .loginformb {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -151,7 +151,7 @@ li>a:hover {
     align-items: center;
     height: 90vh;
     overflow-y: hidden;
-}
+} */
 
 /* upload image */
 .file-upload-btn {
@@ -946,3 +946,5 @@ div.card .card-header-primary {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+

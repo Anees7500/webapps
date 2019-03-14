@@ -173,8 +173,8 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         // $scope.weekMenuSorted.SUNDAY = {};
 
         $http.get(getWeeklyMenuUrl).then(function (response) {
-            $scope.menuDayName = response.data.data.menus.MONDAY;
-            $scope.menuDayName1 = response.data.data.menus.TUESDAY;
+            // $scope.menuDayName = response.data.data.menus.MONDAY;
+            // $scope.menuDayName1 = response.data.data.menus.TUESDAY;
             console.log("getWeeklyMenuUrl 2000000", $scope.menuDayName);
         });
 

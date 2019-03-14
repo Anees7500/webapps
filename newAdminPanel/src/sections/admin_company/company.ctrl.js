@@ -341,12 +341,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
               angular.forEach($scope.clientRequirement, function (v, k) {
 
                 if (i[k] != null) {
-                  // var kSize = Object.keys(i[k].dtls).length;
-                  // var cRSize = Object.keys(v[i.day]).length;
-                  // if(kSize != cRSize)
-                  // {
-
-                  // }
                 }
                 else {
                   if (v[i.day] != null) {
@@ -759,6 +753,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.selectWeekForMonthlyDetails = function (weekName) {
       $scope.selectedWeekForMonthlyDetails = weekName;
     }
+
+    
     $scope.assignCategoryForClientMonthlyDtls = function (obj) {
       $scope.tempCategoryForClientMonthlyDtls = {};
       $scope.tempCategoryForClientMonthlyDtls.dbName = obj.dbName;
@@ -797,8 +793,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     //==================== All Vender list==============
-    $scope.getvenderList = function(){
-      // debugger;
+    $scope.getvenderList = function(){     
         var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
         $http.get(getAllVendorToCompany).then(function (response) {
         console.log("getAllVendorToCompanyUrl", response.data.data.details);
