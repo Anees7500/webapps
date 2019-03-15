@@ -791,8 +791,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
 
     //==================== All Vender list==============
-    $scope.getvenderList = function(){
-      debugger;
+    $scope.getvenderList = function(){     
         var getAllVendorToCompany = getAllVendorToCompanyUrl + $routeParams.compId;
         $http.get(getAllVendorToCompany).then(function (response) {
         console.log("getAllVendorToCompanyUrl", response.data.data.details);

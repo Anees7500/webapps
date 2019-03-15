@@ -495,7 +495,7 @@
             <!-- Card -->
             <div class="assigncard"  ng-repeat="list in vendorList">            
               
-              <span aria-hidden="true" class="close" style="margin-left: 250px;" ng-click="unassigneVendor(list.id)">&times;</span>             
+              <span aria-hidden="true" class="close" style="margin-left: 250px;" ng-click="unassigneVendorFun(list.id)">&times;</span>             
               <!-- Card content -->
               <div class="card-body">
             
@@ -515,7 +515,7 @@
     <!-- ==============================================EmpFeedback start================ -->
     <div ng-if="empFeedbackBool">
       <nav class="navbar navbar-expand-lg  mb-5 mt-1">
-        <h6><small><a href="#!/dashboard" class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
+        <h6><small><a href="#!/dashboard"class="disabled"><i class="fa fa-home w-clr ml-3 mr-1"
                 aria-hidden="true"></i></a>
             <a href="#!/dashboard" class="w-clr">
               Home</a> <a class="w-clr">/</a> <a href="#!/dashboard" class="w-clr">{{cmpyName | lowercase}}</a> <a

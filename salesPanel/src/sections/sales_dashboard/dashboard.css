@@ -46,7 +46,7 @@
     background-color: #cfd8dc;
     color: #fff;
 }
-#sidebar ul li .active{color:red;background-color: black;}
+#sidebar ul li.active {background-color:#cfd8dc;}
 
 /* ------------------CONTENT STYLE------------------------ */
 #content {
@@ -132,21 +132,6 @@
     .ctrl {
         font-size: 11px;
     }
-}
-
-.loginformb {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 90vh;
-    overflow-y: hidden;
 }
 
 /* upload image */
