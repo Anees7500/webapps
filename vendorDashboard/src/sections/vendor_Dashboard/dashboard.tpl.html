@@ -662,7 +662,8 @@
                     <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
                     <a href="#!/companies">Home/</a>
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
-                    <a href="">/Set Weekly Menu</a></h6>
+                    <a href="">/Set Weekly Menu</a>
+                    </h6>
             </nav>
             <div class="container">
                 <div class="border-bottom  border-info mr-1 ml-3 mt-3">
@@ -701,10 +702,8 @@
               
                 <div class="d-flex flex-row justify-content-between grey lighten-4">
                     <div class="p-2">
-                        <script type="text/ng-template" id="nodes_renderer.html">
-                                    
-                        <div class="z-depth-1"> 
-                                    
+                        <script type="text/ng-template" id="nodes_renderer.html">                                    
+                        <div class="z-depth-1">                                     
                             <div class="info-color">
                                 <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)"><i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i></button>
                             </div> 
@@ -777,10 +776,7 @@
                                     </label>
                                     </div>
                                 </div>
-                            </div> 
-
-
-                        
+                            </div>                         
                             <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
                             <li ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
                             </li>
