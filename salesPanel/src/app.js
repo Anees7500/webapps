@@ -3,7 +3,8 @@ salesApp.config(['$routeProvider', '$locationProvider',
    function($routeProvider,$locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'sections/login_company/login.tpl.html' 
+            templateUrl: 'sections/login_company/login.tpl.html',
+            controller: 'AdminLoginController'
         })
         .when('/dashboard', {
             templateUrl: 'sections/sales_dashboard/dashboard.tpl.html',

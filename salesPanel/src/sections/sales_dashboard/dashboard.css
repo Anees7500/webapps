@@ -26,10 +26,9 @@
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #fff;
-    color: #7386D5;
+    
     transition: all 0.3s;
-    overflow: scroll;
+    /* overflow: scroll; */
 
 }
 
@@ -211,25 +210,21 @@
     padding: 0;
 }
 
-/* team card */
+/*======================== team card================= */
 
 .our-team1 {
     padding: -1px 0 40px;
     text-align: center;
     overflow: hidden;
-    /* position: relative;     */
 }
 
 .our-team1 .pic {
-    display: inline-block;
-    /* width: 143px;
-    height: 72px; */
+   display: inline-block;
     width: 116px;
     height: 116px;
     top: 8px;
     margin-bottom: 16px;
     z-index: 1;
-    /* position: relative; */
 }
 
 .our-team1 .pic:before {
@@ -261,14 +256,6 @@
     top: 0;
     left: 0;
     z-index: -1;
-}
-
-.our-team .pic img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    transform: scale(1);
-    transition: all 0.9s ease 0s;
 }
 
 .our-team1 .pic img {
@@ -349,7 +336,7 @@ small {
     color: #999;
 }
 
-
+/*====================team card end ===================*/
 /* profile */
 .portfolio {
     padding: 0%;
@@ -427,10 +414,6 @@ small {
 * {
     margin: 0;
     padding: 0;
-}
-
-body {
-    background: #22659c;
 }
 
 .org-chart {
@@ -917,9 +900,13 @@ div.card .card-header-primary {
     visibility: visible;
     transition: opacity 0.5s ease;
     opacity: 1;
+    bottom: 100px;
 }
 
 /*======================All companies ellipsis end ====================== */
+/*======================Addres ellipsis =================================*/
+
+/*======================Addres ellipsis end =============================*/
 .bg {
     background-image: url("/Image/Vendor.jpg");
     height: 100%;
@@ -928,4 +915,137 @@ div.card .card-header-primary {
     background-size: cover;
 }
 
+/*==============lead card  css===========================================*/
+.our-team2 {
+    padding: -1px 0 40px;
+    text-align: center;
+    overflow: hidden;
+}
 
+.our-team2 .pic {
+   display: inline-block;
+    width: 54px;
+    height: 54px;
+    top: 8px;
+    margin-bottom: 16px;
+    z-index: 1;
+}
+
+.our-team2 .pic:before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background: #33b5e5;
+    position: absolute;
+    bottom: 135%;
+    right: 0;
+    left: 0;
+    opacity: 0.9;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+}
+
+.our-team2:hover .pic:before {
+    height: 100%;
+}
+
+.our-team2 .pic:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #33b5e5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.our-team2 .pic img {
+    width: 100%;
+    height: 54px !important;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+}
+
+.our-team2:hover .pic img {
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.7);
+
+}
+
+.our-team2 .team-content {
+    margin-bottom: 30px;
+}
+
+.our-team2 .title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4e5052;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.our-team2 .post {
+    display: block;
+    font-size: 15px;
+    color: #4e5052;
+    text-transform: capitalize;
+}
+
+.our-team2 .social {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #33b5e5;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    transition: all 0.5s ease 0s;
+}
+
+.our-team2:hover .social {
+    bottom: 0;
+}
+
+.our-team2 .social li {
+    display: inline-block;
+}
+
+.our-team2 .social li a {
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.our-team2 .social li a:hover {
+    color: #eb1768;
+    background: #f7f5ec;
+}
+.address2 {
+    width: 224px;
+    font-size: 9px;
+    margin: 1em;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 0;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+@media only screen and (max-width: 990px) {
+    .our-team2 {
+        margin-bottom: 30px;
+    }
+}
+
+small {
+    display: block;
+    line-height: 1.428571429;
+    color: #999;
+}
+/*==============lead card  css===========================================*/

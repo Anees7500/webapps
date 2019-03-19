@@ -1,10 +1,12 @@
 
 <!-- Just an image -->
-<nav class="navbar navbar-dark primary-color">
+<nav class="navbar navbar-light">
     <a class="navbar-brand" href="#">
-      <img src="http://fancymonk.com:9124/companyImages/400/logo_500235.jpg" height="50" alt="mdb logo">
+      <img class="img-responsive" src="Image/logo1.png" height="30" alt="mdb logo">
     </a>
+   
   </nav>
+  <div class="container-fluid bg1 ">
 <div class="container loginformb mt-1">
     <div class="row justify-content-center rounded mb-0 my-5 pt-3 mx-auto my-auto d-flex align-items-center rounded-left loginpage ">
         <!---Image part-->
@@ -24,13 +26,13 @@
                 <p class="h4 mb-5 text-center h5 text-capitalize"><span class="text-dark ">Welcome To Sales Panel</span></p>
                 <!-- Email -->
                 <div class="md-form rounded-pill ">
-                    <input type="email" id="materialLoginFormEmail" class="form-control text-dark">
+                    <input type="email" id="materialLoginFormEmail" class="form-control text-dark"required ng-model="admin.username">
                     <label for="materialLoginFormEmail" class="text-dark">E-mail</label>
                 </div>
                 <!-- Password -->
 
                 <div class="md-form rounded-pill ">
-                    <input type="password" id="materialLoginFormPassword" class="form-control text-dark">
+                    <input type="password" id="materialLoginFormPassword" class="form-control text-dark"required ng-model="admin.password">
                     <label for="materialLoginFormPassword" class="text-dark">Password</label>
                 </div>
 
@@ -50,7 +52,7 @@
                     </div>
                 </div>
                 <!-- Sign in button -->
-                <button class="btn btn-primary btn-rounded waves-effect btn-xs  my-4 mt-5 " type="submit">Sign in</button>
+               <a href="#!/dashboard"> <button class="btn btn-primary btn-rounded waves-effect btn-xs  my-4 mt-5 " type="submit">Sign in</button></a>
 
             </form>
             <!-- Default form login -->
@@ -59,4 +61,5 @@
         </div>
         <!-- login page -->
     </div>
+</div>
 </div>
