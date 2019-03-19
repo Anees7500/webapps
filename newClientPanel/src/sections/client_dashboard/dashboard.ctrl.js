@@ -122,7 +122,7 @@ var getEmployeeFeedback = getEmployeeFeedback + compId;
         (tem, "DINNER", $scope.weekMenuSorted)  
       }
      }
-     console.log(" soretd new json ", $scope.weekMenuSorted);
+    //  console.log(" soretd new json ", $scope.weekMenuSorted);
      console.log(" soretd new json ", JSON.stringify($scope.weekMenuSorted));
    });
 
