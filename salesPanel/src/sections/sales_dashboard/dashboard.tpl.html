@@ -41,57 +41,57 @@
 <div class="wrapper">
         <nav id="sidebar" class="z-depth-1-half  blue-grey lighten-5 position-fixed h-100 mt-4">
             <ul class="list-unstyled components mt-5">
-                <li class="p-2 ">
-                    <a ng-click="boolFunction('companyBool')" class="text-dark d-block text-decoration-none" href=""
+                <li class="p-2 mb-2" ng-class="{active:activeMenu === 'Companies'}" ng-click="activeMenu ='Companies'">
+                    <a ng-click="boolFunction('companyBool')" class="d-block text-dark text-decoration-none" href=""
                       ><i class="fas fa-building fa-fw "></i>
                         <span class="font-weight-normal button">All Companies</span><span class="badge badge-pill badge-warning ml-2">{{allCompanies.length}}</span></a>
                 </li>
-                <li class="p-2">
+                <li class="p-2 mb-2" ng-class="{active:activeMenu === 'unassignedleads'}" ng-click="activeMenu ='unassignedleads'">
                     <a ng-click="boolFunction('unassignedleads')" class="text-dark d-block text-decoration-none" href=""
                        ><i class="fas fa-building fa-fw"></i>
                         <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
                 </li>
-
-                <li class="p-2">
-                    <a class="text-dark d-block text-decoration-none" href="" data-target="#pageSubmenu" data-toggle="collapse"><i
+                <li class="p-2 mb-2" ng-class="{active:activeMenu === 'assignedCompany'}" ng-click="activeMenu ='assignedCompany'">
+                    <a class=" d-block text-dark text-decoration-none" href="" data-target="#pageSubmenu" data-toggle="collapse"><i
                             class="fas fa-store fa-fw" aria-expanded="false"></i>
                         <span class="font-weight-normal button ">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
-                            class="badge badge-pill badge-danger ml-2"></span></a>
+                            class="badge badge-pill badge-danger ml-2"></span></a></li>
                     <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
-
+                            <li ng-class="{active:activeMenu === 'myleads'}" ng-click="activeMenu ='myleads'">
                         <li ng-click="boolFunction('myleads')" class="p-1">
-                            <a class="text-dark d-block text-decoration-none" href="">
+                            <a class=" d-block text-dark text-decoration-none" href="">
                                 <i class="fas fa-fire  mr-2"></i>
                                 <span class="font-weight-normal button">My Leads</span></a>
                         </li>
+                    </li>
 
                         <li ng-click="boolFunction('subordinateassigned')" class="p-1">
-                            <a class="text-dark d-block text-decoration-none" href="">
+                            <a class="d-block text-dark text-decoration-none" href="">
                                 <i class="fas fa-ethernet  mr-2"></i><span class="font-weight-normal button">Subordinate
                                     Leads</span></a>
                         </li>
 
                     </ul>
-                </li>
-                <li class="p-2">
-                    <a ng-click="boolFunction('vendorListBool')" class="text-dark d-block text-decoration-none" href=""
+                
+                <li class="p-2 mb-2"ng-class="{active:activeMenu === 'vendor'}" ng-click="activeMenu ='vendor'">
+                    <a ng-click="boolFunction('vendorListBool')" class=" d-block text-dark text-decoration-none" href=""
                         data-toggle="collapse"><i class="fas fa-store fa-fw" aria-expanded="false"></i>
                         <span class="font-weight-normal button">Vendors</span><span class="badge badge-pill badge-danger ml-2">{{allVendorsList.length}}</span></a>
                 </li>
 
                 </li>
-                <li class="p-2">
+                <li class="p-2 mb-2"ng-class="{active:activeMenu === 'addleads'}" ng-click="activeMenu ='addleads'">
                     <a ng-click="boolFunction('addleadsCompanyBool')" class="text-dark d-block text-decoration-none"
                         href=""><i class="far fa-calendar-times fa-fw"></i><span class=" font-weight-normal button">Add
                             Leads</span><span class="badge badge-pill badge-danger ml-2"></span></a>
                 </li>
-                <li class="p-2">
+                <li class="p-2 mb-2"ng-class="{active:activeMenu === 'team'}" ng-click="activeMenu ='team'">
                     <a ng-click="boolFunction('teamCompanyBool')" class="text-dark d-block text-decoration-none" href=""><i
                             class="fas fa-users fa-fw "></i><span class="font-weight-normal button">Team</span><span
                             class="badge badge-pill badge-danger ml-2"></span></a>
                 </li>
 
-                <li class="p-2">
+                <li class="p-2 mb-2"ng-class="{active:activeMenu === 'calling'}" ng-click="activeMenu ='calling'">
                     <a ng-click="boolFunction('callingCompanyBool')" class="text-dark d-block text-decoration-none"
                         href=""><i class="fas fa-phone "></i><span class=" font-weight-normal button"> Calling data</span><span
                             class="badge badge-pill badge-danger ml-2"></span></a>
@@ -105,9 +105,8 @@
             <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">All Companies</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item "><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">All Companies</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -117,10 +116,11 @@
                 <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="companiesUrl in allCompanies">
                     <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
                         <div class="pic position-relative">
-                            <img class="card-img-top img-responsive" ng-src="{{companiesUrl.fileName}}">
+                                <a class="text-decoration-none" ng-href="#!/dashboard/company"><img class="card-img-top img-responsive" ng-src="{{companiesUrl.fileName}}"></a>
                             <div class="mask rgba-white-slight"></div>
                         </div>
                         <div class="team-content m-0">
+                               
                             <h5 class="title text-danger font-weight-normal text-sm-center compadd w-100 overflow-hidden position-relative">{{companiesUrl.companyName}}</h5>
                             <h5 class="title text-danger font-weight-normal text-sm-center tooltip w-100 grey lighten-3">{{companiesUrl.companyName}}</h5>
                             <p class="card-text text-dark"><span class="small address  m-0">{{companiesUrl.address}}</span></p>
@@ -138,10 +138,10 @@
                             </div>
                         </div>
 
-                        <ul class="social list-inline list-unstyled">
-                            <!-- <li class="list-inline-item">
-                            </li>
+                        <ul class="social list-inline list-unstyled" style="height:15px;" >
                             <li class="list-inline-item">
+                            </li>
+                            <!-- <li class="list-inline-item">
                             </li>
                             <li class="list-inline-item">
                             </li>
@@ -160,9 +160,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('unassignedleads')">Unassigned Leads</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('unassignedleads')">Unassigned Leads</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -372,14 +372,14 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('myleads')">My Leads</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('myleads')">My Leads</a></li>
                         </ol>
                     </nav>
                 </div>
             <!--=========================Breadcrumb end=================================== -->
-            <div class="row ml-5 mr-5">
+            <div class="row mx-3">
                 <div class="col-md-12">
                     <!-- Tabs with icons on Card -->
                     <div class="card card-nav-tabs h-100">
@@ -1057,9 +1057,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('subordinateassigned')">Subordinate
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('subordinateassigned')">Subordinate
                                     Leads</a></li>
                         </ol>
                     </nav>
@@ -1207,9 +1207,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('vendorListBool')">Vendors</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('vendorListBool')">Vendors</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -1295,9 +1295,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('addleadsCompanyBool')">Add
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('addleadsCompanyBool')">Add
                                     Leads</a></li>
                         </ol>
                     </nav>
@@ -1372,11 +1372,17 @@
                             </div>
                             <div class="mb-4 col-lg-8 col-md-4 col-sm-4 col-xs-12 ">
                                 <h5 class="text-info md">Estimated Lead Value:</h5>
-
+                             
                                 <form name="myForm">
                                     Select range: <input type="range" name="range" ng-model="value">
                                     <br>
-                                    Price: <input type="number" ng-model="value" style="width: 20%"><br>
+                                    Price: <input type="number" ng-model="value" style="width:20%;height: 23px;">
+                                    <form class="filter-form rounded mb-0 p-2">
+                                            <select class="ml-3 custom-select-md" ng-model="selecteddistance" ng-options="x for x in price">
+                                                    <option value="">Price</option>
+                                                </select>
+                                    </form>
+
                                 </form>
                             </div>
                             <div class=" col-md-12">
@@ -1418,9 +1424,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('teamCompanyBool')">Team</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('teamCompanyBool')">Team</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -1515,9 +1521,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('callingCompanyBool')">Calling data</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('callingCompanyBool')">Calling data</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -1600,9 +1606,9 @@
               <!--=========================Breadcrumb=================================== -->
         <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('companyBool')">Home</a></li>
-                            <li class="breadcrumb-item"><a href="" ng-click="boolFunction('unassignedleads')">Unassigned Leads</a></li>
+                    <ol class="breadcrumb blue-grey lighten-4">
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('profileCompanyBool')">Unassigned Leads</a></li>
                         </ol>
                     </nav>
                 </div>

@@ -662,7 +662,8 @@
                     <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
                     <a href="#!/companies">Home/</a>
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
-                    <a href="">/Set Weekly Menu</a></h6>
+                    <a href="">/Set Weekly Menu</a>
+                    </h6>
             </nav>
             <div class="container">
                 <div class="border-bottom  border-info mr-1 ml-3 mt-3">
@@ -698,7 +699,6 @@
 
                     </ul>
                 </div>
-
               
 
    
@@ -755,30 +755,45 @@
                     </div>
 
 
-               <div ng-if="$parentNodeScope" class="mt-1">
-                  <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
-                      <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
-                      <div ng-if="node.isFoodItem">
-                          <form>
-                                <label class="radio-inline p-2">
-                                  <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
-                                <label class="radio-inline p-2">
-                                  <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
-                                <label class="radio-inline p-2">
-                                  <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
-                              </form>
-                 <br>
-               
-                <form class="form-inline">
-                    <div class="form-group">
-                       <label class="menu-label">Menu Item:
-                        <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
-                    </label>
-                    </div>
-                    <div class="form-group">
-                         <label class="menu-label p-2">Price:
-                        <input type="number" class="form-control border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
-                     </label>
+                            <div ng-if="$parentNodeScope" class="mt-1">
+                                <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
+                                    <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+                                    <div ng-if="node.isFoodItem">
+                                        <form>
+                                                <label class="radio-inline p-2">
+                                                <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
+                                                <label class="radio-inline p-2">
+                                                <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
+                                                <label class="radio-inline p-2">
+                                                <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
+                                            </form>
+                                <br>
+                            
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                    <label class="menu-label">Menu Item:
+                                        <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
+                                    </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="menu-label p-2">Price:
+                                        <input type="number" class="form-control border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
+                                    </label>
+                                    </div>
+                                </div>
+                            </div>                         
+                            <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                            <li ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">
+                            </li>
+                            </ul> 
+
+                        </script>
+                        <div ui-tree>
+                        <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root"
+                            ng-init='$nodes = menuNodes'>
+                            <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                        </ul>
+                        </div> 
                     </div>
                 </div>
               </div> 

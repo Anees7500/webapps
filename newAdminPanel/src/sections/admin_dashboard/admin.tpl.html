@@ -50,7 +50,7 @@
             class="badge badge-pill badge-danger ml-2">{{allCompanies.length}}</span></a>
       </li>
       <li class="p-2 mb-1" ng-class="{active:activeMenu === 'assignedCompany'}" ng-click="activeMenu ='assignedCompany'">
-        <a class="d-block text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i
+        <a class="d-block  text-decoration-none" href="" ng-click="boolFunction('assignedCompanyBool')"><i
             class="fas fa-check-square fa-fw "></i> <span class="font-weight-normal"> Assigned Comp.</span><span
             class="badge badge-pill badge-danger ml-2">{{assignedCompany.length}}</span></a>
       </li>
@@ -296,7 +296,7 @@
             </div>
           </div>
         </div>
-      
+
         <div class="form-row">
           <!-- Grid column -->
           <div class="col-md-12">
@@ -341,27 +341,25 @@
           <div class="col-md-4">
             <div class="form-group ">
               <label for="form1">Set UserName for mobile app</label>
-              <input class="form-control" id="form1" type="text" 
-                ng-model="place.Password" />
+              <input class="form-control" id="form1" type="text" ng-model="place.Password" />
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group ">
               <label for="form1">Set App Password</label>
-              <input class="form-control" id="form1" type="password" 
-                ng-model="place.Password" />
+              <input class="form-control" id="form1" type="password" ng-model="place.Password" />
             </div>
           </div>
-         
+
         </div>
-          <div class="col-md-6">
-            <div class="row mr-5 mt-3">
-              <!-- Image upload  -->
-              <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
-                width="300px" height="300px">
-              <div class="d-flex">
-                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-              </div>
+        <div class="col-md-6">
+          <div class="row mr-5 mt-3">
+            <!-- Image upload  -->
+            <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
+              width="300px" height="250px">
+            <div class="d-flex">
+              <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+            </div>
           </div>
         </div>
       </form>
@@ -479,7 +477,7 @@
             </div>
 
             <div class="col-md-4">
-                <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
+              <img ng-src="{{imageSrc}}" src="img/img_upload.png" class="btn-outline-info waves-effect zoom ml-3"
                 width="300px">
               <div class="d-flex">
                 <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">

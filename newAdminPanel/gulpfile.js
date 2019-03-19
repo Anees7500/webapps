@@ -7,14 +7,14 @@ var gulp = require('gulp'),
 gulp.task('connect-dev', function () {
 	connect.server({
 		root: 'src/',
-		port: 8000
+		port: 5000
 	});
 });
 
 gulp.task('connect-prod', function () {
 	connect.server({
 		root: 'build/',
-		port: 8001
+		port: 5001
 	});
 });
 gulp.task('default', ['make-config-module', 'connect-dev']);

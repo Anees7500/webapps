@@ -12,6 +12,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       companies: 'fancymonk.com',
       profilename: 'Aman Telkar',
       Cofounder: 'Co-founder at Fancymonk',
+      
 
     };
     // ==============Profile work end =========================================
@@ -40,6 +41,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     ]
     // ==============Subordinate Leads end =======================================
+    $scope.activeMenu='company';
 
     //=============== Unassigned leads===========================================
     //=============== Unassigned leads===========================================
@@ -47,7 +49,8 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.area = ["Bangalore", "Hsr Layout", "Bommanahalli","Btm Layout","Koramangala"];
     $scope.distance = ["0 to 5", "0 to 7", "0 to 9","0 to 12","0 to 15","0 to 20"];
     $scope.document = ["Fssai", "Trade", "Labour","GST","PF $ ESI","Employee BGV $ PVC","others"];
-    
+    $scope.price = ["lakh","hundred","thousand"," crore rupees","5600000","457000000"];
+     
     
   
     //========================= SHOW EMPLOYEE DETAILS.=========================
@@ -139,8 +142,10 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       $scope.reports = false;
       $scope[value] = true;
     }
-    $scope.boolFunction("companyBool");
+    //=================Active work ==========================================================
 
+    $scope.boolFunction("companyBool");
+    //=================Active work end========================================================
 
 
     $scope.searchListFun = function () {
