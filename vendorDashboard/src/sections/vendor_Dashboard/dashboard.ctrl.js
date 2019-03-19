@@ -1,28 +1,17 @@
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
     '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
     '$routeParams', '$rootScope', '$filter', 'getmenuFromDbMonUrl', 'getCompanySectionReqUrl', 'uuid',
-    'saveMenuService',
     function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
         $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
         $routeParams, $rootScope, $filter, getmenuFromDbMonUrl, getCompanySectionReqUrl,
-        uuid, saveMenuService) {
+        uuid) {
 
         // $scope.sortingOrder = sortingOrder;
 
         var vendorId = 1;
-        var companyId = 1;
+        var companyId = $routeParams.compId;
         // var companyId = 1;
-
-        $scope.menuNodes = [];
-        // console.log(" batao aman kya batana hai", $scope.menuNodes); 
-        $scope.menuNodes = [{
-
-            // uid: uuid.new(),
-            uid: 'ggd',
-            menuName: "First",
-            menuNodes: [],
-            isFoodItem: false
-        }];
+    
 
         var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
         $http.get(getCompProfileUrl).then(function (response) {
@@ -183,9 +172,9 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         promis.then(function (response) {
             $scope.myNode = response.data.data.menus;
-            if (!_.isEmpty($scope.myNode.TUESDAY)) {
+            if (!_.isEmpty($scope.myNode.WEDNESDAY)) {
                 console.log("yehhhh true 4545")
-                $scope.menuNodes = unflatten($scope.myNode.TUESDAY);
+                $scope.menuNodes = unflatten($scope.myNode.WEDNESDAY);
                 console.log("menu node after update ", JSON.stringify($scope.menuNodes));
 
             }

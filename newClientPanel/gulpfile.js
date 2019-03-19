@@ -13,7 +13,7 @@ gulp.task('connect-dev', function () {
 gulp.task('connect-prod', function () {
 	connect.server({
 		root: 'build/',
-		port: 9001
+		port: 1001
 	});
 });
 
