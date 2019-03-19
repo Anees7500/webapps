@@ -90,6 +90,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
       newEmp.mobile = item.mobile;
       newEmp.employeeId = item.employeeId;
       newEmp.type = item.type;
+      console.log("check value",$scope.newEmp)
 
       if ($scope.employeeList == null) {
         $scope.employeeList = [];
@@ -165,7 +166,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     $scope.weekMenuSorted.SNACKS = {};
     //  weekMenuSorted.BREAKFAST = {};
     // weekMenuSorted.BREAKFAST = {};
-
+    makeRequirementMenu
     $http.get(weeklyMenuUrl).then(function(response) {
       // console.log("company weeklymenu response ", response);
       $scope.weeklymenuSorted = [];

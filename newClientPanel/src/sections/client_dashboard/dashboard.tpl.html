@@ -1,0 +1,304 @@
+<div class="wrapper">
+  <!--Navbar -->
+  <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top">
+    <a class="navbar-brand" href="">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item avatar">
+          <a class="nav-link p-0" href="">
+            <img src="img/girl.svg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--/.Navbar -->
+  <!--sidebar start-->
+  <div class="sidebar  z-depth-1">
+    <div class="site-sidebar">
+
+      <nav class="main-menu">
+        <ul class="list-unstyled components mt-5">
+          <li class="p-2 mb-1 ml-1" ng-class="{active:activeMenu === 'category'}" ng-click="activeMenu = 'category'">
+            <a class=" d-block text-decoration-none" ng-click="enableBooleans('categoryBool')" href=""><i class="fa fa-sitemap  mr-3"></i>
+              <span class="font-weight-normal">Category</span></a>
+
+          </li>
+
+          <li class="p-2 mb-1 ml-1" ng-class="{active:activeMenu === 'requirement'}" ng-click="activeMenu = 'requirement'">
+            <a class="d-block text-decoration-none" href="" ng-click="enableBooleans('requirementBool')"><i class="fa fa-bars mr-3"></i>
+              <span class="font-weight-normal"> Requirement</span></a>
+          </li>
+
+
+
+          <li class="p-2 mb-1 ml-1" ng-class="{active:activeMenu === ' feedback'}" ng-click="activeMenu = ' feedback'">
+            <a class="d-block text-decoration-none" href="" ng-click="enableBooleans('feedbackBool')"><i class="fa fa-street-view mr-3"></i><span
+                class=" font-weight-normal"> Employees Feedback</span>
+            </a>
+
+          </li>
+          <li class="p-2 mb-1 ml-1" ng-class="{active:activeMenu === ' manageEmployee'}" ng-click="activeMenu = ' manageEmployee'">
+            <a class=" d-block text-decoration-none" href="" ng-click="enableBooleans('manageEmployeeBool')"><i class="fa fa-users mr-3"></i><span
+                class="font-weight-normal"> Manage employee</span></a>
+          </li>
+          <li class="p-2 mb-1 ml-1" ng-class="{active:activeMenu === 'employeeCount'}" ng-click="activeMenu = 'employeeCount'">
+            <a class="d-block text-decoration-none" href="" ng-click="enableBooleans('employeeCountBool')"><i class="fa fa-cubes mr-3 "></i><span
+                class=" font-weight-normal"> Employee count</span></a>
+          </li>
+
+
+
+          <li class="p-2 mb-1 ml-1" ng-class="{active:activeMenu === 'weeklyMenu'}" ng-click="activeMenu = 'weeklyMenu'">
+            <a class="d-block text-decoration-none" href="" ng-click="enableBooleans('weeklyMenuBool')"><i class="fa fa-calendar mr-3"></i><span
+                class=" font-weight-normal"> Weekly menu</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sidebar-overlay"></div>
+  </div>
+  <!--/sidebar start-->
+
+  <!--Main Content-->
+  <div id="content">
+
+    <!--=======================Category bool start============================-->
+    <div ng-if="categoryBool">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">category</li>
+        </ol>
+      </nav>
+      <div class="container">
+        <div class="cyan accent-4 border  ml-3">
+          <h4 class="font-weight-bold  text-white"><i class="fas fa-hot-tub ml-3 text-white mr-2 fa-lg"></i>Category</h4>
+        </div>
+        <form class="border  z-depth-1 ml-3" id="form-lenght">
+          <div class="list-group">
+            <div class="list-group-item" ng-repeat="category in categories">
+
+              <input type="checkbox" class="mr-3" disabled="disabled" ng-model="data[category.dbName]">
+              <label class="h5 font-weight-normal">{{category.displayName}}</label>
+
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+
+
+
+    <!--===============Requirement Bool start===================-->
+    <div ng-if="requirementBool">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">requirement</li>
+        </ol>
+      </nav>
+    </div>
+
+
+    <!--=============feedbackBool start====================-->
+    <div ng-if="feedbackBool">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">feedback</li>
+        </ol>
+      </nav>
+      <div class="container">
+        <div class="card mb-3">
+          <h4 class="card-header text-center bg-white font-weight-normal  py-2 mb-0">Employee feedback</h4>
+          <div class="card-body">
+
+            <table class="table  table-responsive-md  text-center">
+              <tr class="bg-info">
+                <th class="text-center p-1 font-weight-bold" ng-repeat="EmployeeFeedbackDetail in EmployeeFeedbackDetails">{{EmployeeFeedbackDetail}}</th>
+              </tr>
+              <tr ng-repeat="empfeedback in feedback| filter:search">
+                <td class="font-weight-normal">{{empfeedback.reviewerName}}</td>
+                <td class="font-weight-normal">{{empfeedback.overAllRating}}</td>
+                <td class="font-weight-normal">{{empfeedback.presentationRating}}</td>
+                <td class="font-weight-normal">{{empfeedback.qualityRating}}</td>
+                <td class="font-weight-normal">{{empfeedback.quantityRating}}</td>
+                <td class="font-weight-normal">{{empfeedback.tasteRating}}</td>
+                <td class="font-weight-normal">{{empfeedback.mobile}}</td>
+                <td class="font-weight-normal">
+                  <p ng-if="empfeedback.comment.length>0" data-tooltip={{empfeedback.comment}}><i class="far fa-comments fa-lg"></i>
+                  </p>
+                </td>
+                <td class="font-weight-normal">{{empfeedback.createdAt}}</td>
+              </tr>
+
+            </table>
+
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!--============manageEmployeeBool start===============-->
+    <div ng-if="manageEmployeeBool">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">manageEmployee</li>
+        </ol>
+      </nav>
+      <div class="container">
+        <div class="card  grey lighten-5">
+          <div class="card-header">
+            <div class="d-flex flex-row justify-content-between">
+              <div class="h5 font-weight-bold p-2">Add new employee details</div>
+              <div class="d-flex flex-row justify-content-between">
+                <div class="mt-1">Session: </div>
+                <div>
+                  <select class="browser-default custom-select" ng-model="item.type">
+                    <option selected>----------------Select-------------</option>
+                    <option value="{{sel.label}}" ng-selected="item.type == sel.label" ng-repeat="sel in selectSession">{{sel.label}}</option>
+
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+              <div>
+                <label for="empID" class="h6 font-weight-bold">Employee Id<span class="text-danger"> *</span></label>
+                <input type="text" class="form-control  rounded-pill z-depth-1" id="empID" placeholder="Enter Employee ID"
+                  ng-model="item.empID" required>
+              </div>
+              <div>
+                <label for="Firstname" class="h6 font-weight-bold">Firstname <span class="text-danger"> *</span></label>
+                <input type="text" class="form-control  rounded-pill z-depth-1" id="Firstname" placeholder="Enter your Firstname"
+                  ng-model="item.empFname" required>
+              </div>
+              <div>
+                <label for="Lastname" class="h6 font-weight-bold">Lastname <span class="text-danger"> *</span></label>
+                <input type="text" class="form-control  rounded-pill z-depth-1" id="Lastname" placeholder="Enter your Lastname"
+                  ng-model="item.empLname" required>
+              </div>
+              <div>
+                <label for="Moblienumber" class="h6 font-weight-bold">Moblie number <span class="text-danger"> *</span></label>
+                <input type="number" class="form-control  rounded-pill z-depth-1" id="Moblienumber" placeholder="Enter Moblie number"
+                  ng-model="item.empMobNum" ng-pattern="/^[0-9]{10,10}$/" required>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button class="btn btn-outline-success m-auto d-block rounded-pill" ng-click=addEmp(item) ng-disabled="!(item.empID && item.empFname && item.empLname && item.empMobNum && item.type )">ADD
+                EMPLOYEE</button>
+            </div>
+          </div>
+        </div>
+        <table class="table z-depth-1 mt-3">
+          <thead class="info-color mr-1">
+            <tr class="justify-content-between text-center">
+              <th class="font-weight-bold ml-3">Employee Id</th>
+              <th class="font-weight-bold">First Name</th>
+              <th class="font-weight-bold">Last Name</th>
+              <th class="font-weight-bold">Mobile Number</th>
+              <th class="font-weight-bold">Requirement type</th>
+              <th class="font-weight-bold"> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="empData in employeeList" class="justify-content-between text-center">
+              <td class="font-weight-bold">{{empData.empID}}</td>
+              <td class="font-weight-bold">{{empData.empFname}}</td>
+              <td class="font-weight-bold">{{empData.empLname}}</td>
+              <td class="font-weight-bold">{{empData.empMobNum}}</td>
+              <td>
+                <div ng-click="deleteRow($index)">
+                  <i class="fa fa-trash text-danger"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <!--=====================employeeCountBool start=============================-->
+    <div ng-if="employeeCountBool">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">employeeCount</li>
+        </ol>
+      </nav>
+    </div>
+
+
+    <!--=====================weeklyMenuBool start=========================-->
+    <div ng-if="weeklyMenuBool">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">weeklyMenu</li>
+        </ol>
+      </nav>
+
+      <div class="container">
+        <div class="accordion md-accordion accordion-blocks" id="menuType"  role="tablist" aria-multiselectable="true"
+        ng-repeat="(key,val) in weekMenuSorted">
+          <div class="card mb-3 mt-5">
+            <div class="card-header" role="tab" id="headingUnfiled">
+              <a data-toggle="collapse" data-parent="#menuType" data-target="#menuItem" aria-expanded="true"
+                aria-controls="collapseUnfiled">
+                <div class="d-flex flex-row justify-content-between">
+                  <div>
+                    <h5>{{key}}</h5>
+                  </div>
+                  <div>
+                    <i class="fas fa-angle-down rotate-icon"></i>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+           <div id="menuItem" class="collapse" role="tabpanel" aria-labelledby="headingUnfiled" data-parent="#menuType">
+              <div class="card-body">
+                  <div class="border-bottom  border-info mr-1 ml-3 mt-3">
+                      <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
+                          <li class="nav-item"  ng-repeat="(k,v) in val">
+                              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home"
+                                  role="tab" aria-controls="pills-home" aria-selected="true">{{k}}</a>
+                          </li>
+                      </ul>
+                    </div>
+                      <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                           <div class="z-depth-1 rounded-pill justify-content-around ml-3 border border-info">
+                             <button class="btn btn-sm btn-outline-info rounded-pill ml-5 mt-3 mb-3"  ng-repeat="m in v.menu">{{m.dishName}}</button>
+                           </div>
+                          </div>
+                       </div>
+                  
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!--/Main Content-->
+</div>
