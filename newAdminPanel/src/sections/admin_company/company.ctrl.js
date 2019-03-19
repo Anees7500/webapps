@@ -4,7 +4,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
   'getItemCheckListedForVendor', 'Excel', '$timeout', 'getCompanyWorkingDaysUrl', 'getCompanyInvoicingDate',
   'getCompanyAdditionalRequirements', 'getCompanyRequirements', 'getVendorRequirements', 'getMonthlyDetailsUrl',
   'getMonthsForMonthlyDetailsUrl', 'getDetailsForInvoicesUrl', 'getCompanyFebMonthInvoicedetails', '$cookies',
-  '$location', '$route', 'Notification','postVendorAssignUrl','getAllVendorToCompanyUrl','unassignedVendorUrl',
+  '$location', '$route', 'Notification', 'postVendorAssignUrl', 'getAllVendorToCompanyUrl', 'unassignedVendorUrl',
   function ($scope, $http, AdminCompanyServices, postCategoryUrl, $routeParams, getCorporateReviewsUrl,
     getCompanyProfileUrl, getAllVendorListUrl, getItemCheckListForVendor,
     getItemCheckListedForVendor, Excel, $timeout, getCompanyWorkingDaysUrl,
@@ -38,6 +38,12 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       $scope.clientMonthlyDetailsBool = false;
       $scope.vendorMonthlyDetailsBool = false;
       $scope.dispatchDetailsBool = false;
+      $scope.breakfastBool = false;
+      $scope.lunchBool = false;
+      $scope.snacksBool = false;
+      $scope.dinnerBool = false;
+      $scope.midNightSnacksBool = false;
+      $scope.earlyMorningSnacksBool = false;
       $scope[value] = true;
     }
 
@@ -335,12 +341,6 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
               angular.forEach($scope.clientRequirement, function (v, k) {
 
                 if (i[k] != null) {
-                  // var kSize = Object.keys(i[k].dtls).length;
-                  // var cRSize = Object.keys(v[i.day]).length;
-                  // if(kSize != cRSize)
-                  // {
-
-                  // }
                 }
                 else {
                   if (v[i.day] != null) {
@@ -753,6 +753,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.selectWeekForMonthlyDetails = function (weekName) {
       $scope.selectedWeekForMonthlyDetails = weekName;
     }
+
+    
     $scope.assignCategoryForClientMonthlyDtls = function (obj) {
       $scope.tempCategoryForClientMonthlyDtls = {};
       $scope.tempCategoryForClientMonthlyDtls.dbName = obj.dbName;
@@ -1111,6 +1113,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     // ===================================assign vendor to company=======================
     $scope.passVendorId = function (vendorId) {
       var companyId = $routeParams.compId;
+      debugger;
       AdminCompanyServices.passVendorId(vendorId, companyId, $scope.Type, postVendorAssignUrl);
       $scope.getvenderList();      
     };  

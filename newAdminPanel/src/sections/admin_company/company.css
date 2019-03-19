@@ -27,11 +27,11 @@ p {
 #address-card{margin-left: -17px; margin-top: -12px;height: 160px}
 
 
-/*--------------------------company setting----------------*/
-
-
-input[type=checkbox] {
-  transform: scale(1.2);
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+        color: #fff;
+        background-color: #37a4d8;
+        font-weight: 600;
+  transform: scale(1.0);
 }
 
 .assigncard {
@@ -42,5 +42,9 @@ input[type=checkbox] {
   border: 1px solid #adacac52;
   box-shadow:9px 10px 10px 2px rgba(220, 220, 220, 0.64);
 }
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #026f62c4;
+  }
 
 
