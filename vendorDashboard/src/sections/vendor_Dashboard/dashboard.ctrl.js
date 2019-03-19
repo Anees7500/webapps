@@ -1,11 +1,10 @@
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
     '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
     '$routeParams', '$rootScope', '$filter', 'getmenuFromDbMonUrl', 'getCompanySectionReqUrl', 'uuid',
-    'saveMenuService','updateMenuService',
     function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
         $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
         $routeParams, $rootScope, $filter, getmenuFromDbMonUrl, getCompanySectionReqUrl,
-        uuid, saveMenuService,updateMenuService) {
+        uuid) {
 
         // $scope.sortingOrder = sortingOrder;
 
