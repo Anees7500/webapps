@@ -172,9 +172,9 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         promis.then(function (response) {
             $scope.myNode = response.data.data.menus;
-            if (!_.isEmpty($scope.myNode.TUESDAY)) {
+            if (!_.isEmpty($scope.myNode.WEDNESDAY)) {
                 console.log("yehhhh true 4545")
-                $scope.menuNodes = unflatten($scope.myNode.TUESDAY);
+                $scope.menuNodes = unflatten($scope.myNode.WEDNESDAY);
                 console.log("menu node after update ", JSON.stringify($scope.menuNodes));
 
             }
