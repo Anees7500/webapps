@@ -262,7 +262,8 @@
                   <div class="weeklyMenuItme" ng-if="weeklyMenuBool">
                     <div class="list3"><span class="fm-menu">Menu</span>
                       <div ng-repeat="(key, val) in weekMenuSorted">
-                        <div class="employee-list1"><strong>{{key}}</strong><a type="button" ng-click="ShowHideWeekMenu(val)">
+                        <div class="employee-list1"><strong>{{key}}</strong>
+                          <a type="button" ng-click="ShowHideWeekMenu(val)">
                             <i class="fa fa-caret-square-down" style="font-size:15px"></i></a>
                           <div class="container">
                             <div class=" fm_day col-md-4  col-sm-12 well" ng-if="val.visible && k != 'visible'" ng-repeat="(k, v) in val">

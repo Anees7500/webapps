@@ -192,7 +192,13 @@ function makeWeekDayWiseJson (tem, menutype, obj){
   }
 
 }
-
+$scope.showHideWeekMenu = function(val) {
+     console.log("weekmenu  show");
+     angular.forEach($scope.weekMenuSorted, function(value, key){
+      value.visible = false;
+     });
+      val.visible = val.visible ? false : true;
+    }
 
 
 }
