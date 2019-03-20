@@ -49,7 +49,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.area = ["Bangalore", "Hsr Layout", "Bommanahalli","Btm Layout","Koramangala"];
     $scope.distance = ["0 to 5", "0 to 7", "0 to 9","0 to 12","0 to 15","0 to 20"];
     $scope.document = ["Fssai", "Trade", "Labour","GST","PF $ ESI","Employee BGV $ PVC","others"];
-    $scope.price = ["lakh","hundred","thousand"," crore rupees","5600000","457000000"];
+    $scope.price = ["lakh","hundred","thousand"," crore",];
      
     
   
@@ -126,6 +126,26 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       console.log("form submitted:" + angular.toJson($scope.empoyees));
     }
     // =================== Calling data end===============================================
+    
+    //====================Unassigned lead ================================================
+    $scope.unassigned =[{
+      address: "#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102",
+      companyname: "Fancymonk",
+      username: "Aman",
+      progress:"progress"
+    },{
+      address: "#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102",
+      companyname: "Fancymonk",
+      username: "Aman",
+      progress:"progress"
+    },{
+      address: "#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102",
+      companyname: "Fancymonk",
+      username: "Aman",
+      progress:"progress"
+    }
+  ]
+    //====================Unassigned lead  end============================================
 
     //=========================== bool Logic start========================================
     $scope.boolFunction = function (value) {
