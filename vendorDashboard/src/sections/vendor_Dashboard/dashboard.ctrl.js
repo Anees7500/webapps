@@ -566,8 +566,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
     //===========================Update Order ==========================================
     $scope.toUpdate = function (bookingId,status) {
         VendorDashboardService.updateOrder(bookingId,status)
-            .then(function (response) {              
-               
+            .then(function (response) {
                 console.log("response",response);
                 
             });
@@ -575,15 +574,14 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
     //===============================confirmed order ==================================
 
-    // var getConfirmedOrder  = getSmartCafeteriaOrders + "?companyId=" + companyId + "&bookerId=" + 77 + "&type=confirmed";
+    var getConfirmedOrder  = getSmartCafeteriaOrders + "?companyId=" + companyId + "&bookerId=" + 77 + "&type=pending";
 
-    // $http.get(getConfirmedOrder).then(function(response){
-    //     $scope.confirmedOrderList = response;
-    //     console.log("Confirmed order list",$scope.confirmedOrderList);
+    $http.get(getConfirmedOrder).then(function(response){       
+        console.log("Confirmed order list",response);
 
-    // },function(reason){
+    },function(reason){
 
-    // });
+    });
 
 
 
