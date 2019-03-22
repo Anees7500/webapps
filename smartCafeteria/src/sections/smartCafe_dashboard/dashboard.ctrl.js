@@ -49,7 +49,8 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     var vendorListUrl = getVendorList + companyId;
     $http.get(vendorListUrl).then(function (response) {
       $scope.vendorList = response.data.data.details;
-      $scope.selectedVendor = $scope.vendorList[0];
+      CartService.setVendor($scope.vendorList[0]);
+      $scope.selectedVendor = CartService.getSelectedVendor();
       getMenus();
       // console.log("selected vendor : ", JSON.stringify($scope.selectedVendor));
     });
@@ -61,7 +62,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
           $scope.menuNode = response.data.data.menus;
         }
         $scope.selectedMenuNode = $scope.menuNode[0].menuNode;
-        console.log("selected Menu : ", JSON.stringify($scope.selectedMenuNode));
+        // console.log("selected Menu : ", JSON.stringify($scope.selectedMenuNode));
       });
     }
 
@@ -73,7 +74,8 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
     // ===================functions=================================
 
     $scope.selectVendor = function (obj) {
-      $scope.selectedVendor = obj;
+      CartService.setVendor(obj);
+      $scope.selectedVendor = CartService.getSelectedVendor();
       getMenus();
 
     }
@@ -201,7 +203,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
       $http({
         method: 'POST',
-        url: "http://fancymonk.com:9125/api/client/empfavoritemenu/add",
+        url: "http://fancymonk.com:9125/api/client/emp-favorite-menu/add",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },

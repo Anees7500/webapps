@@ -1,6 +1,6 @@
 <div class="wrapper" ng-controller="NavbarController">
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color fixed-top pb-0">
-    <a class="navbar-brand text-white font-weight-bold" href="#!/dashboard">FANCYMONK</a>
+    <a class="navbar-brand text-white font-weight-bold" href="#!/dashboard" ng-click="setNavBoolFalse()">FANCYMONK</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
       aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,6 +10,8 @@
         <li class="nav-item active mr-3 " id="mr-top">
           <a class="nav-link" href="" ng-click="boolFunction('walletBool')">
             <i class="fas fa-wallet fa-lg "></i> Wallet
+            <br>
+            Rs. {{walletAmount}}
             <span class="sr-only">(current)</span>
           </a>
         </li>
@@ -77,10 +79,8 @@
         <li class="nav-item dropdown mr-5" id="mr-top">
           <div class="dropdown">
             <button class=" btn-info  border-0 mt-2" type="button" id="dropdownMenu1" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-lg"></i> Hello User</button>
-
-
-
+              aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-lg"></i> 
+              Hello {{loggedInUserName}}</button>
             <div class="dropdown-menu dropdown-primary">
               <a class="dropdown-item" href="#!/dashboard/orders">
                 <i class="fas fa-shopping-cart"></i> <span class="font-weight-normal"> My orders</span></a>
@@ -109,7 +109,7 @@
     <div ng-if="settingsBool">
         <nav aria-label="breadcrumb" id="margin-height">
             <ol class="breadcrumb font-small font-weight-normal text-center">
-              <li class="breadcrumb-item"><a href="">Home</a></li>
+              <li class="breadcrumb-item"><a href="" ng-click="setNavBoolFalse()">Home</a></li>
               <li class="breadcrumb-item active">setting</li>
             </ol>
           </nav>
@@ -172,7 +172,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mt-5">
   
-        <li class="breadcrumb-item"><a href="" >Home</a></li>
+        <li class="breadcrumb-item"><a href="" ng-click="setNavBoolFalse()">Home</a></li>
         <li class="breadcrumb-item active">Wallet</li>
       </ol>
     </nav>
@@ -185,19 +185,19 @@
                         <i class="fas fa-wallet text-primary fa-3x text-center"></i>
                       </div>
                       <div class="mt-2 pb-0 mb-0">
-                        <p><span class=" font-weight-bold h5 pb-0">Rs 0</span><br><span>Your Wallet Balance</span></p>
+                        <p><span class=" font-weight-bold h5 pb-0">Rs {{walletAmount}}</span><br><span>Your Wallet Balance</span></p>
     
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="md-form">
-                      <input type="text" id="form1" class="form-control">
+                      <input type="text" id="form1" class="form-control" ng-model="amountToBeAdded ">
                       <label for="form1">Enter Amount to be Added in Wallet</label>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <button type="button" class="btn btn-primary mt-3 w-75 ">Add Money to Wallet</button>
+                    <button type="button" class="btn btn-primary mt-3 w-75 " ng-click="addMoneyToWallet(amountToBeAdded)">Add Money to Wallet</button>
                   </div>
                 </div>
             
@@ -279,7 +279,7 @@
        <nav aria-label="breadcrumb">
           <ol class="breadcrumb mt-5">
       
-            <li class="breadcrumb-item"><a href="" >Home</a></li>
+            <li class="breadcrumb-item"><a href="" ng-click="setNavBoolFalse()">Home</a></li>
             <li class="breadcrumb-item active">Terms and Policy</li>
           </ol>
         </nav>

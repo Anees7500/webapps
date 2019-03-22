@@ -48,6 +48,14 @@ empApp.service('CartService', function () {
         return this;
     }
 
+    this.setVendor = function (val) {
+        this.selectedVendor = val;
+    }
+
+    this.getSelectedVendor = function(){
+        return this.selectedVendor;
+    }
+
     this.getCartItemSize = function()
     {
         return getCartItemSize(this.cartItems);
@@ -90,6 +98,8 @@ empApp.service('CartService', function () {
         }
         return len;
     }
+
+
 
     return this;
 });
