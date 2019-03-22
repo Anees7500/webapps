@@ -14,10 +14,11 @@ empApp.factory('EmployeesLoginService', ['$http', '$httpParamSerializerJQLike','
                     },
                     data: $httpParamSerializerJQLike(user) 
                 }).then(function (response) {
-                    // console.log("response logins ", JSON.stringify(response));
+                    console.log("response logins ", JSON.stringify(response));
                     if (response.data.data != null && response.data.data.employee != null) {
                         var eDetails = response.data.data.employee;
                         $rootScope.employeeDetails = eDetails;
+                        $cookies.put("employeeDetails", JSON.stringify(eDetails));
                         $cookies.put("eId", eDetails.employeeId);
                         $cookies.put("rId", eDetails.id);
                         $cookies.put("cId", eDetails.companyId);

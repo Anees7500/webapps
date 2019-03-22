@@ -12,6 +12,7 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
 
     $scope.ShowHideWeekMenu = function(val) {
       val.visible = val.visible ? false : true;
+      console.log()
     }
 
     $scope.selectables = [{

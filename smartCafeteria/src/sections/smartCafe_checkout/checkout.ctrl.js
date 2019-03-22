@@ -3,6 +3,7 @@ empApp.controller('CheckoutController', ['$scope','$cookies','Notification','$lo
   function($scope,$cookies,Notification, $location,CartService,companyId,CheckOutService) {
     $scope.cartObj = CartService.getCartObj();
 
+    var selectedVendor = CartService.getSelectedVendor();
     console.log("in srv cart : ", JSON.stringify($scope.cartObj.cartItems));
 
   
@@ -14,6 +15,7 @@ empApp.controller('CheckoutController', ['$scope','$cookies','Notification','$lo
       $scope.cartObj = CartService.reduceCount(val);
     }
 
+    var employeeDetails = JSON.parse($cookies.get("employeeDetails"));
     var makeRazorPayOptions = function (data, orderId) {
       var options = {
         "key": "rzp_test_KgnTG2Mdqgd2WX",
@@ -60,7 +62,7 @@ empApp.controller('CheckoutController', ['$scope','$cookies','Notification','$lo
 
     var getMenuForBookings = function () {
       var bookingMenuArr = [];
-      angular.forEach(this.cartItems, function (cartValue, cartKey) {
+      angular.forEach($scope.cartObj.cartItems, function (cartValue, cartKey) {
         if (cartKey != 'totalAmount') {
           var temp = {};
           temp.menuId = cartKey;
@@ -72,13 +74,15 @@ empApp.controller('CheckoutController', ['$scope','$cookies','Notification','$lo
       return bookingMenuArr;
     }
     $scope.checkout = function () {
+      debugger;
       var objForDb = {};
       objForDb.companyId = companyId;
-      objForDb.employeeId = "FM002";
+      objForDb.employeeId = employeeDetails.employeeId;
       objForDb.menu = JSON.stringify(getMenuForBookings());
       objForDb.paymentType = "ONLINE";
-      objForDb.mobile = "9388338322";
+      objForDb.mobile = employeeDetails.mobile;
       objForDb.totalAmount = $scope.cartObj.cartItems.totalAmount;
+      objForDb.vendorId = selectedVendor.vendorId;
       CheckOutService.saveBookings(objForDb).then(function (response) {
         if (response.data.status == 1) {
           $scope.bookingResponse = response.data.data;

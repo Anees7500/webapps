@@ -1,7 +1,10 @@
 empApp.controller('OrdersController', ['$scope','$http','getSmartCafeteriaOrders','getVendorList',
-'NavbarService',
-  function($scope,$http, getSmartCafeteriaOrders,getVendorList,NavbarService) {
+'NavbarService','NavBoolService',
+  function($scope,$http, getSmartCafeteriaOrders,getVendorList,NavbarService,NavBoolService) {
   
+    $scope.getNavBool = function () {
+      return NavBoolService.getNavBool();
+    }
         $scope.activeBookingBool = true; 
         var companyId = 1;
         //get active Bookings

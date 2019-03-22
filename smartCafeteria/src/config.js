@@ -10,4 +10,7 @@ angular.module("empApp.config", [])
 .constant("getSmartCafeteriaOrders", "http://fancymonk.com:9125/api/client/smart-cafeteria/get-booking")
 .constant("getNotificationsUrl", "http://fancymonk.com:9125/api/client/get-notifications?companyId=1&bookerId=77")
 .constant("postAddFavoriteMenuUrl", "http://fancymonk.com:9125/api/client/emp-favorite-menu/add")
-.constant("postRemoveFavoriteMenuUrl", "http://fancymonk.com:9125/api/client/emp-favorite-menu/remove");
+.constant("postRemoveFavoriteMenuUrl", "http://fancymonk.com:9125/api/client/emp-favorite-menu/remove")
+.constant("postSCWalletBookingUrl", "http://fancymonk.com:9125/api/client/wallet/add-money")
+.constant("postSCWalletBookingUpdateUrl", "http://fancymonk.com:9125/api/client/wallet/update-payment")
+.constant("getEmployeeWalletMoney", "http://fancymonk.com:9125/api/client/get-wallet-balance?companyId=");
