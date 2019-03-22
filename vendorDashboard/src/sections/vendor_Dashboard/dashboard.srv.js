@@ -1,7 +1,7 @@
 vendorApp.factory('VendorDashboardService', ['$http', '$httpParamSerializerJQLike', '$location',
-    'Notification', '$q', 'postUpdateMenuUrl', 'postDeleteMenuUrl',
+    'Notification', '$q', 'postUpdateMenuUrl', 'postDeleteMenuUrl','postSmartCafeBookingUpdateUrl',
     function ($http, $httpParamSerializerJQLike, $location, Notification, $q,
-        postUpdateMenuUrl, postDeleteMenuUrl) {
+        postUpdateMenuUrl, postDeleteMenuUrl,postSmartCafeBookingUpdateUrl) {
         return {
             updateMenu: function (node, rId) {
                 // console.log("menu node passed here 123", node);
@@ -83,7 +83,39 @@ vendorApp.factory('VendorDashboardService', ['$http', '$httpParamSerializerJQLik
                     }
                 });
                 return respMenuJson;
+            },
+            //============================= to update status of order ====================
+            updateOrder:function(bookId,status){
+                var orderToUpdate = {};
+                var deferred = $q.defer();
+                var respMenuJson = deferred.promise;
+                orderToUpdate = {
+                    bookingId: bookId,
+                    status: status                    
+                };
+                $http({
+                    method: 'POST',
+                    url: postSmartCafeBookingUpdateUrl,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    data: $httpParamSerializerJQLike(orderToUpdate)
+                }).then(function (response) {
+                    
+                    if (response.data.status == 1) {                       
+                        deferred.resolve(response.data.data);
+                        Notification.success({
+                            message: 'Order updated Successfully',
+                            delay: 1000
+                        });
+                    } else {                        
+                        deferred.reject(null);
+                        Notification.error('Error in updating order');
+                    }
+                });
+                return respMenuJson;
             }
+
         }
     }
 ]);

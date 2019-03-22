@@ -13,41 +13,41 @@
             <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PendingOrders'}" ng-click="activeMenu = 'PendingOrders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('pendingOrdersBool')">
                     <i class="fas fa-hourglass-half"></i></i> <span class="font-weight-normal"> Pending
-                        Orders </span><span class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
+                            Orders </span><span class="badge badge-pill badge-danger ml-2">{{allPendingOders.length}}</span></a>
             </li>
             <li class="p-2  mb-1" ng-class="{active : activeMenu === 'confirmedOrders'}" ng-click="activeMenu = 'confirmedOrders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('confirmedOrdersBool')"><i
-                        class="fas fa-check-circle"></i></i>
-                    <span class="font-weight-normal"> confirmed
-                        Orders
-                    </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
+                            class="fas fa-check-circle"></i></i>
+                        <span class="font-weight-normal"> confirmed
+                            Orders
+                        </span><span class="badge badge-pill badge-danger ml-2">{{allconfirmedOders.length}}</span></a>
             </li>
             <li class="p-2 mb-1" ng-class="{active : activeMenu === 'cancelOrders'}" ng-click="activeMenu = 'cancelOrders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('cancelOrdersBool')">
                     <i class="fas fa-ban"></i> <span class="font-weight-normal"> Cancel Orders
-                    </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
+                        </span><span class="badge badge-pill badge-danger ml-2">{{allCancelOders.length}}</span></a>
             </li>
             <li class="p-2 mb-1" ng-class="{active : activeMenu === 'CompletedOrders'}" ng-click="activeMenu = 'CompletedOrders'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('completedOrdersBool')"><i
-                        class="fas fa-tasks"></i></i>
-                    <span class="font-weight-normal"> Completed Orders
-                    </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
+                            class="fas fa-tasks"></i></i>
+                        <span class="font-weight-normal"> Completed Orders
+                        </span><span class="badge badge-pill badge-danger ml-2">{{allcompletedOders.length}}</span></a>
             </li>
             <li class="p-2 mb-1" ng-class="{active : activeMenu === 'PaymentStatus'}" ng-click="activeMenu = 'PaymentStatus'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('paymentStatusBool')"><i
-                        class="far fa-credit-card"></i>
-                    <span class="font-weight-normal"> Payment Status
-                    </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
+                            class="far fa-credit-card"></i>
+                        <span class="font-weight-normal"> Payment Status
+                        </span><span class="badge badge-pill badge-danger ml-2">{{paymentStatus.length}}</span></a>
             </li>
             <li class="p-2 mb-1" ng-class="{active : activeMenu === 'Feedback'}" ng-click="activeMenu = 'Feedback'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('feedbackBool')">
                     <i class="fas fa-comment-alt"></i> <span class="font-weight-normal"> Feedback
-                    </span></a>
+                        </span></a>
             </li>
             <li class="p-2 mb-1" ng-class="{active : activeMenu === ' WeeklyMenu'}" ng-click="activeMenu = ' WeeklyMenu'">
                 <a class="d-block text-decoration-none" ng-click="boolFunction('setWeeklyMenuBool')">
                     <i class="far fa-calendar-alt"></i> <span class="font-weight-normal ">
-                        Weekly Menu</span></a>
+                            Weekly Menu</span></a>
             </li>
 
         </ul>
@@ -69,38 +69,43 @@
 
             <div class="container">
                 <div class="row ml-1 mr-1 mt-3">
-                    <div class="col-md-12  ">
+                    <div class="col-md-12" ng-repeat="pendingObj in PendingOrderList">
                         <div class="media z-depth-1 border border-warning">
-
                             <div class="media-body ml-3">
-
                                 <div class="row">
-                                    <div class="col-md-5">
-                                        <h6 class="mt-3 font-weight-bold">1 x Omellete, 3 x Egg Burji</h6>
-                                        <p ng-bind="getMenuForOrdersPage(booking.menu)"></p>
-                                        <p ng-bind="'Total Amount - ₹ '+booking.totalAmount">200</p>
+                                    <div class="col-md-3">
+                                        <h6 class="mt-3 font-weight-bold text-muted">Menu Item Name:</h6>
+                                        <p ng-bind="getMenuForOrdersPage(pendingObj.menu) || '--'"></p>
+                                        <p ng-bind="'Total Amount - ₹ '+pendingObj.totalAmount">200</p>
+                                        <p>Mobile No : {{pendingObj.mobile}}</p>
 
                                         <div class="row">
-                                            <div class=" col-md-6">
-                                                <button type="button" data-toggle="modal" data-target="#feedback" class="btn btn-success waves-effect rounded-pill btn-sm  ">confirmed</button>
-
+                                            <div class="col-md-6">
+                                                <button type="button" class="btn btn-success waves-effect rounded-pill btn-sm  " ng-click="toUpdate(pendingObj.id,'ACCEPTED')">confirmed</button>
                                             </div>
-                                            <div class="col-md-6"> <button class="btn btn-danger waves-effect btn-sm  rounded-pill" type="cancel">Cancel </button>
+                                            <div class="col-md-6"> <button class="btn btn-danger waves-effect btn-sm  rounded-pill" type="cancel" ng-click="toUpdate(pendingObj.id,'REJECTED')">Cancel </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-4">
                                     </div>
-                                    <div class=" col-md-6">
-                                        <h4 class="mt-3 font-weight-bold text-muted h6 mr-1">order on {{booking.formattedCreatedAt}}
-                                            </span>
-                                        </h4>
-                                        <p class="mt-3 font-weight-bold text-muted h6 text-center" ng-bind="'Order Status : '+ getBookingStatusForUser(booking)"></p>
-                                        <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode : {{booking.paymentType}}
-                                        </p>
-                                        <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status : {{booking.paymentStatus}}
-                                        </p>
+
+                                    <div class="col-md-5 text-muted font-weight-bold">
+                                        <p class="mb-1 mt-3">order on : {{pendingObj.formattedCreatedAt}}</p>
+                                        <p class="mb-1 " ng-bind="'Order Status : '+ pendingObj.status"></p>
+                                        <p class="mb-1 ">Payment Mode : {{pendingObj.paymentType}}</p>
+                                        <p class="mb-1">Payment Status : {{pendingObj.paymentStatus}}</p>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-2" ng-if="!PendingOrderList.length>0">
+                        <div class="media z-depth-1 border">
+                            <div class="media-body ml-3">
+                                <div>
+                                    <p class="text-muted font-weight-bold pt-3 mb-0">No pending orders !!</p>
+                                    <center> <img src="img/noData.png" alt="Smiley face"></center>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +128,7 @@
 
             <div class="container">
                 <div class="row ml-1 mr-1 mt-3">
-                    <div class="col-md-12  ">
+                    <div class="col-md-12">
                         <div class="media z-depth-1 border border-success">
 
                             <div class="media-body ml-3">
@@ -137,14 +142,14 @@
                                         <div class="row">
                                             <div class=" col-md-6">
                                                 <button type="button" ng-disabled="!confirmed" class="btn btn-primary waves-effect rounded-pill btn-sm">
-                                                    confirmed
-                                                </button>
+                                                        confirmed
+                                                    </button>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="custom-control custom-checkbox custom-control-inline mt-2">
                                                     <input type="checkbox" class="custom-control-input" id="defaultInline1" ng-model="confirmed">
                                                     <label class="custom-control-label font-weight-normal" for="defaultInline1">cash
-                                                        received</label>
+                                                            received</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,25 +195,25 @@
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-th-large mt-0"></i>
-                            </button>
+                                    <i class="fas fa-th-large mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-columns mt-0"></i>
-                            </button>
+                                    <i class="fas fa-columns mt-0"></i>
+                                </button>
                         </div>
 
                         <a href="" class="white-text mx-3">Cancel Orders History</a>
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-pencil-alt mt-0"></i>
-                            </button>
+                                    <i class="fas fa-pencil-alt mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="far fa-trash-alt mt-0"></i>
-                            </button>
+                                    <i class="far fa-trash-alt mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-info-circle mt-0"></i>
-                            </button>
+                                    <i class="fas fa-info-circle mt-0"></i>
+                                </button>
                         </div>
 
                     </div>
@@ -226,28 +231,28 @@
 
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a>Menu Item Count
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Total Amount
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Order on
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Payment Mode
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
 
                                     </tr>
@@ -269,11 +274,11 @@
                                 <!--Table body-->
                             </table>
                             <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0}">
-                                        <span class=" page-item">
-                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
-                                        </span>
+                                    <ul class="pagination pagination-circle pg-blue">
+                                        <li ng-class="{disabled: currentPage == 0}">
+                                            <span class=" page-item">
+                                                <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                            </span>
                             </li>
                             <li ng-repeat="n in range(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}" ng-click="setPages()" class="page-item">
                                 <a class="page-link" ng-bind="n + 1">1</a></li>
@@ -291,6 +296,8 @@
 
             </div>
         </div>
+
+
         <!-- ============================ End Cancel Orders ===========================================-->
 
         <!-- ============================ Strat completed Orders =======================================-->
@@ -310,25 +317,25 @@
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-th-large mt-0"></i>
-                            </button>
+                                    <i class="fas fa-th-large mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-columns mt-0"></i>
-                            </button>
+                                    <i class="fas fa-columns mt-0"></i>
+                                </button>
                         </div>
 
                         <a href="" class="white-text mx-3">Cancel Orders History</a>
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-pencil-alt mt-0"></i>
-                            </button>
+                                    <i class="fas fa-pencil-alt mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="far fa-trash-alt mt-0"></i>
-                            </button>
+                                    <i class="far fa-trash-alt mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-info-circle mt-0"></i>
-                            </button>
+                                    <i class="fas fa-info-circle mt-0"></i>
+                                </button>
                         </div>
 
                     </div>
@@ -346,33 +353,33 @@
 
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a>Menu Item Count
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Total Amount
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Order on
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Payment Mode
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Orders Status
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                     </tr>
                                 </thead>
@@ -393,11 +400,11 @@
                                 <!--Table body-->
                             </table>
                             <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0}">
-                                        <span class=" page-item">
-                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
-                                        </span>
+                                    <ul class="pagination pagination-circle pg-blue">
+                                        <li ng-class="{disabled: currentPage == 0}">
+                                            <span class=" page-item">
+                                                <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                            </span>
                             </li>
                             <li ng-repeat="n in range(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}" ng-click="setPages()" class="page-item">
                                 <a class="page-link" ng-bind="n + 1">1</a></li>
@@ -438,8 +445,8 @@
                                 <a href="" class="white-text mx-3">Payment Summary</a>
                                 <div>
                                     <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" data-toggle="collapse" data-target="#collapseExample">
-                                        <i class="fas fa-angle-double-down"></i>
-                                    </button>
+                                            <i class="fas fa-angle-double-down"></i>
+                                        </button>
                                 </div>
                             </div>
                             <div class="collapse " id="collapseExample">
@@ -475,25 +482,25 @@
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-th-large mt-0"></i>
-                            </button>
+                                    <i class="fas fa-th-large mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-                                <i class="fas fa-columns mt-0"></i>
-                            </button>
+                                    <i class="fas fa-columns mt-0"></i>
+                                </button>
                         </div>
 
                         <a href="" class="white-text mx-3">Payment History</a>
 
                         <div>
                             <button type="button" class="btn btn-outline-white  btn-sm px-2">
-                                <i class="fas fa-pencil-alt mt-0"></i>
-                            </button>
+                                    <i class="fas fa-pencil-alt mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-sm px-2">
-                                <i class="far fa-trash-alt mt-0"></i>
-                            </button>
+                                    <i class="far fa-trash-alt mt-0"></i>
+                                </button>
                             <button type="button" class="btn btn-outline-white btn-sm px-2">
-                                <i class="fas fa-info-circle mt-0"></i>
-                            </button>
+                                    <i class="fas fa-info-circle mt-0"></i>
+                                </button>
                         </div>
                     </div>
                     <div class="px-4">
@@ -503,33 +510,33 @@
                                     <tr>
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a>Menu Item Count
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Total Amount
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Order on
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Payment Mode
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Payment Status
-                                                <i class="fas fa-sort ml-1"></i>
-                                            </a>
+                                                    <i class="fas fa-sort ml-1"></i>
+                                                </a>
                                         </th>
                                     </tr>
                                 </thead>
@@ -545,11 +552,11 @@
                                 </tbody>
                             </table>
                             <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0}">
-                                        <span class=" page-item">
-                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
-                                        </span>
+                                    <ul class="pagination pagination-circle pg-blue">
+                                        <li ng-class="{disabled: currentPage == 0}">
+                                            <span class=" page-item">
+                                                <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                            </span>
                             </li>
                             <li ng-repeat="n in range(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}" ng-click="setPages()" class="page-item">
                                 <a class="page-link" ng-bind="n + 1">1</a></li>
@@ -590,23 +597,23 @@
                                     <tr>
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
-                                            </a>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold ">
                                             <a> Food Test
-                                            </a>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold ">
                                             <a>Food Quality
-                                            </a>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold ">
                                             <a>Comment
-                                            </a>
+                                                </a>
                                         </th>
                                         <th class="th-lg font-weight-bold">
                                             <a href="">Date & Time
-                                            </a>
+                                                </a>
                                         </th>
                                     </tr>
                                 </thead>
@@ -626,11 +633,11 @@
                                 </tbody>
                             </table>
                             <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
-                                    <li ng-class="{disabled: currentPage == 0}">
-                                        <span class=" page-item">
-                                            <a class="page-link" ng-click="prevPage()">« Prev</a>
-                                        </span>
+                                    <ul class="pagination pagination-circle pg-blue">
+                                        <li ng-class="{disabled: currentPage == 0}">
+                                            <span class=" page-item">
+                                                <a class="page-link" ng-click="prevPage()">« Prev</a>
+                                            </span>
                             </li>
                             <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()" class="page-item">
                                 <a class="page-link" ng-bind="n + 1">1</a></li>
@@ -687,21 +694,67 @@
 
                     </ul>
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================ End feedback ===========================================-->
+
+
+    <!-- ============================ Start Set Weekly Menu=============================================-->
+    <div ng-if="setWeeklyMenuBool">
+        <nav class="navbar navbar-expand-lg mt-2">
+            <h6 class="navbar-brand w-clr font-small font-weight-normal">
+                <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
+                <a href="#!/companies">Home/</a>
+                <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
+                <a href="">/Set Weekly Menu</a>
+            </h6>
+        </nav>
+        <div class="container">
+            <div class="border-bottom  border-info mr-1 ml-3 mt-3">
+                <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Monday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Tuseday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Wednesday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-thursday" role="tab" aria-controls="pills-contact" aria-selected="false">Thursday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-friday" role="tab" aria-controls="pills-contact" aria-selected="false">Friday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-saturday" role="tab" aria-controls="pills-contact" aria-selected="false">Saturday</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-sunday" role="tab" aria-controls="pills-contact" aria-selected="false">Sunday</a>
+                    </li>
+
+                </ul>
+            </div>
 
 
 
-                <script type="text/ng-template" id="nodes_renderer.html">
+            <script type="text/ng-template" id="nodes_renderer.html">
 
-                    <div class="z-depth-1">
-                        <div style="padding: 10px; background-color:white">
-                            <!-- <div ng-class="{row: node.isFoodItem}">
+                <div class="z-depth-1">
+                    <div style="padding: 10px; background-color:white">
+                        <!-- <div ng-class="{row: node.isFoodItem}">
                                 <div ng-class="{'col-md-5 card-deck': node.isFoodItem}"> -->
+                        <div>
                             <div>
                                 <div>
                                     <div class="info-color">
                                         <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
-                                         <i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i>
-                                     </button>
+                                             <i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i>
+                                         </button>
                                     </div>
                                     <div class="card card-cascade mr-1 pb-0 ">
 
@@ -711,91 +764,92 @@
 
                                             <div>
                                                 <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2" ng-click="addsection($nodes,$index)" data-toggle="tooltip" data-placement="top" title="Add Menu">
-                                      <i class="fas fa-plus-circle  text-dark"></i></button>
+                                          <i class="fas fa-plus-circle  text-dark"></i></button>
                                             </div>
                                             <div>
                                                 <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2" ng-if="!node.isFoodItem && !(node.menuNodes.length > 0)" ng-click="addchild(node)" data-toggle="tooltip" data-placement="top" title="Add Submenu">
-                                      <i class="fas fa-bars  text-dark"></i></button>
+                                          <i class="fas fa-bars  text-dark"></i></button>
                                             </div>
                                             <div>
                                                 <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="saveInDb(node,'Monday')" ng-if="!node.id" data-toggle="tooltip" data-placement="top" title="Save">
-                                    <i class="fas fa-check-circle mt-0 text-dark"></i> </button>
+                                        <i class="fas fa-check-circle mt-0 text-dark"></i> </button>
                                             </div>
 
                                             <div>
                                                 <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="node.isInserted=false" ng-if="node.isInserted" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="far fa-edit mt-0 text-dark"></i> </button>
+                                        <i class="far fa-edit mt-0 text-dark"></i> </button>
                                             </div>
                                             <div>
                                                 <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-if="(node.id) && (!node.isInserted)" ng-click="updateMenu(node)" ng-if="node.isInserted" data-toggle="tooltip" data-placement="top" title="Update">
-                                    <i class="fas fa-sync-alt text-dark"></i></button>
+                                        <i class="fas fa-sync-alt text-dark"></i></button>
                                             </div>
                                             <div>
                                                 <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-if="node.isInserted" ng-click="deleteNode(node,'Monday')" ng-if="node.isInserted" data-toggle="tooltip" data-placement="top" title="Remove">
-                                    <i class="fas fa-trash-alt  text-dark"></i></button>
+                                        <i class="fas fa-trash-alt  text-dark"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                            <div ng-if="$parentNodeScope" class="mt-1">
-                                <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
-                                <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
-                                <div ng-if="node.isFoodItem">
-                                    <form>
-                                        <label class="radio-inline p-2">
+                        <div ng-if="$parentNodeScope" class="mt-1">
+                            <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
+                            <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+                            <div ng-if="node.isFoodItem">
+                                <form>
+                                    <label class="radio-inline p-2">
                                                 <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
-                                        <label class="radio-inline p-2">
+                                    <label class="radio-inline p-2">
                                                 <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
-                                        <label class="radio-inline p-2">
+                                    <label class="radio-inline p-2">
                                                 <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
-                                    </form>
-                                    <br>
+                                </form>
+                                <br>
 
-                                    <form class="form-inline">
-                                        <div class="form-group">
-                                            <label class="menu-label">Menu Item:
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="menu-label">Menu Item:
                                         <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
                                     </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="menu-label p-2">Price:
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="menu-label p-2">Price:
                                         <input type="number" class="form-control border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
                                     </label>
-                                        </div>
-                                </div>
+                                    </div>
                             </div>
-                            <!-- </div>
-                            </div> -->
-                            <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes; headers = node.isFoodItem' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
-                                <ul ng-class="{row: node.isFoodItem}">
-                                    <li ng-repeat="node in node.menuNodes" collapsed="false" ng-class="{'col-md-5 card-deck': node.isFoodItem}" ui-tree-node ng-include="'nodes_renderer.html'">
-                                </ul>
-                                </li>
-                            </ul>
                         </div>
-                    </div>
-                </script>
-
-                <div ui-tree>
-                    <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes; headers = node.isFoodItem'>
-                        <ul>
-                            <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                        <!-- </div>
+                            </div> -->
+                        <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes; headers = node.isFoodItem' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                            <ul ng-class="{row: node.isFoodItem}">
+                                <li ng-repeat="node in node.menuNodes" collapsed="false" ng-class="{'col-md-5 card-deck': node.isFoodItem}" ui-tree-node ng-include="'nodes_renderer.html'">
+                            </ul>
+                            </li>
                         </ul>
-                    </ul>
+                    </div>
                 </div>
+            </script>
+
+            <div ui-tree>
+                <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes; headers = node.isFoodItem'>
+                    <ul>
+                        <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    </ul>
             </div>
         </div>
+    </div>
+</div>
 
-        <!-- ============================ End Set Weekly Menu=============================================-->
+<!-- ============================ End Set Weekly Menu=============================================-->
 
-        <script>
-            $(document).ready(function() {
-                $('#sidebarCollapse').on('click', function() {
-                    $('#sidebar').toggleClass('active');
-                });
+<script>
+    $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').toggleClass('active');
+        });
 
-            });
-        </script>
+    });
+</script>
