@@ -1,7 +1,11 @@
-empApp.controller('FavouritController', ['$scope', 
-  function ($scope) {
+empApp.controller('FavouritController', ['$scope', 'NavBoolService',
+  function ($scope,NavBoolService) {
 
 
+    $scope.getNavBool = function () {
+      return NavBoolService.getNavBool();
+    }
+    
     //================ Favourite itme list ================
     $scope.addItemInfavouritList = function (item, ind) {
         if ($scope.favouritItemList == null) {
