@@ -257,9 +257,9 @@
         <div class="accordion md-accordion accordion-blocks" id="menuType"  role="tablist" aria-multiselectable="true"
         ng-repeat="(key,val) in weekMenuSorted">
           <div class="card mb-3 mt-5">
-            <div class="card-header" role="tab">
-              <a data-toggle="collapse" data-parent="#menuType" data-target="#menuItem" aria-expanded="true"
-                aria-controls="collapseUnfiled">
+            <div class="card-header" role="tab" id="headingUnfiled">
+              <a data-toggle="collapse" data-parent="#menuType" aria-expanded="true"
+                aria-controls="collapseUnfiled" ng-click="showHideWeekMenu(val)">
                 <div class="d-flex flex-row justify-content-between">
                   <div>
                     <h5>{{key}}</h5>
@@ -269,10 +269,8 @@
                   </div>
                 </div>
               </a>
-
             </div>
-
-           <div id="menuItem" class="collapse" role="tabpanel">
+           <div ng-if="val.visible && k != 'visible'"  role="tabpanel" aria-labelledby="headingUnfiled" >
               <div class="card-body">
                   <div class="border-bottom  border-info mr-1 ml-3 mt-3">
                       <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">

@@ -1,10 +1,10 @@
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
     '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
-    '$routeParams', '$rootScope', '$filter', 'getmenuFromDbMonUrl', 'getCompanySectionReqUrl', 'uuid',
+    '$routeParams', '$rootScope', '$filter', 'getmenuFromDbMonUrl', 'getCompanySectionReqUrl', 'uuid','postSmartCafeBookingUpdateUrl',
     function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
         $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
         $routeParams, $rootScope, $filter, getmenuFromDbMonUrl, getCompanySectionReqUrl,
-        uuid) {
+        uuid,postSmartCafeBookingUpdateUrl) {
 
         // $scope.sortingOrder = sortingOrder;
 
@@ -175,7 +175,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             if (!_.isEmpty($scope.myNode.WEDNESDAY)) {
                 console.log("yehhhh true 4545")
                 $scope.menuNodes = unflatten($scope.myNode.WEDNESDAY);
-                console.log("menu node after update ", JSON.stringify($scope.menuNodes));
+                //console.log("menu node after update ", JSON.stringify($scope.menuNodes));
 
             }
             else {
@@ -548,6 +548,42 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         // to active side menu
         $scope.activeMenu = 'PendingOrders';
+
+    //=========================Pending Orders ===========================================
+        
+        var getPendingOrder = getSmartCafeteriaOrders+"?companyId=" + companyId +"&type=pending&vendorId=" + vendorId; 
+    
+        $http.get(getPendingOrder).then(function(response){
+          $scope.PendingOrderList = response.data.data.bookings;
+          console.log("response pending list",$scope.PendingOrderList);
+    
+        },function(reason){
+            console.log("reson",reason);
+        })
+
+        
+       
+    //===========================Update Order ==========================================
+    $scope.toUpdate = function (bookingId,status) {
+        VendorDashboardService.updateOrder(bookingId,status)
+            .then(function (response) {              
+               
+                console.log("response",response);
+                
+            });
+    };
+
+    //===============================confirmed order ==================================
+
+    // var getConfirmedOrder  = getSmartCafeteriaOrders + "?companyId=" + companyId + "&bookerId=" + 77 + "&type=confirmed";
+
+    // $http.get(getConfirmedOrder).then(function(response){
+    //     $scope.confirmedOrderList = response;
+    //     console.log("Confirmed order list",$scope.confirmedOrderList);
+
+    // },function(reason){
+
+    // });
 
 
 

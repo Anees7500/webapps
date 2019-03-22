@@ -66,9 +66,20 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     $http.get(getAllCompanyUrl).then(function (response) {
       console.log(" compay url : ", getAllCompanyUrl);
-      $scope.allCompanies = response.data.data.companies;
-      for (var i = 0; i < $scope.allCompanies.length; i++) {
-        $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
+      $scope.allCompanies = response.data.data.companies;      
+      for (var i = 0; i < $scope.allCompanies.length; i++) {       
+
+        if($scope.allCompanies[i].fileName != null){
+
+          $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
+          
+        }else {          
+
+          $scope.allCompanies[i].fileName = getImageUrl + "new28.gif";
+         
+        }
+       
+        
       }
     });
     //================== All companies URL End ===================================
