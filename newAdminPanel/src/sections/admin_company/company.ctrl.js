@@ -308,6 +308,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
     var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
     $http.get(getFeedbackUrl).then(function (response) {
+
+      
       $scope.feedback = response.data.data.reviews;
     });
     //==============================================================

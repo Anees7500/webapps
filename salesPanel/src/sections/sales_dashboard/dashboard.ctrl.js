@@ -12,47 +12,68 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       companies: 'fancymonk.com',
       profilename: 'Aman Telkar',
       Cofounder: 'Co-founder at Fancymonk',
-      
+
 
     };
     // ==============Profile work end =========================================
-  
+
     // ==============Subordinate Leads ========================================
     $scope.people = [{
-        name: 'In progress',
-        salesperson: 'Aman'
-
+        progresswork: "Successfull",
+        salesperson: 'Aman',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
       },
       {
-        name: 'pending',
-        salesperson: 'Anees'
-
+        progresswork: "Successfull1",
+        salesperson: 'Aman4',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
       },
       {
-        name: 'work waiting',
-        salesperson: 'Aman1'
-
+        progresswork: "Successfull",
+        salesperson: 'Aman3',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
       },
       {
-        name: 'Success Full',
-        salesperson: 'Anees1'
-
+        progresswork: "Successfull4",
+        salesperson: 'Aman2',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
+      },
+      {
+        progresswork: "Successfull5",
+        salesperson: 'Aman1',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
+      },
+      {
+        progresswork: "Successfull8",
+        salesperson: 'Aman',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
+      },
+      {
+        progresswork: "Successfull",
+        salesperson: 'Aman7',
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk"
       }
-
     ]
     // ==============Subordinate Leads end =======================================
-    $scope.activeMenu='company';
+    $scope.activeMenu = 'company';
 
     //=============== Unassigned leads===========================================
     //=============== Unassigned leads===========================================
     //====================== sidebar hide and show==========================
-    $scope.area = ["Bangalore", "Hsr Layout", "Bommanahalli","Btm Layout","Koramangala"];
-    $scope.distance = ["0 to 5", "0 to 7", "0 to 9","0 to 12","0 to 15","0 to 20"];
-    $scope.document = ["Fssai", "Trade", "Labour","GST","PF $ ESI","Employee BGV $ PVC","others"];
-    $scope.price = ["lakh","hundred","thousand"," crore",];
-     
-    
-  
+    $scope.area = ["Bangalore", "Hsr Layout", "Bommanahalli", "Btm Layout", "Koramangala"];
+    $scope.distance = ["0 to 5", "0 to 7", "0 to 9", "0 to 12", "0 to 15", "0 to 20"];
+    $scope.document = ["Fssai", "Trade", "Labour", "GST", "PF $ ESI", "Employee BGV $ PVC", "others"];
+    $scope.price = ["lakh", "hundred", "thousand", " crore", ];
+
+
+
     //========================= SHOW EMPLOYEE DETAILS.=========================
     $scope.showDetails = function () {
       $scope.details =
@@ -66,20 +87,10 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     $http.get(getAllCompanyUrl).then(function (response) {
       console.log(" compay url : ", getAllCompanyUrl);
-      $scope.allCompanies = response.data.data.companies;      
-      for (var i = 0; i < $scope.allCompanies.length; i++) {       
-
-        if($scope.allCompanies[i].fileName != null){
-
-          $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
-          
-        }else {          
-
-          $scope.allCompanies[i].fileName = getImageUrl + "new28.gif";
-         
-        }
-       
-        
+      $scope.allCompanies = response.data.data.companies;
+      debugger;
+      for (var i = 0; i < $scope.allCompanies.length; i++) {
+        $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
       }
     });
     //================== All companies URL End ===================================
@@ -136,26 +147,70 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
       console.log("form submitted:" + angular.toJson($scope.empoyees));
     }
-    // =================== Calling data end===============================================
-    
+    // =================== Calling data end==============================================
+    //====================Assigned leads ================================================
+    $scope.assignedleads = [{
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Aman",
+        progresswork: "progress"
+      },
+      {
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Amananees",
+        progresswork: "Pending"
+      },
+      {
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Amananees",
+        progresswork: "Work waiting"
+      },
+      {
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Amanjaslkfdj",
+        progresswork: "Successfull"
+      },
+      {
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Amansajdlfkj",
+        progresswork: "progress"
+      },
+      {
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Amanlsdfj",
+        progresswork: "Work waiting"
+      },
+      {
+        address: " 19th Main Rd, Sector 2, HSR Layout, Bengaluru",
+        companyname: "Fancymonk",
+        username: "Amanasfdjlk",
+        progresswork: "Successfull"
+      }
+    ]
+    //====================Assigned leads end ===========================================
+
     //====================Unassigned lead ================================================
-    $scope.unassigned =[{
+    $scope.unassigned = [{
       address: "#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102",
       companyname: "Fancymonk",
       username: "Aman",
-      progress:"progress"
-    },{
+      progress: "progress"
+    }, {
       address: "#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102",
       companyname: "Fancymonk",
       username: "Aman",
-      progress:"progress"
-    },{
+      progress: "progress"
+    }, {
       address: "#1722,First Floor, 19th Main Rd, Sector 2, HSR Layout, Bengaluru, Karnataka 560102",
       companyname: "Fancymonk",
       username: "Aman",
-      progress:"progress"
-    }
-  ]
+      progress: "progress"
+    }]
     //====================Unassigned lead  end============================================
 
     //=========================== bool Logic start========================================
@@ -184,9 +239,9 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       console.log("value  of list", $scope.newList);
     }
 
-    $scope.value = 30;
+    $scope.value = 0;
     $scope.min = 0;
-    $scope.max = 100;
+    $scope.max = 10000;
 
     // ===============================Save Lead==========================================
     $scope.saveLead = function () {
