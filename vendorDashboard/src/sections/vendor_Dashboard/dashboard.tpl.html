@@ -291,8 +291,6 @@
 
             </div>
         </div>
-
-
         <!-- ============================ End Cancel Orders ===========================================-->
 
         <!-- ============================ Strat completed Orders =======================================-->
@@ -694,7 +692,6 @@
 
                 <script type="text/ng-template" id="nodes_renderer.html">
 
-<<<<<<< HEAD
                     <div class="z-depth-1">
                         <div style="padding: 10px; background-color:white">
                             <!-- <div ng-class="{row: node.isFoodItem}">
@@ -744,54 +741,6 @@
 
 
                             <div ng-if="$parentNodeScope" class="mt-1">
-=======
-            <div class="z-depth-1"> 
-                    
-            
-               <div style="padding: 10px; background-color:white"> 
-               
-                            <div class="info-color">
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                         ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
-                                         <i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i>
-                                     </button>
-                                   </div> 
-                            <div class="card card-cascade mr-1 pb-0 ">
-
-                             <div class="view view-cascade gradient-card-header narrower py-2 mx-2 mb-1 d-flex justify-content-between align-items-center">
-                                  <div class="w-50">
-                                    <input type="text" class="val0 form-control ml-1 border-success"  placeholder='Menu Heading'ng-disabled="node.isInserted" ng-model="node.menuName" focus>
-                                  </div>
-                                    <div>
-                                    <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2"ng-click="addsection($nodes,$index)"
-                                      data-toggle="tooltip" data-placement="top" title="Add Menu">
-                                      <i class="fas fa-plus-circle  text-dark"></i></button>
-                                  
-                                        <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2"ng-if="!node.isFoodItem" ng-click="addchild(node)"
-                                      data-toggle="tooltip" data-placement="top" title="Add Submenu">
-                                      <i class="fas fa-bars  text-dark"></i></button>
-                                    
-                                    <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="saveInDb(node,'Monday')"
-                                    ng-if="!node.id" data-toggle="tooltip" data-placement="top" title="Save">
-                                    <i class="fas fa-check-circle mt-0 text-dark"></i> </button>
-                                   
-                                    <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="node.isInserted=false"
-                                    ng-if="node.isInserted"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="far fa-edit mt-0 text-dark"></i> </button>
-                                 
-                                <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2"  ng-if="(node.id) && (!node.isInserted)"ng-click="updateMenu(node)"
-                                    ng-if="node.isInserted"  data-toggle="tooltip" data-placement="top" title="Update">
-                                    <i class="fas fa-sync-alt text-dark"></i></button>
-                                
-                                 <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-if="node.isInserted"ng-click="deleteNode(node,'Monday')"
-                                    ng-if="node.isInserted"  data-toggle="tooltip" data-placement="top" title="Remove">
-                                    <i class="fas fa-trash-alt  text-dark"></i></button>
-                                </div>
-                                    </div>
-                                </div>
-              
-                             <div ng-if="$parentNodeScope" class="mt-1">
->>>>>>> ebb01edc214de344c44a7596109e112bd41b7b6e
                                 <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
                                 <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
                                 <div ng-if="node.isFoodItem">
@@ -802,7 +751,6 @@
                                                 <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
                                         <label class="radio-inline p-2">
                                                 <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
-<<<<<<< HEAD
                                     </form>
                                     <br>
 
@@ -831,29 +779,6 @@
                     </div>
                 </script>
 
-=======
-                                            </form>
-                                <br>
-                                <form>   
-                                    <div class="form-row">
-                                          <div class="form-group col-md-6">
-                                            <label>Menu Item:</label>
-                                            <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus>
-                                          </div>
-                                          <div class="form-group col-md-6">
-                                            <label>Price:</label>
-                                            <input type="number" class="form-control w-50 border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
-                                          </div>
-                                        </div>
-                                        </form>
-                                </div>
-                            </div>   
-                            <div class="row mt-1 ml-3 d-flex justify-content-between mr-3" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}"> 
-                            <div class="col-md-5  mb-3  p-0" ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">                     
-                        </div> 
-                        </div>
-                        </script>
->>>>>>> ebb01edc214de344c44a7596109e112bd41b7b6e
                 <div ui-tree>
                     <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes; headers = node.isFoodItem'>
                         <ul>
@@ -863,7 +788,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
 
         <!-- ============================ End Set Weekly Menu=============================================-->
 
@@ -875,19 +799,3 @@
 
             });
         </script>
-=======
-    </div>
-</div>
-
-<!-- ============================ End Set Weekly Menu=============================================-->
-</div>
-</div>
-<script>
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-
-    });
-</script>
->>>>>>> ebb01edc214de344c44a7596109e112bd41b7b6e
