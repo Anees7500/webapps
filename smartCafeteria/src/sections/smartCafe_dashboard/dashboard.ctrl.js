@@ -47,6 +47,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
     /* Vendor List */
     var vendorListUrl = getVendorList + companyId;
+    // console.log("");
     $http.get(vendorListUrl).then(function (response) {
       $scope.vendorList = response.data.data.details;
       $scope.selectedVendor = $scope.vendorList[0];

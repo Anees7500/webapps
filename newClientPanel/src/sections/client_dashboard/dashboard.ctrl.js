@@ -1,5 +1,6 @@
 clientApp.controller('ClientDashboardCtrl',['$scope','$http','$rootScope','$cookies','getCompanyDetailsUrl','getEmployeeFeedback',
-'$routeParams', 'Notification', 'getWeeklyMenuUrl', function($scope,$http,$rootScope,$cookies,getCompanyDetailsUrl,getEmployeeFeedback,$routeParams, Notification,getWeeklyMenuUrl)
+'$routeParams', 'Notification', 'getWeeklyMenuUrl','getCompanyRequirements','getCompanyAdditionalRequirements',function($scope,$http,$rootScope,$cookies,getCompanyDetailsUrl,getEmployeeFeedback,
+  $routeParams, Notification,getWeeklyMenuUrl,getCompanyRequirements,getCompanyAdditionalRequirements)
 {
   $scope.enableBooleans = function(value) {
     $scope.categoryBool = false;
@@ -18,8 +19,8 @@ $scope.activeMenu='category';
 
 // category section
 var compId = 1;
-var getCompanyDetailsUrl = getCompanyDetailsUrl + compId;
-$http.get(getCompanyDetailsUrl).then (function(response){
+var CompanyDetailsUrl = getCompanyDetailsUrl + compId;
+$http.get(CompanyDetailsUrl).then (function(response){
   $scope.data = response.data.data.company;
   console.log("CHECK DATA", $scope.data);
 
@@ -38,14 +39,28 @@ $scope.categories = [
 $scope.EmployeeFeedbackDetails = ['Name','Overall Rating','Presentation Rating','Quality Rating',
 'Quantity Rating','Taste Rating','Contact','Comment','Date & Time'];
 
-var getEmployeeFeedback = getEmployeeFeedback + compId;
-    $http.get(getEmployeeFeedback).then(function(response) {
+var EmployeeFeedback = getEmployeeFeedback + compId;
+    $http.get(EmployeeFeedback).then(function(response) {
       $scope.feedback = response.data.data.reviews;
       $scope.feedback = $scope.feedback.reverse();
 
-      console.log("employee feedback : ", $scope.feedback);
+   console.log("employee feedback : ", $scope.feedback);
+   $scope.viewby = 10;
+  $scope.totalItems = $scope.feedback.length;
+  console.log("hey show me feedback length",$scope.totalItems);
+  $scope.currentPage = 1;
+  $scope.itemsPerPage = $scope.viewby;
+  $scope.maxSize = 5; 
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+  };
+$scope.setItemsPerPage = function(num) {
+  $scope.itemsPerPage = num;
+  $scope.currentPage = 1;
+}
+
     });
-   
+    
 //manage employee
 
     $scope.selectSession = [{ label:'BREACKFAST', value: 1 },
@@ -64,6 +79,7 @@ var getEmployeeFeedback = getEmployeeFeedback + compId;
       newItem.empFname = item.empFname;
       newItem.empLname = item.empLname;
       newItem.empMobNum = item.empMobNum;
+      newItem.type = item.type;
       if ($scope.employeeList == null) {
         $scope.employeeList = [];
       }
@@ -97,8 +113,8 @@ var getEmployeeFeedback = getEmployeeFeedback + compId;
   $scope.weekMenuSorted.SNACKS= {};
   $scope.weekMenuSorted.DINNER= {};
 
-   var getWeeklyMenuUrl = getWeeklyMenuUrl + compId;
-   $http.get(getWeeklyMenuUrl).then(function(response){
+   var WeeklyMenuUrl = getWeeklyMenuUrl + compId;
+   $http.get(WeeklyMenuUrl).then(function(response){
    var weeklyMenuDetails = response.data.data.menus;
   //  console.log("show me menuDetails:" ,weeklyMenuDetails);
   //  $scope.menuType = response.data.data.menus[0].menu;
@@ -123,7 +139,7 @@ var getEmployeeFeedback = getEmployeeFeedback + compId;
       }
      }
     //  console.log(" soretd new json ", $scope.weekMenuSorted);
-     console.log(" soretd new json ", JSON.stringify($scope.weekMenuSorted));
+    //  console.log(" soretd new json ", JSON.stringify($scope.weekMenuSorted));
    });
 
 function makeWeekDayWiseJson (tem, menutype, obj){
@@ -192,13 +208,115 @@ function makeWeekDayWiseJson (tem, menutype, obj){
   }
 
 }
-$scope.showHideWeekMenu = function(val) {
+$scope.showHideWeekMenu = function(val, k) {
      console.log("weekmenu  show");
      angular.forEach($scope.weekMenuSorted, function(value, key){
-      value.visible = false;
+       if(key != k)
+       {
+        value.visible = false;
+       }
+      
      });
       val.visible = val.visible ? false : true;
+
+      $scope.defaultIndex = true;
+      var keyName = Object.keys(val)[0];
+      $scope.menuItemList = val[keyName].menu;
     }
+$scope.menuItem = function(v){
+  console.log("menuData",v);
+  $scope.defaultIndex = false;
+  $scope.menuItemList = v.menu;
+}
+
+
+
+// requirement
+$scope.Days = [ "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"];
+$scope.clientRequirement = {};
+var companyRequirementsUrl = getCompanyRequirements +  compId;
+$http.get(companyRequirementsUrl).then(function(response){
+  if (response.data.status == 1) {
+    var reqArr = response.data.data.requirements;
+    angular.forEach(reqArr, function (item) {
+      $scope.clientRequirement[item.type] = JSON.parse(item.requirement);
+      console.log("show me data", $scope.clientRequirement);
+      $scope.clientRequirement[item.type].companyRequirementDbRowId = item.id;
+    });
+    // console.log("compay requirements : ",JSON.stringify($scope.clientRequirement));
+  }
+});
+
+var AdditionalRequirementsUrl = getCompanyAdditionalRequirements + compId;
+$http.get(AdditionalRequirementsUrl).then(function(response){
+if(response.data.status == 1){
+  var reqArr = response.data.data.additionalRequirements;
+  // console.log("additinal requirement",reqArr);
+  if (reqArr.length > 0) {
+    $scope.companyAdditionalRequirementBoolean = true;
+  }
+  angular.forEach(reqArr, function (item) {
+    $scope.additionalReqDetails[item.type].additionalReqToggle = true;
+    var dbSavedAdditionalReqArr = JSON.parse(item.requirement);
+    $scope.additionalReqDetails[item.type].arrVal.push.apply($scope.additionalReqDetails[item.type].arrVal, dbSavedAdditionalReqArr);
+    $scope.additionalReqDetails[item.type].additionaRequirementDbRowId = item.id;
+  });
+  console.log("additional req = ", JSON.stringify($scope.additionalReqDetails));
+
+}
+});
+$scope.additionalReqDetails = {
+  breakfast:
+  {
+    arrVal: [
+      {
+        'columnName': 'breakfast',
+        'disabled': true
+      }]
+  },
+  lunch:
+  {
+    arrVal: [
+      {
+        'columnName': 'lunch',
+        'disabled': true
+      }]
+  },
+  snacks:
+  {
+    arrVal: [
+      {
+        'columnName': 'snacks',
+        'disabled': true
+      }]
+  },
+  dinner:
+  {
+    arrVal: [
+      {
+        'columnName': 'dinner',
+        'disabled': true
+      }]
+  },
+  midNightSnacks:
+  {
+    arrVal: [
+      {
+        'columnName': 'midNightSnacks',
+        'disabled': true
+      }]
+  },
+  earlyMorningSnacks:
+  {
+    arrVal: [
+      {
+        'columnName': 'earlyMorningSnacks',
+        'disabled': true
+      }]
+  }
+};
+
+
 
 
 }

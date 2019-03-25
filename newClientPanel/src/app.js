@@ -1,4 +1,4 @@
-var clientApp = angular.module("clientApp",['ngRoute','clientApp.config', 'ngCookies', 'ui-notification']);
+var clientApp = angular.module("clientApp",['ngRoute','clientApp.config', 'ngCookies', 'ui-notification','ui.bootstrap']);
 clientApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {

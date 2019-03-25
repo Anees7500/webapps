@@ -2,11 +2,11 @@ clientApp.factory('ClientLoginService', ['$http', '$httpParamSerializerJQLike','
     '$rootScope', '$cookies','Notification',
     function($http, $httpParamSerializerJQLike, $location, $rootScope, $cookies,Notification) {
         return {
-            login: function(clientCredential,ClientLoginUrl) {
+            login: function(clientCredential,clientLoginUrl) {
               console.log("client credential message ",clientCredential);
                 $http({
                     method: 'POST',
-                    url: ClientLoginUrl,
+                    url: clientLoginUrl,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'type': 'clientPanel',

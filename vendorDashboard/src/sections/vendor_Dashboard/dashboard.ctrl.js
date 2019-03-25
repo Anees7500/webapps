@@ -468,7 +468,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
         $http.get(getFeedbackUrl).then(function (response) {
             $scope.feedback = response.data.data.reviews;
-
+           console.log("feedback data",$scope.feedback)
             $scope.itemsPerPage = 7;
             $scope.pagedItems = [];
             $scope.search = function () {

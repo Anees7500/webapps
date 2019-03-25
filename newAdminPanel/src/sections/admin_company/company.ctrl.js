@@ -281,6 +281,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
       if (response.data.status == 1) {
         var reqArr = response.data.data.requirements;
         angular.forEach(reqArr, function (item) {
+         
           $scope.clientRequirement[item.type] = JSON.parse(item.requirement);
           $scope.clientRequirement[item.type].companyRequirementDbRowId = item.id;
         });
@@ -964,6 +965,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
 
       var headerArr = [];
       var headerObj = {};
+      
       headerObj.date = "Date";
       headerObj.day = "Day";
       angular.forEach($scope.categories, function (category) {

@@ -311,8 +311,8 @@ clientApp.controller('ClientDashboardController', ['$scope', '$http', '$rootScop
     $scope.companyRequirementsSorted.push(saturdayObj);
     $scope.companyRequirementsSorted.push(sundayObj);
 
-    var requirementUrl = 'http://fancymonk.com:9125/api/common/company-requirement?companyId=' + $cookies.get("clientPanelCompanyId");
-    $http.get(requirementUrl).then(function(response) {
+  var requirementUrl = 'http://fancymonk.com:9125/api/common/company-requirement?companyId=' + $cookies.get("clientPanelCompanyId");
+  $http.get(requirementUrl).then(function(response) {
       // console.log("requirement response ", JSON.stringify(response));
       // $scope.companyRequirements = response.data.data.requirements;
       for (var i = 0; i < $scope.companyRequirementsSorted.length; i++) {
