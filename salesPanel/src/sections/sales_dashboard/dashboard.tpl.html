@@ -827,7 +827,7 @@
         <!---=========================Add leads end========================================-->
 
         <!---=========================All Team=============================================--->
-        <div ng-if="teamCompanyBool">
+        <div ng-if="teamCompanyBool" ng-controller="catMapCtrl">
             <!--=========================Breadcrumb=================================== -->
             <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
@@ -836,90 +836,10 @@
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('teamCompanyBool')">Team</a></li>
                     </ol>
                 </nav>
-            </div>
+            </div>            
             <!--=========================Breadcrumb end=================================== -->
-            <!-- <div class="row">
-                <div class="col-md-12">
-                    <div class="pg-orgchart">
-                        <div class="org-chart">
-                            <ul>
-                                <li>
-                                    <ul>
-                                        <div class="user z-depth-2">
-                                            <img src="Image/Aman.jpg" class="img-responsive" />
-                                            <div class="name text-danger font-weight-bold">Aman Telkar</div>
-                                            <div class="role">All Rounder</div>
-                                            <a class="manager" href="">Co-founder at Fancymonk</a><br>
-                                            <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                        </div>
-                                    </ul>
-                                    <ul ng-show="state">
-                                        <li>
-                                            <div class="user z-depth-2">
-                                                <img src="Image/Aman.jpg" class="img-responsive" />
-                                                <div class="name text-danger font-weight-bold">Aman Telkar</div>
-                                                <div class="role">All Rounder</div>
-                                                <a class="manager" href="">Co-founder at Fancymonk</a><br>
-                                                <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                            </div>
-                                            <ul ng-show="state">
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Fleta Odriscoll</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Lynn Maynard</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-
-                                                </li>
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Elfreda Grebin</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Lynn Maynard</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div class="user z-depth-2">
-                                                <img src="Image/Aman.jpg" class="img-responsive" />
-                                                <div class="name">Jahn Philson Doe</div>
-                                                <div class="role">System Architect</div>
-                                                <a class="manager" href="#">Luann Brannick</a><br>
-                                                <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                            </div>
-                                            <ul ng-show="state">
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Roy Lemarie</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Jahn Philson Doe</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Eloisa Stubbolo</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Jahn Philson Doe</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            <div id="people" class="mx-4"></div>
+            
         </div>
         <!---=========================All Team end=========================================--->
 
