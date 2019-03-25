@@ -62,9 +62,9 @@
                     <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
             </li>
             <li class="p-2 mb-2" ng-class="{active:activeMenu === 'assignedCompany'}" ng-click="activeMenu ='assignedCompany'">
-                <a class=" d-block text-dark text-decoration-none" href="" data-target="#pageSubmenu" data-toggle="collapse"><i
+                <a class=" d-block text-dark text-decoration-none"><i
                         class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal button ">Assigned Leads</i></span><i class="fas fa-angle-right ml-5"></i><span
+                    <span class="font-weight-normal button ">Assigned Leads</i></span><i class="fa fa-chevron-right rotate ml-5" href="" data-target="#pageSubmenu" data-toggle="collapse"></i><span
                         class="badge badge-pill badge-danger ml-2"></span></a></li>
             <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
 
@@ -570,10 +570,9 @@
             </div>
             <!--=========================Breadcrumb end=================================== -->
             <div class="row ml-2">
-                <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-5"
-                    style="width:84%">
+                <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-5"style="width:84%">
                         <div class="row mt-3 ml-5">
-                                <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1"  ng-repeat="myleadsUrl in assignedleads | filter:searchText">
+                                <div class="col-2 card-deck col-xs-12 mb-5 mr-1"  ng-repeat="myleadsUrl in assignedleads | filter:searchText">
                                     <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                         <div class="pic  position-relative">
                                             <img class="card-img-top img-responsive" src="Image/team-4.jpg">
@@ -804,7 +803,7 @@
                         </div>
                         <div class="col-md-6 ml-auto">
                             <!-- Image upload  -->
-                            <div class="file-upload w-100  p-4 bg-light ">
+                            <div class="file-upload w-100  p-5 bg-light ">
                                 <button class="file-upload-btn w-100 m-auto border-0 p-1 small rounded mb-0  btn-info white-color"
                                     type="button">Add Image</button>
                                 <div class="image-upload-wrap ">
@@ -1015,11 +1014,7 @@
 
         </div>
         <!---=========================profile end=============================================-->
-        <!-- <img ng-src="{{imageSrc}}" src="Imgage/aa." class="btn-outline-info waves-effect zoom ml-3"
-                width="300px">
-              <div class="d-flex">
-                <input type="file" class="ml-3" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
-              </div> -->
+       
     </div>
 </div>
 <script type="text/javascript">
@@ -1055,4 +1050,7 @@
         return true;
 
     }
+    $(".rotate").click(function () {
+    $(this).toggleClass("down");
+})
 </script>
