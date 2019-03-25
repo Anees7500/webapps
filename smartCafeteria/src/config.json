@@ -1,0 +1,23 @@
+{
+    "companyId": 1,
+    "clientToken": "WVhCd1FHWmhibU41Ylc5dWEyRmhZV0Z1OjE1OjJDOjJBOkZFOjUxOkQwOkM3OjNCOjQ2OjFGOkREOjk2Ojk0OkFGOjkyOkE2OjFGOjUyOjBEOkUz",
+    "clientId": "YXBwQGZhbmN5bW9ua2FhYWFu",
+    "postEmployeeLogin": "http://fancymonk.com:9126/api/client/employee-login",
+
+    "postEmployeeUpdatePassword": "http://fancymonk.com:9125/api/client/update-password",
+    "getVendorList": "http://fancymonk.com:9126/api/client/get-cnc-vendors?companyId=",
+    "getVendorMenuList": "http://fancymonk.com:9126/api/client/cash-n-carry/get-formatted-menu",
+    "postSmartCafeteriaBookingUrl": "http://fancymonk.com:9125/api/client/smart-cafeteria/add-booking",
+    "postSmartCafeBookingUpdateUrl": "http://fancymonk.com:9125/api/client/smart-cafeteria/update-booking",
+    "postSmartCafePaymentUpdateUrl": "http://fancymonk.com:9125/api/client/smart-cafeteria/update-payment",
+    "getSmartCafeteriaOrders": "http://fancymonk.com:9125/api/client/smart-cafeteria/get-booking",
+    "getNotificationsUrl": "http://fancymonk.com:9125/api/client/get-notifications?companyId=1&bookerId=77",
+    "postAddFavoriteMenuUrl": "http://fancymonk.com:9125/api/client/emp-favorite-menu/add",
+    "postRemoveFavoriteMenuUrl": "http://fancymonk.com:9125/api/client/emp-favorite-menu/remove",
+    "postSCWalletBookingUrl": "http://fancymonk.com:9125/api/client/wallet/add-money",
+    "postSCWalletBookingUpdateUrl": "http://fancymonk.com:9125/api/client/wallet/update-payment",
+    "getEmployeeWalletMoney": "http://fancymonk.com:9125/api/client/get-wallet-balance?companyId=",
+    "postRetriveAccessTokenUrl": "http://fancymonk.com:9126/api/oauth/refresh-token",
+    "getCurrentTimestampUrl": "http://fancymonk.com:9126/api/common/get-current-timestamp",
+    "getCompanyDetails": "http://fancymonk.com:9126/api/client/get-company-detail?companyId="
+}

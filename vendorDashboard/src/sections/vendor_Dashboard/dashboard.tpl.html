@@ -670,89 +670,24 @@
             <div class="container">
                 <div class="border-bottom  border-info mr-1 ml-3 mt-3">
                     <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Monday</a>
+                        <li class="nav-item" ng-repeat="day in workingDays">
+                            <a class="nav-link" ng-class="{active : daySelectedForMenu == day.day}" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" ng-click="selectDayForMenu(day.day)">{{day.day}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Tuseday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Wednesday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-thursday" role="tab" aria-controls="pills-contact" aria-selected="false">Thursday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-friday" role="tab" aria-controls="pills-contact" aria-selected="false">Friday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-saturday" role="tab" aria-controls="pills-contact" aria-selected="false">Saturday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-sunday" role="tab" aria-controls="pills-contact" aria-selected="false">Sunday</a>
-                        </li>
-
                     </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ============================ End feedback ===========================================-->
-
-
-    <!-- ============================ Start Set Weekly Menu=============================================-->
-    <div ng-if="setWeeklyMenuBool">
-        <nav class="navbar navbar-expand-lg mt-2">
-            <h6 class="navbar-brand w-clr font-small font-weight-normal">
-                <i class="fa fa-home  w-clr ml-3 mr-1 text-primary " aria-hidden="true"> </i>
-                <a href="#!/companies">Home/</a>
-                <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
-                <a href="">/Set Weekly Menu</a>
-            </h6>
-        </nav>
-        <div class="container">
-            <div class="border-bottom  border-info mr-1 ml-3 mt-3">
-                <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Monday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="" data-target="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Tuseday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Wednesday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-thursday" role="tab" aria-controls="pills-contact" aria-selected="false">Thursday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-friday" role="tab" aria-controls="pills-contact" aria-selected="false">Friday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-saturday" role="tab" aria-controls="pills-contact" aria-selected="false">Saturday</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="" data-target="#pills-sunday" role="tab" aria-controls="pills-contact" aria-selected="false">Sunday</a>
-                    </li>
-
-                </ul>
-            </div>
 
 
 
-            <script type="text/ng-template" id="nodes_renderer.html">
+                <script type="text/ng-template" id="nodes_renderer.html">
 
-                <div class="z-depth-1">
-                    <div style="padding: 10px; background-color:white">
-                        <!-- <div ng-class="{row: node.isFoodItem}">
-                                <div ng-class="{'col-md-5 card-deck': node.isFoodItem}"> -->
-                        <div>
+                    <div class="z-depth-1">
+                        <div style="padding: 10px; background-color:white">
+                            <!-- <div ng-class="{row: node.isFoodItem}">
+                                    <div ng-class="{'col-md-5 card-deck': node.isFoodItem}"> -->
                             <div>
                                 <div>
                                     <div class="info-color">
-                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
+                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2" ng-if="node.menuNode.length>0" ng-click="toggleCollapse(node)">
                                              <i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i>
                                          </button>
                                     </div>
@@ -767,7 +702,7 @@
                                           <i class="fas fa-plus-circle  text-dark"></i></button>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2" ng-if="!node.isFoodItem && !(node.menuNodes.length > 0)" ng-click="addchild(node)" data-toggle="tooltip" data-placement="top" title="Add Submenu">
+                                                <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2" ng-if="!node.isFoodItem && !(node.menuNode.length > 0)" ng-click="addchild(node)" data-toggle="tooltip" data-placement="top" title="Add Submenu">
                                           <i class="fas fa-bars  text-dark"></i></button>
                                             </div>
                                             <div>
@@ -791,65 +726,63 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <div ng-if="$parentNodeScope" class="mt-1">
-                            <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
-                            <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
-                            <div ng-if="node.isFoodItem">
-                                <form>
-                                    <label class="radio-inline p-2">
-                                                <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
-                                    <label class="radio-inline p-2">
-                                                <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
-                                    <label class="radio-inline p-2">
-                                                <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
-                                </form>
-                                <br>
+                            <div ng-if="$parentNodeScope" class="mt-1">
+                                <label ng-if="(node.menuNode.length === 0) || (node.menuNode == null)" class="menu-label ml-3">is Food Item:</label>
+                                <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+                                <div ng-if="node.isFoodItem">
+                                    <form>
+                                        <label class="radio-inline p-2">
+                                                    <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
+                                        <label class="radio-inline p-2">
+                                                    <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
+                                        <label class="radio-inline p-2">
+                                                    <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
+                                    </form>
+                                    <br>
 
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <label class="menu-label">Menu Item:
-                                        <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
-                                    </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="menu-label p-2">Price:
-                                        <input type="number" class="form-control border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
-                                    </label>
-                                    </div>
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <label class="menu-label">Menu Item:
+                                            <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus></textarea>
+                                        </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="menu-label p-2">Price:
+                                            <input type="number" class="form-control border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
+                                        </label>
+                                        </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- </div>
-                            </div> -->
-                        <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes; headers = node.isFoodItem' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
-                            <ul ng-class="{row: node.isFoodItem}">
-                                <li ng-repeat="node in node.menuNodes" collapsed="false" ng-class="{'col-md-5 card-deck': node.isFoodItem}" ui-tree-node ng-include="'nodes_renderer.html'">
-                            </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </script>
+                            <!-- </div>
+                                </div> -->
+                            <ul class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                                <ul ng-class="{row: (node.menuNode.length > 0 && node.menuNode[0].isFoodItem)}">
+                                    <li ng-repeat="node in node.menuNode" collapsed="false" ng-class="{'col-md-5 card-deck': node.isFoodItem}" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                                </ul>
 
-            <div ui-tree>
-                <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root" ng-init='$nodes = menuNodes; headers = node.isFoodItem'>
-                    <ul>
-                        <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </script>
+
+                <div ui-tree>
+                    <ul class="list-unstyled" ui-tree-nodes ng-model="cashNCarryWeekMenus[daySelectedForMenu]" id="tree-root" ng-init='$nodes = cashNCarryWeekMenus[daySelectedForMenu]'>
+                        <ul>
+                            <li ng-repeat="node in cashNCarryWeekMenus[daySelectedForMenu]" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                        </ul>
                     </ul>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- ============================ End Set Weekly Menu=============================================-->
+        <!-- ============================ End Set Weekly Menu=============================================-->
 
-<script>
-    $(document).ready(function() {
-        $('#sidebarCollapse').on('click', function() {
-            $('#sidebar').toggleClass('active');
-        });
-
-    });
-</script>
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
