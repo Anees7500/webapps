@@ -29,9 +29,15 @@ vendorApp.controller('CompanyController', ['$scope', '$routeParams', '$rootScope
     $http.get(getCompanies).then(function (response) {
       $scope.assignedCompany = response.data.data.companies;
       for (var i = 0; i < $scope.assignedCompany.length; i++) {
-        $scope.assignedCompany[i].fileName = getImageUrl + $scope.assignedCompany[i].fileName;
+        if($scope.assignedCompany[i].fileName != null){
+          $scope.assignedCompany[i].fileName = getImageUrl + $scope.assignedCompany[i].fileName;
+        }
+       else{
+        $scope.assignedCompany[i].fileName = getImageUrl + "14.png";
+       }
       }
     });
+
 
   }
 

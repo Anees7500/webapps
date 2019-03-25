@@ -90,8 +90,7 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
 
     $http.get(getAllCompanyUrl).then(function (response) {
       console.log(" compay url : ", getAllCompanyUrl);
-      $scope.allCompanies = response.data.data.companies;
-      debugger;
+      $scope.allCompanies = response.data.data.companies;     
       for (var i = 0; i < $scope.allCompanies.length; i++) {
         $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
       }
