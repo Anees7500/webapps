@@ -66,7 +66,7 @@
             <div class="navbar navbar-light  mdb-color mx-3">
                 <form class="form-inline my-2 my-lg-0 ml-auto">
                     <input ng-model='searchText' class="form-control" type="search" placeholder="Search"
-                        aria-label="Search" >
+                        aria-label="Search">
                 </form>
 
             </div>
@@ -94,48 +94,32 @@
                             <td class="small">{{feed.quantityRating}}</td>
                             <td class="small">{{feed.tasteRating}}</td>
                             <td class="small">{{feed.mobile}}</td>
-                            <td class="small"><i class="far fa-comment-dots fa-md mx-3"><span class="badge badge-danger"
-                                        data-toggle="tooltip" data-placement="top" title={{feed.comment}}>1</span></i>
+                            <td class="small"><i ng-if="feed.comment.length > 0"
+                                    class="far fa-comment-dots fa-md mx-3"><span class="badge badge-danger"
+                                        data-tooltip={{feed.comment}}>1</span></i>
                             </td>
                             <td class="small">{{feed.createdAt}}</td>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr class="text-nowrap">
-                            <th>Name</th>
-                            <th>Overall Rating</th>
-                            <th>Presentation Rating</th>
-                            <th>Quality Rating</th>
-                            <th>Quantity Rating</th>
-                            <th>Taste Rating</th>
-                            <th>Contact</th>
-                            <th>Comment</th>
-                            <th>Date & Time</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                
-                    <ul class="pagination pagination-circle pg-blue mt-3 ml-auto">
-                        <li ng-class="{disabled: currentPage == 0}">
-                            <span class=" page-item">
-                                <a class="page-link" ng-click="prevPage()">« Prev</a>
-                            </span>
-                        </li>
-                        <li ng-repeat="n in ranges(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}"
-                            ng-click="setPages()" class="page-item">
-                            <a class="page-link" ng-bind="n + 1">1</a></li>
 
-                        <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
-                            <a class="page-link" ng-click="nextPage()">Next »</a>
-                        </li>
-                    </ul>
-                
+                </table>
+
+                <ul class="pagination pagination-circle pg-blue mt-3 ">
+                    <li ng-class="{disabled: currentPage == 0}">
+                        <span class=" page-item">
+                            <a class="page-link" ng-click="prevPage()">« Prev</a>
+                        </span>
+                    </li>
+                    <li ng-repeat="n in ranges(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}"
+                        ng-click="setPages()" class="page-item">
+                        <a class="page-link" ng-bind="n + 1">1</a></li>
+
+                    <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
+                        <a class="page-link" ng-click="nextPage()">Next »</a>
+                    </li>
+                </ul>
+
             </div>
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
