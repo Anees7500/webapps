@@ -95,43 +95,6 @@
     inline-size: fit-content;
 }
 
-/*  login page css*/
-.image1 {
-    height: 426px;
-}
-
-@media (max-width: 400px) {
-    .ctrl {
-        font-size: 13px;
-    }
-
-}
-
-@media (max-width: 357px) {
-    .ctrl {
-        font-size: 11px;
-    }
-
-}
-
-@media (max-width: 321px) {
-    .ctrl {
-        font-size: 10px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .loginform {
-        height: 435px;
-    }
-
-}
-
-@media (max-width: 1024px) {
-    .ctrl {
-        font-size: 11px;
-    }
-}
 
 /* upload image */
 .file-upload-btn {
@@ -423,6 +386,7 @@ small {
     margin: 20px 0;
     border-radius: 5px;
     border: 1px solid silver;
+    width: 97%;
 }
 
 .slider {
@@ -904,15 +868,10 @@ small {
     overflow:hidden;
     white-space:nowrap;
 }
+.div-cless1{
+    width:72px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
 
-/* ===========sidebar icon css===========================================*/
-.rotate {
-    -moz-transition: all .5s linear;
-    -webkit-transition: all .5s linear;
-    transition: all .5s linear;
-}
-.rotate.down {
-    -moz-transform:rotate(90deg);
-    -webkit-transform:rotate(90deg);
-    transform:rotate(90deg);
-}

@@ -61,11 +61,15 @@
                         class="fas fa-building fa-fw"></i>
                     <span class="font-weight-normal button">Unassigned Leads</span><span class="badge badge-pill badge-warning ml-2"></span></a>
             </li>
-            <li class="p-2 mb-2" ng-class="{active:activeMenu === 'assignedCompany'}" ng-click="activeMenu ='assignedCompany'">
-                <a class=" d-block text-dark text-decoration-none"><i
+            <li class="p-2 mb-2" ng-click="assignLead=!assignLead">
+                <a class=" d-block text-dark text-decoration-none"href="" data-target="#pageSubmenu" data-toggle="collapse"><i
                         class="fas fa-store fa-fw" aria-expanded="false"></i>
-                    <span class="font-weight-normal button ">Assigned Leads</i></span><i class="fa fa-chevron-right rotate ml-5" href="" data-target="#pageSubmenu" data-toggle="collapse"></i><span
-                        class="badge badge-pill badge-danger ml-2"></span></a></li>
+                    <span class="font-weight-normal button">Assigned Leads</i></span>
+                    <span ng-if="!assignLead"><i class="fa fa-chevron-right  ml-3"></i></span>
+                    <span ng-if="assignLead"><i class="fa fa-chevron-down  ml-3"></i></span>
+                   
+                </a>
+                    </li>
             <ul class="list-unstyledb flex-column collapse  nav-link collapsed" style="list-style-type:none" id="pageSubmenu">
 
                 <li class="p-1 mb-2" ng-class="{active:activeMenu === 'myleads'}" ng-click="activeMenu ='myleads'">
@@ -136,13 +140,11 @@
                                 <p class="card-text text-dark"><span class="small address  m-0">{{companiesUrl.address}}</span></p>
                             </div>
                             <div class="row justify-content-between mt-2">
-                                <div class="col-6">
-                                    <div class="ml-2 ">
-                                        <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0"></i><span class="text-primary  small float-left mt-1 m-0 ml-1">
-                                            <p><small class="mt-1 text-info">Aman</small></p>
-                                        </span>
-                                    </div>
-                                </div>
+                                    <div class="col-6 p-0">
+
+                                            <div class="float-left div-cless1"><i class="fas fa-user small fa-xs amber-text mr-auto ml-1"></i><span
+                                                    class="text-primary h6 small ml-1" style="font-size: 9px;">Aman</span></div>
+                                        </div>
                                 <div class="col-6">
                                     <span class="badge success-color-dark small p-0"><small class="white-text">In progress</small></span>
                                 </div>
@@ -176,7 +178,7 @@
             <!--=========================Breadcrumb end=================================== -->
             <div class="row ml-5">
                 <!-- ---------------Card ------------------------- -->
-                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="unassignedUrl in unassigned">
+                <div class="col-mx-3 card-deck col-xs-12 mb-5 mr-5" ng-repeat="unassignedUrl in unassigned">
                     <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
                         <div class="pic  position-relative">
 
@@ -215,7 +217,7 @@
                 </div>
                 <!---------------------------Card-------------------- -->
                 <!-- ---------------Card ------------------------- -->
-                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="unassignedUrl in unassigned">
+                <div class="col-mx-3 card-deck  col-xs-12 mb-5 mr-5" ng-repeat="unassignedUrl in unassigned">
                     <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
                         <div class="pic  position-relative">
 
@@ -253,7 +255,7 @@
                 </div>
                 <!---------------------------Card-------------------- -->
                 <!-- ---------------Card ------------------------- -->
-                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="unassignedUrl in unassigned">
+                <div class="col-mx-3 card-deck  col-xs-12 mb-5 mr-5" ng-repeat="unassignedUrl in unassigned">
                     <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
                         <div class="pic  position-relative">
 
@@ -291,7 +293,7 @@
                 </div>
                 <!---------------------------Card-------------------- -->
                 <!-- ---------------Card ------------------------- -->
-                <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="unassignedUrl in unassigned">
+                <div class="col-mx-3 card-deck  col-xs-12 mb-5 mr-5" ng-repeat="unassignedUrl in unassigned">
                     <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
                         <div class="pic  position-relative">
 
@@ -412,7 +414,7 @@
                             <div class="tab-content text-center">
                                 <div class="tab-pane active" id="profile">
                                     <div class="row ">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="myleadsUrl in assignedleads">
+                                        <div class="col-xs-2 card-deck  col-xs-12 mb-5 mr-5" ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-1.jpg">
@@ -426,8 +428,8 @@
 
                                                         <div class="col-6 p-0">
 
-                                                            <div class="float-left div-cless "><i class="fas fa-user small fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1" style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
+                                                            <div class="float-left div-cless "><i class="fas fa-user small fa-xs amber-text mr-auto ml-1"></i>
+                                                                <span class="text-primary h6 small ml-1" style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
                                                         </div>
                                                         
 
@@ -448,7 +450,7 @@
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div class="row">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="myleadsUrl in assignedleads">
+                                        <div class="col-xs-2 card-deck  col-xs-12 mb-5 mr-5" ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-2.jpg">
@@ -481,7 +483,7 @@
                                 </div>
                                 <div class="tab-pane" id="settings">
                                     <div class="row ">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="myleadsUrl in assignedleads">
+                                        <div class="col-xs-2 card-deck  col-xs-12 mb-5 mr-5" ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-3.jpg">
@@ -513,7 +515,7 @@
                                 </div>
                                 <div class="tab-pane" id="success">
                                     <div class="row ">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1"  ng-repeat="myleadsUrl in assignedleads">
+                                        <div class="col-xs-2 card-deck  col-xs-12 mb-5 mr-5"  ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-4.jpg">
@@ -569,10 +571,10 @@
                 </nav>
             </div>
             <!--=========================Breadcrumb end=================================== -->
-            <div class="row ml-2">
-                <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-5"style="width:84%">
+            <div class="row ml-5">
+                <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-3"style="width:91%">
                         <div class="row mt-3 ml-5">
-                                <div class="col-2 card-deck col-xs-12 mb-5 mr-1"  ng-repeat="myleadsUrl in assignedleads | filter:searchText">
+                                <div class="col-xs-2 card-deck col-xs-12 mb-5 mr-5"  ng-repeat="myleadsUrl in assignedleads | filter:searchText">
                                     <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                         <div class="pic  position-relative">
                                             <img class="card-img-top img-responsive" src="Image/team-4.jpg">
@@ -646,7 +648,7 @@
             <div class="row ml-5 mt-2">
                 <div class="card-deck h-100 col-sm-12 mb-5">
                     <!-- --------------Card ------------------------- -->
-                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="vendorUrl in allVendorsList">
+                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2" ng-repeat="vendorUrl in allVendorsList">
                         <div class="our-team1 z-depth-1-half bg-light bg position-relative" style="width: 14rem; height: 17rem; ">
                             <div class="pic  position-relative">
                                 <img class="card-img-top" src="Image/food.jpeg" alt="Card image cap">
@@ -711,17 +713,17 @@
             </div>
             <!--=========================Breadcrumb end=================================== -->
             <!-- Search form -->
-            <div class="container pt-3 ml-2" ng-controller="newPlaceCtrl">
+            <div class="container pt-3 ml-3" ng-controller="newPlaceCtrl">
                 <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
                     <b>API Error : </b>
                     <span>{{ apiStatus }}</span>
                 </div>
-                <form name="searchForm" novalidate ng-submit="search()">
+                <form  name="searchForm" novalidate ng-submit="search()">
                     <div class="input-group">
                         <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace"
                             required autofocus />
                         <span class="input-group-btn">
-                            <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+                            <a class="btn btn-info mt-0 mx-4" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
                         </span>
                     </div>
                 </form>
@@ -1050,7 +1052,5 @@
         return true;
 
     }
-    $(".rotate").click(function () {
-    $(this).toggleClass("down");
-})
+
 </script>
