@@ -21,7 +21,7 @@ empApp.config(['$routeProvider', function($routeProvider) {
     })
 
     .when('/dashboard/checkout', {
-        templateUrl: 'sections/smartCafe_checkout/checkout.tpl.html',
+        templateUrl: 'sections/sc_checkout/checkout.tpl.html',
         title: 'Header-part',
         controller: 'CheckoutController'
     })

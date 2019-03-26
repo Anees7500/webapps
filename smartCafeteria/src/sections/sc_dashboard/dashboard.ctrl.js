@@ -1,8 +1,8 @@
 empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVendorMenuList', '$http', '$location', '$cookies',
-    'Notification', 'getVendorList', 'CartService', 'NavBoolService', '$httpParamSerializerJQLike', 'CommonDetails', 'companyId',
+    'Notification', 'getVendorList', 'CartService', 'NavBoolService', '$httpParamSerializerJQLike', 'CommonDetails', 'companyDetails',
     '$timeout',
     function($scope, DashboardService, getVendorMenuList, $http, $location, $cookies, Notification,
-        getVendorList, CartService, NavBoolService, $httpParamSerializerJQLike, CommonDetails, companyId,
+        getVendorList, CartService, NavBoolService, $httpParamSerializerJQLike, CommonDetails, companyDetails,
         $timeout) {
 
         // ============= Logout ==================================
@@ -36,42 +36,22 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
         //==============================================================
         //================ DEFINITION PART END==========================
         //==============================================================
-        console.log("getting comp dtls");
-        var companyDetails = CommonDetails.getCompanyDetails();
-        if (companyDetails != null) {
-            fetchingFunction();
-        } else {
-            var dtlsProm = CommonDetails.getCompanyDetailsFromDb();
+        // console.log("getting comp dtls");
+        var vendorListUrl = getVendorList + companyDetails.id;
 
-            $timeout(function() {
-                console.log("inside timeout function");
-                dtlsProm.then(function(response) {
-                    console.log("response from cmp dtls : ", JSON.stringify(response));
-                    if (response.data.data != null) {
-                        CommonDetails.setCompanyDetails(response.data.data.company);
-                        companyDetails = CommonDetails.getCompanyDetails();
-                        fetchingFunction();
-                    }
-                });
-            }, 1000);
-        }
+        DashboardService.getVendors(vendorListUrl).then(function(response) {
+            if (response.data.data != null) {
+                $scope.vendorList = response.data.data.details;
+                CartService.setVendor($scope.vendorList[0]);
+                $scope.selectedVendor = CartService.getSelectedVendor();
+                getMenus();
+            } else {
+                $scope.noVendorListMsg = "No Vendor has been deployed for this company yet";
+            }
+        });
 
-        var fetchingFunction = function() {
-            var vendorListUrl = getVendorList + companyId;
-
-            DashboardService.getVendors(vendorListUrl).then(function(response) {
-                if (response.data.data != null) {
-                    $scope.vendorList = response.data.data.details;
-                    CartService.setVendor($scope.vendorList[0]);
-                    $scope.selectedVendor = CartService.getSelectedVendor();
-                    getMenus();
-                } else {
-                    $scope.noVendorListMsg = "No Vendor has been deployed for this company yet";
-                }
-            });
-        }
         var getMenus = function() {
-            console.log("came here to find menu");
+            // console.log("came here to find menu");
             var menuListUrl = getVendorMenuList + "?vendorToken=" + $scope.selectedVendor.authUserId +
                 "&companyToken=" + companyDetails.authUserId;
             $http.get(menuListUrl).then(function(response) {
@@ -80,7 +60,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
                     $scope.menuNode = response.data.data.menus;
                     $scope.selectedMenuNode = $scope.menuNode[0].menuNode;
                 } else {
-                    console.log("found no menu ", $scope.menuNode);
+                    // console.log("found no menu ", $scope.menuNode);
                     $scope.noMenuMessage = "Vendor has not filled any menu for today.";
                 }
 
@@ -107,7 +87,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
         $scope.selectVendor = function(obj) {
             CartService.setVendor(obj);
             $scope.selectedVendor = CartService.getSelectedVendor();
-            console.log("new Selected Vendor : ", JSON.stringify($scope.selectedVendor));
+            // console.log("new Selected Vendor : ", JSON.stringify($scope.selectedVendor));
             getMenus();
 
         }
@@ -120,11 +100,11 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
             var resp = false;
             angular.forEach(arr, function(e) {
                 if (!e.isFoodItem) {
-                    console.log("name : ", e.menuName);
+                    // console.log("name : ", e.menuName);
                     resp = true;
                 }
             });
-            console.log("resp : ", resp);
+            // console.log("resp : ", resp);
             return resp;
         }
 
@@ -133,7 +113,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
         }
 
         $scope.selectNodeToDisplay = function(arr, obj, isChildNode) {
-            console.log("selected Menu by functions passed obj: ", JSON.stringify(arr));
+            // console.log("selected Menu by functions passed obj: ", JSON.stringify(arr));
             if (isChildNode === 1) {
                 if ($scope.checkForSubMenu(arr)) {
                     $scope.toggleSubMenu(obj);
@@ -143,7 +123,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
 
             $scope.selectedMenuNode = arr;
 
-            console.log("selected Menu by functions: ", JSON.stringify($scope.selectedMenuNode));
+            // console.log("selected Menu by functions: ", JSON.stringify($scope.selectedMenuNode));
         }
 
         $scope.cartObj = CartService.getCartObj();
@@ -204,8 +184,9 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
         }
 
         $scope.gotoCheckout = function() {
-            console.log("itens hahah: ", JSON.stringify($scope.cartItems));
-            if (angular.equals($scope.cartObj.cartItems, {})) {
+            // console.log("itens hahah: ", JSON.stringify($scope.cartItems));
+            console.log("items : ", JSON.stringify($scope.cartObj.cartItems));
+            if ($scope.cartObj.cartItems == null || Object.keys($scope.cartObj.cartItems).length == 0) {
                 Notification.warning("No menu is selected, Please select few Items to checkout");
                 return;
             }
@@ -241,7 +222,7 @@ empApp.controller('DashboardController', ['$scope', 'DashboardService', 'getVend
                 },
                 data: $httpParamSerializerJQLike(dataForDb)
             }).then(function(response) {
-                console.log('response from favorite url', JSON.stringify(response));
+                // console.log('response from favorite url', JSON.stringify(response));
                 // if (response.data.status == 1) {
                 //     // Notification.success('Booking request has been raised..');
                 //     $location.path('/dashboard/orders');
