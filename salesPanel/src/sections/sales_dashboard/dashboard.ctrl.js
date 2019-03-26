@@ -2,6 +2,9 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
   'getImageUrl', 'getAllVendorListUrl', 'getAssignedCompanyUrl', 'editableOptions',
   function ($scope, $http, getAllCompanyUrl, getImageUrl, getAllVendorListUrl, getAssignedCompanyUrl, editableOptions, ) {
 
+
+
+    
     // ==============Profile work============================================
     editableOptions.theme = 'bs4';
     $scope.user = {
@@ -89,7 +92,12 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
       console.log(" compay url : ", getAllCompanyUrl);
       $scope.allCompanies = response.data.data.companies;     
       for (var i = 0; i < $scope.allCompanies.length; i++) {
-        $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
+        if( $scope.allCompanies[i].fileName != null){
+          $scope.allCompanies[i].fileName = getImageUrl + $scope.allCompanies[i].fileName;
+        }else{
+          $scope.allCompanies[i].fileName = getImageUrl + "14.png";
+        }
+        
       }
     });
     //================== All companies URL End ===================================
@@ -104,7 +112,11 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $http.get(getAssignedCompanyUrl).then(function (response) {
       $scope.assignedCompany = response.data.data.companies;
       for (var i = 0; i < $scope.assignedCompany.length; i++) {
-        $scope.assignedCompany[i].fileName = getImageUrl + $scope.assignedCompany[i].fileName;
+        if($scope.assignedCompany[i].fileName != null){
+          $scope.assignedCompany[i].fileName = getImageUrl + $scope.assignedCompany[i].fileName;
+        }else{
+          $scope.assignedCompany[i].fileName = getImageUrl + "9.png"; 
+        }
       }
     });
     //======================= card toggle================================================
@@ -246,7 +258,19 @@ salesApp.controller('AdminController', ['$scope', '$http', 'getAllCompanyUrl',
     $scope.saveLead = function () {
 
     }
-    // ==================================================================================
+    // =============================Toggle Edit Profile======================================
+    $scope.hideProfileDetails = true;
+    $scope.toggleProfile = function(){
+      $scope.hideProfileDetails = ! $scope.hideProfileDetails;
+    }
+
+    // ================================Save Profile details=============================
+    $scope.saveprofileDetails = function(){
+
+      
+    }
+
+
 
   }
 
