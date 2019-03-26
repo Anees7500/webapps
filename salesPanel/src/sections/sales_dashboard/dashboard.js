@@ -51,10 +51,10 @@ salesApp.controller('newPlaceCtrl', function ($scope, Map) {
             };
         });
     }
-    $scope.search = function () {
+    $scope.search = function (searchPlace) {
        
         $scope.apiError = false;
-        Map.search($scope.searchPlace)
+        Map.search(searchPlace)
             .then(
                 function (res) { // success
                     Map.addMarker(res);                   
