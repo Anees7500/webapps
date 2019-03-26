@@ -1,9 +1,9 @@
 empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$location',
-    '$route', 'NavBarServices', 'NavBoolService', 'SMCNotifications', 'companyId',
-    'getEmployeeWalletMoney', '$http',
+    '$route', 'NavBarServices', 'NavBoolService', 'SMCNotifications', 'companyDetails',
+    'getEmployeeWalletMoney', '$http', 'CommonDetails',
     function($scope, $cookies, Notification, $location, $route,
-        NavBarServices, NavBoolService, SMCNotifications, companyId,
-        getEmployeeWalletMoney, $http) {
+        NavBarServices, NavBoolService, SMCNotifications, companyDetails,
+        getEmployeeWalletMoney, $http, CommonDetails) {
 
         //========================= Logout funtion ======================
         console.log("inside navbar controller");
@@ -32,6 +32,7 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
 
         }
 
+        // var companyDetails = CommonDetails.getCompanyDetails();
         var employeeDetails = JSON.parse($cookies.get("employeeDetails"));
 
         $scope.loggedInUserName = employeeDetails.firstName;
@@ -114,16 +115,25 @@ empApp.controller('NavbarController', ['$scope', '$cookies', 'Notification', '$l
 
         }
 
-        var getEmployeeWalletMoneyUrl = getEmployeeWalletMoney + companyId + "&employeeId=" + employeeDetails.employeeId;
+        var getEmployeeWalletMoneyUrl = getEmployeeWalletMoney + companyDetails.authUserId;
 
-        $http.get(getEmployeeWalletMoneyUrl).then(function(response) {
+        NavBarServices.getWalletBalance(getEmployeeWalletMoneyUrl).then(function(response) {
             console.log("wallet details : ", response);
             if (response.data.status == 1) {
                 if (response.data.data != null) {
-                    $scope.walletAmount = response.data.data.walletDetails.balance;
+                    CommonDetails.setWalletBalance(response.data.data.walletDetails.balance);
+                    $scope.walletAmount = CommonDetails.getWalletBalance();
                 }
             }
         });
+        // $http.get(getEmployeeWalletMoneyUrl).then(function(response) {
+        //     console.log("wallet details : ", response);
+        //     if (response.data.status == 1) {
+        //         if (response.data.data != null) {
+        //             $scope.walletAmount = response.data.data.walletDetails.balance;
+        //         }
+        //     }
+        // });
 
         SMCNotifications.checkForToken();
         // $scope.notifObj = SMCNotifications.updateVal();

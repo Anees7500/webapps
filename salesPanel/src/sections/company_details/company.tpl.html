@@ -4,7 +4,8 @@
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark info-color darken-1 scrolling-navbar">
         <div class="container-fluid">
-            <a class="navbar-brand waves-effect waves-block waves-light chat-collapse text-center " href="" id="sidebarCollapse">
+            <a class="navbar-brand waves-effect waves-block waves-light chat-collapse text-center " href=""
+                id="sidebarCollapse">
                 <i class="fa fa-th-list ml-auto" style=" color: white"></i>
             </a>
             <!-- Brand -->
@@ -24,9 +25,9 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i> Profile </a>
-                        <div class="dropdown-menu  dropdown-menu-right dropdown-unique" aria-labelledby="navbarDropdownMenuLink-4">
-                            <a ng-click="boolFunction('profileCompanyBool')" class="dropdown-item waves-effect waves-light"
-                                href="">My Profile</a>
+                        <div class="dropdown-menu  dropdown-menu-right dropdown-unique"
+                            aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item waves-effect waves-light" href="">My Profile</a>
                             <a class="dropdown-item waves-effect waves-light" href="">Log out</a>
                         </div>
                     </li>
@@ -42,7 +43,8 @@
         <li class="p-2 mb-2" ng-class="{active:activeMenu === 'empFeedback'}" ng-click="activeMenu ='empFeedback'">
             <a ng-click="boolFunction('empFeedbackBool')" class="d-block text-dark text-decoration-none" href=""><i
                     class="fas fa-user-slash fa-fw "></i>
-                <span class="font-weight-normal button">Employee Feedback</span><span class="badge badge-pill badge-warning ml-2"></span></a>
+                <span class="font-weight-normal button">Employee Feedback</span><span
+                    class="badge badge-pill badge-warning ml-2"></span></a>
         </li>
     </ul>
 
@@ -55,19 +57,20 @@
                 <nav a-label="breadcrumb">
                     <ol class="breadcrumb blue-grey lighten-4">
                         <li class="breadcrumb-item "><a class="text-decoration-none" href="#!/dashboard">Home</a></li>
-                        <li class="breadcrumb-item "><a class="text-decoration-none" href="" ng-click="boolFunction('empFeedbackBool')">Employee
+                        <li class="breadcrumb-item "><a class="text-decoration-none" href=""
+                                ng-click="boolFunction('empFeedbackBool')">Employee
                                 Feedback</a></li>
                     </ol>
                 </nav>
             </div>
             <div class="navbar navbar-light  mdb-color mx-3">
-                    <form class="form-inline my-2 my-lg-0 ml-auto">
-                        <input ng-model='searchText' class="form-control" type="search" placeholder="Search" aria-label="Search"
-                            ng-model="search">
-                    </form>
+                <form class="form-inline my-2 my-lg-0 ml-auto">
+                    <input ng-model='searchText' class="form-control" type="search" placeholder="Search"
+                        aria-label="Search" >
+                </form>
 
-                </div>
-            <div class="container table-responsive  px-3">
+            </div>
+            <div class="container table-responsive px-3">
                 <table class="table table-hover table-bordered mb-0 z-depth-1 " cellspacing="0">
                     <thead class="text-capitalize text-nowrap">
                         <tr class="table-info">
@@ -83,17 +86,18 @@
                         </tr>
                     </thead>
                     <tbody class="my-5">
-                        <tr ng-repeat="feed in feedback.slice().reverse() | filter:searchText | filter:search | orderBy:sortType:sortReverse ">
-                        <td>{{feed.reviewerName}}</td>
-                        <td>{{feed.overAllRating}}</td>
-                        <td>{{feed.presentationRating}}</td>
-                        <td>{{feed.qualityRating}}</td>
-                        <td>{{feed.quantityRating}}</td>
-                        <td>{{feed.tasteRating}}</td>
-                        <td>{{feed.mobile}}</td>
-                        <td><i class="far fa-comment-dots fa-md mx-3"><span class="badge badge-danger" data-toggle="tooltip"
-                                    data-placement="top" title={{feed.comment}}>1</span></i></td>
-                        <td>{{feed.createdAt}}</td>
+                        <tr ng-repeat="feed in cancelOrderHistroyPage[currentPage] | filter : searchText">
+                            <td class="small">{{feed.reviewerName}}</td>
+                            <td class="small">{{feed.overAllRating}}</td>
+                            <td class="small">{{feed.presentationRating}}</td>
+                            <td class="small">{{feed.qualityRating}}</td>
+                            <td class="small">{{feed.quantityRating}}</td>
+                            <td class="small">{{feed.tasteRating}}</td>
+                            <td class="small">{{feed.mobile}}</td>
+                            <td class="small"><i class="far fa-comment-dots fa-md mx-3"><span class="badge badge-danger"
+                                        data-toggle="tooltip" data-placement="top" title={{feed.comment}}>1</span></i>
+                            </td>
+                            <td class="small">{{feed.createdAt}}</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -110,14 +114,22 @@
                         </tr>
                     </tfoot>
                 </table>
-                <ul class="pagination mt-3 justify-content-end">
-                    <li class="page-item"><a class="page-link" href="">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="">2</a></li>
-                    <li class="page-item"><a class="page-link" href="">3</a></li>
-                    <li class="page-item"><a class="page-link" href="">Next</a></li>
-                </ul>
-               
+                
+                    <ul class="pagination pagination-circle pg-blue mt-3 ml-auto">
+                        <li ng-class="{disabled: currentPage == 0}">
+                            <span class=" page-item">
+                                <a class="page-link" ng-click="prevPage()">« Prev</a>
+                            </span>
+                        </li>
+                        <li ng-repeat="n in ranges(cancelOrderHistroyPage.length)" ng-class="{active: n == currentPage}"
+                            ng-click="setPages()" class="page-item">
+                            <a class="page-link" ng-bind="n + 1">1</a></li>
+
+                        <li ng-class="{disabled: currentPage == pagedItems.length - 1} ">
+                            <a class="page-link" ng-click="nextPage()">Next »</a>
+                        </li>
+                    </ul>
+                
             </div>
         </div>
     </div>

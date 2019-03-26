@@ -33,6 +33,7 @@ empApp.factory('SMCNotifications', ['$timeout', '$http', 'getNotificationsUrl',
             },
             checkForToken: function() {
                 // debugger;
+
                 (function poll() {
                     var pollingTimestamp = 30000;
                     $timeout(function() {

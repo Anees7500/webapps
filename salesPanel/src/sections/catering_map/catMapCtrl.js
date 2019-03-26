@@ -6,7 +6,8 @@ function ($scope, $http) {
         var orgchart = new getOrgChart(document.getElementById("people"), {
           primaryFields: ["Name", "title","phone","mail"],  
           photoFields: ["pic"],
-          scale:0.5,        
+          scale:0.5,
+          enableZoom: false,        
           color:"neutralgrey", 
           dataSource: [
             { id: 1, parentId: null, Name: "Amber McKenzie",title:"ceo" , phone:9620274719, mail:"amber@gmail.com",pic: "http://getorgchart.com/GetOrgChart/getorgchart-demos/images/f-18.jpg"},
