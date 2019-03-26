@@ -1,26 +1,26 @@
 vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboardService', '$cookies', 'Notification',
     '$location', '$route', 'getSmartCafeteriaOrders', 'getCompanyProfileUrl', 'getCorporateReviewsUrl',
-    '$routeParams', '$rootScope', '$filter', 'getmenuFromDbMonUrl', 'getCompanySectionReqUrl', 'uuid', 'postSmartCafeBookingUpdateUrl',
-    function($scope, $http, VendorDashboardService, $cookies, Notification, $location,
+    '$routeParams', '$rootScope', '$filter', 'getmenuFromDbMonUrl', 'getCompanySectionReqUrl', 'uuid','postSmartCafeBookingUpdateUrl',
+    function ($scope, $http, VendorDashboardService, $cookies, Notification, $location,
         $route, getSmartCafeteriaOrders, getCompanyProfileUrl, getCorporateReviewsUrl,
         $routeParams, $rootScope, $filter, getmenuFromDbMonUrl, getCompanySectionReqUrl,
-        uuid, postSmartCafeBookingUpdateUrl) {
+        uuid,postSmartCafeBookingUpdateUrl) {
 
         // $scope.sortingOrder = sortingOrder;
 
         var vendorId = 1;
         var companyId = $routeParams.compId;
         // var companyId = 1;
-
+    
 
         var getCompProfileUrl = getCompanyProfileUrl + $routeParams.compId;
-        $http.get(getCompProfileUrl).then(function(response) {
+        $http.get(getCompProfileUrl).then(function (response) {
             $scope.cmpyName = response.data.data.company.companyName;
             $scope.cmpyAddress = response.data.data.company.address;
             $scope.data = response.data.data.company;
         });
         // ====================== bool function =============================
-        $scope.boolFunction = function(value) {
+        $scope.boolFunction = function (value) {
             console.log("boolFunction", value);
 
             $scope.pendingOrdersBool = false;
@@ -31,6 +31,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             $scope.feedbackBool = false;
             $scope.setWeeklyMenuBool = false;
             $scope.extraCode = false;
+            $scope.setProfileBool = false;
             $scope[value] = true;
         }
         $scope.boolFunction("pendingOrdersBool");
@@ -61,11 +62,11 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         ];
         $scope.itemsPerPage = 7;
         $scope.cancelOrderHistroyPage = [];
-        $scope.search = function() {
+        $scope.search = function () {
             $scope.currentPage = 0;
             $scope.groupToPages();
         };
-        $scope.groupToPages = function() {
+        $scope.groupToPages = function () {
             $scope.cancelOrderHistroyPage = [];
             for (var i = 0; i < $scope.cancelOrderHistroy.length; i++) {
                 if (i % $scope.itemsPerPage === 0) {
@@ -75,7 +76,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 }
             }
         };
-        $scope.ranges = function(start, end) {
+        $scope.ranges = function (start, end) {
             var ret = [];
             if (!end) {
                 end = start;
@@ -86,17 +87,17 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             }
             return ret;
         };
-        $scope.prevPage = function() {
+        $scope.prevPage = function () {
             if ($scope.currentPage > 0) {
                 $scope.currentPage--;
             }
         };
-        $scope.nextPage = function() {
+        $scope.nextPage = function () {
             if ($scope.currentPage < $scope.cancelOrderHistroyPage.length - 1) {
                 $scope.currentPage++;
             }
         };
-        $scope.setPages = function() {
+        $scope.setPages = function () {
             $scope.currentPage = this.n;
         };
         $scope.search();
@@ -113,50 +114,83 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         // ================================ Weekly Menu ========================================
         $scope.restaurantId = $cookies.get('id');
 
-
-        $scope.daySelectedForMenu = "Monday";
-        $scope.selectDayForMenu = function(day) {
-            $scope.daySelectedForMenu = day;
-        }
-        $scope.cashNCarryWeekMenus = {};
-
-
-        angular.forEach($scope.workingDays, function(wDay) {
-            var menuUrl = getmenuFromDbMonUrl + "companyId=" + companyId + "&vendorId=" + vendorId + "&dayName=" + wDay.day;
-
-            $http.get(menuUrl).then(function(response) {
-                if (response.data.data != null) {
-                    $scope.cashNCarryWeekMenus[wDay.day] = response.data.data.menus;
-                } else {
-                    $scope.cashNCarryWeekMenus[wDay.day] = [{
-
-                        uid: uuid.new(),
-                        menuName: "",
-                        menuNode: [],
-                        isFoodItem: false
-                    }];
+        var unflatten = function (array, parent, tree) {
+            // console.log("array, parent, tree",array, parent, tree);
+            tree = typeof tree !== 'undefined' ? tree : [];
+            parent = typeof parent !== 'undefined' ? parent : {
+                id: null
+            };
+            var children = _.filter(array, function (child) {
+                child.isInserted = true;
+                if (child.menuNodes == null) {
+                    child.menuNodes = [];
                 }
+                if (child.menuType != null) {
+                    if (child.menuType === "veg") {
+                        child.isVeg = true;
+                        // console.log("isVeg");
+                    }
+                    else if (child.menuType === "egg") {
+                        child.isEgg = true;
+
+                    }
+                }
+                return child.parentId == parent.id;
             });
+            if (!_.isEmpty(children)) {
+                if (parent.id == 0 || parent.id == null) {
+                    tree = children;
+                } else {
+                    parent['menuNodes'] = children
+                }
+                _.each(children, function (child) {
+                    unflatten(array, child)
+                });
+            }
+            return tree;
+        };
+
+
+
+        var getWeeklyMenuUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
+        // $scope.weekMenuSorted = {};
+        // $scope.weekMenuSorted.MONDAY = {};
+        // $scope.weekMenuSorted.TUESDAY = {};
+        // $scope.weekMenuSorted.WEDNESDAY = {};
+        // $scope.weekMenuSorted.THURSDAY = {};
+        // $scope.weekMenuSorted.FRIDAY = {};
+        // $scope.weekMenuSorted.SATURDAY = {};
+        // $scope.weekMenuSorted.SUNDAY = {};
+
+        $http.get(getWeeklyMenuUrl).then(function (response) {
+            // $scope.menuDayName = response.data.data.menus.MONDAY;
+            // $scope.menuDayName1 = response.data.data.menus.TUESDAY;
+            console.log("getWeeklyMenuUrl 2000000", $scope.menuDayName);
         });
-        // var getWeeklyMenuUrl = getmenuFromDbMonUrl + "companyId=" + 1 + "&vendorId=" + vendorId;
 
-        // var promis = $http.get(getWeeklyMenuUrl);
 
-        // promis.then(function(response) {
-        //     if (response.data.data != null) {
-        //         $scope.menuNode = response.data.data.menus;
-        //     } else {
-        //         $scope.menuNode = [{
+        var promis = $http.get(getWeeklyMenuUrl);
 
-        //             uid: uuid.new(),
-        //             menuName: "",
-        //             menuNode: [],
-        //             isFoodItem: false
-        //         }];
-        //     }
-        // });
+        promis.then(function (response) {
+            $scope.myNode = response.data.data.menus;
+            if (!_.isEmpty($scope.myNode.WEDNESDAY)) {
+                console.log("yehhhh true 4545")
+                $scope.menuNodes = unflatten($scope.myNode.WEDNESDAY);
+                //console.log("menu node after update ", JSON.stringify($scope.menuNodes));
 
-        $scope.addsection = function(nodes, index) {
+            }
+            else {
+                $scope.menuNodes = [{
+
+                    uid: uuid.new(),
+                    menuName: "",
+                    menuNodes: [],
+                    isFoodItem: false
+                }];
+            }
+        });
+
+        $scope.addsection = function (nodes, index) {
             var uid = uuid.new();
 
             if (nodes[index].isFoodItem) {
@@ -164,7 +198,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 nodes.splice(index + 1, 0, {
                     uid: uid,
                     menuName: "",
-                    menuNode: [],
+                    menuNodes: [],
                     isFoodItem: true,
                     parentNodeId: nodes[index].parentNodeId
                 });
@@ -173,7 +207,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 nodes.splice(index + 1, 0, {
                     uid: uid,
                     menuName: "",
-                    menuNode: [],
+                    menuNodes: [],
                     isFoodItem: false,
                     parentNodeId: nodes[index].parentNodeId
                 });
@@ -181,68 +215,68 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             }
         }
 
-        $scope.addchild = function(node) {
+        $scope.addchild = function (node) {
 
             if (node.decisionCollapse) {
                 $scope.toggleCollapse(node);
             }
             // console.log("checked value 555 : ", JSON.stringify(node));
             var uid = uuid.new();
-            node.menuNode.push({
+            node.menuNodes.push({
                 uid: uid,
                 menuName: "",
-                menuNode: [],
+                menuNodes: [],
                 isFoodItem: false,
                 parentNodeId: node.uid
             });
         }
 
-        $scope.submitMenu = function() {
-            sectionService.submitMenu($scope.menuNode, $scope.restaurantId);
+        $scope.submitMenu = function () {
+            sectionService.submitMenu($scope.menuNodes, $scope.restaurantId);
         }
 
-        $scope.saveInDb = function(node, dayName) {
+        $scope.saveInDb = function (node, dayName) {
 
             saveMenuService.submitMenu(node, $scope.restaurantId, companyId, dayName)
-                .then(function(returnedSaveMenu) {
+                .then(function (returnedSaveMenu) {
                     checkMe();
                     if (returnedSaveMenu !== null) {
-                        updateMenuNode($scope.menuNode, returnedSaveMenu);
+                        updateMenuNode($scope.menuNodes, returnedSaveMenu);
                     }
                 });
         }
 
-        $scope.updateMenu = function(node) {
+        $scope.updateMenu = function (node) {
             VendorDashboardService.updateMenu(node, $scope.restaurantId)
-                .then(function(returnedUpdatedMenu) {
+                .then(function (returnedUpdatedMenu) {
                     checkMe();
                     if (returnedUpdatedMenu !== null) {
-                        updateMenuNode($scope.menuNode, returnedUpdatedMenu);
+                        updateMenuNode($scope.menuNodes, returnedUpdatedMenu);
                     }
                 });
         };
 
-        $scope.deleteNode = function(node, day) {
+        $scope.deleteNode = function (node, day) {
             // console.log("inside removve node 0002",node);
             VendorDashboardService.deleteNode(node, $scope.restaurantId, companyId, day)
-                .then(function(deleteNodeResp) {
+                .then(function (deleteNodeResp) {
                     // console.log("response returned from deleteNode : ",JSON.stringify(deleteNodeResp));
                     checkMe();
-                    updateDelMenuNode($scope.menuNode, node.uid, null, null);
+                    updateDelMenuNode($scope.menuNodes, node.uid, null, null);
                 });
             // console.log("nodes 1002",nodes);
         };
 
-        var checkMe = function() {
+        var checkMe = function () {
             console.log("check Me inside");
             var getWeeklyMenuUrl = getmenuFromDbMonUrl + "companyId=" + companyId + "&vendorId=" + vendorId;
-            $http.get(getWeeklyMenuUrl).then(function(response) {
+            $http.get(getWeeklyMenuUrl).then(function (response) {
                 console.log("yeehhh", response);
                 $scope.myNode = response.data.data.menus;
             });
         }
 
-        var updateDelMenuNode = function(theObject, uid, index, mainArray) {
+        var updateDelMenuNode = function (theObject, uid, index, mainArray) {
             var result = null;
             if (theObject instanceof Array) {
                 for (var i = 0; i < theObject.length; i++) {
@@ -268,15 +302,15 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 }
             }
 
-            var mainMenuNodeLength = $scope.menuNode.length;
-            // console.log("mainMenuNodeLength",$scope.menuNode.length);
+            var mainMenuNodeLength = $scope.menuNodes.length;
+            // console.log("mainMenuNodeLength",$scope.menuNodes.length);
             if (mainMenuNodeLength === 0) {
-                $scope.menuNode.push({ uid: uuid.new(), menuName: "", menuNode: [], isFoodItem: false });
+                $scope.menuNodes.push({ uid: uuid.new(), menuName: "", menuNodes: [], isFoodItem: false });
             }
             return result;
         }
 
-        var updateMenuNode = function(theObject, modifiedMenu) {
+        var updateMenuNode = function (theObject, modifiedMenu) {
             // console.log("inside updateMenu 456",theObject,modifiedMenu);
             var result = null;
             if (theObject instanceof Array) {
@@ -305,29 +339,30 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             return result;
         }
 
-        $scope.toggleAll = function() {
+        $scope.toggleAll = function () {
             var toggleStatus = $scope.restaurantDataForUpdate.isAllSelected;
-            angular.forEach($scope.options, function(itm) {
+            angular.forEach($scope.options, function (itm) {
                 itm.selected = toggleStatus;
             });
         }
-        $scope.optionToggled = function() {
-            $scope.restaurantDataForUpdate.isAllSelected = $scope.options.every(function(itm) {
+        $scope.optionToggled = function () {
+            $scope.restaurantDataForUpdate.isAllSelected = $scope.options.every(function (itm) {
                 return itm.selected;
             })
         }
-        $scope.toggleCollapse = function(node) {
+        $scope.toggleCollapse = function (node) {
             console.log("node: ", node);
 
             if (node.decisionCollapse) {
                 node.decisionCollapse = false;
-            } else {
+            }
+            else {
                 node.decisionCollapse = true;
             }
         };
 
         $scope.cId = $routeParams.compId;
-        $scope.saveMenu = function(menu, menuType, dayName) {
+        $scope.saveMenu = function (menu, menuType, dayName) {
             // console.log("menu  ctrl: ", JSON.stringify(menu));
             var list = JSON.stringify(menu);
             var companyId = $routeParams.compId;
@@ -342,7 +377,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             sectionService.saveMenu(menuType, dayName, companyId, list, postSaveMenuUrl);
         }
 
-        $scope.deleteVendorMenu = function(index, menu, menuType, dayName) {
+        $scope.deleteVendorMenu = function (index, menu, menuType, dayName) {
             // console.log('menu,menuType,dayName',index,menu,menuType,dayName);
             // console.log('mondayMenuBreakfast before slice length:', $scope.mondayMenuBreakfast.length)
             if (menuType == "BREAKFAST" && dayName == "Monday") { $scope.mondayMenuBreakfast.splice(index, 1); var list = JSON.stringify($scope.mondayMenuBreakfast); }
@@ -384,7 +419,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             dayName = dayName;
             companyId = companyId;
             var getCompUrl = getDashboardMenuUrl + $routeParams.compId;
-            $http.get(getCompUrl).then(function(response) {
+            $http.get(getCompUrl).then(function (response) {
                 for (var i = 0; i < response.data.data.menus.length; i++) {
                     if (menuType == response.data.data.menus[i].menuType && dayName == response.data.data.menus[i].dayName) {
                         $scope.companyMenuId = response.data.data.menus[i].id;
@@ -397,7 +432,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         }
 
-        $scope.updateVendorMenu = function(menu, menuType, dayName) {
+        $scope.updateVendorMenu = function (menu, menuType, dayName) {
             // console.log("menu",menu);
             var list = JSON.stringify(menu);
             // console.log("list",list);
@@ -410,7 +445,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             companyId = companyId;
 
             var getCompUrl = getDashboardMenuUrl + $routeParams.compId;
-            $http.get(getCompUrl).then(function(response) {
+            $http.get(getCompUrl).then(function (response) {
                 // console.log("response 123",response);
                 for (var i = 0; i < response.data.data.menus.length; i++) {
                     // console.log("response 123",response);
@@ -426,22 +461,22 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         // ================================= confirmed Oders =================================
 
-        $scope.makeConfirmedOrders = function(obj) {
-                obj.confirmed = obj.confirmed ? false : true;
-            }
-            // ================================= Employee Feedback =================================
+        $scope.makeConfirmedOrders = function (obj) {
+            obj.confirmed = obj.confirmed ? false : true;
+        }
+        // ================================= Employee Feedback =================================
 
         var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
-        $http.get(getFeedbackUrl).then(function(response) {
+        $http.get(getFeedbackUrl).then(function (response) {
             $scope.feedback = response.data.data.reviews;
 
             $scope.itemsPerPage = 7;
             $scope.pagedItems = [];
-            $scope.search = function() {
+            $scope.search = function () {
                 $scope.currentPage = 0;
                 $scope.groupToPages();
             };
-            $scope.groupToPages = function() {
+            $scope.groupToPages = function () {
                 $scope.pagedItems = [];
                 for (var i = 0; i < $scope.feedback.length; i++) {
                     if (i % $scope.itemsPerPage === 0) {
@@ -451,7 +486,7 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                     }
                 }
             };
-            $scope.range = function(start, end) {
+            $scope.range = function (start, end) {
                 var ret = [];
                 if (!end) {
                     end = start;
@@ -462,17 +497,17 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
                 }
                 return ret;
             };
-            $scope.prevPage = function() {
+            $scope.prevPage = function () {
                 if ($scope.currentPage > 0) {
                     $scope.currentPage--;
                 }
             };
-            $scope.nextPage = function() {
+            $scope.nextPage = function () {
                 if ($scope.currentPage < $scope.pagedItems.length - 1) {
                     $scope.currentPage++;
                 }
             };
-            $scope.setPage = function() {
+            $scope.setPage = function () {
                 $scope.currentPage = this.n;
             };
             $scope.search();
@@ -482,11 +517,11 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
 
         //================================ Pending Orders ====================================
         var activeBookingListUrl = getSmartCafeteriaOrders + "?companyId=" + 1 + "&bookerId=" + 77 + "&type=pending";
-        $http.get(activeBookingListUrl).then(function(response) {
+        $http.get(activeBookingListUrl).then(function (response) {
             $scope.activeBookingList = response.data.data.bookings;
         });
 
-        $scope.getVendorCombinations = function(menuArr) {
+        $scope.getVendorCombinations = function (menuArr) {
             // debugger;
             var vendorList = [];
             var vendorNameCombination = "";
@@ -501,9 +536,9 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
             return vendorNameCombination.substring(0, vendorNameCombination.length - 1);
         }
 
-        $scope.getMenuForOrdersPage = function(menuArr) {
+        $scope.getMenuForOrdersPage = function (menuArr) {
             var menuCombo = "";
-            angular.forEach(menuArr, function(ele) {
+            angular.forEach(menuArr, function (ele) {
                 // debugger;
                 menuCombo = (ele.quantity + " x " + ele.menuObj.menuName) + ", " + menuCombo;
             });
@@ -515,41 +550,41 @@ vendorApp.controller('DashboardController', ['$scope', '$http', 'VendorDashboard
         // to active side menu
         $scope.activeMenu = 'PendingOrders';
 
-        //=========================Pending Orders ===========================================
-
-        var getPendingOrder = getSmartCafeteriaOrders + "?companyId=" + companyId + "&type=pending&vendorId=" + vendorId;
-
-        $http.get(getPendingOrder).then(function(response) {
-            $scope.PendingOrderList = response.data.data.bookings;
-            console.log("response pending list", $scope.PendingOrderList);
-
-        }, function(reason) {
-            console.log("reson", reason);
+    //=========================Pending Orders ===========================================
+        
+        var getPendingOrder = getSmartCafeteriaOrders+"?companyId=" + companyId +"&type=pending&vendorId=" + vendorId; 
+    
+        $http.get(getPendingOrder).then(function(response){
+          $scope.PendingOrderList = response.data.data.bookings;
+          console.log("response pending list",$scope.PendingOrderList);
+    
+        },function(reason){
+            console.log("reson",reason);
         })
 
+        
+       
+    //===========================Update Order ==========================================
+    $scope.toUpdate = function (bookingId,status) {
+        VendorDashboardService.updateOrder(bookingId,status)
+            .then(function (response) {
+                console.log("response",response);
+                
+            });
+    };
 
+    //===============================confirmed order ==================================
 
-        //===========================Update Order ==========================================
-        $scope.toUpdate = function(bookingId, status) {
-            VendorDashboardService.updateOrder(bookingId, status)
-                .then(function(response) {
-                    console.log("response", response);
+    var getConfirmedOrder  = getSmartCafeteriaOrders + "?companyId=" + companyId + "&bookerId=" + 77 + "&type=pending";
 
-                });
-        };
+    $http.get(getConfirmedOrder).then(function(response){       
+        console.log("Confirmed order list",response);
 
-        //===============================confirmed order ==================================
+    },function(reason){
 
-        var getConfirmedOrder = getSmartCafeteriaOrders + "?companyId=" + companyId + "&bookerId=" + 77 + "&type=pending";
-
-        $http.get(getConfirmedOrder).then(function(response) {
-            console.log("Confirmed order list", response);
-
-        }, function(reason) {
-
-        });
+    });
 
 
 
     }
-]);
+]); 

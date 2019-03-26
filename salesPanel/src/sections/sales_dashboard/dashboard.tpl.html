@@ -129,7 +129,7 @@
                             <div class="pic position-relative">
                                 <img class="card-img-top img-responsive" ng-src="{{companiesUrl.fileName}}">
                                 <div class="mask rgba-white-slight"></div>
-                            </div>
+                            </div> 
                             <div class="team-content m-0">
                                 <h5 class="title text-danger font-weight-normal text-sm-center compadd w-100 overflow-hidden position-relative">{{companiesUrl.companyName}}</h5>
                                 <h5 class="title text-danger font-weight-normal text-sm-center tooltip w-100 grey lighten-3">{{companiesUrl.companyName}}</h5>
@@ -713,16 +713,16 @@
             <!--=========================Breadcrumb end=================================== -->
             <!-- Search form -->
             <div class="container pt-3 ml-2" ng-controller="newPlaceCtrl">
-                <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+                <!-- <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
                     <b>API Error : </b>
                     <span>{{ apiStatus }}</span>
-                </div>
+                </div> -->
                 <form name="searchForm" novalidate ng-submit="search()">
                     <div class="input-group">
                         <input name="place" type="text" id="searchTextField" class="form-control" ng-model="searchPlace"
                             required autofocus />
                         <span class="input-group-btn">
-                            <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search()">Search</a>
+                            <a class="btn btn-info mt-0" ng-disabled="searchForm.$invalid" ng-click="search(searchPlace)">Search</a>
                         </span>
                     </div>
                 </form>
@@ -803,7 +803,7 @@
                             </form>
                         </div>
                         <div class="col-md-6 ml-auto">
-                            <!-- Image upload  -->
+                           
                             <div class="file-upload w-100  p-4 bg-light ">
                                 <button class="file-upload-btn w-100 m-auto border-0 p-1 small rounded mb-0  btn-info white-color"
                                     type="button">Add Image</button>
@@ -816,7 +816,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Image upload  -->
+                           
                             <center><button class="col-md-4 btn btn-info mt-4" ng-click="saveLead()">Submit</button></center>
                         </div>
                     </div>
@@ -944,7 +944,7 @@
             <!--=========================Breadcrumb end=================================== -->
             <div class="container portfolio p-3">
                 <div class="bio-info rounded mb-0">
-                    <div class="row">
+                    <div class="row" ng-if="hideProfileDetails">
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12">
@@ -953,9 +953,9 @@
                                             alt="Responsive image" />
                                     </div>
                                     <div class="description">
-                                        <h4 class="text-info editable-text" editable-text="user.profilename"> {{
+                                        <h4 class="text-info editable-text" > {{
                                             user.profilename ||"empty" }}</h4>
-                                        <h5 class="editable-text" editable-text="user.Cofounder"> <strong>
+                                        <h5 class="editable-text" > <strong>
                                                 {{user.Cofounder || "empty"}} </strong></h5>
                                         <p class="small">
                                             Pellentesque elementum dapibus convallis.
@@ -969,23 +969,23 @@
                             <div class="bio-content mt-5">
                                 <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8 ml-3 ">
                                     <div class="container" style="border-bottom:1px solid black">
-                                        <h6 class="p-2">'About Me, </h6>
+                                        <h6 class="p-2">About Me </h6>
                                     </div>
                                     <ul class="container details list-unstyled mt-2">
                                         <li>
-                                            <p class="editable-text" editable-text="user.phone"><span class="fas fa-phone p-1"></span>{{
+                                            <p class="editable-text" ><span class="fas fa-phone p-1"></span>{{
                                                 user.phone ||"empty" }}</p>
                                         </li>
                                         <li>
-                                            <p class="editable-text" editable-text="user.email"><span class="far fa-envelope p-1"></span>{{
+                                            <p class="editable-text" ><span class="far fa-envelope p-1"></span>{{
                                                 user.email ||"empty" }}</p>
                                         </li>
                                         <li>
-                                            <p class="editable-text" editable-text="user.location"><span class="fas fa-map-marker-alt p-1"></span>{{
+                                            <p class="editable-text" ><span class="fas fa-map-marker-alt p-1"></span>{{
                                                 user.location ||"empty" }}</p>
                                         </li>
                                         <li>
-                                            <p class="editable-text" editable-text="user.companies"><span class="fas fa-building p-1"></span><a
+                                            <p class="editable-text" ><span class="fas fa-building p-1"></span><a
                                                     href="#">{{ user.companies ||"empty" }}</p></a>
                                         </li>
                                     </ul>
@@ -1006,9 +1006,96 @@
 
                                 </div>
                             </div>
-                            <i class="fas fa-user-edit pull-right float-right"></i>
+                            
+                        </div>                       
+                    </div>
+                    <div class="md-form" ng-if="!hideProfileDetails">
+                        <div class="row">                           
+                            <form class="w-100">
+                                
+                                    <div class="form-row">
+                                    
+                                        <div class="col-md-6 pr-4">
+                                        
+                                            <div class="md-form form-group">
+                                            <input type="email" class="form-control" id="inputEmail4MD" >
+                                            <label for="inputEmail4MD">Name</label>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-md-6 pl-4">
+                                        
+                                            <div class="md-form form-group">
+                                            <input type="password" class="form-control" id="inputPassword4MD" >
+                                            <label for="inputPassword4MD">Mobile Number</label>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="form-row">
+                                    
+                                            <div class="col-md-6 pr-4">
+                                            
+                                                <div class="md-form form-group">
+                                                <input type="email" class="form-control" id="inputEmail4MD" >
+                                                <label for="inputEmail4MD">Email</label>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="col-md-6 pl-4">
+                                            
+                                                <div class="md-form form-group">
+                                                <input type="password" class="form-control" id="inputPassword4MD" >
+                                                <label for="inputPassword4MD">Designation</label>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    <div class="row">
+                                        
+                                        <div class="col-md-12">
+                                        
+                                            <div class="md-form form-group">
+                                            <input type="text" class="form-control" id="inputAddressMD" >
+                                            <label for="inputAddressMD">Address</label>
+                                            </div>
+                                        </div>
+                                     
+                                    
+                                    </div>
+                                
+                                
+                                
+                                    <div class="form-row">
+                                    
+                                        <div class="col-md-6 pr-4">
+                                        
+                                            <div class="md-form form-group">
+                                            <input type="text" class="form-control" id="inputCityMD" >
+                                            <label for="inputCityMD">City</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 pl-4">
+                                        
+                                            <div class="md-form form-group">
+                                            <input type="text" class="form-control" id="inputZipMD" >
+                                            <label for="inputZipMD">Zip</label>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    
+                            </form>
+                     
                         </div>
-
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 float-right">
+                            <button type="button" class="btn btn-outline-default waves-effect float-right" ng-click="toggleProfile()" ng-if="hideProfileDetails"><i class="fas fa-user-edit pull-right float-right ml-1 mt-1"></i> Edit  </button>
+                            <button type="button" class="btn btn-outline-default waves-effect float-right px-4" ng-click="toggleProfile();saveprofileDetails();" ng-if="!hideProfileDetails">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>

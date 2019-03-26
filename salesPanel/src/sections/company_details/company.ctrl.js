@@ -24,7 +24,47 @@ salesApp.controller('CompanyController', ['$scope', '$http','getCorporateReviews
  
     //=================Table search search and filter=========================================
     
-    
+    $scope.itemsPerPage = 7;
+    $scope.cancelOrderHistroyPage = [];
+    $scope.search = function() {
+        $scope.currentPage = 0;
+        $scope.groupToPages();
+    };
+    $scope.groupToPages = function() {
+        $scope.cancelOrderHistroyPage = [];
+        for (var i = 0; i < $scope.cancelOrderHistroy.length; i++) {
+            if (i % $scope.itemsPerPage === 0) {
+                $scope.cancelOrderHistroyPage[Math.floor(i / $scope.itemsPerPage)] = [$scope.cancelOrderHistroy[i]];
+            } else {
+                $scope.cancelOrderHistroyPage[Math.floor(i / $scope.itemsPerPage)].push($scope.cancelOrderHistroy[i]);
+            }
+        }
+    };
+    $scope.ranges = function(start, end) {
+        var ret = [];
+        if (!end) {
+            end = start;
+            start = 0;
+        }
+        for (var i = start; i < end; i++) {
+            ret.push(i);
+        }
+        return ret;
+    };
+    $scope.prevPage = function() {
+        if ($scope.currentPage > 0) {
+            $scope.currentPage--;
+        }
+    };
+    $scope.nextPage = function() {
+        if ($scope.currentPage < $scope.cancelOrderHistroyPage.length - 1) {
+            $scope.currentPage++;
+        }
+    };
+    $scope.setPages = function() {
+        $scope.currentPage = this.n;
+    };
+    $scope.search();
     //=================Table search and filter end=============================================
   }
 
