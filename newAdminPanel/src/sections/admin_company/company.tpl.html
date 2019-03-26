@@ -17,6 +17,7 @@
     border-radius: 5px;
     border: 1px solid silver;
   }
+  
 </style>
 
 
@@ -67,10 +68,14 @@
             class="fas fa-building fa-fw  "></i> <span class="font-weight-normal">Configuration</span></a>
 
       </li>
-      <li class="p-2">
+      <li class="p-2" ng-click="show = !show">
         <a class="text-decoration-none " href="" data-toggle="collapse" aria-expanded="false"
           data-target="#pageSubmenu"><i class="far fa-check-square fa-fw "></i> <span class="font-weight-normal ">
-            Requirement</span><i class="fas fa-chevron-down ml-5"></i></a> </li>
+            Requirement</span>
+            <span ng-if="!show"> <i class="fas fa-chevron-right ml-5"></i></span>
+            <span ng-if="show"> <i class="fas fa-chevron-down ml-5"s></i></span>
+          </a>
+           </li>
       <ul class="collapse list-unstyled" id="pageSubmenu">
         <li class="p-1 mb-1" ng-class="{active:activeMenu === 'clientRequirement'}"
           ng-click="activeMenu = 'clientRequirement'">
@@ -92,10 +97,14 @@
             class="fas fa-users fa-fw "></i><span class="font-weight-normal"> Assigned</span></a>
       </li>
 
-      <li class="p-2">
+      <li class="p-2" ng-click="isHidden = !isHidden">
         <a class="d-block text-decoration-none" href="" data-toggle="collapse" aria-expanded="false"
-          data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly
-            Details</span><i class="fas fa-chevron-down ml-5"></i></a>
+        data-target="#pageSubmenu1"><i class="fas fa-cart-plus fa-fw "></i><span class="font-weight-normal "> Monthly
+            Details</span>
+           <span ng-if="!isHidden"> <i class="fas fa-chevron-right ml-5"></i></span>
+           <span ng-if="isHidden"> <i class="fas fa-chevron-down ml-5"s></i></span>
+          </a>
+   
       </li>
       <ul class="collapse list-unstyled" id="pageSubmenu1">
         <li class="p-2 mb-1" ng-class="{active:activeMenu === 'clientMonthlyDetails'}"
@@ -115,10 +124,13 @@
             class="far fa-calendar-times fa-fw "></i><span class=" font-weight-normal">Item Check List</span>
         </a>
       </li>
-      <li class="p-2">
+      <li class="p-2"  ng-click="menuIcon = !menuIcon">
         <a class="text-decoration-none" href="" data-toggle="collapse" aria-expanded="false" data-target="#addMenu"><i
             class="far fa-check-square fa-fw "></i> <span class="font-weight-normal ">
-            Add Menu</span><i class="fas fa-chevron-down ml-5"></i></a> </li>
+            Add Menu</span>
+            <span ng-if="!menuIcon"> <i class="fas fa-chevron-right ml-5"></i></span>
+           <span ng-if="menuIcon"> <i class="fas fa-chevron-down ml-5"></i></span>
+          </a> </li>
       <ul class="collapse list-unstyled" id="addMenu">
         <li class="p-1 mb-1" ng-class="{active:activeMenu === 'breakfast'}" ng-click="activeMenu = 'breakfast'">
           <a class="d-block text-decoration-none" href="" ng-click="boolFunction('breakfastBool')"><i
@@ -589,7 +601,7 @@
             <a href="" class="w-clr">Add menu</a></small></h6>
       </nav>
       <div class="container">
-        <div class="border-bottom  border-info mr-1 ml-3 mt-3">
+        <!-- <div class="border-bottom  border-info mr-1 ml-3 mt-3">
           <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="" data-target="#pills-home"
@@ -656,7 +668,12 @@
                 value="Update">Up-date</button>
             </span>
           </div>
-        </form>
+        </form> -->
+
+
+        
+
+
       </div>
     </div>
 

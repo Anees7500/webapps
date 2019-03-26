@@ -1,5 +1,5 @@
 <style>
-#people .get-org-chart .get-up, .get-left , .get-right, .get-down{     
+    #people .get-org-chart .get-up, .get-left , .get-right, .get-down{     
         
     visibility: hidden;
    
@@ -49,7 +49,7 @@
 </header>
 <!--=====================Main Navigation================================-->
 <div class="wrapper">
-    <nav id="sidebar" class="z-depth-5  position-fixed h-100 mt-4">
+    <nav id="sidebar" class="z-depth-1  position-fixed h-100 mt-4">
         <ul class="list-unstyled components mt-5">
             <li class="p-2 mb-2" ng-class="{active:activeMenu === 'Companies'}" ng-click="activeMenu ='Companies'">
                 <a ng-click="boolFunction('companyBool')" class="d-block text-dark text-decoration-none" href=""><i
@@ -124,37 +124,36 @@
             <div class="row ml-5">
                 <!-- ====================Card=============== -->
                 <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="companiesUrl in allCompanies">
-                <a class="text-decoration-none" ng-href="#!/dashboard/company">
-                    <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
-                        <div class="pic position-relative">
-                            <img class="card-img-top img-responsive"
-                                    ng-src="{{companiesUrl.fileName}}">
-                            <div class="mask rgba-white-slight"></div>
-                        </div>
-                        <div class="team-content m-0">
-                            <h5 class="title text-danger font-weight-normal text-sm-center compadd w-100 overflow-hidden position-relative">{{companiesUrl.companyName}}</h5>
-                            <h5 class="title text-danger font-weight-normal text-sm-center tooltip w-100 grey lighten-3">{{companiesUrl.companyName}}</h5>
-                            <p class="card-text text-dark"><span class="small address  m-0">{{companiesUrl.address}}</span></p>
-                        </div>
-                        <div class="row justify-content-between mt-2">
-                            <div class="col-6">
-                                <div class="ml-2">
-                                    <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0 "></i><span class="text-primary  small float-left mt-1 m-0 ml-1">
-                                        <p><small class="mt-1 text-info">Aman</small></p>
-                                    </span>
+                    <a class="text-decoration-none" ng-href="#!/dashboard/company/{{companiesUrl.id}}">
+                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 14rem;height: 17rem;">
+                            <div class="pic position-relative">
+                                <img class="card-img-top img-responsive" ng-src="{{companiesUrl.fileName}}">
+                                <div class="mask rgba-white-slight"></div>
+                            </div>
+                            <div class="team-content m-0">
+                                <h5 class="title text-danger font-weight-normal text-sm-center compadd w-100 overflow-hidden position-relative">{{companiesUrl.companyName}}</h5>
+                                <h5 class="title text-danger font-weight-normal text-sm-center tooltip w-100 grey lighten-3">{{companiesUrl.companyName}}</h5>
+                                <p class="card-text text-dark"><span class="small address  m-0">{{companiesUrl.address}}</span></p>
+                            </div>
+                            <div class="row justify-content-between mt-2">
+                                <div class="col-6">
+                                    <div class="ml-2 ">
+                                        <i class="fas fa-user fa-xs amber-text float-left mt-2 m-0 "></i><span class="text-primary  small float-left mt-1 m-0 ml-1">
+                                            <p><small class="mt-1 text-info">Aman</small></p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <span class="badge success-color-dark small p-0"><small class="white-text">In progress</small></span>
                                 </div>
                             </div>
-                            <div class="col-6 ">
-                                <span class="badge success-color-dark small"><small class="white-text">In progress</small></span>
-                            </div>
-                        </div>
 
-                        <ul class="social list-inline list-unstyled" style="height:15px;">
-                            <li class="list-inline-item">
-                            </li>
-                           
-                        </ul>
-                    </div>
+                            <ul class="social list-inline list-unstyled" style="height:15px;">
+                                <li class="list-inline-item">
+                                </li>
+
+                            </ul>
+                        </div>
                     </a>
                 </div>
                 <!---------------------------Card-------------------- -->
@@ -413,587 +412,99 @@
                             <div class="tab-content text-center">
                                 <div class="tab-pane active" id="profile">
                                     <div class="row ">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-1.jpg">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </div>
                                                 <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2 m-0" style="width:134px;height: 34px;"> HSR Layout, Bengaluru
-                                                    </p>
+                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">{{myleadsUrl.companyname}}</h6>
+                                                    <p class="small address2 m-0" style="width:134px;height: 34px;">{{
+                                                        myleadsUrl.address}}</p>
                                                     <div class="row justify-content-between m-0">
 
                                                         <div class="col-6 p-0">
 
-                                                            <div class="float-left"><i class="fas fa-user small fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
+                                                            <div class="float-left div-cless "><i class="fas fa-user small fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1" style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
                                                         </div>
+                                                        
 
                                                         <div class="col-6 p-0">
-                                                            <span class="badge success-color-dark small"> <small class="white-text">In
-                                                                    progress</small>
+                                                            <span class="badge success-color-dark small p-0"> <small
+                                                                    class="white-text">{{myleadsUrl.progresswork}}</small>
                                                             </span>
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
+                                                <ul class="social list-inline list-unstyled" style="height:15px;">
                                                     <li class="list-inline-item">
                                                     </li>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-2.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;"> HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge success-color-dark small "> <small class="white-text">In
-                                                                    progress</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-3.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge success-color-dark small "> <small class="white-text">In
-                                                                    progress</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-4.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;"> HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge success-color-dark small "> <small class="white-text">In
-                                                                    progress</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;"> HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge success-color-dark small "> <small class="white-text">In
-                                                                    progress</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                                <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                    <div class="pic  position-relative">
-                                                        <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                        <div class="mask rgba-white-slight"></div>
-                                                    </div>
-                                                    <div class="team-content m-0">
-                                                        <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                        <p class="small address2  m-0" style="width:134px;height: 34px;"> HSR Layout, Bengaluru
-                                                        </p>
-                                                        <div class="row justify-content-between m-0">
-    
-                                                            <div class="col-6 p-0">
-    
-                                                                <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                        class="text-primary h6 small ml-1">Anees</span></div>
-                                                            </div>
-    
-                                                            <div class="col-6 p-0">
-                                                                <span class="badge success-color-dark small "> <small class="white-text">In
-                                                                        progress</small>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                        <li class="list-inline-item">
-                                                        </li>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                                    <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                        <div class="pic  position-relative">
-                                                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                            <div class="mask rgba-white-slight"></div>
-                                                        </div>
-                                                        <div class="team-content m-0">
-                                                            <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                            <p class="small address2  m-0" style="width:134px;height: 34px;"> HSR Layout, Bengaluru
-                                                            </p>
-                                                            <div class="row justify-content-between m-0">
-        
-                                                                <div class="col-6 p-0">
-        
-                                                                    <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                            class="text-primary h6 small ml-1">Anees</span></div>
-                                                                </div>
-        
-                                                                <div class="col-6 p-0">
-                                                                    <span class="badge success-color-dark small "> <small class="white-text">In
-                                                                            progress</small>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                            <li class="list-inline-item">
-                                                            </li>
-                                                    </div>
-                                                </div>
-
                                     </div>
-
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div class="row">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-3.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-2.jpg">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </div>
                                                 <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
+                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">{{myleadsUrl.companyname}}</h6>
+                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">{{myleadsUrl.address}}
                                                     </p>
                                                     <div class="row justify-content-between m-0">
 
                                                         <div class="col-6 p-0">
 
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
+                                                            <div class="float-left div-cless"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1"style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
                                                         </div>
 
-                                                        <div class="col-6 p-0 ">
-                                                            <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
+                                                        <div class="col-6 p-0">
+                                                            <span class="badge badge-default small p-0"> <small class="white-text ">{{myleadsUrl.progresswork}}</small>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
+                                                <ul class="social list-inline list-unstyled" style="height:15px;">
                                                     <li class="list-inline-item">
                                                     </li>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-4.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                                <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                    <div class="pic  position-relative">
-                                                        <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                        <div class="mask rgba-white-slight"></div>
-                                                    </div>
-                                                    <div class="team-content m-0">
-                                                        <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                        <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                            Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                        </p>
-                                                        <div class="row justify-content-between m-0">
-    
-                                                            <div class="col-6 p-0">
-    
-                                                                <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                        class="text-primary h6 small ml-1">Anees</span></div>
-                                                            </div>
-    
-                                                            <div class="col-6 p-0">
-                                                                <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                        <li class="list-inline-item">
-                                                        </li>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                                    <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                        <div class="pic  position-relative">
-                                                            <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                            <div class="mask rgba-white-slight"></div>
-                                                        </div>
-                                                        <div class="team-content m-0">
-                                                            <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                            <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                                Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                            </p>
-                                                            <div class="row justify-content-between m-0">
-        
-                                                                <div class="col-6 p-0">
-        
-                                                                    <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                            class="text-primary h6 small ml-1">Anees</span></div>
-                                                                </div>
-        
-                                                                <div class="col-6 p-0">
-                                                                    <span class="badge badge-default small ml-2"> <small class="white-text ">Pending</small>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                            <li class="list-inline-item">
-                                                            </li>
-                                                    </div>
-                                                </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
                                     <div class="row ">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-2.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge pink lighten-4 small"> <small class="white-text">Work
-                                                                    waiting</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-4.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge pink lighten-4 small"> <small class="white-text">Work
-                                                                    waiting</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1" ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
                                                     <img class="card-img-top img-responsive" src="Image/team-3.jpg">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </div>
                                                 <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
+                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">{{myleadsUrl.companyname}}</h6>
+                                                    <p class="small address2  m-0" style="width:134px;height: 34px;"> {{myleadsUrl.address}}</p>
                                                     <div class="row justify-content-between m-0">
 
                                                         <div class="col-6 p-0">
 
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
+                                                            <div class="float-left div-cless"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1"style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
                                                         </div>
 
                                                         <div class="col-6 p-0">
-                                                            <span class="badge pink lighten-4 small"> <small class="white-text">Work
-                                                                    waiting</small>
+                                                            <span class="badge pink lighten-4 small p-0"> <small class="white-text">{{myleadsUrl.progresswork}}</small>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-2.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge pink lighten-4 small"> <small class="white-text">Work
-                                                                    waiting</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
-                                                    <li class="list-inline-item">
-                                                    </li>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
-                                            <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
-                                                <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </div>
-                                                <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
-                                                    <div class="row justify-content-between m-0">
-
-                                                        <div class="col-6 p-0">
-
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div>
-                                                        </div>
-
-                                                        <div class="col-6 p-0">
-                                                            <span class="badge pink lighten-4 small"> <small class="white-text">Work
-                                                                    waiting</small>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
+                                                <ul class="social list-inline list-unstyled" style="height:15px;">
                                                     <li class="list-inline-item">
                                                     </li>
                                             </div>
@@ -1002,41 +513,34 @@
                                 </div>
                                 <div class="tab-pane" id="success">
                                     <div class="row ">
-                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1">
+                                        <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1"  ng-repeat="myleadsUrl in assignedleads">
                                             <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
                                                 <div class="pic  position-relative">
-                                                    <img class="card-img-top img-responsive" src="Image/team-1.jpg">
+                                                    <img class="card-img-top img-responsive" src="Image/team-4.jpg">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </div>
                                                 <div class="team-content m-0">
-                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">19th
-                                                        Main Rd, Sector 2, HSR Layout, Bengaluru
-                                                    </p>
+                                                    <h6 class="title text-danger font-weight-normal text-sm-center m-0">{{myleadsUrl.companyname}}</h6>
+                                                    <p class="small address2  m-0" style="width:134px;height: 34px;">{{myleadsUrl.address}}</p>
                                                     <div class="row justify-content-between m-0">
 
                                                         <div class="col-6 p-0">
 
-                                                            <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                                    class="text-primary h6 small ml-1">Anees</span></div> 
+                                                            <div class="float-left div-cless"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                                    class="text-primary h6 small ml-1"style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
                                                         </div>
 
                                                         <div class="col-6 p-0">
-                                                            <span class="badge badge-success small p-0"> <small class="white-text">Success
-                                                                    full</small>
+                                                            <span class="badge badge-success small p-0"> <small class="white-text">{{myleadsUrl.progresswork}}</small>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <ul class="social list-inline list-unstyled"style="height:15px;">
+                                                <ul class="social list-inline list-unstyled" style="height:15px;">
                                                     <li class="list-inline-item">
                                                     </li>
                                             </div>
                                         </div>
-                                      
-                                        
-                                        
-                                      
                                     </div>
                                 </div>
                             </div>
@@ -1065,137 +569,41 @@
                 </nav>
             </div>
             <!--=========================Breadcrumb end=================================== -->
-            <div class="row ml-5">
-
+            <div class="row ml-2">
                 <input ng-model='searchText' type="search" id="myInput" class="form-control mdb-autocomplete mx-5"
-                    style="width:80%">
+                    style="width:84%">
+                        <div class="row mt-3 ml-5">
+                                <div class="col-md-2 card-deck col-sm-4 col-xs-12 mb-5 mr-1"  ng-repeat="myleadsUrl in assignedleads | filter:searchText">
+                                    <div class="our-team2 z-depth-1-half bg-light position-relative" style="width: 8rem;height: 10rem;">
+                                        <div class="pic  position-relative">
+                                            <img class="card-img-top img-responsive" src="Image/team-4.jpg">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </div>
+                                        <div class="team-content m-0">
+                                            <h6 class="title text-danger font-weight-normal text-sm-center m-0">{{myleadsUrl.companyname}}</h6>
+                                            <p class="small address2  m-0" style="width:134px;height: 34px;">{{myleadsUrl.address}}</p>
+                                            <div class="row justify-content-between m-0">
 
-                <div ng-repeat='person in people | filter:searchText' class="row ml-5 mt-3">
-                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-3">
-                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 11rem;height: 14rem;">
-                            <div class="pic  position-relative">
-                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
-                                <div class="mask rgba-white-slight"></div>
-                            </div>
-                            <div class="team-content m-0">
-                                <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                <p class="card-text  small address  m-0" style="width:180px;height: 34px;">19th
-                                    Main Rd, Sector 2, HSR Layout, Bengaluru
-                                </p>
-                                <div class="row justify-content-between m-0">
+                                                <div class="col-6 p-0">
 
-                                    <div class="col-6 p-0">
+                                                    <div class="float-left div-cless"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
+                                                            class="text-primary h6 small ml-1"style="font-size: 9px;">{{myleadsUrl.username}}</span></div>
+                                                </div>
 
-                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
-                                    </div>
-
-                                    <div class="col-6 ">
-                                        <span class="badge success-color-dark small ml-2"> <small class="white-text">
-                                                {{person.name}}</small>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="social list-inline list-unstyled"style="height:15px;">
-                                <li class="list-inline-item">
-                                </li>
-                        </div>
-                    </div>
-                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-3">
-                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 11rem;height: 14rem;">
-                            <div class="pic  position-relative">
-                                <img class="card-img-top img-responsive" src="Image/team-1.jpg">
-                                <div class="mask rgba-white-slight"></div>
-                            </div>
-                            <div class="team-content m-0">
-                                <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                <p class="card-text  small address  m-0" style="width:180px;height: 34px;">19th
-                                    Main Rd, Sector 2, HSR Layout, Bengaluru
-                                </p>
-                                <div class="row justify-content-between m-0">
-
-                                    <div class="col-6 p-0">
-
-                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
-                                    </div>
-
-                                    <div class="col-6 ">
-                                        <span class="badge badge-default small "> <small class="white-text">
-                                                {{person.name}}</small>
-                                        </span>
+                                                <div class="col-6 p-0">
+                                                    <span class="badge badge-success small p-0"> <small class="white-text">{{myleadsUrl.progresswork}}</small>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="social list-inline list-unstyled" style="height:15px;">
+                                            <li class="list-inline-item">
+                                            </li>
                                     </div>
                                 </div>
                             </div>
-                            <ul class="social list-inline list-unstyled"style="height:15px;">
-                                <li class="list-inline-item">
-                                </li>
-                        </div>
-                    </div>
-                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-3">
-                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 11rem;height: 14rem;">
-                            <div class="pic  position-relative">
-                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
-                                <div class="mask rgba-white-slight"></div>
-                            </div>
-                            <div class="team-content m-0">
-                                <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                <p class="card-text  small address  m-0" style="width:180px;height: 34px;">19th
-                                    Main Rd, Sector 2, HSR Layout, Bengaluru
-                                </p>
-                                <div class="row justify-content-between m-0">
 
-                                    <div class="col-6 p-0">
-
-                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
-                                    </div>
-
-                                    <div class="col-6 ">
-                                        <span class="badge pink lighten-4 small "> <small class="white-text">
-                                                {{person.name}}</small>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="social list-inline list-unstyled"style="height:15px;">
-                                <li class="list-inline-item">
-                                </li>
-                        </div>
-                    </div>
-                    <div class="col-md-3 card-deck col-sm-4 col-xs-12 mb-5 mr-2">
-                        <div class="our-team1 z-depth-1-half bg-light position-relative" style="width: 11rem;height: 14rem;">
-                            <div class="pic  position-relative">
-                                <img class="card-img-top img-responsive" src="Image/team-3.jpg">
-                                <div class="mask rgba-white-slight"></div>
-                            </div>
-                            <div class="team-content m-0">
-                                <h6 class="title text-danger font-weight-normal text-sm-center m-0">Fancymonk</h6>
-                                <p class="card-text  small address  m-0" style="width:180px;height: 34px;">19th
-                                    Main Rd, Sector 2, HSR Layout, Bengaluru
-                                </p>
-                                <div class="row justify-content-between m-0">
-
-                                    <div class="col-6 p-0">
-
-                                        <div class="float-left"><i class="fas fa-user fa-xs amber-text mr-auto ml-1"></i><span
-                                                class="text-primary h6 small ml-1">{{person.salesperson}}</span></div>
-                                    </div>
-
-                                    <div class="col-6 ">
-                                        <span class="badge badge-success small "> <small class="white-text">
-                                                {{person.name}}</small>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="social list-inline list-unstyled"style="height:15px;">
-                                <li class="list-inline-item">
-                                </li>
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
         </div>
@@ -1373,30 +781,31 @@
                         <div class=" col-md-4">
                             <div class="input-group">
                                 <legend class="text-info font-weight-bold small">Mobile No:</legend>
-                                <input type="text" class="form-control" placeholder="enter your mobile no"
-                                    maxlength="10" onkeypress="return isNumber(event)" />
+                                <input type="text" class="form-control" placeholder="enter your mobile no" maxlength="10"
+                                    onkeypress="return isNumber(event)" />
                             </div>
                         </div>
                     </div>
                     <div class="row mt-3 w-100">
-                    <div class="col-md-4">
-                        <h5 class="text-info md">Estimated Lead Value:</h5>
-                        <form name="myForm">
-                            Select range: <input type="range" class="w-100" name="range" ng-model="value">
-                            <br><br>
-                            Price: <input type="number" ng-model="value" style="width:20%;height: 23px;">
-                            <form class="filter-form rounded mb-0 p-2">
-                                <select class="ml-3 custom-select-md" ng-model="selecteddistance" ng-options="x for x in price">
-                                    <option value="">Price</option>
-                                </select>
-                            </form>
+                        <div class="col-md-4">
+                            <h5 class="text-info md">Estimated Lead Value:</h5>
+                            <form name="myForm">
+                                
+                                Select range:
+                                <input type="range" class="custom-range" name="range" min="0" max="5" ng-model="value">
+                                Price: <input type="number" ng-model="value" style="width:20%;height: 23px;">
+                                <form class="filter-form rounded mb-0 p-2">
+                                    <select class="ml-3 custom-select-md" ng-model="selecteddistance" ng-options="x for x in price">
+                                        <option value="">Price</option>
+                                    </select>
+                                </form>
 
-                        </form>
-                    </div>
-                    <div class="col-md-6 ml-auto">
+                            </form>
+                        </div>
+                        <div class="col-md-6 ml-auto">
                             <!-- Image upload  -->
                             <div class="file-upload w-100  p-4 bg-light ">
-                                <button class="file-upload-btn w-100 m-auto border-0 p-2 rounded mb-0  btn-info white-color"
+                                <button class="file-upload-btn w-100 m-auto border-0 p-1 small rounded mb-0  btn-info white-color"
                                     type="button">Add Image</button>
                                 <div class="image-upload-wrap ">
                                     <img ng-src="{{imageSrc}}" src="" class="btn-outline-info waves-effect zoom w-100">
@@ -1407,10 +816,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Image upload  -->                    
-                        <center><button class="col-md-4 btn btn-info mt-4" ng-click="saveLead()">Submit</button></center>
+                            <!-- Image upload  -->
+                            <center><button class="col-md-4 btn btn-info mt-4" ng-click="saveLead()">Submit</button></center>
+                        </div>
                     </div>
-                </div>
                 </form>
             </div> <br><br>
 
@@ -1418,111 +827,19 @@
         <!---=========================Add leads end========================================-->
 
         <!---=========================All Team=============================================--->
-<<<<<<< HEAD
-        <div ng-if="teamCompanyBool">
+        <div ng-if="teamCompanyBool" ng-controller="catMapCtrl">
             <!--=========================Breadcrumb=================================== -->
             <div class="mt-4 mx-md-4 ">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb blue-grey lighten-4">
-=======
-        <div ng-if="teamCompanyBool" class="ml-5">
-              <!--=========================Breadcrumb=================================== -->
-        <div class="mt-4 mr-2">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb blue-grey lighten-4">
->>>>>>> 0afd98540e40204b047b2085548969059e52a213
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('companyBool')">Home</a></li>
                         <li class="breadcrumb-item"><a class="text-decoration-none" href="" ng-click="boolFunction('teamCompanyBool')">Team</a></li>
                     </ol>
                 </nav>
-            </div>
-<<<<<<< HEAD
-=======
-            <div id="people" class="mr-2" ng-controller="catMapCtrl"></div>
->>>>>>> 0afd98540e40204b047b2085548969059e52a213
+            </div>            
             <!--=========================Breadcrumb end=================================== -->
-            <!-- <div class="row">
-                <div class="col-md-12">
-                    <div class="pg-orgchart">
-                        <div class="org-chart">
-                            <ul>
-                                <li>
-                                    <ul>
-                                        <div class="user z-depth-2">
-                                            <img src="Image/Aman.jpg" class="img-responsive" />
-                                            <div class="name text-danger font-weight-bold">Aman Telkar</div>
-                                            <div class="role">All Rounder</div>
-                                            <a class="manager" href="">Co-founder at Fancymonk</a><br>
-                                            <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                        </div>
-                                    </ul>
-                                    <ul ng-show="state">
-                                        <li>
-                                            <div class="user z-depth-2">
-                                                <img src="Image/Aman.jpg" class="img-responsive" />
-                                                <div class="name text-danger font-weight-bold">Aman Telkar</div>
-                                                <div class="role">All Rounder</div>
-                                                <a class="manager" href="">Co-founder at Fancymonk</a><br>
-                                                <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                            </div>
-                                            <ul ng-show="state">
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Fleta Odriscoll</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Lynn Maynard</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-
-                                                </li>
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Elfreda Grebin</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Lynn Maynard</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div class="user z-depth-2">
-                                                <img src="Image/Aman.jpg" class="img-responsive" />
-                                                <div class="name">Jahn Philson Doe</div>
-                                                <div class="role">System Architect</div>
-                                                <a class="manager" href="#">Luann Brannick</a><br>
-                                                <span id="toggle-filter" ng-click="toggle()"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                            </div>
-                                            <ul ng-show="state">
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Roy Lemarie</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Jahn Philson Doe</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="user z-depth-2">
-                                                        <img src="Image/Aman.jpg" class="img-responsive" />
-                                                        <div class="name">Eloisa Stubbolo</div>
-                                                        <div class="role">System Architect</div>
-                                                        <a class="manager" href="#">Jahn Philson Doe</a><br>
-                                                        <span id="toggle-filter"> <i class="fas fa-plus-circle mb-4"></i></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            <div id="people" class="mx-4"></div>
+            
         </div>
         <!---=========================All Team end=========================================--->
 
@@ -1706,6 +1023,16 @@
     </div>
 </div>
 <script type="text/javascript">
+   $(document).on('mouseenter', ".div-cless", function () {
+     var $this = $(this);
+     if (this.offsetWidth < this.scrollWidth && !$this.attr('title')) {
+         $this.tooltip({
+             title: $this.text(),
+             placement: "top"
+         });
+         $this.tooltip('show');
+     }
+ });
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');

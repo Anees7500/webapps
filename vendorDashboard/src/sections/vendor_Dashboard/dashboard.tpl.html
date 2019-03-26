@@ -76,42 +76,48 @@
 
             <div class="container">
                 <div class="row ml-1 mr-1 mt-3">
-                    <div class="col-md-12  ">
+                    <div class="col-md-12" ng-repeat="pendingObj in PendingOrderList">
                         <div class="media z-depth-1 border border-warning">
-
                             <div class="media-body ml-3">
-
                                 <div class="row">
-                                    <div class="col-md-5">
-                                        <h6 class="mt-3 font-weight-bold">1 x Omellete, 3 x Egg Burji</h6>
-                                        <p ng-bind="getMenuForOrdersPage(booking.menu)"></p>
-                                        <p ng-bind="'Total Amount - ₹ '+booking.totalAmount">200</p>
+                                    <div class="col-md-3">
+                                        <h6 class="mt-3 font-weight-bold text-muted">Menu Item Name:</h6>
+                                        <p ng-bind="getMenuForOrdersPage(pendingObj.menu) || '--'"></p>
+                                        <p ng-bind="'Total Amount - ₹ '+pendingObj.totalAmount">200</p>
+                                        <p>Mobile No : {{pendingObj.mobile}}</p>
 
                                         <div class="row">
-                                            <div class=" col-md-6">
-                                                <button type="button" data-toggle="modal" data-target="#feedback"
-                                                    class="btn btn-success waves-effect rounded-pill btn-sm  ">confirmed</button>
-
+                                            <div class="col-md-6">
+                                                <button type="button"
+                                                    class="btn btn-success waves-effect rounded-pill btn-sm  "
+                                                    ng-click="toUpdate(pendingObj.id,'ACCEPTED')">confirmed</button>
                                             </div>
                                             <div class="col-md-6"> <button
                                                     class="btn btn-danger waves-effect btn-sm  rounded-pill"
-                                                    type="cancel">Cancel </button>
+                                                    type="cancel" ng-click="toUpdate(pendingObj.id,'REJECTED')">Cancel
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-1">
+                                    <div class="col-md-4">
                                     </div>
-                                    <div class=" col-md-6">
-                                        <h4 class="mt-3 font-weight-bold text-muted h6 mr-1">order on
-                                            {{booking.formattedCreatedAt}}
-                                            </span></h4>
-                                        <p class="mt-3 font-weight-bold text-muted h6 text-center"
-                                            ng-bind="'Order Status : '+ getBookingStatusForUser(booking)"></p>
-                                        <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode :
-                                            {{booking.paymentType}}</p>
-                                        <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status :
-                                            {{booking.paymentStatus}}</p>
+
+                                    <div class="col-md-5 text-muted font-weight-bold">
+                                        <p class="mb-1 mt-3">order on : {{pendingObj.formattedCreatedAt}}</p>
+                                        <p class="mb-1 " ng-bind="'Order Status : '+ pendingObj.status"></p>
+                                        <p class="mb-1 ">Payment Mode : {{pendingObj.paymentType}}</p>
+                                        <p class="mb-1">Payment Status : {{pendingObj.paymentStatus}}</p>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-2" ng-if="!PendingOrderList.length>0">
+                        <div class="media z-depth-1 border border-success">
+                            <div class="media-body ml-3">
+                                <div>
+                                    <p class="text-muted font-weight-bold pt-3 mb-0">No pending orders !!</p>
+                                    <center> <img src="img/noData.png" alt="Smiley face"></center>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +140,7 @@
 
             <div class="container">
                 <div class="row ml-1 mr-1 mt-3">
-                    <div class="col-md-12  ">
+                    <div class="col-md-12">
                         <div class="media z-depth-1 border border-success">
 
                             <div class="media-body ml-3">
@@ -168,13 +174,16 @@
                                     <div class=" col-md-6">
                                         <h4 class="mt-3 font-weight-bold text-muted h6 mr-1">order on
                                             {{booking.formattedCreatedAt}}
-                                            </span></h4>
+                                            </span>
+                                        </h4>
                                         <p class="mt-3 font-weight-bold text-muted h6 text-center"
                                             ng-bind="'Order Status : '+ getBookingStatusForUser(booking)"></p>
                                         <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Mode :
-                                            {{booking.paymentType}}</p>
+                                            {{booking.paymentType}}
+                                        </p>
                                         <p class="mt-3 font-weight-bold text-muted h6 text-center">Payment Status :
-                                            {{booking.paymentStatus}}</p>
+                                            {{booking.paymentStatus}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -284,8 +293,8 @@
                                 </tbody>
                                 <!--Table body-->
                             </table>
-                            <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
+                            
+                                <ul class="pagination pagination-circle pg-blue  mt-3 justify-content-end">
                                     <li ng-class="{disabled: currentPage == 0}">
                                         <span class=" page-item">
                                             <a class="page-link" ng-click="prevPage()">« Prev</a>
@@ -299,7 +308,7 @@
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
-                            </span>
+                          
                         </div>
 
                     </div>
@@ -337,7 +346,7 @@
                             </button>
                         </div>
 
-                        <a href="" class="white-text mx-3">Cancel Orders History</a>
+                        <a href="" class="white-text mx-3">Completed Orders</a>
 
                         <div>
                             <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
@@ -412,8 +421,8 @@
                                 </tbody>
                                 <!--Table body-->
                             </table>
-                            <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
+                           
+                                <ul class="pagination pagination-circle pg-blue mt-3 justify-content-end">
                                     <li ng-class="{disabled: currentPage == 0}">
                                         <span class=" page-item">
                                             <a class="page-link" ng-click="prevPage()">« Prev</a>
@@ -427,7 +436,7 @@
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
-                            </span>
+                           
                         </div>
 
                     </div>
@@ -568,8 +577,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
+                            
+                                <ul class="pagination pagination-circle pg-blue mt-3 justify-content-end">
                                     <li ng-class="{disabled: currentPage == 0}">
                                         <span class=" page-item">
                                             <a class="page-link" ng-click="prevPage()">« Prev</a>
@@ -583,7 +592,7 @@
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
-                            </span>
+                          
                         </div>
                     </div>
                 </div>
@@ -601,19 +610,14 @@
                     <a href="#!/companies" class="w-clr">{{cmpyName | lowercase}}</a>
                     <a href="">/Feedback</a></h6>
             </nav>
-            <div class="container">
+           <div class="container">
                 <div class="card card-cascade narrower mt-3 ">
-                    <div
-                        class="view view-cascade z-depth-1-half gradient-card-header default-color  py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
-
-                        <a href="" class="white-text mx-3">Feedback</a>
-                    </div>
+                    <div class="view view-cascade z-depth-1 gradient-card-header default-color text-white py-3 mx-4 text-center font-weight-bold">Feedback</div>
                     <div class="px-4">
                         <div class="table-wrapper table-responsive">
-
-                            <table class="table table-hover mb-0 mt-1">
-                                <thead>
-                                    <tr>
+                             <table class="table  table-hover mb-0" cellspacing="0" width="100%">
+                                 <thead class="text-center">
+                                     <tr>
                                         <th class="th-lg font-weight-bold ">
                                             <a>Menu Item Name
                                             </a>
@@ -636,23 +640,19 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="text-center">
                                     <tr ng-repeat="item in  pagedItems[currentPage] ">
-                                        <td class="font-weight-normal text-left">{{item.menuItemName}}</td>
-                                        <td class="font-weight-normal text-left">{{item.tasteRating}}</td>
-                                        <td class="font-weight-normal text-left">{{item.qualityRating}}</td>
-                                        <td class="font-weight-normal text-left">
-
-                                            {{item.comment}}
-
-                                        </td>
+                                        <td class="font-weight-normal  text-center">{{item.menuItemName}}</td>
+                                        <td class="font-weight-normal  text-center">{{item.tasteRating}}</td>
+                                        <td class="font-weight-normal text-center">{{item.qualityRating}}</td>
+                                        <td class="font-weight-normal  text-center"> {{item.comment}}   </td>
                                         <td class="font-weight-normal text-left">{{item.createdAt}}</td>
 
                                     </tr>
                                 </tbody>
                             </table>
-                            <span aria-label="Page navigation example">
-                                <ul class="pagination pagination-circle pg-blue">
+                           
+                                <ul class="pagination pagination-circle pg-blue mt-3 justify-content-end">
                                     <li ng-class="{disabled: currentPage == 0}">
                                         <span class=" page-item">
                                             <a class="page-link" ng-click="prevPage()">« Prev</a>
@@ -666,11 +666,12 @@
                                         <a class="page-link" ng-click="nextPage()">Next »</a>
                                     </li>
                                 </ul>
-                            </span>
-                        </div>
+                           </div>
+                       
                     </div>
                 </div>
             </div>
+      
         </div>
 
 
@@ -690,42 +691,12 @@
             <div class="container">
                 <div class="border-bottom  border-info mr-1 ml-3 mt-3">
                     <ul class="nav nav-pills nav-justified pills-pink mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href=""
-                                data-target="#pills-home" role="tab" aria-controls="pills-home"
-                                aria-selected="true">Monday</a>
+                        <li class="nav-item" ng-repeat="day in workingDays">
+                            <a class="nav-link" ng-class="{active : daySelectedForMenu == day.day}" id="pills-home-tab"
+                                data-toggle="pill" href="" data-target="#pills-home" role="tab"
+                                aria-controls="pills-home" aria-selected="true"
+                                ng-click="selectDayForMenu(day.day)">{{day.day}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href=""
-                                data-target="#pills-profile" role="tab" aria-controls="pills-profile"
-                                aria-selected="false">Tuseday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href=""
-                                data-target="#pills-contact" role="tab" aria-controls="pills-contact"
-                                aria-selected="false">Wednesday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href=""
-                                data-target="#pills-thursday" role="tab" aria-controls="pills-contact"
-                                aria-selected="false">Thursday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href=""
-                                data-target="#pills-friday" role="tab" aria-controls="pills-contact"
-                                aria-selected="false">Friday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href=""
-                                data-target="#pills-saturday" role="tab" aria-controls="pills-contact"
-                                aria-selected="false">Saturday</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href=""
-                                data-target="#pills-sunday" role="tab" aria-controls="pills-contact"
-                                aria-selected="false">Sunday</a>
-                        </li>
-
                     </ul>
                 </div>
 
@@ -733,102 +704,118 @@
 
                 <script type="text/ng-template" id="nodes_renderer.html">
 
-            <div class="z-depth-1"> 
-                    
-            
-               <div style="padding: 10px; background-color:white"> 
-               
-                            <div class="info-color">
-                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2"
-                                         ng-if="node.menuNodes.length>0" ng-click="toggleCollapse(node)">
-                                         <i class="fas " ng-class="{'fa-angle-double-down': node.decisionCollapse,'fa-angle-double-right': !node.decisionCollapse}"></i>
-                                     </button>
-                                   </div> 
-                            <div class="card card-cascade mr-1 pb-0 ">
+                    <div class="z-depth-1">
+                        <div style="padding: 20px; background-color:white">
+                            <!-- <div ng-class="{row: node.isFoodItem}">
+                                    <div ng-class="{'col-md-5 card-deck': node.isFoodItem}"> -->
+                            <div>
+                                <div>
+                                    <div class="info-color" ng-click="show = !show">
+                                       
+                                        <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-1"  ng-if="node.menuNode.length>0" >
+                                           
+                                             <span  ng-if = "!show"><i class="fas fa-angle-double-down mr-2 ml-1"></i></span>
+                                             <span  ng-if = "show"> <i class="fas fa-angle-double-right mr-2 ml-1"></i></span>
+                                        </button>
+                                      
 
-                             <div class="view view-cascade gradient-card-header narrower py-2 mx-2 mb-1 d-flex justify-content-between align-items-center">
-                                  <div class="w-50">
-                                    <input type="text" class="val0 form-control ml-1 border-success"  placeholder='Menu Heading'ng-disabled="node.isInserted" ng-model="node.menuName" focus>
-                                  </div>
-                                    <div>
-                                    <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2"ng-click="addsection($nodes,$index)"
-                                      data-toggle="tooltip" data-placement="top" title="Add Menu">
-                                      <i class="fas fa-plus-circle  text-dark"></i></button>
-                                  
-                                        <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2"ng-if="!node.isFoodItem" ng-click="addchild(node)"
-                                      data-toggle="tooltip" data-placement="top" title="Add Submenu">
-                                      <i class="fas fa-bars  text-dark"></i></button>
-                                    
-                                    <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="saveInDb(node,'Monday')"
-                                    ng-if="!node.id" data-toggle="tooltip" data-placement="top" title="Save">
-                                    <i class="fas fa-check-circle mt-0 text-dark"></i> </button>
-                                   
-                                    <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="node.isInserted=false"
-                                    ng-if="node.isInserted"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="far fa-edit mt-0 text-dark"></i> </button>
-                                 
-                                <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2"  ng-if="(node.id) && (!node.isInserted)"ng-click="updateMenu(node)"
-                                    ng-if="node.isInserted"  data-toggle="tooltip" data-placement="top" title="Update">
-                                    <i class="fas fa-sync-alt text-dark"></i></button>
-                                
-                                 <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-if="node.isInserted"ng-click="deleteNode(node,'Monday')"
-                                    ng-if="node.isInserted"  data-toggle="tooltip" data-placement="top" title="Remove">
-                                    <i class="fas fa-trash-alt  text-dark"></i></button>
-                                </div>
+                                            <span class="text-white font-weight-bold"  ng-if="node.menuNode.length>0">{{node.menuName}}<span>
+                                    </div>
+                                        <div class="card card-cascade mr-1 pb-0" ng-if = "!show">
+
+                                        <div class="view view-cascade gradient-card-header narrower py-2 mx-2 mb-1 d-flex justify-content-between align-items-center">
+
+                                            <input type="text" class="val0 form-control w-75 ml-1 border-success" placeholder='Menu Heading' ng-disabled="node.isInserted" ng-model="node.menuName" focus>
+
+                                            <div>
+                                                <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2" ng-click="addsection($nodes,$index)" data-toggle="tooltip" data-placement="top" title="Add Menu">
+                                          <i class="fas fa-plus-circle  text-dark"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-outline-info btn-rounded btn-sm px-2" ng-if="!node.isFoodItem && !(node.menuNode.length > 0)" ng-click="addchild(node)" data-toggle="tooltip" data-placement="top" title="Add Submenu">
+                                          <i class="fas fa-bars  text-dark"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="saveInDb(node,'Monday')" ng-if="!node.id" data-toggle="tooltip" data-placement="top" title="Save">
+                                        <i class="fas fa-check-circle mt-0 text-dark"></i> </button>
+                                            </div>
+
+                                            <div>
+                                                <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-click="node.isInserted=false" ng-if="node.isInserted" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <i class="far fa-edit mt-0 text-dark"></i> </button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-if="(node.id) && (!node.isInserted)" ng-click="updateMenu(node)" ng-if="node.isInserted" data-toggle="tooltip" data-placement="top" title="Update">
+                                        <i class="fas fa-sync-alt text-dark"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-outline-info  btn-rounded btn-sm px-2" ng-if="node.isInserted" ng-click="deleteNode(node,'Monday')" ng-if="node.isInserted" data-toggle="tooltip" data-placement="top" title="Remove">
+                                        <i class="fas fa-trash-alt  text-dark"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-              
-                             <div ng-if="$parentNodeScope" class="mt-1">
-                                <label ng-if="(node.menuNodes.length === 0) || (node.menuNodes == null)" class="menu-label ml-3">is Food Item:</label>
-                                    <input type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
-                                    <div ng-if="node.isFoodItem">
-                                        <form>
-                                                <label class="radio-inline p-2">
-                                                <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
-                                                <label class="radio-inline p-2">
-                                                <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
-                                                <label class="radio-inline p-2">
-                                                <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
-                                            </form>
-                                <br>
-                                <form>   
-                                    <div class="form-row">
-                                          <div class="form-group col-md-6">
-                                            <label>Menu Item:</label>
-                                            <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus>
-                                          </div>
-                                          <div class="form-group col-md-6">
-                                            <label>Price:</label>
-                                            <input type="number" class="form-control w-50 border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
-                                          </div>
-                                        </div>
-                                        </form>
+                            </div>
+
+
+                            <div ng-if="$parentNodeScope" class="mt-1">
+                                <label ng-if="(node.menuNode.length === 0) || (node.menuNode == null)" class="menu-label ml-3">is Food Item:</label>
+                                <input  ng-if="(node.menuNode.length === 0) || (node.menuNode == null)" type="checkbox" ng-disabled="node.isInserted" ng-model="node.isFoodItem" ng-init="isFoodItem=isFoodItem" />
+                                <div ng-if="node.isFoodItem">
+                                    <form>
+                                        <label class="radio-inline p-2">
+                                         <input type="radio" name="optradio" ng-disabled="node.isInserted" ng-model="node.menuType" value="veg">is Veg:</label>
+                                        <label class="radio-inline p-2">
+                                        <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="nonveg">is Non-Veg: </label>
+                                        <label class="radio-inline p-2">
+                                         <input type="radio" name="optradio"ng-disabled="node.isInserted" ng-model="node.menuType" value="egg">is Egg Item:</label>
+                                    </form>
+                                    <br>
+                               <form>
+                                <div class="row">
+                                <div class="col">
+                                <label>Menu Item:</label>
+                                <input type="text" class="form-control border-show border border-info" ng-disabled="node.isInserted" ng-model='node.description' focus>
                                 </div>
-                            </div>   
-                            <div class="row mt-1 ml-3 d-flex justify-content-between mr-3" ui-tree-nodes="" ng-model="node.menuNodes" ng-init='$nodes = node.menuNodes' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}"> 
-                            <div class="col-md-5  mb-3  p-0" ng-repeat="node in node.menuNodes" collapsed="false" ui-tree-node ng-include="'nodes_renderer.html'">                     
-                        </div> 
+                                <div class="col">
+                                <label>Price:</label>
+                                <input type="number" class="form-control w-50 border-show border border-info " ng-disabled="node.isInserted" ng-model='node.price' focus>
+                                </div>
+                                </div>
+                               </form>
+                                </div>
+                            </div>
+                         
+                            <!-- </div>
+                                </div> -->
+                            <ul ng-if = "!show" class="list-unstyled" ui-tree-nodes="" ng-model="node.menuNode" ng-init='$nodes = node.menuNode' ng-class="{hidden: node.decisionCollapse,displayed:!node.decisionCollapse}">
+                                <ul class="list-unstyled " ng-class="{'row mt-3 ml-3': (node.menuNode.length > 0 && node.menuNode[0].isFoodItem)}">
+                                    <li ng-repeat="node in node.menuNode" collapsed="false" ng-class="{'col-md-6 mb-3 mr-1 card-deck': node.isFoodItem}" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                                </ul>
+
+                            </ul>
                         </div>
-                        </script>
+                    </div>
+                </script>
+
                 <div ui-tree>
-                    <ul class="list-unstyled" ui-tree-nodes ng-model="menuNodes" id="tree-root"
-                        ng-init='$nodes = menuNodes'>
-                        <li ng-repeat="node in menuNodes" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    <ul class="list-unstyled" ui-tree-nodes ng-model="cashNCarryWeekMenus[daySelectedForMenu]"
+                        id="tree-root" ng-init='$nodes = cashNCarryWeekMenus[daySelectedForMenu]'>
+                        <ul class="list-unstyled">
+                            <li ng-repeat="node in cashNCarryWeekMenus[daySelectedForMenu]" ui-tree-node
+                                ng-include="'nodes_renderer.html'"></li>
+                        </ul>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- ============================ End Set Weekly Menu=============================================-->
-</div>
-</div>
-<script>
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
+        <!-- ============================ End Set Weekly Menu=============================================-->
 
-    });
-</script>
+        <script>
+            $(document).ready(function () {
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>

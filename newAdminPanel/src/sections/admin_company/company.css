@@ -47,4 +47,6 @@ p {
   background-color: #026f62c4;
   }
 
-
+ .arrow-down.active:after{
+  transform:rotate(90deg);
+ }

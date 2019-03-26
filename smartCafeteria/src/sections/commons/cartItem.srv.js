@@ -1,8 +1,8 @@
-empApp.service('CartService', function () {
+empApp.service('CartService', function() {
 
-    
 
-    this.addToCart = function (itemObj) {
+
+    this.addToCart = function(itemObj) {
 
         if (this.cartItems == null) {
             this.cartItems = {};
@@ -23,7 +23,7 @@ empApp.service('CartService', function () {
         return this;
     }
 
-    this.addCount = function (val) {
+    this.addCount = function(val) {
         // console.log("val passed : ", JSON.stringify(val));
         this.cartItems[val.obj.id].count = this.cartItems[val.obj.id].count + 1;
         this.cartItems[val.obj.id].amount = getAmount(this.cartItems[val.obj.id]);
@@ -32,12 +32,11 @@ empApp.service('CartService', function () {
         return this;
     }
 
-    this.reduceCount = function (val) {
+    this.reduceCount = function(val) {
         if (this.cartItems[val.obj.id].count > 0) {
             if (this.cartItems[val.obj.id].count == 1) {
                 delete this.cartItems[val.obj.id];
-            }
-            else {
+            } else {
                 this.cartItems[val.obj.id].count = this.cartItems[val.obj.id].count - 1;
                 this.cartItems[val.obj.id].amount = getAmount(this.cartItems[val.obj.id]);
             }
@@ -48,24 +47,31 @@ empApp.service('CartService', function () {
         return this;
     }
 
-    this.getCartItemSize = function()
-    {
+    this.setVendor = function(val) {
+        this.selectedVendor = val;
+    }
+
+    this.getSelectedVendor = function() {
+        return this.selectedVendor;
+    }
+
+    this.getCartItemSize = function() {
         return getCartItemSize(this.cartItems);
     }
-    this.getCartObj = function () {
+    this.getCartObj = function() {
         return this;
     }
 
-    var getAmount = function (obj) {
+    var getAmount = function(obj) {
         return (obj.count * obj.obj.price);
     }
 
-    var getTotalAmount = function (obj) {
+    var getTotalAmount = function(obj) {
         if (getCartItemSize(obj) == 0) {
             return null;
         }
         var amt = 0;
-        angular.forEach(obj, function (val, key) {
+        angular.forEach(obj, function(val, key) {
             if (val != null) {
                 if (val.amount != null) {
                     amt = amt + val.amount;
@@ -75,21 +81,21 @@ empApp.service('CartService', function () {
         return amt;
     }
 
-    var getCartItemSize = function (obj) {
+    var getCartItemSize = function(obj) {
         // debugger;
         // var tempObj = obj;
         var len = 0;
-        if(obj != null)
-        {
+        if (obj != null) {
             if (obj.totalAmount != null) {
                 len = Object.keys(obj).length - 1;
-            }
-            else{
+            } else {
                 len = Object.keys(obj).length;
             }
         }
         return len;
     }
+
+
 
     return this;
 });

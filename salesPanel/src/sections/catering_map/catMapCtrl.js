@@ -5,8 +5,7 @@ function ($scope, $http) {
 
         var orgchart = new getOrgChart(document.getElementById("people"), {
           primaryFields: ["Name", "title","phone","mail"],  
-          photoFields: ["pic"],           
-              
+          photoFields: ["pic"],
           scale:0.5,        
           color:"neutralgrey", 
           dataSource: [

@@ -1,9 +1,9 @@
 <div class="wrapper">
   <ng-include src="'sections/commons/navbar.tpl.html'"></ng-include>
 
-  <div ng-controller="NavbarController as nav">
+  <div>
 
-    <div id="content" class="mt-5">
+    <div id="content" class="mt-5" ng-if="!getNavBool()">
       <nav aria-label="breadcrumb mt-5">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#!/dashboard">Home</a></li>

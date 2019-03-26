@@ -309,6 +309,8 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     //==============================================================
     var getFeedbackUrl = getCorporateReviewsUrl + $routeParams.compId;
     $http.get(getFeedbackUrl).then(function (response) {
+
+      
       $scope.feedback = response.data.data.reviews;
     });
     //==============================================================
@@ -1116,7 +1118,7 @@ adminApp.controller('CompanyController', ['$scope', '$http', 'AdminCompanyServic
     $scope.passVendorId = function (vendorId) {
       var companyId = $routeParams.compId;
       debugger;
-      AdminCompanyServices.passVendorId(vendorId, companyId, $scope.Type, postVendorAssignUrl);
+      //AdminCompanyServices.passVendorId(vendorId, companyId, $scope.Type, postVendorAssignUrl);
       $scope.getvenderList();      
     };  
 
