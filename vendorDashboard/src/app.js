@@ -1,5 +1,12 @@
 var vendorApp = angular.module("vendorApp", ['ngRoute', 'vendorApp.config',
     'ngCookies', 'ui-notification', 'ui.tree']);
+
+vendorApp.run(function($http, clientId, clientToken) {
+$http.defaults.headers.common.client = clientId;
+$http.defaults.headers.common.Authorization = 'Basic ' + clientToken;
+});
+
+
 vendorApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {

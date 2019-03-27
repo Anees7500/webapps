@@ -1,8 +1,9 @@
 vendorApp.controller('CompanyController', ['$scope', '$routeParams', '$rootScope', 'getAllCompanyToVendorUrl',
-  '$http', 'getVendorProfileUrl', 'getImageUrl', '$cookies', '$location', '$route', 'Notification',
+  '$http', 'getVendorProfileUrl', 'getImageUrl','VendorCommonDetail','$cookies', '$location', '$route', 'Notification',
   function ($scope, $routeParams, $rootScope, getAllCompanyToVendorUrl, $http, getVendorProfileUrl,
-     getImageUrl, $cookies, $location, $route, Notification) {
+     getImageUrl, VendorCommonDetail,$cookies, $location, $route, Notification) {
 
+      
       var vendorId = 1;
     // var vendorId = $routeParams.venId;
     // $scope.vId = vendorId;
@@ -38,7 +39,7 @@ vendorApp.controller('CompanyController', ['$scope', '$routeParams', '$rootScope
       }
     });
 
-
+  
   }
 
 ]);
